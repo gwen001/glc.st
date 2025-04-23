@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Null Byte Injection"/>
+<meta name="twitter:description" content="I recently read a nice article on InfoSec Institute
+(again) about Null byte injection.
+However I met some problems to make it works in a real situation so I decided to write my own.
+First of all, this vulnerability has been fully patched in PHP 5.3.4 (until someone else find another buggy function&hellip;), that means you need to install an old version of PHP.
+Grab it in PHP releases archive.
+After compiled and configured, it&rsquo;s very important to set magic_quotes_gpc=Off in the php.ini (it won&rsquo;t work with ini_set in the script itself).
+Then imagine an index.php like this:
+&lt;?php
+include( &#39;/var/www/pages/&#39;.$_GET[&#39;p&#39;].&#39;.php&#39; );
+?&gt;
+And a /pages/store.php like this:
+&lt;?php
+echo &#39;This is the store !&#39;;
+?&gt;
+If you call it directly it will works but in that case index.php is usually used to display common stuffs like header and footer."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Null Byte Injection" />
+<meta property="og:description" content="I recently read a nice article on InfoSec Institute
+(again) about Null byte injection.
+However I met some problems to make it works in a real situation so I decided to write my own.
+First of all, this vulnerability has been fully patched in PHP 5.3.4 (until someone else find another buggy function&hellip;), that means you need to install an old version of PHP.
+Grab it in PHP releases archive.
+After compiled and configured, it&rsquo;s very important to set magic_quotes_gpc=Off in the php.ini (it won&rsquo;t work with ini_set in the script itself).
+Then imagine an index.php like this:
+&lt;?php
+include( &#39;/var/www/pages/&#39;.$_GET[&#39;p&#39;].&#39;.php&#39; );
+?&gt;
+And a /pages/store.php like this:
+&lt;?php
+echo &#39;This is the store !&#39;;
+?&gt;
+If you call it directly it will works but in that case index.php is usually used to display common stuffs like header and footer." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/null-byte-injection/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2015-01-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-01-10T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/null-byte-injection/">
+    
+    <title>
+    Null Byte Injection · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/null-byte-injection/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Null%20Byte%20Injection%20https%3a%2f%2fglc.st%2fposts%2fnull-byte-injection%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fnull-byte-injection%2f&title=Null%20Byte%20Injection" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fnull-byte-injection%2f&amp;t=Null%20Byte%20Injection" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Null%20Byte%20Injection&body=https%3a%2f%2fglc.st%2fposts%2fnull-byte-injection%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Null%20Byte%20Injection%20https%3a%2f%2fglc.st%2fposts%2fnull-byte-injection%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fnull-byte-injection%2f&text=Null%20Byte%20Injection" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fnull-byte-injection%2f&amp;title=Null%20Byte%20Injection" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fnull-byte-injection%2f&t=Null%20Byte%20Injection" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Null Byte Injection</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2015-01-10T00:00:00Z'>
+                            January 10, 2015
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        2 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/php/">php</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/null-byte/">null byte</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>I recently read a nice article on <a href="http://resources.infosecinstitute.com/null-byte-injection-php/" title="Null byte injection">InfoSec Institute</a>
+(again) about Null byte injection.
+However I met some problems to make it works in a real situation so I decided to write my own.</p>
+<p>First of all, this vulnerability has been <strong>fully patched in PHP 5.3.4</strong> (until someone else find another buggy function&hellip;), that means you need to install an old version of PHP.
+Grab it in <a href="http://php.net/releases/" title="PHP releases">PHP releases archive</a>.
+After compiled and configured, it&rsquo;s very important to set <strong>magic_quotes_gpc=Off</strong> in the <code>php.ini</code> (it won&rsquo;t work with <code>ini_set</code> in the script itself).</p>
+<p>Then imagine an <code>index.php</code> like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">include</span>( <span style="color:#e6db74">&#39;/var/www/pages/&#39;</span><span style="color:#f92672">.</span>$_GET[<span style="color:#e6db74">&#39;p&#39;</span>]<span style="color:#f92672">.</span><span style="color:#e6db74">&#39;.php&#39;</span> );
+</span></span><span style="display:flex;"><span><span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>And a <code>/pages/store.php</code> like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;This is the store !&#39;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>If you call it directly it will works but in that case <code>index.php</code> is usually used to display common stuffs like header and footer.</p>
+<p>So the basic use is:</p>
+<p><img src="https://glc.st/images/null_byte_injection_1.png" alt="Null Byte Injection"></p>
+<p>Since <code>index.php</code> already concatenate <code>.php</code> with the <code>p</code> parameter, you&rsquo;ll get that kind of error if you set it manually:</p>
+<p><img src="https://glc.st/images/null_byte_injection_2.png" alt="Null Byte Injection"></p>
+<p>Notice the double extension <code>.php.php</code>, that means the site might be vulnerable. 
+An easy tool to determine the PHP version of your target is a browser extension like <a href="https://wappalyzer.com/" title="Wappalyzer">Wappalyzer</a> 
+for <a href="https://addons.mozilla.org/fr/firefox/addon/wappalyzer/" title="Wappalyzer for Firefox/Iceweasel">Firefox/Iceweasel</a>
+or <a href="https://chrome.google.com/webstore/detail/wappalyzer/gppongmhjkpfnbhagpmjfkannfbllamg" title="Wappalyzer for Chrome">Chrome</a>.</p>
+<p>The next step is to add the null byte:</p>
+<p><img src="https://glc.st/images/null_byte_injection_3.png" alt="Null Byte Injection"></p>
+<p>Because we got the same result as the &ldquo;normal&rdquo; usage, now that&rsquo;s sure, the target is vulnerable! You can inject everything.
+Of course the goal of this attack is to retrieve sensitive files:</p>
+<p><img src="https://glc.st/images/null_byte_injection_5.png" alt="Null Byte Injection"></p>
+<p>Keep in mind that the path of the required file must be relative of the current script (<code>index.php</code> in my case) otherwise it will throw an error as a file not found:</p>
+<p><img src="https://glc.st/images/null_byte_injection_4.png" alt="Null Byte Injection"></p>
+<p>Here is the error you&rsquo;ll get if you fight against a patched PHP:</p>
+<p><img src="https://glc.st/images/null_byte_injection_7.png" alt="Null Byte Injection"></p>
+<p>And the error you&rsquo;ll get if <code>magic_quotes_gpc</code> is enable:</p>
+<p><img src="https://glc.st/images/null_byte_injection_6.png" alt="Null Byte Injection"></p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://www.owasp.org/index.php/OWASP_Periodic_Table_of_Vulnerabilities_-_Null_Byte_Injection">OWASP description</a></li>
+<li><a href="http://blog.benjaminwalters.net/?p=22139">Another article about Null byte injection</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

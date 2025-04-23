@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Secure your Wordpress"/>
+<meta name="twitter:description" content="With more than 60 million websites, WordPress is the most popular CMS currently in use but it&rsquo;s also based on the most hacked environment aka LAMP.
+As we all know, there is no way to stop a determined hacker but you can slow him down or detect him before things become serious.
+Below some techniques to improve the security of your site. 
+This post is directly inspired from Wordpress official codex and some hackers techniques I learned last months.
+Files
+According to Worpdress documentation, and I won&rsquo;t discuss this point here, directories must have the following permission: drwxr-xr-x (755) and files must be: -rw-r--r-- (644).
+Wordpress says that automatic update changes file/dir permissions, that&rsquo;s true but not that way in my case, maybe a cron job could do it ?"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Secure your Wordpress" />
+<meta property="og:description" content="With more than 60 million websites, WordPress is the most popular CMS currently in use but it&rsquo;s also based on the most hacked environment aka LAMP.
+As we all know, there is no way to stop a determined hacker but you can slow him down or detect him before things become serious.
+Below some techniques to improve the security of your site. 
+This post is directly inspired from Wordpress official codex and some hackers techniques I learned last months.
+Files
+According to Worpdress documentation, and I won&rsquo;t discuss this point here, directories must have the following permission: drwxr-xr-x (755) and files must be: -rw-r--r-- (644).
+Wordpress says that automatic update changes file/dir permissions, that&rsquo;s true but not that way in my case, maybe a cron job could do it ?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/secure-your-wordpress/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2015-05-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-05-10T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/secure-your-wordpress/">
+    
+    <title>
+    Secure your Wordpress · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/secure-your-wordpress/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Secure%20your%20Wordpress%20https%3a%2f%2fglc.st%2fposts%2fsecure-your-wordpress%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fsecure-your-wordpress%2f&title=Secure%20your%20Wordpress" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fsecure-your-wordpress%2f&amp;t=Secure%20your%20Wordpress" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Secure%20your%20Wordpress&body=https%3a%2f%2fglc.st%2fposts%2fsecure-your-wordpress%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Secure%20your%20Wordpress%20https%3a%2f%2fglc.st%2fposts%2fsecure-your-wordpress%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fsecure-your-wordpress%2f&text=Secure%20your%20Wordpress" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fsecure-your-wordpress%2f&amp;title=Secure%20your%20Wordpress" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fsecure-your-wordpress%2f&t=Secure%20your%20Wordpress" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Secure your Wordpress</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2015-05-10T00:00:00Z'>
+                            May 10, 2015
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        4 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/security/">security</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/wordpress/">wordpress</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>With more than 60 million websites, WordPress is the most popular CMS currently in use but it&rsquo;s also based on the most hacked environment aka LAMP.</p>
+<p>As we all know, there is no way to stop a determined hacker but you can slow him down or detect him before things become serious.
+Below some techniques to improve the security of your site. 
+This post is directly inspired from <a href="http://codex.wordpress.org/Hardening_WordPress">Wordpress official codex</a> and some hackers techniques I learned last months.</p>
+<h2 id="files">Files</h2>
+<p>According to Worpdress documentation, and I won&rsquo;t discuss this point here, directories must have the following permission: <code>drwxr-xr-x</code> (755) and files must be: <code>-rw-r--r--</code> (644).
+Wordpress says that automatic update changes file/dir permissions, that&rsquo;s true but not that way in my case, maybe a cron job could do it ?</p>
+<h2 id="database">Database</h2>
+<p>It&rsquo;s very important that your database is protected with strong credentials, check the post about <a href="https://glc.st/choose-your-password/">how to choose a good password</a>. 
+Keep in mind that a SQL user must be only used for one application and <strong>must not have administrator privileges</strong>.</p>
+<p>It&rsquo;s also possible to change the table prefix which is <code>wp_</code> by default, this will prevent from automatic SQL injection attacks.
+However this must be done while performing the installation, it&rsquo;s too hard/dangerous to change that parameter on a running app.</p>
+<p>Backup your database very often, once a week is a good average but it actually depends on your post frequency.
+Of course the data files must not be saved under the web tree.</p>
+<h2 id="core">Core</h2>
+<p>When a new bug is found it&rsquo;s quickly registered on many security listing.
+Years later, it&rsquo;s still there with the list of infected versions.</p>
+<p>Keep your Wordpress up to date. For each new release you&rsquo;ll get a warning in your dashboard.
+If you have automatic update enable (implemented in version 3.7), you&rsquo;ll receive a message but you&rsquo;ll not need to do anything.</p>
+<p>It can be usefull to hide the current version of your Wordpress with this small script in <code>functions.php</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">remove_wp_version_tag</span>() {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">null</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">add_filter</span>( <span style="color:#e6db74">&#39;the_generator&#39;</span>, <span style="color:#e6db74">&#39;remove_wp_version_tag&#39;</span> );
+</span></span></code></pre></div><h2 id="users">Users</h2>
+<p>The point here is to hide usernames as much as possible.</p>
+<p>Rename the default user admin to whatever you want because this username is the first target of a brute force attack.</p>
+<p>Give your users a nickname, which should be selected as public and different than the username.</p>
+<p>Disable authors dedicated page with this small script in <code>functions.php</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">add_action</span>(<span style="color:#e6db74">&#39;template_redirect&#39;</span>, <span style="color:#e6db74">&#39;bwp_template_redirect&#39;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">bwp_template_redirect</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">global</span> $wp_query, $post;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">is_author</span>() ) {
+</span></span><span style="display:flex;"><span>        $wp_query<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">set_404</span>();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>You can also remove the tag <code>&lt;dc:creator&gt;</code> from all feed: <code>wp-admin/includes/export.php</code>, <code>wp-includes/feed-rss2-comments.php</code>, 
+<code>wp-includes/feed-rss2.php</code> and <code>wp-includes/feed-rdf.php</code> however those files could be overwrited at the next update.</p>
+<p>Of course users must have a strong password, a single user access, even with low privileges, can be deadly.</p>
+<h2 id="plugins--themes">Plugins &amp; Themes</h2>
+<p>It&rsquo;s very important to stay aware about updates, most of the times they fixe small bugs but sometimes it&rsquo;s about security.
+You wouldn&rsquo;t keep a Local File Inclusion because of a gallery plugins, even if it&rsquo;s disable. Btw remove disabled plugins/themes, you don&rsquo;t need them and you probably won&rsquo;t care about patches&hellip;</p>
+<p>Try to hide the current version of your plugins  and themes by removing <code>.txt</code> files who disclose to much infos (versions, patches, bugs, &hellip;) as well as most <code>.html</code> files.
+Those two functions prevent display of version numbers in the html source of your site, in <code>functions.php</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">remove_wp_version_strings</span>( $src ) {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">global</span> $wp_version;
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">parse_str</span>(<span style="color:#a6e22e">parse_url</span>($src, <span style="color:#a6e22e">PHP_URL_QUERY</span>), $query);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> ( <span style="color:#f92672">!</span><span style="color:#66d9ef">empty</span>($query[<span style="color:#e6db74">&#39;ver&#39;</span>]) <span style="color:#f92672">&amp;&amp;</span> $query[<span style="color:#e6db74">&#39;ver&#39;</span>] <span style="color:#f92672">===</span> $wp_version ) {
+</span></span><span style="display:flex;"><span>    $src <span style="color:#f92672">=</span> <span style="color:#a6e22e">remove_query_arg</span>(<span style="color:#e6db74">&#39;ver&#39;</span>, $src);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> $src;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">add_filter</span>( <span style="color:#e6db74">&#39;script_loader_src&#39;</span>, <span style="color:#e6db74">&#39;remove_wp_version_strings&#39;</span> );
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">add_filter</span>( <span style="color:#e6db74">&#39;style_loader_src&#39;</span>, <span style="color:#e6db74">&#39;remove_wp_version_strings&#39;</span> );
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// remove wp version param from any enqueued scripts
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">vc_remove_wp_ver_css_js</span>( $src ) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> ( <span style="color:#a6e22e">strpos</span>( $src, <span style="color:#e6db74">&#39;ver=&#39;</span> ) )
+</span></span><span style="display:flex;"><span>        $src <span style="color:#f92672">=</span> <span style="color:#a6e22e">remove_query_arg</span>( <span style="color:#e6db74">&#39;ver&#39;</span>, $src );
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> $src;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">add_filter</span>( <span style="color:#e6db74">&#39;style_loader_src&#39;</span>, <span style="color:#e6db74">&#39;vc_remove_wp_ver_css_js&#39;</span>, <span style="color:#ae81ff">9999</span> );
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">add_filter</span>( <span style="color:#e6db74">&#39;script_loader_src&#39;</span>, <span style="color:#e6db74">&#39;vc_remove_wp_ver_css_js&#39;</span>, <span style="color:#ae81ff">9999</span> );
+</span></span></code></pre></div><h2 id="admin--login">Admin &amp; Login</h2>
+<p>To protect admin section you can restrict <code>wp-admin</code> directory and <code>wp-login.php</code> to trusted IP address. In <code>/.htaccess</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&lt;filesmatch &#34;wp-login&#34;=&#34;&#34;&gt;
+</span></span><span style="display:flex;"><span>  order deny,allow
+</span></span><span style="display:flex;"><span>  deny from all
+</span></span><span style="display:flex;"><span>  allow from xxx.xxx.xxx.xxx
+</span></span><span style="display:flex;"><span>&lt;/filesmatch&gt;
+</span></span></code></pre></div><p>In <code>/wp-admin/.htaccess</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>order deny,allow
+</span></span><span style="display:flex;"><span>deny from all
+</span></span><span style="display:flex;"><span>allow from xxx.xxx.xxx.xxx
+</span></span></code></pre></div><p>To prevent brute force, and if you have a server with <strong>fail2ban</strong> installed, there is a Wordpress plugin planned to interact with it:
+<a href="https://wordpress.org/plugins/wp-fail2ban/">Wordpress fail2ban plugin</a> (the installation requires root access to the server).</p>
+<h2 id="tools">Tools</h2>
+<p>To test all changes you can use <a href="http://wpscan.org/">WPScan</a>, this tool is a great WordPress vulnerability scanner.</p>
+<p>Sucuri Team has developped a <a href="https://wordpress.org/plugins/sucuri-scanner/" title="Wordpress Sucuri plugin">security plugin</a> who will <del>spam</del> send you reports about:
+file integrity, brute force, updates, log in and so on&hellip;</p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://wordpress.org/">Official WordPress</a></li>
+<li><a href="https://glc.st/choose-your-password/">How to choose a good password</a></li>
+<li><a href="https://blog.sucuri.net/">Sucuri blog</a></li>
+<li><a href="http://www.fail2ban.org/">Official Fail2ban</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Offensive Security Certified Professional"/>
+<meta name="twitter:description" content="The famous Offensive Security Certified Professional aka OSCP
+is the certification of the Penetration Testing with Kali Linux course aka PWK 
+provided by Offensive Security.
+Offensive Security
+Offensive Security is one the most active organization on the Internet about offsec.
+In addition to providing pentest and attack simulation services to their customers, they also bring a lot of great solution to the community.
+Currently 6 online/live/in-house courses are available (pentest, wireless security, windows exploiation, web attacks&hellip;) who go with 5 different well known certifications.
+An incredible online virtual lab composed of intentionally vulnerable machine (ubuntu, XP, webapps, mail service, ftp vulns and so on&hellip;) has been created to enhance you security knowledge. Offensive Security is also editor of awesome projects such as Kali Linux, Metasploit and Google Hacking Database, the most used tools by pentesters.
+The quality of all of these solutions is well recognized by the community and many companies and actually everyone who have to deals with offsec :)
+
+Twitter
+Vimeo
+Offsec Jam
+"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Offensive Security Certified Professional" />
+<meta property="og:description" content="The famous Offensive Security Certified Professional aka OSCP
+is the certification of the Penetration Testing with Kali Linux course aka PWK 
+provided by Offensive Security.
+Offensive Security
+Offensive Security is one the most active organization on the Internet about offsec.
+In addition to providing pentest and attack simulation services to their customers, they also bring a lot of great solution to the community.
+Currently 6 online/live/in-house courses are available (pentest, wireless security, windows exploiation, web attacks&hellip;) who go with 5 different well known certifications.
+An incredible online virtual lab composed of intentionally vulnerable machine (ubuntu, XP, webapps, mail service, ftp vulns and so on&hellip;) has been created to enhance you security knowledge. Offensive Security is also editor of awesome projects such as Kali Linux, Metasploit and Google Hacking Database, the most used tools by pentesters.
+The quality of all of these solutions is well recognized by the community and many companies and actually everyone who have to deals with offsec :)
+
+Twitter
+Vimeo
+Offsec Jam
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/offensive-security-certified-professional/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2015-09-08T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-09-08T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/offensive-security-certified-professional/">
+    
+    <title>
+    Offensive Security Certified Professional · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/offensive-security-certified-professional/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Offensive%20Security%20Certified%20Professional%20https%3a%2f%2fglc.st%2fposts%2foffensive-security-certified-professional%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2foffensive-security-certified-professional%2f&title=Offensive%20Security%20Certified%20Professional" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2foffensive-security-certified-professional%2f&amp;t=Offensive%20Security%20Certified%20Professional" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Offensive%20Security%20Certified%20Professional&body=https%3a%2f%2fglc.st%2fposts%2foffensive-security-certified-professional%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Offensive%20Security%20Certified%20Professional%20https%3a%2f%2fglc.st%2fposts%2foffensive-security-certified-professional%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2foffensive-security-certified-professional%2f&text=Offensive%20Security%20Certified%20Professional" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2foffensive-security-certified-professional%2f&amp;title=Offensive%20Security%20Certified%20Professional" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2foffensive-security-certified-professional%2f&t=Offensive%20Security%20Certified%20Professional" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Offensive Security Certified Professional</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2015-09-08T00:00:00Z'>
+                            September 8, 2015
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        2 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/training/">training</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/pentest/">pentest</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/exploitation/">exploitation</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/oscp/">oscp</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/offsec/">offsec</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/pwk/">pwk</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/kali/">kali</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/metasploit/">metasploit</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>The famous Offensive Security Certified Professional aka <a href="https://www.offensive-security.com/information-security-certifications/oscp-offensive-security-certified-professional/">OSCP</a>
+is the certification of the Penetration Testing with Kali Linux course aka <a href="https://www.offensive-security.com/information-security-training/penetration-testing-training-kali-linux/">PWK</a> 
+provided by Offensive Security.</p>
+<h2 id="offensive-security">Offensive Security</h2>
+<p>Offensive Security is one the most active organization on the Internet about offsec.
+In addition to providing pentest and attack simulation services to their customers, they also bring a lot of great solution to the community.</p>
+<p>Currently 6 online/live/in-house courses are available (pentest, wireless security, windows exploiation, web attacks&hellip;) who go with 5 different well known certifications.
+An incredible online virtual lab composed of intentionally vulnerable machine (ubuntu, XP, webapps, mail service, ftp vulns and so on&hellip;) has been created to enhance you security knowledge. Offensive Security is also editor of awesome projects such as Kali Linux, Metasploit and Google Hacking Database, the most used tools by pentesters.</p>
+<p>The quality of all of these solutions is well recognized by the community and many companies and actually everyone who have to deals with offsec :)</p>
+<ul>
+<li><a href="https://twitter.com/offsectraining">Twitter</a></li>
+<li><a href="https://vimeo.com/offsec">Vimeo</a></li>
+<li><a href="https://www.youtube.com/watch?v=VwtOjFtWiRc">Offsec Jam</a></li>
+</ul>
+<h2 id="pwk">PWK</h2>
+<p>Depending of your current level, the Penetration Testing with Kali can teach you alot. Many different side of offsec are covered here in a 370 page book and about 150 videos, excerpt:</p>
+<ul>
+<li>Google hacking</li>
+<li>DNS enumeration</li>
+<li>Port scanning</li>
+<li>Password attacks</li>
+<li>Antivirus avoidance</li>
+<li>Web application attacks</li>
+<li>Privilege escalation</li>
+<li>&hellip;</li>
+</ul>
+<p>You progress in a virtual network where about 50 machine are configured. All of them can be fully compromised via multiple vulnerabilities who could lead to administrator access.
+Some extra machine are only reachable from an already compromised machine. A very large range of vulnerabilities/attacks are implemented, for instance:</p>
+<ul>
+<li>SQL injection</li>
+<li>Buffer overflow</li>
+<li>Local file inclusion</li>
+<li>Weak password</li>
+<li>SMB null session</li>
+<li>Wrong service permission</li>
+<li>Remote code execution</li>
+<li>XSS</li>
+<li>&hellip;</li>
+</ul>
+<h2 id="oscp">OSCP</h2>
+<p>A certification is probably the best way to prove that you have the capabilities of performing penetration tests.
+During the Offensive Security Certified Professional you have access to the virtual lab to train your hacking skills.
+After completing the PWK course, you could pass the final exam, you have 24 hour to gain root access to 5 vulnerable machines.
+Finally you again have 24 hour to write the final report containing your findings, code, screenshot and other proof of concept.
+According to Offensive Security staff, points are awarded for each compromised host, based on their difficulty and level of access obtained.</p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://www.offensive-security.com/">Offensive Security</a></li>
+<li><a href="https://www.youtube.com/watch?v=c3PjAuoTllI">Try harder</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

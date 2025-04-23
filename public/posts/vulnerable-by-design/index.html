@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Vulnerable by Design"/>
+<meta name="twitter:description" content="VulnHub is a training platform which provides &ldquo;a catalogue of &lsquo;stuff&rsquo; that is (legally) &lsquo;breakable,
+hackable &amp; exploitable&rsquo;&rdquo;, understand: a pool of vulnerable virtual machines.
+The downloads are essentially .iso, .vbox or .ova which can be opened with VirtualBox or VMware.
+The machines are created and proposed by the community itself.
+Also different versions of the famous Damn Vulnerable Linux and the Exploit Exercises suite are in.
+You will have to deal with many many different kinds of vulnerabilities like file permissions, web application, shellcode, heap overflows, password cracking, privilege escalation and so on&hellip;
+For instance, you can read the solution of one of those challenge on InfoSec Institute website:
+The Tr0ll Challenge"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Vulnerable by Design" />
+<meta property="og:description" content="VulnHub is a training platform which provides &ldquo;a catalogue of &lsquo;stuff&rsquo; that is (legally) &lsquo;breakable,
+hackable &amp; exploitable&rsquo;&rdquo;, understand: a pool of vulnerable virtual machines.
+The downloads are essentially .iso, .vbox or .ova which can be opened with VirtualBox or VMware.
+The machines are created and proposed by the community itself.
+Also different versions of the famous Damn Vulnerable Linux and the Exploit Exercises suite are in.
+You will have to deal with many many different kinds of vulnerabilities like file permissions, web application, shellcode, heap overflows, password cracking, privilege escalation and so on&hellip;
+For instance, you can read the solution of one of those challenge on InfoSec Institute website:
+The Tr0ll Challenge" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/vulnerable-by-design/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2014-12-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2014-12-22T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/vulnerable-by-design/">
+    
+    <title>
+    Vulnerable by Design · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/vulnerable-by-design/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Vulnerable%20by%20Design%20https%3a%2f%2fglc.st%2fposts%2fvulnerable-by-design%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fvulnerable-by-design%2f&title=Vulnerable%20by%20Design" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fvulnerable-by-design%2f&amp;t=Vulnerable%20by%20Design" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Vulnerable%20by%20Design&body=https%3a%2f%2fglc.st%2fposts%2fvulnerable-by-design%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Vulnerable%20by%20Design%20https%3a%2f%2fglc.st%2fposts%2fvulnerable-by-design%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fvulnerable-by-design%2f&text=Vulnerable%20by%20Design" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fvulnerable-by-design%2f&amp;title=Vulnerable%20by%20Design" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fvulnerable-by-design%2f&t=Vulnerable%20by%20Design" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Vulnerable by Design</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2014-12-22T00:00:00Z'>
+                            December 22, 2014
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        One minute read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/training/">training</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/virtual-machine/">virtual machine</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p><a href="https://www.vulnhub.com/" title="VulnHub">VulnHub</a> is a training platform which provides &ldquo;<em>a catalogue of &lsquo;stuff&rsquo; that is (legally) &lsquo;breakable,
+hackable &amp; exploitable&rsquo;</em>&rdquo;, understand: a pool of vulnerable virtual machines.
+The downloads are essentially <code>.iso</code>, <code>.vbox</code> or <code>.ova</code> which can be opened with VirtualBox or VMware.</p>
+<p>The machines are created and proposed by the community itself.
+Also different versions of the famous Damn Vulnerable Linux and the <a href="https://exploit-exercises.com/" title="Exploit Exercises">Exploit Exercises suite</a> are in.
+You will have to deal with many many different kinds of vulnerabilities like file permissions, web application, shellcode, heap overflows, password cracking, privilege escalation and so on&hellip;</p>
+<p>For instance, you can read the solution of one of those challenge on InfoSec Institute website:
+<a href="http://resources.infosecinstitute.com/troll-challenge/" title="Tr0ll challenge solution">The Tr0ll Challenge</a></p>
+<p>Authors are available on irc to help you in the game ;)</p>
+<p><img src="https://glc.st/images/vulnhub.png" alt="VulnHub"></p>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

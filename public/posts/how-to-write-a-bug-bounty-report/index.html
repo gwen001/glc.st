@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/images/report-h1-empty.png"/>
+
+<meta name="twitter:title" content="How to write a Bug Bounty report"/>
+<meta name="twitter:description" content="One of the first thing I learned when I started security, is that the report is just as important as the pentest itself.
+Some bug bounty platforms give reputation points according the quality.
+While there is no official rules to write a good report, there are some good practices to know and some bad ones to avoid.
+Mines are probably not the best but I never had any problem with any company, it&rsquo;s also pretty rare that the secteam asks for more informations since I try to detail as much as I can in the initial report.
+Let me give you some tips and the global pattern of my templates.
+If you like it, use it, if not, then create your own :)"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="How to write a Bug Bounty report" />
+<meta property="og:description" content="One of the first thing I learned when I started security, is that the report is just as important as the pentest itself.
+Some bug bounty platforms give reputation points according the quality.
+While there is no official rules to write a good report, there are some good practices to know and some bad ones to avoid.
+Mines are probably not the best but I never had any problem with any company, it&rsquo;s also pretty rare that the secteam asks for more informations since I try to detail as much as I can in the initial report.
+Let me give you some tips and the global pattern of my templates.
+If you like it, use it, if not, then create your own :)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/how-to-write-a-bug-bounty-report/" />
+
+<meta property="og:image" content="https://glc.st/images/report-h1-empty.png" />
+<meta property="article:published_time" content="2019-03-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-03-01T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/how-to-write-a-bug-bounty-report/">
+    
+    <title>
+    How to write a Bug Bounty report · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/how-to-write-a-bug-bounty-report/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=How%20to%20write%20a%20Bug%20Bounty%20report%20https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f&title=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f&amp;t=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=How%20to%20write%20a%20Bug%20Bounty%20report&body=https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=How%20to%20write%20a%20Bug%20Bounty%20report%20https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f&text=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f&amp;title=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f&t=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">How to write a Bug Bounty report</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2019-03-01T00:00:00Z'>
+                            March 1, 2019
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        8 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/bug-bounty/">bug bounty</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/writing/">writing</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/report/">report</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>One of the first thing I learned when I started security, is that the report is just as important as the pentest itself.
+Some bug bounty platforms give reputation points according the quality.
+While there is no official rules to write a good report, there are some good practices to know and some bad ones to avoid.
+Mines are probably not the best but I never had any problem with any company, it&rsquo;s also pretty rare that the secteam asks for more informations since I try to detail as much as I can in the initial report.
+Let me give you some tips and the global pattern of my templates.
+If you like it, use it, if not, then create your own :)</p>
+<h2 id="general-rules">General rules</h2>
+<p><span style="color:#4BAE50"><strong>Be polite!</strong></span>
+Yes there are humans behind computers and they are not your enemies.
+Be nice, say <em>hi/hello</em>, <em>please</em>, <em>sorry</em>, <em>thank you</em>, <em>bye/best regards</em> etc&hellip;
+Use the basic words as you would do in real life. At the end, they are supposed to give you some money, plus you can be totally wrong at any point, so this is the minimum you can do.</p>
+<p><span style="color:#4BAE50"><strong>Use markdown formatting.</strong></span>
+Many platforms use <a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">Markdown</a> as a text formatter. Use his easy syntax to make your report clear.</p>
+<ul>
+<li>create paragraph and skip lines to break the text</li>
+<li>use bold to highlight <strong>important things</strong></li>
+<li>use inline code for <code>parameters names</code> and <code>values</code></li>
+<li>use block code to take advantage of the language colorizer</li>
+</ul>
+<p><span style="color:#4BAE50"><strong>Oops!</strong></span>
+If you notice afterward that you forgot to mention an important detail or if you finally discover that the bug is not a bug at all but an intentional behaviour, then feel free to add a comment to explain the situation.
+The team will thanks you million times for all extra infos you provide saving their precious time.</p>
+<p><span style="color:#EE3B3B"><strong>Don&rsquo;t be &ldquo;too much&rdquo;.</strong></span>
+Being <em>friendly</em> doesn&rsquo;t mean that they really are your friends, avoid things like &ldquo;<em>Sup mate!</em>&rdquo;.
+Remain professional!</p>
+<p><span style="color:#EE3B3B"><strong>Avoid multiple issues in a single report</strong></span>
+It&rsquo;s confusing for you and the triager and could possibly leads to smaller rewards than separated reports.
+Unless you can chain several vulnerabilities of course (for example: OR + CSRF + XSS) and then submit a report with a bigger impact (and so increase the bounty).</p>
+<p>Note that all informations are important, however the first things that triagers see are: <u>date</u>, <u>title</u>, <u>status</u> and <u>criticity</u>. Since you don&rsquo;t have any control regarding the date and the status, title and criticity deserve your attention.</p>
+<h2 id="rating">Rating</h2>
+<p>Take time to rate the issue, in an <strong><u>obvious</u></strong> way.
+Too low, there is a chance that the secteam pass over it, but you could be happy if finally the bounty is higher than your expectations.
+Too high, the secteam could think that you overrated in order to increase the bounty, they will notice, lower the rating, lower the bounty and you will be disappointed.</p>
+<img src="https://glc.st/images/report-cvss.png" alt="report cvss" width="220" style="float:left;" />
+<div style="float:right;width:600px;">
+    Sometimes optional, sometimes mandatory, if available, try to fill the <a href="https://www.first.org/cvss/calculator/3.0">CVSS</a> score.
+    Even if it's not perfect and context dependent, it gives a good idea of the criticity of the issue <u>in a technical point of view</u>.
+    Note that some platforms award bonus points for that.
+</div>
+<div style="clear:both;"></div>
+<h2 id="title">Title</h2>
+<p>It has to be simple but clear, explain what about is the report in one single line.
+It should contain the type of the vulnerability, the potential impact and what asset is concerned. If the program is big enough and many assets are in scope, consider to add the name of the asset as a prefix, this will help the team to sort the reports.</p>
+<p><span style="color:#4BAE50"><strong>Good:</strong></span><br>
+Open redirect + Stored XSS in profile lead to account takeover on <a href="https://www.example.com">www.example.com</a><br>
+[192.168.1.1] Public Jenkins instance leads to RCE</p>
+<p><span style="color:#EE852F"><strong>So so:</strong></span><br>
+XSS on <a href="https://www.example.com">www.example.com</a><br>
+PHP errors reveal webapp full path</p>
+<p><span style="color:#EE3B3B"><strong>Forget it:</strong></span><br>
+XSS<br>
+local file inclusion<br>
+critical bug on <a href="https://www.example.com">www.example.com</a></p>
+<h2 id="introduction">Introduction</h2>
+<p>The introduction is basically a reminder of the title a little bit more verbose, but no technical details at all.
+You can also write a quick explanation of the class of the vulnerabilty.
+Yeah some vulnerabilites are not so famous, and sometimes triagers are not infosec people.
+Perhaps they don&rsquo;t know about Appcache and never heard about that ImageTragick bug.</p>
+<h2 id="description">Description</h2>
+<p>In a nutshell, the full explanation of the vulnerability.
+Name the variables, their values, provide endpoints and all conditions required to trigger the issue: what, when, where, who etc&hellip;
+The whole everything.</p>
+<h2 id="steps-to-reproduce">Steps to reproduce</h2>
+<p>The goal here is to help the team to reproduce the bug in an easy way.
+Give them the whole process step by step using an ordered list so you could reference any step at any moment.</p>
+<p>1/ Connect to your account: <a href="https://www.example.com/login">https://www.example.com/login</a><br>
+2/ Click on the <em>&ldquo;profile&rdquo;</em> tab<br>
+3/ Enter value <code>payload</code> in the input <code>input</code><br>
+4/ repeat step 2<br>
+&hellip;</p>
+<p>If you use a local proxy like Burp Suite, you can provide the request in a <code>http</code> block code.
+It&rsquo;s very easy to reproduce the issue that way, you simply need to copy/paste it back to the software, update the cookie or any auth token and that&rsquo;s it, simple and efficient.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#a6e22e">GET</span> /directory_traversal_1.php?page=/etc/issue <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
+</span></span><span style="display:flex;"><span>Host<span style="color:#f92672">:</span> <span style="color:#ae81ff">bwapp.test.net</span>
+</span></span><span style="display:flex;"><span>User-Agent<span style="color:#f92672">:</span> <span style="color:#ae81ff">Mozilla/5.0 (X11; Linux x86_64; rv:56.0) Gecko/20100101 Firefox/56.0</span>
+</span></span><span style="display:flex;"><span>Accept<span style="color:#f92672">:</span> <span style="color:#ae81ff">*/*</span>
+</span></span><span style="display:flex;"><span>Accept-Language<span style="color:#f92672">:</span> <span style="color:#ae81ff">en-US,en;q=0.5</span>
+</span></span><span style="display:flex;"><span>Accept-Encoding<span style="color:#f92672">:</span> <span style="color:#ae81ff">gzip, deflate</span>
+</span></span><span style="display:flex;"><span>Content-Type<span style="color:#f92672">:</span> <span style="color:#ae81ff">application/x-www-form-urlencoded</span>
+</span></span><span style="display:flex;"><span>Cookie<span style="color:#f92672">:</span> <span style="color:#ae81ff">_ga=GA1.2.1344627302.1544974513; _gid=GA1.2.395150311.1544974513; PHPSESSID=cfpt3iskot4sfbjhjvf192je2f; security_level=0</span>
+</span></span><span style="display:flex;"><span>Connection<span style="color:#f92672">:</span> <span style="color:#ae81ff">close</span></span></span></code></pre></div>
+<p>Providing the response is also a good thing to show the team the difference between a legit result and an unexpected behavior.</p>
+<h2 id="poc">PoC</h2>
+<p>As we often say, a picture speaks a thousand words. Provide everything that can prove the bug.
+One of my previous article about <a href="https://glc.st/colorize-your-hunt/">Colorize your hunt</a> can help to visualize things.
+Also, keep in mind that the report can be publicly disclosed in the futur, so take care of hidding personal informations you want to keep private.</p>
+<p><strong>Videos</strong> that replays the whole drama that leads you to this great report.</p>
+<p><strong>Screenhosts</strong> that you can quickly modify with an image editor in order to highlight payloads and datas extracted.
+No need to be a great designer here.</p>
+<div  style="width:400px;float:left;margin-right:20px;">
+  <a href="https://glc.st/images/report-poc-xss.png" title="poc example xss" target="_blank" ><img src="https://glc.st/images/report-poc-xss.png" alt="poc example xss" /></a>
+</div>
+<div  style="width:400px;float:left;">
+  <a href="https://glc.st/images/report-poc-rce.png" title="poc example rce" target="_blank"><img src="https://glc.st/images/report-poc-rce.png" alt="poc example rce" /></a>
+</div>
+<div style="clear:both;"></div>
+<h2 id="mitigation">Mitigation</h2>
+<p>Trying to stay obvious and honest, if you think that some technical details make the issue very hard to exploit then it&rsquo;s important to let the team know about it. For instance a RCE that can only be triggered in January, between 12h and 2am at full moon night (don&rsquo;t laugh this is how I was imagining bug bounty when I started :x).</p>
+<h2 id="remediation">Remediation</h2>
+<p>Do you have any idea on how to solve the problem ?</p>
+<p>This is greatly appreciated by companies, they will be happy to read your tips/recommendations.
+Remember that bug bounty is also about learning (for both parts).</p>
+<h2 id="impact">Impact</h2>
+<p>It&rsquo;s the job of the hacker to prove the criticity of the vulnerabilities he finds.
+Try to create a possible scenario showing the potential risks of the issue.
+But take care to not fall to the &ldquo;Hollywood syndrom&rdquo;, there is only a few chance that a Full Path Disclosure leads to an earthquake followed by a tsunami, stamping out the human race.
+Seriously, it&rsquo;s not gonna happen.</p>
+<p><img src="https://glc.st/images/2012-movie.jpg" alt="2012 movie"></p>
+<h2 id="additional-notes">Additional notes</h2>
+<p>Sometimes you have to provide small details that can be helpful to the team to better understand the issue, why it works most of the time but fails in a specific case.
+Some weeks ago I reported a P1 to a program regarding their user permissions.
+The developper was not able to reproduce the issue.
+I simply added a tiny detail in my report about a minor change that occured some days before and they immediately understood the bug.</p>
+<p>The faster they reproduce the issue, the faster your report will be triaged, the faster you will be payed :)</p>
+<h2 id="references">References</h2>
+<p>This is where I put links to external resources: owasp, blog articles, CVE, disclosed reports, real study case or whatsoever that can support my reports.
+The goal is to help the team to understand and fix the issue but also show her the criticity.</p>
+<h2 id="whats-next">What&rsquo;s next?</h2>
+<div style="float:left;width:550px;">
+    <span style="color:#EE3B3B"><b>Do not harass.</b></span>
+    Do not ask for update every single day.
+    You're probably not the only hacker working on this program, they probably receive alot of reports.
+    They have to prioritize the tasks.
+    Acting like a kid does not only discredit yourself but the whole community.  
+    <br /><br />
+<pre><code>&lt;span style=&quot;color:#EE3B3B&quot;&gt;&lt;b&gt;Do not harass more!&lt;/b&gt;&lt;/span&gt;
+Do not spam the company over and over with the same report closed as informative or N/A in order to change their mind about it.
+They won't unless you give important additional informations.
+If you really feel that something is going wrong with this report/program then consider to request an intervention from the platform itself.
+</code></pre>
+</div>
+<img src="https://glc.st/images/yoda-medit.jpg" alt="Yoda mediting" width="250" style="float:right;" />
+<div style="clear:both;"></div>
+<p><span style="color:#4BAE50"><strong>Be patient :)</strong></span>
+I personally ping every 2 weeks when no news.
+One of my report has been fixed and rewarded 2500$ after 1 year&hellip;
+Patience is a vertue in bug bounty.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>As I said in the intro, the report is just as important as the pentest itself. You better to spend time on it trying to show the real severity of your bugs in order to get bigger bounties. Remember that non accepted reports (oos, duplicate&hellip;) can be rewarded if you are able to improve the security of the company whatever the way (by telling them something they don&rsquo;t know for example).</p>
+<p>Consider to create templates to save time with the basics (introduction, courtesy, references&hellip;), then you could think about automation. Frans Rosén developped awesome tools to perform that kind of task, as <a href="https://github.com/fransr/template-generator">template-generator</a> and <a href="https://github.com/fransr/bountyplz">bountyplz</a>.</p>
+<p>Finally, let&rsquo;s quote one the biggest actor in the bug bounty industry:</p>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr"><a href="https://twitter.com/hashtag/BugbountyProTip?src=hash&amp;ref_src=twsrc%5Etfw">#BugbountyProTip</a> The technical part is only 50% submission success. The other 50% is the write-up &amp; talking about impact (without doing it).  Spend time describing the vuln &amp; what exactly the worst case scenarios are with it. Speak to the developer, not the security engineer.</p>&mdash; Jason Haddix (@Jhaddix) <a href="https://twitter.com/Jhaddix/status/1021470944265531392?ref_src=twsrc%5Etfw">July 23, 2018</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

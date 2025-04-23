@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/images/cloudflare-blocked.png"/>
+
+<meta name="twitter:title" content="Cloudflare origin server"/>
+<meta name="twitter:description" content="What is Cloudflare? In short: Content Delivery Network (CDN), Web Application Firewall (WAF) and cherry/icing on the cake, 1 year go Cloudflare released a fast DNS resolver.
+With 4 pricings and more than 16M Internet properties, Cloudflare is now one of the most popular firewall used for web applications.
+Working as a reverse proxy the WAF does not only offer a protection against DDOS but can also trigger an alert/error when he detects an attack.
+But what if you can bypass all these protections in a second making the defense useless?"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Cloudflare origin server" />
+<meta property="og:description" content="What is Cloudflare? In short: Content Delivery Network (CDN), Web Application Firewall (WAF) and cherry/icing on the cake, 1 year go Cloudflare released a fast DNS resolver.
+With 4 pricings and more than 16M Internet properties, Cloudflare is now one of the most popular firewall used for web applications.
+Working as a reverse proxy the WAF does not only offer a protection against DDOS but can also trigger an alert/error when he detects an attack.
+But what if you can bypass all these protections in a second making the defense useless?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/cloudflare-origin-server/" />
+
+<meta property="og:image" content="https://glc.st/images/cloudflare-blocked.png" />
+<meta property="article:published_time" content="2019-07-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-07-31T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/cloudflare-origin-server/">
+    
+    <title>
+    Cloudflare origin server · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/cloudflare-origin-server/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Cloudflare%20origin%20server%20https%3a%2f%2fglc.st%2fposts%2fcloudflare-origin-server%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fcloudflare-origin-server%2f&title=Cloudflare%20origin%20server" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fcloudflare-origin-server%2f&amp;t=Cloudflare%20origin%20server" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Cloudflare%20origin%20server&body=https%3a%2f%2fglc.st%2fposts%2fcloudflare-origin-server%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Cloudflare%20origin%20server%20https%3a%2f%2fglc.st%2fposts%2fcloudflare-origin-server%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fcloudflare-origin-server%2f&text=Cloudflare%20origin%20server" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fcloudflare-origin-server%2f&amp;title=Cloudflare%20origin%20server" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fcloudflare-origin-server%2f&t=Cloudflare%20origin%20server" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Cloudflare origin server</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2019-07-31T00:00:00Z'>
+                            July 31, 2019
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        2 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/cloudflare/">cloudflare</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/recon/">recon</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/waf/">WAF</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/firewall/">firewall</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/tools/">tools</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>What is <a href="https://www.cloudflare.com/">Cloudflare</a>? In short: Content Delivery Network (CDN), Web Application Firewall (WAF) and cherry/icing on the cake, 1 year go Cloudflare released a fast DNS resolver.
+With 4 pricings and more than <a href="https://www.cloudflare.com/case-studies/">16M Internet properties</a>, Cloudflare is now one of the most popular firewall used for web applications.
+Working as a reverse proxy the WAF does not only offer a protection against DDOS but can also trigger an alert/error when he detects an attack.
+But what if you can bypass all these protections in a second making the defense useless?</p>
+<p>&gt;&gt;&gt; <a href="https://blog.detectify.com/2019/07/31/bypassing-cloudflare-waf-with-the-origin-server-ip-address/">Read more on Detectify</a> &lt;&lt;&lt;</p>
+<p>At the same time I was redacting this article, I wrote a Python script to automate some tests.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>usage: cloudflare<span style="color:#f92672">-</span>origin<span style="color:#f92672">-</span>ip<span style="color:#f92672">.</span>py [<span style="color:#f92672">-</span>h] [<span style="color:#f92672">-</span>u URL] [<span style="color:#f92672">-</span>s SOURCE]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>optional arguments:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>h, <span style="color:#f92672">--</span>help            show this help message <span style="color:#f92672">and</span> exit
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>u URL, <span style="color:#f92672">--</span>url URL     url to test
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>s SOURCE, <span style="color:#f92672">--</span>source SOURCE
+</span></span><span style="display:flex;"><span>                        datas sources separated by coma, can be:
+</span></span><span style="display:flex;"><span>                        censys,crtsh,local file
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Examples:
+</span></span><span style="display:flex;"><span>cloudflare<span style="color:#f92672">-</span>origin<span style="color:#f92672">-</span>ip<span style="color:#f92672">.</span>py <span style="color:#f92672">-</span>u https:<span style="color:#f92672">//</span>xxx<span style="color:#f92672">.</span>xxxxxxxxxxxx<span style="color:#f92672">.</span>xxx
+</span></span><span style="display:flex;"><span>cloudflare<span style="color:#f92672">-</span>origin<span style="color:#f92672">-</span>ip<span style="color:#f92672">.</span>py <span style="color:#f92672">-</span>u https:<span style="color:#f92672">//</span>xxx<span style="color:#f92672">.</span>xxxxxxxxxxxx<span style="color:#f92672">.</span>xxx <span style="color:#f92672">-</span>s censys,crtsh (default)
+</span></span><span style="display:flex;"><span>cloudflare<span style="color:#f92672">-</span>origin<span style="color:#f92672">-</span>ip<span style="color:#f92672">.</span>py <span style="color:#f92672">-</span>u https:<span style="color:#f92672">//</span>xxx<span style="color:#f92672">.</span>xxxxxxxxxxxx<span style="color:#f92672">.</span>xxx <span style="color:#f92672">-</span>s <span style="color:#f92672">/</span>home<span style="color:#f92672">/</span>local<span style="color:#f92672">/</span>ips<span style="color:#f92672">.</span>txt
+</span></span><span style="display:flex;"><span>cloudflare<span style="color:#f92672">-</span>origin<span style="color:#f92672">-</span>ip<span style="color:#f92672">.</span>py <span style="color:#f92672">-</span>u https:<span style="color:#f92672">//</span>xxx<span style="color:#f92672">.</span>xxxxxxxxxxxx<span style="color:#f92672">.</span>xxx <span style="color:#f92672">-</span>s censys,crtsh,<span style="color:#f92672">/</span>home<span style="color:#f92672">/</span>local<span style="color:#f92672">/</span>ips<span style="color:#f92672">.</span>txt,<span style="color:#f92672">/</span>home<span style="color:#f92672">/</span>local<span style="color:#f92672">/</span>subdomains<span style="color:#f92672">.</span>txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Note that this is an automated <span style="color:#66d9ef">tool</span>, manual check is still required<span style="color:#f92672">.</span>
+</span></span></code></pre></div><p>Basically the script compares some datas (HTML, headers, Content-Type&hellip;) of the host you provide with the HTTP response of an IPs list but using the host you provide as the header <code>Host</code>.
+IP sources can be: Censys, crt.sh or local files containing IPs and/or subdomains.</p>
+<p><img src="https://glc.st/images/cloudflare-origin-ip-python.png" alt="cloudflare origin ip python"></p>
+<p><a href="https://github.com/gwen001/pentest-tools/blob/master/cloudflare-origin-ip.py">Give it a try!</a></p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://rhinosecuritylabs.com/cloud-security/cloudflare-bypassing-cloud-security/">Introducing CFire - Evading CloudFlare Security Protections</a></li>
+<li><a href="http://www.securityidiots.com/Web-Pentest/Information-Gathering/Cloudflare-Bypass/Part-2-Cloudflare-Security-Bypass.html">Cloudflare Bypass Security</a></li>
+<li><a href="http://www.chokepoint.net/2017/10/exposing-server-ips-behind-cloudflare.html">Exposing Server IPs Behind CloudFlare</a></li>
+<li><a href="https://blog.christophetd.fr/bypassing-cloudflare-using-internet-wide-scan-data/">CloudFlair - Bypassing Cloudflare using Internet-wide scan data</a></li>
+<li><a href="https://www.cloudflare.com/ips/">Cloudflare IP ranges</a></li>
+<li><a href="https://twitter.com/gwendallecoguic/status/1043484797799223297">One tweet about it</a></li>
+<li><a href="https://twitter.com/gwendallecoguic/status/1113777240876228609">And another tweet about it</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

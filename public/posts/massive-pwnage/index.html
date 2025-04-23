@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/images/massive-xss.png"/>
+
+<meta name="twitter:title" content="Massive pwnage"/>
+<meta name="twitter:description" content="There is different ways to hunt for vulnerabilities, depending of your knowledge, your skills, your expectation and how you like to chase.
+I personally love programming and, as a true developper, I&rsquo;m lazy, so I love to automate things.
+By writing some piece of code or by combining multiple tools, you can find a lot of interesting stuff.
+This article is about some scripts/tricks I wrote/use to perform massive tests:
+
+XSS with PhantomJS
+Heroku subdomain takeover
+Amazon S3 buckets theft
+"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Massive pwnage" />
+<meta property="og:description" content="There is different ways to hunt for vulnerabilities, depending of your knowledge, your skills, your expectation and how you like to chase.
+I personally love programming and, as a true developper, I&rsquo;m lazy, so I love to automate things.
+By writing some piece of code or by combining multiple tools, you can find a lot of interesting stuff.
+This article is about some scripts/tricks I wrote/use to perform massive tests:
+
+XSS with PhantomJS
+Heroku subdomain takeover
+Amazon S3 buckets theft
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/massive-pwnage/" />
+
+<meta property="og:image" content="https://glc.st/images/massive-xss.png" />
+<meta property="article:published_time" content="2018-02-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-02-03T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/massive-pwnage/">
+    
+    <title>
+    Massive pwnage · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/massive-pwnage/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Massive%20pwnage%20https%3a%2f%2fglc.st%2fposts%2fmassive-pwnage%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fmassive-pwnage%2f&title=Massive%20pwnage" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fmassive-pwnage%2f&amp;t=Massive%20pwnage" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Massive%20pwnage&body=https%3a%2f%2fglc.st%2fposts%2fmassive-pwnage%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Massive%20pwnage%20https%3a%2f%2fglc.st%2fposts%2fmassive-pwnage%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fmassive-pwnage%2f&text=Massive%20pwnage" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fmassive-pwnage%2f&amp;title=Massive%20pwnage" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fmassive-pwnage%2f&t=Massive%20pwnage" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Massive pwnage</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2018-02-03T00:00:00Z'>
+                            February 3, 2018
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        5 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/aws/">aws</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/bucket/">bucket</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/subdomain/">subdomain</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/xss/">xss</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/heroku/">heroku</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/cloudfront/">cloudfront</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>There is different ways to hunt for vulnerabilities, depending of your knowledge, your skills, your expectation and how you like to chase.
+I personally love programming and, as a true developper, I&rsquo;m lazy, so I love to automate things.
+By writing some piece of code or by combining multiple tools, you can find a lot of interesting stuff.
+This article is about some scripts/tricks I wrote/use to perform massive tests:</p>
+<ul>
+<li>XSS with PhantomJS</li>
+<li>Heroku subdomain takeover</li>
+<li>Amazon S3 buckets theft</li>
+</ul>
+<h2 id="xss-with-phantomjs">XSS with PhantomJS</h2>
+<p>The first thing to do is to get a list of urls to test, it&rsquo;s like finding endpoints when you perform the recon of a new target.
+And since even an url without any parameter can be vulnerable, it doesn&rsquo;t matter if our urls have one or several or none.</p>
+<p>Possible sources:</p>
+<ul>
+<li>using the <a href="https://github.com/googleinurl/SCANNER-INURLBR">scanner INURLBR</a>, you can retrieve a list of urls from many search engines, a simple dork as <code>inurl:&quot;&amp;&quot;</code> would return many results</li>
+<li>a list of subdomains in scope of different bug bounty programs</li>
+<li>the list of the most famous xxx websites in whatever country or all around the world</li>
+<li>the history of the Wayback Machine</li>
+<li>&hellip;</li>
+</ul>
+<p>The second thing you need is a good list of payloads.
+You could use the awesome <a href="https://leanpub.com/xss">Brutal Cheat Sheet</a> list or grab another one on the internet or create your own.
+Another good one is the list from RSnake because it contains payloads with a call of an external Javascript, using <a href="https://xsshunter.com/app">XSS Hunter</a> here could be a good idea, you never know&hellip;</p>
+<p>Finally you need a program to automatically test all the urls you grabbed.
+You could probably use Burp Suite but I&rsquo;m not sure it would be the best tool to test XSS.
+@brutelogic created the magic extension <a href="https://knoxss.me/">Knoxss</a>, you can use the free version.
+However it becomes very complicated when you deal with thousands of urls, I already tried to script it but I was faced to the rate limit of the firewall.
+So I finally created my own script, it was originally based on string comparaison but I recently changed my mind and I implemented PhantomJS which is much more reliable.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span><span style="color:#f92672">$</span> php testxss<span style="color:#f92672">.</span>php <span style="color:#f92672">--</span>prefix <span style="color:#f92672">--</span>suffix <span style="color:#f92672">--</span>sos <span style="color:#f92672">--</span>threads<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span> <span style="color:#f92672">--</span>verbose<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span> <span style="color:#f92672">--</span>phantom<span style="color:#f92672">=/</span>usr<span style="color:#f92672">/</span>local<span style="color:#f92672">/</span>bin<span style="color:#f92672">/</span>phantomjs <span style="color:#f92672">--</span>payload<span style="color:#f92672">=</span>brute<span style="color:#f92672">-</span>full<span style="color:#f92672">.</span>txt <span style="color:#f92672">--</span>urls<span style="color:#f92672">=</span>urls<span style="color:#f92672">.</span>txt
+</span></span></code></pre></div><p><img src="https://glc.st/images/massive-xss.png" alt="massive XSS"></p>
+<h2 id="heroku-subdomain-takeover">Heroku subdomain takeover</h2>
+<p>I recently discovered <a href="https://dnstrails.com/">DNSTrails</a>, &ldquo;The World&rsquo;s Largest Repository of historical DNS data&rdquo;.
+Basically it&rsquo;s a huge database of DNS history.</p>
+<p>After reading the report <a href="https://hackerone.com/reports/296907">#296907</a> on Hackerone, I had the idea to check the IPs of Heroku.
+I checked my log files and I extracted all IPs I had, linked to <code>herokuapp.com</code>.
+I have 44 address in my list, they probably own much more but that was enough for a single test.</p>
+<p>Calling the API of DNSTrails, you can retrieve many domains and subdomains configured with those DNS: <code>https://app.securitytrails.com/api/search/by_type/ip/&lt;ip&gt;</code>
+Looping through the 44 IPs, I got +30k (sub)domains. Doh!</p>
+<p>We all know that a misconfigured Heroku service leads to this page:
+<img src="https://glc.st/images/heroku-error.png" alt="Heroku error"></p>
+<p>It would be impossible (or very very long) to manually test all domains. Fortunately Michael Henriksen wrote <a href="https://github.com/michenriksen/aquatone">Aquatone</a>.
+This tool can check if a given list of subdomains is vulnerable to subdomain takeover, it supports services like: Heroku, Cloudfront, Zendesk, Uservoice and many others&hellip;
+It comes very handy when you deal with so much datas.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ aquatone-takeover --domain herokuapp.com
+</span></span></code></pre></div><p><img src="https://glc.st/images/massive-subto-aquatone.png" alt="massive subdomain takeover Aquatone"></p>
+<p>I also wrote my own script to test some 3rd party services a long time ago, so I also injected my list in it, the result was pretty much the same.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ for d in $(cat domains.txt) ; do php 3rdparty.php -s heroku -d $d ; done
+</span></span></code></pre></div><p><img src="https://glc.st/images/massive-subto-3rdps.png" alt="massive subdomain takeover 3rd party services"></p>
+<p>Let&rsquo;s say 10% of the domains are vulnerable.<br>
+<img src="https://glc.st/images/massive-subto-surprise.png" alt="massive subdomain surprise"></p>
+<h2 id="amazon-s3-buckets-theft">Amazon S3 buckets theft</h2>
+<p>Here I started to query Threat Crowd with every IP I was able to link to Amazon Service using <a href="https://bgp.he.net/">https://bgp.he.net/</a> and some other resources.
+<code>https://www.threatcrowd.org/searchApi/v1/api.php?type=ip&amp;query=&lt;ip&gt;</code><br>
+I locally stored the json result and more than 3000 requests later, I got 90k+ unique (sub)domains.</p>
+<p>Ok, things change, so probably some of them are not linked to Cloudfront anymore but hey! It&rsquo;s worth to try!
+So I wrote a quick script that basically requests every domain in the list and check the response from the server.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ php cloudfront.php domains.txt
+</span></span></code></pre></div><p><img src="https://glc.st/images/massive-bucket-cloudfront.png" alt="massive bucket cloudfront"></p>
+<p>After extracting all buckets found, about 37000, I ran my tool to test their permissions, maybe some of them are writable? Really??</p>
+<p>About 2300 buckets are world writable, and for 1950 of them any user could alter the permissions, so everything is possible.</p>
+<p><img src="https://glc.st/images/massive-bucket-vulnerable.png" alt="massive bucket vulnerable"></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I don&rsquo;t know how far this can goes. I think there is no limit to automation when combined with a good imagination and some technical skills, you can always dig deeper and deeper.
+The problem is, as a hunter, how would you monetize the time you spend on this?</p>
+<p>2 years ago, when I started bug bounty, I was confident enough to think that companies would be happy to be warned of that kind of problems.
+But the responses were very different from a firm to another. Sometimes you get a &ldquo;WTF?? Who the hell are you? What are you doing with my website?!&rdquo;, then take care.
+Sometimes a single &ldquo;Thank you&rdquo;, no matter if the issue is fixed or not, and sometimes nothing, silence, they simply ignore you&hellip;</p>
+<p>As far as I can see, chasing in the wild is fun, you can learn alot, but you won&rsquo;t make money this way.</p>
+<h2 id="tools">Tools</h2>
+<p><a href="https://gist.github.com/mhmdiaa/adf6bff70142e5091792841d4b372050">The script waybackurls.py</a><br>
+<a href="https://github.com/gwen001/testxss/">My tool: testxss</a><br>
+<a href="https://github.com/gwen001/3rdparty-services">My tool: 3party-services</a><br>
+<a href="https://glc.st/assets/cloudfront.txt">The Cloudfront checker script</a><br>
+<a href="https://github.com/gwen001/s3-buckets-finder">My tool: s3-buckets-finder</a></p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://gbhackers.com/top-500-important-xss-cheat-sheet/">Top 500 Most Important XSS Script Cheat</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

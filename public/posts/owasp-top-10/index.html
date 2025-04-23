@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="OWASP Top 10"/>
+<meta name="twitter:description" content="The Open Web Application Security Project (OWASP) is an open community dedicated to enabling organizations to develop, purchase, and maintain applications that can be trusted.
+All of the OWASP tools, documents, forums, and chapters are free and open to anyone interested in improving application security.
+The OWASP Top 10 project references the most security issues and widespread on the web.
+Most safety audits and specialized tools are based on the Top 10.
+The primary aim is to educate developers, designers, architects, managers, and organizations about the consequences of the most important web application security weaknesses.
+The Top 10 also provides basic techniques to protect against these high risk problem areas.
+For each risks, OWASP provides generic information about likelihood and technical impact using the following simple ratings scheme, which is based on the Rating Methodology:
+"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="OWASP Top 10" />
+<meta property="og:description" content="The Open Web Application Security Project (OWASP) is an open community dedicated to enabling organizations to develop, purchase, and maintain applications that can be trusted.
+All of the OWASP tools, documents, forums, and chapters are free and open to anyone interested in improving application security.
+The OWASP Top 10 project references the most security issues and widespread on the web.
+Most safety audits and specialized tools are based on the Top 10.
+The primary aim is to educate developers, designers, architects, managers, and organizations about the consequences of the most important web application security weaknesses.
+The Top 10 also provides basic techniques to protect against these high risk problem areas.
+For each risks, OWASP provides generic information about likelihood and technical impact using the following simple ratings scheme, which is based on the Rating Methodology:
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/owasp-top-10/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2015-02-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-02-09T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/owasp-top-10/">
+    
+    <title>
+    OWASP Top 10 · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/owasp-top-10/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=OWASP%20Top%2010%20https%3a%2f%2fglc.st%2fposts%2fowasp-top-10%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fowasp-top-10%2f&title=OWASP%20Top%2010" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fowasp-top-10%2f&amp;t=OWASP%20Top%2010" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=OWASP%20Top%2010&body=https%3a%2f%2fglc.st%2fposts%2fowasp-top-10%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=OWASP%20Top%2010%20https%3a%2f%2fglc.st%2fposts%2fowasp-top-10%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fowasp-top-10%2f&text=OWASP%20Top%2010" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fowasp-top-10%2f&amp;title=OWASP%20Top%2010" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fowasp-top-10%2f&t=OWASP%20Top%2010" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">OWASP Top 10</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2015-02-09T00:00:00Z'>
+                            February 9, 2015
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        4 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/owasp/">owasp</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>The Open Web Application Security Project (OWASP) is an open community dedicated to enabling organizations to develop, purchase, and maintain applications that can be trusted.
+All of the OWASP tools, documents, forums, and chapters are free and open to anyone interested in improving application security.</p>
+<p>The <a href="https://www.owasp.org/index.php/Top_10_2013-Table_of_Contents" title="OWASP Top 10 project">OWASP Top 10 project</a> references the most security issues and widespread on the web.
+Most safety audits and specialized tools are based on the Top 10.
+The primary aim is to educate developers, designers, architects, managers, and organizations about the consequences of the most important web application security weaknesses.
+The Top 10 also provides basic techniques to protect against these high risk problem areas.</p>
+<p>For each risks, OWASP provides generic information about likelihood and technical impact using the following simple ratings scheme, which is based on the Rating Methodology:</p>
+<p><img src="https://glc.st/images/owasp-top10-risk.png" alt="OWASP top10 risk"></p>
+<p>*<em>Only you</em> know the specifics of your environment and your business.
+For any given application, there may not be a threat agent that can perform the relevant attack, or the technical impact may not make any difference to your business.
+Therefore, you should evaluate each risk <strong>for yourself</strong>, focusing on the threat agents, security controls, and business impacts in your enterprise.</p>
+<p>Below the 2013 top 10 list:</p>
+<ol>
+<li>
+<p><strong>Injection</strong>
+Injection flaws, such as SQL, OS, and LDAP injection occur when untrusted data is sent to an interpreter as part of a command or query. The attacker’s hostile data can trick the interpreter into executing unintended commands or accessing data without proper authorization.</p>
+</li>
+<li>
+<p><strong>Broken Authentication and Session Management</strong>
+Application functions related to authentication and session management are often not implemented correctly, allowing attackers to compromise passwords, keys, or session tokens, or to exploit other implementation flaws to assume other users’ identities.</p>
+</li>
+<li>
+<p><strong>Cross-Site Scripting (XSS)</strong>
+XSS flaws occur whenever an application takes untrusted data and sends it to a web browser without proper validation or escaping. XSS allows attackers to execute scripts in the victim’s browser which can hijack user sessions, deface web sites, or redirect the user to malicious sites.</p>
+</li>
+<li>
+<p><strong>Insecure Direct Object References</strong>
+A direct object reference occurs when a developer exposes a reference to an internal implementation object, such as a file, directory, or database key. Without an access control check or other protection, attackers can manipulate these references to access unauthorized data.</p>
+</li>
+<li>
+<p><strong>Security Misconfiguration</strong>
+Good security requires having a secure configuration defined and deployed for the application, frameworks, application server, web server, database server, and platform. Secure settings should be defined, implemented, and maintained, as defaults are often insecure. Additionally, software should be kept up to date.</p>
+</li>
+<li>
+<p><strong>Sensitive Data Exposure</strong>
+Many web applications do not properly protect sensitive data, such as credit cards, tax IDs, and authentication credentials. Attackers may steal or modify such weakly protected data to conduct credit card fraud, identity theft, or other crimes. Sensitive data deserves extra protection such as encryption at rest or in transit, as well as special precautions when exchanged with the browser.</p>
+</li>
+<li>
+<p><strong>Missing Function Level Access Control</strong>
+Most web applications verify function level access rights before making that functionality visible in the UI. However, applications need to perform the same access control checks on the server when each function is accessed. If requests are not verified, attackers will be able to forge requests in order to access functionality without proper authorization.</p>
+</li>
+<li>
+<p><strong>Cross-Site Request Forgery (CSRF)</strong>
+A CSRF attack forces a logged-on victim’s browser to send a forged HTTP request, including the victim’s session cookie and any other automatically included authentication information, to a vulnerable web application. This allows the attacker to force the victim’s browser to generate requests the vulnerable application thinks are legitimate requests from the victim.</p>
+</li>
+<li>
+<p><strong>Using Components with Known Vulnerabilities</strong>
+Components, such as libraries, frameworks, and other software modules, almost always run with full privileges. If a vulnerable component is exploited, such an attack can facilitate serious data loss or server takeover. Applications using components with known vulnerabilities may undermine application defenses and enable a range of possible attacks and impacts.</p>
+</li>
+<li>
+<p><strong>Unvalidated Redirects and Forwards</strong>
+Web applications frequently redirect and forward users to other pages and websites, and use untrusted data to determine the destination pages. Without proper validation, attackers can redirect victims to phishing or malware sites, or use forwards to access unauthorized pages.</p>
+</li>
+</ol>
+<p><strong>Don’t stop at 10.</strong> There are hundreds of issues that could affect the overall security of a web application as discussed in the OWASP Developer’s Guide and the OWASP Cheat Sheet Series.
+These are essential reading for anyone developing web applications.
+Guidance on how to effectively find vulnerabilities in web applications is provided in the <a href="https://www.owasp.org/images/5/56/OWASP_Testing_Guide_v3.pdf" title="OWASP Testing Guide">OWASP Testing Guide</a> and the <a href="https://www.owasp.org/images/f/fa/Code_Review_Guide_Pre-AlphaV2_(1).pdf" title="OWASP Code Review Guide">OWASP Code Review Guide</a>.</p>
+<p><strong>Constant change.</strong> This Top 10 will continue to change.
+Even without changing a single line of your application’s code, you may become vulnerable as new flaws are discovered and attack methods are refined: &ldquo;Scanned today Hacked tomorrow&rdquo;.</p>
+<br>
+<p>Source: <a href="https://www.owasp.org/index.php/Main_Page" title="OWASP">OWASP</a></p>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

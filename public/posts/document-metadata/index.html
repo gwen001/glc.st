@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Document Metadata"/>
+<meta name="twitter:description" content="Metadata are informations stored in a document itself but not easy to find for common mortals.
+Those infos usually are: file name/type/size, author, organization, created date, last modified date and so on&hellip;
+But sometimes there are extra infos that could be very interesting from a hacker point of view like email, phone number, username, geoloc and even local ip address."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Document Metadata" />
+<meta property="og:description" content="Metadata are informations stored in a document itself but not easy to find for common mortals.
+Those infos usually are: file name/type/size, author, organization, created date, last modified date and so on&hellip;
+But sometimes there are extra infos that could be very interesting from a hacker point of view like email, phone number, username, geoloc and even local ip address." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/document-metadata/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2015-06-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-06-09T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/document-metadata/">
+    
+    <title>
+    Document Metadata · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/document-metadata/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Document%20Metadata%20https%3a%2f%2fglc.st%2fposts%2fdocument-metadata%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fdocument-metadata%2f&title=Document%20Metadata" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fdocument-metadata%2f&amp;t=Document%20Metadata" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Document%20Metadata&body=https%3a%2f%2fglc.st%2fposts%2fdocument-metadata%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Document%20Metadata%20https%3a%2f%2fglc.st%2fposts%2fdocument-metadata%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fdocument-metadata%2f&text=Document%20Metadata" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fdocument-metadata%2f&amp;title=Document%20Metadata" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fdocument-metadata%2f&t=Document%20Metadata" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Document Metadata</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2015-06-09T00:00:00Z'>
+                            June 9, 2015
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        3 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/information-gathering/">information gathering</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/metadata/">metadata</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>Metadata are informations stored in a document itself but not easy to find for common mortals.
+Those infos usually are: file name/type/size, author, organization, created date, last modified date and so on&hellip;
+But sometimes there are extra infos that could be very interesting from a hacker point of view like email, phone number, username, geoloc and even local ip address.</p>
+<p>Let&rsquo;s take a look at a photo of the beautiful Scarlett Johansson.
+First I will use the nice online tool <a href="http://regex.info/exif.cgi">Jeffrey&rsquo;s Exif Viewer</a> wich will output dozen infos:</p>
+<p><img src="https://glc.st/images/exif-viewer-1.png" alt="exif viewer 1">
+<img src="https://glc.st/images/exif-viewer-2.png" alt="exif viewer 2">
+<img src="https://glc.st/images/exif-viewer-4.png" alt="exif viewer 4">
+<img src="https://glc.st/images/exif-viewer-3.png" alt="exif viewer 3"></p>
+<p>From here what usefull informations did I get ?</p>
+<ul>
+<li>the filename</li>
+<li>the title of the image (headline)</li>
+<li>the name of the author in different ways</li>
+<li>the date and the time it was taken in different ways also</li>
+<li>the resolution</li>
+<li>the image size in pixel</li>
+<li>the file size</li>
+<li>the credit/copyright</li>
+<li>the company name</li>
+<li>a caption describing the event</li>
+<li>many parameters about colors</li>
+<li>alot of datas that are not related to security</li>
+</ul>
+<p>Ok nothing special here and nothing very serious, the only thing we can be sure is that the author has been very cautious with all details of the image, looks like copyright is important for him :)</p>
+<p>Let&rsquo;s try another file that I intentionnally set up with &ldquo;secret&rdquo; metadata.
+This time I will use the command line <a href="http://www.sno.phy.queensu.ca/~phil/exiftool/">ExifTool</a> wich can be used to read, set and edit metadata.
+This tool support about 150 different file format and is by default installed in Kali Linux.</p>
+<p><img src="https://glc.st/images/exiftool.png" alt="exiftool"></p>
+<p>There I got the following infos:</p>
+<ul>
+<li>the file name and it&rsquo;s size</li>
+<li>the document title</li>
+<li>the creation date and the last modified date</li>
+<li>the name of the last writer</li>
+<li>and the most important, the originial author wich looks like more than a username than a full name</li>
+</ul>
+<p>By using a Google Dorks like <code>site:www.leparticulier.fr filetype:pdf</code> and after a bit of scripting combined with ExifTool, I was able to find about 15 usernames.
+With only this information in my hands I won&rsquo;t be able to penetrate their system but it&rsquo;s a really good start while performing the information gathering phase of a pentest.
+Plus you will probably be confronted to vulnerabilities who require a valid user to be exploited&hellip;</p>
+<p>An awesome tool to automate metadata mining is FOCA.
+This program can search office documents of a specified site and extract all metadata to finally map the local network of the company.</p>
+<p>&gt; <a href="https://www.youtube.com/watch?v=XVjZEijbekw">Foca demo</a> at DEFCON 18</p>
+<p>Anyway you should be able to remove the metadata of your document with the application you used to create it or with online tools, follow the link below.</p>
+<p>&gt; <a href="http://www.makeuseof.com/tag/3-ways-to-remove-exif-metadata-from-photos-and-why-you-might-want-to/">How to remove EXIF Metadata</a></p>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

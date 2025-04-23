@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="MySQL Truncation"/>
+<meta name="twitter:description" content="Description
+Here is a very interesting issue in MySQL database.
+SQL truncation occurs when you try to insert/update a field with a string which is longer than the maximum length defined in the table structure.
+For instance if you defined a column name as a varchar(8) and you provide abracadabra wich is 11, MySQL will truncate the string to 8 and will insert abracada instead.
+No message, no warning, nothing at all. This flaw can lead to security issue in some case.
+Example
+First I create this small table:
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `login` varchar(8) NOT NULL,
+  `passwd` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="MySQL Truncation" />
+<meta property="og:description" content="Description
+Here is a very interesting issue in MySQL database.
+SQL truncation occurs when you try to insert/update a field with a string which is longer than the maximum length defined in the table structure.
+For instance if you defined a column name as a varchar(8) and you provide abracadabra wich is 11, MySQL will truncate the string to 8 and will insert abracada instead.
+No message, no warning, nothing at all. This flaw can lead to security issue in some case.
+Example
+First I create this small table:
+CREATE TABLE IF NOT EXISTS `user` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `login` varchar(8) NOT NULL,
+  `passwd` varchar(64) NOT NULL,
+  PRIMARY KEY (`id`)
+);
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/mysql-truncation/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2015-01-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-01-28T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/mysql-truncation/">
+    
+    <title>
+    MySQL Truncation · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/mysql-truncation/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=MySQL%20Truncation%20https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f&title=MySQL%20Truncation" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f&amp;t=MySQL%20Truncation" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=MySQL%20Truncation&body=https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=MySQL%20Truncation%20https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f&text=MySQL%20Truncation" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f&amp;title=MySQL%20Truncation" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f&t=MySQL%20Truncation" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">MySQL Truncation</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2015-01-28T00:00:00Z'>
+                            January 28, 2015
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        3 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/mysql/">mysql</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/bdd/">bdd</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <h2 id="description">Description</h2>
+<p>Here is a very interesting issue in MySQL database.
+SQL truncation occurs when you try to insert/update a field with a string which is longer than the maximum length defined in the table structure.
+For instance if you defined a column <code>name</code> as a varchar(8) and you provide <code>abracadabra</code> wich is 11, MySQL will truncate the string to 8 and will insert <code>abracada</code> instead.
+No message, no warning, nothing at all. This flaw can lead to security issue in some case.</p>
+<h2 id="example">Example</h2>
+<p>First I create this small table:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#66d9ef">CREATE</span> <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">IF</span> <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">EXISTS</span> <span style="color:#f92672">`</span><span style="color:#66d9ef">user</span><span style="color:#f92672">`</span> (
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>id<span style="color:#f92672">`</span> int(<span style="color:#ae81ff">11</span>) unsigned <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span> AUTO_INCREMENT,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>login<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">8</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">`</span>passwd<span style="color:#f92672">`</span> varchar(<span style="color:#ae81ff">64</span>) <span style="color:#66d9ef">NOT</span> <span style="color:#66d9ef">NULL</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>)
+</span></span><span style="display:flex;"><span>);
+</span></span></code></pre></div><p>Then I insert some users:</p>
+<p><img src="https://glc.st/images/mysql-truncation-1.png" alt="MySQL Truncation">](/images/mysql-truncation-1.png)</p>
+<p>My three users are ok and absolutly regular.
+But now what&rsquo;s happen if I try to insert another user who has a name longer that 8 (<code>login</code> max length)?</p>
+<p><img src="https://glc.st/images/mysql-truncation-2.png" alt="MySQL Truncation"></p>
+<p>See? It has been truncated to 8 without any additionnal message. So maybe I can try another one?</p>
+<p><img src="https://glc.st/images/mysql-truncation-3.png" alt="MySQL Truncation"></p>
+<p>Looks like it worked.
+Now I have a user &ldquo;<code>admin</code>&rdquo; and a user &ldquo;<code>admin  </code> &quot; with some trailing spaces.
+Unfortunatly MySQL strings compare also suffers of another issue who ignores trailing spaces, that means those two strings are considered as equal in some case. POC:</p>
+<p><img src="https://glc.st/images/mysql-truncation-4.png" alt="MySQL Truncation"></p>
+<p>Et voilà! MySQL clause <code>group by</code> considers user <code>1</code> and user <code>4</code> as &ldquo;equal&rdquo;.</p>
+<p>Tests with operator &lsquo;<code>=' </code>:
+<img src="https://glc.st/images/mysql-truncation-5.png" alt="MySQL Truncation"></p>
+<p>Tests with operator <code>like </code>:
+<img src="https://glc.st/images/mysql-truncation-6.png" alt="MySQL Truncation"></p>
+<p>In this situation <code>like</code> seems to be safer.</p>
+<h2 id="why-is-it-dangerous">Why is it dangerous ?</h2>
+<p>First of all, it should not be allowed to register two users with the same login/email in any system.
+Then, since MySQL will return 2 results in some case, you cannot really predict wich one will be used when comparing with the user entry so it can be dangerous in some function like &ldquo;Forgot password&rdquo;.
+A user could receive an email with credentials of another user&hellip;</p>
+<h2 id="what-can-i-do-">What can I do ?</h2>
+<p>According to <a href="http://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_strict_trans_tables" title="MySQL documentation">MySQL documentation</a>, a trick is to change <code>sql_mode</code> to be more strict:</p>
+<blockquote>
+<p>If a value could not be inserted as given into a transactional table, abort the statement.</p>
+</blockquote>
+<p><a href="https://glc.st/images/mysql-truncation-7.png"><img src="https://glc.st/images/mysql-truncation-7.png" alt="MySQL Truncation"></a></p>
+<p>As a matter of fact I&rsquo;m not sure this is a good solution.
+Many developers don&rsquo;t even test the result of their sql requests so if the server uses this parameter this can leads to many holes.</p>
+<p>Another solution would be to use a unique index on the proper field, MySQL will trigger an error because it will (again) consider &ldquo;<code>admin</code>&rdquo; and &ldquo;<code>admin  </code> &quot; as equal.</p>
+<p>Finally, most of the orm check the good validity of the values before executing the queries and apply filters.
+This must be tested&hellip;</p>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

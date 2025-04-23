@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Wordpress testing"/>
+<meta name="twitter:description" content="Here is the way I usually follow to test a Wordpress install.
+Information gathering
+Get basic informations with WPScan:
+wpscan -r --enumerate u --url http://www.example.com
+If it can&rsquo;t retrieve the user list, try to use provided script stop_user_enumeration_bypass.rb
+For each user found, try to brute with basic passwords:
+wpscan -r --url http://www.example.com --wordlist /Wordlists/Passwords/best1050.txt --username &lt;username&gt;
+If the version of Wordpress has been found, download it from the official archive directory:
+https://wordpress.org/download/release-archive/
+Open the tested website and take a look at the source to find those strings:
+wp-content/themes and wp-content/plugins
+This could reveal more themes/plugins."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Wordpress testing" />
+<meta property="og:description" content="Here is the way I usually follow to test a Wordpress install.
+Information gathering
+Get basic informations with WPScan:
+wpscan -r --enumerate u --url http://www.example.com
+If it can&rsquo;t retrieve the user list, try to use provided script stop_user_enumeration_bypass.rb
+For each user found, try to brute with basic passwords:
+wpscan -r --url http://www.example.com --wordlist /Wordlists/Passwords/best1050.txt --username &lt;username&gt;
+If the version of Wordpress has been found, download it from the official archive directory:
+https://wordpress.org/download/release-archive/
+Open the tested website and take a look at the source to find those strings:
+wp-content/themes and wp-content/plugins
+This could reveal more themes/plugins." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/wordpress-testing/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2017-09-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-09-12T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/wordpress-testing/">
+    
+    <title>
+    Wordpress testing · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/wordpress-testing/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Wordpress%20testing%20https%3a%2f%2fglc.st%2fposts%2fwordpress-testing%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fwordpress-testing%2f&title=Wordpress%20testing" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fwordpress-testing%2f&amp;t=Wordpress%20testing" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Wordpress%20testing&body=https%3a%2f%2fglc.st%2fposts%2fwordpress-testing%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Wordpress%20testing%20https%3a%2f%2fglc.st%2fposts%2fwordpress-testing%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fwordpress-testing%2f&text=Wordpress%20testing" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fwordpress-testing%2f&amp;title=Wordpress%20testing" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fwordpress-testing%2f&t=Wordpress%20testing" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Wordpress testing</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2017-09-12T00:00:00Z'>
+                            September 12, 2017
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        3 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/wordpress/">wordpress</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/upload/">upload</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/rce/">rce</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/sql-injection/">sql injection</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>Here is the way I usually follow to test a Wordpress install.</p>
+<h2 id="information-gathering">Information gathering</h2>
+<p>Get basic informations with <a href="https://wpscan.org/">WPScan</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>wpscan <span style="color:#f92672">-</span>r <span style="color:#f92672">--</span>enumerate u <span style="color:#f92672">--</span>url http:<span style="color:#f92672">//</span>www<span style="color:#f92672">.</span>example<span style="color:#f92672">.</span>com
+</span></span></code></pre></div><p>If it can&rsquo;t retrieve the user list, try to use provided script <code>stop_user_enumeration_bypass.rb</code>
+For each user found, try to brute with basic passwords:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>wpscan -r --url http://www.example.com --wordlist /Wordlists/Passwords/best1050.txt --username &lt;username&gt;
+</span></span></code></pre></div><p>If the version of Wordpress has been found, download it from the official archive directory:
+<a href="https://wordpress.org/download/release-archive/">https://wordpress.org/download/release-archive/</a></p>
+<p>Open the tested website and take a look at the source to find those strings:
+<code>wp-content/themes</code> and <code>wp-content/plugins</code>
+This could reveal more themes/plugins.</p>
+<h2 id="replication">Replication</h2>
+<p>For each themes found, download them from the official archive directory:
+<a href="https://wordpress.org/themes/">https://wordpress.org/themes/</a><br>
+Try to download the exact same version from the SVN repository (ex: <a href="https://themes.svn.wordpress.org/matala/">https://themes.svn.wordpress.org/matala/</a>)<br>
+If you can&rsquo;t find it, try to download the version before and after.
+If the theme can&rsquo;t be found or if it&rsquo;s not free, try to find it from Google or on some illegal website (take care of backdoors).</p>
+<p>For each plugins found, download them from the official archive directory:
+<a href="https://wordpress.org/plugins/">https://wordpress.org/plugins/</a><br>
+Try to download the exact same version from the Trac browser (ex: <a href="https://plugins.trac.wordpress.org/browser/anual-archive/">https://themes.svn.wordpress.org/matala/</a>)<br>
+If you can&rsquo;t find it, try to download the version before and after.
+If the plugin can&rsquo;t be found or if it&rsquo;s not free, try to find it from Google or on some illegal website (take care of backdoors).</p>
+<p>Once you have everything, open you local dashboard of your local install, and enable all themes and plugins you have downloaded.</p>
+<h2 id="find-an-exploit-the-easy-way">Find an exploit, the easy way</h2>
+<p>For each themes and plugins found, check on <a href="https://www.exploit-db.com/">Exploit Database</a> if there is an existing exploit:<br>
+<img src="https://glc.st/images/wordpress-exploitdb.png" alt="wordpress exploitdb">
+If yes, try them all.</p>
+<h2 id="low-hanging-fruits">Low hanging fruits</h2>
+<p>Open a terminal and find all files you&rsquo;ve got with the themes and the plugins:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>find &lt;your_install_path&gt;/wp-content/themes/ -type f
+</span></span><span style="display:flex;"><span>find &lt;your_install_path&gt;/wp-content/plugins/ -type f
+</span></span></code></pre></div><p>Save the result in a file and inject in Burp Intruder on your target. Check the response code, this will give you a good idea if you have downloaded the right things or not (you should get a lot of 200).</p>
+<p>Check twice the result of PHP files, this could reveal a Full Path Disclosure:
+<img src="https://glc.st/images/wordpress-fpd.png" alt="wordpress full path disclosure"></p>
+<p>If you don&rsquo;t get anything, retry with all PHP files, even the Wordpress core.
+Most of the time WPScan will detect it but it&rsquo;s worth the hit to try!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>find &lt;your_install_path&gt; -type f -iname &#34;*.php&#34;
+</span></span></code></pre></div><h2 id="code-analysis">Code analysis</h2>
+<p>Time to dig deeper! For each themes/plugins, use regexp to locate dangerous functions.
+Test everything on your local install before testing your target.</p>
+<p>SQL statements:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>egrep -ri &#39;select|insert|update|delete&#39; . | grep -i &#34;.php&#34; | egrep --color -i &#34;select.*FROM|insert.*INTO|update.*SET|delete.*FROM&#34;
+</span></span><span style="display:flex;"><span>egrep -ri &#39;\-&gt;prepare|\-&gt;get_results&#39; . | grep -i &#34;.php&#34; | egrep --color -i &#39;\-&gt;prepare|\-&gt;get_results&#39;
+</span></span><span style="display:flex;"><span>egrep -ri &#39;\$_SERVER|\$_REQUEST|\$_GET|\$_POST|\$_COOKIE|\$_ENV|\$_FILES|\$GLOBALS|\$_SESSION&#39; . | grep -i &#34;.php&#34; | egrep --color -i &#39;\$_SERVER\[|\$_REQUEST\[|\$_GET\[|\$_POST\[|\$_COOKIE\[|\$_ENV\[|\$_FILES\[|\$GLOBALS\[|\$_SESSION\[&#39;
+</span></span></code></pre></div><p>File system interaction:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>egrep <span style="color:#f92672">-</span>ri <span style="color:#e6db74">&#39;fopen|popen|file_get_contents|file_put_contents|fread|fwrite|fputs|fputcsv|fgetc|fgets|fgetss|fgetcsv|readfile|fpassthru|fscanf|move_uploaded_file|parse_ini_file&#39;</span> <span style="color:#f92672">.</span> <span style="color:#f92672">|</span> grep <span style="color:#f92672">-</span>i <span style="color:#e6db74">&#34;.php&#34;</span> <span style="color:#f92672">|</span> egrep <span style="color:#f92672">--</span>color <span style="color:#f92672">-</span>i <span style="color:#e6db74">&#34;fopen\s*\(|popen\s*\(|file_get_contents\s*\(|file_put_contents\s*\(|fread\s*\(|fwrite\s*\(|fputs\s*\(|fputcsv\s*\(|fgetc\s*\(|fgets\s*\(|fgetss\s*\(|fgetcsv\s*\(|readfile\s*\(|fpassthru\s*\(|fscanf\s*\(|move_uploaded_file\s*\(|parse_ini_file\s*\(&#34;</span>
+</span></span></code></pre></div><p>Command execution:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>egrep -ri &#39;eval|system|exec|shell_exec|passthru|escapeshell|proc_&#39; . | grep -i &#34;.php&#34; | egrep --color -i &#34;eval\s*\(|system\s*\(|exec\s*\(|shell_exec\s*\(|passthru\s*\(|escapeshell\s*\(|proc_\s*\(&#34;
+</span></span><span style="display:flex;"><span>egrep -ri &#39;assert|create_function|preg_replace|preg_replace_callback&#39; . | grep -i &#34;.php&#34; | egrep --color -i &#34;assert\s*\(|create_function\s*\(|preg_replace\s*\(|preg_replace_callback\s*\(&#34;
+</span></span><span style="display:flex;"><span>egrep -ri &#39;array_map|array_walk|array_walk_recursive|call_user_func|call_user_func_array&#39; . | grep -i &#34;.php&#34; | egrep --color -i &#34;array_map\s*\(|array_walk\s*\(|array_walk_recursive\s*\(|call_user_func\s*\(|call_user_func_array\s*\(&#34;
+</span></span></code></pre></div><p>File inclusion:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>egrep -ri &#39;include|require&#39; . | grep -i &#34;.php&#34; | egrep --color -i &#34;include\s*\(|include_once\s*\(|require\s*\(|require_once\s*\(&#34;
+</span></span></code></pre></div><p>Custom headers:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>egrep -ri &#39;header|setcookie|content-disposition&#39; . | grep -i &#34;.php&#34; | egrep --color -i &#34;header\s*\(|setcookie\s*\(|content-disposition&#34;
+</span></span></code></pre></div><h2 id="boring-stuff">Boring stuff</h2>
+<p>Finally, you can use the same technics you use on any other website. Try to find endpoints from Google, Wayback Machine, etc&hellip; and test SQLi, XSS and so on&hellip;
+Far from exhaustive, you also need to check authentication deeper, specially if oauth is part of the game.</p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://hackerone.com/reports/136169">OneLogin authentication bypass on WordPress sites</a></li>
+<li><a href="https://glc.st/cves/cve-2016-11018/">Image Gallery SQL Injection</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

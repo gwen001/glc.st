@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Ping sweep"/>
+<meta name="twitter:description" content="In the second part of the first phase of a penetration test, active information gathering,it&rsquo;s important to mapas accurate as possible the network of you target.
+To find live hosts there isa technique called ping sweep.
+Different tools exist to perform that task.
+Ping
+A single ping can give you the ip address of the target, the ttl and the time. However since the methodis based on ICMP requests, the target could be configured to block or trash them&hellip; With a simple bash script, you can loop throught a range of ip address to test them all:
+#!/bin/bash
+
+for ip in $(seq 200 220); do
+  ping -c 1 192.168.11.$ip | grep &#34;bytes from&#34; | cut -d &#34; &#34; -f 4 | cut -d &#34;:&#34; -f1 &amp;
+done
+The -c option is configuredto only send 1 request. The grep is usedto display onlythe host who respond to the request (and supposed alive) and finally cut is used for a nice display. Notice the &amp; at the end of the line, it&rsquo;s very usefull pto paralellize tasks and make the script faster. Here is the result:
+"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Ping sweep" />
+<meta property="og:description" content="In the second part of the first phase of a penetration test, active information gathering,it&rsquo;s important to mapas accurate as possible the network of you target.
+To find live hosts there isa technique called ping sweep.
+Different tools exist to perform that task.
+Ping
+A single ping can give you the ip address of the target, the ttl and the time. However since the methodis based on ICMP requests, the target could be configured to block or trash them&hellip; With a simple bash script, you can loop throught a range of ip address to test them all:
+#!/bin/bash
+
+for ip in $(seq 200 220); do
+  ping -c 1 192.168.11.$ip | grep &#34;bytes from&#34; | cut -d &#34; &#34; -f 4 | cut -d &#34;:&#34; -f1 &amp;
+done
+The -c option is configuredto only send 1 request. The grep is usedto display onlythe host who respond to the request (and supposed alive) and finally cut is used for a nice display. Notice the &amp; at the end of the line, it&rsquo;s very usefull pto paralellize tasks and make the script faster. Here is the result:
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/ping-sweep/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2015-03-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-03-13T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/ping-sweep/">
+    
+    <title>
+    Ping sweep · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/ping-sweep/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Ping%20sweep%20https%3a%2f%2fglc.st%2fposts%2fping-sweep%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fping-sweep%2f&title=Ping%20sweep" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fping-sweep%2f&amp;t=Ping%20sweep" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Ping%20sweep&body=https%3a%2f%2fglc.st%2fposts%2fping-sweep%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Ping%20sweep%20https%3a%2f%2fglc.st%2fposts%2fping-sweep%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fping-sweep%2f&text=Ping%20sweep" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fping-sweep%2f&amp;title=Ping%20sweep" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fping-sweep%2f&t=Ping%20sweep" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Ping sweep</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2015-03-13T00:00:00Z'>
+                            March 13, 2015
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        2 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/pentest/">pentest</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/information-gathering/">information gathering</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>In the second part of the first phase of a penetration test, active information gathering,it&rsquo;s important to mapas accurate as possible the network of you target.
+To find live hosts there isa technique called <em>ping sweep</em>.
+Different tools exist to perform that task.</p>
+<h2 id="ping">Ping</h2>
+<p>A single <code>ping</code> can give you the ip address of the target, the ttl and the time. However since the methodis based on ICMP requests, the target could be configured to block or trash them&hellip; With a simple bash script, you can loop throught a range of ip address to test them all:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> ip in <span style="color:#66d9ef">$(</span>seq <span style="color:#ae81ff">200</span> 220<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  ping -c <span style="color:#ae81ff">1</span> 192.168.11.$ip | grep <span style="color:#e6db74">&#34;bytes from&#34;</span> | cut -d <span style="color:#e6db74">&#34; &#34;</span> -f <span style="color:#ae81ff">4</span> | cut -d <span style="color:#e6db74">&#34;:&#34;</span> -f1 &amp;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>The <code>-c</code> option is configuredto only send 1 request. The grep is usedto display onlythe host who respond to the request (and supposed alive) and finally cut is used for a nice display. Notice the <code>&amp;</code> at the end of the line, it&rsquo;s very usefull pto paralellize tasks and make the script faster. Here is the result:</p>
+<p><img src="https://glc.st/images/ping-sweep-ping.png" alt="ping sweep ping"></p>
+<h2 id="netcat">Netcat</h2>
+<p>The bad point of this method is that you mustchoose a port to test.
+I usually use the HTTP port (80) but you&rsquo;ll have toadapt this option for your target.
+Below a small bashscript:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> ip in <span style="color:#66d9ef">$(</span>seq <span style="color:#ae81ff">200</span> 210<span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  nc -n -v -z -w <span style="color:#ae81ff">1</span> 192.168.11.$ip <span style="color:#ae81ff">80</span> 2&gt;&amp;<span style="color:#ae81ff">1</span> |grep open
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p><code>-n</code> : no DNS resolution, ip address must be provided
+<code>-v</code> : verbose mode
+<code>-z</code> : don&rsquo;t not prompt and wait anything
+<code>-w</code> : timeout in seconde
+<code>2&gt;&amp;1</code> : used to make the ouput grappable</p>
+<p>The result:</p>
+<p><img src="https://glc.st/images/ping-sweep-netcat.png" alt="ping sweep netcat"></p>
+<h2 id="nmap">Nmap</h2>
+<p>Nmap is so powerful that you don&rsquo;t needto write a script, a simple command can do the trick:</p>
+<p><img src="https://glc.st/images/ping-sweep-nmap.png" alt="ping sweep nmap"></p>
+<p><code>-sn</code> : ping scan, disable port scan</p>
+<p>The grep and cut command are only usedfor a nice display ;)</p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://glc.st/introduction-to-pentesting/">Introduction to pentesting</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

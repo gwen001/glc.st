@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Kick the bucket"/>
+<meta name="twitter:description" content="I already wrote a post about Amazon S3 buckets but they became so popular these last weeks  that many people explain what is a bucket, what is the danger and how to exploit misconfiguration. My goal here is more: how/where to find those vulnerable buckets.
+First I assume you already know the basics, if not, you can read the excellent article from Frans Rosen on Detectify."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Kick the bucket" />
+<meta property="og:description" content="I already wrote a post about Amazon S3 buckets but they became so popular these last weeks  that many people explain what is a bucket, what is the danger and how to exploit misconfiguration. My goal here is more: how/where to find those vulnerable buckets.
+First I assume you already know the basics, if not, you can read the excellent article from Frans Rosen on Detectify." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/kick-the-bucket/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2017-08-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-08-01T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/kick-the-bucket/">
+    
+    <title>
+    Kick the bucket · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/kick-the-bucket/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Kick%20the%20bucket%20https%3a%2f%2fglc.st%2fposts%2fkick-the-bucket%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fkick-the-bucket%2f&title=Kick%20the%20bucket" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fkick-the-bucket%2f&amp;t=Kick%20the%20bucket" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Kick%20the%20bucket&body=https%3a%2f%2fglc.st%2fposts%2fkick-the-bucket%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Kick%20the%20bucket%20https%3a%2f%2fglc.st%2fposts%2fkick-the-bucket%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fkick-the-bucket%2f&text=Kick%20the%20bucket" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fkick-the-bucket%2f&amp;title=Kick%20the%20bucket" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fkick-the-bucket%2f&t=Kick%20the%20bucket" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Kick the bucket</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2017-08-01T00:00:00Z'>
+                            August 1, 2017
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        3 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/aws/">aws</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/s3/">s3</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/bucket/">bucket</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>I already wrote <a href="https://glc.st/playing-with-s3-buckets/">a post about Amazon S3 buckets</a> but they became so popular these last weeks  that many people explain what is a bucket, what is the danger and how to exploit misconfiguration. My goal here is more: how/where to find those vulnerable buckets.</p>
+<p>First I assume you already know the basics, if not, you can read the excellent article from <a href="https://labs.detectify.com/2017/07/13/a-deep-dive-into-aws-s3-access-controls-taking-full-control-over-your-assets/">Frans Rosen on Detectify</a>.</p>
+<h2 id="how-a-bucket-name-looks-like">How a bucket name looks like?</h2>
+<p>After analyzing alot of buckets, here are the most common pattern I found:</p>
+<ul>
+<li>&lt;main_name&gt;&lt;separator&gt;&lt;word&gt;</li>
+<li>&lt;word&gt;&lt;separator&gt;&lt;main_name&gt;</li>
+<li>&lt;subdomain&gt;</li>
+</ul>
+<p>Where <code>main_name</code> usually is the name of the company or the domain and <code>separator</code> usually is a dot <code>.</code> or a dash <code>-</code>, example:</p>
+<ul>
+<li>10degres-static</li>
+<li>prod.10degres</li>
+<li>assets.10degres.net</li>
+</ul>
+<p>It&rsquo;s also very common to find multiple &ldquo;level&rdquo; of separation, example:</p>
+<ul>
+<li>10degres-backups-2016</li>
+<li>dev.www.10degres.net</li>
+</ul>
+<p>Pretty rare, but sometimes separators are mixed:</p>
+<ul>
+<li>img-dev.10degres.net</li>
+<li>static.10-degres.net</li>
+</ul>
+<h2 id="how-to-access-a-bucket">How to access a bucket?</h2>
+<p>There is 4 ways to access a bucket:</p>
+<ul>
+<li>subdomain of s3.amazonaws.com, ex: <code>https://xxxxxxxxxx.s3.amazonaws.com</code></li>
+<li>subdirectory of s3.amazonaws.com, ex: <code>https://s3.amazonaws.com/xxxxxxxxxx</code></li>
+<li>subdomain of Cloudfront, ex: <code>https://xxxxxxxxxx.cloudfront.net</code></li>
+<li><code>awscli</code> the command line environment tool for AWS, ex: <code>aws s3 ls s3://xxxxxxxxxx</code></li>
+</ul>
+<p>From here you probably already guessed the next chapter&hellip;</p>
+<h2 id="how-to-find-buckets">How to find buckets?</h2>
+<p>To Find buckets, you can use the tools you already use when you perform recon on a new program/domain/host:</p>
+<ul>
+<li>
+<p>sudbomain discovery: Sublist3r, dnsrecon, altdns, <a href="https://www.threatcrowd.org/searchApi/v2/domain/report/?domain=cloudfront.net">threadcrowd.org</a>&hellip;
+<img src="https://glc.st/images/s3bucket-theharvester.png" alt="Sudbomain discovery with theharvester"></p>
+</li>
+<li>
+<p>subdirectory discovery: dirb, wfuzz, gobuster&hellip;
+<img src="https://glc.st/images/s3bucket-wfuzz.png" alt="Subdirectory discovery witf WFuzz"></p>
+</li>
+<li>
+<p>both: Google, Burp Suite and many others&hellip;
+<img src="https://glc.st/images/s3bucket-burp.png" alt="Subdomain discovery with Burp Suite"></p>
+</li>
+</ul>
+<h2 id="dedicated-tools">Dedicated tools</h2>
+<p>Some dedicated tools have been released to discover buckets:</p>
+<ul>
+<li><a href="https://digi.ninja/projects/bucket_finder.php">Bucket Finder</a> by DigiNinja</li>
+<li><a href="https://github.com/nahamsec/lazys3">laszyS3</a> by Jobert Abma and Ben Sadeghipour</li>
+<li><a href="https://github.com/michenriksen/bucketlist">bucketlist</a> by Michen Riksen</li>
+<li><a href="https://github.com/gwen001/s3-buckets-finder">s3-bucket-finder</a> by me<br>
+I also wrote <a href="https://glc.st/assets/cloudfront.txt">a small script</a> that try to determine what is behind a Cloudfront subdomain.</li>
+</ul>
+<h2 id="additionnal-notes">Additionnal notes</h2>
+<p>Even if a bucket is read only, you can report it if the datas available are hot, take a look at Hackerone where the researcher wrote a <a href="https://hackerone.com/reports/202725">report to Mapbox</a> and got a nice reward.
+<br><br>
+Even if a bucket is empty, you can also report it, the danger still here, a hacker could use the place to store hacked datas (movies, software&hellip;) or serve malicious files.
+<br><br>
+A bucket can be readable from the command line tool <code>awscli</code> but not with your browser, try both way.
+<br><br>
+All files contained in a bucket can have different permissions, test them all.
+<br><br>
+A bucket can be configured to serve only one region, you will get a very specific message in that case, so test all region to find the good one (<a href="http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">see the region list</a>).
+<br><br>
+Some buckets are not reachable via <code>http</code>, you should prefer <code>https</code>.
+<br><br>
+At this time, there is no real way to know the owner of a bucket. The only thing you can do, if you have access to the ACL (via the command line method <code>get-bucket-acl</code>), is to compare the owner of two different buckets. So take care when/who you send a report.</p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="http://docs.aws.amazon.com/cli/latest/reference/s3/">Documentation of S3 commands</a></li>
+<li><a href="http://docs.aws.amazon.com/cli/latest/reference/s3api/index.html">Documentation of s3api</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

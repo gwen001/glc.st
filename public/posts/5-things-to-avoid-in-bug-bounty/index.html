@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="5 things to avoid in bug bounty"/>
+<meta name="twitter:description" content="The second article of a serie about bug bounty management. This one give some tips to companies about what kind of mistakes they should avoid to keep good relationship with hackers.
+Unfixed bugs Hackers work on your program, they could choose another one but they chose you. They spend time trying to find issues in your system, which is the purpose of a bug bounty program obviously, the minimum you can do is to fix what they report."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="5 things to avoid in bug bounty" />
+<meta property="og:description" content="The second article of a serie about bug bounty management. This one give some tips to companies about what kind of mistakes they should avoid to keep good relationship with hackers.
+Unfixed bugs Hackers work on your program, they could choose another one but they chose you. They spend time trying to find issues in your system, which is the purpose of a bug bounty program obviously, the minimum you can do is to fix what they report." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/5-things-to-avoid-in-bug-bounty/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2020-01-30T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-30T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/5-things-to-avoid-in-bug-bounty/">
+    
+    <title>
+    5 things to avoid in bug bounty · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/5-things-to-avoid-in-bug-bounty/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=5%20things%20to%20avoid%20in%20bug%20bounty%20https%3a%2f%2fglc.st%2fposts%2f5-things-to-avoid-in-bug-bounty%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2f5-things-to-avoid-in-bug-bounty%2f&title=5%20things%20to%20avoid%20in%20bug%20bounty" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2f5-things-to-avoid-in-bug-bounty%2f&amp;t=5%20things%20to%20avoid%20in%20bug%20bounty" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=5%20things%20to%20avoid%20in%20bug%20bounty&body=https%3a%2f%2fglc.st%2fposts%2f5-things-to-avoid-in-bug-bounty%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=5%20things%20to%20avoid%20in%20bug%20bounty%20https%3a%2f%2fglc.st%2fposts%2f5-things-to-avoid-in-bug-bounty%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2f5-things-to-avoid-in-bug-bounty%2f&text=5%20things%20to%20avoid%20in%20bug%20bounty" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2f5-things-to-avoid-in-bug-bounty%2f&amp;title=5%20things%20to%20avoid%20in%20bug%20bounty" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2f5-things-to-avoid-in-bug-bounty%2f&t=5%20things%20to%20avoid%20in%20bug%20bounty" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">5 things to avoid in bug bounty</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2020-01-30T00:00:00Z'>
+                            January 30, 2020
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        4 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/bug-bounty/">bug bounty</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/management/">management</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>The second article of a serie about bug bounty management.
+This one give some tips to companies about what kind of mistakes they should avoid to keep good relationship with hackers.</p>
+<h1 id="unfixed-bugs">Unfixed bugs</h1>
+<p>Hackers work on your program, they could choose another one but they chose you.
+They spend time trying to find issues in your system, which is the purpose of a bug bounty program obviously, the minimum you can do is to fix what they report.
+Leaving bugs not fixed, reports not solved, keeping them &ldquo;for later&rdquo; will only lead to more reports about the same bugs over and over.</p>
+<p>It&rsquo;s a waste of time for hackers, a waste of time for your triage team, it&rsquo;s a lack of respect.
+Remember that depending the platform, hackers can lost reputation for duplicate, N/A.
+<strong>It will simply ruin you reputation</strong>, hackers won&rsquo;t work for you anymore.
+What was supposed to be a security improvement will become a loss of money and the good marketing move will become a bad ads campaign for you, in 2 words: total mess.</p>
+<h1 id="being-quietunresponsive">Being quiet/unresponsive</h1>
+<p>Feeling ignored is the worst. Really.</p>
+<p>Like it or not, it&rsquo;s your job to handle every single report.
+By handling I mean answer, and by answering I mean manually reply.
+The automatic message sent by the a bot you configured cannot be considered as report management.
+It just confirm that the report has sent/received but not that the team is working on it.</p>
+<p>Hackers spend time to find bugs, they take time to write reports, so it&rsquo;s normal to take some time to tell them about their evolution.
+Every action must be commented (status change, reward, public disclosure&hellip;) as well as no action at all after a while.</p>
+<p>Moreover, when hackers send a ping to know about it, you&rsquo;re also suppose to reply.
+Even a single confirmation that the ticket has been reviewed, your team is working on it, you need time to decide the bounty, whatever&hellip;
+<strong>Communication is the most important.</strong></p>
+<p>Of course the delay of response is also an important key.
+This is the main sign of responsivity/efficiency of your program.</p>
+<h1 id="being-inconsistent">Being inconsistent</h1>
+<p>Clearly not the easiest part and even if it&rsquo;s seems pretty obvious, take care to correctly evaluate the severity of the issues as well as the rewards, especially if you&rsquo;re prone to publicly disclose the reports.</p>
+<p>What does that mean?
+Rewarding 300$ for a full path disclosure is very nice but then you&rsquo;ll be in trouble if you reward 100$ for a XSS.
+No one would understand that decision.</p>
+<p>To help you in this task, some platforms provide a table of vulnerability rating, kind of listing where issues are ordered by severity.
+Another way is to use the <a href="https://www.first.org/cvss/calculator/3.0">CVSS score</a> combined with a good bounty policy.
+No matter what solution you choose to use, remember that the context and the impact are always two important parameters to consider.
+For instance, a RCE on a forgotten server, isolated from your network, without any data stored isn&rsquo;t as critical as a RCE on the production server of your main site.</p>
+<img src="https://glc.st/images/bugcrowd-vrt.jpg" alt="bugcrowd vrt" />
+<h1 id="being-too-strict-regarding-the-scope">Being too strict regarding the scope</h1>
+<p>No matter what scope you configured, you&rsquo;ll get out of scope reports for sure, but it doesn&rsquo;t mean that they don&rsquo;t deserve your attention.
+It&rsquo;s your decision to accept or not a bug in an asset which is clearly not included in the scope (or even excluded) BUT if the impact of the issue is one of the main asset in scope, then you better <strong>think twice and reconsider your position</strong>.</p>
+<p><u>Being too strict</u> regarding the scope, ignoring or not rewarding critical bugs that affect your service/product <u>will make hackers angry</u>, they will not understand your decision.
+Take a look at this <a href="https://hackerone.com/reports/273698">horrible example by Twitter</a> where the hunter found a bug that allows to read private tweets through <code>niche.co</code> which was marked as <i>not eligible for bounty. Thanks for helping keep Twitter secure!</i></p>
+<p>This is how I see the things:<br>
+<img src="https://glc.st/images/bugbounty-scopes.jpg" alt="bug bounty scopes" width="600" /></p>
+<h1 id="bad-words--punishment">Bad words / punishment</h1>
+<p>Wisely choose your triage team.</p>
+<p>As said in the previous paragraph: communication is THE key.
+Being a good triager requires several skills: patience, communication, good english, patience, community management (IT), technical knowledges, patience&hellip;
+Triagers are the interface of the company, they represent your name, your image depends on them.</p>
+<p><strong>Losing patience, being mad at the hackers, saying bad words, threats must be avoided.</strong>
+Again it would kill your reputation if your triagers don&rsquo;t respect the hard work of the hackers.</p>
+<p>Bans are pretty rare, but sometimes it happens.
+If you&rsquo;re close to reach that situation, take a moment to understand why things are so complicated.
+Remember that some hunters perform bug bounty full time, it&rsquo;s a very tedious job where money and reputation are the heart of this job, nerves can be affected.</p>
+<h1 id="external-resources">External resources</h1>
+<ul>
+<li><a href="https://bugcrowd.com/vulnerability-rating-taxonomy">Bugcrowd’s Vulnerability Rating Taxonomy</a></li>
+<li><a href="https://www.zerocopter.com/vulnerability-price-list">Zerocopter&rsquo;s Vulnerability Price List</a></li>
+<li><a href="https://github.com/EdOverflow/bounty-formula">Bounty formula by EdOverflow</a></li>
+</ul>
+
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

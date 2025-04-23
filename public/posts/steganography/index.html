@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Steganography"/>
+<meta name="twitter:description" content="Definition
+Steganography is the art of hidding a message in another common message.
+The hidden message can be clear text or encrypted and the container can be anything: image, music, single text or whatever&hellip; 
+The main benefit of steganography is that you can get the final message only if you know the technic used to hide it, because you&rsquo;ll need to use the same algorithm.
+As a second layer of protection, you can also encrypt the data with any algorithm you like or with a private key."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Steganography" />
+<meta property="og:description" content="Definition
+Steganography is the art of hidding a message in another common message.
+The hidden message can be clear text or encrypted and the container can be anything: image, music, single text or whatever&hellip; 
+The main benefit of steganography is that you can get the final message only if you know the technic used to hide it, because you&rsquo;ll need to use the same algorithm.
+As a second layer of protection, you can also encrypt the data with any algorithm you like or with a private key." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/steganography/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2015-10-18T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-10-18T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/steganography/">
+    
+    <title>
+    Steganography · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/steganography/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Steganography%20https%3a%2f%2fglc.st%2fposts%2fsteganography%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fsteganography%2f&title=Steganography" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fsteganography%2f&amp;t=Steganography" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Steganography&body=https%3a%2f%2fglc.st%2fposts%2fsteganography%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Steganography%20https%3a%2f%2fglc.st%2fposts%2fsteganography%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fsteganography%2f&text=Steganography" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fsteganography%2f&amp;title=Steganography" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fsteganography%2f&t=Steganography" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Steganography</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2015-10-18T00:00:00Z'>
+                            October 18, 2015
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        3 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/stegano/">stegano</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <h2 id="definition">Definition</h2>
+<p>Steganography is the art of hidding a message in another common message.
+The hidden message can be clear text or encrypted and the container can be anything: image, music, single text or whatever&hellip; 
+The main benefit of steganography is that you can get the final message only if you know the technic used to hide it, because you&rsquo;ll need to use the same algorithm.
+As a second layer of protection, you can also encrypt the data with any algorithm you like or with a private key.</p>
+<h2 id="example">Example</h2>
+<p>A good old example of steganography is the famous <a href="http://5ko.free.fr/fr/sand.html">letter of Georges Sand to Alfred de Musset</a>(FR).
+The original text looks like a lovely letter but you only read even lines, a porn text appears.
+If you don&rsquo;t know that you won&rsquo;t be able to see how Georges Sand was horny :)</p>
+<h2 id="least-significant-bit">Least Significant Bit</h2>
+<p>Our days, with new technologies, the container can be a media support: image (jpg, gif, bmp&hellip;), video (avi, mov, flv&hellip;), sound (wav, ogg&hellip;).
+Let&rsquo;s see how it works with a basic technic, called Least Significant Bit aka LSB, on a png image.
+This is probably one of the easiest technic to hide a message inside an image using steganogaphy.</p>
+<p>Each pixel of an image is made of 3 components: Red, Green, Blue. Each component can have a value from 0 to 255, so the total available colors is about <code>256*256*256=16777216</code>.
+Obviously the human eye cannot see all of those shades.
+Each RGB component is encoded on 8 bits (2^8), that means we can use the &ldquo;least significant bit&rdquo; aka 2^0=1 as a flag to hide any characters.
+Who will notice the difference between a full black pixel with R=0, G=0, B=0 and another pixel with R=1, G=1, B=1 ? No one for sure&hellip;</p>
+<p><img src="https://glc.st/images/lsb-black-000000.png" alt="lsb black 000000">
+<img src="https://glc.st/images/lsb-black-010101.png" alt="lsb black 010101"></p>
+<p>Do you see the difference ? Of course not. Do you get the point now ?</p>
+<h2 id="real-case">Real case</h2>
+<p>Based on this technic, I wrote a little PHP script to put a secret message inside a PNG picture then I wrote another script for extraction:</p>
+<p><img src="https://glc.st/images/lsb-mountain-empty.png" alt="lsb mountain original">
+<img src="https://glc.st/images/lsb-mountain-message.png" alt="lsb mountain with message"></p>
+<p>The picture with the encoded message is the left one, obviously you cannot see the difference without an image editor, here is the extracted data:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>UXVlIGRldmllbnQgbGEgdmVydHUgcGVuZGFudCBjZXMgZMOpbGljaWV1eCB2b3lhZ2VzIG91IGxhIHBlbnPDqWUgZnJhbmNoaXQgdG91cyBsZXMgb2JzdGFjbGVzID8K
+</span></span></code></pre></div><p>After a base64 decode, a text from Honoré De Balzac, a famous french writer, appears:</p>
+<p><code>Que devient la vertu pendant ces délicieux voyages ou la pensée franchit tous les obstacles ?</code></p>
+<p>In this test I only used the red component to store my message, that means I can only encode one bit of one character in one pixel.
+Since a character is encoded on 8 bits, the string max length is:
+<code>(img_width*img_height) / 8</code></p>
+<p>Of course everything is possible to raise the max length, you can use the green and the blue components, you also use the second least significant bit and third,
+compress your data or you can simply use a bigger picture :) The only thing you have to matter is that the more text you&rsquo;ll add, the more it will alter the original picture.</p>
+<h2 id="forfun">For fun</h2>
+<p>I improved my script to support every filetype in input.
+In the following picture I decide to hide a mp3 sound, there is no way to figure out the tricks:</p>
+<img src="https://glc.st/images/lsb-goku-empty.png" alt="lsb goku original" height="400" />
+<img src="https://glc.st/images/lsb-goku-message.png" alt="lsb goku with audio" height="400" hspace="50" />
+<p><audio src="https://glc.st/images/lsb-dbz.mp3" controls="controls"></audio></p>
+<p>In this test I used the three color components because of the size of the audio which was about 300Ko, the original picture was about 1.2Mo.
+Finally, after the merge, the final picture is logically, about 1.5Mo.</p>
+<p><a href="https://github.com/gwen001/php-stegano-lsb">Check the script on GitHub</a></p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://github.com/kzykhys/Steganography">A very nice Steganography project from Kazuyuki Hayashi written in PHP</a></li>
+<li><a href="http://www.openstego.com/">OpenStego for Linux and Windows</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

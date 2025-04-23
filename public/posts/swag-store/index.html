@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/images/swag-store.png"/>
+
+<meta name="twitter:title" content="Swag Store"/>
+<meta name="twitter:description" content="In the bug bounty industry, companies/programs reward hackers with bounties for their contribution, most of the time money and swag from time to time.
+But what about platforms?
+How platforms thank their hackers?
+Unfortunately events are not a standard and only a few selected hackers can participate.
+What about something more popular, something fair, something that all hunters could enjoy, even the beginners, even the casuals?
+All platforms have a scoring system so what if you could transform this reputation/score to something more concrete?
+This is THE SWAG STORE."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Swag Store" />
+<meta property="og:description" content="In the bug bounty industry, companies/programs reward hackers with bounties for their contribution, most of the time money and swag from time to time.
+But what about platforms?
+How platforms thank their hackers?
+Unfortunately events are not a standard and only a few selected hackers can participate.
+What about something more popular, something fair, something that all hunters could enjoy, even the beginners, even the casuals?
+All platforms have a scoring system so what if you could transform this reputation/score to something more concrete?
+This is THE SWAG STORE." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/swag-store/" />
+
+<meta property="og:image" content="https://glc.st/images/swag-store.png" />
+<meta property="article:published_time" content="2019-07-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-07-13T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/swag-store/">
+    
+    <title>
+    Swag Store · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/swag-store/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Swag%20Store%20https%3a%2f%2fglc.st%2fposts%2fswag-store%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fswag-store%2f&title=Swag%20Store" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fswag-store%2f&amp;t=Swag%20Store" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Swag%20Store&body=https%3a%2f%2fglc.st%2fposts%2fswag-store%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Swag%20Store%20https%3a%2f%2fglc.st%2fposts%2fswag-store%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fswag-store%2f&text=Swag%20Store" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fswag-store%2f&amp;title=Swag%20Store" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fswag-store%2f&t=Swag%20Store" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Swag Store</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2019-07-13T00:00:00Z'>
+                            July 13, 2019
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        6 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/bug-bounty/">bug bounty</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/swag/">swag</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/project/">project</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>In the bug bounty industry, companies/programs reward hackers with bounties for their contribution, most of the time money and swag from time to time.
+But what about platforms?
+How platforms thank their hackers?
+Unfortunately events are not a standard and only a few selected hackers can participate.
+What about something more popular, something fair, something that all hunters could enjoy, even the beginners, even the casuals?
+All platforms have a scoring system so what if you could transform this reputation/score to something more concrete?
+This is THE SWAG STORE.</p>
+<p>For the purpose of this article, I created a demo store located at:
+<a href="https://bbswagstore.myshopify.com/">https://bbswagstore.myshopify.com/</a><br>
+<em><u>Please do not focus on prices!</u></em></p>
+<h2 id="concept">Concept</h2>
+<p>Basically the idea of the Swag Store is to convert reputation points into something more interesting for hackers than a number on a webpage: <strong>get real items</strong>.
+Some of those items are more a quest treasure like the famous Hackerone hoodie, not easy to get if you&rsquo;re not part of an event.
+I would be more than happy to be able to buy one, or the amazing Bugcrowd stuff or the Yes We Hack backpack but I&rsquo;m not starving enough to hunt days and night for months/years.
+How many bugs should I find for that?</p>
+<p>Plus, as a hunter I think we deserve it, <u>we are part of their success</u>, no hackers no platforms.
+Since most of the platforms get a part of hunters rewards - usually 25% - a hacker who reaches 1000 points had probably reported enough bugs to pay much more than a tee shirt.
+But it&rsquo;s only my opinion.</p>
+<p><img src="https://glc.st/images/swag-store-bugcrowd.png" alt="swag store bugcrowd"></p>
+<h2 id="get-better">Get better</h2>
+<p>When we talk about swag we usually think about tee-shirt, stickers, caps, camera covers and so on&hellip;
+But wait&hellip; What if we could get something more <strong>useful for everyone</strong>?
+Maybe we could find a way to improve hackers skills at the same time?
+It would be a win/win because if hackers get better, they would find more bugs right?</p>
+<p>Think if, as a hacker, you could get that famous <strong>OSCP subscription for free</strong>.
+What you have to do is to find some bugs on some targets (and also be payed for that!).
+Wouldn&rsquo;t it be a good deal?</p>
+<p>Think if, as a platform you could tell your customers that <strong>80% of your hunters are OSCP certified</strong>?
+Wouldn&rsquo;t it be a nice marketing move?</p>
+<p>Think if, as a company you could have access to a <strong>community of hackers who are all OSCP certified</strong>?
+Wouldn&rsquo;t it be a sign of quality?</p>
+<p><img src="https://glc.st/images/swag-store-learning.png" alt="swag store learning"></p>
+<h2 id="project-details">Project details</h2>
+<p>For a quick deployment, I decided to create a store on the e-commerce solution <a href="https://www.shopify.com/">Shopify</a>.
+Easy to configure, easy to maintain, easy products/customers/orders managment, operational in a minute, Shopify is the best option in this situation (they also have a great bug bounty program on Hackerone).
+So no development needed for the store itself but we have a problem regarding the payment: how to buy items with platforms reputation?</p>
+<p>We can easily assume that a standard tee-shirt with the platform logo would cost much more than 10Ɍ (Hackerone delivers 100Ɍ at subscription).
+That means that prices have to be high, let&rsquo;s say 500Ɍ for that tee-shirt. That way we also avoid real orders, who would buy a tee-shirt for 500$?!</p>
+<p>Hackers should have a <strong>swag credit</strong> that would move up (hopefully not down) following their reputation score.
+Then the idea is to create a discount code (voucher) equivalent to the swag credit when a hacker wants to buy something.
+The hacker uses the code during the payment process, the platform is notified and his swag credit decreases regarding the <u>real amount of the order</u>.</p>
+<p>Required:</p>
+<ul>
+<li>The hacker should first create an account on the swag store.</li>
+<li>The hacker should provide his account id from the swag store on the bug bounty platform.</li>
+<li>The platform should add a button in the hackers profile to create a voucher regarding the swag credit value.</li>
+<li>The platform should create the gateway scripts with the swag store.</li>
+</ul>
+<p><img src="https://glc.st/images/swag-store-profile.png" alt="swag store profile"></p>
+<h2 id="store-configuration">Store configuration</h2>
+<ul>
+<li>
+<p>First some <strong>basics settings regarding customers</strong>: <code>/admin/settings/checkout</code><br>
+- check the option <em>&ldquo;Accounts are required&rdquo;</em><br>
+- check the option <em>&ldquo;Customers can only check out using email&rdquo;</em></p>
+</li>
+<li>
+<p><strong>Currency display</strong>: <code>/admin/settings/general</code><br>
+- Store currency: <code>US</code><br>
+- HTML with currency: <code>Ɍ{``{amount}} REP</code><br>
+- HTML without currency: <code>Ɍ{``{amount}}</code><br>
+- Email with currency: <code>Ɍ{``{amount}} REP</code><br>
+- Email without currency: <code>Ɍ{``{amount}}</code></p>
+</li>
+<li>
+<p><strong>Disable payments</strong>: <code>/admin/settings/payments</code><br>
+- Disable PayPal Express Checkout<br>
+- Create a &ldquo;Manual payment method&rdquo; with dummy datas</p>
+</li>
+<li>
+<p><strong>Create a private app</strong> in order to talk with the store using Shopify API: <code>/admin/apps/private/new</code><br>
+Give <code>Read and write</code> permission to:<br>
+- <em>Customer details and customer groups</em><br>
+- <em>Discounts - Discounts GraphQL API</em><br>
+- <em>Discounts - PriceRule REST and GraphQL API</em></p>
+</li>
+<li>
+<p>Finally, <strong>configure the webhook</strong> to be notified of the payments: <code>/admin/settings/notifications</code><br>
+- event: <em>Order payment</em></p>
+</li>
+</ul>
+<h2 id="scenario">Scenario</h2>
+<p><strong>1/</strong> The hacker creates an account on the store</p>
+<p><strong>2/</strong> He submits his store ID in his profile on the bug bounty platform</p>
+<p>For convenience, this process could be fully automated by the platform using the <a href="https://help.shopify.com/en/api/reference/customers/customer#create-2019-07">Shopify API</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># create customer
+</span></span><span style="display:flex;"><span>curl https://&lt;API_KEY&gt;:&lt;PASSWORD&gt;@&lt;STORE_NAME&gt;.myshopify.com/admin/api/2019-04/customers.json -H &#34;Content-Type: application/json&#34; -X POST -d &#39;{&#34;customer&#34;:{&#34;email&#34;:&#34;g@10degres.net&#34;,&#34;accepts_marketing&#34;:false,&#34;first_name&#34;:&#34;Gwen&#34;,&#34;last_name&#34;:&#34;Gwen&#34;,&#34;currency&#34;:&#34;USD&#34;,&#34;addresses&#34;:[{&#34;first_name&#34;:&#34;Gwen&#34;,&#34;last_name&#34;:&#34;Gwen&#34;,&#34;company&#34;:&#34;10degres&#34;,&#34;address1&#34;:&#34;my address&#34;,&#34;address2&#34;:&#34;my address 2&#34;,&#34;city&#34;:&#34;Paris&#34;,&#34;province&#34;:&#34;&#34;,&#34;country&#34;:&#34;France&#34;,&#34;zip&#34;:&#34;75001&#34;,&#34;phone&#34;:&#34;&#34;,&#34;name&#34;:&#34;Gwen Gwen&#34;,&#34;province_code&#34;:null,&#34;country_code&#34;:&#34;FR&#34;,&#34;country_name&#34;:&#34;France&#34;,&#34;default&#34;:true}]}}&#39;
+</span></span></code></pre></div><p><strong>3/</strong> The hacker visits his profil page and decide to <em>&ldquo;Create a discount code&rdquo;</em></p>
+<p><strong>4/</strong> The plaform creates the voucher on the swag store:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># create price rule
+</span></span><span style="display:flex;"><span>curl https://&lt;API_KEY&gt;:&lt;PASSWORD&gt;@&lt;STORE_NAME&gt;.myshopify.com/admin/api/2019-04/price_rules.json -H &#34;Content-Type: application/json&#34; -X POST -d &#39;{&#34;price_rule&#34;: {&#34;title&#34;: &#34;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#34;,&#34;target_type&#34;: &#34;line_item&#34;,&#34;target_selection&#34;: &#34;all&#34;,&#34;allocation_method&#34;: &#34;across&#34;,&#34;value_type&#34;: &#34;fixed_amount&#34;,&#34;value&#34;: &#34;-10.0&#34;,&#34;customer_selection&#34;: &#34;prerequisite&#34;,&#34;prerequisite_customer_ids&#34;:[&#34;&lt;USER_ID&gt;&#34;],&#34;starts_at&#34;: &#34;2019-01-01T00:00:00Z&#34;,&#34;ends_at&#34;: &#34;2019-01-02T00:00:00Z&#34;}}&#39;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span># create discount code
+</span></span><span style="display:flex;"><span>curl https://&lt;API_KEY&gt;:&lt;PASSWORD&gt;@&lt;STORE_NAME&gt;.myshopify.com/admin/api/2019-04/price_rules/&lt;PRICE_RULE_ID&gt;/discount_codes.json -H &#34;Content-Type: application/json&#34; -X POST -d &#39;{&#34;discount_code&#34;:{&#34;code&#34;:&#34;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#34;}}&#39;
+</span></span></code></pre></div><p>For security reason:<br>
+- Price rules should be configured with the correct user id: <code>customer_selection + prerequisite_customer_ids</code><br>
+- The end date of the validity of the &ldquo;offer&rdquo; should be setted to a short period: <code>ends_at</code><br>
+- The price rule could be only used once: <code>once_per_customer</code></p>
+<p><strong>5/</strong> The discount code is displayed to the hacker</p>
+<p><strong>6/</strong> The hacker can now chill out on the store and pick up what he really really wants <img src="https://glc.st/images/icon-music.png" width="20"></p>
+<p><strong>7/</strong> During the payment process the hacker provides the discount code</p>
+<p>If the discount is &gt;= than the subtotal, then the final price will be 0, everything is fine<br>
+If the discount is &lt; than the subtotal, the hacker will have to remove some items from his cart (or pay the difference with real money but no one wants that&hellip;)</p>
+<p><img src="https://glc.st/images/swag-store-checkout.png" alt="swag store checkout"></p>
+<p><strong>8/</strong> The platform is notified by the store that a payment just occured</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#a6e22e">POST</span> / <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
+</span></span><span style="display:flex;"><span>Content-Type<span style="color:#f92672">:</span> <span style="color:#ae81ff">application/json</span>
+</span></span><span style="display:flex;"><span>X-Shopify-Topic<span style="color:#f92672">:</span> <span style="color:#ae81ff">orders/paid</span>
+</span></span><span style="display:flex;"><span>X-Shopify-Shop-Domain<span style="color:#f92672">:</span> <span style="color:#ae81ff">bbswagstore.myshopify.com</span>
+</span></span><span style="display:flex;"><span>X-Shopify-Order-Id<span style="color:#f92672">:</span> <span style="color:#ae81ff">8209946494603</span>
+</span></span><span style="display:flex;"><span>X-Shopify-Test<span style="color:#f92672">:</span> <span style="color:#ae81ff">true</span>
+</span></span><span style="display:flex;"><span>X-Shopify-Hmac-Sha256<span style="color:#f92672">:</span> <span style="color:#ae81ff">N2nqX1/zcS4953w9/et+UDvEmMy1QhNEe14zG7afjTc=</span>
+</span></span><span style="display:flex;"><span>X-Shopify-Api-Version<span style="color:#f92672">:</span> <span style="color:#ae81ff">2019-07</span>
+</span></span><span style="display:flex;"><span>Accept-Encoding<span style="color:#f92672">:</span> <span style="color:#ae81ff">gzip;q=1.0,deflate;q=0.6,identity;q=0.3</span>
+</span></span><span style="display:flex;"><span>Accept<span style="color:#f92672">:</span> <span style="color:#ae81ff">*/*</span>
+</span></span><span style="display:flex;"><span>User-Agent<span style="color:#f92672">:</span> <span style="color:#ae81ff">Ruby</span>
+</span></span><span style="display:flex;"><span>Content-Length<span style="color:#f92672">:</span> <span style="color:#ae81ff">6441</span>
+</span></span><span style="display:flex;"><span>Connection<span style="color:#f92672">:</span> <span style="color:#ae81ff">close</span>
+</span></span><span style="display:flex;"><span>Host<span style="color:#f92672">:</span> <span style="color:#ae81ff">www.mysuperbugbountyplatform.com</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;id&#34;</span>:<span style="color:#ae81ff">8209946494603</span>,<span style="color:#f92672">&#34;email&#34;</span>:<span style="color:#e6db74">&#34;jon@doe.ca&#34;</span>,<span style="color:#f92672">&#34;closed_at&#34;</span>:<span style="color:#66d9ef">null</span>,<span style="color:#f92672">&#34;created_at&#34;</span>:<span style="color:#e6db74">&#34;2019-07-15T16:39:44+02:00&#34;</span><span style="color:#960050;background-color:#1e0010">...</span>
+</span></span></code></pre></div><p><strong>9/</strong> The platform decreases the swag credit of the hacker by the <u>real amount of the order</u></p>
+<p><strong>10/</strong> (optional) The platform revokes the voucher</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span><span style="color:#75715e"># delete price rule</span>
+</span></span><span style="display:flex;"><span>curl https://&lt;API_KEY&gt;:&lt;PASSWORD&gt;@&lt;STORE_NAME&gt;.myshopify.com/admin/api/2019-04/price_rules/&lt;PRICE_RULE_ID&gt;.json -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -X DELETE
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># delete discount code</span>
+</span></span><span style="display:flex;"><span>curl https://&lt;API_KEY&gt;:&lt;PASSWORD&gt;@&lt;STORE_NAME&gt;.myshopify.com/admin/api/2019-04/price_rules/&lt;PRICE_RULE_ID&gt;/discount_codes/&lt;DISCOUNT_CODE_ID&gt;.json -H <span style="color:#e6db74">&#34;Content-Type: application/json&#34;</span> -X DELETE
+</span></span></code></pre></div><p><strong>11/</strong> (optional) Using the same method, the platform can revokes all voucher created the day before but not used</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>My store is just a small example of what could be possible, we can imagine everything: classic goodies, books, courses, <strong>conventions invites</strong> (most of the time very expensive), software licenses, IOT stuff&hellip; etc&hellip;</p>
+<p>In an improved version of a Swag Store we can imagine that programs items could also be available: Pornhub, Etsy, GitHub, Eset, they all have incredible swag very popular in the community.</p>
+<p>Why companies triagers couldn&rsquo;t enjoy swag too?
+We could imagine that the reputation meters of the programs increase the same way than hackers meters.
+That way a company could &ldquo;buy&rdquo; great items (like OSCP) to their triagers.
+Again it would be a great marketing move.
+And maybe some triagers will think twice before mass closing reports as NA/dup.</p>
+<!--
+trading system
+
+Let's says that a hacker already got several swag pack from his favorite platform? Let's say that he already got that Hackerone cap 5 times, another hacker doesn't have it but he has 5 tee-shirt. Maybe they could do a trade?
+-->
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://help.shopify.com/en/api/reference">Shopify REST Admin API reference</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

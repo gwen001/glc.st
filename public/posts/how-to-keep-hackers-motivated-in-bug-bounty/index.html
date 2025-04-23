@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="How to keep hackers motivated in bug bounty"/>
+<meta name="twitter:description" content="Nowadays, there is thousands of programs on several platforms, so how would you attract hackers to you? Why would I choose your program instead of another? Why would I spend time testing your system? Think about hackers like part of your customers or investors, you have convince them to work with you, you have to promote your program like you would market your products.
+One big difference with pentest is that a bug bounty program is something you build on the long term."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="How to keep hackers motivated in bug bounty" />
+<meta property="og:description" content="Nowadays, there is thousands of programs on several platforms, so how would you attract hackers to you? Why would I choose your program instead of another? Why would I spend time testing your system? Think about hackers like part of your customers or investors, you have convince them to work with you, you have to promote your program like you would market your products.
+One big difference with pentest is that a bug bounty program is something you build on the long term." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/how-to-keep-hackers-motivated-in-bug-bounty/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2020-04-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-04T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/how-to-keep-hackers-motivated-in-bug-bounty/">
+    
+    <title>
+    How to keep hackers motivated in bug bounty · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/how-to-keep-hackers-motivated-in-bug-bounty/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=How%20to%20keep%20hackers%20motivated%20in%20bug%20bounty%20https%3a%2f%2fglc.st%2fposts%2fhow-to-keep-hackers-motivated-in-bug-bounty%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fhow-to-keep-hackers-motivated-in-bug-bounty%2f&title=How%20to%20keep%20hackers%20motivated%20in%20bug%20bounty" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fhow-to-keep-hackers-motivated-in-bug-bounty%2f&amp;t=How%20to%20keep%20hackers%20motivated%20in%20bug%20bounty" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=How%20to%20keep%20hackers%20motivated%20in%20bug%20bounty&body=https%3a%2f%2fglc.st%2fposts%2fhow-to-keep-hackers-motivated-in-bug-bounty%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=How%20to%20keep%20hackers%20motivated%20in%20bug%20bounty%20https%3a%2f%2fglc.st%2fposts%2fhow-to-keep-hackers-motivated-in-bug-bounty%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fhow-to-keep-hackers-motivated-in-bug-bounty%2f&text=How%20to%20keep%20hackers%20motivated%20in%20bug%20bounty" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fhow-to-keep-hackers-motivated-in-bug-bounty%2f&amp;title=How%20to%20keep%20hackers%20motivated%20in%20bug%20bounty" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fhow-to-keep-hackers-motivated-in-bug-bounty%2f&t=How%20to%20keep%20hackers%20motivated%20in%20bug%20bounty" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">How to keep hackers motivated in bug bounty</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2020-04-04T00:00:00Z'>
+                            April 4, 2020
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        5 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/bug-bounty/">bug bounty</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/management/">management</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/hackers/">hackers</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>Nowadays, there is thousands of programs on several platforms, so how would you attract hackers to you?
+Why would I choose your program instead of another?
+Why would I spend time testing your system?
+Think about hackers like part of your customers or investors, you have convince them to work with you, you have to promote your program like you would market your products.</p>
+<p>One big difference with pentest is that a bug bounty program is something you build on the long term.
+In this article I will give some tips to charm hunters and keep them next to you.</p>
+<h1 id="good-rewards">Good rewards</h1>
+<p>Obisously.</p>
+<p>Let&rsquo;s be honest, most of the hackers in the bug bounty industry work for the money, ok this is not the only source of motivation as you will understand later but still.
+<strong>The main reward is important but not only.</strong></p>
+<p>A little bonus from time to time when a report is well detailed, when a hacker has been very imaginative as he found a bug you would never expect or when a report is not only critical but mental.
+When you feel hesitating, ask yourself how much you would lose if a malicous user would exploit this bug, it will probably help to make the right choice.</p>
+<p>Some companies also like to have promo time when they increase the bounties for a short period.
+If you use this approach, you&rsquo;ll have to inform your community otherwise it&rsquo;s pointless.</p>
+<p>However <u>money is not the only way to reward hunters</u>.
+Tee-shirt, cap, conf invit, stickers, we all love a bit of swag to make our life more colorful :)</p>
+<p>Finally the best and easiest reward for hunters is to show them how much you respect them.
+Feel free to use kind words as you would do in real life when someone show you something impressive, be thankful.
+Deliver some nice catches!</p>
+<h1 id="good-slas">Good SLAs</h1>
+<p>&gt; If you&rsquo;re not familiar with SLAs, check this <a href="https://www.hackerone.com/blog/Healthy-programs-make-happy-hackers-Introducing-response-SLAs">post on Hackerone</a>.</p>
+<p>As I already mentioned in the previous article <a href="https://glc.st/5-things-to-avoid-in-bug-bounty/">5 things to avoid in bug bounty</a>, having a good communication is a requirement as well as having good Service Level Agreement.
+You basically have <u>4 meters with all the same level of importance</u> for all actors:</p>
+<ul>
+<li>time to first response: notify the hacker you get the report</li>
+<li>time to first triage: notify the hacker if you consider the report valid or not. If yes, it&rsquo;s going to be included in your internal workflow</li>
+<li>time to first bounty: notify the hacker how much you enjoy his work</li>
+<li>time to first fix: the bug is fixed</li>
+</ul>
+<p>No need to say that <strong>the faster you are in all of them the better it is for everyone.</strong>
+Hackers won&rsquo;t work for a company who need 6 month to triage a report as we want to be paid fast.
+<u>Bounty on triage should be standard.</u>
+And you don&rsquo;t want to receive the same reports about the bugs over and over so fix should rain.
+Note that from the first response to the fix, the hacker deserves the right to be informed about anything.</p>
+<img src="https://glc.st/images/hackerone_sla.png" />
+<h1 id="program-evolution">Program evolution</h1>
+<p>Improve your workflow, improve your security to avoid the basic trap, create your community of hunters, refine your reward policy&hellip;
+Be scalable not boring!</p>
+<p><strong>Enlarge the scope.</strong>
+Regularly add new assets to make it bigger and bigger.
+Or add some for a limited period, this helps to keep the game fun :)</p>
+<p><strong>Create a private program.</strong>
+Some companies like to have a secondary secret program to test new features before pushing them in production.
+There, you can invite <u>some</u> of your &ldquo;favorite&rdquo; members of the community.
+From a hunter point of view, it&rsquo;s very exciting to feel that privilege.</p>
+<p><strong>Increase the rewards.</strong>
+With time, your system will be more and more secure so it will harder and harder to find bugs.
+It&rsquo;s normal to increase the payments to keep hackers involved.
+Think about promo time as well, it&rsquo;s very well appreciated.</p>
+<p><strong>Release the reports.</strong>
+As I will explain in the next chapter, public disclosure is important for the community.
+Release reports time after time, hackers will enjoy those readings.
+For instance, every month you can release the fixed reports that are 6 months old.</p>
+<h1 id="public-disclosure">Public disclosure</h1>
+<p><strong>Disclosed reports are one of the biggest source or learning.</strong>
+Sharing them is a kind of investment for the futur because you&rsquo;ll help hackers to get more knowledge.
+And if hackers are better, they will find more bugs.
+Basic, simple.</p>
+<p>This is also a nice marketing move as you show the community you care.
+It&rsquo;s important for us to feel that companies are invested in the security industry.</p>
+<p>Last point, and not the less, it&rsquo;s always a great pleasure for a hacker to see one of his reports released.
+We are proud of it, it helps to get the recognition of the comrades.</p>
+<h1 id="be-involved">Be involved</h1>
+<p>As mentioned in the paragraph above, being close to the community is a real advantage but public disclosure isn&rsquo;t the best way to achieve that.
+Take a look at the Verizon Media security team:</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We are back in our &quot;home office hours&quot; this morning to take questions from hackers and <a href="https://twitter.com/Hacker0x01?ref_src=twsrc%5Etfw">@hacker0x01</a>, and are also working on the next batch of event bounties! See the coins fly at <a href="https://t.co/gZGqtk8yPI">https://t.co/gZGqtk8yPI</a> <a href="https://twitter.com/hashtag/h12004?src=hash&amp;ref_src=twsrc%5Etfw">#h12004</a></p>&mdash; The Paranoids (@TheParanoids) <a href="https://twitter.com/TheParanoids/status/1245709577699479553?ref_src=twsrc%5Etfw">April 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>This is the perfect exemple of how to maintain a good relationship with the community.
+They use Twitter as a canal of communication with hunters, they are represented at many security events, they sponsor infosec initiative from hackers&hellip;
+They are really <strong>involved in our world</strong>, more, <strong>they are part of it</strong>, and because of that the community is grateful to them and faithful to their bug bounty program.</p>
+<p>It&rsquo;s great source of inspiration for every security team.</p>
+
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

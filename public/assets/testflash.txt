@@ -1,0 +1,43 @@
+<?php
+function cleanParam( $str ) {
+	$str = str_replace( '"', '%22', $str );
+	$str = str_replace( ' ', '%20', $str );
+	return $str;
+}
+?>
+
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<title>test flash</title>
+</head>
+
+<body>
+
+XXX
+
+<object data="<?php echo $_GET['__swf']; ?>" type="application/x-shockwave-flash" width="700" height="500">
+<?php
+	$param = '';
+	foreach( $_GET as $k=>$v ) {
+		$v = cleanParam( $v );
+		if( $k == '__swf' ) {
+			continue;
+		}
+		echo '<param name="'.$k.'" value="'.$v.'" />'."\n";
+		$param .= $k.'='.$v.'&';
+	}
+?>
+<param name="FlashVars" value="<?php echo $param; ?>">
+</object>
+
+YYY
+
+<embed width="700" src="<?php echo $_GET['__swf']; ?>?<?php echo $param; ?>" type="application/vnd.adobe.flash-movie"></embed>
+
+ZZZ
+
+</body>
+
+</html>

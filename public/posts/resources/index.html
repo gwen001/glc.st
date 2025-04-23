@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Resources"/>
+<meta name="twitter:description" content="There is a lot of resources available about hacking and security, here are my favorites.
+Some blogs I frequently visit from bounty hunters themself.
+They explain their findings, why it occurs, how they were able to exploit and sometimes how much they win.
+I visit them once a week and I also follow their writer on Twitter to not miss the bugs they don&rsquo;t review.
+In my opinion the best way to learn hacking and security is to read public disclosure.
+It&rsquo;s a great resources of tips and tools to use to make your life easier.
+Some of my favorites issues, the ones I like to read again and again to understand the vulnerability and try to discern the state of mind of the hacker who found it.
+It&rsquo;s also a good way to improve your report skill and see the way hackers communicates with security teams to keep good feelings.
+Each Time I learn a new kind of issue, I try to reproduce it on on my local lab, then I try it on security programs I&rsquo;m currently working on.
+Sometime it works, sometimes not but bug bounty is also about patience. Happy reading !"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Resources" />
+<meta property="og:description" content="There is a lot of resources available about hacking and security, here are my favorites.
+Some blogs I frequently visit from bounty hunters themself.
+They explain their findings, why it occurs, how they were able to exploit and sometimes how much they win.
+I visit them once a week and I also follow their writer on Twitter to not miss the bugs they don&rsquo;t review.
+In my opinion the best way to learn hacking and security is to read public disclosure.
+It&rsquo;s a great resources of tips and tools to use to make your life easier.
+Some of my favorites issues, the ones I like to read again and again to understand the vulnerability and try to discern the state of mind of the hacker who found it.
+It&rsquo;s also a good way to improve your report skill and see the way hackers communicates with security teams to keep good feelings.
+Each Time I learn a new kind of issue, I try to reproduce it on on my local lab, then I try it on security programs I&rsquo;m currently working on.
+Sometime it works, sometimes not but bug bounty is also about patience. Happy reading !" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/resources/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="1990-01-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="1990-01-01T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/resources/">
+    
+    <title>
+    Resources · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/resources/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Resources%20https%3a%2f%2fglc.st%2fposts%2fresources%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fresources%2f&title=Resources" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fresources%2f&amp;t=Resources" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Resources&body=https%3a%2f%2fglc.st%2fposts%2fresources%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Resources%20https%3a%2f%2fglc.st%2fposts%2fresources%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fresources%2f&text=Resources" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fresources%2f&amp;title=Resources" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fresources%2f&t=Resources" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Resources</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='1990-01-01T00:00:00Z'>
+                            January 1, 1990
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        5 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/bug-bounty/">bug bounty</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/pentest/">pentest</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/resources/">resources</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/books/">books</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/videos/">videos</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/tools/">tools</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>There is a lot of resources available about hacking and security, here are my favorites.</p>
+<p>Some blogs I frequently visit from bounty hunters themself.
+They explain their findings, why it occurs, how they were able to exploit and sometimes how much they win.
+I visit them once a week and I also follow their writer on Twitter to not miss the bugs they don&rsquo;t review.</p>
+<p>In my opinion the best way to learn hacking and security is to read public disclosure.
+It&rsquo;s a great resources of tips and tools to use to make your life easier.
+Some of my favorites issues, the ones I like to read again and again to understand the vulnerability and try to discern the state of mind of the hacker who found it.
+It&rsquo;s also a good way to improve your report skill and see the way hackers communicates with security teams to keep good feelings.</p>
+<p>Each Time I learn a new kind of issue, I try to reproduce it on on my local lab, then I try it on security programs I&rsquo;m currently working on.
+Sometime it works, sometimes not but bug bounty is also about patience. Happy reading !</p>
+<h2 id="official">Official</h2>
+<p><a href="https://www.owasp.org/">OWASP</a>: The Open Web Application Security Project<br>
+<a href="http://www.pentest-standard.org/index.php/PTES_Technical_Guidelines">PTES Technical Guidelines</a>: penetration testing guidelines</p>
+<h2 id="companies--organizations">Companies / Organizations</h2>
+<p><a href="http://blog.portswigger.net/">PortSwigger Web Security Blog</a><br>
+<a href="https://blog.sucuri.net/">Sucuri Blog</a><br>
+<a href="http://resources.infosecinstitute.com/">InfoSec Institute</a>: a lot of great articles about security and hacking<br>
+<a href="https://www.cybrary.it/courses/">Cybrary</a> proposes many courses from beginner to advanced<br>
+<a href="http://wiki.securityweekly.com/wiki/index.php/Penetration_Testing_Tips_&amp;_Tricks">Security Weekly</a>: penetration testing tips &amp; tricks<br>
+<a href="https://labs.detectify.com/">Detectify Labs</a></p>
+<h2 id="communities">Communities</h2>
+<p><a href="http://hackademics.fr/">Hackademics</a> (fr): french forums about hacking techniques<br>
+<a href="https://repo.zenk-security.com/">Zenk-Security</a> (fr): online challenges and tutoriels repository<br>
+<a href="http://yehg.net/hwd/?id=r">Hacker Web Directory</a>: security resources list (many broken links unfortunately)<br>
+<a href="http://www.blackhatlibrary.net/">BlackHat Library</a>: nice wiki with vulneabilities explanations (seems to be down)</p>
+<h2 id="training-and-learning">Training (and learning!)</h2>
+<p><a href="https://www.hacksplaining.com/exercises">Hacksplaining</a>: learn to hack, learn to protect yourself<br>
+<a href="http://www.root-me.org/" title="Root Me">Root Me</a> (fr): challenges and CTF<br>
+<a href="https://exploit-exercises.com/" title="Exploit Exercises">Exploit Exercises</a>: challenges and virtual machines<br>
+<a href="https://www.zenk-security.com" title="Zenk-Security">Zenk-Security</a>: challenges and tutoriels repository<br>
+<a href="http://w3challs.com/" title="W3Challs">W3Challs</a>: challenges<br>
+<a href="http://www.newbiecontest.org/" title="Newbie Contest">Newbie Contest</a> (fr): french challenges</p>
+<p><a href="https://www.owasp.org/index.php/Category:OWASP_WebGoat_Project" title="WebGoat">WebGoat</a>: vulnerable web application<br>
+<a href="https://www.vulnhub.com/" title="VulnHub">VulnHub</a>: vulnerable virtual machines<br>
+<a href="http://www.dvwa.co.uk/" title="Damn Vulnerable Web Application">DVWA</a>: vulnerable web application</p>
+<h2 id="personal-blogs">Personal blogs</h2>
+<p><a href="https://glc.st/vulnerabiliies-list/">Vulnerabilities list</a> by me</p>
+<p>&ndash;2017</p>
+<p><a href="http://www.agarri.fr/blog/">Agarri</a>: awesome pentester I met at a bug bounty convention<br>
+<a href="http://philippeharewood.com/">Philippe Harewood</a>: bunch of public disclosure by phwd<br>
+<a href="https://stephensclafani.com/">Stephen Sclafani</a>: this guy shares many of his findings on Facebook<br>
+<a href="https://pentestlab.wordpress.com/">netbiosX</a>: great blog about pentest techniques<br>
+<a href="https://highon.coffee/blog">Arr0way</a>: penetration testing &amp;&amp; security research blog<br>
+<a href="http://www.labofapenetrationtester.com/">Nikhil SamratAshok Mittal</a>: lab of a tenetration tester<br>
+<a href="https://cyberarms.wordpress.com/">Cyber arms</a>: cyber war news and business computer tips<br>
+<a href="http://blog.daviddworken.com/">David Dworken</a>: the famous &ldquo;18-year-old hacker honored at Pentagon&rdquo;<br>
+<a href="https://blog.zsec.uk/">ZeroSec</a>: write-ups, projects, adventures &amp; other bits &amp; bobs<br>
+<a href="https://foxglovesecurity.com/">FoxGlove Security Team</a>: write-ups, projects, adventures &amp; other bits &amp; bobs<br>
+<a href="https://github.com/enaqx/awesome-pentest">Nick Raienko</a>:  collection of awesome penetration testing resources, tools and other things<br>
+<a href="http://blog.orange.tw/">Orange</a>: another white hacker performing bug bounty<br>
+<a href="http://buer.haus/">Brett Buerhaus</a>: he litteraly killed Airbnb</p>
+<p>&ndash;2016</p>
+<p><a href="https://blog.innerht.ml/">Filedescriptor</a>: I don&rsquo;t know who is this guy but his profil on HackerOne is truely awesome<br>
+<a href="https://seanmelia.wordpress.com/">Sean Melia</a> wings between the first and the second place on HackerOne<br>
+<a href="https://whitton.io/">Jack Whitton</a>: true XSS jedi<br>
+<a href="https://www.pentestgeek.com/">Pentest Geek</a>: another nice blog with nice archives<br>
+<a href="https://www.corelan.be/">Corelan Team</a>: group of IT Security researchers/enthusiasts/professionals/hobbyists<br>
+<a href="https://www.josipfranjkovic.com/">Josip Franjković</a>: Facebook’s top 10 whitehat reporters since 2013<br>
+<a href="https://blog.it-securityguard.com/">Patrik Fehrenbach</a>: it-securityguard blog<br>
+<a href="http://blog.saynotolinux.com/">Jordan Milne</a>: web security, programming, reverse-engineering, and everything related<br>
+<a href="http://www.fuzzysecurity.com/tutorials.html">Ruben Boonen</a>: bunch of tutorials covring many topics</p>
+<p>&ndash;before</p>
+<p><a href="http://archive.nahamsec.com/">Ben Sadeghipour</a> plays with many various vulns<br>
+<a href="http://pentestmonkey.net/">pentestmonkey</a>: taking the monkey work out of pentesting<br>
+<a href="http://blog.gentilkiwi.com/">Gentil Kiwi</a> (fr): author of mimikatz<br>
+<a href="http://www.lestutosdenico.com/">Les Tutos de Nico</a> (fr): french blog about security<br>
+<a href="http://5m4ru.blogspot.com/">5m4ru</a> (pl): polish hacking articles with few videos<br>
+<a href="http://www.breaksec.com/?page_id=6002">Nir Goldshlager</a>: CEO of Break Security<br>
+<a href="https://blog.g0tmi1k.com/">g0t mi1k</a>: the guy that broke the high level of DVWA</p>
+<h2 id="specific-articles-that-should-be-bookmarked">Specific articles that should be bookmarked</h2>
+<p><a href="https://github.com/jhaddix/tbhm">The Bug Hunters Methodology</a> by Jason Haddix<br>
+<a href="https://code.google.com/archive/p/pentest-bookmarks/wikis/BookmarksList.wiki">The Open Penetration Testing Bookmarks Collection</a> by Jason Haddix and friends<br>
+<a href="https://blog.g0tmi1k.com/2011/08/basic-linux-privilege-escalation/">Linux privilege escalation</a> by g0t mi1k<br>
+<a href="http://www.fuzzysecurity.com/tutorials/16.html">Windows privilege escalation</a> by Ruben Boonen<br>
+<a href="https://html5sec.org/">HTML5 Security Cheatsheet</a> (XSS payloads)<br>
+<a href="https://github.com/sqlmapproject/sqlmap/wiki/Usage">Documentation of Sqlmap</a><br>
+<a href="https://www.silentrobots.com/blog/2015/12/14/xe-cheatsheet-update/">XXE cheatsheet</a><br>
+<a href="https://ss64.com/nt/">A-Z Index of the Windows CMD command line</a><br>
+<a href="http://www.googleguide.com/advanced_operators_reference.html">Google advanced operators</a><br>
+<a href="http://bodhizazen.net/Tutorials/iptables#Additional_Tips">IP Tables reminder</a><br>
+<a href="https://jivoi.github.io/2015/07/01/pentest-tips-and-tricks/">Pentest Tips and Tricks #1</a> by EK / jiboi<br>
+<a href="https://jivoi.github.io/2015/08/21/pentest-tips-and-tricks-number-2/">Pentest Tips and Tricks #2</a> second part<br>
+<a href="http://www.economyofmechanism.com/github-saml.html">Github Enterprise owned using SAML auth</a> by Ioannis Kakavas</p>
+<h2 id="reports">Reports</h2>
+<p><a href="http://h1.nobbd.de/index.php?start=0">The unofficial HackerOne disclosure timeline</a><br>
+<a href="https://hackerone.com/reports/87040">XSS on OAuth authorize/authenticate endpoint</a><br>
+<a href="https://hackerone.com/reports/73567">Remote Code Execution on Shopify</a><br>
+<a href="https://hackerone.com/reports/1509">DNS Misconfiguration</a><br>
+<a href="https://hackerone.com/reports/119250">XSS in the all widgets of shopifyapps.com</a><br>
+<a href="https://hackerone.com/reports/116029">Private program activity timeline information disclosure</a><br>
+<a href="https://hackerone.com/reports/128088">AWS S3 bucket writeable for authenticated aws users</a><br>
+<a href="https://hackerone.com/reports/125980">uber.com may RCE by Flask Jinja2 Template Injection</a><br>
+<a href="https://hackerone.com/reports/126109">CSV Injection in business.uber.com</a><br>
+<a href="https://hackerone.com/reports/125027">Reflected XSS on developer.uber.com via Angular template injection</a><br>
+<a href="https://hackerone.com/reports/390">Pixel flood attack</a><br>
+<a href="https://hackerone.com/reports/126906">Stored XSS in archive.uber.com Due to Injection of Javascript:alert(0)</a><br>
+<a href="https://hackerone.com/reports/126197">XSS In archive.uber.com Due to Mime Sniffing in IE</a><br>
+<a href="https://hackerone.com/reports/125984">CRLF Injection in developer.uber.com</a><br>
+<a href="https://hackerone.com/reports/125791">Reflected XSS via Unvalidated / Open Redirect in uber.com</a><br>
+<a href="https://hackerone.com/reports/134061">Reflected XSS via Livefyre Media Wall in newsroom.uber.com</a></p>
+<h2 id="videos">Videos</h2>
+<p><a href="http://www.securitytube.net/">SecurityTube</a>: incredible pool of hacking videos, security courses and certifications<br>
+<a href="https://www.youtube.com/results?search_query=defcon">DEF CON</a>: annual meeting with the best hackers and security experts in the world<br>
+<a href="https://www.youtube.com/user/yaworsk1/videos">Yaworsk channel</a>: hacking tutorials and interview of white hackers</p>
+<h2 id="tools">Tools</h2>
+<p><a href="http://sectools.org/">SecTools</a>: pool of network security tools<br>
+<a href="http://tools.kali.org/tools-listing">Kali Linux Tools Listing</a><br>
+<a href="https://addons.mozilla.org/en-US/firefox/collections/yehgdotnet/webhacker/">Web Hacker&rsquo;s Favorites</a>: collection of Firefox add-ons<br>
+<a href="https://www.soldierx.com/Tools">soldierx.com</a>: tools organized by category</p>
+<p><a href="https://glc.st/vulnerability-assessment-tools/">Vulnerability assessment tools</a> by me<br>
+<a href="https://glc.st/pentest-post-exploitation-tools/">Post exploitation tools</a> by me<br>
+<a href="https://glc.st/pentest-information-gathering-tools/">Information gathering tools</a> by me<br>
+<a href="https://glc.st/pentest-exploitation-tools/">Exploitation tools</a> by me</p>
+<h2 id="books">Books</h2>
+<p><a href="http://www.amazon.com/Les-bases-du-hacking/dp/2744025984/">Les bases du hacking</a> (fr):
+introduction to basic hacking techniques. You don&rsquo;t need any experience to understand the steps presented in this book.</p>
+<p><a href="http://www.amazon.com/Web-Application-Hackers-Handbook-Exploiting/dp/1118026470/">The Web Application Hackers Handbook</a> (2nd):
+&ldquo;<em>This fully updated edition contains the very lastest attack techniques and coutermeasures, showing you how to break into today&rsquo;s complex and highly functional applications.</em>&rdquo;</p>
+<p><a href="http://www.amazon.com/Metasploit-Penetration-Testers-David-Kennedy/dp/159327288X/">Metasploit: The Penetration Tester&rsquo;s Guide</a>:
+Metasploit is probably the most popular framework used by professional pentester.</p>
+<p><a href="http://www.amazon.com/Ethical-Hacking-Penetration-Testing-Guide/dp/1482231611/">Ethical Hacking and Penetration Testing Guide</a>:
+introduction and guidelines to understand offensive security.</p>
+<p><a href="https://www.amazon.com/Penetration-Testing-Hands-Introduction-Hacking/dp/1593275641/">Penetration Testing: A Hands-On Introduction to Hacking</a>:
+In Penetration Testing, security expert, researcher, and trainer Georgia Weidman introduces you to the core skills and techniques that every pentester needs.</p>
+<p><a href="https://www.amazon.com/Google-Hacking-Penetration-Testers-1/dp/1931836361/">Google Hacking for Penetration Testers</a>:
+This book beats Google hackers to the punch, equipping web administrators with penetration testing applications to ensure their site is invulnerable to a hacker&rsquo;s search.</p>
+<p><a href="https://www.amazon.com/Stealing-Network-Complete-Collectors-Chapter/dp/159749299X/">Stealing the Network</a>:
+These groundbreaking books created a fictional world of hacker superheroes and villains based on real world technology, tools, and tactics.</p>
+<p><a href="https://leanpub.com/web-hacking-101">Web Hacking 101</a>:
+If you’re reading this, you also have the curiosity needed to be a hacker and bug hunter.</p>
+<p>to be continued&hellip;</p>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

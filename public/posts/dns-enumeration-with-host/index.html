@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="DNS enumeration with Host"/>
+<meta name="twitter:description" content="While performing a pentest the information gathering phase is the most important, it&rsquo;s the key of a successful test.
+The DNS is very great source of informations, whith some simple queries you will be able to grab usefull datas about the domain you are targeting.
+The host command is a very powerful DNS lookup utility which is present in all Linux distribution.
+For the examples, I will use a domain which allows that kind of query at this moment.
+Basic usage
+As the man says, host is normally used to convert names to IP addresses and vice versa:
+
+If the domain doesn&rsquo;t exist, you will meet that message: Host pmolkijn.de not found: 3(NXDOMAIN)
+If the ip doesn&rsquo;t point anywhere, you will get this message: Host 91.121.139.2 not found: 3(NXDOMAIN)"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="DNS enumeration with Host" />
+<meta property="og:description" content="While performing a pentest the information gathering phase is the most important, it&rsquo;s the key of a successful test.
+The DNS is very great source of informations, whith some simple queries you will be able to grab usefull datas about the domain you are targeting.
+The host command is a very powerful DNS lookup utility which is present in all Linux distribution.
+For the examples, I will use a domain which allows that kind of query at this moment.
+Basic usage
+As the man says, host is normally used to convert names to IP addresses and vice versa:
+
+If the domain doesn&rsquo;t exist, you will meet that message: Host pmolkijn.de not found: 3(NXDOMAIN)
+If the ip doesn&rsquo;t point anywhere, you will get this message: Host 91.121.139.2 not found: 3(NXDOMAIN)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/dns-enumeration-with-host/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2015-02-27T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-02-27T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/dns-enumeration-with-host/">
+    
+    <title>
+    DNS enumeration with Host · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/dns-enumeration-with-host/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=DNS%20enumeration%20with%20Host%20https%3a%2f%2fglc.st%2fposts%2fdns-enumeration-with-host%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fdns-enumeration-with-host%2f&title=DNS%20enumeration%20with%20Host" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fdns-enumeration-with-host%2f&amp;t=DNS%20enumeration%20with%20Host" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=DNS%20enumeration%20with%20Host&body=https%3a%2f%2fglc.st%2fposts%2fdns-enumeration-with-host%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=DNS%20enumeration%20with%20Host%20https%3a%2f%2fglc.st%2fposts%2fdns-enumeration-with-host%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fdns-enumeration-with-host%2f&text=DNS%20enumeration%20with%20Host" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fdns-enumeration-with-host%2f&amp;title=DNS%20enumeration%20with%20Host" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fdns-enumeration-with-host%2f&t=DNS%20enumeration%20with%20Host" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">DNS enumeration with Host</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2015-02-27T00:00:00Z'>
+                            February 27, 2015
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        2 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/pentest/">pentest</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/information-gathering/">information gathering</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/dns/">dns</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>While performing a pentest the information gathering phase is the most important, it&rsquo;s the key of a successful test.
+The DNS is very great source of informations, whith some simple queries you will be able to grab usefull datas about the domain you are targeting.
+The <code>host</code> command is a very powerful DNS lookup utility which is present in all Linux distribution.</p>
+<p>For the examples, I will use a domain which allows that kind of query at this moment.</p>
+<h2 id="basic-usage">Basic usage</h2>
+<p>As the <code>man</code> says, <code>host</code> is normally used to convert names to IP addresses and vice versa:</p>
+<p><img src="https://glc.st/images/dns-enumeration-host-basic.png" alt="DNS enumeration host basic"></p>
+<p>If the domain doesn&rsquo;t exist, you will meet that message: <code>Host pmolkijn.de not found: 3(NXDOMAIN)</code></p>
+<p>If the ip doesn&rsquo;t point anywhere, you will get this message: <code>Host 91.121.139.2 not found: 3(NXDOMAIN)</code></p>
+<h2 id="forward">Forward</h2>
+<p>From here you can perform a brute force based on a dictionnary to find subdomains.
+Imagine a text file containing those few keywords:</p>
+<p>mail, demo, test, admin, blog</p>
+<p>With 3 lines of shell code, you could loop to query all derived subdomains:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> name in <span style="color:#66d9ef">$(</span>cat subdomains.txt<span style="color:#66d9ef">)</span> ; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  host $name.leparisien.fr |grep <span style="color:#e6db74">&#34;has address&#34;</span> |cut -d <span style="color:#e6db74">&#34; &#34;</span> -f 1,4
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>Will output:</p>
+<p><img src="https://glc.st/images/dns-enumeration-host-forward.png" alt="DNS enumeration host forward"></p>
+<h2 id="reverse">Reverse</h2>
+<p>Of course you could query the discovered ip address but you can also query all ip in the same network to find more subdomains. Here is a simple shell script:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> ip in <span style="color:#66d9ef">$(</span>seq <span style="color:#ae81ff">0</span> 254<span style="color:#66d9ef">)</span> ; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  host 160.92.126.$ip |grep <span style="color:#e6db74">&#34;leparisien.fr&#34;</span> |cut -d <span style="color:#e6db74">&#34; &#34;</span> -f 1,5
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>Will output:</p>
+<p><img src="https://glc.st/images/dns-enumeration-host-reverse.png" alt="DNS enumeration host reverse"></p>
+<h2 id="zone-transfer">Zone transfer</h2>
+<p>Finally the best technique is to try a zone transfer.
+Zone transfer is a mechanism available for administrators to replicate DNS databases across a set of DNS servers.</p>
+<p>With the <code>-t</code> option you can grab specific informations about the domain: name server (ns), exchange mail (mx), alias (cname), etc.:</p>
+<p><img src="https://glc.st/images/dns-enumeration-host-zone-transfer-1.png" alt="DNS enumeration host zone transfer"></p>
+<p>Then, for each name server found we will try to perform a zone transfer for the domain of the example:</p>
+<p><img src="https://glc.st/images/dns-enumeration-host-zone-transfer-2.png" alt="DNS enumeration host zone transfer"></p>
+<p>Et voilà! My screen is to small but more than 100 unique subdomains have been found.
+If the zone transfer fails, you will get this message: <code>; Transfer failed.</code></p>
+<p>There is many tools to deal with DNS: <code>dig</code>, <code>dnsenum</code>, <code>dnsrecon</code> can also do the trick.
+My favorite and probably the easiest is <a href="http://ha.ckers.org/fierce/" title="Fierce">Fierce</a>.</p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="http://en.wikipedia.org/wiki/DNS_zone_transfer">Zone transfer on Wikipedia</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

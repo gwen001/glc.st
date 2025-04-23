@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/images/edf-subto.png"/>
+
+<meta name="twitter:title" content="One takeover to rule them all"/>
+<meta name="twitter:description" content="Because of Covid, the first quarantaine in France occured in March 2020. During that time I wrote a Python script to detect Subdomain Takeover. As I have been successful several times with the tool, one hit was especially beautiful.
+The story of how I have been able to take control of 450&#43; subdomains of the national french electricity company EDF.
+I&#39;m not going to explain what is subdomain takeover so take a look at the following articles if you want to know more: OWASP test guide"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="One takeover to rule them all" />
+<meta property="og:description" content="Because of Covid, the first quarantaine in France occured in March 2020. During that time I wrote a Python script to detect Subdomain Takeover. As I have been successful several times with the tool, one hit was especially beautiful.
+The story of how I have been able to take control of 450&#43; subdomains of the national french electricity company EDF.
+I&#39;m not going to explain what is subdomain takeover so take a look at the following articles if you want to know more: OWASP test guide" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/one-takeover-to-rule-them-all/" />
+
+<meta property="og:image" content="https://glc.st/images/edf-subto.png" />
+<meta property="article:published_time" content="2022-09-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-21T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/one-takeover-to-rule-them-all/">
+    
+    <title>
+    One takeover to rule them all · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/one-takeover-to-rule-them-all/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=One%20takeover%20to%20rule%20them%20all%20https%3a%2f%2fglc.st%2fposts%2fone-takeover-to-rule-them-all%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fone-takeover-to-rule-them-all%2f&title=One%20takeover%20to%20rule%20them%20all" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fone-takeover-to-rule-them-all%2f&amp;t=One%20takeover%20to%20rule%20them%20all" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=One%20takeover%20to%20rule%20them%20all&body=https%3a%2f%2fglc.st%2fposts%2fone-takeover-to-rule-them-all%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=One%20takeover%20to%20rule%20them%20all%20https%3a%2f%2fglc.st%2fposts%2fone-takeover-to-rule-them-all%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fone-takeover-to-rule-them-all%2f&text=One%20takeover%20to%20rule%20them%20all" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fone-takeover-to-rule-them-all%2f&amp;title=One%20takeover%20to%20rule%20them%20all" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fone-takeover-to-rule-them-all%2f&t=One%20takeover%20to%20rule%20them%20all" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">One takeover to rule them all</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2022-09-21T00:00:00Z'>
+                            September 21, 2022
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        3 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/tools/">tools</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/subdomain-takeover/">subdomain takeover</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>Because of Covid, the first quarantaine in France occured in March 2020.
+During that time I wrote a Python script to detect Subdomain Takeover.
+As I have been successful several times with the tool, one hit was especially beautiful.</p>
+<p><span style="font-size:1.5em;"><em>The story of how I have been able to take control of 450+ subdomains of the national french electricity company <a href="https://www.edf.fr/">EDF</a>.</em></span></p>
+<p><a href="https://glc.st/images/edf-subto.png" target="_blank"><img src="https://glc.st/images/edf-subto.png" alt="edf subdomain takeover" height="450" /></a></p>
+<br>
+<hr>
+I'm not going to explain what is subdomain takeover so take a look at the following articles if you want to know more:
+<p><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/10-Test_for_Subdomain_Takeover">OWASP test guide</a><br>
+<a href="https://www.hackerone.com/application-security/guide-subdomain-takeovers">Hackerone guide</a><br>
+<a href="https://0xpatrik.com/subdomain-takeover-basics/">0xpatrik basics</a></p>
+<hr>
+<br>
+As we all know there are several ways to takeover a subdomain but the easiest way is probably to buy an expired domain which is available for purchase.
+<br><br><br>
+<div style="float:left;width:420px">
+    <b>Finding:</b><br>
+    Using my tool <a href="https://github.com/gwen001/dnspy">dnspy</a>, I found that <code>nucleaire.edf.fr</code> was an alias of <code>edf-linkbynet.com</code>.  
+    A quick search on Gandi and I realized that last one was available for purchase for about 12€/year.  
+    Not knowing what would happen next, I bought the domain and configured it on my server to serve a nice PoC page.
+</div>
+<img hspace="10" src="https://glc.st/images/edf-subto-nucleaire.png" alt="edf nuclaire subdomain takeover" height="300" />
+<div style="clear:both;"></div>
+<br>
+<div style="float:left;width:510px">
+    <b>Traffic incoming!</b><br>
+    A few days later, I checked my server logs to see if anyone requested the stolen subdomain.
+    What was my surprise when I noticed all those requests for different subdomains I didn't know anything about.
+</div>
+<a href="https://glc.st/images/edf-subto-logs.png" target="_blank"><img hspace="10" src="https://glc.st/images/edf-subto-logs.png" alt="edf subdomain takeover logs" height="300" /></a>
+<div style="clear:both;"></div>
+<p><br><br>
+At that time EDF had a private bug bounty program on the french platform YesWeHack.
+I was not invited so I used the dedicated contact form on their website.
+6 weeks later and several tries to get in touch with them, the problem was magically and silently fixed.</p>
+<p>At the end more than 450 subdomains were redirected to my server.
+Exploited by a malicious user, it could have been devastating: social engineering, phishing, cookies manipulation, fake payment system, company reputation&hellip;
+(a simple <em>&ldquo;thank you&rdquo;</em> would have been appreciated).</p>
+<p>Regardind the issue itself, my guess is a bad communication between tech team leaders.
+One admin bought <code>edf-linkbynet.FR</code> and the other one configured all CNAMEs to point to <code>edf-linkbynet.COM</code>, as simple as that!</p>
+<h1 id="the-tool">The tool</h1>
+<p>The tool, called <a href="https://github.com/gwen001/dnspy">dnspy</a>, is composed of 3 modules:</p>
+<p>1/ the grabber tries to find subdomains using external tools like subfinder, oneforall, github, amass&hellip; then alterations are created using altdns or dnsgen.</p>
+<p>2/ the resolver performs DNS queries on all subdomains grabbed and generated using massdns, trying to detect dead hosts, cnames&hellip;</p>
+<p>3/ the interpreter reads the output of the resolver and looks for possible takeover using the fingerprint file.
+It&rsquo;s inspired of subjack with some extra features like regexps support and an ignore list.</p>
+<p>The whole thing is daemon based and can be independently launched. Below some good findings.</p>
+<img src="https://glc.st/images/dnspy-acef.png" alt="edf nuclaire subdomain takeover" />
+<img src="https://glc.st/images/dnspy-bred.png" alt="edf nuclaire subdomain takeover" />
+<img src="https://glc.st/images/dnspy-ce-picardie.png" alt="edf nuclaire subdomain takeover" />
+<img src="https://glc.st/images/dnspy-bpce.png" alt="edf nuclaire subdomain takeover" />
+<img src="https://glc.st/images/dnspy-jeunesse-gouv.png" alt="edf nuclaire subdomain takeover" height="200" />
+<img src="https://glc.st/images/dnspy-hillary.png" alt="edf nuclaire subdomain takeover" height="200" />
+
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

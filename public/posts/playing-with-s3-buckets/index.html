@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Playing with S3 buckets"/>
+<meta name="twitter:description" content="Amazon Simple Storage Service aka S3 is a cloud storage for the Internet.
+You first create a bucket and you can then upload any number of objects (photos, videos, documents etc.) to it.
+However if the permissions (ACL) are not well settled, bad things can happen.
+Recently disclosed by Hackerone, a misconfiguration in their Amazon Web Services S3 buckets allowed any authenticated user to write in there.
+From here an attacker could upload a malicious file waiting for someone open it, or overwrite existing files.
+When you crawl a website, you can you can check the presence of S3 by intercepting calls to amazonaws.com.
+The bucket call can have different look:
+https://&lt;aws_region&gt;.amazonaws.com/&lt;bucket_name&gt;/&lt;file_path&gt;
+or:
+https://&lt;bucket_name&gt;.amazonaws.com/&lt;file_path&gt;
+Once you get the bucket name, you can execute many tests using awscli to check his permissions.
+If you try to access to a bucket who doesn&rsquo;t exist, you&rsquo;ll get this message:
+$ aws s3 ls s3://gwen001-azertyuiop  
+A client error (NoSuchBucket) occurred when calling the ListObjects operation: The specified bucket does not exist
+If you try to execute a command you are not allowed to, you&rsquo;ll then get something like this:
+$ aws s3 ls s3://gwen001-test000/
+A client error (AccessDenied) occurred when calling the ListObjects operation: Access Denied
+"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Playing with S3 buckets" />
+<meta property="og:description" content="Amazon Simple Storage Service aka S3 is a cloud storage for the Internet.
+You first create a bucket and you can then upload any number of objects (photos, videos, documents etc.) to it.
+However if the permissions (ACL) are not well settled, bad things can happen.
+Recently disclosed by Hackerone, a misconfiguration in their Amazon Web Services S3 buckets allowed any authenticated user to write in there.
+From here an attacker could upload a malicious file waiting for someone open it, or overwrite existing files.
+When you crawl a website, you can you can check the presence of S3 by intercepting calls to amazonaws.com.
+The bucket call can have different look:
+https://&lt;aws_region&gt;.amazonaws.com/&lt;bucket_name&gt;/&lt;file_path&gt;
+or:
+https://&lt;bucket_name&gt;.amazonaws.com/&lt;file_path&gt;
+Once you get the bucket name, you can execute many tests using awscli to check his permissions.
+If you try to access to a bucket who doesn&rsquo;t exist, you&rsquo;ll get this message:
+$ aws s3 ls s3://gwen001-azertyuiop  
+A client error (NoSuchBucket) occurred when calling the ListObjects operation: The specified bucket does not exist
+If you try to execute a command you are not allowed to, you&rsquo;ll then get something like this:
+$ aws s3 ls s3://gwen001-test000/
+A client error (AccessDenied) occurred when calling the ListObjects operation: Access Denied
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/playing-with-s3-buckets/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2016-04-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2016-04-15T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/playing-with-s3-buckets/">
+    
+    <title>
+    Playing with S3 buckets · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/playing-with-s3-buckets/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Playing%20with%20S3%20buckets%20https%3a%2f%2fglc.st%2fposts%2fplaying-with-s3-buckets%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fplaying-with-s3-buckets%2f&title=Playing%20with%20S3%20buckets" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fplaying-with-s3-buckets%2f&amp;t=Playing%20with%20S3%20buckets" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Playing%20with%20S3%20buckets&body=https%3a%2f%2fglc.st%2fposts%2fplaying-with-s3-buckets%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Playing%20with%20S3%20buckets%20https%3a%2f%2fglc.st%2fposts%2fplaying-with-s3-buckets%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fplaying-with-s3-buckets%2f&text=Playing%20with%20S3%20buckets" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fplaying-with-s3-buckets%2f&amp;title=Playing%20with%20S3%20buckets" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fplaying-with-s3-buckets%2f&t=Playing%20with%20S3%20buckets" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Playing with S3 buckets</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2016-04-15T00:00:00Z'>
+                            April 15, 2016
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        2 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/aws/">aws</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/s3/">s3</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/bucket/">bucket</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>Amazon Simple Storage Service aka S3 is a cloud storage for the Internet.
+You first create a bucket and you can then upload any number of objects (photos, videos, documents etc.) to it.
+However if the permissions (ACL) are not well settled, bad things can happen.</p>
+<p>Recently disclosed by Hackerone, a misconfiguration in their Amazon Web Services S3 buckets allowed any authenticated user to write in there.
+From here an attacker could upload a malicious file waiting for someone open it, or overwrite existing files.</p>
+<p>When you crawl a website, you can you can check the presence of S3 by intercepting calls to <code>amazonaws.com</code>.
+The bucket call can have different look:<br>
+<code>https://&lt;aws_region&gt;.amazonaws.com/&lt;bucket_name&gt;/&lt;file_path&gt;</code><br>
+or:<br>
+<code>https://&lt;bucket_name&gt;.amazonaws.com/&lt;file_path&gt;</code></p>
+<p>Once you get the bucket name, you can execute many tests using <strong>awscli</strong> to check his permissions.
+If you try to access to a bucket who doesn&rsquo;t exist, you&rsquo;ll get this message:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ aws s3 ls s3://gwen001-azertyuiop  
+</span></span><span style="display:flex;"><span>A client error <span style="color:#f92672">(</span>NoSuchBucket<span style="color:#f92672">)</span> occurred when calling the ListObjects operation: The specified bucket does not exist
+</span></span></code></pre></div><p>If you try to execute a command you are not allowed to, you&rsquo;ll then get something like this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ aws s3 ls s3://gwen001-test000/
+</span></span><span style="display:flex;"><span>A client error <span style="color:#f92672">(</span>AccessDenied<span style="color:#f92672">)</span> occurred when calling the ListObjects operation: Access Denied
+</span></span></code></pre></div><p>For the purpose of this article I created some buckets with differents permissions:</p>
+<table>
+<thead>
+<tr>
+<th>Bucket</th>
+<th>Grantee</th>
+<th>Read</th>
+<th>Write</th>
+<th>get ACL</th>
+<th>set ACL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>test000</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>test001</td>
+<td>me</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+<tr>
+<td>test002</td>
+<td>Everyone</td>
+<td>yes</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>test003</td>
+<td>Everyone</td>
+<td>yes</td>
+<td>yes</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>test004</td>
+<td>Everyone</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>-</td>
+</tr>
+<tr>
+<td>test005</td>
+<td>Everyone</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+<td>yes</td>
+</tr>
+</tbody>
+</table>
+<p>Using my brain and bit of Bash, I wrote a script based on a wordlist to discover and test my buckets.
+The wordlist: <code>test000 test001 testme test002 test003 test004 test005 testx</code></p>
+<p>The script:<br>
+<a href="https://github.com/gwen001/pentest-tools/blob/master/s3-buckets-force.sh">https://github.com/gwen001/pentest-tools/blob/master/s3-buckets-force.sh</a></p>
+<p>The output:<br>
+<img src="https://glc.st/images/s3-bucket-test.png" alt="s3 bucket test"></p>
+<p>Finally 6 buckets has been found, which is correct, and the permissions has also been tested.</p>
+<p>When <code>Edit Permissions</code> is allowed for <code>Everyone</code>, this is the deadly zone but don&rsquo;t underestimate the power of read only.
+From a pentester point of view this is a very good start to gather informations about your business and for a hacker it&rsquo;s a great source to leak your datas.</p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html">Managing your bucket access with ACLs</a></li>
+<li><a href="https://www.youtube.com/watch?v=_x5VKuFjvrk">Demo video from Pete Yaworks</a></li>
+<li><a href="https://hackerone.com/reports/128088">The initial report on Hackerone</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

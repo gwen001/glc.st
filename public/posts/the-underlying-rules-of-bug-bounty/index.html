@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="The underlying rules of bug bounty"/>
+<meta name="twitter:description" content="3 entities, 3 jobs The bug bounty industry is mainly composed of three big entities with each a specific job:
+Programs: the need. Companies who want to test their security.
+Besides triage, companies have alot to do. Create well detailed policies to ensure that hunters will focus on the most interesting issues. Prepare the internal workflow of all concerned teams to handle the flow of reports. Estimate the severity of every reports and consequently reward and finally, fix the bugs."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="The underlying rules of bug bounty" />
+<meta property="og:description" content="3 entities, 3 jobs The bug bounty industry is mainly composed of three big entities with each a specific job:
+Programs: the need. Companies who want to test their security.
+Besides triage, companies have alot to do. Create well detailed policies to ensure that hunters will focus on the most interesting issues. Prepare the internal workflow of all concerned teams to handle the flow of reports. Estimate the severity of every reports and consequently reward and finally, fix the bugs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/the-underlying-rules-of-bug-bounty/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2022-08-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-08-01T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/the-underlying-rules-of-bug-bounty/">
+    
+    <title>
+    The underlying rules of bug bounty · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/the-underlying-rules-of-bug-bounty/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=The%20underlying%20rules%20of%20bug%20bounty%20https%3a%2f%2fglc.st%2fposts%2fthe-underlying-rules-of-bug-bounty%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fthe-underlying-rules-of-bug-bounty%2f&title=The%20underlying%20rules%20of%20bug%20bounty" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fthe-underlying-rules-of-bug-bounty%2f&amp;t=The%20underlying%20rules%20of%20bug%20bounty" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=The%20underlying%20rules%20of%20bug%20bounty&body=https%3a%2f%2fglc.st%2fposts%2fthe-underlying-rules-of-bug-bounty%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=The%20underlying%20rules%20of%20bug%20bounty%20https%3a%2f%2fglc.st%2fposts%2fthe-underlying-rules-of-bug-bounty%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fthe-underlying-rules-of-bug-bounty%2f&text=The%20underlying%20rules%20of%20bug%20bounty" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fthe-underlying-rules-of-bug-bounty%2f&amp;title=The%20underlying%20rules%20of%20bug%20bounty" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fthe-underlying-rules-of-bug-bounty%2f&t=The%20underlying%20rules%20of%20bug%20bounty" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">The underlying rules of bug bounty</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2022-08-01T00:00:00Z'>
+                            August 1, 2022
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        13 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/bug-bounty/">bug bounty</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/management/">management</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <h1 id="3-entities-3-jobs">3 entities, 3 jobs</h1>
+<p>The bug bounty industry is mainly composed of three big entities with each a specific job:</p>
+<p><strong>Programs: the need.</strong> Companies who want to test their security.<br>
+Besides triage, companies have alot to do.
+Create well detailed policies to ensure that hunters will focus on the most interesting issues.
+Prepare the internal workflow of all concerned teams to handle the flow of reports.
+Estimate the severity of every reports and consequently reward and finally, <u>fix the bugs</u>.</p>
+<p>&gt; <a href="https://glc.st/5-things-to-do-before-running-your-first-bug-bounty-program/">5 things to do before running your first bug bounty program</a><br>
+&gt; <a href="https://glc.st/5-things-to-avoid-in-bug-bounty/">5 things to avoid in bug bounty</a><br>
+&gt; <a href="https://glc.st/how-to-keep-hackers-motivated-in-bug-bounty/">How to keep hackers motivated in bug bounty</a></p>
+<p><strong>Hackers: the solution.</strong> Nerds who want to use their skills to get some cash.<br>
+Their work is to find bugs of course, but not only.
+Writing a good report is very important to ensure companies understand what it&rsquo;s about.
+It&rsquo;s also the job of the hackers to prove the severity of the bugs <u>as well as the business impact</u> which is the main criteria to decide the bounties.
+Finally check the fix deployed, which is not mandatory but still appreciated by companies.</p>
+<p>&gt; <a href="https://glc.st/how-to-write-a-bug-bounty-report/">How to write a Bug Bounty report</a></p>
+<p><strong>Platforms: the glue.</strong><br>
+The popular bug bounty industry as we know it today, probably won&rsquo;t exist without platforms.
+However it doesn&rsquo;t mean they are Kings/Queens, they still have alot to do for the two other entities.
+Their job is basically to serve companies AND hackers by creating a trusted relationship between all entities.
+<u>They have an important role at preparing companies</u> to the incoming unexpected situations, like a mentor.
+And since they are literally selling hackers, it&rsquo;s the job of the platforms to ensure that they are <u>respected and rewarded</u> for their work.</p>
+<p>&gt; <a href="https://github.com/disclose/bug-bounty-platforms">List of bug bounty platforms</a></p>
+<h1 id="respect">Respect</h1>
+<p>Yes it&rsquo;s a real rule and one of the most important!</p>
+<p>It&rsquo;s obvious, should be natural but I see too many reports where people don&rsquo;t understand each other and quickly come to rude reactions.
+When you come in such situation where you don&rsquo;t understand the decision of the other part, sit on their chair for a minute, it could change your mind.</p>
+<p>As a hacker, you should understand that programs have to deal with a huge amount of reports.
+They have to prioritize so no need to ask for update every 2 hours, wait at least 1 week.
+If the reward is not what you expected, re-read your report, maybe it&rsquo;s not clear enough, maybe you didn&rsquo;t show the real impact of the issue.
+From my experience, programs always agree to review the severity (and sometimes the bounty) if you are able to find the good arguments, but <strong>staying professional is a condition</strong>.</p>
+<div style="float:left">
+    <img src="https://glc.st/images/weekend-update.jpg" alt="weekend update on report" />
+</div>
+<div style="float:right">
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I have a new found respect for triage teams for bug bounties. Oh my gods the stuff they have to put up with.</p>&mdash; Alyssa Herrera🇩🇰 🏳️‍⚧️ (@Alyssa_Herrera_) <a href="https://twitter.com/Alyssa_Herrera_/status/1260656416118849536?ref_src=twsrc%5Etfw">May 13, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div style="clear:both;"></div>
+<p>As a program, you should understand that hackers spend alot of time trying to find bugs, it&rsquo;s very time consuming.
+So it&rsquo;s always a pain to see a report being refused because it&rsquo;s something you were aware of 6 months ago, but didn&rsquo;t fix&hellip;
+When your dev team is able to escalate a bug from P2 to P1, be honest and adjust the reward accordingly, hackers don&rsquo;t have access to all informations you have.
+Also you should strongly consider to <u>reward on triage</u>, kudos don&rsquo;t pay the bills as well as $$$ do.</p>
+<p>If none of you is able to handle the situation in a proper way, no need to come to an offensive language or punishment.
+Remember that <u>respect works both way</u>, you can&rsquo;t ask for it if you shit on peoples, so keep calm, open a ticket on the platform support.
+It&rsquo;s their job to handle such situations, kind of referees, they are (well) paid for that (% of reward + companies subscription), so use them as much as you can, no matter on what side you are.</p>
+<h1 id="reputation-isnt-everything">Reputation isn&rsquo;t everything</h1>
+<p><strong>High reputation doesn&rsquo;t imply good hacker.</strong>
+The goal here is not to detail all reputation systems but only demonstrate some pitfalls.</p>
+<p>The first point is, only few cases lead to a loss of reputation, which is ok, but that means if you&rsquo;re not a crazy spammer but a normal person - as normal as hackers can be - your reputation will only go up. With time, you&rsquo;ll reach those famous 5k, 10k, 15k&hellip;</p>
+<p>Then, if we take a look at Hackerone, we can notice that a valid critical report is 57 points while a low report is 17 points.
+On YesWeHack, an accepted critical report is 50 points and a low one is 15.
+Basically on both of them <strong>3 low reports are worth a single critical</strong> -&gt; 3<em>CRLF = 1</em>RCE.</p>
+<p>On some platforms like YWH, the variable gain is calculated depending the reward itself and not the severity, but a 500€ reward could be considered as critical on program X and considered as low by program Y, right?</p>
+<p>Moreover, a report with a 50€ reward will get the same points than a 500€ report, and a 2000€ report will get the same points than a 10000€ report.
+In that way, Hackerone system is a bit better since the severity used in the formula is based on the rewards and relative to the program configuration.</p>
+<div style="float:left">
+    <a href="https://glc.st/images/hackerone_reputation.jpg"><img src="https://glc.st/images/hackerone_reputation.jpg" alt="hackerone reputation" height="450" /></a>
+</div>
+<div style="float:right">
+    <a href="https://glc.st/images/yeswehack_report_workflow.jpg"><img src="https://glc.st/images/yeswehack_report_workflow.jpg" alt="yeswehack report workflow" height="450" /></a>
+</div>
+<div style="clear:both;"></div>
+<p>Finally, you have to know that reputation is like money, the more you have, the more you&rsquo;ll get.
+As soon as as hacker reach a high ranking place, he becomes bankable for platforms.
+He is promoted, he gets more private invites, private scopes, interviews, events, which imply more bugs, more reputation, not matter the relevance of his reports.</p>
+<p>Don&rsquo;t get me wrong, I&rsquo;m not saying that top ranked hackers are all farmers, no, but some are.
+And what?
+It&rsquo;s ok, it&rsquo;s part of game, it&rsquo;s not a problem as soon as everyone is aware about that.
+So read carefully the numbers, understand what they mean.</p>
+<p>Fortunately some platforms implement other metrics like <u>signal</u>, <u>impact</u>, <u>acceptance rate</u>, those are good quality indicators.
+As a program manager, you may prefer to rely on them when it comes to invite hunters.</p>
+<p>&gt; <a href="https://docs.hackerone.com/hackers/signal-and-impact.html">Signal and Impact on Hackerone</a><br>
+&gt; <a href="https://www.bugcrowd.com/blog/how-we-measure-researcher-performance/">How we Measure Researcher Performance on Bugcrowd</a></p>
+<h1 id="cvss-isnt-everything">CVSS isn&rsquo;t everything</h1>
+<p>As described on the <a href="https://www.first.org/cvss/calculator/3.1">official website</a>:</p>
+<blockquote>
+<p>The Common Vulnerability Scoring System (CVSS) is an open framework for communicating the characteristics and severity of software vulnerabilities. CVSS consists of three metric groups: Base, Temporal, and Environmental. The Base group represents the intrinsic qualities of a vulnerability that are constant over time and across user environments, the Temporal group reflects the characteristics of a vulnerability that change over time, and the Environmental group represents the characteristics of a vulnerability that are unique to a user&rsquo;s environment. The Base metrics produce a score ranging from 0 to 10, which can then be modified by scoring the Temporal and Environmental metrics.</p>
+</blockquote>
+<p>Here again I&rsquo;m not going to explain in details what is CVSS and how it works but only demonstrate some pitfalls that make it pointless in some situations, because yes, I&rsquo;m telling you loud and clear:<br>
+<strong>CVSS is not the only source of truth.</strong></p>
+<p>Spot the difference:</p>
+<div style="float:left">
+    <img src="https://glc.st/images/cvss-rce2.jpg" alt="cvss rce" width="420" />
+</div>
+<div style="float:right">
+    <img src="https://glc.st/images/cvss-rce2.jpg" alt="cvss rce" width="420" />
+</div>
+<div style="clear:both;"></div>
+<p>Don&rsquo;t twist your mind, it&rsquo;s the same image.
+But imagine for a second that the first screenshot concerns a production web server or a database server, and the second one comes from a test server only hosting the vulnerable script, no data at all, no connection to any network.
+CVSS is the same but would it be the same impact ?
+Because of that, bounties may vary alot.</p>
+<p>In the red corner, we then have vary famous vulnerabilities like <a href="https://www.cvedetails.com/cve/CVE-2016-3714/">ImageTragick</a> and <a href="https://www.cvedetails.com/cve/CVE-2017-5638/">Struts</a>, both have a CVSS score of 10.0 because of the deadly impact.
+Those 2 issues have been widely reported and <i>successfully exploited</i> on many systems.<br>
+In the blue corner, we have another famous issue called <a href="https://www.cvedetails.com/cve/CVE-2019-0708/">Bluekeep</a> which also deserves a good 10.0 because of the severity of the <i>potential</i> impact.
+It has been reported by many whistleblowers.
+But wait!
+Problem is, when it was publicly revealed, there was no wild exploitation reported, not even a public exploit.
+So does it deserve the same attention?</p>
+<p>We can also talk about the SSL/TLS issues all hunters try to monetize at least once: CRIME, PODDLE, BREACH, DROWN&hellip;
+Very famous, danger is real, but who is going to exploit such vulnerabilities?
+It&rsquo;s now considered out of scope by most of the security programs.</p>
+<p>Hunters: don&rsquo;t be mad if the bounties don&rsquo;t reflect the <i>potential</i> severity of the bugs you report.
+<u>Companies have to consider</u> the real risk, <u>the business impact</u> in case of exploitation against their systems/users.</p>
+<p>Companies: it works both way. 3 &ldquo;low&rdquo; bugs, individually rated 3.0 could lead to a disaster when chained, scoring a nice 10.0.
+For example: login/logout CSRF + open redirect + self XSS.
+So don&rsquo;t be narrow.</p>
+<p>&gt; <a href="https://securityboulevard.com/2020/03/dont-be-misled-by-cvss-scores/">Don’t Be Misled by CVSS Scores</a><br>
+&gt; <a href="https://www.troopers.de/media/filer_public/cb/f0/cbf0181b-e9d8-408c-aef3-651bfd114d76/troopers13-pitfalls_of_vulnerability_ratinga_new_approach_called_errs-ernw_rapid_rating_system-michael_thumannmatthias_luft.pdf">Pitfalls of Vulnerability Rating</a></p>
+<h1 id="duplicates">Duplicates</h1>
+<p>Companies often encounter a problem when it comes to manage duplicate reports, here
+are my recommendations to deal with that.</p>
+<p><strong>Case 1: single hunter, global issue.</strong><br>
+If it’s a global issue in the target, then only <u>1 report should be payed</u>.
+The hacker doesn’t really need to open several reports but if he does then he should get a unique good reward by taking care to explain why.
+Example: no CSRF protection, all forms in the website are vulnerable, it’s a global issue.</p>
+<p><strong>Case 2: single hunter, specific issue.</strong><br>
+The rule: <b>1 fix → 1 bounty</b> applies.
+Example: 5 SQL injections found in 5 endpoints, urls are pretty much the same, as well as the vulnerable parameter.
+If, in the background the same function is called and so 1 fix in that function solves the problem, then the rule <i>“same root cause”</i> applies, hunter is rewarded only once all other reports closed in a way he will not lose any point.
+However if the code need to be patched 5 times, then all 5 reports should be rewarded <u>according their individual severity</u>.</p>
+<p><strong>Case 3: several hunters, same issue</strong>, the most common situation.<br>
+The popular rule in the bug bounty industry applies: <b>first come, first payed</b>.
+However if a hunter provides more information than his predecessor(s) (report is well detailed, you learned something new&hellip;), then <u>he deserves a bonus</u>.
+Example: hunter 1 reports a CSRF in a form, hunter 2 reveals the CSRF in the whole website, then <u>both deserve a reward</u>.</p>
+<p>Whatever the situation, a hunter should always be invited to the original report, or at least get the #id, this is the mininum.
+Note that, platforms all have different ways to handle dups.
+From a bonus related to report status to a reputation loss, everything is possible, when finally, hunters don&rsquo;t have any control on this, it&rsquo;s more a pain than anything else.</p>
+<img src="https://glc.st/images/duplicates.jpg" alt="duplicates" />
+<p>Now let&rsquo;s talk about the reason why duplicates are so common. There is basically 3 reasons:</p>
+<ul>
+<li>
+<p><strong>Poor policies.</strong>
+Some issues the company is aware of because of a preceding pentest perhaps.
+Some bugs not considered as real bugs, known issues/won&rsquo;t fix/let&rsquo;s see how it goes/it&rsquo;s not that bad/yeah later&hellip;
+Hackers are kind of magicians, yeah, but they are not mind reader.</p>
+</li>
+<li>
+<p><strong>Overloading.</strong>
+A program just starts, all hackers in the community rush the target, or only the invited ones, or their bots.
+No matter, in the next days reports will rain.
+A company who wasn&rsquo;t well prepared won&rsquo;t be able to handle all of them in an appropriate amount of time.</p>
+</li>
+<li>
+<p><strong>Unfixed bugs.</strong>
+The ultimate shame.
+What&rsquo;s the purpose of a bug bounty program then?
+It&rsquo;s a lack of respect towards hackers who spend their time finding issues in a system.
+Hunters: avoid these programs as much as you can.</p>
+</li>
+</ul>
+<h1 id="safe-harbor">Safe Harbor</h1>
+<p>Depending of the domain (bank, insurance, government&hellip;), it can be pretty hard for a company to open a bug bounty program because of the laws that apply to the domain: tracable users, logs saved n months/years, geographic restrictions and so on&hellip;
+Because of that, platforms put many efforts to provide the needed services: VPN, logs, backups, hackers selection (no it&rsquo;s not only about reputaton)&hellip;</p>
+<p>The purpose of all of this is of course to follow the laws, but it&rsquo;s also a way for companies to track what have been done and by who.
+Imagine a situation where a hacker reports a SQL injection and the developpers notice that some records have been deleted by &ldquo;someone&rdquo;.
+Imagine a customer platform freezed few minutes after the first launch, they may want to know what happened and who is responsible.</p>
+<p>So companies have ways and tools to legally protect themself in case of trouble.
+But what about hackers ?
+Remember that hackers are the fundations of this industry.
+No hackers, no bug bounty.
+So what about protecting them a little bit?
+As bug bounty is growing super fast all over the world, <strong>companies and hackers need to find a way to agree on the legal terms</strong>.
+This is what Safe Harbor is about.</p>
+<blockquote>
+<p>To encourage research and responsible disclosure of security vulnerabilities, we will not pursue civil or criminal action, or send notice to law enforcement for accidental or good faith violations of Microsoft Bug Bounty Terms and Conditions.</p>
+</blockquote>
+<p>As a white hat we all have been in this situation, stressed by the reaction of a company contacted because of a bug found on their website.
+From thanks to nothing to legal proceeding, everything is possible, you never know&hellip;
+Few months ago, <a href="https://twitter.com/ChloeMessdaghi">Chloé Messdaghi</a> had launch a petition to support ethical hackers.</p>
+<p>&gt; <a href="https://www.change.org/p/organizations-support-ethical-hackers">https://www.change.org/p/organizations-support-ethical-hackers</a></p>
+<p>Problem is that, even as a part of a bug bounty program, hunters are not always safe and well considered as they should be.
+By the end of 2017, <a href="https://twitter.com/d0tslash">Kevin Finisterre</a> encountered a complicated situation as he was unfairly threaten by DJI after he sent a 30+ pages report.
+His story has been mentionned in a presentation by <a href="https://twitter.com/amitelazari">Amit Elazari</a> at USENIX Enigma 2018.</p>
+<p>&gt; <a href="https://regmedia.co.uk/2017/11/16/whyiwalkedfrom3k.pdf">Why I walked away from $30,000 of DJI bounty money</a><br>
+&gt; <a href="https://www.youtube.com/watch?v=riZIFOw0pJA">Hacking the Law: Are Bug Bounties a True Safe Harbor?</a></p>
+<p>Safe Harbor is real help as soon as it&rsquo;s included in the security policies.
+In my opinion it should be mandatory in every bug bounty programs on every platforms.
+For now, it&rsquo;s still pretty rare.
+Hackerone, Bugcrowd and Intigriti are the good examples.</p>
+<img src="https://glc.st/images/intigriti-safe-harbour.png" alt="intigriti safe harbour" />
+<p>&gt; <a href="https://www.digitalnewsasia.com/digital-economy/hackerone-offer-white-hats-safe-harbour">Hackerone: offer white hats a safe harbour</a><br>
+&gt; <a href="https://docs.github.com/en/site-policy/security-policies/github-bug-bounty-program-legal-safe-harbor">GitHub Bug Bounty Program Legal Safe Harbor</a><br>
+&gt; <a href="https://blog.mozilla.org/security/2018/08/01/safe-harbor-for-security-bug-bounty-participants/">Safe Harbor for Security Bug Bounty Participants by Mozilla</a></p>
+<h1 id="bounty-on-triage">Bounty on triage</h1>
+<p>Bounty on triage should be the regular way, seriously.</p>
+<p>Unless the secteam needs more informations to reproduce the bug, hunter job is done as soon as the report is accepted so <u>he should be immediately rewarded</u>.</p>
+<p>Take a minute to think about people who perform bug bounty as a full time job, think about beginnners.
+Hunters are not like big companies with a huge cash flow!
+They are normal peoples with duties and responsibilities <strong>#paythebills</strong>.</p>
+<h1 id="disclosure">Disclosure</h1>
+<p>Disclosure is a good marketing move as it shows companies concern about security.
+It also helps to promote programs with the community.
+As reports are one of the best resource for hackers to learn, as they get better from them, it can be seen as good investment.</p>
+<p>Sharable informations:</p>
+<ul>
+<li>quantity of reports</li>
+<li>% of accepted reports</li>
+<li>total rewarded</li>
+<li>average bounty</li>
+<li>vulnerability types</li>
+<li>full reports</li>
+<li>…</li>
+</ul>
+<p>Disclosure can be community reserved or public.</p>
+<style>
+    iframe { width: 400px !important; }
+</style>
+
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

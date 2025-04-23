@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Bug bounty management, a bad example"/>
+<meta name="twitter:description" content="As I lately released an article about a good bug bounty program example, I also wanted to write something about what kind of behaviours companies should avoid to keep the community motivated.
+In 2017, I worked on a great program, so great that I published an article about them called &ldquo;The Bug Bounty program that changed my life&rdquo;.
+Since I was very successful on that program, some weeks ago I decided to give another try.
+I quickly checked the policy on their Hackerone page and noticed some changes in the rules.
+I quickly reported some small bugs and also noticed some changes in the reports management process.
+Unfortunately all those changes now make the program terrible.
+Here is my analysis."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Bug bounty management, a bad example" />
+<meta property="og:description" content="As I lately released an article about a good bug bounty program example, I also wanted to write something about what kind of behaviours companies should avoid to keep the community motivated.
+In 2017, I worked on a great program, so great that I published an article about them called &ldquo;The Bug Bounty program that changed my life&rdquo;.
+Since I was very successful on that program, some weeks ago I decided to give another try.
+I quickly checked the policy on their Hackerone page and noticed some changes in the rules.
+I quickly reported some small bugs and also noticed some changes in the reports management process.
+Unfortunately all those changes now make the program terrible.
+Here is my analysis." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/bug-bounty-management-a-bad-example/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2019-12-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-16T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/bug-bounty-management-a-bad-example/">
+    
+    <title>
+    Bug bounty management, a bad example · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/bug-bounty-management-a-bad-example/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Bug%20bounty%20management%2c%20a%20bad%20example%20https%3a%2f%2fglc.st%2fposts%2fbug-bounty-management-a-bad-example%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fbug-bounty-management-a-bad-example%2f&title=Bug%20bounty%20management%2c%20a%20bad%20example" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fbug-bounty-management-a-bad-example%2f&amp;t=Bug%20bounty%20management%2c%20a%20bad%20example" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Bug%20bounty%20management%2c%20a%20bad%20example&body=https%3a%2f%2fglc.st%2fposts%2fbug-bounty-management-a-bad-example%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Bug%20bounty%20management%2c%20a%20bad%20example%20https%3a%2f%2fglc.st%2fposts%2fbug-bounty-management-a-bad-example%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fbug-bounty-management-a-bad-example%2f&text=Bug%20bounty%20management%2c%20a%20bad%20example" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fbug-bounty-management-a-bad-example%2f&amp;title=Bug%20bounty%20management%2c%20a%20bad%20example" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fbug-bounty-management-a-bad-example%2f&t=Bug%20bounty%20management%2c%20a%20bad%20example" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Bug bounty management, a bad example</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2019-12-16T00:00:00Z'>
+                            December 16, 2019
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        9 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/bug-bounty/">bug bounty</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/management/">management</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>As I lately released an article about a <a href="https://glc.st/bug-bounty-management-a-great-example-zomato/">good bug bounty program example</a>, I also wanted to write something about what kind of behaviours companies should avoid to keep the community motivated.</p>
+<p>In 2017, I worked on a great program, so great that I published an article about them called &ldquo;<a href="https://glc.st/the-bug-bounty-program-that-changed-my-life/">The Bug Bounty program that changed my life</a>&rdquo;.
+Since I was very successful on that program, some weeks ago I decided to give another try.
+I quickly checked the policy on their Hackerone page and noticed some changes in the rules.
+I quickly reported some small bugs and also noticed some changes in the reports management process.</p>
+<p>Unfortunately all those changes now make the program <strong>terrible</strong>.
+Here is my analysis.</p>
+<h2 id="history">History</h2>
+<p>First of the all, I&rsquo;m going to talk about a private program, since I don&rsquo;t want to violate Hackerone privacy policy (and even if you can list all programs through the sitemap #bugbountytips), I won&rsquo;t use the real company name here.
+So I will call it: <strong>Willoz</strong> (be creative).</p>
+<p>According to <a href="https://www.crunchbase.com/">Crunchbase</a>, Willoz is a group with 12 acquisitions.
+As far as I know, this group currently has 11 programs on Hackerone, one per acquisition, all private, all created between July 2016 and February 2017 and all following the same rules.
+However 5 of them are &ldquo;taking a break&rdquo; which means that you&rsquo;re not supposed to submit a report unless you find a critical vulnerability (the report form is still available) or direct contact the company through the emergency email they provide: <a href="mailto:bugbounty@willozgroup.com">bugbounty@willozgroup.com</a>.</p>
+<p>As I previously said, my personal experience with this company has always been great.
+My reports always handled in a week, very quickly rewarded, most of time within 2 days because of the &ldquo;payment on triage&rdquo; rule they tend to apply.
+Since I was good enough, they created a private Slack channel with the head of brand security, the application security lead and myself.
+Here we shared our thought and they gave me some private scopes to play with, at that time no mentionned on Hackerone, where I was very successful again.
+I now have these people listed on my LinkedIn.</p>
+<p>Let&rsquo;s try to figure out what happened.</p>
+<h2 id="rewards">Rewards</h2>
+<p>First thing I immediately noticed was the changes regarding the bounties.<br>
+Since August 2019: <strong><em>$4,500, $2,250, $1,125, $450</em></strong><br>
+Prior that date: <em>$1,000, $500, $250, $150</em> || <em>$1,500, $750, $375, $250</em></p>
+<p>Wow! Such an increase after 3 years!<br>
+It means that they greatly improved their security so they&rsquo;re not scared to pay more for good bugs and even the smallest.
+Hackerone minimum is 500$ as well as Facebook, so 450$ is very nice.
+They might be very confident, no low bugs anymore (at least what they think) or very rich.</p>
+<p>Anyway, this is the normal evolution of a bug bounty program.
+It usually starts with a linear approach and once that most critical bugs have been found <u>and fixed</u>, <strong>you can increase the top bounties to put a stronger accent on high severity bugs</strong>.</p>
+<p><img src="https://glc.st/images/willoz-bounty-policy.png" alt="bounty policy"></p>
+<p>So where is the problem?<br>
+The problem is not the amounts.
+There is simply no point to raise the bounties so much if at the end your goal is to avoid payment as much as you can, using tons of excuses or crazy policy.
+Another possibility is that they don&rsquo;t get so much reports so they need to motivate hackers to work on their programs.</p>
+<h2 id="management">Management</h2>
+<p>Right after I sent my first report I got a message from <em>&ldquo;HackerOne staff&rdquo;</em> saying my report has been validated.
+Ok so the <strong>programs are now managed</strong> by Hackerone.
+How bad is it?</p>
+<p>It&rsquo;s not necessarily bad but it&rsquo;s far from good to me.
+It means that the reports will be handled very quickly, but not necessarily in a proper way.
+Triagers are not aware about all details about the security of the company, they have to learn/ask what to do with that kind of bug, should it be rewarded or not, how much&hellip;
+When they take decision by themself it often leads to big mistakes.
+I think I&rsquo;m safe to say that hackers usually don&rsquo;t like (understand hate) managed programs.</p>
+<p><img src="https://glc.st/images/willoz-triager-complaint.png" alt="triager complaint"></p>
+<p>Second point is that <strong>it breaks the link between the security team and hackers</strong>.
+This is one of the reason I like bug bounty: being in touch with the employees of companies all over the world and help them to fix their bugs, talk with them, share.
+In this case, I lost that trusted relationship built with time in a second.</p>
+<h2 id="targets">Targets</h2>
+<p>Every acquisition has her own website and that domain is the main scope of the program as well as the mobile app if any.</p>
+<p>In the good old times it was possible to report an issue regarding any websites belonging to the group using the main program.
+I already reported critical bugs on domains not listed in the program and been rewarded as it should.
+Unfortunately it looks like they decided to review this position and made a step back.
+I reported a subdomain takeover which was surprisingly declined while it was accepted 2 years ago.</p>
+<p>Don&rsquo;t get me wrong, I am not blaming the company because they follow their own rules, that would be stupid.
+The domain is not in scope, I should not expect anything, ok, fair enough.
+But being very permissive, allowing something and suddently change your mind without a proper commuication first is not a good idea, specially with people who trust you, and more, when you already rewarded those peoples in the same situation.</p>
+<p>When you step in the bug bounty area, you should <strong>create your first program with a limited target list and increase the scope with time</strong>, not downgrade it.</p>
+<h2 id="scope-and-out-of-scope">Scope and Out of scope</h2>
+<p>I&rsquo;m not going to reveal the whole history of the policies but here are the most important steps.</p>
+<p>The programs started with the basic exclusions:</p>
+<ul>
+<li>DoS</li>
+<li>Version disclosure</li>
+<li>Reports from automated tools or scans</li>
+<li>Social engineering</li>
+<li>Physical attempts</li>
+<li>Content spoofing / text injection</li>
+<li>Login / logout CSRF</li>
+<li>Clickjacking</li>
+<li>&hellip;</li>
+</ul>
+<p>At the end of 2018 they added:</p>
+<ul>
+<li>Punycode attacks</li>
+<li>Rate limit</li>
+<li>URL injection where HTML injection is not possible</li>
+<li>Password reset token leaked to 3rd party services</li>
+</ul>
+<p>In 2019, major changes occured:</p>
+<ul>
+<li>Staging, Test, and Demo environments are out of scope</li>
+<li>Cross-Site Scripting (XSS)</li>
+<li>Cross-Site Request Forgery (CSRF)</li>
+</ul>
+<p>While some companies accept all kind of bugs, it&rsquo;s pretty common that issues like clickjacking, text injection or login/logout CSRF are considered out of scope when not leading to critical findings.
+I don&rsquo;t see any problem there.
+However it&rsquo;s pretty unusual to exclude XSS, CSRF, especially <u>after 3 years</u>!</p>
+<p>Months after months, years after years, a bug bounty program evolves, so it&rsquo;s absolutely normal to also see the out of scope section evolving as well.
+Willoz group isn&rsquo;t an exception, they improved that part of the program, but a bit too much, it should go the other way.
+As they already fixed the major bugs and probably a big part of the mediums (XSS and CSRF in scope for 3 years), the program is supposed to be more and more permissive, they are supposed to <strong>accept a bigger variety of bugs</strong>.</p>
+<p>Moreover they also decided to exclude several environments, it suddently widely reduces the scope of the tests.
+Again <strong>the scope is supposed to grow up</strong> as the program is more and more mature and the security team get the experience.</p>
+<h2 id="unresponsive">Unresponsive</h2>
+<p>Since the programs are managed by the platform, the reports are first handled by the platform triagers.
+According to Hackerone, when a program is managed, the security team of the company still have access to all reports and so can step in at any moment to talk with the hunters.</p>
+<p>As a good hunter, when I don&rsquo;t get any answer after a few days/weeks, I throw a ping in the report to catch up the attention of the triagers.
+I can say that <strong>being ignored is the most frustrating feeling so far</strong>.
+Not only the security team but also the platforms triagers are now unresponsive.</p>
+<p>Obviously companies has priorities, an open redirect is nothing compared to a RCE, but that&rsquo;s it, it&rsquo;s part of the game, every reports should be managed the same way.
+And again after 3 years, that company is supposed to have a very good internal worklow, <strong>the internal process should be very well oiled</strong>.
+Ignoring a 2 month report with 3 dunning notices is a big mess, you&rsquo;re not gonna earn the community confidence with that kind of behaviour.</p>
+<p>Side note: when you send a message to the emergency email provided by the company in their rules, you get the following response:
+<img src="https://glc.st/images/willoz-autoreply.png" alt="automatic reply"></p>
+<p>Two words: DEAD END.<br>
+What&rsquo;s the point to set some stupid requirements based on meaningless numbers to finally say to send a message to the exact same email???
+It&rsquo;s a waste of time for everyone.</p>
+<h2 id="punishment">Punishment</h2>
+<p>It was a pure accident that I was contacted by their top hacker at that exact same moment I was struggling with Hackerone mediation.
+He is a very well known hunter in the community performing bug bounty full time as far as I know, and he was hacking on Willoz&rsquo;s programs since the beginning (2016) so we can say that he also <s>has</s> had a good connection with them.</p>
+<p>As specified in the rules:</p>
+<blockquote>
+<p>Any unauthorized attempts that bypass the HackerOne platform and trying to reach out directly to previous / current employees of Willoz Group in regards to any bug-bounty-related discussion could result in termination from our Bug Bounty Program. Please keep all communications in the HackerOne platform.</p>
+</blockquote>
+<div style="float:left;width:450px">
+    Because he couldn't see his reports solved, the hacker tried to contact the company by email.
+    What should happened finally happened, he has been banned.
+    <br/><br/>
+    What a mistake from the company.
+</div>
+<img src="https://glc.st/images/willoz-unhappy-hacker.png" alt="unhappy hacker" width="350" style="float:right;" />
+<div style="clear:both;"></div>
+<p><strong>Ban should be considered as the very last option</strong> and a hacker with 3 years of experience on the programs who tried &ldquo;direct contact&rdquo; should be a big red alert for the security team, it means alot.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>According to all those changes, for me there is only one possible conclusion: the group hired a new security engineer in charge of the bug bounty stuff, he probably tries his best to manage all of this but <u>this is a big fail</u>. Bug bounty best practices are not met anymore when they perfectly were in the past:</p>
+<ul>
+<li>less targets, smaller scope: should be the very opposite after such a long time/strong experience.</li>
+<li>reward increase leads to reward escape: pointless.</li>
+<li>dead relationships with hackers</li>
+</ul>
+<p><strong>Communication is the main key in bug bounty.</strong>
+No matter if a report is accepted or closed, payed or not and how much, the company must <em>always</em> leave a word to inform the hacker about the status of his/her ticket.
+And <u>this is the job of the company managers, not the platform triagers</u>.</p>
+<p>When I start hunting on a new program I always report some &ldquo;minor&rdquo; bugs to check how responsive is the team and see if it&rsquo;s worth digging.
+In this case, I reported 1 subdomain takeover, 4 XSS and 4 open redirect, only 2 of them have been accepted.
+Next&hellip;</p>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

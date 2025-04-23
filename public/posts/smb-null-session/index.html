@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="SMB null session"/>
+<meta name="twitter:description" content="While performing a pentest, if you discover a server running the SMB protocol 
+you can test if it&rsquo;s vulnerable to anonymous connection (also called null session) and then glean a lot of informations with
+a RPC client.
+Nmap is usefull to locate that kind of service:
+
+Now you can try to interact with the remote machine with the help of rpcclient.
+To perform a null session you have to specify an empty user and an empty password.
+If the host is not vulnerable, you will get the following error:
+$ rpcclient -U &#34;&#34; 192.168.1.31
+Enter &#39;s password:
+could not initialise lsa pipe. Error was NT_STATUS_ACCESS_DENIED
+could not obtain sid for domain WORKGROUP
+error: NT_STATUS_ACCESS_DENIED
+But if the host is vulnerable you will immediatly get a prompt:
+$ rpcclient -U &#34;&#34; 192.168.1.18
+Enter &#39;s password:
+rpcclient $&gt;
+"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="SMB null session" />
+<meta property="og:description" content="While performing a pentest, if you discover a server running the SMB protocol 
+you can test if it&rsquo;s vulnerable to anonymous connection (also called null session) and then glean a lot of informations with
+a RPC client.
+Nmap is usefull to locate that kind of service:
+
+Now you can try to interact with the remote machine with the help of rpcclient.
+To perform a null session you have to specify an empty user and an empty password.
+If the host is not vulnerable, you will get the following error:
+$ rpcclient -U &#34;&#34; 192.168.1.31
+Enter &#39;s password:
+could not initialise lsa pipe. Error was NT_STATUS_ACCESS_DENIED
+could not obtain sid for domain WORKGROUP
+error: NT_STATUS_ACCESS_DENIED
+But if the host is vulnerable you will immediatly get a prompt:
+$ rpcclient -U &#34;&#34; 192.168.1.18
+Enter &#39;s password:
+rpcclient $&gt;
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/smb-null-session/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2015-05-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-05-09T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/smb-null-session/">
+    
+    <title>
+    SMB null session · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/smb-null-session/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=SMB%20null%20session%20https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f&title=SMB%20null%20session" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f&amp;t=SMB%20null%20session" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=SMB%20null%20session&body=https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=SMB%20null%20session%20https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f&text=SMB%20null%20session" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f&amp;title=SMB%20null%20session" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f&t=SMB%20null%20session" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">SMB null session</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2015-05-09T00:00:00Z'>
+                            May 9, 2015
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        2 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/smb/">smb</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/rpc/">rpc</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>While performing a pentest, if you discover a server running the <a href="http://en.wikipedia.org/wiki/Server_Message_Block" title="Server Message Block">SMB protocol</a> 
+you can test if it&rsquo;s vulnerable to anonymous connection (also called null session) and then glean a lot of informations with
+a <a href="http://en.wikipedia.org/wiki/Remote_procedure_call" title="Remote Procedure Call">RPC</a> client.
+Nmap is usefull to locate that kind of service:</p>
+<p><img src="https://glc.st/images/smb-null-session-1.png" alt="smb null session"></p>
+<p>Now you can try to interact with the remote machine with the help of <a href="https://www.samba.org/samba/docs/man/manpages/rpcclient.1.html" title="Man rpcclient">rpcclient</a>.
+To perform a null session you have to specify an empty user and an empty password.
+If the host is not vulnerable, you will get the following error:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ rpcclient -U &#34;&#34; 192.168.1.31
+</span></span><span style="display:flex;"><span>Enter &#39;s password:
+</span></span><span style="display:flex;"><span>could not initialise lsa pipe. Error was NT_STATUS_ACCESS_DENIED
+</span></span><span style="display:flex;"><span>could not obtain sid for domain WORKGROUP
+</span></span><span style="display:flex;"><span>error: NT_STATUS_ACCESS_DENIED
+</span></span></code></pre></div><p>But if the host is vulnerable you will immediatly get a prompt:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ rpcclient -U &#34;&#34; 192.168.1.18
+</span></span><span style="display:flex;"><span>Enter &#39;s password:
+</span></span><span style="display:flex;"><span>rpcclient $&gt;
+</span></span></code></pre></div><p>If you connect successfully, you can use help to see the list of available commands (anyway tab works for autocompletion).
+Below some examples of the most used.</p>
+<p>Basic server infos:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>rpcclient $&gt; srvinfo
+</span></span><span style="display:flex;"><span>  LUIGI          Wk Sv PrQ Unx NT SNT nintendo server
+</span></span><span style="display:flex;"><span>  platform_id     :  500
+</span></span><span style="display:flex;"><span>  os version      :  4.9
+</span></span><span style="display:flex;"><span>  server type     :  0x809a03
+</span></span></code></pre></div><p>Users enumeration:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>rpcclient <span style="color:#f92672">$&gt;</span> enumdomusers
+</span></span><span style="display:flex;"><span>user:[admin] rid:[<span style="color:#ae81ff">0x3ec</span>]
+</span></span><span style="display:flex;"><span>user:[Administrator] rid:[<span style="color:#ae81ff">0x1f4</span>]
+</span></span><span style="display:flex;"><span>user:[Guest] rid:[<span style="color:#ae81ff">0x1f5</span>]
+</span></span><span style="display:flex;"><span>user:[lisa] rid:[<span style="color:#ae81ff">0x3f1</span>]
+</span></span><span style="display:flex;"><span>user:[mark] rid:[<span style="color:#ae81ff">0x3f2</span>]<span style="color:#f92672">&lt;/</span>pre<span style="color:#f92672">&gt;</span>
+</span></span></code></pre></div><p>Groups enumeration:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>rpcclient <span style="color:#f92672">$&gt;</span> enumalsgroups builtin
+</span></span><span style="display:flex;"><span>group:[Administrators] rid:[<span style="color:#ae81ff">0x220</span>]
+</span></span><span style="display:flex;"><span>group:[Backup Operators] rid:[<span style="color:#ae81ff">0x227</span>]
+</span></span><span style="display:flex;"><span>group:[Guests] rid:[<span style="color:#ae81ff">0x222</span>]
+</span></span><span style="display:flex;"><span>group:[Power Users] rid:[<span style="color:#ae81ff">0x223</span>]
+</span></span><span style="display:flex;"><span>group:[Users] rid:[<span style="color:#ae81ff">0x221</span>]
+</span></span></code></pre></div><p>Privileges of the connected user:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>rpcclient <span style="color:#f92672">$&gt;</span> enumprivs
+</span></span><span style="display:flex;"><span>found <span style="color:#ae81ff">8</span> privileges
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>SeMachineAccountPrivilege 		<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">6</span> (<span style="color:#ae81ff">0x0</span>:<span style="color:#ae81ff">0x6</span>)
+</span></span><span style="display:flex;"><span>SeTakeOwnershipPrivilege 		<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">9</span> (<span style="color:#ae81ff">0x0</span>:<span style="color:#ae81ff">0x9</span>)
+</span></span><span style="display:flex;"><span>SeBackupPrivilege 		<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">17</span> (<span style="color:#ae81ff">0x0</span>:<span style="color:#ae81ff">0x11</span>)
+</span></span><span style="display:flex;"><span>SeRestorePrivilege 		<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">18</span> (<span style="color:#ae81ff">0x0</span>:<span style="color:#ae81ff">0x12</span>)
+</span></span><span style="display:flex;"><span>SeRemoteShutdownPrivilege 		<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">24</span> (<span style="color:#ae81ff">0x0</span>:<span style="color:#ae81ff">0x18</span>)
+</span></span><span style="display:flex;"><span>SePrintOperatorPrivilege 		<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">4097</span> (<span style="color:#ae81ff">0x0</span>:<span style="color:#ae81ff">0x1001</span>)
+</span></span><span style="display:flex;"><span>SeAddUsersPrivilege 		<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">4098</span> (<span style="color:#ae81ff">0x0</span>:<span style="color:#ae81ff">0x1002</span>)
+</span></span><span style="display:flex;"><span>SeDiskOperatorPrivilege 		<span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">4099</span> (<span style="color:#ae81ff">0x0</span>:<span style="color:#ae81ff">0x1003</span>)
+</span></span></code></pre></div><p>Shares enumeration:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>rpcclient <span style="color:#f92672">$&gt;</span> netshareenum
+</span></span><span style="display:flex;"><span>netname: IPC<span style="color:#f92672">$</span>
+</span></span><span style="display:flex;"><span>  remark:	IPC Service
+</span></span><span style="display:flex;"><span>  path:	C:\tmp
+</span></span><span style="display:flex;"><span>  password:
+</span></span><span style="display:flex;"><span>netname: Lisa Share
+</span></span><span style="display:flex;"><span>  remark:	Lisa Docs
+</span></span><span style="display:flex;"><span>  path:	C:\home\lisa\files
+</span></span><span style="display:flex;"><span>  password:
+</span></span></code></pre></div><p><a href="https://code.google.com/p/phillips321/">enum4linux</a> is the perfect tool to automate null session attacks.
+According to the documentation : &ldquo;[&hellip;] this script is basically just a wrapper around rpcclient, net, nmblookup and smbclient [&hellip;]&rdquo;.</p>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

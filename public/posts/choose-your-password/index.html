@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Choose your password"/>
+<meta name="twitter:description" content="I recently worked with a well known web agency in France.
+They have a good reputation, they were rewarded last year for their good works and they are in the top 40 of the best french agencies. 
+However I was terribly surprised to find many basic errors/misconfiguration on their own site: error_reporting enable, 
+SQL injection and finally a &ldquo;private&rdquo; admin section reachable with a simple couple of demo/demo as credentials&hellip;
+Such vulnerability can be dangerous when using common login/password and it can be even deadly if the discovered user has high privileges.
+It was true in this situation: mail contact, articles, resumes, photos everything was alterable.
+Below the good practice to create a strong password.
+The rules
+
+must be at least 8 characters
+must be different than your previous password
+must NOT be related to your username
+must NOT contain any recognizable word
+"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Choose your password" />
+<meta property="og:description" content="I recently worked with a well known web agency in France.
+They have a good reputation, they were rewarded last year for their good works and they are in the top 40 of the best french agencies. 
+However I was terribly surprised to find many basic errors/misconfiguration on their own site: error_reporting enable, 
+SQL injection and finally a &ldquo;private&rdquo; admin section reachable with a simple couple of demo/demo as credentials&hellip;
+Such vulnerability can be dangerous when using common login/password and it can be even deadly if the discovered user has high privileges.
+It was true in this situation: mail contact, articles, resumes, photos everything was alterable.
+Below the good practice to create a strong password.
+The rules
+
+must be at least 8 characters
+must be different than your previous password
+must NOT be related to your username
+must NOT contain any recognizable word
+" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/choose-your-password/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2015-03-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-03-02T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/choose-your-password/">
+    
+    <title>
+    Choose your password · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/choose-your-password/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Choose%20your%20password%20https%3a%2f%2fglc.st%2fposts%2fchoose-your-password%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fchoose-your-password%2f&title=Choose%20your%20password" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fchoose-your-password%2f&amp;t=Choose%20your%20password" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Choose%20your%20password&body=https%3a%2f%2fglc.st%2fposts%2fchoose-your-password%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Choose%20your%20password%20https%3a%2f%2fglc.st%2fposts%2fchoose-your-password%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fchoose-your-password%2f&text=Choose%20your%20password" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fchoose-your-password%2f&amp;title=Choose%20your%20password" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fchoose-your-password%2f&t=Choose%20your%20password" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Choose your password</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2015-03-02T00:00:00Z'>
+                            March 2, 2015
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        2 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/password/">password</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/security/">security</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>I recently worked with a well known web agency in France.
+They have a good reputation, they were rewarded last year for their good works and they are in the top 40 of the best french agencies. </p>
+<p>However I was terribly surprised to find many basic errors/misconfiguration on their own site: error_reporting enable, 
+SQL injection and finally a &ldquo;private&rdquo; admin section reachable with a simple couple of <code>demo</code>/<code>demo</code> as credentials&hellip;</p>
+<p>Such vulnerability can be dangerous when using common login/password and it can be even deadly if the discovered user has high privileges.
+It was true in this situation: mail contact, articles, resumes, photos everything was alterable.</p>
+<p>Below the good practice to create a strong password.</p>
+<h2 id="the-rules">The rules</h2>
+<ul>
+<li>must be at least 8 characters</li>
+<li>must be different than your previous password</li>
+<li>must NOT be related to your username</li>
+<li>must NOT contain any recognizable word</li>
+</ul>
+<h2 id="the-characters-set">The characters set</h2>
+<ul>
+<li>must contains uppercase: <code>A, B, C, ...</code></li>
+<li>must contains lowercase: <code>a, b, c, ...</code></li>
+<li>must contains number: <code>0, 1, 2, ...</code></li>
+<li>must contains symbol: <code>#, §, %, @, &amp;, ...</code></li>
+</ul>
+<h2 id="the-method">The method</h2>
+<p>A good approach is to choose a random sentence, a song title, a proverb, a book excerpt or whatever you&rsquo;ll remember easily&hellip; Extract the first letter of each words, apply some changes and add some chars.</p>
+<h2 id="the-example">The example</h2>
+<p>I choosed a small sentence from &ldquo;Fade into you&rdquo; by Mazzy Star:</p>
+<ol>
+<li>the original: <code>Some kind of night into your darkness</code></li>
+<li>first letters: <code>skoniyd</code></li>
+<li>replace letters by numbers: <code>sk0n1yd</code></li>
+<li>transform lowercase to uppercase: <code>Sk0n1yD</code></li>
+<li>add symbols to reach a good length: <code>#Sk0n1yD*</code></li>
+</ol>
+<p>An attack based on a dictionary would fail against this password. A brute force still possible but will be much much loooooonnnnnnger :)</p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="http://www.makeuseof.com/tag/test-password-strength-tool-hackers-use/">A good article about how to test your password</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

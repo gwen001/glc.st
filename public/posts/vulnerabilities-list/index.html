@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Vulnerabilities list"/>
+<meta name="twitter:description" content="Here is a non exhausted list of vulnerabilities that I use as a reminder with links for reference.
+It&rsquo;s based on many different resources available on the Internet."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Vulnerabilities list" />
+<meta property="og:description" content="Here is a non exhausted list of vulnerabilities that I use as a reminder with links for reference.
+It&rsquo;s based on many different resources available on the Internet." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/vulnerabilities-list/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="1970-01-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="1970-01-01T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/vulnerabilities-list/">
+    
+    <title>
+    Vulnerabilities list · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/vulnerabilities-list/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Vulnerabilities%20list%20https%3a%2f%2fglc.st%2fposts%2fvulnerabilities-list%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fvulnerabilities-list%2f&title=Vulnerabilities%20list" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fvulnerabilities-list%2f&amp;t=Vulnerabilities%20list" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Vulnerabilities%20list&body=https%3a%2f%2fglc.st%2fposts%2fvulnerabilities-list%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Vulnerabilities%20list%20https%3a%2f%2fglc.st%2fposts%2fvulnerabilities-list%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fvulnerabilities-list%2f&text=Vulnerabilities%20list" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fvulnerabilities-list%2f&amp;title=Vulnerabilities%20list" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fvulnerabilities-list%2f&t=Vulnerabilities%20list" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Vulnerabilities list</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='1970-01-01T00:00:00Z'>
+                            January 1, 1970
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        3 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/resources/">resources</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>Here is a non exhausted list of vulnerabilities that I use as a reminder with links for reference.
+It&rsquo;s based on many different <a href="https://glc.st/resources/">resources</a> available on the Internet.</p>
+<p><a href="https://glc.st/vuln-sql-injection/">SQL injection aka SQLi</a><br>
+<a href="https://glc.st/vuln-cross-site-scripting/">Cross-site scriptting aka XSS</a><br>
+<a href="https://glc.st/vuln-subdomain-takeover/">Subdomain takeover</a><br>
+<a href="https://glc.st/vuln-relative-path-overwrite/">Relative path overwrite / Path-relative style sheet import</a><br>
+<a href="https://glc.st/vuln-cross-site-request-forgery/">Cross-site request forgery aka CSRF</a><br>
+<a href="https://glc.st/vuln-clickjacking/">Clickjacking</a><br>
+<a href="https://glc.st/vuln-cross-origin-resource-sharing/">Cross-origin resource sharing aka CORS</a></p>
+<h2 id="cookies">Cookies</h2>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00500200_sslcookiewithoutsecureflagset">SSL cookie without secure flag set</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500300_cookiescopedtoparentdomain">Cookie scoped to parent domain</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00400a00_duplicatecookiesset">Duplicate cookies set</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500600_cookiewithouthttponlyflagset">Cookie without HttpOnly flag set</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500b00_cookiemanipulationdombased">Cookie manipulation (DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500b01_cookiemanipulationreflecteddombased">Cookie manipulation (reflected DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500b02_cookiemanipulationstoreddombased">Cookie manipulation (stored DOM-based)</a></p>
+<h2 id="headers-manipulation">Headers manipulation</h2>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00200200_httpresponseheaderinjection">HTTP response header injection aka CRLF</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00400100_refererdependentresponse">Referer-dependent response</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00400110_xforwardedfordependentresponse">X-Forwarded-For dependent response</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00400120_useragentdependentresponse">User agent-dependent response</a></p>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00500c00_ajaxrequestheadermanipulationdombased">Ajax request header manipulation (DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500c01_ajaxrequestheadermanipulationreflecteddombased">Ajax request header manipulation (reflected DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500c02_ajaxrequestheadermanipulationstoreddombased">Ajax request header manipulation (stored DOM-based)</a></p>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00700100_cacheablehttpsresponse">Cacheable HTTPS response</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00800100_multiplecontenttypesspecified">Multiple content types specified</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00800400_contenttypeincorrectlystated">Content type incorrectly stated</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00800500_contenttypeisnotspecified">Content type is not specified</a></p>
+<h2 id="code-injection">Code injection</h2>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00100c00_phpcodeinjection">PHP code injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00400900_serializedobjectinhttpmessage">Serialized object in HTTP message</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00100d00_serversidejavascriptcodeinjection">Server-side JavaScript code injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00100e00_perlcodeinjection">Perl code injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00100f00_rubycodeinjection">Ruby code injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00100f10_pythoncodeinjection">Python code injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00100f20_expressionlanguageinjection">Expression Language injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00101000_unidentifiedcodeinjection">Unidentified code injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00101080_serversidetemplateinjection">Server-side template injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00101100_ssiinjection">SSI injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200308_clientsidetemplateinjection">Client-side template injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200320_javascriptinjectiondombased">JavaScript injection (DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200321_javascriptinjectionreflecteddombased">JavaScript injection (reflected DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200322_javascriptinjectionstoreddombased">JavaScript injection (stored DOM-based)</a></p>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00200370_clientsidejsoninjectiondombased">Client-side JSON injection (DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200371_clientsidejsoninjectionreflecteddombased">Client-side JSON injection (reflected DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200372_clientsidejsoninjectionstoreddombased">Client-side JSON injection (stored DOM-based)</a></p>
+<h2 id="xml-manipulation">XML manipulation</h2>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00100700_xmlinjection">XML injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00100400_xmlexternalentityinjection">XML external entity injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00100600_xpathinjection">XPath injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200360_clientsidexpathinjectiondombased">Client-side XPath injection (DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200361_clientsidexpathinjectionreflecteddombased">Client-side XPath injection (reflected DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200362_clientsidexpathinjectionstoreddombased">Client-side XPath injection (stored DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00400700_xmlentityexpansion">XML entity expansion</a></p>
+<h2 id="http-method">HTTP method</h2>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00100900_httpputmethodisenabled">HTTP PUT method is enabled</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500a00_httptracemethodisenabled">HTTP TRACE method is enabled</a></p>
+<h2 id="html5">HTML5</h2>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00500e00_html5webmessagemanipulationdombased">HTML5 web message manipulation (DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500e01_html5webmessagemanipulationreflecteddombased">HTML5 web message manipulation (reflected DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500e02_html5webmessagemanipulationstoreddombased">HTML5 web message manipulation (stored DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500f00_html5storagemanipulationdombased">HTML5 storage manipulation (DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500f01_html5storagemanipulationreflecteddombased">HTML5 storage manipulation (reflected DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500f02_html5storagemanipulationstoreddombased">HTML5 storage manipulation (stored DOM-based)</a></p>
+<h2 id="information-exposure">Information exposure</h2>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00100280_aspnettracingenabled">ASP.NET tracing enabled</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00100800_aspnetdebuggingenabled">ASP.NET debugging enabled</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00400600_aspnetviewstatewithoutmacenabled">ASP.NET ViewState without MAC enabled</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00600200_emailaddressesdisclosed">Email addresses disclosed</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00600300_privateipaddressesdisclosed">Private IP addresses disclosed</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00600550_privatekeydisclosed">Private key disclosed</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00600080_databaseconnectionstringdisclosed">Database connection string disclosed</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/006000b0_sourcecodedisclosure">Source code disclosure</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00600100_directorylisting">Directory listing</a></p>
+<h2 id="file-path-manipulation">File path manipulation</h2>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00100300_filepathtraversal">File path traversal</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00100b00_filepathmanipulation">File path manipulation</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200350_localfilepathmanipulationdombased">Local file path manipulation (DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200351_localfilepathmanipulationreflecteddombased">Local file path manipulation (reflected DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200352_localfilepathmanipulationstoreddombased">Local file path manipulation (stored DOM-based)</a></p>
+<h2 id="password-related">Password related</h2>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00300100_cleartextsubmissionofpassword">Cleartext submission of password</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00400200_passwordreturnedinlaterresponse">Password returned in later response</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00400300_passwordsubmittedusinggetmethod">Password submitted using GET method</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00400400_passwordreturnedinurlquerystring">Password returned in URL query string</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500800_passwordfieldwithautocompleteenabled">Password field with autocomplete enabled</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500900_passwordvaluesetincookie">Password value set in cookie</a></p>
+<h2 id="ddos">DDOS</h2>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00500d00_denialofservicedombased">Denial of service (DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500d01_denialofservicereflecteddombased">Denial of service (reflected DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500d02_denialofservicestoreddombased">Denial of service (stored DOM-based)</a></p>
+<h2 id="others">Others</h2>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00100a00_outofbandresourceloadhttp">Out-of-band resource load (HTTP)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200340_websockethijackingdombased">WebSocket hijacking (DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200341_websockethijackingreflecteddombased">WebSocket hijacking (reflected DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200342_websockethijackingstoreddombased">WebSocket hijacking (stored DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00100500_ldapinjection">LDAP injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200800_smtpheaderinjection">SMTP header injection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00100100_oscommandinjection">Os command injection</a></p>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00200400_flashcrossdomainpolicy">Flash cross-domain policy</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00200500_silverlightcrossdomainpolicy">Silverlight cross-domain policy</a></p>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00300200_externalserviceinteractiondns">External service interaction (DNS)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00300210_externalserviceinteractionhttp">External service interaction (HTTP)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00300220_externalserviceinteractionsmtp">External service interaction (SMTP)</a></p>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00400500_crossdomainpost">Cross-domain POST</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00400b00_inputreturnedinresponsestored">Input returned in response (stored)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00400c00_inputreturnedinresponsereflected">Input returned in response (reflected)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00400d00_suspiciousinputtransformationreflected">Suspicious input transformation (reflected)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00400e00_suspiciousinputtransformationstored">Suspicious input transformation (stored)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500400_crossdomainrefererleakage">Cross-domain Referer leakage</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500500_crossdomainscriptinclude">Cross-domain script include</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500700_sessiontokeninurl">Session token in URL</a></p>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00500980_fileuploadfunctionality">File upload functionality</a></p>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00400800_longredirectionresponse">Long redirection response</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500100_openredirection">Open redirection</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500110_openredirectiondombased">Open redirection (DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500111_openredirectionreflecteddombased">Open redirection (reflected DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00500112_openredirectionstoreddombased">Open redirection (stored DOM-based)</a></p>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00501000_linkmanipulationdombased">Link manipulation (DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00501001_linkmanipulationreflecteddombased">Link manipulation (reflected DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00501002_linkmanipulationstoreddombased">Link manipulation (stored DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00501100_documentdomainmanipulationdombased">Document domain manipulation (DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00501101_documentdomainmanipulationreflecteddombased">Document domain manipulation (reflected DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00501102_documentdomainmanipulationstoreddombased">Document domain manipulation (stored DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00501200_domdatamanipulationdombased">DOM data manipulation (DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00501201_domdatamanipulationreflecteddombased">DOM data manipulation (reflected DOM-based)</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00501202_domdatamanipulationstoreddombased">DOM data manipulation (stored DOM-based)</a></p>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/00800200_htmldoesnotspecifycharset">HTML does not specify charset</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/00800300_htmlusesunrecognizedcharset">HTML uses unrecognized charset</a></p>
+<p><a href="https://portswigger.net/knowledgebase/Issues/details/01000100_sslcertificate">SSL certificate</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/01000200_unencryptedcommunications">Unencrypted communications</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/01000300_stricttransportsecuritynotenforced">Strict transport security not enforced</a><br>
+<a href="https://portswigger.net/knowledgebase/Issues/details/01000400_mixedcontent">Mixed content</a></p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://www.owasp.org/index.php/Main_Page">OWASP</a></li>
+<li><a href="https://cwe.mitre.org/data/index.html">Common Weakness Enumeration</a></li>
+<li><a href="https://portswigger.net/knowledgebase/Issues/">PortSwigger list</a></li>
+<li><a href="https://bugbountyforum.com/resources/">Bug Bounty forum</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

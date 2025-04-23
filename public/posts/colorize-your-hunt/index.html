@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/images/mbh.png"/>
+
+<meta name="twitter:title" content="Colorize your hunt"/>
+<meta name="twitter:description" content="As a full time bug hunter, it&rsquo;s important to use the tools you are confortable with, sometimes a small improvement can change your life.
+During the great 3 days course presented by Nicolas Grégoire, he showed us a browser called Autochrome.
+Combined with a tiny Burp Suite extension, it becomes very easy to visualize the things you really want to see and reduce the noise for your eyes.
+In this article I will show you my current configuration."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Colorize your hunt" />
+<meta property="og:description" content="As a full time bug hunter, it&rsquo;s important to use the tools you are confortable with, sometimes a small improvement can change your life.
+During the great 3 days course presented by Nicolas Grégoire, he showed us a browser called Autochrome.
+Combined with a tiny Burp Suite extension, it becomes very easy to visualize the things you really want to see and reduce the noise for your eyes.
+In this article I will show you my current configuration." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/colorize-your-hunt/" />
+
+<meta property="og:image" content="https://glc.st/images/mbh.png" />
+<meta property="article:published_time" content="2018-08-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-08-01T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/colorize-your-hunt/">
+    
+    <title>
+    Colorize your hunt · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/colorize-your-hunt/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Colorize%20your%20hunt%20https%3a%2f%2fglc.st%2fposts%2fcolorize-your-hunt%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fcolorize-your-hunt%2f&title=Colorize%20your%20hunt" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fcolorize-your-hunt%2f&amp;t=Colorize%20your%20hunt" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Colorize%20your%20hunt&body=https%3a%2f%2fglc.st%2fposts%2fcolorize-your-hunt%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Colorize%20your%20hunt%20https%3a%2f%2fglc.st%2fposts%2fcolorize-your-hunt%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fcolorize-your-hunt%2f&text=Colorize%20your%20hunt" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fcolorize-your-hunt%2f&amp;title=Colorize%20your%20hunt" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fcolorize-your-hunt%2f&t=Colorize%20your%20hunt" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Colorize your hunt</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2018-08-01T00:00:00Z'>
+                            August 1, 2018
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        4 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/bug-bounty/">bug bounty</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/burp-suite/">burp suite</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/tools/">tools</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/chrome/">chrome</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>As a full time bug hunter, it&rsquo;s important to use the tools you are confortable with, sometimes a small improvement can change your life.
+During the great 3 days course presented by <a href="http://www.agarri.fr/">Nicolas Grégoire</a>, he showed us a browser called Autochrome.
+Combined with a tiny Burp Suite extension, it becomes very easy to visualize the things you really want to see and reduce the noise for your eyes.
+In this article I will show you my current configuration.</p>
+<h2 id="autochrome">Autochrome</h2>
+<p><a href="https://github.com/nccgroup/autochrome">Download on Github</a></p>
+<p>One of the advantage of using this browser is that several options are already configured:<br>
+XSS auditor is disabled<br>
+Certificate errors are ignored<br>
+Proxy server configured<br>
+&hellip;</p>
+<p>Check the file <code>~/.local/autochrome/chrome</code> to see them all and customize the configuration as you want.
+I personnally added Flash support:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>  &#34;--ppapi-flash-path=/usr/lib/adobe-flashplugin/libpepflashplayer.so&#34;,
+</span></span><span style="display:flex;"><span>  &#34;--ppapi-flash-version=30.0.0.134&#34;
+</span></span></code></pre></div><p>Resetting cookies or other cached datas is possible with the help of a single button, as well as switching to another profile.<br>
+<img src="https://glc.st/images/autochrome.png" alt="Autochrome"></p>
+<p>The main point is that profiles DO NOT share datas so you can connect to the same website with different users.
+This is absolutely awesome when you need to test several levels of permissions. For instance: unauthenticated user, connected user, administrator&hellip;
+By default, only three profiles are available: red, yellow, blue.
+You have to update the script <code>lib/auto_chrome/profile_builder.rb</code> in order to enable them all, line 23:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> @profile_names<span style="color:#f92672">.</span>empty?
+</span></span><span style="display:flex;"><span>  @profile_names <span style="color:#f92672">=</span> <span style="color:#e6db74">%w(Red Yellow Blue Green Orange Purple Cyan White)</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">end</span>
+</span></span></code></pre></div><p>Then generate the profiles:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>ruby autochrome.rb -P
+</span></span></code></pre></div><p>White seems to be buggy so seven themes are now available.
+Since yellow is my favorite color, I choosed to create an alias:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>alias ac<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;~/.local/autochrome/chrome --profile-directory=Yellow 2&gt;/dev/null &amp;&#39;</span>
+</span></span></code></pre></div><h2 id="multi-browser-highlighting">Multi Browser Highlighting</h2>
+<p>Download on <a href="https://portswigger.net/bappstore">BApp Store</a> or <a href="https://github.com/PortSwigger/multi-browser-highlighting">PortSwigger Github</a></p>
+<p><em>&ldquo;A simple burp plugin that highlights the Proxy history to differentiate requests made by different browsers. The way this works is that each browser would be assigned one color and the highlights happen automatically.&rdquo;</em></p>
+<p>Basically this extension will link a Burp Suite color to a User-Agent and then highlight the requests in the proxy tab according to it.</p>
+<p>I altered a little bit the code in order to deal with Autochrome.
+I also added a small test to &ldquo;negate&rdquo; the out of scope urls. They will now be appear in grey, because I always associated grey as the &ldquo;disable&rdquo; status so now my eyes don&rsquo;t catch this color.</p>
+<p><img src="https://glc.st/images/mbh.png" alt="Autochrome"></p>
+<p><span style="background-color:#FFFFFF;">White: user 1</span><br>
+<span style="background-color:#FFFF64;">Yellow: user 2</span><br>
+<span style="background-color:#64FFFF;">Cyan: manager 1</span><br>
+<span style="background-color:#64FF64;">Green: manager 2</span><br>
+<span style="background-color:#FF6464;">Red: administrator</span><br>
+<span style="background-color:#B4B4B4;">Grey: out of scope</span> (related to scope tab)</p>
+<h2 id="logger">Logger++</h2>
+<p>Download on <a href="https://portswigger.net/bappstore">BApp Store</a> or <a href="https://github.com/PortSwigger/logger-plus-plus">PortSwigger Github</a></p>
+<p><em>&ldquo;Sometimes it is necessary to log all the requests and responses of a specific tool in Burp Suite. Logger++ can log activities of all the tools in Burp Suite to show them in a sortable table. It also has an ability to save this data in CSV format.&rdquo;</em></p>
+<p>What more can I say ? In a nutshell this extension logs absolutly ALL requests, that&rsquo;s it.
+You can apply filters to hide requests or regexp search in your traffic history, this is very useful.</p>
+<p>I added filters to fit Autochrome&rsquo;s colors, that way it&rsquo;s looks like the Proxy tab.
+<img src="https://glc.st/images/logger++-filters-ac.png" alt="autochrome android green."></p>
+<h2 id="issues">Issues</h2>
+<p>The main problem is that Multi Browser Highlighting is not compatible with Collaborator Everywhere which also alter the User-Agent to inject a custom payload.<br>
+<strong>Edit:</strong> solution from <a href="https://twitter.com/albinowax">James Kettle</a>: swap the order the extensions are executed in using the Up/Down buttons on the extender tab.</p>
+<p>&ldquo;Purple&rdquo; doesn&rsquo;t exist in Burp Suite (even if blue looks like purple it&rsquo;s not) so you have to apply another color, like magenta or pink.</p>
+<p>I didn&rsquo;t find an option to save color filters in Logger++, seems to be auto but I would like to save my entries in a config file and be able to reload them in case of emergency.</p>
+<p>If you find a way to fix any of this, please let me know!</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>This configuration comes very handy when you need to test a platform where users can have several permission levels, test IDOR, test vertical/horizontal escalation.</p>
+<p>It could also be used to differentiate different types of browser, let&rsquo;s say that you want to test a website with
+<span style="background-color:#FFFF64;">Chrome</span>, <span style="background-color:#FFC864">Firefox</span>,
+<span style="background-color:#FF6464;">Opera</span>, <span style="background-color:#64FFFF;">IE</span> and
+<span style="background-color:#64FF64;">Android</span> at the same time.
+You simply have to add a quick rule in your proxy options.<br>
+<img src="https://glc.st/images/ac-android-green.png" alt="Autochrome"></p>
+<p>Finally it&rsquo;s a nice feature to use when you create your PoC for your reports, the company will enjoy how easy it is to read your screenshots/videos and differenciate the requests of a user/browser from another one.</p>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

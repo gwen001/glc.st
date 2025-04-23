@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Cons of Bug Bounty"/>
+<meta name="twitter:description" content="This article is the following of the previous one (obviously&hellip;) about why I love bug bounty.
+However I realized that that one sounds like everything is perfect in this job, but since the world is not whole pinky full of rainbows, and butterflies, and unicorns, I have to say the truth.
+Long time resolution, loneliness, deception, companies, there are also bad points (or maybe I&rsquo;m just frustrated to get so much duplicates these days xD)."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Cons of Bug Bounty" />
+<meta property="og:description" content="This article is the following of the previous one (obviously&hellip;) about why I love bug bounty.
+However I realized that that one sounds like everything is perfect in this job, but since the world is not whole pinky full of rainbows, and butterflies, and unicorns, I have to say the truth.
+Long time resolution, loneliness, deception, companies, there are also bad points (or maybe I&rsquo;m just frustrated to get so much duplicates these days xD)." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/cons-of-bug-bounty/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2018-06-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-06-15T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/cons-of-bug-bounty/">
+    
+    <title>
+    Cons of Bug Bounty · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/cons-of-bug-bounty/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Cons%20of%20Bug%20Bounty%20https%3a%2f%2fglc.st%2fposts%2fcons-of-bug-bounty%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fcons-of-bug-bounty%2f&title=Cons%20of%20Bug%20Bounty" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fcons-of-bug-bounty%2f&amp;t=Cons%20of%20Bug%20Bounty" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Cons%20of%20Bug%20Bounty&body=https%3a%2f%2fglc.st%2fposts%2fcons-of-bug-bounty%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Cons%20of%20Bug%20Bounty%20https%3a%2f%2fglc.st%2fposts%2fcons-of-bug-bounty%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fcons-of-bug-bounty%2f&text=Cons%20of%20Bug%20Bounty" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fcons-of-bug-bounty%2f&amp;title=Cons%20of%20Bug%20Bounty" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fcons-of-bug-bounty%2f&t=Cons%20of%20Bug%20Bounty" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Cons of Bug Bounty</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2018-06-15T00:00:00Z'>
+                            June 15, 2018
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        4 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/bug-bounty/">bug bounty</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>This article is the following of the previous one (obviously&hellip;) about <a href="https://glc.st/posts/why-bug-bounty/">why I love bug bounty</a>.
+However I realized that that one sounds like everything is perfect in this job, but since the world is not whole pinky full of rainbows, and butterflies, and unicorns, I have to say the truth.
+Long time resolution, loneliness, deception, companies, there are also bad points (or maybe I&rsquo;m just frustrated to get so much duplicates these days xD).</p>
+<h2 id="private-invite">Private invite</h2>
+<p>You think it&rsquo;s fictional? Mystical? Maybe Spiritual.</p>
+<p>We all know that private invitations are very interesting for hackers, less competition, but it can be a terrible painful loooooonnnnnnnggggg way to get some.
+Reputation, impact, signal, my statistics are the magic that decide if I receive private invitations or not.
+Before that, I had to work on public programs, those programs have been tested again and again by many great hackers.
+Of course it&rsquo;s much more complicated when you are a beginner in bug bounty or in the all security industry.
+Like everyone, you firstly try the basic stuff, that way you will have a hard time to find valid bugs in order to improve your stats.<br>
+<img src="https://glc.st/images/bb-cons-mystats.png" alt="My Hakerone statistics"></p>
+<h2 id="duplicates">Duplicates</h2>
+<p>You have it or you don&rsquo;t that&rsquo;s a fallacy.</p>
+<p>Because yes, I&rsquo;m not alone in this world, I&rsquo;m not the only hacker, I have opponents.
+They also have skills, knowledge and imagination.
+If I can find a bug they can do it too.
+The competition is tough and I have to be the first one to report the bug if I want the money/reputation/swag/tee-shirt/pogs.
+Hackers play from all around the world.
+When I&rsquo;m sleeping at 4am, there is someone on the other side of this planet that is already reconning the new public programs.
+And when I&rsquo;ll wake up tomorrow morning, he will probably already have reported some subdomain takeover or vulnerable buckets.</p>
+<p>Plus, some companies are late to fix the bugs, it&rsquo;s still possible to get duplicates of reports that are 6 month old&hellip;</p>
+<p><img src="https://glc.st/images/bb-cons-myreports-status.png" alt="low SLA metrics"></p>
+<h2 id="bounty-deception">Bounty deception</h2>
+<p>I ain&rsquo;t happy, I&rsquo;m feeling glad.</p>
+<p>I find a RCE, the company promises 5000$ for that kind of issue but I only get 500$.
+What the Hell §@#&amp;$£!!!!
+The server is outdated since ages, there is nothing interesting/sensitive on it, it&rsquo;s outside the current architecture and maintained by an external group blablabla&hellip;
+I&rsquo;m fucked. Yes it happens, sometimes.</p>
+<p>I find 5 XSS, I open 5 reports but 4 of them are closed as duplicate of the first one.
+How could this happen??
+if a single patch fix them all, that means they share the same root cause and same root cause implies a single bounty.
+That&rsquo;s the rule in bug bounty.
+Unfair? Your opinion.</p>
+<p>The bug highly impact the main in-scope target but through an out-of-scope asset. Once again, it&rsquo;s up to the company to decide if it rewards the report or not.
+Time for a nice &ldquo;Bounty plz&rdquo;. Check this fantastic example of unfair decision by Twitter: <a href="https://hackerone.com/reports/273698">https://hackerone.com/reports/273698</a></p>
+<h2 id="companies">Companies</h2>
+<p>Pick and choose, Sit and lose.</p>
+<p>There are many various reasons for why a company opens a bug bounty program.
+The problem is that sometimes it underestimates the hard work and the responsabilities that this involves.
+It desn&rsquo;t have enough people in their security team to absorb the flow of reports and most of the time those peoples already have a daily job, they are not dedicated to bug bounty.</p>
+<p>What are the consequences?
+<a href="https://www.hackerone.com/blog/Healthy-programs-make-happy-hackers-Introducing-response-SLAs">SLA metrics</a> tumble down, the program becomes less and less reponsive, bugs are not solved, more and more duplicates, big delays in payments, frustration, angry hackers.</p>
+<p><img src="https://glc.st/images/bb-cons-sla.png" alt="low SLA metrics"></p>
+<h2 id="burn-your-mind">Burn your mind</h2>
+<p>No squealing, remember that it&rsquo;s all in your head.</p>
+<p>So so much things to do. I want to do everything, I want to play with all programs, I want to recon all domains, I want to test all tools, I want to learn Python/Ruby/Go, I want to pratice CTF, my todo list is growing faster than Sharknado chapters.
+But you know what? Sadly, there is only 24 hours a day :/</p>
+<p>Even if I exchange alot with my similars, even if I&rsquo;m active on Twitter and Slack, I mainly hunt alone.
+Even if I train on dedicated platforms, even if I pratice CTF, I mainly learn alone.
+That&rsquo;s it.</p>
+<p>Sometimes I don&rsquo;t earn a single dollar for weeks while I see other people tweeting about the big rewards they got because of internal website with login/pass:admin/admin, then I question my whole life: WHY NOT ME §§§§ Why I don&rsquo;t find bugs like this, why I choosed this job, why it&rsquo;s raining today, why GoT is not on Netflix and why the hell my washing machine keeps eating my socks!!!!</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Now you shouldn&rsquo;t be scared.</p>
+<p>As I previously said in the previous article I previously wrote, the best way to make your own opinion is to give it a try, also take care to read the stories linked at the very bottom of this page.</p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://glc.st/posts/why-bug-bounty/">Why Bug Bounty</a></li>
+<li><a href="https://www.csoonline.com/article/2846873/data-protection/why-bug-bounty-hunters-love-the-thrill-of-the-chase.html">Why bug bounty hunters love the thrill of the chase</a></li>
+<li><a href="https://medium.com/@phwd/bug-bounty-is-a-joke-91bc1875c890">Bug bounty is a joke</a></li>
+<li><a href="https://hackernoon.com/bug-bounties-a-broken-system-7781fe0bf7d">Bug bounties, a broken system</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

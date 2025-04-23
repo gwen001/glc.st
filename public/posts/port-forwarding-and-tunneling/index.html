@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Port forwarding and tunneling"/>
+<meta name="twitter:description" content="As a pentester, you might be able to take control of systems that have a direct access but you also might be able to test the internal network and check the machine who are inside a subnetwork.
+For that task you&rsquo;ll have to use an already compromised machine as a bridge/gateway, this technic is called &ldquo;pivot&rdquo;.
+Depending of the context, different solutions exist to perform that task.
+Rinetd
+The easiest one. First you need to install Rinetd:
+aptitude search rinetd
+p   rinetd                                     - Internet TCP redirection server&lt;/pre&gt;
+Then edit the /etc/rinetd.conf file:
+# bindadress    bindport  connectaddress  connectport
+192.168.0.10    80        91.121.139.22   8080
+Restart Rinetd and from now, all incoming traffic on 192.168.0.10 on port 80 will be redirected to 91.121.139.22 on port 8080.
+This can be usefull if a firewall is restricting outbound traffic on certain port."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Port forwarding and tunneling" />
+<meta property="og:description" content="As a pentester, you might be able to take control of systems that have a direct access but you also might be able to test the internal network and check the machine who are inside a subnetwork.
+For that task you&rsquo;ll have to use an already compromised machine as a bridge/gateway, this technic is called &ldquo;pivot&rdquo;.
+Depending of the context, different solutions exist to perform that task.
+Rinetd
+The easiest one. First you need to install Rinetd:
+aptitude search rinetd
+p   rinetd                                     - Internet TCP redirection server&lt;/pre&gt;
+Then edit the /etc/rinetd.conf file:
+# bindadress    bindport  connectaddress  connectport
+192.168.0.10    80        91.121.139.22   8080
+Restart Rinetd and from now, all incoming traffic on 192.168.0.10 on port 80 will be redirected to 91.121.139.22 on port 8080.
+This can be usefull if a firewall is restricting outbound traffic on certain port." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/port-forwarding-and-tunneling/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2015-09-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-09-17T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/port-forwarding-and-tunneling/">
+    
+    <title>
+    Port forwarding and tunneling · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/port-forwarding-and-tunneling/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Port%20forwarding%20and%20tunneling%20https%3a%2f%2fglc.st%2fposts%2fport-forwarding-and-tunneling%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fport-forwarding-and-tunneling%2f&title=Port%20forwarding%20and%20tunneling" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fport-forwarding-and-tunneling%2f&amp;t=Port%20forwarding%20and%20tunneling" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Port%20forwarding%20and%20tunneling&body=https%3a%2f%2fglc.st%2fposts%2fport-forwarding-and-tunneling%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Port%20forwarding%20and%20tunneling%20https%3a%2f%2fglc.st%2fposts%2fport-forwarding-and-tunneling%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fport-forwarding-and-tunneling%2f&text=Port%20forwarding%20and%20tunneling" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fport-forwarding-and-tunneling%2f&amp;title=Port%20forwarding%20and%20tunneling" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fport-forwarding-and-tunneling%2f&t=Port%20forwarding%20and%20tunneling" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Port forwarding and tunneling</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2015-09-17T00:00:00Z'>
+                            September 17, 2015
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        3 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/ssh/">ssh</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/post-exploitation/">post exploitation</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/pivot/">pivot</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>As a pentester, you might be able to take control of systems that have a direct access but you also might be able to test the internal network and check the machine who are inside a subnetwork.</p>
+<p>For that task you&rsquo;ll have to use an already compromised machine as a bridge/gateway, this technic is called &ldquo;pivot&rdquo;.
+Depending of the context, different solutions exist to perform that task.</p>
+<h2 id="rinetd">Rinetd</h2>
+<p>The easiest one. First you need to install Rinetd:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>aptitude search rinetd
+</span></span><span style="display:flex;"><span>p   rinetd                                     - Internet TCP redirection server&lt;/pre&gt;
+</span></span></code></pre></div><p>Then edit the <code>/etc/rinetd.conf</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span># bindadress    bindport  connectaddress  connectport
+</span></span><span style="display:flex;"><span>192.168.0.10    80        91.121.139.22   8080
+</span></span></code></pre></div><p>Restart Rinetd and from now, all incoming traffic on <code>192.168.0.10</code> on port <code>80</code> will be redirected to <code>91.121.139.22</code> on port <code>8080</code>.
+This can be usefull if a firewall is restricting outbound traffic on certain port.</p>
+<h2 id="ssh">SSH</h2>
+<h3 id="local-port-forwarding">Local port forwarding</h3>
+<p><code>ssh -L &lt;local port to listen&gt;:&lt;remote host&gt;:&lt;remote port&gt; &lt;gateway&gt;</code></p>
+<p>Similar to port forwarding with Rinetd, this technic still have some tints. The traffic is encrypted but only between the local machine and the gateway.
+If the remote host is <code>localhost</code> then it refers to the gateway. Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ssh -L 8080:192.168.1.25:80 bob@192.168.0.10
+</span></span></code></pre></div><p>This open a tunnel between the local machine on port <code>8080</code> to <code>192.168.1.25</code> on port <code>80</code> trough the ssh server <code>192.168.0.10</code> connected with user <code>bob</code>.
+Connexion from other machines are not accepted by default, to enable this feature you have to use the <code>-g</code> option.</p>
+<h3 id="remote-port-forwarding">Remote port forwarding</h3>
+<p><code>ssh -R &lt;remote port to bind&gt;:&lt;local host&gt;:&lt;local port&gt; &lt;gateway&gt;</code></p>
+<p>Note that this must be launched on the already compromised machine ! In this case if the local host is <code>localhost</code> then it refers to the local machine. Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ssh -R 1234:192.168.1.25:80 bob@192.168.0.10
+</span></span></code></pre></div><p>This pop a reverse shell on <code>192.168.0.10</code> connected with user <code>bob</code> and create a tunnel on port <code>1234</code> wich will receive all traffic from <code>192.168.1.25</code> on port <code>80</code>.</p>
+<h2 id="proxychains">ProxyChains</h2>
+<p>As a standalone, Proxychains is mainly used to anonymize traffic but combined with SSH it can be used to perform dynamic port forwarding.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ aptitude search proxychains
+</span></span><span style="display:flex;"><span>p   libproxychains-dev                - proxy chains -- shared library (development)
+</span></span><span style="display:flex;"><span>p   libproxychains3                   - proxy chains -- shared library (runtime)
+</span></span><span style="display:flex;"><span>p   proxychains                       - proxy chains - redirect connections through proxy servers&lt;/pre&gt;
+</span></span></code></pre></div><p>When the install is finished, edit <code>/etc/proxychains.conf</code> as here:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[ProxyList]
+</span></span><span style="display:flex;"><span># add proxy here ...
+</span></span><span style="display:flex;"><span># meanwile
+</span></span><span style="display:flex;"><span># defaults set to &#34;tor&#34;
+</span></span><span style="display:flex;"><span>socks4  127.0.0.1 9050
+</span></span></code></pre></div><p>Then we can create a tunnel wich will forward all incoming traffic to any host in the internal network trough the compromised machine which runs the ssh server. Syntax:</p>
+<p><code>ssh -D &lt;local proxy&gt; &lt;target&gt;</code></p>
+<p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ ssh -D 127.0.0.1:9050 bob@192.168.0.10
+</span></span></code></pre></div><p>From now we can perform scans or anything else on every port on every machine in the DMZ with Proxychains:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ proxychains nmap -p 139,445 192.168.1.100-200
+</span></span></code></pre></div><h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=Wuu_n0Pvbsk">Hak5 videos</a></li>
+<li><a href="http://www.linux-france.org/prj/edu/archinet/systeme/ch13s04.html">Port forwarding tutoriel on linux-france (fr)</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

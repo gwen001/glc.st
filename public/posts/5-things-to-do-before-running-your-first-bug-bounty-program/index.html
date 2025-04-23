@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="5 things to do before running your first bug bounty program"/>
+<meta name="twitter:description" content="Welcome 2020! I will start this year with a set of articles about program management. In this one, I will try to explain some important things all companies should do BEFORE running a first bug bounty program. Since there is no official rules in bug bounty, we miss that, at the end you can always do whatever you want. So those articles are more about best practices/good tips.
+Do pentest/audits Test before the test."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="5 things to do before running your first bug bounty program" />
+<meta property="og:description" content="Welcome 2020! I will start this year with a set of articles about program management. In this one, I will try to explain some important things all companies should do BEFORE running a first bug bounty program. Since there is no official rules in bug bounty, we miss that, at the end you can always do whatever you want. So those articles are more about best practices/good tips.
+Do pentest/audits Test before the test." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/5-things-to-do-before-running-your-first-bug-bounty-program/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2020-01-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-16T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/5-things-to-do-before-running-your-first-bug-bounty-program/">
+    
+    <title>
+    5 things to do before running your first bug bounty program · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/5-things-to-do-before-running-your-first-bug-bounty-program/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=5%20things%20to%20do%20before%20running%20your%20first%20bug%20bounty%20program%20https%3a%2f%2fglc.st%2fposts%2f5-things-to-do-before-running-your-first-bug-bounty-program%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2f5-things-to-do-before-running-your-first-bug-bounty-program%2f&title=5%20things%20to%20do%20before%20running%20your%20first%20bug%20bounty%20program" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2f5-things-to-do-before-running-your-first-bug-bounty-program%2f&amp;t=5%20things%20to%20do%20before%20running%20your%20first%20bug%20bounty%20program" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=5%20things%20to%20do%20before%20running%20your%20first%20bug%20bounty%20program&body=https%3a%2f%2fglc.st%2fposts%2f5-things-to-do-before-running-your-first-bug-bounty-program%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=5%20things%20to%20do%20before%20running%20your%20first%20bug%20bounty%20program%20https%3a%2f%2fglc.st%2fposts%2f5-things-to-do-before-running-your-first-bug-bounty-program%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2f5-things-to-do-before-running-your-first-bug-bounty-program%2f&text=5%20things%20to%20do%20before%20running%20your%20first%20bug%20bounty%20program" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2f5-things-to-do-before-running-your-first-bug-bounty-program%2f&amp;title=5%20things%20to%20do%20before%20running%20your%20first%20bug%20bounty%20program" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2f5-things-to-do-before-running-your-first-bug-bounty-program%2f&t=5%20things%20to%20do%20before%20running%20your%20first%20bug%20bounty%20program" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">5 things to do before running your first bug bounty program</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2020-01-16T00:00:00Z'>
+                            January 16, 2020
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        4 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/bug-bounty/">bug bounty</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/management/">management</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>Welcome 2020!
+I will start this year with a set of articles about program management.
+In this one, I will try to explain some important things all companies should do BEFORE running a first bug bounty program.
+Since there is no official rules in bug bounty, we miss that, at the end you can always do whatever you want.
+So those articles are more about best practices/good tips.</p>
+<h1 id="do-pentestaudits">Do pentest/audits</h1>
+<p>Test before the test.</p>
+<p>You have issues, yes you have, a lot, you just don&rsquo;t know yet.
+Some of them can easily be detected during a pentest or code audit, the basics can also be found by most of the automated scanners used by security companies.
+Once they have been identified, you basically have two options:</p>
+<ul>
+<li>fix them</li>
+<li>add them to the OOS/know issues/won&rsquo;t fix section of your program policy</li>
+</ul>
+<p>If you don&rsquo;t do anything, keeping them &ldquo;for later&rdquo;, hackers will find them, report, and you will have to pay for this, at least the first times, to avoid hackers anger.
+It&rsquo;s not acceptable to mark those reports as N/A, acting like &ldquo;yeah yeah we already know that&rdquo; and not pay, it will kill your reputation.
+You also don&rsquo;t want to waste your time again and again to manage reports about the vulnerabilities you&rsquo;re already aware of.</p>
+<p><u>Jumping into bug bounty without a proper security background will literally ruin everything.</u></p>
+<h1 id="prepare-your-technical-infrastructure">Prepare your technical infrastructure</h1>
+<p>Hackers hack, be prepared!</p>
+<p>No matter if you mention to refrain the use of automated scanner, hackers use tools, they generate alot of traffic.
+You probably want to avoid DDOS as well as you don&rsquo;t want to pause your program because your system is not able to handle so much traffic.
+Doing that would stop hackers in their run, you will lose their precious motivation.
+It&rsquo;s frustrating as hell to be forced to stop hacking a target when you&rsquo;re already on something interesting.</p>
+<p>Plus, there is no point to open a bug bounty program if your hackers are banned after an hour by your firewall and you don&rsquo;t have any easy way to bring them back in the game.
+You don&rsquo;t want to manually manage a huge blacklist of IP addresses.</p>
+<p><img src="https://glc.st/images/ie_service_unavailable.png" alt="ie service unavailable"></p>
+<h1 id="think-your-internal-workflow">Think your internal workflow</h1>
+<p>Hackers hack more, be more prepared!</p>
+<p>As soon as your program is open, no matter if you choose to stay private or public, you will receive the first reports in less than an hour (~15/30mn).
+It&rsquo;s very important to think your internal workflow <strong>BEFORE</strong> you open the program.
+There is a strong chance that you get more reports in the next days.
+First, you don&rsquo;t want to be overloaded, second, it&rsquo;s not acceptable to pause the program just because you thought you were not (so) vulnerable.</p>
+<div style="float:left;width:620px">
+    Really, don't underestimate hackers.
+    I saw too many programs "paused" because they were not able to handle the flow of reports constantly growing up.
+    Because they though that they could manage all this shit only one day/week, because the security team was not ready, because the triagers didn't speak english, because the manager had to ask the permission for every single bounty, because they don't know how to forward the bugs to the dev team etc...
+    <br/><br/>
+    On the right side is an example of the workflow of a report I made to explain how it should be handled <u>on the platform</u>.
+    Then you have to create your own internal process.
+    <br/><br/>
+    Most of the platforms allow the integration of external tools like bug trackers, Jira, Slack, Zendesk, GitLab and so on...
+    Use this feature as much as you need to make your report management more efficient.
+</div>
+<a href="https://glc.st/images/report-flow.png" title="Report flow" target="_blank"><img src="https://glc.st/images/report-flow.png" alt="Report flow" width="200" style="float:right;" /></a>
+<div style="clear:both;"></div>
+<h1 id="study-others-programs">Study others programs</h1>
+<p>You&rsquo;re not the first one so learn from other programs, their mistakes, their successes.</p>
+<ul>
+<li>Read their policy or simply copy/paste/update to create your own.</li>
+<li>Quickly check the bounty table to know what rewards they offer (money, swag&hellip;), even if it all depends of your own budget of course.</li>
+<li>See what kind of scope they test: subdomain, wildcard, api, mobile&hellip;</li>
+<li>Read carefully the out of scope section to avoid the common pitfalls, really, you don&rsquo;t want to spend your whole yearly budget for missing SPF or SSL certificates errors.</li>
+<li>Read their disclosed reports, how they reply to hackers, the automated responses, the delay, their communication skills (appreciation, greetings, closing formula&hellip;).
+(good examples: <a href="https://hackerone.com/security/hacktivity">Hackerone</a>, <a href="https://hackerone.com/valve/hacktivity">Valve</a>, poor example: <a href="https://hackerone.com/twitter/hacktivity">Twitter</a>)</li>
+</ul>
+<h1 id="join-the-community">Join the community</h1>
+<p>If not done yet, joining the community on <a href="https://twitter.com/search?q=bugbounty">Twitter</a> could be your best move ever.</p>
+<p>Start by following the platforms and some popular hackers in the bug bounty industry.
+From here you will be able to better understand what are their expectations, their motivations, what they are looking for.
+More, your security team will learn a lot from them, the current popular vulnerabilities, the tools they use etc&hellip;</p>
+<p>Time after time you will follow more hackers, YOUR hackers.
+You will be immediately warned if someone talk about your programs, good words or complaints are always important to improve yourself.</p>
+<h1 id="good-reads">Good reads</h1>
+<p>Information Security Assessment Types by Daniel Miessler:<br>
+<a href="https://danielmiessler.com/study/security-assessment-types/#vulnerability">https://danielmiessler.com/study/security-assessment-types/#vulnerability</a></p>
+<p>The hacker powered security report 2018 by Hackerone:<br>
+<a href="https://www.hackerone.com/sites/default/files/2018-07/The%20Hacker-Powered%20Security%20Report%202018.pdf">https://www.hackerone.com/sites/default/files/2018-07/The%20Hacker-Powered%20Security%20Report%202018.pdf</a></p>
+<p>Report workflow by YesWeHack:<br>
+<a href="https://blog.yeswehack.com/2019/07/24/a-quick-update-on-our-point-system/">https://blog.yeswehack.com/2019/07/24/a-quick-update-on-our-point-system/</a></p>
+
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

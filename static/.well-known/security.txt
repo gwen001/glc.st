@@ -1,0 +1,5 @@
+# Our security address
+Contact: contact@glc.st
+
+# Our disclosure policy
+Disclosure: Full

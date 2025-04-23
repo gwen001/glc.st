@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Hacker Test 1-10"/>
+<meta name="twitter:description" content="Hacker Test is an online hacker simulation.
+20 levels to test your PHP, HTML and Javascript knowledge.
+Below the solution of the first ten.
+
+Hackers solve problems and build things, and they believe in freedom and voluntary mutual help.
+To be accepted as a hacker, you have to behave as though you have this kind of attitude yourself.
+And to behave as though you have the attitude, you have to really believe the attitude.
+
+Level 1
+In the source code we can see the following JavaScript lines:
+var a=&#34;null&#34;;
+
+function check()
+{
+  if (document.a.c.value == a) {
+    document.location.href=&#34;http://www.hackertest.net/&#34;&#43;document.a.c.value&#43;&#34;.htm&#34;;
+  } else {
+    alert (&#34;Try again&#34;);
+  }
+}
+The value of the password input named c is compared with the variable a, which has a null value. This is the password: null"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Hacker Test 1-10" />
+<meta property="og:description" content="Hacker Test is an online hacker simulation.
+20 levels to test your PHP, HTML and Javascript knowledge.
+Below the solution of the first ten.
+
+Hackers solve problems and build things, and they believe in freedom and voluntary mutual help.
+To be accepted as a hacker, you have to behave as though you have this kind of attitude yourself.
+And to behave as though you have the attitude, you have to really believe the attitude.
+
+Level 1
+In the source code we can see the following JavaScript lines:
+var a=&#34;null&#34;;
+
+function check()
+{
+  if (document.a.c.value == a) {
+    document.location.href=&#34;http://www.hackertest.net/&#34;&#43;document.a.c.value&#43;&#34;.htm&#34;;
+  } else {
+    alert (&#34;Try again&#34;);
+  }
+}
+The value of the password input named c is compared with the variable a, which has a null value. This is the password: null" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/hacker-test-1-10/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2015-03-05T00:00:00+00:00" />
+<meta property="article:modified_time" content="2015-03-05T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/hacker-test-1-10/">
+    
+    <title>
+    Hacker Test 1-10 · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/hacker-test-1-10/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Hacker%20Test%201-10%20https%3a%2f%2fglc.st%2fposts%2fhacker-test-1-10%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fhacker-test-1-10%2f&title=Hacker%20Test%201-10" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fhacker-test-1-10%2f&amp;t=Hacker%20Test%201-10" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Hacker%20Test%201-10&body=https%3a%2f%2fglc.st%2fposts%2fhacker-test-1-10%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Hacker%20Test%201-10%20https%3a%2f%2fglc.st%2fposts%2fhacker-test-1-10%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fhacker-test-1-10%2f&text=Hacker%20Test%201-10" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fhacker-test-1-10%2f&amp;title=Hacker%20Test%201-10" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fhacker-test-1-10%2f&t=Hacker%20Test%201-10" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Hacker Test 1-10</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2015-03-05T00:00:00Z'>
+                            March 5, 2015
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        4 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/training/">training</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p><a href="http://www.hackertest.net/" title="Hacker Test">Hacker Test</a> is an online hacker simulation.
+20 levels to test your PHP, HTML and Javascript knowledge.
+Below the solution of the first ten.</p>
+<blockquote>
+<p>Hackers solve problems and build things, and they believe in freedom and voluntary mutual help.
+To be accepted as a hacker, you have to behave as though you have this kind of attitude yourself.
+And to behave as though you have the attitude, you have to really believe the attitude.</p>
+</blockquote>
+<h2 id="level-1">Level 1</h2>
+<p>In the source code we can see the following JavaScript lines:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">a</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;null&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">check</span>()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">if</span> (document.<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">value</span> <span style="color:#f92672">==</span> <span style="color:#a6e22e">a</span>) {
+</span></span><span style="display:flex;"><span>    document.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.hackertest.net/&#34;</span><span style="color:#f92672">+</span>document.<span style="color:#a6e22e">a</span>.<span style="color:#a6e22e">c</span>.<span style="color:#a6e22e">value</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;.htm&#34;</span>;
+</span></span><span style="display:flex;"><span>  } <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">alert</span> (<span style="color:#e6db74">&#34;Try again&#34;</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The value of the password input named <code>c</code> is compared with the variable <code>a</code>, which has a <code>null</code> value. This is the password: <code>null</code></p>
+<h2 id="level-2">Level 2</h2>
+<p>After submitting the first level, a prompt immediatly ask for a password, this is the second level.
+If you provide a wrong value or press escape, you will access to the page and obviously her source code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pass</span>, <span style="color:#a6e22e">i</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pass</span><span style="color:#f92672">=</span><span style="color:#a6e22e">prompt</span>(<span style="color:#e6db74">&#34;Please enter password!&#34;</span>,<span style="color:#e6db74">&#34;&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">pass</span><span style="color:#f92672">==</span><span style="color:#e6db74">&#34;l3l&#34;</span>) {
+</span></span><span style="display:flex;"><span>  window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;http://www.hackertest.net/&#34;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">pass</span><span style="color:#f92672">+</span><span style="color:#e6db74">&#34;.htm&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>The password appears in plain text: <code>l3l</code></p>
+<h2 id="level-3">Level 3</h2>
+<p>You can use the same technique as before but the password seems to have been hidden:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pw</span>, <span style="color:#a6e22e">Eingabe</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pw</span><span style="color:#f92672">=</span>window.document.<span style="color:#a6e22e">alinkColor</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">Eingabe</span><span style="color:#f92672">=</span><span style="color:#a6e22e">prompt</span> (<span style="color:#e6db74">&#34;Please enter password&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">Eingabe</span><span style="color:#f92672">==</span><span style="color:#a6e22e">pw</span>) {
+</span></span><span style="display:flex;"><span>  window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span><span style="color:#f92672">=</span>String.<span style="color:#a6e22e">fromCharCode</span>(<span style="color:#ae81ff">97</span>,<span style="color:#ae81ff">98</span>,<span style="color:#ae81ff">114</span>,<span style="color:#ae81ff">97</span>,<span style="color:#ae81ff">101</span>)<span style="color:#f92672">+</span><span style="color:#e6db74">&#34;.htm&#34;</span>;
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;Try again&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>There is two solutions to pass this level.</p>
+<ul>
+<li>Provide the good password: you have to evaluate the expression <code>window.document.alinkColor</code>,
+look at the <code>&lt;body&gt;</code> tag it contains the info or simply use the console of your favorite browser, result is: <code>#000000</code></li>
+<li>Bypass the level: in case of a success result, you will be redirected to an url which is char encoded (<code>97,98,114,97,101</code>),
+simply decode it and you will be able to access the next level located at: <code>abrae.htm</code></li>
+</ul>
+<h2 id="level-4">Level 4</h2>
+<p>Click on the link to pop the password prompt. Spam the escape key and it&rsquo;s seems to be enought ?! No password required here&hellip;</p>
+<h2 id="level-5">Level 5</h2>
+<p>No challenge here, same as level 2, provide the clear password in the source: <code>SAvE-as hELpS a lOt</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pass</span>, <span style="color:#a6e22e">i</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pass</span><span style="color:#f92672">=</span><span style="color:#a6e22e">prompt</span>(<span style="color:#e6db74">&#34;Password: &#34;</span>,<span style="color:#e6db74">&#34;&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">pass</span><span style="color:#f92672">==</span><span style="color:#e6db74">&#34;SAvE-as hELpS a lOt&#34;</span>) {
+</span></span><span style="display:flex;"><span>  window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;save_as.htm&#34;</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">i</span><span style="color:#f92672">=</span><span style="color:#ae81ff">4</span>;
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;Try again&#34;</span>);
+</span></span><span style="display:flex;"><span>  window.<span style="color:#a6e22e">location</span>.<span style="color:#a6e22e">href</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;abrae.htm&#34;</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Or directly call the url of the next level: <code>save_as.htm</code></p>
+<h2 id="level-6">Level 6</h2>
+<p>No plain text or encrypted password in the HTML source but a JavaScript seems to be included:</p>
+<p><code>&lt;h1&gt;Level 6&lt;/h1&gt;&lt;SCRIPT SRC=&quot;psswd.js&quot; LANGUAGE=&quot;JavaScript&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</code></p>
+<p>As the famous king of pop would say, &ldquo;this is it&rdquo;:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#66d9ef">var</span> <span style="color:#a6e22e">pass</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">pass</span><span style="color:#f92672">=</span><span style="color:#a6e22e">prompt</span>(<span style="color:#e6db74">&#34;Password:&#34;</span>,<span style="color:#e6db74">&#34;&#34;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span> (<span style="color:#a6e22e">pass</span><span style="color:#f92672">==</span><span style="color:#e6db74">&#34;hackertestz&#34;</span>) {
+</span></span><span style="display:flex;"><span>  window.<span style="color:#a6e22e">location</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;included.htm&#34;</span>;
+</span></span><span style="display:flex;"><span>} <span style="color:#66d9ef">else</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;Try again...&#34;</span>);
+</span></span></code></pre></div><p>Plain text password is not a good security: <code>hackertestz</code></p>
+<h2 id="level-7">Level 7</h2>
+<p>When providing empty or wrong credentials you&rsquo;ill be redirected to <code>pwd2.php</code> and faced to this message: <code>Authentication Failed. Try again.</code>
+There is nothing interesting in this page.</p>
+<p>Back to the forms one, an image is used: <code>images/included.gif</code>.
+Take a look at the bottom right of this big picture and get the credentials:</p>
+<p><img src="https://glc.st/images/hackertest-level7.png" alt="hackertest level7"></p>
+<h2 id="level-8">Level 8</h2>
+<p>There is no info inside the original page but after submitting the form with wrong credentials you’ll be redirected to <code>phat.php</code> and faced to this message: <code>Authentication Failed. Try again.</code></p>
+<p>Again, in the source an image is used <code>images/phat.gif</code>, at the bottom right of this picture a message is displayed: <code>Look for a .PhotoShopDocument!</code></p>
+<p>As the uppercase letters say the extension of a Photoshop document is <code>.psd</code> so change the url to <code>images/phat.psd</code>. Your browser will merely download the file. I used GIMP to open it instead of Photoshop but it doesn&rsquo;t matter.</p>
+<p><img src="https://glc.st/images/hackertest-level8.png" alt="hackertest level8"></p>
+<h2 id="level-9">Level 9</h2>
+<p>The trap in this level is to think that the document is empty.
+But if you look carefully the source you&rsquo;ll notice that there is about 1500 lines of code.
+Scroll down to find the clue.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-------------------------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">---------------------------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">---------------------------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">---------------------------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">---------------------------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">--------------------------------------------  Password: Z2F6ZWJydWg= add a page 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">extention to that  --------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">---------------------------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">---------------------------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">---------------------------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">---------------------------------------------------------------------------------------
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">--------------------------------------------------------------------&gt;</span>
+</span></span></code></pre></div><p>The base64 password can be easily decoded with online resources.
+After trying different file extensions you would find the good one: <code>gazebruh.php</code></p>
+<h2 id="level-10">Level 10</h2>
+<p>This level is  a little bit tricky, it’s all about observation.
+The note about cookies and the form itself are just diversion.
+The clue is in the top text, read carefully the intro:</p>
+<blockquote>
+<p><strong>S</strong>treet Korner is your own online <strong>hack</strong>er simulation.
+W<strong>it</strong>h over 100 levels that require different skills to get to another step of the game, this new real-life immitation will <strong>h</strong>elp you advance your security knowledge.
+This site will help you improve your JavaScript, PHP, HTML and graphic thinking in <strong>a</strong> fun way that will entertain any visitor!
+Have a spare minute? Log on! Each level wil<strong>l</strong> provide you with a new, harder clue to find a way to get to another level.
+Only <strong>f</strong>ew people have gotten to the end of the maze&hellip; Will you crack this site?</p>
+</blockquote>
+<p>Did you notice the bold letters? That’s the password.
+Concatenate them all and lowercase the result, you’ll find: <code>shackithalf</code></p>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

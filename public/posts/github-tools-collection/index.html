@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/images/github-whitehat.jpg"/>
+
+<meta name="twitter:title" content="GitHub tools collection"/>
+<meta name="twitter:description" content="This is the current thread in the bug hunter community: how to find sensitive informations on GitHub. Understand how to find tokens/keys/passwords on the largest code database in the world in order to pwn a company and get massive rewards. Using tools or doing it manually, some very talented people like Th3G3nt3lman are real wizards when it comes to discover such treasures. Many tools are now available but since I wanted to learn Python for a long time, I jumped at the opportunity. In this article I&rsquo;m going to present some scripts I wrote in PHP and Python to fit my needs."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="GitHub tools collection" />
+<meta property="og:description" content="This is the current thread in the bug hunter community: how to find sensitive informations on GitHub. Understand how to find tokens/keys/passwords on the largest code database in the world in order to pwn a company and get massive rewards. Using tools or doing it manually, some very talented people like Th3G3nt3lman are real wizards when it comes to discover such treasures. Many tools are now available but since I wanted to learn Python for a long time, I jumped at the opportunity. In this article I&rsquo;m going to present some scripts I wrote in PHP and Python to fit my needs." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/github-tools-collection/" />
+
+<meta property="og:image" content="https://glc.st/images/github-whitehat.jpg" />
+<meta property="article:published_time" content="2019-10-10T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-10T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/posts/github-tools-collection/">
+    
+    <title>
+    GitHub tools collection · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/posts/github-tools-collection/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=GitHub%20tools%20collection%20https%3a%2f%2fglc.st%2fposts%2fgithub-tools-collection%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fgithub-tools-collection%2f&title=GitHub%20tools%20collection" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fgithub-tools-collection%2f&amp;t=GitHub%20tools%20collection" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=GitHub%20tools%20collection&body=https%3a%2f%2fglc.st%2fposts%2fgithub-tools-collection%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=GitHub%20tools%20collection%20https%3a%2f%2fglc.st%2fposts%2fgithub-tools-collection%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fgithub-tools-collection%2f&text=GitHub%20tools%20collection" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fgithub-tools-collection%2f&amp;title=GitHub%20tools%20collection" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fgithub-tools-collection%2f&t=GitHub%20tools%20collection" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">GitHub tools collection</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2019-10-10T00:00:00Z'>
+                            October 10, 2019
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        10 minutes read
+                    </span>
+                </div>
+                
+                <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://glc.st/tags/recon/">recon</a>
+      <span class="separator">•</span>
+    <a href="https://glc.st/tags/tools/">tools</a></div>
+
+            </div>
+        </header>
+
+        <div>
+            <p>This is the current thread in the bug hunter community: how to find sensitive informations on GitHub. Understand how to find tokens/keys/passwords on the largest code database in the world in order to pwn a company and get massive rewards. Using tools or doing it manually, some very talented people like <a href="https://twitter.com/Th3G3nt3lman">Th3G3nt3lman</a> are real wizards when it comes to discover such treasures. Many tools are now available but since I wanted to learn Python for a long time, I jumped at the opportunity. In this article I&rsquo;m going to present some scripts I wrote in PHP and Python to fit my needs.</p>
+<p>Get the whole everything here: <a href="https://github.com/gwen001/github-search">https://github.com/gwen001/github-search</a></p>
+<p>All tools who contact the GitHub API require at least one token to be able to perform multiple queries.
+The best way to deal with it is to create a single text file in the repository called <code>.tokens</code> with 1 token per line.
+Then all scripts will load this file. (ps: the more token you have the better it is).</p>
+<h2 id="memotxt">memo.txt</h2>
+<p>First of all you better understand how GitHub search engine works.
+Here is a very quick resume of the <a href="https://developer.github.com/v3/search/">Official GitHub documentation</a>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>term in filename: term in:file
+</span></span><span style="display:flex;"><span>term in path: term in:path
+</span></span><span style="display:flex;"><span>from a user: user:USERNAME
+</span></span><span style="display:flex;"><span>from an org: org:ORGNAME
+</span></span><span style="display:flex;"><span>in project: repo:USERNAME/REPOSITORY
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>filepath: term path:app/config (subdir included)
+</span></span><span style="display:flex;"><span>tagged language: language:python
+</span></span><span style="display:flex;"><span>filesize: size:&gt;10000 (10kb)
+</span></span><span style="display:flex;"><span>filename: filename:config
+</span></span><span style="display:flex;"><span>extension: extension:py
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>string exclusion: hello NOT world
+</span></span><span style="display:flex;"><span>qualifier exclusion: cats stars:&gt;10 -language:javascript
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Use quotation marks for queries with whitespace
+</span></span><span style="display:flex;"><span>cats NOT &#34;hello world&#34;
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><h2 id="git-historypy">git-history.py</h2>
+<p>This script performs regexps on all repositories located in a specified folder and subfolders.
+But more it searches in the history of the repositories, not only the current version of the files.
+All commits are checked!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>usage: git-history.py [-h] [-p PATH] [-d DATE] [-c LENGTH] [-s SEARCH]
+</span></span><span style="display:flex;"><span>                      [-t THREADS]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>optional arguments:
+</span></span><span style="display:flex;"><span>  -h, --help            show this help message and exit
+</span></span><span style="display:flex;"><span>  -p PATH, --path PATH  path to scan
+</span></span><span style="display:flex;"><span>  -d DATE, --date DATE  do no check commits prior this date, format: YYYY-MM-DD
+</span></span><span style="display:flex;"><span>  -c LENGTH, --length LENGTH
+</span></span><span style="display:flex;"><span>                        only check in first n characters
+</span></span><span style="display:flex;"><span>  -s SEARCH, --search SEARCH
+</span></span><span style="display:flex;"><span>                        term to search (regexp)
+</span></span><span style="display:flex;"><span>  -t THREADS, --threads THREADS
+</span></span><span style="display:flex;"><span>                        max threads, default: 10
+</span></span></code></pre></div><p>On big repositories (or folders who contain multiple repositories), this operation can take a while.
+To make it faster, you can customize the maximum threads used, set a date limit and a size option.</p>
+<p>Examples:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>git-history.py -p ~/repos -s &#34;AKIA.*&#34;
+</span></span><span style="display:flex;"><span>git-history.py -p ~/repos -s ~/.gf/aws-keys.json -d 2019-01-01 -c 1000000
+</span></span></code></pre></div><p>Note that the regexps file (option <code>-s</code>) can be a single regexp or a file using the format of the nice tool <a href="https://github.com/tomnomnom/gf">gf</a> by <a href="https://twitter.com/TomNomNom">TomNomNom</a>.</p>
+<p><img src="https://glc.st/images/git-history-py.jpg" alt="git history python"></p>
+<h2 id="git-historysh">git-history.sh</h2>
+<p>Same same but different.
+Strongly inspired by <a href="https://twitter.com/tomnomnom/status/1133345832688857095">TomNomNom onliner</a> published on Twitter, this small bash script also looks for patterns in the history of Git repositories.</p>
+<p><img src="https://glc.st/images/git-history-sh.jpg" alt="git history bash"></p>
+<h2 id="git-pillagepy">git-pillage.py</h2>
+<p>Inspired by <a href="https://github.com/koto/gitpillage/blob/master/gitpillage.sh">gitpillage.sh</a>. I wanted to make it faster and more verbose, it was also a nice way to pratice that exercise on <a href="https://pentesterlab.com">Pentesterlab</a> about Git directory structure.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>usage: git<span style="color:#f92672">-</span>pillage<span style="color:#f92672">.</span>py [<span style="color:#f92672">-</span>h] [<span style="color:#f92672">-</span>u URL] [<span style="color:#f92672">-</span>t THREADS] [<span style="color:#f92672">-</span>e EXTENSION] [<span style="color:#f92672">-</span>x EXCLUDE]
+</span></span><span style="display:flex;"><span>                     [<span style="color:#f92672">-</span>v]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>optional arguments:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>h, <span style="color:#f92672">--</span>help            show this help message <span style="color:#f92672">and</span> exit
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>u URL, <span style="color:#f92672">--</span>url URL     url of the <span style="color:#f92672">.</span>git, but without the <span style="color:#f92672">.</span>git directory
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>t THREADS, <span style="color:#f92672">--</span>threads THREADS
+</span></span><span style="display:flex;"><span>                        threads, default: <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>e EXTENSION, <span style="color:#f92672">--</span>extension EXTENSION
+</span></span><span style="display:flex;"><span>                        extensions to download separated by comma, overwrite
+</span></span><span style="display:flex;"><span>                        <span style="color:#f92672">--</span>exclude, default: all but default exclude
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>x EXCLUDE, <span style="color:#f92672">--</span>exclude EXCLUDE
+</span></span><span style="display:flex;"><span>                        extensions to exclude separated by comma, default: png
+</span></span><span style="display:flex;"><span>                        ,gif,jpg,jpeg,ico,svg,eot,otf,ttf,woff,woff2,css,less,
+</span></span><span style="display:flex;"><span>                        po,mo,mp3,mp4,mpeg,avi
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>v, <span style="color:#f92672">--</span>verbose         verbose mode, default: off
+</span></span></code></pre></div><p>Examples:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>git-pillage.py -u https://www.example.com -t 10 -v
+</span></span><span style="display:flex;"><span>git-pillage.py -u https://www.example.com/ -x pdf,doc,docx,txt,xls,xlsx
+</span></span><span style="display:flex;"><span>git-pillage.py -u https://www.example.com/htdocs/src/ -t 10 -e php,sh,py,rb,bat -v
+</span></span></code></pre></div><p><img src="https://glc.st/images/gitpillage.jpg" alt="gitpillage"></p>
+<h2 id="github-contributorspy">github-contributors.py</h2>
+<p>This script returns some informations about the peoples listed as contributors of every repositories of an organization.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>usage: github-contributors.py [-h] [-t TOKEN] [-o ORG] [-u USER]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>optional arguments:
+</span></span><span style="display:flex;"><span>  -h, --help            show this help message and exit
+</span></span><span style="display:flex;"><span>  -t TOKEN, --token TOKEN
+</span></span><span style="display:flex;"><span>                        auth token
+</span></span><span style="display:flex;"><span>  -o ORG, --org ORG     organization
+</span></span><span style="display:flex;"><span>  -u USER, --user USER  user
+</span></span></code></pre></div><p>Example:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>git-contributors.py -o snapchat
+</span></span></code></pre></div><div  style="width:400px;float:left;margin-right:20px;">
+  <a href="https://glc.st/images/github-contributors-github.jpg" title="github contributors" target="_blank" ><img src="https://glc.st/images/github-contributors-github.jpg" alt="github contributors" /></a>
+</div>
+<div  style="width:300px;float:left;">
+  <a href="https://glc.st/images/github-contributors.jpg" title="github contributors" target="_blank" ><img src="https://glc.st/images/github-contributors.jpg" alt="github contributors" /></a>
+</div>
+<div style="clear:both;"></div>
+<h2 id="github-dorksphp">github-dorks.php</h2>
+<p>Performs dorks on GitHub for the users/organizations provided (list can be provided by separating users/orgs with comma).
+Dorks must be listed in a single text file.
+Results are not stored (could be an option?), only the number or results is displayed.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Usage: /opt/bin/github-dorks.php &lt;o/u/n&gt; &lt;org/user&gt; [&lt;dork file&gt;]
+</span></span></code></pre></div><p><img src="https://glc.st/images/github-dorks-php.jpg" alt="github dorks php"></p>
+<h2 id="github-dorkspy">github-dorks.py</h2>
+<p>The Python version of the previous script.
+It&rsquo;s supposed to be much faster (and more stable) because of the multi thread option, but unfortunately GitHub rate limit on search code is pretty low so use it carefully.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>usage: github-dorks.py [-h] [-d DORKS] [-t TOKEN] [-o ORG] [-e THREADS]
+</span></span><span style="display:flex;"><span>                       [-u USER]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>optional arguments:
+</span></span><span style="display:flex;"><span>  -h, --help            show this help message and exit
+</span></span><span style="display:flex;"><span>  -d DORKS, --dorks DORKS
+</span></span><span style="display:flex;"><span>                        dorks file
+</span></span><span style="display:flex;"><span>  -t TOKEN, --token TOKEN
+</span></span><span style="display:flex;"><span>                        auth token
+</span></span><span style="display:flex;"><span>  -o ORG, --org ORG     organization
+</span></span><span style="display:flex;"><span>  -e THREADS, --threads THREADS
+</span></span><span style="display:flex;"><span>                        maximum n threads
+</span></span><span style="display:flex;"><span>  -u USER, --user USER  user
+</span></span></code></pre></div><p><img src="https://glc.st/images/github-dorks-py.jpg" alt="github dorks python"></p>
+<h2 id="github-employeespy">github-employees.py</h2>
+<p>(try to) Find GitHub account of employees of a company through Google search and displays some basics informations about them.</p>
+<p>2 mods are available for now:</p>
+<ul>
+<li>github, Google dork is: <code>site:github.com [term]</code>, nicknames are the ones returned</li>
+<li>linkedin, Google dork is:  <code>site:linkedin.com/in [term]</code>, nicknames are generated by the script using firstname and lastname</li>
+</ul>
+<p>Since the script uses the magnificient <a href="https://github.com/s0md3v/goop">Goop</a> from <a href="https://twitter.com/s0md3v">s0md3v</a>, a facebook cookie is required to bypass Google rate limit (can be provided on the command line or environment variable).</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>usage: github<span style="color:#f92672">-</span>employees<span style="color:#f92672">.</span>py [<span style="color:#f92672">-</span>h] [<span style="color:#f92672">-</span>m MOD] [<span style="color:#f92672">-</span>s STARTPAGE] [<span style="color:#f92672">-</span>f FBCOOKIE]
+</span></span><span style="display:flex;"><span>                           [<span style="color:#f92672">-</span>t TERM] [<span style="color:#f92672">-</span>p PAGE] [<span style="color:#f92672">-</span>r RESUME] [<span style="color:#f92672">-</span>i INPUT]
+</span></span><span style="display:flex;"><span>                           [<span style="color:#f92672">-</span>k KEYWORD] [<span style="color:#f92672">-</span>o TOKEN]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>optional arguments:
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>h, <span style="color:#f92672">--</span>help            show this help message <span style="color:#f92672">and</span> exit
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>m MOD, <span style="color:#f92672">--</span>mod MOD     module to use to search employees on google,
+</span></span><span style="display:flex;"><span>                        available: linkedin, github, default: github
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>s STARTPAGE, <span style="color:#f92672">--</span>startpage STARTPAGE
+</span></span><span style="display:flex;"><span>                        search start page, default <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>f FBCOOKIE, <span style="color:#f92672">--</span>fbcookie FBCOOKIE
+</span></span><span style="display:flex;"><span>                        your facebook cookie (<span style="color:#f92672">or</span> set env <span style="color:#66d9ef">var</span> FACEBOOK_COOKIE)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>t TERM, <span style="color:#f92672">--</span>term TERM  term (usually company name)
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>p PAGE, <span style="color:#f92672">--</span>page PAGE  n page to grab, default <span style="color:#ae81ff">10</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>r RESUME, <span style="color:#f92672">--</span>resume RESUME
+</span></span><span style="display:flex;"><span>                        resume previous session
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>i INPUT, <span style="color:#f92672">--</span>input INPUT
+</span></span><span style="display:flex;"><span>                        input datas source saved from previous search
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>k KEYWORD, <span style="color:#f92672">--</span>keyword KEYWORD
+</span></span><span style="display:flex;"><span>                        github keyword to search
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">-</span>o TOKEN, <span style="color:#f92672">--</span>token TOKEN
+</span></span><span style="display:flex;"><span>                        github token
+</span></span></code></pre></div><p>Examples:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>github-employees.py -m github -p 30 -t &#34;valvesoftware&#34;
+</span></span><span style="display:flex;"><span>github-employees.py -f &#34;fr=1dQvI2Lp7cTfjt; datr=6uqdXS6tsFY5CJ...&#34; -m linkedin -o &#34;1ec46a7...&#34; -t &#34;valvesoftware programmer&#34; -t &#34;valvesoftware admin&#34;
+</span></span></code></pre></div><p><img src="https://glc.st/images/github-employees.jpg" alt="github employees"></p>
+<h2 id="github-endpointspy">github-endpoints.py</h2>
+<p>Improve you recon by searching endpoints on GitHub.
+Very useful, you can also get some extras subdomains.
+Relative urls can be displayed or not as well as external domains urls.
+Based on regexp, it also has an exclude list.
+Feed it as much as you can to filter the results the way you like!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>usage: github-endpoints.py [-h] [-t TOKEN] [-d DOMAIN] [-e] [-a] [-r] [-s]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>optional arguments:
+</span></span><span style="display:flex;"><span>  -h, --help            show this help message and exit
+</span></span><span style="display:flex;"><span>  -t TOKEN, --token TOKEN
+</span></span><span style="display:flex;"><span>                        auth token (required)
+</span></span><span style="display:flex;"><span>  -d DOMAIN, --domain DOMAIN
+</span></span><span style="display:flex;"><span>                        domain you are looking for (required)
+</span></span><span style="display:flex;"><span>  -e, --extend          also look for &lt;dummy&gt;example.com
+</span></span><span style="display:flex;"><span>  -a, --all             displays urls of all other domains
+</span></span><span style="display:flex;"><span>  -r, --relative        also displays relative urls
+</span></span><span style="display:flex;"><span>  -s, --source          display urls where endpoints are found
+</span></span></code></pre></div><p><img src="https://glc.st/images/github-endpoints.png" alt="github endpoints"></p>
+<h2 id="github-grabrepophp">github-grabrepo.php</h2>
+<p>Very simple script that clones all public repositories belonging to a given user/organization.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Usage: php github-grabrepo.php -o/-u &lt;organization/user&gt; [OPTIONS]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Options:
+</span></span><span style="display:flex;"><span>	-d	set destination directory (required)
+</span></span><span style="display:flex;"><span>	-o	set organization (org or user required)
+</span></span><span style="display:flex;"><span>	-u	set user (org or user required)
+</span></span><span style="display:flex;"><span>	-f	grab forked repositories as well
+</span></span></code></pre></div><p><img src="https://glc.st/images/github-grabrepo.jpg" alt="github grabrepo"></p>
+<h2 id="github-searchphp">github-search.php</h2>
+<p>Perform code search through GitHub API.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Usage: php github-search.php [OPTIONS]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Options:
+</span></span><span style="display:flex;"><span>	-c	set cookie session
+</span></span><span style="display:flex;"><span>	-e	file extension filter
+</span></span><span style="display:flex;"><span>	-f	looking for file
+</span></span><span style="display:flex;"><span>	-h	print this help
+</span></span><span style="display:flex;"><span>	-l	language filter
+</span></span><span style="display:flex;"><span>	-m	look for commit, -o and -p are required
+</span></span><span style="display:flex;"><span>	-n	no color
+</span></span><span style="display:flex;"><span>	-p	provide repository name
+</span></span><span style="display:flex;"><span>	-o	provide organization name
+</span></span><span style="display:flex;"><span>	-r	maximum number of results, default 100
+</span></span><span style="display:flex;"><span>	-s	search string
+</span></span><span style="display:flex;"><span>	-t	set authorization token (overwrite cookie, best option)
+</span></span></code></pre></div><p>Examples:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>	php github-search.php -o myorganization -s db_password
+</span></span><span style="display:flex;"><span>	php github-search.php -o myorganization -f wp-config.php -s db_password
+</span></span><span style="display:flex;"><span>	php github-search.php -c &#34;user_session=B0KqycP8LlYORc-s3WFZoH71TG&#34; -f wp-config -e php -r 1000
+</span></span><span style="display:flex;"><span>	php github-search.php -t 32a11e6f340c2fe1a6071795a3b1a8c876b3cf29 -l php -s DB_USERNAME
+</span></span><span style="display:flex;"><span>	php github-search.php -s &#34;DB_USERNAME filename:wp-config extension:php&#34; -n
+</span></span></code></pre></div><p><img src="https://glc.st/images/github-search.jpg" alt="github search"></p>
+<h2 id="github-secretspy">github-secrets.py</h2>
+<p>Find secrets deployed on GitHub.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>usage: github-secrets.py [-h] [-t TOKEN] [-s SEARCH] [-e] [-r REGEXP] [-u] [-v]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>options:
+</span></span><span style="display:flex;"><span>  -h, --help            show this help message and exit
+</span></span><span style="display:flex;"><span>  -t TOKEN, --token TOKEN
+</span></span><span style="display:flex;"><span>                        your github token (required)
+</span></span><span style="display:flex;"><span>  -s SEARCH, --search SEARCH
+</span></span><span style="display:flex;"><span>                        search term you are looking for (required)
+</span></span><span style="display:flex;"><span>  -e, --extend          also look for &lt;dummy&gt;example.com
+</span></span><span style="display:flex;"><span>  -r REGEXP, --regexp REGEXP
+</span></span><span style="display:flex;"><span>                        regexp to search, default is SecLists secret-keywords list (can be a tomnomnom gf file)
+</span></span><span style="display:flex;"><span>  -u, --url             display only url
+</span></span><span style="display:flex;"><span>  -v, --verbose         verbose mode, for debugging purpose
+</span></span></code></pre></div><p>Examples:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>	python3 github-secrets.py -s &#34;AWS_KEY filename:.env&#34; -r &#34;AKIA[A-Z0-9]{16}&#34;
+</span></span><span style="display:flex;"><span>	python3 github-secrets.py -s &#34;DB_PASSWORD filename:wp-config.php&#34; -r &#34;DB_PASSWORD&#39;,\s*&#39;[^&#39;]{4,}&#34;
+</span></span></code></pre></div><p><img src="https://glc.st/images/github-secrets.png" alt="github secrets"></p>
+<h2 id="github-subdomainspy">github-subdomains.py</h2>
+<p>Find additional subdomains on GitHub.
+Very useful during you recon phase, you will probably get some extras subdomains other tools didn&rsquo;t find because not public.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>usage: github-subdomains.py [-h] [-t TOKEN] [-d DOMAIN] [-e] [-s]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>optional arguments:
+</span></span><span style="display:flex;"><span>  -h, --help            show this help message and exit
+</span></span><span style="display:flex;"><span>  -t TOKEN, --token TOKEN
+</span></span><span style="display:flex;"><span>                        auth token (required)
+</span></span><span style="display:flex;"><span>  -d DOMAIN, --domain DOMAIN
+</span></span><span style="display:flex;"><span>                        domain you are looking for (required)
+</span></span><span style="display:flex;"><span>  -e, --extend          also look for &lt;dummy&gt;example.com
+</span></span><span style="display:flex;"><span>  -s, --source          display first url where subdomains are found
+</span></span></code></pre></div><p><img src="https://glc.st/images/github-subdomains.png" alt="github subdomains"></p>
+<h2 id="github-surveyindexphp">github-survey/index.php</h2>
+<p>Web page that displays GitHub search results of dorks set in a config file <code>github-survey.json</code> located in the same directory.
+This file also contains an exclude list, so results considered as useless are skipped.
+The exclude list is feeded through buttons in that same page.</p>
+<p><img src="https://glc.st/images/github-survey-index.jpg" alt="github survey index"></p>
+<p>It&rsquo;s also possible to mark a file, so his <code>sha</code> is set as the <code>last-sha</code> parameter in the config file (and later highlighted in red).
+This is very useful when combined with the next Python script.</p>
+<h2 id="github-surveypy">github-survey.py</h2>
+<p>The first version of my GitHub survey script.</p>
+<p>It performs GitHub search using the same config file mentionned above but does not exclude anything.
+An alert is sent to a Slack channel if the <code>total_count</code> is superior to the <code>total_count</code> of the previous run (it&rsquo;s crontabed).</p>
+<p><img src="https://glc.st/images/github-survey-py1.jpg" alt="github survey python"></p>
+<h2 id="github-survey2py">github-survey2.py</h2>
+<p>Unfortunately I understood later that GitHub API is not so reliable.
+If you perform several searches in a row (same dork), using the API or the website, you&rsquo;ll notice that the results counter varies.
+Because of that I got many many (too many) notifications on my Slack, mostly false positive.</p>
+<p>According to this I wrote a second version of GitHub survey which is much more reliable.</p>
+<p>First it uses the <code>last-sha</code> parameter to limit the search (search until&hellip;) then it filters the results with the exclude list feeded by the web page to decide if a notification should be send or not. Much better!</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>usage: github-survey2.py [-h] [-t TOKEN] [-p PAGE] [-c CONFIG]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>optional arguments:
+</span></span><span style="display:flex;"><span>  -h, --help            show this help message and exit
+</span></span><span style="display:flex;"><span>  -t TOKEN, --token TOKEN
+</span></span><span style="display:flex;"><span>                        auth token
+</span></span><span style="display:flex;"><span>  -p PAGE, --page PAGE  n max page
+</span></span><span style="display:flex;"><span>  -c CONFIG, --config CONFIG
+</span></span><span style="display:flex;"><span>                        config file, default: ~/.config/github-survey.json
+</span></span></code></pre></div><p><img src="https://glc.st/images/github-survey-py2.jpg" alt="github survey python"></p>
+<h2 id="github-userspy">github-users.py</h2>
+<p>This script performs a user search using GitHub API and display some informations about them.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>usage: github-users.py [-h] [-t TOKEN] [-k KEYWORD]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>optional arguments:
+</span></span><span style="display:flex;"><span>  -h, --help            show this help message and exit
+</span></span><span style="display:flex;"><span>  -t TOKEN, --token TOKEN
+</span></span><span style="display:flex;"><span>                        auth token
+</span></span><span style="display:flex;"><span>  -k KEYWORD, --keyword KEYWORD
+</span></span><span style="display:flex;"><span>                        keyword to search
+</span></span></code></pre></div><p><img src="https://glc.st/images/github-users.jpg" alt="github users"></p>
+<h2 id="gsearch-reflogsh">gsearch-reflog.sh</h2>
+<p>This script downloads a given repository and performs searches in his logs in order to find secrets.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Usage: ./gsearch-reflog.sh &lt;repository url&gt;
+</span></span></code></pre></div><p><img src="https://glc.st/images/gsearch-reflog.png" alt="github reflog"></p>
+<h2 id="conclusion">Conclusion</h2>
+<p>You would probably think that all those   scripts are useless.
+There is already so many tools to perform history search, secret discovery and so on&hellip;
+The main reason of all of this was to learn Python, it was part of my goal in 2019.
+I can now say that I am confortable with the basics, even if most of the code above is horrible (please, don&rsquo;t judge, after syntax learning comes code organization).</p>
+<p>I am not very familiar with GitHub issues (understand &ldquo;it won&rsquo;t be fixed soon&rdquo;) so feel free to use those programs or not, fully rewrite them or partially or copy or update or whatever :)</p>
+<h2 id="external-resources">External resources</h2>
+<ul>
+<li><a href="https://github.com/hisxo/gitGraber">gitGraber from Adrien Jeanneau</a></li>
+<li><a href="https://twitter.com/soaj1664ashar/status/1176769454035939328">Tools to get sensitive info / secrets from @github</a></li>
+<li><a href="https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04B-3_Meli_paper.pdf">How bad can it git?</a></li>
+</ul>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>
