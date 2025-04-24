@@ -99,10 +99,10 @@ unsafe= true
     name = "Press"
     weight = 6
     url  = "/press/"
-[[menu.main]]
-    name = "About"
-    weight = 7
-    url = "/about/"
+# [[menu.main]]
+#     name = "About"
+#     weight = 7
+#     url = "/about/"
 
 
 [permalinks]
