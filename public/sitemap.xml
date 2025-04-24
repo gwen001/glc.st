@@ -2,10 +2,40 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://glc.st/about/</loc>
-    <lastmod>2023-05-08T16:06:21+02:00</lastmod>
+    <loc>https://glc.st/courses/</loc>
+    <lastmod>2025-04-22T18:05:10+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/</loc>
+    <lastmod>2025-04-22T18:05:10+01:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/bug-bounty/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/courses/bugbounty-overview/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/courses/cybersecurity-awareness/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/courses/hacking-and-web-application-security/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/courses/introduction-to-bash-scripting/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/courses/introduction-to-pentesting/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/courses/laravel-security/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/courses/php-for-beginners/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/about/</loc>
     <lastmod>2023-05-08T16:06:21+02:00</lastmod>
   </url><url>
     <loc>https://glc.st/resume/</loc>
@@ -29,9 +59,6 @@
     <loc>https://glc.st/tags/file-upload/</loc>
     <lastmod>2022-11-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://glc.st/tags/</loc>
-    <lastmod>2022-11-11T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://glc.st/cves/cve-2022-43265/</loc>
     <lastmod>2022-11-11T00:00:00+00:00</lastmod>
   </url><url>
@@ -46,9 +73,6 @@
   </url><url>
     <loc>https://glc.st/tags/tools/</loc>
     <lastmod>2022-09-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://glc.st/tags/bug-bounty/</loc>
-    <lastmod>2022-08-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/tags/management/</loc>
     <lastmod>2022-08-01T00:00:00+00:00</lastmod>

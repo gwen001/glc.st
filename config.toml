@@ -92,13 +92,18 @@ unsafe= true
     weight = 4
     url  = "/services/"
 [[menu.main]]
-    name = "Press"
+    name = "Courses"
     weight = 5
+    url  = "/courses/"
+[[menu.main]]
+    name = "Press"
+    weight = 6
     url  = "/press/"
 [[menu.main]]
     name = "About"
-    weight = 6
+    weight = 7
     url = "/about/"
+
 
 [permalinks]
   posts = "/posts/:title/"

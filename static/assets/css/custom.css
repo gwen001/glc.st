@@ -1,5 +1,16 @@
+/* html, body, * {
+    font-family: Lato, Helvetica, sans-serif;
+} */
 html {
         background-color: #fafafa;
+}
+h4 {
+    margin-bottom: 1.2em;
+    margin-top: 2.2em;
+}
+h6 {
+    margin-bottom: 0.5em;
+    margin-top: 1em;
 }
 pre {
     border-radius: 3px;
@@ -12,6 +23,7 @@ code {
 }
 p {
     /*text-align: justify;*/
+    /* line-height: 1.7em; */
 }
 img {
     border-radius: 3px;
