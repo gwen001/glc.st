@@ -84,14 +84,14 @@ This training is __ideal for novice developers__ seeking to create applications 
 - PDO
 
 #### Day 3 - External libraries and opening topics
-#### External libraries
+###### External libraries
 - Autoload
 - Composer
 - Dotenv
 - PHPUnit
 - PHP cli
 
-#### Ecosystem
+###### Ecosystem
 - Extensions
 - Frameworks
 - CMS
