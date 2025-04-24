@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/courses/php.png"/>
+
+<meta name="twitter:title" content="PHP for beginners"/>
+<meta name="twitter:description" content="A comprehensive 3-day training designed for beginners aiming to build dynamic web applications using PHP. Participants will learn to set up a PHP/MySQL development environment, write structured PHP code, handle data with SQL, and integrate external libraries using Composer. The course emphasizes practical learning through progressive exercises, culminating in the development of a functional web application. By the end, attendees will be equipped to design and develop the server-side of a website, generating the necessary code for the front-end."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="PHP for beginners" />
+<meta property="og:description" content="A comprehensive 3-day training designed for beginners aiming to build dynamic web applications using PHP. Participants will learn to set up a PHP/MySQL development environment, write structured PHP code, handle data with SQL, and integrate external libraries using Composer. The course emphasizes practical learning through progressive exercises, culminating in the development of a functional web application. By the end, attendees will be equipped to design and develop the server-side of a website, generating the necessary code for the front-end." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/courses/php-for-beginners/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/courses/php.png" />
+<meta property="article:published_time" content="2025-04-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-04-22T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/courses/php-for-beginners/">
+    
+    <title>
+  PHP for beginners · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/courses/php-for-beginners/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/courses/">Courses</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>PHP for beginners</h1>
+    </header>
+
+    <p>A comprehensive 3-day training designed for beginners aiming to <strong>build dynamic web applications using PHP</strong>.
+Participants will learn to set up a PHP/MySQL development environment, write structured PHP code, handle data with SQL, and integrate external libraries using Composer.
+The course emphasizes <strong>practical learning through progressive exercises</strong>, culminating in the development of a functional web application.
+By the end, attendees will be equipped to design and develop the server-side of a website, generating the necessary code for the front-end.
+This training is <strong>ideal for novice developers</strong> seeking to create applications or services based on the PHP programming language.</p>
+<br>
+<center>
+    <img src="https://glc.st/assets/img/courses/php.png" alt="Laravel security" width="500" />
+</center>
+<h2 id="program">Program:</h2>
+<h4 id="day-1---php-basics">Day 1 - PHP basics</h4>
+<h4 id="what-is-php">What is PHP?</h4>
+<ul>
+<li>A bit of History</li>
+<li>What is PHP and what is a PHP File?</li>
+</ul>
+<h4 id="php-basics">PHP basics</h4>
+<ul>
+<li>PHP tags</li>
+<li>Short echo tags</li>
+<li>PHP + HTML</li>
+<li>Comments</li>
+</ul>
+<h4 id="variables">Variables</h4>
+<ul>
+<li>Variables types</li>
+<li>Constants</li>
+<li>Quotes</li>
+<li>Concatenation</li>
+<li>Operators</li>
+</ul>
+<h4 id="control-structures">Control Structures</h4>
+<ul>
+<li>if, elseif, else, while, for, while, for, foreach</li>
+<li>break, continue</li>
+<li>switch…case</li>
+<li>match</li>
+<li>include, require</li>
+</ul>
+<h4 id="functions">Functions</h4>
+<ul>
+<li>Recursion</li>
+<li>Types declaration</li>
+<li>Variable arguments</li>
+<li>Default parameters</li>
+<li>Anonymous functions</li>
+<li>Arrow functions</li>
+</ul>
+<h4 id="http-methods">HTTP methods</h4>
+<ul>
+<li>Superglobals</li>
+<li><em>GET</em> and <em>POST</em></li>
+<li>Other HTTP methods</li>
+<li>Forms</li>
+<li>Filters</li>
+</ul>
+<h4 id="persistency-and-storage">Persistency and storage</h4>
+<ul>
+<li>Sessions</li>
+<li>Cookies</li>
+<li>File storage</li>
+</ul>
+<h4 id="day-2---oop-and-database">Day 2 - OOP and database</h4>
+<h6 id="the-essence-of-object-oriented-programming">The essence of Object Oriented Programming</h6>
+<ul>
+<li>Basics</li>
+<li>Properties</li>
+<li><em>Constructor</em> and <em>Destructor</em></li>
+<li>Keyword <em>$this</em></li>
+<li>Visibility</li>
+<li>Constants</li>
+<li>Inheritance</li>
+<li><em>Abstract</em>, <em>Final</em> and <em>Static</em></li>
+<li>Magic methods</li>
+<li>Errors and exceptions</li>
+<li>Headers</li>
+<li>Interfaces and traits</li>
+<li>Namespaces</li>
+</ul>
+<h6 id="database">Database</h6>
+<ul>
+<li>Mysqli</li>
+<li>PDO</li>
+</ul>
+<h4 id="day-3---external-libraries-and-opening-topics">Day 3 - External libraries and opening topics</h4>
+<h4 id="external-libraries">External libraries</h4>
+<ul>
+<li>Autoload</li>
+<li>Composer</li>
+<li>Dotenv</li>
+<li>PHPUnit</li>
+<li>PHP cli</li>
+</ul>
+<h4 id="ecosystem">Ecosystem</h4>
+<ul>
+<li>Extensions</li>
+<li>Frameworks</li>
+<li>CMS</li>
+</ul>
+<p><br><br></p>
+<p>Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank"><a href="mailto:contact@glc.st">contact@glc.st</a></a> - quotes on request - SIRET 79778302400038</p>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

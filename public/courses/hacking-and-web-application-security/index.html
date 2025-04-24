@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/courses/hacking-websec.png"/>
+
+<meta name="twitter:title" content="Hacking &amp; web application security"/>
+<meta name="twitter:description" content="This intensive 3-day training is designed for developers and system administrators aiming to enhance the security of their web applications. Combining theoretical knowledge with practical exercises, the course covers common vulnerabilities, utilization of essential tools, best practices in secure web development​. Participants will learn to identify, exploit, and remediate security flaws, gaining hands-on experience to proactively defend against real-world threats.​
+Program: Day 1 - The basics of web security The landscape of web insecurity Web security: a vast topic Architecture of a typical Web app Open Web Application Security Project CWEs, CVEs &amp; CVSS External and internal attackers The different steps of an attack An attacker’s bag of tricks Common misconceptions Security’s place in the development cycle The importance of inventory Shadow IT Production bias &amp; incompatibility with Agile approaches The idea of DevSecOps The importance of testing &amp; code reviews Static &amp; dynamic analysis Outside help Security audits and Bug Bounty Vulnerability disclosure policy HTTP protocol Reminder about the HTTP(s) protocol Anatomy of HTTP requests &amp; responses Semantics &amp; status codes Introduction to Dev Tools Introduction to Burp Suite URLs Anatomy of a URL Open redirects exploitation Disclosure of sensitive information Sequential IDs Verbose error messages Directory listing Clear-text logging of sensitive information Secrets on the client side API Excessive data exposure Public Git repositories &amp; history Git directory deployed Day 2 - User input flaws Input validation Client-side, server-side, or both?"/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Hacking &amp; web application security" />
+<meta property="og:description" content="This intensive 3-day training is designed for developers and system administrators aiming to enhance the security of their web applications. Combining theoretical knowledge with practical exercises, the course covers common vulnerabilities, utilization of essential tools, best practices in secure web development​. Participants will learn to identify, exploit, and remediate security flaws, gaining hands-on experience to proactively defend against real-world threats.​
+Program: Day 1 - The basics of web security The landscape of web insecurity Web security: a vast topic Architecture of a typical Web app Open Web Application Security Project CWEs, CVEs &amp; CVSS External and internal attackers The different steps of an attack An attacker’s bag of tricks Common misconceptions Security’s place in the development cycle The importance of inventory Shadow IT Production bias &amp; incompatibility with Agile approaches The idea of DevSecOps The importance of testing &amp; code reviews Static &amp; dynamic analysis Outside help Security audits and Bug Bounty Vulnerability disclosure policy HTTP protocol Reminder about the HTTP(s) protocol Anatomy of HTTP requests &amp; responses Semantics &amp; status codes Introduction to Dev Tools Introduction to Burp Suite URLs Anatomy of a URL Open redirects exploitation Disclosure of sensitive information Sequential IDs Verbose error messages Directory listing Clear-text logging of sensitive information Secrets on the client side API Excessive data exposure Public Git repositories &amp; history Git directory deployed Day 2 - User input flaws Input validation Client-side, server-side, or both?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/courses/hacking-and-web-application-security/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/courses/hacking-websec.png" />
+<meta property="article:published_time" content="2025-04-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-04-22T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/courses/hacking-and-web-application-security/">
+    
+    <title>
+  Hacking &amp; web application security · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="https://glc.st/courses/hacking-and-web-application-security/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/courses/">Courses</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Hacking &amp; web application security</h1>
+    </header>
+
+    <p>This intensive 3-day training is designed for <strong>developers</strong> and <strong>system administrators</strong> aiming to enhance the security of their web applications.
+Combining <strong>theoretical knowledge</strong> with <strong>practical exercises</strong>, the course covers <strong>common vulnerabilities</strong>, utilization of <strong>essential tools</strong>, <strong>best practices</strong> in secure web development​.
+Participants will learn to <strong>identify</strong>, <strong>exploit</strong>, and <strong>remediate</strong> security flaws, gaining hands-on experience to proactively defend against real-world threats.​</p>
+<br>
+<center>
+    <img src="https://glc.st/assets/img/courses/hacking-websec.png" alt="Hacking & web application security" width="500" />
+</center>
+<h2 id="program">Program:</h2>
+<h4 id="day-1---the-basics-of-web-security">Day 1 - The basics of web security</h4>
+<h6 id="the-landscape-of-web-insecurity">The landscape of web insecurity</h6>
+<ul>
+<li>Web security: a vast topic</li>
+<li>Architecture of a typical Web app</li>
+<li>Open Web Application Security Project</li>
+<li>CWEs, CVEs &amp; CVSS</li>
+<li>External and internal attackers</li>
+<li>The different steps of an attack</li>
+<li>An attacker’s bag of tricks</li>
+<li>Common misconceptions</li>
+</ul>
+<h6 id="securitys-place-in-the-development-cycle">Security’s place in the development cycle</h6>
+<ul>
+<li>The importance of inventory</li>
+<li>Shadow IT</li>
+<li>Production bias &amp; incompatibility with Agile approaches</li>
+<li>The idea of DevSecOps</li>
+<li>The importance of testing &amp; code reviews</li>
+<li>Static &amp; dynamic analysis</li>
+</ul>
+<h6 id="outside-help">Outside help</h6>
+<ul>
+<li>Security audits and <em>Bug Bounty</em></li>
+<li>Vulnerability disclosure policy</li>
+</ul>
+<h6 id="http-protocol">HTTP protocol</h6>
+<ul>
+<li>Reminder about the HTTP(s) protocol</li>
+<li>Anatomy of HTTP requests &amp; responses</li>
+<li>Semantics &amp; status codes</li>
+<li>Introduction to Dev Tools</li>
+<li>Introduction to Burp Suite</li>
+</ul>
+<h6 id="urls">URLs</h6>
+<ul>
+<li>Anatomy of a URL</li>
+<li>Open redirects exploitation</li>
+</ul>
+<h6 id="disclosure-of-sensitive-information">Disclosure of sensitive information</h6>
+<ul>
+<li>Sequential IDs</li>
+<li>Verbose error messages</li>
+<li>Directory listing</li>
+<li>Clear-text logging of sensitive information</li>
+<li>Secrets on the client side</li>
+<li>API Excessive data exposure</li>
+<li>Public Git repositories &amp; history</li>
+<li>Git directory deployed</li>
+</ul>
+<h4 id="day-2---user-input-flaws">Day 2 - User input flaws</h4>
+<h6 id="input-validation">Input validation</h6>
+<ul>
+<li>Client-side, server-side, or both?</li>
+<li>HTTP parameter pollution</li>
+<li>Mass assignment</li>
+</ul>
+<h6 id="cross-site-scripting-xss">Cross-Site Scripting (XSS)</h6>
+<ul>
+<li>Cross-site scripting is everywhere</li>
+<li>Types of cross-site scripting</li>
+<li>What is the impact?</li>
+<li>How to protect &amp; how to bypass</li>
+</ul>
+<h6 id="sql-injection-sqli">SQL Injection (SQLi)</h6>
+<ul>
+<li>What is it?</li>
+<li>What is the impact?</li>
+<li>How to protect &amp; how to bypass</li>
+<li>Presentation of SQLMap</li>
+<li>NoSQL injection</li>
+</ul>
+<h6 id="server-side-request-forgery-ssrf">Server-Side Request Forgery (SSRF)</h6>
+<ul>
+<li>What is it?</li>
+<li>What is the impact?</li>
+<li>How to protect &amp; how to bypass</li>
+</ul>
+<h6 id="other-forms-of-injection">Other forms of injection</h6>
+<ul>
+<li>HTML injection</li>
+<li>Code injection</li>
+<li>OS command injection</li>
+</ul>
+<h6 id="files">Files</h6>
+<ul>
+<li>Common file issues</li>
+<li>Arbitrary file upload</li>
+<li>Path traversal</li>
+<li>Local &amp; remote file inclusion</li>
+</ul>
+<h4 id="day-3---authenticated-user-vulnerabilities">Day 3 - authenticated user vulnerabilities</h4>
+<h6 id="authentication--vulnerabilities">Authentication &amp; vulnerabilities</h6>
+<ul>
+<li>Authentication</li>
+<li>User enumeration</li>
+<li>Rate limiting and security questions</li>
+<li>Multiple-factor authentication</li>
+</ul>
+<h6 id="passwords">Passwords</h6>
+<ul>
+<li>Cryptography in a nutshell: encoding, hashing, encryption</li>
+<li>Password-strength policy</li>
+<li>Leaked passwords</li>
+<li>Password storage</li>
+<li>Cracking tools</li>
+</ul>
+<h6 id="cookies">Cookies</h6>
+<ul>
+<li>Cookies attributes: secure, httponly, domain, samesite&hellip;</li>
+<li>Session hijacking</li>
+</ul>
+<h6 id="cross-site-request-forgery-csrf">Cross-Site Request Forgery (CSRF)</h6>
+<ul>
+<li>What is it?</li>
+<li>What is the impact?</li>
+<li>How to protect &amp; how to bypass</li>
+</ul>
+<h6 id="clickjacking">Clickjacking</h6>
+<ul>
+<li>What is it?</li>
+<li>What is the impact?</li>
+<li>How to protect &amp; how to bypass</li>
+</ul>
+<h6 id="authorization--access-control">Authorization &amp; access control</h6>
+<ul>
+<li>Authentication vs authorization</li>
+<li>Roles and permissions</li>
+<li>Insecure direct object reference</li>
+</ul>
+<h6 id="cross-origin-resource-sharing-cors">Cross-Origin resource sharing (CORS)</h6>
+<ul>
+<li>Refresher on the <em>Same-Origin Policy</em></li>
+<li>Possible misconfigurations</li>
+<li>What is the impact?</li>
+<li>How to protect</li>
+</ul>
+<p><br><br></p>
+<p>Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank"><a href="mailto:contact@glc.st">contact@glc.st</a></a> - quotes on request - SIRET 79778302400038</p>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

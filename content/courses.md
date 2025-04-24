@@ -1,0 +1,84 @@
+---
+title: "Courses"
+date: 2025-04-22T18:05:10+01:00
+---
+Welcome! I'm passionate about web security and ethical hacking — and I'm here to share that with you.
+Whether you're just getting started or looking to level up your skills, my courses offer hands-on, real-world training to help you understand how websites are attacked — and how to defend them. Let's turn curiosity into capability.
+
+<br><br>
+
+<img src="/assets/img/courses/hacking-websec.png" alt="Hacking & Web application security" width="220" style="float:left;" />
+<div style="float:right;width:600px;">
+    <h2 style="margin-top:0;margin-bottom:10px;">Hacking & Web application security</h2>
+    A 3 days course for tech peoples who want to  learn the basic vulnerabilities of modern webapps: input validation, xss, sqli, ssrf, passwords, cookies, tools and true stories...
+    <a href="/courses/hacking-and-web-application-security/">read the full program</a>
+</div>
+<div style="clear:both;"></div>
+
+
+<br><br>
+
+<img src="/assets/img/courses/sensibilisation-cybersec.png" alt="Cybersecurity awareness" width="220" style="float:left;" />
+<div style="float:right;width:600px;">
+    <h2 style="margin-top:0;margin-bottom:10px;">Cybersecurity awareness</h2>
+    Strengthen your IT security, protect your data, avoid phishing and ransomware and become the security expert in your company!
+    <a href="/courses/cybersecurity-awareness/">read the full program</a>
+</div>
+<div style="clear:both;"></div>
+
+
+<br><br>
+
+<img src="/assets/img/courses/pentest.png" alt="Introduction to pentesting" width="220" style="float:left;" />
+<div style="float:right;width:600px;">
+    <h2 style="margin-top:0;margin-bottom:10px;">Introduction to pentesting</h2>
+    Learn how to find and exploit the most common vulnerabilities in web testing and other network services.
+    <a href="/courses/introduction-to-pentesting/" target="_blank">read the full program</a>
+</div>
+<div style="clear:both;"></div>
+
+
+<br><br>
+
+<img src="/assets/img/courses/laravel.png" alt="Laravel security" width="220" style="float:left;" />
+<div style="float:right;width:600px;">
+    <h2 style="margin-top:0;margin-bottom:10px;">Laravel security</h2>
+    Best practices to protect your applications based on one of the most popular PHP framework.
+    <a href="/courses/laravel-security/">read the full program</a>
+</div>
+<div style="clear:both;"></div>
+
+
+<br><br>
+
+<img src="/assets/img/courses/bugbounty.png" alt="Bug Bounty overview" width="220" style="float:left;" />
+<div style="float:right;width:600px;">
+    <h2 style="margin-top:0;margin-bottom:10px;">Bug Bounty overview</h2>
+    A presentation for companies who want to know more about bug bounty to take the good descision: actors, programs, reports, rewards, rules, evolution, case studies...
+    <a href="/courses/bugbounty-overview">read the full program</a>
+</div>
+<div style="clear:both;"></div>
+
+
+<br><br>
+
+<img src="/assets/img/courses/php.png" alt="PHP for beginners" width="220" style="float:left;" />
+<div style="float:right;width:600px;">
+    <h2 style="margin-top:0;margin-bottom:10px;">PHP for beginners</h2>
+    Understand the basics of PHP: object-oriented programming, storage, data exfiltration, database and more...
+    <a href="/courses/php-for-beginners/">read the full program</a>
+</div>
+<div style="clear:both;"></div>
+
+
+<br><br>
+
+<img src="/assets/img/courses/bash.png" alt="Introduction to Bash scripting" width="220" style="float:left;" />
+<div style="float:right;width:600px;">
+    <h2 style="margin-top:0;margin-bottom:10px;">Introduction to Bash scripting</h2>
+    A 3 days course to learn, automate, simplify with Bash.
+    <a href="/courses/introduction-to-bash-scripting/">read the full program</a>
+</div>
+<div style="clear:both;"></div>
+
+<br>

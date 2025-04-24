@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,security,researcher,pentester,bugbounty,tools,bash,php,python,golang">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="http://localhost:1313/assets/img/courses/bugbounty.png"/>
+
+<meta name="twitter:title" content="Bug Bounty Overview"/>
+<meta name="twitter:description" content="This half-a-day course offers a complete introduction to the world of bug bounty. Tailored for directors, CISO, team leader, this session covers everything from the history and structure of bug bounty programs to real-world vulnerability reporting and triaging. Through case studies, best practices, and industry insights, participants will leave equipped with a strong foundation to begin (or improve) their bug bounty journey, both from the hacker and company perspectives.
+Program: Welcome &amp; Icebreaker Instructor intro &amp; participant backgrounds What to expect from the day Quick overview of bug bounty: What it is and why it matters Understanding Bug Bounty: The Ecosystem History and evolution of bug bounty programs Roles and motivations: Companies, platforms, hackers, 3rd parties Pentest vs Bug Bounty: Key differences Anatomy of a Bug Bounty Program How programs are structured (scope, rewards, SLAs) Public vs Private programs What companies expect vs what hackers expect The Hacker’s Side: Tools, Tactics &amp; Community Typical profile of a hunter Recon and bug hunting basics Collaboration and knowledge sharing in the community Reports: Writing, Triaging &amp; Managing Conflicts Lifecycle of a bug bounty report What makes a good report (PoC, clarity, impact) Handling duplicates and report disputes Policy &amp; Program Management What companies should prepare before launching Program evolution: scope, rewards, privacy Common mistakes to avoid Rules, Ethics &amp; Real Case Studies The unofficial rules of bug bounty Safe harbor, disclosure policies Failures and successes: Verizon, Shopify, Zomato, etc."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Bug Bounty Overview" />
+<meta property="og:description" content="This half-a-day course offers a complete introduction to the world of bug bounty. Tailored for directors, CISO, team leader, this session covers everything from the history and structure of bug bounty programs to real-world vulnerability reporting and triaging. Through case studies, best practices, and industry insights, participants will leave equipped with a strong foundation to begin (or improve) their bug bounty journey, both from the hacker and company perspectives.
+Program: Welcome &amp; Icebreaker Instructor intro &amp; participant backgrounds What to expect from the day Quick overview of bug bounty: What it is and why it matters Understanding Bug Bounty: The Ecosystem History and evolution of bug bounty programs Roles and motivations: Companies, platforms, hackers, 3rd parties Pentest vs Bug Bounty: Key differences Anatomy of a Bug Bounty Program How programs are structured (scope, rewards, SLAs) Public vs Private programs What companies expect vs what hackers expect The Hacker’s Side: Tools, Tactics &amp; Community Typical profile of a hunter Recon and bug hunting basics Collaboration and knowledge sharing in the community Reports: Writing, Triaging &amp; Managing Conflicts Lifecycle of a bug bounty report What makes a good report (PoC, clarity, impact) Handling duplicates and report disputes Policy &amp; Program Management What companies should prepare before launching Program evolution: scope, rewards, privacy Common mistakes to avoid Rules, Ethics &amp; Real Case Studies The unofficial rules of bug bounty Safe harbor, disclosure policies Failures and successes: Verizon, Shopify, Zomato, etc." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://localhost:1313/courses/bugbounty-copy/" />
+
+<meta property="og:image" content="http://localhost:1313/assets/img/courses/bugbounty.png" />
+<meta property="article:published_time" content="2025-04-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-04-22T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="http://localhost:1313/courses/bugbounty-copy/">
+    
+    <title>
+  Bug Bounty Overview · Gwendal Le Coguic
+</title>
+
+    
+      <link rel="canonical" href="http://localhost:1313/courses/bugbounty-copy/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="http://localhost:1313/assets/css/coder.css" media="screen">
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="http://localhost:1313/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.125.7">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="http://localhost:1313/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://localhost:1313/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://localhost:1313/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://localhost:1313/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://localhost:1313/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://localhost:1313/courses/">Courses</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://localhost:1313/press/">Press</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://localhost:1313/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Bug Bounty Overview</h1>
+    </header>
+
+    <p>This half-a-day course offers a complete introduction to the world of bug bounty. <strong>Tailored for directors</strong>, <strong>CISO</strong>, <strong>team leader</strong>, this session covers everything from the history and structure of bug bounty programs to real-world vulnerability reporting and triaging. Through <strong>case studies</strong>, <strong>best practices</strong>, and <strong>industry insights</strong>, participants will leave equipped with a strong foundation to begin (or improve) their bug bounty journey, <strong>both from the hacker and company perspectives</strong>.</p>
+<br>
+<center>
+    <img src="http://localhost:1313/assets/img/courses/bugbounty.png" alt="Laravel security" width="500" />
+</center>
+<h2 id="program">Program:</h2>
+<h6 id="welcome--icebreaker">Welcome &amp; Icebreaker</h6>
+<ul>
+<li>Instructor intro &amp; participant backgrounds</li>
+<li>What to expect from the day</li>
+<li>Quick overview of bug bounty: What it is and why it matters</li>
+</ul>
+<h6 id="understanding-bug-bounty-the-ecosystem">Understanding Bug Bounty: The Ecosystem</h6>
+<ul>
+<li>History and evolution of bug bounty programs</li>
+<li>Roles and motivations: Companies, platforms, hackers, 3rd parties</li>
+<li>Pentest vs Bug Bounty: Key differences</li>
+</ul>
+<h6 id="anatomy-of-a-bug-bounty-program">Anatomy of a Bug Bounty Program</h6>
+<ul>
+<li>How programs are structured (scope, rewards, SLAs)</li>
+<li>Public vs Private programs</li>
+<li>What companies expect vs what hackers expect</li>
+</ul>
+<h6 id="the-hackers-side-tools-tactics--community">The Hacker’s Side: Tools, Tactics &amp; Community</h6>
+<ul>
+<li>Typical profile of a hunter</li>
+<li>Recon and bug hunting basics</li>
+<li>Collaboration and knowledge sharing in the community</li>
+</ul>
+<h6 id="reports-writing-triaging--managing-conflicts">Reports: Writing, Triaging &amp; Managing Conflicts</h6>
+<ul>
+<li>Lifecycle of a bug bounty report</li>
+<li>What makes a good report (PoC, clarity, impact)</li>
+<li>Handling duplicates and report disputes</li>
+</ul>
+<h6 id="policy--program-management">Policy &amp; Program Management</h6>
+<ul>
+<li>What companies should prepare before launching</li>
+<li>Program evolution: scope, rewards, privacy</li>
+<li>Common mistakes to avoid</li>
+</ul>
+<h6 id="rules-ethics--real-case-studies">Rules, Ethics &amp; Real Case Studies</h6>
+<ul>
+<li>The unofficial rules of bug bounty</li>
+<li>Safe harbor, disclosure policies</li>
+<li>Failures and successes: Verizon, Shopify, Zomato, etc.</li>
+</ul>
+<h6 id="wrap-up--qa">Wrap-Up &amp; Q&amp;A</h6>
+<ul>
+<li>Recap of the day</li>
+<li>Resources for continued learning</li>
+<li>Open Q&amp;A and personalized advice</li>
+</ul>
+<p><br><br></p>
+<p>Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank"><a href="mailto:contact@glc.st">contact@glc.st</a></a> - quotes on request - SIRET 79778302400038</p>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+  
+    
+      
+    
+  
+
+
+
+    
+      <script src="http://localhost:1313/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>
