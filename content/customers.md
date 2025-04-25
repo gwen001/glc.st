@@ -5,6 +5,7 @@ date: 2025-04-22T18:05:10+01:00
 ## Courses
 
 Over the years, I’ve had the privilege of training teams from startups to large enterprises across various sectors - including tech, finance, e-commerce, and public institutions. My courses have helped developers, sysadmins, and security teams level up their skills in web security, scripting, and secure development practices.
+<!--more-->
 
 ![Boursorama](/assets/img/customers/boursorama.png)
 ![ONERA](/assets/img/customers/onera.png)

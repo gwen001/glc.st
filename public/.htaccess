@@ -34,6 +34,7 @@ RedirectPermanent /bugbounty-cons/ /cons-of-bug-bounty/
 
 # personal blog v2
 RedirectPermanent /about/ /
+RedirectPermanent /resume/ /
 RedirectPermanent /services/ /
 RedirectPermanent /cve-demystified/ /posts/cve-demystified/
 RedirectPermanent /one-takeover-to-rule-them-all/ /posts/one-takeover-to-rule-them-all/

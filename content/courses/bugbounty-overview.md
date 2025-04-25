@@ -3,10 +3,13 @@ date: 2025-04-22
 title: Bug Bounty Overview
 images: [/assets/img/courses/bugbounty.png]
 tags:
+- courses
 - bug bounty
+- cybersecurity
 ---
 
 This half-a-day course offers a complete introduction to the world of bug bounty. __Tailored for directors__, __CISO__, __team leader__, this session covers everything from the history and structure of bug bounty programs to real-world vulnerability reporting and triaging. Through __case studies__, __best practices__, and __industry insights__, participants will leave equipped with a strong foundation to begin (or improve) their bug bounty journey, __both from the hacker and company perspectives__.
+<!--more-->
 
 <br>
 <center>

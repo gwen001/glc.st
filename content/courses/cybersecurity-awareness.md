@@ -3,10 +3,12 @@ date: 2025-04-22
 title: Cybersecurity awareness
 images: [/assets/img/courses/sensibilisation-cybersec.png]
 tags:
-- bug bounty
+- courses
+- cybersecurity
 ---
 
 This one-day awareness course is designed for all __employees and collaborators__ who interact with digital tools in their daily work. The goal is to demystify cybersecurity, present the __major threats and risks__ facing organizations today, and empower participants with concrete, practical knowledge to reduce vulnerabilities. Through __clear explanations__, __real-world examples__, and __actionable advice__, this session helps create a culture of shared responsibility around information security.
+<!--more-->
 
 <br>
 <center>

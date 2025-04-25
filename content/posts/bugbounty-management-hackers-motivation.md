@@ -11,6 +11,7 @@ Nowadays, there is thousands of programs on several platforms, so how would you 
 Why would I choose your program instead of another?
 Why would I spend time testing your system?
 Think about hackers like part of your customers or investors, you have convince them to work with you, you have to promote your program like you would market your products.
+<!--more-->
 
 One big difference with pentest is that a bug bounty program is something you build on the long term.
 In this article I will give some tips to charm hunters and keep them next to you.

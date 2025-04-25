@@ -10,6 +10,7 @@ I will start this year with a set of articles about program management.
 In this one, I will try to explain some important things all companies should do BEFORE running a first bug bounty program.
 Since there is no official rules in bug bounty, we miss that, at the end you can always do whatever you want.
 So those articles are more about best practices/good tips.
+<!--more-->
 
 
 # Do pentest/audits

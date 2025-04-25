@@ -5,16 +5,28 @@
     <loc>https://glc.st/courses/</loc>
     <lastmod>2025-04-22T18:05:10+01:00</lastmod>
   </url><url>
+    <loc>https://glc.st/tags/courses/</loc>
+    <lastmod>2025-04-22T18:05:10+01:00</lastmod>
+  </url><url>
     <loc>https://glc.st/customers/</loc>
     <lastmod>2025-04-22T18:05:10+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/</loc>
     <lastmod>2025-04-22T18:05:10+01:00</lastmod>
   </url><url>
+    <loc>https://glc.st/tags/</loc>
+    <lastmod>2025-04-22T18:05:10+01:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/bash/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://glc.st/tags/bug-bounty/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/courses/bugbounty-overview/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/cybersecurity/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/courses/cybersecurity-awareness/</loc>
@@ -29,19 +41,31 @@
     <loc>https://glc.st/courses/introduction-to-pentesting/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://glc.st/tags/laravel/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://glc.st/courses/laravel-security/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/pentest/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/php/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/courses/php-for-beginners/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://glc.st/tags/</loc>
+    <loc>https://glc.st/tags/programming/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://glc.st/resume/</loc>
+    <loc>https://glc.st/projects/</loc>
     <lastmod>2023-05-05T18:05:10+01:00</lastmod>
   </url><url>
-    <loc>https://glc.st/projects/</loc>
+    <loc>https://glc.st/tags/projects/</loc>
+    <lastmod>2023-05-05T18:05:10+01:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/tools/</loc>
     <lastmod>2023-05-05T18:05:10+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/</loc>
@@ -66,9 +90,6 @@
     <lastmod>2022-09-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/tags/subdomain-takeover/</loc>
-    <lastmod>2022-09-21T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://glc.st/tags/tools/</loc>
     <lastmod>2022-09-21T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/tags/management/</loc>
@@ -380,9 +401,6 @@
     <loc>https://glc.st/tags/oscp/</loc>
     <lastmod>2015-09-08T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://glc.st/tags/pentest/</loc>
-    <lastmod>2015-09-08T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://glc.st/tags/pwk/</loc>
     <lastmod>2015-09-08T00:00:00+00:00</lastmod>
   </url><url>
@@ -501,9 +519,6 @@
     <lastmod>2015-01-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/null-byte-injection/</loc>
-    <lastmod>2015-01-10T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://glc.st/tags/php/</loc>
     <lastmod>2015-01-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/tags/virtual-machine/</loc>

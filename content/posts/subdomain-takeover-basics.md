@@ -9,6 +9,7 @@ tags:
 While subdomain takeover is very popular in the bug hunters community, it looks like some companies or bug bounty triagers have a hard time trying to understand what is it and more important what is the impact of this critical vulnerability.
 
 In this post I will cover the basics of subdomain takeover and explain how a hacker could exploit it.
+<!--more-->
 
 The reasons I heard for now:
 this subdomains is not in scope, it's out of scope

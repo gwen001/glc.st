@@ -3,10 +3,13 @@ date: 2025-04-22
 title: Introduction to Bash scripting
 images: [/assets/img/courses/bash.png]
 tags:
-- bug bounty
+- courses
+- programming
+- bash
 ---
 
 This 3-day hands-on course introduces participants to Bash scripting for task automation and system administration. From writing __simple scripts__ to __managing processes__, __securing code__, and __working over SSH__, you'll learn practical skills to boost productivity and control over your Linux environment. Perfect for __devs__, __sysadmins__, and __security pros__.
+<!--more-->
 
 <br>
 <center>

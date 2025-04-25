@@ -9,6 +9,7 @@ tags:
 Because of Covid, the first quarantaine in France occured in March 2020.
 During that time I wrote a Python script to detect Subdomain Takeover.
 As I have been successful several times with the tool, one hit was especially beautiful.
+<!--more-->
 
 <span style="font-size:1.5em;">*The story of how I have been able to take control of 450+ subdomains of the national french electricity company [EDF](https://www.edf.fr/).*</span>
 

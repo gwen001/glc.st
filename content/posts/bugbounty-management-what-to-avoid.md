@@ -7,6 +7,7 @@ tags:
 ---
 The second article of a serie about bug bounty management.
 This one give some tips to companies about what kind of mistakes they should avoid to keep good relationship with hackers.
+<!--more-->
 
 
 # Unfixed bugs

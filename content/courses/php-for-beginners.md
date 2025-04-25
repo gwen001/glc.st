@@ -3,7 +3,9 @@ date: 2025-04-22
 title: PHP for beginners
 images: [/assets/img/courses/php.png]
 tags:
-- bug bounty
+- courses
+- programming
+- php
 ---
 
 A comprehensive 3-day training designed for beginners aiming to __build dynamic web applications using PHP__.
@@ -11,6 +13,7 @@ Participants will learn to set up a PHP/MySQL development environment, write str
 The course emphasizes __practical learning through progressive exercises__, culminating in the development of a functional web application.
 By the end, attendees will be equipped to design and develop the server-side of a website, generating the necessary code for the front-end.
 This training is __ideal for novice developers__ seeking to create applications or services based on the PHP programming language. 
+<!--more-->
 
 <br>
 <center>

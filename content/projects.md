@@ -1,10 +1,15 @@
 ---
 title: "Projects"
 date: 2023-05-05T18:05:10+01:00
+tags:
+- projects
+- tools
+- cybersecurity
 ---
 Below some of my projects I'm really proud of.
 Mainly developed to help me in bug hunting, you can find them all and much more on my [GitHub](https://github.com/gwen001) profile.
 Feel free to clone and update them as much as you want to fit your own needs.
+<!--more-->
 
 <br><br>
 

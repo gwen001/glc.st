@@ -5,6 +5,11 @@ tags:
 - bug bounty
 - management
 ---
+Bug bounty programs come with platforms, scopes, and payouts - but also with a set of unofficial rules.
+These invisible norms shape how hackers and companies interact, from communication and trust to report etiquette and rewards.
+This post sheds light on the real-world dos and don’ts that every bug hunter and program owner should know.
+<!--more-->
+
 
 # 3 entities, 3 jobs
 

@@ -3,10 +3,13 @@ date: 2025-04-22
 title: Laravel security
 images: [/assets/img/courses/laravel.png]
 tags:
-- bug bounty
+- courses
+- cybersecurity
+- laravel
 ---
 
 This one-day course is designed for __Laravel developers__ who want to build secure applications from the ground up. You’ll learn to __identify common vulnerabilities__, __apply Laravel’s built-in protections__, and __adopt best practices__ to secure __authentication__, __authorization__, __input validation__, and more.
+<!--more-->
 
 <br>
 <center>
