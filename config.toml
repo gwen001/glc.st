@@ -1,6 +1,6 @@
 baseURL = "https://glc.st/"
 # baseURL = "http://glc.st.local.net/"
-googleAnalytics = "G-NRF716WMB7"
+# googleAnalytics = "G-NRF716WMB7"
 languageCode = "en-us"
 title = "Gwendal Le Coguic"
 theme = "coder"
@@ -54,7 +54,7 @@ unsafe= true
 
     math = true
     custom_css = ["/assets/css/custom.css"]
-    custom_js = ["/assets/js/scripts.js"]
+    custom_js = ["/assets/js/scripts.js","/assets/js/gtag.js"]
 
     disable_comments = true
 
