@@ -31,7 +31,7 @@ Over the years, I’ve had the privilege of training teams from startups to larg
 Since 2016, I’ve been hunting bugs across some of the world’s biggest platforms - uncovering vulnerabilities, writing tools, and helping companies strengthen their security. From misconfigurations to critical exploits, I’ve reported hundreds of issues, learned from the best, and shared my knowledge with the community.
 Here are some companies I have been working with and some findings.
 
-__EDF:__ massive subdomain takeovers</span>, [read the article](http://localhost:1313/posts/one-takeover-to-rule-them-all/)  
+__EDF:__ massive subdomain takeovers</span>, [read the article](/posts/one-takeover-to-rule-them-all/)  
 __Decathlon:__ several subdomain takeovers, cloud secrets leak  
 __Société du grand Paris:__ subdomain takeovers  
 __Banque Populaire:__ subdomain takeover  
