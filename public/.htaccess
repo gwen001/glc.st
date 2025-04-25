@@ -33,6 +33,8 @@ RedirectPermanent /testing-flash-swf/ /find-vulnerabilities-in-flash-swf/
 RedirectPermanent /bugbounty-cons/ /cons-of-bug-bounty/
 
 # personal blog v2
+RedirectPermanent /about/ /
+RedirectPermanent /services/ /
 RedirectPermanent /cve-demystified/ /posts/cve-demystified/
 RedirectPermanent /one-takeover-to-rule-them-all/ /posts/one-takeover-to-rule-them-all/
 RedirectPermanent /the-underlying-rules-of-bug-bounty/ /posts/the-underlying-rules-of-bug-bounty/

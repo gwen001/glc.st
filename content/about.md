@@ -1,6 +1,7 @@
 ---
 title: "About"
 date: 2023-05-08T16:06:21+02:00
+draft: yes
 ---
 After many years of web development, I finally decided to follow my dream: perform in the security industry.
 In 2015, after 3 months of hard work, I successfully passed the famous exam Penetration
