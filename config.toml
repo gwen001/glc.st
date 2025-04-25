@@ -81,20 +81,24 @@ unsafe= true
     url  = "/posts/"
 [[menu.main]]
     name = "Projects"
-    weight = 2
+    weight = 4
     url  = "/projects/"
 [[menu.main]]
     name = "CVEs"
-    weight = 3
+    weight = 5
     url  = "/cves/"
-[[menu.main]]
-    name = "Services"
-    weight = 4
-    url  = "/services/"
+# [[menu.main]]
+#     name = "Services"
+#     weight = 4
+#     url  = "/services/"
 [[menu.main]]
     name = "Courses"
-    weight = 5
+    weight = 2
     url  = "/courses/"
+[[menu.main]]
+    name = "Customers"
+    weight = 3
+    url  = "/customers/"
 [[menu.main]]
     name = "Press"
     weight = 6
