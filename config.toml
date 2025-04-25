@@ -7,7 +7,8 @@ theme = "coder"
 
 defaultcontentlanguage = "en"
 
-paginate = 2000
+# paginate = 2000
+pagination.pagerSize = 2000
 canonifyurls = true
 
 pygmentsstyle = "monokai"

@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `user` (
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.125.7">
+    <meta name="generator" content="Hugo 0.146.7">
   </head>
 
   <body class=" ">
@@ -220,8 +220,7 @@ A user could receive an email with credentials of another user&hellip;</p>
 <h2 id="what-can-i-do-">What can I do ?</h2>
 <p>According to <a href="http://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_strict_trans_tables" title="MySQL documentation">MySQL documentation</a>, a trick is to change <code>sql_mode</code> to be more strict:</p>
 <blockquote>
-<p>If a value could not be inserted as given into a transactional table, abort the statement.</p>
-</blockquote>
+<p>If a value could not be inserted as given into a transactional table, abort the statement.</p></blockquote>
 <p><a href="https://glc.st/images/mysql-truncation-7.png"><img src="https://glc.st/images/mysql-truncation-7.png" alt="MySQL Truncation"></a></p>
 <p>As a matter of fact I&rsquo;m not sure this is a good solution.
 Many developers don&rsquo;t even test the result of their sql requests so if the server uses this parameter this can leads to many holes.</p>
@@ -254,13 +253,6 @@ This must be tested&hellip;</p>
     </main>
 
     
-  
-    
-      
-    
-  
-
-
 
     
       <script src="https://glc.st/assets/js/scripts.js"></script>

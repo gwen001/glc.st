@@ -1,6 +1,7 @@
-/* html, body, * {
-    font-family: Lato, Helvetica, sans-serif;
-} */
+html {
+    /* font-family: Lato, Helvetica, sans-serif; */
+    /* font-size: 0.7em; */
+}
 html {
         background-color: #fafafa;
 }
@@ -37,7 +38,7 @@ section.cves ul li a {
     display: inline-block;
     margin-right: 20px;
     /* text-align: right; */
-    width: 145px;
+    width: 160px;
 }
 section.cves ul li .cve {
     color: #212121;
@@ -71,7 +72,7 @@ section.cves ul li .title, section.cves ul li .title:hover, section.cves ul li .
     border: 0px solid #ff0000;
     position: absolute;
     top: 0px;
-    left: -70px;
+    left: -50px;
     height: 100%;
 }
 #sharer .sharer-buttons {
@@ -85,7 +86,7 @@ section.cves ul li .title, section.cves ul li .title:hover, section.cves ul li .
 }
 #sharer img {
     border-radius: 2px;
-    width: 25px;
+    width: 30px;
 }
 #sharer img:hover {
     opacity: 0.8;

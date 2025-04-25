@@ -320,10 +320,10 @@
     <loc>https://glc.st/tags/training/</loc>
     <lastmod>2016-01-28T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://glc.st/tags/sqlmap/</loc>
+    <loc>https://glc.st/posts/sqlmap/</loc>
     <lastmod>2016-01-18T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://glc.st/posts/sqlmap/</loc>
+    <loc>https://glc.st/tags/sqlmap/</loc>
     <lastmod>2016-01-18T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/tags/file-transfer/</loc>
@@ -467,7 +467,7 @@
     <loc>https://glc.st/posts/dotdotpwn/</loc>
     <lastmod>2015-01-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://glc.st/posts/exploit-exercices-nebula-ndash-level03/</loc>
+    <loc>https://glc.st/posts/exploit-exercices-nebula-level03/</loc>
     <lastmod>2015-01-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/tags/exploit-exercises/</loc>
