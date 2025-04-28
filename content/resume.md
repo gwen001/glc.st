@@ -6,7 +6,7 @@ draft: yes
 
 Independent cybersecurity expert
 
-# About
+## About
 
 After more than 15 years of web development, I finally decided to follow my dream: perform in the security industry.
 In 2015, after 3 months of hard work, I successfully passed the famous exam Penetration Testing with Kali Linux exam aka OSCP.
@@ -24,7 +24,7 @@ I now sell my services as an independent cybersecurity expert:
 - <mark>trainer</mark>
 
 
-# Scholarship and certificate
+## Scholarship and certificate
 
 <b>2018:</b> Mastering Burp Suite Pro by Nicolas Grégoire  
 <b>2015:</b> Pentesting with Kali Linux by Offensive Security  
@@ -32,7 +32,7 @@ I now sell my services as an independent cybersecurity expert:
 <b>1996:</b> Bachelor degree of electronics at the professional secondary school Condorcet, France
 
 
-# Work experience
+## Work experience
 
 <section class="job" style="margin-top:3.2rem;">
 <div>
@@ -180,13 +180,13 @@ Development and maintenance of company's websites.
 <div style="clear:both;"></div>
 
 
-# Language
+## Language
 
 <mark>French</mark> : native  
 <mark>English</mark> : fluent
 
 
-# Hobbies
+## Hobbies
 
 - Sports: climbing, running  
 - Travel  

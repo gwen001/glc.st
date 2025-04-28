@@ -14,6 +14,7 @@ There is a lot of resources available about hacking and security, here are my f
 Some blogs I frequently visit from bounty hunters themself. 
 They explain their findings, why it occurs, how they were able to exploit and sometimes how much they win. 
 I visit them once a week and I also follow their writer on Twitter to not miss the bugs they don't review.   
+<!--more-->
 
 In my opinion the best way to learn hacking and security is to read public disclosure. 
 It's a great resources of tips and tools to use to make your life easier.
@@ -22,7 +23,6 @@ It's also a good way to improve your report skill and see the way hackers commun
 
 Each Time I learn a new kind of issue, I try to reproduce it on on my local lab, then I try it on security programs I'm currently working on.
 Sometime it works, sometimes not but bug bounty is also about patience. Happy reading !
-<!--more-->
 
 ## Official
 [OWASP](https://www.owasp.org/): The Open Web Application Security Project  

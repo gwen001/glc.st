@@ -59,6 +59,30 @@
     <loc>https://glc.st/tags/programming/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://glc.st/posts/analysis-of-a-critical-french-medical-application/</loc>
+    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/git/</loc>
+    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/leak/</loc>
+    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/pii/</loc>
+    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/posts/</loc>
+    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/rce/</loc>
+    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/sqli/</loc>
+    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/xss/</loc>
+    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://glc.st/projects/</loc>
     <lastmod>2023-05-05T18:05:10+01:00</lastmod>
   </url><url>
@@ -67,9 +91,6 @@
   </url><url>
     <loc>https://glc.st/tags/tools/</loc>
     <lastmod>2023-05-05T18:05:10+01:00</lastmod>
-  </url><url>
-    <loc>https://glc.st/posts/</loc>
-    <lastmod>2023-04-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/tags/cve/</loc>
     <lastmod>2022-11-11T00:00:00+00:00</lastmod>
@@ -110,9 +131,6 @@
     <loc>https://glc.st/cves/cve-2020-22155/</loc>
     <lastmod>2020-02-13T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://glc.st/tags/rce/</loc>
-    <lastmod>2020-02-13T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://glc.st/cves/cve-2020-22154/</loc>
     <lastmod>2020-02-12T00:00:00+00:00</lastmod>
   </url><url>
@@ -132,9 +150,6 @@
     <lastmod>2020-02-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/cves/cve-2020-22143/</loc>
-    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://glc.st/tags/xss/</loc>
     <lastmod>2020-02-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/cves/cve-2020-8645/</loc>
@@ -255,9 +270,6 @@
     <lastmod>2018-03-29T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/tags/repository/</loc>
-    <lastmod>2018-02-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://glc.st/tags/sqli/</loc>
     <lastmod>2018-02-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/tags/subdomain/</loc>

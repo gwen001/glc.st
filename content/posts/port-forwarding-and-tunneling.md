@@ -14,6 +14,7 @@ see_also:
     url: http://www.linux-france.org/prj/edu/archinet/systeme/ch13s04.html
 ---
 As a pentester, you might be able to take control of systems that have a direct access but you also might be able to test the internal network and check the machine who are inside a subnetwork. 
+<!--more-->
 
 For that task you'll have to use an already compromised machine as a bridge/gateway, this technic is called "pivot". 
 Depending of the context, different solutions exist to perform that task.
@@ -37,7 +38,6 @@ Then edit the `/etc/rinetd.conf` file:
 Restart Rinetd and from now, all incoming traffic on `192.168.0.10` on port `80` will be redirected to `91.121.139.22` on port `8080`. 
 This can be usefull if a firewall is restricting outbound traffic on certain port.
 
-<!--more-->
 
 ## SSH
 

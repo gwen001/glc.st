@@ -23,13 +23,14 @@ With more than 60 million websites, WordPress is the most popular CMS currently
 As we all know, there is no way to stop a determined hacker but you can slow him down or detect him before things become serious. 
 Below some techniques to improve the security of your site. 
 This post is directly inspired from [Wordpress official codex](http://codex.wordpress.org/Hardening_WordPress) and some hackers techniques I learned last months.
+<!--more-->
+
 
 ## Files
 
 According to Worpdress documentation, and I won't discuss this point here, directories must have the following permission: `drwxr-xr-x` (755) and files must be: `-rw-r--r--` (644). 
 Wordpress says that automatic update changes file/dir permissions, that's true but not that way in my case, maybe a cron job could do it ?
 
-<!--more-->
 
 ## Database
 

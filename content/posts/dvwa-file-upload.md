@@ -22,6 +22,7 @@ A very useful aspect of PHP is the ability to manage file uploads.
 Allowing users to send a file opens a whole can of worms, so be careful when allowing this fonctionnality. 
 If wrong protected it could result of a full control of the server. 
 With DVWA you can learn effective defense.
+<!--more-->
 
 ## Low
 
@@ -41,8 +42,6 @@ The first level is the easiest because it has absolutly no protection against ma
 Choose a file - in my case a PHP shell - and submit the form:
 
 ![DVWA file upload](/images/dvwa-file-upload_1.png)
-
-<!--more-->
 
 The script has been successfully uploaded and the path displayed, now you can easily call it:
 

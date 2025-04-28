@@ -13,34 +13,12 @@
 <meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
 <meta name="twitter:title" content="Port forwarding and tunneling"/>
-<meta name="twitter:description" content="As a pentester, you might be able to take control of systems that have a direct access but you also might be able to test the internal network and check the machine who are inside a subnetwork.
-For that task you&rsquo;ll have to use an already compromised machine as a bridge/gateway, this technic is called &ldquo;pivot&rdquo;.
-Depending of the context, different solutions exist to perform that task.
-Rinetd
-The easiest one. First you need to install Rinetd:
-aptitude search rinetd
-p   rinetd                                     - Internet TCP redirection server&lt;/pre&gt;
-Then edit the /etc/rinetd.conf file:
-# bindadress    bindport  connectaddress  connectport
-192.168.0.10    80        91.121.139.22   8080
-Restart Rinetd and from now, all incoming traffic on 192.168.0.10 on port 80 will be redirected to 91.121.139.22 on port 8080.
-This can be usefull if a firewall is restricting outbound traffic on certain port."/>
+<meta name="twitter:description" content="As a pentester, you might be able to take control of systems that have a direct access but you also might be able to test the internal network and check the machine who are inside a subnetwork."/>
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
     <meta property="og:title" content="Port forwarding and tunneling" />
-<meta property="og:description" content="As a pentester, you might be able to take control of systems that have a direct access but you also might be able to test the internal network and check the machine who are inside a subnetwork.
-For that task you&rsquo;ll have to use an already compromised machine as a bridge/gateway, this technic is called &ldquo;pivot&rdquo;.
-Depending of the context, different solutions exist to perform that task.
-Rinetd
-The easiest one. First you need to install Rinetd:
-aptitude search rinetd
-p   rinetd                                     - Internet TCP redirection server&lt;/pre&gt;
-Then edit the /etc/rinetd.conf file:
-# bindadress    bindport  connectaddress  connectport
-192.168.0.10    80        91.121.139.22   8080
-Restart Rinetd and from now, all incoming traffic on 192.168.0.10 on port 80 will be redirected to 91.121.139.22 on port 8080.
-This can be usefull if a firewall is restricting outbound traffic on certain port." />
+<meta property="og:description" content="As a pentester, you might be able to take control of systems that have a direct access but you also might be able to test the internal network and check the machine who are inside a subnetwork." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/port-forwarding-and-tunneling/" />
 
@@ -84,7 +62,7 @@ This can be usefull if a firewall is restricting outbound traffic on certain por
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.146.7">
+    <meta name="generator" content="Hugo 0.147.0">
   </head>
 
   <body class=" ">

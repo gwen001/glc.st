@@ -66,7 +66,7 @@ This post sheds light on the real-world dos and don’ts that every bug hunter a
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.146.7">
+    <meta name="generator" content="Hugo 0.147.0">
   </head>
 
   <body class=" ">
@@ -164,7 +164,7 @@ This post sheds light on the real-world dos and don’ts that every bug hunter a
             <p>Bug bounty programs come with platforms, scopes, and payouts - but also with a set of unofficial rules.
 These invisible norms shape how hackers and companies interact, from communication and trust to report etiquette and rewards.
 This post sheds light on the real-world dos and don’ts that every bug hunter and program owner should know.</p>
-<h1 id="3-entities-3-jobs">3 entities, 3 jobs</h1>
+<h2 id="3-entities-3-jobs">3 entities, 3 jobs</h2>
 <p>The bug bounty industry is mainly composed of three big entities with each a specific job:</p>
 <p><strong>Programs: the need.</strong> Companies who want to test their security.<br>
 Besides triage, companies have alot to do.
@@ -187,7 +187,7 @@ Their job is basically to serve companies AND hackers by creating a trusted rela
 <u>They have an important role at preparing companies</u> to the incoming unexpected situations, like a mentor.
 And since they are literally selling hackers, it&rsquo;s the job of the platforms to ensure that they are <u>respected and rewarded</u> for their work.</p>
 <p>&gt; <a href="https://github.com/disclose/bug-bounty-platforms">List of bug bounty platforms</a></p>
-<h1 id="respect">Respect</h1>
+<h2 id="respect">Respect</h2>
 <p>Yes it&rsquo;s a real rule and one of the most important!</p>
 <p>It&rsquo;s obvious, should be natural but I see too many reports where people don&rsquo;t understand each other and quickly come to rude reactions.
 When you come in such situation where you don&rsquo;t understand the decision of the other part, sit on their chair for a minute, it could change your mind.</p>
@@ -209,7 +209,7 @@ Also you should strongly consider to <u>reward on triage</u>, kudos don&rsquo;t 
 <p>If none of you is able to handle the situation in a proper way, no need to come to an offensive language or punishment.
 Remember that <u>respect works both way</u>, you can&rsquo;t ask for it if you shit on peoples, so keep calm, open a ticket on the platform support.
 It&rsquo;s their job to handle such situations, kind of referees, they are (well) paid for that (% of reward + companies subscription), so use them as much as you can, no matter on what side you are.</p>
-<h1 id="reputation-isnt-everything">Reputation isn&rsquo;t everything</h1>
+<h2 id="reputation-isnt-everything">Reputation isn&rsquo;t everything</h2>
 <p><strong>High reputation doesn&rsquo;t imply good hacker.</strong>
 The goal here is not to detail all reputation systems but only demonstrate some pitfalls.</p>
 <p>The first point is, only few cases lead to a loss of reputation, which is ok, but that means if you&rsquo;re not a crazy spammer but a normal person - as normal as hackers can be - your reputation will only go up. With time, you&rsquo;ll reach those famous 5k, 10k, 15k&hellip;</p>
@@ -237,7 +237,7 @@ So read carefully the numbers, understand what they mean.</p>
 As a program manager, you may prefer to rely on them when it comes to invite hunters.</p>
 <p>&gt; <a href="https://docs.hackerone.com/hackers/signal-and-impact.html">Signal and Impact on Hackerone</a><br>
 &gt; <a href="https://www.bugcrowd.com/blog/how-we-measure-researcher-performance/">How we Measure Researcher Performance on Bugcrowd</a></p>
-<h1 id="cvss-isnt-everything">CVSS isn&rsquo;t everything</h1>
+<h2 id="cvss-isnt-everything">CVSS isn&rsquo;t everything</h2>
 <p>As described on the <a href="https://www.first.org/cvss/calculator/3.1">official website</a>:</p>
 <blockquote>
 <p>The Common Vulnerability Scoring System (CVSS) is an open framework for communicating the characteristics and severity of software vulnerabilities. CVSS consists of three metric groups: Base, Temporal, and Environmental. The Base group represents the intrinsic qualities of a vulnerability that are constant over time and across user environments, the Temporal group reflects the characteristics of a vulnerability that change over time, and the Environmental group represents the characteristics of a vulnerability that are unique to a user&rsquo;s environment. The Base metrics produce a score ranging from 0 to 10, which can then be modified by scoring the Temporal and Environmental metrics.</p></blockquote>
@@ -272,7 +272,7 @@ For example: login/logout CSRF + open redirect + self XSS.
 So don&rsquo;t be narrow.</p>
 <p>&gt; <a href="https://securityboulevard.com/2020/03/dont-be-misled-by-cvss-scores/">Don’t Be Misled by CVSS Scores</a><br>
 &gt; <a href="https://www.troopers.de/media/filer_public/cb/f0/cbf0181b-e9d8-408c-aef3-651bfd114d76/troopers13-pitfalls_of_vulnerability_ratinga_new_approach_called_errs-ernw_rapid_rating_system-michael_thumannmatthias_luft.pdf">Pitfalls of Vulnerability Rating</a></p>
-<h1 id="duplicates">Duplicates</h1>
+<h2 id="duplicates">Duplicates</h2>
 <p>Companies often encounter a problem when it comes to manage duplicate reports, here
 are my recommendations to deal with that.</p>
 <p><strong>Case 1: single hunter, global issue.</strong><br>
@@ -314,7 +314,7 @@ It&rsquo;s a lack of respect towards hackers who spend their time finding issues
 Hunters: avoid these programs as much as you can.</p>
 </li>
 </ul>
-<h1 id="safe-harbor">Safe Harbor</h1>
+<h2 id="safe-harbor">Safe Harbor</h2>
 <p>Depending of the domain (bank, insurance, government&hellip;), it can be pretty hard for a company to open a bug bounty program because of the laws that apply to the domain: tracable users, logs saved n months/years, geographic restrictions and so on&hellip;
 Because of that, platforms put many efforts to provide the needed services: VPN, logs, backups, hackers selection (no it&rsquo;s not only about reputaton)&hellip;</p>
 <p>The purpose of all of this is of course to follow the laws, but it&rsquo;s also a way for companies to track what have been done and by who.
@@ -346,13 +346,13 @@ Hackerone, Bugcrowd and Intigriti are the good examples.</p>
 <p>&gt; <a href="https://www.digitalnewsasia.com/digital-economy/hackerone-offer-white-hats-safe-harbour">Hackerone: offer white hats a safe harbour</a><br>
 &gt; <a href="https://docs.github.com/en/site-policy/security-policies/github-bug-bounty-program-legal-safe-harbor">GitHub Bug Bounty Program Legal Safe Harbor</a><br>
 &gt; <a href="https://blog.mozilla.org/security/2018/08/01/safe-harbor-for-security-bug-bounty-participants/">Safe Harbor for Security Bug Bounty Participants by Mozilla</a></p>
-<h1 id="bounty-on-triage">Bounty on triage</h1>
+<h2 id="bounty-on-triage">Bounty on triage</h2>
 <p>Bounty on triage should be the regular way, seriously.</p>
 <p>Unless the secteam needs more informations to reproduce the bug, hunter job is done as soon as the report is accepted so <u>he should be immediately rewarded</u>.</p>
 <p>Take a minute to think about people who perform bug bounty as a full time job, think about beginnners.
 Hunters are not like big companies with a huge cash flow!
 They are normal peoples with duties and responsibilities <strong>#paythebills</strong>.</p>
-<h1 id="disclosure">Disclosure</h1>
+<h2 id="disclosure">Disclosure</h2>
 <p>Disclosure is a good marketing move as it shows companies concern about security.
 It also helps to promote programs with the community.
 As reports are one of the best resource for hackers to learn, as they get better from them, it can be seen as good investment.</p>

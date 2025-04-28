@@ -11,7 +11,7 @@ This post sheds light on the real-world dos and don’ts that every bug hunter a
 <!--more-->
 
 
-# 3 entities, 3 jobs
+## 3 entities, 3 jobs
 
 The bug bounty industry is mainly composed of three big entities with each a specific job:
 
@@ -43,7 +43,7 @@ And since they are literally selling hackers, it's the job of the platforms to e
 &gt; [List of bug bounty platforms](https://github.com/disclose/bug-bounty-platforms)
 
 
-# Respect
+## Respect
 
 Yes it's a real rule and one of the most important!  
 
@@ -74,7 +74,7 @@ Remember that <u>respect works both way</u>, you can't ask for it if you shit on
 It's their job to handle such situations, kind of referees, they are (well) paid for that (% of reward + companies subscription), so use them as much as you can, no matter on what side you are.
 
 
-# Reputation isn't everything
+## Reputation isn't everything
 
 **High reputation doesn't imply good hacker.**
 The goal here is not to detail all reputation systems but only demonstrate some pitfalls.
@@ -114,7 +114,7 @@ As a program manager, you may prefer to rely on them when it comes to invite hun
 &gt; [How we Measure Researcher Performance on Bugcrowd](https://www.bugcrowd.com/blog/how-we-measure-researcher-performance/)
 
 
-# CVSS isn't everything
+## CVSS isn't everything
 
 As described on the [official website](https://www.first.org/cvss/calculator/3.1):
 
@@ -161,7 +161,7 @@ So don't be narrow.
 &gt; [Pitfalls of Vulnerability Rating](https://www.troopers.de/media/filer_public/cb/f0/cbf0181b-e9d8-408c-aef3-651bfd114d76/troopers13-pitfalls_of_vulnerability_ratinga_new_approach_called_errs-ernw_rapid_rating_system-michael_thumannmatthias_luft.pdf)
 
 
-# Duplicates
+## Duplicates
 
 Companies often encounter a problem when it comes to manage duplicate reports, here
 are my recommendations to deal with that.
@@ -207,7 +207,7 @@ It's a lack of respect towards hackers who spend their time finding issues in a 
 Hunters: avoid these programs as much as you can.
 
 
-# Safe Harbor
+## Safe Harbor
 
 Depending of the domain (bank, insurance, government...), it can be pretty hard for a company to open a bug bounty program because of the laws that apply to the domain: tracable users, logs saved n months/years, geographic restrictions and so on...
 Because of that, platforms put many efforts to provide the needed services: VPN, logs, backups, hackers selection (no it's not only about reputaton)...
@@ -251,7 +251,7 @@ Hackerone, Bugcrowd and Intigriti are the good examples.
 &gt; [Safe Harbor for Security Bug Bounty Participants by Mozilla](https://blog.mozilla.org/security/2018/08/01/safe-harbor-for-security-bug-bounty-participants/)
 
 
-# Bounty on triage
+## Bounty on triage
 
 Bounty on triage should be the regular way, seriously.
 
@@ -262,7 +262,7 @@ Hunters are not like big companies with a huge cash flow!
 They are normal peoples with duties and responsibilities **#paythebills**.
 
 
-# Disclosure
+## Disclosure
 
 Disclosure is a good marketing move as it shows companies concern about security.
 It also helps to promote programs with the community.

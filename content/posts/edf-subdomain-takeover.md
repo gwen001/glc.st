@@ -59,7 +59,7 @@ Regardind the issue itself, my guess is a bad communication between tech team le
 One admin bought <code>edf-linkbynet.FR</code> and the other one configured all CNAMEs to point to <code>edf-linkbynet.COM</code>, as simple as that!
 
 
-# The tool
+## The tool
 
 The tool, called [dnspy](https://github.com/gwen001/dnspy), is composed of 3 modules:
 

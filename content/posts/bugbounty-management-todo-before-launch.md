@@ -13,7 +13,7 @@ So those articles are more about best practices/good tips.
 <!--more-->
 
 
-# Do pentest/audits
+## Do pentest/audits
 
 Test before the test.  
 
@@ -31,7 +31,7 @@ You also don't want to waste your time again and again to manage reports about t
 <u>Jumping into bug bounty without a proper security background will literally ruin everything.</u>
 
 
-# Prepare your technical infrastructure
+## Prepare your technical infrastructure
 
 Hackers hack, be prepared!
 
@@ -46,7 +46,7 @@ You don't want to manually manage a huge blacklist of IP addresses.
 ![ie service unavailable](/images/ie_service_unavailable.png)
 
 
-# Think your internal workflow
+## Think your internal workflow
 
 Hackers hack more, be more prepared!
 
@@ -70,7 +70,7 @@ First, you don't want to be overloaded, second, it's not acceptable to pause the
 <div style="clear:both;"></div>
 
 
-# Study others programs
+## Study others programs
 
 You're not the first one so learn from other programs, their mistakes, their successes.
 
@@ -82,7 +82,7 @@ You're not the first one so learn from other programs, their mistakes, their suc
 (good examples: [Hackerone](https://hackerone.com/security/hacktivity), [Valve](https://hackerone.com/valve/hacktivity), poor example: [Twitter](https://hackerone.com/twitter/hacktivity))
 
 
-# Join the community
+## Join the community
 
 If not done yet, joining the community on [Twitter](https://twitter.com/search?q=bugbounty) could be your best move ever.  
 
@@ -94,7 +94,7 @@ Time after time you will follow more hackers, YOUR hackers.
 You will be immediately warned if someone talk about your programs, good words or complaints are always important to improve yourself.
 
 
-# Good reads
+## Good reads
 
 Information Security Assessment Types by Daniel Miessler:  
 https://danielmiessler.com/study/security-assessment-types/#vulnerability

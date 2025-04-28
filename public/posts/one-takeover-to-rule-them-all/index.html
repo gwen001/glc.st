@@ -66,7 +66,7 @@ As I have been successful several times with the tool, one hit was especially be
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.146.7">
+    <meta name="generator" content="Hugo 0.147.0">
   </head>
 
   <body class=" ">
@@ -201,7 +201,7 @@ Exploited by a malicious user, it could have been devastating: social engineerin
 (a simple <em>&ldquo;thank you&rdquo;</em> would have been appreciated).</p>
 <p>Regardind the issue itself, my guess is a bad communication between tech team leaders.
 One admin bought <code>edf-linkbynet.FR</code> and the other one configured all CNAMEs to point to <code>edf-linkbynet.COM</code>, as simple as that!</p>
-<h1 id="the-tool">The tool</h1>
+<h2 id="the-tool">The tool</h2>
 <p>The tool, called <a href="https://github.com/gwen001/dnspy">dnspy</a>, is composed of 3 modules:</p>
 <p>1/ the grabber tries to find subdomains using external tools like subfinder, oneforall, github, amass&hellip; then alterations are created using altdns or dnsgen.</p>
 <p>2/ the resolver performs DNS queries on all subdomains grabbed and generated using massdns, trying to detect dead hosts, cnames&hellip;</p>

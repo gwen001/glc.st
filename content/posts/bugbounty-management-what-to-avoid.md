@@ -10,7 +10,7 @@ This one give some tips to companies about what kind of mistakes they should avo
 <!--more-->
 
 
-# Unfixed bugs
+## Unfixed bugs
 
 Hackers work on your program, they could choose another one but they chose you.
 They spend time trying to find issues in your system, which is the purpose of a bug bounty program obviously, the minimum you can do is to fix what they report.
@@ -22,7 +22,7 @@ Remember that depending the platform, hackers can lost reputation for duplicate,
 What was supposed to be a security improvement will become a loss of money and the good marketing move will become a bad ads campaign for you, in 2 words: total mess.
 
 
-# Being quiet/unresponsive
+## Being quiet/unresponsive
 
 Feeling ignored is the worst. Really.
 
@@ -42,7 +42,7 @@ Of course the delay of response is also an important key.
 This is the main sign of responsivity/efficiency of your program.
 
 
-# Being inconsistent
+## Being inconsistent
 
 Clearly not the easiest part and even if it's seems pretty obvious, take care to correctly evaluate the severity of the issues as well as the rewards, especially if you're prone to publicly disclose the reports.
 
@@ -58,7 +58,7 @@ For instance, a RCE on a forgotten server, isolated from your network, without a
 <img src="/images/bugcrowd-vrt.jpg" alt="bugcrowd vrt" />
 
 
-# Being too strict regarding the scope
+## Being too strict regarding the scope
 
 No matter what scope you configured, you'll get out of scope reports for sure, but it doesn't mean that they don't deserve your attention.
 It's your decision to accept or not a bug in an asset which is clearly not included in the scope (or even excluded) BUT if the impact of the issue is one of the main asset in scope, then you better **think twice and reconsider your position**.
@@ -70,7 +70,7 @@ This is how I see the things:
 <img src="/images/bugbounty-scopes.jpg" alt="bug bounty scopes" width="600" />
 
 
-# Bad words / punishment
+## Bad words / punishment
 
 Wisely choose your triage team.
 
@@ -86,7 +86,7 @@ If you're close to reach that situation, take a moment to understand why things 
 Remember that some hunters perform bug bounty full time, it's a very tedious job where money and reputation are the heart of this job, nerves can be affected.
 
 
-# External resources
+## External resources
 
 - [Bugcrowd’s Vulnerability Rating Taxonomy](https://bugcrowd.com/vulnerability-rating-taxonomy)
 - [Zerocopter's Vulnerability Price List](https://www.zerocopter.com/vulnerability-price-list)

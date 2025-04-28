@@ -17,7 +17,7 @@ One big difference with pentest is that a bug bounty program is something you bu
 In this article I will give some tips to charm hunters and keep them next to you.
 
 
-# Good rewards
+## Good rewards
 
 Obisously.
 
@@ -38,7 +38,7 @@ Feel free to use kind words as you would do in real life when someone show you s
 Deliver some nice catches!
 
 
-# Good SLAs
+## Good SLAs
 
 &gt; If you're not familiar with SLAs, check this [post on Hackerone](https://www.hackerone.com/blog/Healthy-programs-make-happy-hackers-Introducing-response-SLAs).
 
@@ -59,7 +59,7 @@ Note that from the first response to the fix, the hacker deserves the right to b
 <img src="/images/hackerone_sla.png" />
 
 
-# Program evolution
+## Program evolution
 
 Improve your workflow, improve your security to avoid the basic trap, create your community of hunters, refine your reward policy...
 Be scalable not boring!
@@ -84,7 +84,7 @@ Release reports time after time, hackers will enjoy those readings.
 For instance, every month you can release the fixed reports that are 6 months old.
 
 
-# Public disclosure
+## Public disclosure
 
 **Disclosed reports are one of the biggest source or learning.**
 Sharing them is a kind of investment for the futur because you'll help hackers to get more knowledge.
@@ -98,7 +98,7 @@ Last point, and not the less, it's always a great pleasure for a hacker to see o
 We are proud of it, it helps to get the recognition of the comrades.
 
 
-# Be involved
+## Be involved
 
 As mentioned in the paragraph above, being close to the community is a real advantage but public disclosure isn't the best way to achieve that.
 Take a look at the Verizon Media security team:
