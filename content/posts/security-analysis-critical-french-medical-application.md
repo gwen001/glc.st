@@ -76,14 +76,14 @@ However, in reality the implementation is a real __security nightmare__.
 Randomly opening PHP files to check the quality on the code, a piece of s**t jumped into my eyes.
 Most pages contained unfiltered SQL queries, clearly lacking input validation.
 ```php
-$LastName		= isset($_POST['txtNom']) ? $_POST['txtNom'] : "";
-$FirstName		= isset($_POST['txtPrenom']) ? $_POST['txtPrenom'] : "";
-$Email			= isset($_POST['txtEmail']) ? $_POST['txtEmail'] : "";
+$lastname		= isset($_POST['nom']) ? $_POST['nom'] : "";
+$firstname		= isset($_POST['prenom']) ? $_POST['prenom'] : "";
+$email			= isset($_POST['email']) ? $_POST['email'] : "";
 
-$request = "SELECT code_corresp FROM corresp_avis_radio ";
-$request.= " WHERE LastName='$LastName' ";
-$request.= " AND FirstName='$FirstName' ";
-$request.= " AND Email='$Email' ";
+$request = "SELECT * FROM radio ";
+$request.= " WHERE lastname='$lastname' ";
+$request.= " AND firstname='$firstname' ";
+$request.= " AND email='$email' ";
 
 $result = $mysql->query($request);
 ```
