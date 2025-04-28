@@ -7,8 +7,9 @@ tags:
 - leak
 - git
 - sqli
-- xss
 - rce
+- file upload
+- php
 ---
 During my regular activities as a bug bounty hunter and security auditor for sensitive institutions, I came across a healthcare application called __OptiMed__ (redacted), developed by __Synaptek Digital__ (redacted), and used in numerous medical imaging centers in France. Unfortunately, this software demonstrates a catastrophic level of security, putting __millions of sensitive medical records__ at risk.
 <!--more-->

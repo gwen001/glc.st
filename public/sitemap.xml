@@ -62,6 +62,9 @@
     <loc>https://glc.st/posts/analysis-of-a-critical-french-medical-application/</loc>
     <lastmod>2025-04-21T00:00:00+00:00</lastmod>
   </url><url>
+    <loc>https://glc.st/tags/file-upload/</loc>
+    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+  </url><url>
     <loc>https://glc.st/tags/git/</loc>
     <lastmod>2025-04-21T00:00:00+00:00</lastmod>
   </url><url>
@@ -80,9 +83,6 @@
     <loc>https://glc.st/tags/sqli/</loc>
     <lastmod>2025-04-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://glc.st/tags/xss/</loc>
-    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://glc.st/projects/</loc>
     <lastmod>2023-05-05T18:05:10+01:00</lastmod>
   </url><url>
@@ -96,9 +96,6 @@
     <lastmod>2022-11-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/cves/</loc>
-    <lastmod>2022-11-11T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://glc.st/tags/file-upload/</loc>
     <lastmod>2022-11-11T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/cves/cve-2022-43265/</loc>
@@ -150,6 +147,9 @@
     <lastmod>2020-02-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/cves/cve-2020-22143/</loc>
+    <lastmod>2020-02-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/xss/</loc>
     <lastmod>2020-02-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/cves/cve-2020-8645/</loc>
