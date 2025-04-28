@@ -1,6 +1,7 @@
 ---
 date: 2025-04-21
 title: Analysis of a critical french medical application
+images: [/images/optimed-preview.png]
 tags:
 - pii
 - leak
