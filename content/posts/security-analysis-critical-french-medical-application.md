@@ -9,7 +9,7 @@ tags:
 - xss
 - rce
 ---
-During my regular activities as a bug bounty hunter and security auditor for sensitive institutions, I came across a healthcare application called __OptiMed__ (fake), developed by __Synaptek Digital__ (fake), and used in numerous medical imaging centers in France. Unfortunately, this software demonstrates a catastrophic level of security, putting __millions of sensitive medical records__ at risk.
+During my regular activities as a bug bounty hunter and security auditor for sensitive institutions, I came across a healthcare application called __OptiMed__ (redacted), developed by __Synaptek Digital__ (redacted), and used in numerous medical imaging centers in France. Unfortunately, this software demonstrates a catastrophic level of security, putting __millions of sensitive medical records__ at risk.
 <!--more-->
 
 
