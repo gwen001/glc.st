@@ -234,7 +234,7 @@ Most pages contained unfiltered SQL queries, clearly lacking input validation.</
 <p>Exploiting one of the numerous SQL injection in order to check how the database looked like.
 I triggered <a href="https://sqlmap.org/">SQLMap</a> to grab some informations about the structure of the database when the table <code>utilisateur</code> catched my attention.</p>
 <p><img src="https://glc.st/images/optimed-utilisateurs.png" alt="OptiMed utilisateurs"></p>
-<p>Passwords were obviously stored using a weak hasing algorithm. With the helps of <a href="https://hashes.com/en/decrypt/hash">hashes.com</a> I could get some passwords descrypted in a second:</p>
+<p>Passwords were obviously stored using a weak hasing algorithm. With the helps of <a href="https://hashes.com/en/decrypt/hash">hashes.com</a> I could get some passwords decrypted in a second:</p>
 <p><img src="https://glc.st/images/optimed-passwords.png" alt="OptiMed passwords"></p>
 <p><em>administrateur</em> password retrieved, admin panel unlocked!</p>
 <h3 id="arbitrary-file-upload">Arbitrary file upload</h3>
@@ -256,7 +256,7 @@ I triggered <a href="https://sqlmap.org/">SQLMap</a> to grab some informations a
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>$PID <span style="color:#f92672">=</span> $_POST[<span style="color:#e6db74">&#39;PID&#39;</span>];
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">exec</span>(<span style="color:#e6db74">&#34;taskkill /F /PID </span><span style="color:#e6db74">$PID</span><span style="color:#e6db74">&#34;</span> );
 </span></span></code></pre></div><p>An attacker could then inject any command to takedown the system.</p>
-<p>Some critical administration were also publicly available without any authentication system.
+<p>Some critical admin tools were also publicly available without any authentication system.
 No need to say what would happen if a malicious user found this:
 <img src="https://glc.st/images/optimed-services.png" alt="OptiMed services"></p>
 <h2 id="a-huge-attack-surface">A huge attack surface</h2>

@@ -100,7 +100,7 @@ I triggered [SQLMap](https://sqlmap.org/) to grab some informations about the st
 
 ![OptiMed utilisateurs](/images/optimed-utilisateurs.png)
 
-Passwords were obviously stored using a weak hasing algorithm. With the helps of [hashes.com](https://hashes.com/en/decrypt/hash) I could get some passwords descrypted in a second:
+Passwords were obviously stored using a weak hasing algorithm. With the helps of [hashes.com](https://hashes.com/en/decrypt/hash) I could get some passwords decrypted in a second:
 
 ![OptiMed passwords](/images/optimed-passwords.png)
 
@@ -136,7 +136,7 @@ exec("taskkill /F /PID $PID" );
 ```
 An attacker could then inject any command to takedown the system.
 
-Some critical administration were also publicly available without any authentication system.
+Some critical admin tools were also publicly available without any authentication system.
 No need to say what would happen if a malicious user found this:
 ![OptiMed services](/images/optimed-services.png)
 
