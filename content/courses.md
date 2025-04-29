@@ -10,11 +10,22 @@ Whether you're just getting started or looking to level up your skills, my cours
 
 <br><br>
 
-<img src="/assets/img/courses/hacking-websec.png" alt="Hacking & Web application security" width="220" style="float:left;" />
+<img src="/assets/img/courses/hacking-websec.png" alt="Hacking & web application security" width="220" style="float:left;" />
 <div style="float:right;width:600px;">
-    <h2 style="margin-top:0;margin-bottom:10px;">Hacking & Web application security</h2>
-    A 3 days course for tech peoples who want to  learn the basic vulnerabilities of modern webapps: input validation, xss, sqli, ssrf, passwords, cookies, tools and true stories...
+    <h2 style="margin-top:0;margin-bottom:10px;">Hacking & web application security</h2>
+    A 3 days course for tech peoples who want to  learn the basic vulnerabilities of modern webapps: input validation, xss, sqli, passwords, cookies, tools and true stories...
     <a href="/courses/hacking-and-web-application-security/">read the full program</a>
+</div>
+<div style="clear:both;"></div>
+
+
+<br><br>
+
+<img src="/assets/img/courses/hacking-websec-advanced.png" alt="Advanced hacking & web application security" width="220" style="float:left;" />
+<div style="float:right;width:600px;">
+    <h2 style="margin-top:0;margin-bottom:10px;">Advanced hacking & web application security</h2>
+    2 days to learn advanced vulnerabilities of modern webapps: ssrf, xxe, dependency confusion, subdomain takeover...
+    <a href="/courses/advanced-hacking-and-web-application-security/">read the full program</a>
 </div>
 <div style="clear:both;"></div>
 
