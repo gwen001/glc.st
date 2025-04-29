@@ -37,19 +37,19 @@ __Société du grand Paris:__ subdomain takeovers
 __Banque Populaire:__ subdomain takeover  
 __Caisse d'Epargne:__ remote command execution  
 __Atea ASA:__ subdomain takeovers  
-__Payfit:__ numerous XSS, customers data leak, local file disclosure, full AWS cloud takeover, [read the article](/posts/aws-takeover-through-ssrf-in-javascript/)  
-__BlaBlaCar:__ AWS buckets takeovers, customers data leak  
+__Payfit:__ numerous XSS, companies data leak, local file disclosure, full AWS account takeover, [read the article](/posts/aws-takeover-through-ssrf-in-javascript/)  
+__BlaBlaCar:__ AWS buckets takeovers, production website alteration, customers PII leak  
 __Ikea:__ subdomain takeover  
 __Adobe:__ subdomain takeover  
 __BMW group:__ numerous XSS  
-__PornHub / YouPorn / RedTube:__ numerous XSS  
+__PornHub / YouPorn / RedTube:__ numerous XSS, CSRF  
 __Upwork:__ several XSS  
-__Monday:__ AWS bucket takeovers  
-__Deliveroo:__ customers data leak  
+__Monday:__ AWS bucket takeovers, production website alteration  
+__Deliveroo:__ customers PII leak  
 __CamSoda:__ XSS, customers data leak, local file disclosure  
 __Chaturbate:__ numerous XSS  
 __Zillow group:__ dozen of XSS, AWS bucket takeovers, SQL injections, file upload, SSRF, RCE...  
-__Swisscom:__ remote command execution  
+__Swisscom:__ file upload, remote command execution  
 __Uber:__ SQL injections  
 __Yahoo:__ numeros XSS and IDOR + SSRF  
 
