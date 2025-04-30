@@ -55,6 +55,9 @@ section.cves ul li .title, section.cves ul li .title:hover, section.cves ul li .
     font-family: Merriweather,Georgia,serif;
     font-weight: 300;
 }
+.avatar img {
+    width: 25rem;
+}
 .about h2 a {
     color: #000;
 }
