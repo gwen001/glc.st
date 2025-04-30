@@ -69,7 +69,8 @@ h1 {
     font-weight: 500;
 }
 h2 {
-    font-size: 1.31em !important;
+    font-size: 1.45em !important;
+    /* font-size: 1.31em !important; */
     font-weight: 300;
 }
 h3 {

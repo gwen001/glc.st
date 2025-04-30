@@ -1,0 +1,252 @@
+
+<link rel="stylesheet" href="/assets/css/homepage-v2.css">
+
+<div id="page-homepage" class="container">
+    <section>
+        <div class="row">
+            <div class="col-xs-12 col-print-6 avatar-container">
+                {{ with .Site.Params.avatarurl }}
+                    <div class="avatar"><img src="{{ . | relURL }}" alt="avatar"></div>
+                {{ end }}
+            </div>
+            <div class="col-xs-12 col-print-6">
+                <div class="row">
+                    <div class="col-xs-12 ">
+                        <h1>{{ .Site.Params.author }}</h1>
+                        <h2>{{ .Site.Params.info }}</h2>
+                    </div>
+                </div>
+                <div class="row d-print-none">
+                    <div class="col-xs-12">
+                        {{ with .Site.Params.social }}
+                            <ul class="icons">
+                                {{ range sort .}}
+                                    {{ if .icon }}
+                                        <li>
+                                            <a target="_blank" href="{{ .url }}" class="button button--sacnite button--round-l">
+                                                <i class="{{ .icon }}" title="{{ .name }}"></i>
+                                            </a>
+                                        </li>
+                                    {{ else }}
+                                        <li>
+                                            <a target="_blank" href="{{ .url }}" class="button button--sacnite button--round-l"></a>
+                                        </li>
+                                    {{ end }}
+                                {{ end }}
+                            </ul>
+                        {{ end }}
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12">
+                        Email: <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a>
+                        <br />
+                        Web: <a href="{{ .Site.Params.baseURL }}" target="_blank" class="">glc.st</a>
+                        |
+                        <a href="https://offsec.tools" target="_blank" class="">offsec.tools</a>
+                        <br />
+                        <span class="d-print-none">Resume: <a href="/assets/glecoguic-cv.pdf" target="_blank">download</a></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="aboutme" class="intro-container">
+        <h3>À propos</h3>
+        <div class="row clearfix">
+            <div class="col-xs-12">
+                <p>Je développe mon expertise dans le domaine du <mark>web depuis 25 ans</mark>.</p>
+                <p>Mon expérience s'est bâtie sur une première orientation dans le développement et l'administration de serveurs Linux. Mes activités professionnelles m'ont ensuite permis de me spécialiser dans la sécurité des applications web, tant sur les aspects défensifs qu'offensifs.</p>
+                <p>J'exerce à ce titre depuis plusieurs années comme <mark>consultant</mark>, <mark>auditeur</mark> et <mark>formateur</mark>. J'ai également eu l'opportunité d'encadrer des équipes de développeurs/auditeurs en tant que responsable, ainsi que de traiter des questions UX, référencement et sécurité.</p>
+                <p>Désormais <strong>expert indépendant</strong>, je vous propose mon savoir-faire au travers des prestations suivantes :</p>
+                <ul>
+                    <li><mark>Test d'intrusion</mark> (<em>pentest</em>) web</li>
+                    <li><mark>Audit de configuration</mark> des systèmes Linux</li>
+                    <li><mark>Formation</mark> pour développeurs</li>
+                    <li><mark>Sensibilisation</mark> pour tous publics</li>
+                </ul>
+                <p>Pour tout renseignement complémentaire, conseil ou devis, contactez-moi par <a href="mailto:contact@glc.st">courriel</a> ou par un des réseaux sociaux en en-tête de cette page. Je m'engage à vous répondre avec la réactivité et la rigueur que nécessite votre intérêt.</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="main-experiences" class="container list-container">
+        <h3>Principales expériences</h3>
+        <div class="row clearfix layout layout-left">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details">
+                <p class="quote d-print-none">&nbsp;</p>
+                <h4>Formateur</h4>
+                <p class="m-0">Depuis 2022</p>
+                <a href="/courses/" class="d-print-none">en savoir plus...</a>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content">
+                <p class="quote">Création et dispensation de formations en français et en anglais</p>
+                <ul>
+                    <li><strong>Présentation du Bug Bounty</strong> : une présentation pour les entreprises qui souhaitent en savoir plus sur le bug bounty pour prendre les bonnes décisions : acteurs, programmes, rapports, récompenses, règles, évolution, études de cas.</li>
+                    <li><strong>Sensibilisation cybersécurité</strong> : renforcez la sécurité informatique de votre entreprise : protégez vos données, évitez hameçonnage, ransomwares et devenez le référent sécurité auprès de vos collaborateurs !</li>
+                    <li><strong>Introduction aux tests d'intrusion</strong> : apprenez les bases du pentest en 3 jours, découvrez les outils utilisés par les experts en sécurité et les hackers.</li>
+                    <li><strong>Hacking & sécurité des applications web</strong> : une formation de 3 jours à destination des développeurs qui souhaitent apprendre les vulnérabilités de base des applications web modernes : validation des entrées, xss, sqli, mots de passe, cookies, outils...</li>
+                    <li><strong>Hacking & sécurité des applications web avancé</strong> : 2 jours pour apprendre des vulnérabilités plus avancées des applications web: ssrf, xxe, confusion de dépendances, prise de contrôle de sous-domaines...</li>
+                    <li><strong>Laravel</strong> : bonnes pratiques pour protéger vos applications basées sur l'un des framework PHP les plus populaires du web actuel.</li>
+                    <li><strong>PHP, les fondamentaux</strong> : comprendre les bases de PHP : programmation orientée objet, stockage, exfiltration de données, base de données et plus encore...</li>
+                    <li><strong>Formation Bash</strong> : apprendre, automatiser, simplifier.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row clearfix layout layout-left">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details">
+                <p class="quote d-print-none">&nbsp;</p>
+                <h4>Auditeur</h4>
+                <p class="m-0"><b>Ministère des Armées</b></p>
+                <p>Février 2020 - Avril 2024</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content">
+                <p class="quote">Audit de nombreux systèmes Linux et applications web</p>
+                <ul>
+                    <li><strong>Tests d'intrusion</strong> : recherche de failles connues, recherche de fuites de données, simulation d'attaques, tentative d'injection de code... Evaluation des risques et rédaction des recommandations.</li>
+                    <li><strong>Audit de configuration</strong> : analyse de la configuration des serveurs et des services installés, vérification de l'application des recommendations de l'ANSSI, vérification de la robustesse des mots de passe...</li>
+                    <li><strong>Audit de code</strong> : identification des librairies tierces, recherche de failles connues, vérification des configurations, analyse des méthodes de cryptage, recherche de "code smells" et vérification des best practices, recherche de mots de passe... Evaluation des risques et rédaction des recommandations.</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row clearfix layout layout-left">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details">
+                <p class="quote d-print-none">&nbsp;</p>
+                <h4>Bug Hunter</h4>
+                <p>Depuis 2016</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content">
+                <p class="quote">Participation à de nombreux programmes de Bug Bounty via diverses plateformes</p>
+                <p><strong>Entreprises</strong> : Uber, Yahoo, Payfit, Blablacar, MindGeek, Deliveroo, Decathlon, Swisscom, BPCE et beaucoup d'autres...</p>
+                <ul class="ps-5">
+                    <li>Collecte d'informations</li>
+                    <li>Exploitation, post-exploitation</li>
+                    <li>Développement d'outils d'automatisation (PHP, Python, Golang, Bash)</li>
+                    <li>Découverte de failles publiques</li>
+                    <li>Obtention de <a href="/cves/" target="_blank">CVEs</a></li>
+                </ul>
+                <p><strong>Types de failles</strong> : buckets Amazon, subdomain takeover, injections SQL, IDOR, XSS, CSRF, SSRF, RCE, XXE...</p>
+            </div>
+        </div>
+        <div class="row clearfix layout layout-left">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details">
+                <p class="quote d-print-none">&nbsp;</p>
+                <h4>Développeur <br class="d-print-none"> full stack</h4>
+                <p>Depuis 1999</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content">
+                <p class="quote">Boursorama, Marie Claire, Hi-Media, Shopping Internet</p>
+                <ul>
+                    <li>Création de sites et backoffice</li>
+                    <li>Outils de statistiques</li>
+                    <li>Création de système de paiement en ligne</li>
+                    <li>Création de services audiotel</li>
+                    <li>Mise en conformité PCI-DSS</li>
+                    <li>Rédaction de cahier des charges</li>
+                    <li>Maintenance de serveurs</li>
+                    <li>Gestion de base de données</li>
+                    <li>Gestion de projets et gestion d'équipes</li>
+                </ul>
+                <p><strong>Technologies</strong> : PHP, JavaScript, HTML, CSS, Git, SVN, MySQL, PostgreSQL, SQL Server, Apache, Nginx, Wordpress, Drupal, Laravel, NuxtJS, jQuery, Bootstrap...</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="education" class="container list-container">
+        <h3>Educations et formations</h3>
+        <div class="row clearfix layout layout-left">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-print-6 details">
+                <h4>Docker</h4>
+                <p>2025</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-print-6 content">
+                <p>Human Coders</p>
+                <p>https://www.humancoders.com/</p>
+            </div>
+        </div>
+        <div class="row clearfix layout layout-left">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-print-6 details">
+                <h4>Ansible</h4>
+                <p>2024</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-print-6 content">
+                <p>Human Coders</p>
+                <p>https://www.humancoders.com/</p>
+            </div>
+        </div>
+        <div class="row clearfix layout layout-left">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-print-6 details">
+                <h4>Burp Suite Pro</h4>
+                <p>2018</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-print-6 content">
+                <p>Nicolas Grégoire</p>
+                <p>https://www.agarri.fr/</p>
+            </div>
+        </div>
+        <div class="row clearfix layout layout-left">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-print-6 details">
+                <h4>OSCP</h4>
+                <p class="p-0 m-0"><b>Pentesting with Kali Linux</b></p>
+                <p>2015</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-print-6 content">
+                <p>Offensive Security</p>
+                <p>https://www.offsec.com/</p>
+            </div>
+        </div>
+        <div class="row clearfix layout layout-left">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-print-6 details">
+                <h4>DUT Informatique</h4>
+                <p>1999</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-print-6 content">
+                <p>Institut Universitaire de Technologie Paris 8</p>
+            </div>
+        </div>
+        <div class="row clearfix layout layout-left">
+            <div class="col-xs-12 col-sm-12 col-md-4 col-print-6 details">
+                <h4>BAC Electronique</h4>
+                <p>1996</p>
+            </div>
+            <div class="col-xs-12 col-sm-12 col-md-8 col-print-6 content">
+                <p>Lycée professionnel Condorcet</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="languages" class="container text-container">
+        <h3>Langues</h3>
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <ul class="m-0">
+                    <li><mark>Français</mark> : langue maternelle</li>
+                    <li><mark>Anglais</mark> : lu, écrit, parlé avec aisance</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="hobbies" class="container text-container">
+        <h3>Autres occupations</h3>
+        <div class="row clearfix">
+            <div class="col-md-12">
+                <p>En dehors de la technologie, je privilégie les activités physiques et artistiques, notamment :</p>
+                <ul>
+                    <li>le <mark>sport</mark> : escalade, course à pieds, renforcement.</li>
+                    <li>les <mark>expositions</mark> : street art et contemporain.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row mt5"><div class="col-xs-12 col-print-12">&nbsp;</div></div>
+    <div class="row mt5"><div class="col-xs-12 col-print-12">&nbsp;</div></div>
+    <div class="row mt5"><div class="col-xs-12 col-print-12">&nbsp;</div></div>
+    <div class="row text-center mt5">
+        <div class="col-xs-12 col-print-12">
+            Gwendal Le Coguic -
+            <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a> - devis sur demande - SIRET 79778302400038
+        </div>
+    </div>
+</div>
