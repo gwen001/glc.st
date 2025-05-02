@@ -177,7 +177,7 @@ At that point we can just say that the software editor doesn't care as there was
 
 ## What's next?
 
-I reported the situation to ANSSI - France's national cybersecurity agency - in 2022 following responsible disclosure principles.
+In 20222, I reported the situation to ANSSI - France's national cybersecurity agency - following responsible disclosure principles.
 
 I did not access any personal data, nor did I modify, delete, or interfere with any system elements. My goal was purely to prevent a disaster.
 

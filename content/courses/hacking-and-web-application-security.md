@@ -17,6 +17,23 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
     <img src="/assets/img/courses/hacking-websec.png" alt="Hacking & web application security" width="500" />
 </center>
 
+
+## Targeted audience:
+
+- Web developers
+- System administrators
+- Dev(Sec)Ops engineers
+- Any cybersecurity enthusiasts
+
+
+## Educational goals:
+- Understand the main web application vulnerabilities
+- Learn how to detect and exploit common security flaws
+- Use tools like Burp Suite and SQLmap effectively
+- Apply secure coding practices to prevent attacks
+- Improve overall application resilience against threats
+
+
 ## Program:
 #### Day 1 - The basics of web security
 ###### The landscape of web insecurity

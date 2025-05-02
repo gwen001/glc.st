@@ -8,12 +8,30 @@ tags:
 ---
 
 An intensive 2-day training designed for professionals with a solid foundation in web security.
-It delves into advanced vulnerabilities and equips participants with the skills to __identify__, __exploit__, and __mitigate complex security issues__ in web applications.<!--more-->
+It delves into advanced vulnerabilities and equips participants with the skills to __identify__, __exploit__, and __mitigate complex security issues__ in web applications.
+<!--more-->
 
 <br>
 <center>
     <img src="/assets/img/courses/hacking-websec-advanced.png" alt="Advanced hacking & web application security" width="500" />
 </center>
+
+
+## Targeted audience:
+
+- Web developers
+- System administrators
+- Dev(Sec)Ops engineers
+- Any cybersecurity enthusiasts
+
+
+## Educational goals:
+- Identify and exploit advanced web vulnerabilities
+- Understand complex attack vectors like SSRF, XXE, and prototype pollution
+- Analyze and secure authentication and session mechanisms
+- Evaluate risks linked to third-party components and infrastructure
+- Apply secure coding practices to mitigate real-world threats
+
 
 ## Program:
 #### Day 1

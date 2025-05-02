@@ -20,6 +20,23 @@ This training is __ideal for novice developers__ seeking to create applications 
     <img src="/assets/img/courses/php.png" alt="Laravel security" width="500" />
 </center>
 
+
+## Targeted audience:
+
+- Beginners in web development
+- Aspiring backend developers
+- Anyone interested in PHP/MySQL to build dynamic websites
+
+
+## Educational goals:
+- Understand PHP syntax and basic programming concepts
+- Build dynamic web pages using PHP and HTML
+- Manage data with MySQL and SQL queries
+- Handle forms and user input securely
+- Structure code using functions and files
+- Use Composer to manage PHP libraries and dependencies
+
+
 ## Program:
 #### Day 1 - PHP basics
 #### What is PHP?

@@ -4,9 +4,11 @@ date: 2025-04-22T18:05:10+01:00
 tags:
 - courses
 ---
-Welcome! I'm passionate about web security and ethical hacking — and I'm here to share that with you.
-Whether you're just getting started or looking to level up your skills, my courses offer hands-on, real-world training to help you understand how websites are attacked — and how to defend them. Let's turn curiosity into capability.
+Welcome! I'm passionate about web security and ethical hacking - and I'm here to share that with you.
+Whether you're just getting started or looking to level up your skills, my courses offer hands-on, real-world training to help you understand how websites are attacked  and how to defend them. Let's turn curiosity into capability.
 <!--more-->
+
+Each course focuses on practical demonstrations, interactive exercises, and discussions on real-life scenarios to ensure the acquisition of key skills.
 
 <br><br>
 

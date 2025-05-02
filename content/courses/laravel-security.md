@@ -16,6 +16,22 @@ This one-day course is designed for __Laravel developers__ who want to build sec
     <img src="/assets/img/courses/laravel.png" alt="Laravel security" width="500" />
 </center>
 
+
+## Targeted audience:
+
+- Laravel developers
+- Security professionals
+- Dev(Sec)Ops engineers
+
+
+## Educational goals:
+- Recognize common web vulnerabilities and Laravel’s protections
+- Implement secure authentication and authorization with Laravel tools
+- Configure CORS and CSRF protections properly
+- Validate and sanitize user input securely
+- Handle file uploads and storage with security in mind
+
+
 ## Program:
 ###### Global configuration
 - Basic PHP security

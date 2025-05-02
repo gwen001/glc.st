@@ -15,6 +15,23 @@ This one-day awareness course is designed for all __employees and collaborators_
     <img src="/assets/img/courses/sensibilisation-cybersec.png" alt="Laravel security" width="500" />
 </center>
 
+
+## Targeted audience:
+
+- Employees at all levels: managers and team leaders, Hhuman Resources and administrative staff...
+- IT Support and technical teams
+- Remote Workers or telecommuters
+
+
+## Educational goals:
+- Understand the main cybersecurity threats and their impact
+- Identify common attack techniques such as phishing and malware
+- Recognize the importance of user behavior in preventing incidents
+- Apply basic cybersecurity best practices in daily work
+- React appropriately to potential security incidents
+- Understand legal and organizational responsibilities in cybersecurity
+
+
 ## Program:
 ###### Introduction to cybersecurity
 - What is cybersecurity and why it matters

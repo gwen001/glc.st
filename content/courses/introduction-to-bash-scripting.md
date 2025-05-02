@@ -16,6 +16,23 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
     <img src="/assets/img/courses/bash.png" alt="Laravel security" width="500" />
 </center>
 
+
+## Targeted audience:
+
+- System administrators
+- Dev(Sec)Ops engineers
+- Anyone interested in automation
+
+
+## Educational goals:
+- Understand the fundamentals of the Bash shell and scripting syntax
+- Write and execute basic to intermediate Bash scripts
+- Automate common system tasks using loops, conditions, and variables
+- Manage processes and schedule tasks
+- Handle user input, signals, and logging in scripts
+- Apply scripting best practices with a focus on security and readability
+
+
 ## Program:
 #### Day 1 - Introduction to Bash and file manipulation
 ###### Introduction to Bash

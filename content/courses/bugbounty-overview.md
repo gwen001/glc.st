@@ -16,6 +16,23 @@ This half-a-day course offers a complete introduction to the world of bug bounty
     <img src="/assets/img/courses/bugbounty.png" alt="Laravel security" width="500" />
 </center>
 
+
+## Targeted audience:
+
+- Cybersecurity managers and security teams
+- CISO and risk management professionals
+- Organizations new to bug bounty programs
+
+
+## Educational goals:
+- Understand what a bug bounty program is
+- Learn how bug bounty fits into a security strategy
+- Identify key roles and responsibilities
+- Know how to handle vulnerability reports
+- Be aware of legal and compliance issues
+- Evaluate your organization’s bug bounty readiness
+
+
 ## Program:
 ###### Welcome & icebreaker
 - Instructor intro & participant backgrounds  
