@@ -37,6 +37,11 @@ This training is __ideal for novice developers__ seeking to create applications 
 - Use Composer to manage PHP libraries and dependencies
 
 
+## Prerequisites:
+- Basic knowledge of HTML and CSS
+- Familiarity with web browsers and text editors
+
+
 ## Program:
 #### Day 1 - PHP basics
 #### What is PHP?

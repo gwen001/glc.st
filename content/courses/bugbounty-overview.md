@@ -21,7 +21,7 @@ This half-a-day course offers a complete introduction to the world of bug bounty
 
 - Cybersecurity managers and security teams
 - CISO and risk management professionals
-- Organizations new to bug bounty programs
+- Organizations new to bug bounty
 
 
 ## Educational goals:
@@ -31,6 +31,11 @@ This half-a-day course offers a complete introduction to the world of bug bounty
 - Know how to handle vulnerability reports
 - Be aware of legal and compliance issues
 - Evaluate your organization’s bug bounty readiness
+
+
+## Prerequisites:
+- Basic understanding of cybersecurity principles
+- Familiarity with vulnerability management and risk assessment
 
 
 ## Program:

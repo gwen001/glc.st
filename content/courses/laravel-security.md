@@ -32,6 +32,12 @@ This one-day course is designed for __Laravel developers__ who want to build sec
 - Handle file uploads and storage with security in mind
 
 
+## Prerequisites:
+- Good experience with PHP and Laravel framework
+- Understanding of web application security concepts
+- Familiarity with basic web vulnerabilities (XSS, CSRF, SQLi...), [see the beginner course](/courses/hacking-and-web-application-security/)
+
+
 ## Program:
 ###### Global configuration
 - Basic PHP security

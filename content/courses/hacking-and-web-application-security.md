@@ -34,6 +34,12 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 - Improve overall application resilience against threats
 
 
+## Prerequisites:
+- Basic knowledge of web development (HTML, CSS, JavaScript)
+- Familiarity with web protocols (HTTP, HTTPS)
+- Experience with using command-line tools
+
+
 ## Program:
 #### Day 1 - The basics of web security
 ###### The landscape of web insecurity

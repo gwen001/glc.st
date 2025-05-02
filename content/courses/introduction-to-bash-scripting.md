@@ -33,6 +33,11 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
 - Apply scripting best practices with a focus on security and readability
 
 
+## Prerequisites:
+- Being comfortable with CLI mode
+- Familiarity with basic Linux commands
+
+
 ## Program:
 #### Day 1 - Introduction to Bash and file manipulation
 ###### Introduction to Bash

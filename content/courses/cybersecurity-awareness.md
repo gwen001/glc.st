@@ -32,6 +32,10 @@ This one-day awareness course is designed for all __employees and collaborators_
 - Understand legal and organizational responsibilities in cybersecurity
 
 
+## Prerequisites:
+- None
+
+
 ## Program:
 ###### Introduction to cybersecurity
 - What is cybersecurity and why it matters

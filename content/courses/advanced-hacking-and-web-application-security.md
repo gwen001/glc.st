@@ -33,6 +33,13 @@ It delves into advanced vulnerabilities and equips participants with the skills 
 - Apply secure coding practices to mitigate real-world threats
 
 
+## Prerequisites:
+- Basic knowledge of web development (HTML, CSS, JavaScript)
+- Familiarity with web protocols (HTTP, HTTPS)
+- Experience with using command-line tools
+- Familiar with basic web vulnerabilities (XSS, CSRF, SQLi...), [see the beginner course](/courses/hacking-and-web-application-security/)
+
+
 ## Program:
 #### Day 1
 - CRLF injection
