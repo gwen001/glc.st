@@ -256,11 +256,23 @@ Even without changing a single line of your application’s code, you may become
     </main>
 
     
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
 
     
       <script src="https://glc.st/assets/js/scripts.js"></script>
-    
-      <script src="https://glc.st/assets/js/gtag.js"></script>
     
 
   </body>
