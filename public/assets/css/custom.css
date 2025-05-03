@@ -65,6 +65,10 @@ section.cves ul li .title, section.cves ul li .title:hover, section.cves ul li .
     color: #1EC8BB;
 }
 
+.cve h2 {
+    font-size: 2.8rem;
+    margin: 0.3em 0;
+}
 .post {
     position: relative;
 }
