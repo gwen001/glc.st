@@ -1,5 +1,5 @@
 ---
-title: "Customers"
+title: "Clients"
 date: 2025-04-22T18:05:10+01:00
 ---
 ## Courses
@@ -7,23 +7,23 @@ date: 2025-04-22T18:05:10+01:00
 Over the years, I’ve had the privilege of training teams from startups to large enterprises across various sectors - including tech, finance, e-commerce, and public institutions. My courses have helped developers, sysadmins, and security teams level up their skills in web security, scripting, and secure development practices.
 <!--more-->
 
-![Boursorama](/assets/img/customers/boursorama.png)
-![ONERA](/assets/img/customers/onera.png)
-![Tenacy](/assets/img/customers/tenacy.png)
-![Thom Group](/assets/img/customers/thom-group.png)
-![Université Aix Marseille](/assets/img/customers/univ-amu.png)
-![JetPulp](/assets/img/customers/jetpulp.png)
-![Mazarine](/assets/img/customers/mazarine.png)
-![FCN](/assets/img/customers/fcn.png)
-![Saint-Gobain](/assets/img/customers/saint-gobain.png)
-![Sénat](/assets/img/customers/senat.png)
-![CSTB](/assets/img/customers/cstb.png)
-![Hôpitaux Universitaires de Strasbourg](/assets/img/customers/hus.png)
-![Eurodecision](/assets/img/customers/eurodecision.png)
-![Phenix Aviation](/assets/img/customers/phenix-aviation.png)
-![actimage](/assets/img/customers/actimage.png)
-![sagemcom](/assets/img/customers/sagemcom.png)
-![Show You](/assets/img/customers/show-you.png)
+![Boursorama](/assets/img/clients/boursorama.png)
+![ONERA](/assets/img/clients/onera.png)
+![Tenacy](/assets/img/clients/tenacy.png)
+![Thom Group](/assets/img/clients/thom-group.png)
+![Université Aix Marseille](/assets/img/clients/univ-amu.png)
+![JetPulp](/assets/img/clients/jetpulp.png)
+![Mazarine](/assets/img/clients/mazarine.png)
+![FCN](/assets/img/clients/fcn.png)
+![Saint-Gobain](/assets/img/clients/saint-gobain.png)
+![Sénat](/assets/img/clients/senat.png)
+![CSTB](/assets/img/clients/cstb.png)
+![Hôpitaux Universitaires de Strasbourg](/assets/img/clients/hus.png)
+![Eurodecision](/assets/img/clients/eurodecision.png)
+![Phenix Aviation](/assets/img/clients/phenix-aviation.png)
+![actimage](/assets/img/clients/actimage.png)
+![sagemcom](/assets/img/clients/sagemcom.png)
+![Show You](/assets/img/clients/show-you.png)
 
 
 ## Bug Bounty

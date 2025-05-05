@@ -6,9 +6,32 @@ title = "Gwendal Le Coguic"
 theme = "coder"
 
 defaultcontentlanguage = "en"
+defaultContentLanguageInSubdir = false
+disableDefaultLanguageRedirect = false
+disableLanguages = []
+
+[languages]
+    [languages.en]
+        # baseURL = "https://en.glc.st/"
+        disabled = false
+        languageCode = 'en-US'
+        languageDirection = 'ltr'
+        languageName = 'English'
+        title = "Gwendal Le Coguic"
+        weight = 0
+        pagination.pagerSize = 2000
+    [languages.fr]
+        # baseURL = "https://fr.glc.st/"
+        disabled = true
+        languageCode = 'fr-FR'
+        languageDirection = 'ltr'
+        languageName = 'French'
+        title = "Gwendal Le Coguic FR"
+        weight = 1
+        pagination.pagerSize = 2000
 
 # paginate = 2000
-pagination.pagerSize = 2000
+# pagination.pagerSize = 2000
 canonifyurls = true
 
 pygmentsstyle = "monokai"
@@ -112,4 +135,4 @@ unsafe= true
 
 [permalinks]
   posts = "/posts/:title/"
-  # cves = "/cves/:slug/"
+  # cves = "/cves/:title/"
