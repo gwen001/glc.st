@@ -1,5 +1,6 @@
 ---
 date: 2025-04-22
+slug: The basics of SQL
 title: The basics of SQL
 images: [/assets/img/courses/sql.png]
 tags:
@@ -46,29 +47,29 @@ This hands-on training is designed to give developers, analysts, and IT professi
 
 ###### Database design and schema creation
 - Understanding ER diagrams and normalization
-- Creating tables: CREATE TABLE, constraints (PRIMARY KEY, FOREIGN KEY, etc.)
+- Creating tables: _CREATE TABLE_, constraints (_PRIMARY KEY, FOREIGN KEY_, etc.)
 - Data types and indexing
 
 ###### Basic SQL queries
-- Retrieving data with SELECT, filtering with WHERE
-- Using operators (AND, OR, LIKE, IN)
-- Sorting results with ORDER BY
+- Retrieving data with _SELECT_, filtering with _WHERE_
+- Using operators (_AND, OR, LIKE, IN_)
+- Sorting results with _ORDER BY_
 
 #### Day 2 - Advanced SQL concepts
 ###### Advanced queries and joins
-- Understanding INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN
-- Combining results with UNION and INTERSECT
+- Understanding _INNER JOIN, LEFT JOIN, RIGHT JOIN, FULL JOIN_
+- Combining results with _UNION_ and _INTERSECT_
 
 ###### Aggregations and subqueries
-- Grouping data with GROUP BY, filtering with HAVING
-- Using aggregate functions (COUNT, SUM, AVG, etc.)
-- Writing subqueries with EXISTS, NOT EXISTS
+- Grouping data with _GROUP BY_, filtering with _HAVING_
+- Using aggregate functions (_COUNT, SUM, AVG_, etc.)
+- Writing subqueries with _EXISTS, NOT EXISTS_
 
 ###### Window functions
-- Introduction to window functions (OVER, PARTITION BY, RANK)
+- Introduction to window functions (_OVER, PARTITION BY_)
 
 ###### Performance optimization
-- Optimizing queries with indexing and execution plans
+- Optimizing queries with indexing
 - Common pitfalls and best practices
 
 <br><br>

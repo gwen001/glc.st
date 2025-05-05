@@ -1,5 +1,6 @@
 ---
 date: 2025-04-22
+slug: Laravel security
 title: Laravel security
 images: [/assets/img/courses/laravel.png]
 tags:
@@ -70,7 +71,7 @@ This one-day course is designed for __Laravel developers__ who want to build sec
 
 ###### Rate limiting
 - Usage
-- Ratelimit actions / routes / definition
+- Ratelimit actions / routes
 
 ###### File uploads & file storage
 - What is it?

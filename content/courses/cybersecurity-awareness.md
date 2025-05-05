@@ -1,5 +1,6 @@
 ---
 date: 2025-04-22
+slug: Cybersecurity awareness
 title: Cybersecurity awareness
 images: [/assets/img/courses/sensibilisation-cybersec.png]
 tags:
@@ -18,7 +19,7 @@ This one-day awareness course is designed for all __employees and collaborators_
 
 ## Targeted audience:
 
-- Employees at all levels: managers and team leaders, human resources and administrative staff...
+- Employees at all levels: managers and team leaders, human resources, administrative staff...
 - IT Support and technical teams
 - Remote Workers or telecommuters
 
@@ -27,9 +28,9 @@ This one-day awareness course is designed for all __employees and collaborators_
 - Understand the main cybersecurity threats and their impact
 - Identify common attack techniques
 - Recognize the importance of user behavior in preventing incidents
-- Apply basic cybersecurity best practices in daily work
+- Apply basic best practices in daily work
 - React appropriately to potential security incidents
-- Understand legal and organizational responsibilities in cybersecurity
+- Understand legal and organizational responsibilities
 
 
 ## Prerequisites:

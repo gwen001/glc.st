@@ -1,5 +1,6 @@
 ---
 date: 2025-04-22
+slug: PHP for beginners
 title: PHP for beginners
 images: [/assets/img/courses/php.png]
 tags:
@@ -9,7 +10,7 @@ tags:
 ---
 
 A comprehensive 3-day training designed for beginners aiming to __build dynamic web applications using PHP__.
-Participants will learn to set up a PHP/MySQL development environment, write structured PHP code, handle data with SQL, and integrate external libraries using Composer.
+Participants will learn to write structured PHP code, handle data with SQL, and integrate external libraries using _Composer_.
 The course emphasizes __practical learning through progressive exercises__, culminating in the development of a functional web application.
 By the end, attendees will be equipped to design and develop the server-side of a website, generating the necessary code for the front-end.
 This training is __ideal for novice developers__ seeking to create applications or services based on the PHP programming language. 
@@ -33,7 +34,7 @@ This training is __ideal for novice developers__ seeking to create applications 
 - Build dynamic web pages using PHP and HTML
 - Manage data with MySQL and SQL queries
 - Handle forms and user input securely
-- Structure code using functions and files
+- Structure code using functions
 - Use Composer to manage PHP libraries and dependencies
 
 
@@ -49,8 +50,7 @@ This training is __ideal for novice developers__ seeking to create applications 
 - What is PHP and what is a PHP File?
 
 #### PHP basics
-- PHP tags
-- Short echo tags
+- PHP tags & short tags
 - PHP + HTML
 - Comments
 
@@ -64,7 +64,7 @@ This training is __ideal for novice developers__ seeking to create applications 
 #### Control Structures
 - if, elseif, else, while, for, while, for, foreach
 - break, continue
-- switch…case
+- switch...case
 - match
 - include, require
 
@@ -80,8 +80,7 @@ This training is __ideal for novice developers__ seeking to create applications 
 - Superglobals
 - _GET_ and _POST_
 - Other HTTP methods
-- Forms
-- Filters
+- Forms and filters
 
 #### Persistency and storage
 - Sessions
@@ -92,7 +91,7 @@ This training is __ideal for novice developers__ seeking to create applications 
 ###### The essence of Object Oriented Programming
 - Basics
 - Properties
-- _Constructor_ and _Destructor_
+- _Constructor_ and _destructor_
 - Keyword _$this_
 - Visibility
 - Constants
@@ -100,7 +99,7 @@ This training is __ideal for novice developers__ seeking to create applications 
 - _Abstract_, _Final_ and _Static_
 - Magic methods
 - Errors and exceptions
-- Headers
+- HTTP headers
 - Interfaces and traits
 - Namespaces
 
@@ -108,7 +107,7 @@ This training is __ideal for novice developers__ seeking to create applications 
 - Mysqli
 - PDO
 
-#### Day 3 - External libraries and opening topics
+#### Day 3 - External libraries
 ###### External libraries
 - Autoload
 - Composer

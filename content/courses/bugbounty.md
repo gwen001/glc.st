@@ -1,5 +1,6 @@
 ---
 date: 2025-04-22
+slug: BugBounty Overview
 title: Bug Bounty Overview
 images: [/assets/img/courses/bugbounty.png]
 tags:
@@ -21,16 +22,15 @@ This half-a-day course offers a complete introduction to the world of bug bounty
 
 - Cybersecurity managers and security teams
 - CISO and risk management professionals
-- Organizations new to bug bounty
+- Organizations new to _bug bounty_
 
 
 ## Educational goals:
-- Understand what a bug bounty program is
-- Learn how bug bounty fits into a security strategy
+- Understand what a _bug bounty_ program is
+- Learn how _bug bounty_ fits into a security strategy
 - Identify key roles and responsibilities
 - Know how to handle vulnerability reports
-- Be aware of legal and compliance issues
-- Evaluate your organization’s bug bounty readiness
+- Evaluate your organization’s _bug bounty_ readiness
 
 
 ## Prerequisites:
@@ -41,27 +41,21 @@ This half-a-day course offers a complete introduction to the world of bug bounty
 ## Program:
 ###### Welcome & icebreaker
 - Instructor intro & participant backgrounds  
-- What to expect from the day  
+- What to expect from the course  
 - What is _bug bounty_ and why it matters  
 
-###### Understanding Bug Bounty: The Ecosystem
+###### Understanding _bug bounty_: the ecosystem
 - History and evolution of programs
 - Roles and motivations: companies, platforms, hackers, 3rd parties
 - _Pentest_ vs _bug bounty_: key differences
 
-###### Anatomy of a Bug Bounty Program
+###### Anatomy of a bug bounty program
 - How programs are structured
 - Public vs private programs
 - What companies expect vs what hackers expect
 
-###### The hacker’s side: tools, tactics & community
-- Typical profile of a hunter
-- Recon and bug hunting basics
-- Collaboration and knowledge sharing in the community
-
-###### Reports: writing, triaging & managing conflicts
+###### Reports: triaging & managing conflicts
 - Lifecycle of a report
-- What makes a good report
 - Handling duplicates and disputes
 
 ###### Policy & program management
@@ -72,11 +66,10 @@ This half-a-day course offers a complete introduction to the world of bug bounty
 ###### Rules, ethics & real case studies
 - The unofficial rules of _bug bounty_
 - Safe harbor, disclosure policies
-- Failures and successes: Verizon, Shopify, Zomato...
+- Failures and successes: _Verizon, Shopify, Zomato_...
 
 ###### Wrap-up & Q&A
 - Recap of the day
-- Resources for continued learning
 - Open Q&A and personalized advice
 
 <br><br>

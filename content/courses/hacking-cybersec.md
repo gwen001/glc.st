@@ -1,5 +1,6 @@
 ---
 date: 2025-04-22
+slug: Hacking and web application security
 title: Hacking & web application security
 images: [/assets/img/courses/hacking-websec.png]
 tags:

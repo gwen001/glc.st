@@ -1,5 +1,6 @@
 ---
 date: 2025-04-22
+slug: Advanced hacking and web application security
 title: Advanced hacking & web application security
 images: [/assets/img/courses/hacking-websec-advanced.png]
 tags:

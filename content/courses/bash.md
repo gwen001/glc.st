@@ -1,5 +1,6 @@
 ---
 date: 2025-04-22
+slug: Introduction to Bash scripting
 title: Introduction to Bash scripting
 images: [/assets/img/courses/bash.png]
 tags:
@@ -8,7 +9,7 @@ tags:
 - bash
 ---
 
-This 3-day hands-on course introduces participants to Bash scripting for task automation and system administration. From writing __simple scripts__ to __managing processes__, __securing code__, and __working over SSH__, you'll learn practical skills to boost productivity and control over your Linux environment. Perfect for __devs__, __sysadmins__, and __security pros__.
+This 3-day hands-on course introduces participants to Bash scripting for task automation and system administration. From writing __simple scripts__ to __managing processes__, __securing code__, and __working over SSH__, you'll learn practical skills to boost productivity and control over your Linux environment. Perfect for __devs__ and __sysadmins__.
 <!--more-->
 
 <br>
@@ -30,7 +31,6 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
 - Automate common system tasks using loops, conditions, and variables
 - Manage processes and schedule tasks
 - Handle user input, signals, and logging in scripts
-- Apply scripting best practices with a focus on security and readability
 
 
 ## Prerequisites:
@@ -48,22 +48,21 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
 ###### Writing and Running Bash scripts
 - What is a Bash script?
 - Create and execute a script
-- The _shebang_
+- The _Shebang_
 - Grant permissions
-- Run the script
+- Run a script
 
 ###### Variables and arguments
 - Understanding variables
 - Declaring and using variables
-- Command line arguments in scripts
+- Command line arguments
 
 ###### File and directory operations
 - Creating and manipulating files/directories
 
 ###### Permissions and access rights
 - Understanding Linux file permissions
-- View permissions
-- Changing permissions
+- View and change permissions
 
 ###### Redirection and pipelines
 - Output and error redirection
@@ -72,13 +71,13 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
 #### Day 2 - Control structures, functions, and advanced scripting
 ###### Conditional statements
 - What are conditional statements?
-- if-else statements
-- case statements
+- _if-else_ statements
+- _case_ statements
 
-###### Loops (for, while, until)
-- for loops
-- while loops
-- until loops
+###### Loops (_for, while, until_)
+- _for_ loops
+- _while_ loops
+- _until_ loops
 
 ###### Functions in Bash
 - Why use functions?
@@ -100,7 +99,7 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
 
 ###### Scheduling tasks
 - Automating tasks
-- Cron job format
+- _cron_ job format
 
 ###### Logging and monitoring scripts
 - Logging
