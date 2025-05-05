@@ -5,10 +5,19 @@ tags:
 - courses
 ---
 Welcome! I'm passionate about web security and ethical hacking - and I'm here to share that with you.
-Whether you're just getting started or looking to level up your skills, my courses offer hands-on, real-world training to help you understand how websites are attacked  and how to defend them. Let's turn curiosity into capability.
+Whether you're just getting started or looking to <b>level up your skills</b>, my courses offer hands-on, <b>real-world training</b> to help you understand how websites are attacked and how to defend them. _Let's turn curiosity into capability._
 <!--more-->
 
-Each course focuses on practical demonstrations, interactive exercises, and discussions on real-life scenarios to ensure the acquisition of key skills.
+Each course focuses on <b>practical demonstrations</b>, <b>interactive exercises</b>, and discussions on real-life scenarios to ensure the acquisition of key skills.
+
+<p style="margin:0;">Each course can be done:</p>
+<ul style="margin:0;">
+    <li><b>on site</b> or <b>remotely</b></li>
+    <li>in <b>french</b> or in <b>english</b></li>
+    <li><b>indidividually</b> or in <b>groups</b></li>
+</ul>
+
+Feel free to <a href="mailto:contact@glc.st" target="_blank">get in touch</a> if you have any question.
 
 <div class="course">
     <a href="/courses/hacking-and-web-application-security/"><img src="/assets/img/courses/hacking-websec.png" alt="Hacking & web application security"/></a>
@@ -76,6 +85,16 @@ Each course focuses on practical demonstrations, interactive exercises, and disc
         <h2 style="margin-top:0;margin-bottom:10px;">PHP for beginners</h2>
         Understand the basics of PHP: object-oriented programming, storage, data exfiltration, database and more...
         <a href="/courses/php-for-beginners/">read the full program</a>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+<div class="course">
+    <a href="/courses/the-basics-of-sql/"><img src="/assets/img/courses/sql.png" alt="The basics of SQLs"/></a>
+    <div class="descr">
+        <h2 style="margin-top:0;margin-bottom:10px;">The basics of SQL</h2>
+        For tech peoples who want to  learn the basic vulnerabilities of modern webapps: input validation, xss, sqli, passwords, cookies, tools and true stories...
+        <a href="/courses/the-basics-of-sql/">read the full program</a>
     </div>
     <div style="clear:both;"></div>
 </div>

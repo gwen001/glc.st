@@ -28,7 +28,6 @@ It delves into advanced vulnerabilities and equips participants with the skills 
 ## Educational goals:
 - Identify and exploit advanced web vulnerabilities
 - Understand complex attack vectors like SSRF, XXE, and prototype pollution
-- Analyze and secure authentication and session mechanisms
 - Evaluate risks linked to third-party components and infrastructure
 - Apply secure coding practices to mitigate real-world threats
 
@@ -42,18 +41,18 @@ It delves into advanced vulnerabilities and equips participants with the skills 
 
 ## Program:
 #### Day 1
-- CRLF injection
+- Carriage Return Line Feed injection (CRLF)
 - Second order bugs
 - Prototype pollution
-- PostMessage
+- _PostMessage_
 - Server-Side Request Forgery (SSRF)
 
 #### Day 2
 - Dependency confusion
 - Subdomain takeover
-- JSON Web Token security
+- JSON Web Token security (JWT)
 - XML External Entity injection (XXE)
-- Email security
+- Emails security
 
 <br><br>
 

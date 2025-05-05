@@ -18,14 +18,14 @@ This one-day awareness course is designed for all __employees and collaborators_
 
 ## Targeted audience:
 
-- Employees at all levels: managers and team leaders, Hhuman Resources and administrative staff...
+- Employees at all levels: managers and team leaders, human resources and administrative staff...
 - IT Support and technical teams
 - Remote Workers or telecommuters
 
 
 ## Educational goals:
 - Understand the main cybersecurity threats and their impact
-- Identify common attack techniques such as phishing and malware
+- Identify common attack techniques
 - Recognize the importance of user behavior in preventing incidents
 - Apply basic cybersecurity best practices in daily work
 - React appropriately to potential security incidents

@@ -231,7 +231,7 @@ After playing a little bit with the value, injecting stupid characters and so on
 <p>The final response is the base64 encoded result of the HTTP request performed by the server. In this case: <code>http://localhost:80/index.html</code> the default Apache page.</p>
 <p><strong>Important note:</strong> at each HTTP POST request performed by the server, <code>id</code> is incremented by 1.
 Sometimes it get back to 0 but I didn&rsquo;t figure out why/when/how. It doesn&rsquo;t seem to be shared between the hackers.</p>
-<h2 id="step-3-or-4-or-5-port-scanning">Step 3&rsquo; or 4 or 5, port scanning</h2>
+<h2 id="step-3-or-4-or-5-port-scanning">Step 3 or 4 or 5, port scanning</h2>
 <p>I&rsquo;m pretty sure that this step was supposed to be the last one but when I&rsquo;m able to trigger a SSRF issue, I always perform a port scan first.</p>
 <p>I simply moved my 2 curl requests into a <code>for</code> loop that iterates from 1 to 65535, because why not ?
 Ok, Jobert said that brute force is not the key but you know&hellip; I&rsquo;m still a kid in my mind, I&rsquo;m a geek, I&rsquo;m a hacker so&hellip;

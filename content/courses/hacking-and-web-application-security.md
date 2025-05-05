@@ -29,7 +29,7 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 ## Educational goals:
 - Understand the main web application vulnerabilities
 - Learn how to detect and exploit common security flaws
-- Use tools like Burp Suite and SQLmap effectively
+- Use tools like _Burp Suite_ and _SQLmap_ effectively
 - Apply secure coding practices to prevent attacks
 - Improve overall application resilience against threats
 
@@ -45,7 +45,7 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 ###### The landscape of web insecurity
 - Web security: a vast topic
 - Architecture of a typical Web app
-- Open Web Application Security Project
+- Open Web Application Security Project (OWASP)
 - CWEs, CVEs & CVSS
 - External and internal attackers
 - The different steps of an attack
@@ -56,7 +56,7 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 - The importance of inventory
 - Shadow IT
 - Production bias & incompatibility with Agile approaches
-- The idea of DevSecOps
+- The idea of _DevSecOps_
 - The importance of testing & code reviews
 - Static & dynamic analysis
 
@@ -68,8 +68,8 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 - Reminder about the HTTP(s) protocol
 - Anatomy of HTTP requests & responses
 - Semantics & status codes
-- Introduction to Dev Tools
-- Introduction to Burp Suite
+- Introduction to _Dev Tools_
+- Introduction to _Burp Suite_
 
 ###### URLs
 - Anatomy of a URL
@@ -82,8 +82,8 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 - Clear-text logging of sensitive information
 - Secrets on the client side
 - API Excessive data exposure
-- Public Git repositories & history
-- Git directory deployed
+- Public _Git_ repositories & history
+- _Git_ directory deployed
 
 #### Day 2 - User input flaws
 ###### Input validation
@@ -101,8 +101,8 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 - What is it?
 - What is the impact?
 - How to protect & how to bypass
-- Presentation of SQLMap
-- NoSQL injection
+- Presentation of _SQLMap_
+- _NoSQL_ injection
 
 ###### Server-Side Request Forgery (SSRF)
 - What is it?
@@ -135,7 +135,7 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 - Cracking tools
 
 ###### Cookies
-- Cookies attributes: secure, httponly, domain, samesite...
+- Cookies attributes: _secure, httponly, domain, samesite_...
 - Session hijacking
 
 ###### Cross-Site Request Forgery (CSRF)
