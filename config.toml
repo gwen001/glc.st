@@ -38,6 +38,7 @@ unsafe= true
     avatarurl = "/assets/img/me.jpg"
 #    avatarurl = "/assets/img/avatar.jpg"
     images = ["/assets/img/header-background.jpg"]
+    link_canonical = true
 
     favicon_256 = "/assets/img/favicon-256x256.png"
     favicon_128 = "/assets/img/favicon-128x128.png"

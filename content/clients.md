@@ -57,7 +57,7 @@ and many more...
 
 
 <style>
-img {
+article img {
     height: 50px;
     margin-bottom: 5px;
     margin-right: 20px;

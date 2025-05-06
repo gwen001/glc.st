@@ -31,6 +31,14 @@ img {
     border: 0px solid #FFF;
     padding: 0px;
 }
+.navigation-list .language img {
+    padding-bottom: 4px;
+    vertical-align: middle;
+    width: 20px;
+}
+.navigation-list .language a {
+    margin-left: 5px !important;
+}
 .content .container h1.cve {
     font-size: 3.8rem;
 }

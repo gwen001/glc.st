@@ -17,8 +17,10 @@
     {{ end }}
     <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
 
-    {{ if .Permalink }}
-      <link rel="canonical" href="{{ .Permalink }}">
+    {{ if .Site.Params.link_canonical }}
+        {{ if .Permalink }}
+            <link rel="canonical" href="{{ .Permalink }}">
+        {{ end }}
     {{ end }}
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -78,6 +80,7 @@
 
   <body class="{{ if .Site.Params.rtl }}rtl{{ end }} {{ if .Site.Params.inverted }}inverted{{ end }}">
         <main class="wrapper">
+      {{ partial "google_translate.html" . }}
       {{ partial "header.html" . }}
 
       <div class="content">

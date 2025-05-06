@@ -5,6 +5,9 @@ languageCode = "en-us"
 title = "Gwendal Le Coguic"
 theme = "coder"
 
+
+# find . -type f | while read f ; do echo ">>> $f"; ff=$(echo $f | sed "s/\.md/\.fr\.md/g"); echo "### $ff"; cp "$f" "$ff" ; done
+
 defaultcontentlanguage = "en"
 defaultContentLanguageInSubdir = false
 disableDefaultLanguageRedirect = false
@@ -61,6 +64,7 @@ unsafe= true
     avatarurl = "/assets/img/me.jpg"
 #    avatarurl = "/assets/img/avatar.jpg"
     images = ["/assets/img/header-background.jpg"]
+    link_canonical = true
 
     favicon_256 = "/assets/img/favicon-256x256.png"
     favicon_128 = "/assets/img/favicon-128x128.png"
@@ -135,4 +139,4 @@ unsafe= true
 
 [permalinks]
   posts = "/posts/:title/"
-  # cves = "/cves/:title/"
+  # cves = "/cves/:slug/"

@@ -24,8 +24,9 @@
               </li>
               {{ $node.Scratch.Set "separator" false }}
             {{ end }}
-            <li class="navigation-item">
-              <a href="{{ .Permalink }}">{{ .Language.LanguageName }}</a>
+            <li class="navigation-item language">
+              <img src="/assets/img/flags/{{ .Language }}.png" class="icon-flag" />
+              <a href="javascript:void(0);" class="link-changelang" onclick="func_changelang()" id="{{ .Language.LanguageName }}">{{ .Language.LanguageName }}</a>
             </li>
           {{ end }}
         {{ end }}
@@ -33,3 +34,33 @@
     </ul>
   </section>
 </nav>
+
+
+<script>
+    // function func_changelang(e) {
+    //     e = e || window.event;
+    //     e = e.target || e.srcElement;
+
+    //     var current_url = new URL(window.location.href);
+    //     var current_path = current_url.pathname;
+
+    //     const pattern = /^\/[a-z]{2}\//;
+    //     var r = pattern.test(current_path);
+    //     if( r ) {
+    //         current_path = current_path.slice(3);
+    //     }
+
+    //     switch(e.id) {
+    //         case 'French':
+    //             prefix = '/fr';
+    //             break;
+    //         default:
+    //             prefix = '';
+    //             break;
+    //     }
+
+    //     var new_url = prefix + current_path;
+    //     window.location = new_url;
+    //     alert(new_url);
+    // }
+</script>
