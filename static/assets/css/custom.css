@@ -39,7 +39,7 @@ img {
 .navigation-list .language a {
     margin-left: 5px !important;
 }
-.content .course img {
+.content .course article img {
     border: 1px solid #212121;
 }
 .content .container h1.cve {
