@@ -10,8 +10,7 @@ tags:
 
 This intensive 3-day training is designed for __developers__ and __system administrators__ aiming to enhance the security of their web applications.
 Combining __theoretical knowledge__ with __practical exercises__, the course covers __common vulnerabilities__, utilization of __essential tools__, __best practices__ in secure web development​.
-Participants will learn to __identify__, __exploit__, and __remediate__ security flaws, gaining hands-on experience to proactively defend against real-world threats.​
-<!--more-->
+Participants will learn to __identify__, __exploit__, and __remediate__ security flaws, gaining hands-on experience to proactively defend against real-world threats.​<!--more-->
 
 <br>
 <center>

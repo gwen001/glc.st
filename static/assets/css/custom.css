@@ -93,7 +93,7 @@ section.cves ul li .title, section.cves ul li .title:hover, section.cves ul li .
 #sharer .sharer-buttons {
     border: 0px solid #0000ff;
     position: fixed;
-    top: 200px;
+    top: 190px;
 }
 #sharer a {
     display: block;

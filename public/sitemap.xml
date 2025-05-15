@@ -8,13 +8,7 @@
     <loc>https://glc.st/courses/</loc>
     <lastmod>2025-04-22T18:05:10+01:00</lastmod>
   </url><url>
-    <loc>https://glc.st/tags/courses/</loc>
-    <lastmod>2025-04-22T18:05:10+01:00</lastmod>
-  </url><url>
     <loc>https://glc.st/</loc>
-    <lastmod>2025-04-22T18:05:10+01:00</lastmod>
-  </url><url>
-    <loc>https://glc.st/tags/</loc>
     <lastmod>2025-04-22T18:05:10+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/courses/advanced-hacking-and-web-application-security/</loc>
@@ -27,6 +21,9 @@
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/courses/bugbounty-overview/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/courses/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/tags/cybersecurity/</loc>
@@ -66,6 +63,9 @@
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/tags/sql/</loc>
+    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://glc.st/tags/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://glc.st/courses/the-basics-of-sql/</loc>

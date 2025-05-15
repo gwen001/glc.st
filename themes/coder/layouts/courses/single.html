@@ -1,0 +1,24 @@
+{{ define "title" }}
+    {{ .Title }} · {{ .Site.Title }}
+{{ end }}
+
+{{ define "content" }}
+<section class="container post course">
+    {{ if ne .RelPermalink "/courses/" }}
+        {{ partial "posts/sharer.html" . }}
+    {{ end }}
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">{{ .Title }}</h1>
+            </div>
+        </header>
+
+        <div>
+            {{ .Content }}
+        </div>
+    </article>
+
+    {{ partial "posts/math.html" . }}
+</section>
+{{ end }}
