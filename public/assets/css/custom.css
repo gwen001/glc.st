@@ -39,6 +39,9 @@ img {
 .navigation-list .language a {
     margin-left: 5px !important;
 }
+.content .course img {
+    border: 1px solid #212121;
+}
 .content .container h1.cve {
     font-size: 3.8rem;
 }

@@ -112,6 +112,7 @@ Feel free to <a href="mailto:contact@glc.st" target="_blank">get in touch</a> if
         margin-top: 5em;
     }
     .course img {
+        border: 1px solid #212121;
         cursor: pointer;
         float:left;
         margin-bottom: 15px;
