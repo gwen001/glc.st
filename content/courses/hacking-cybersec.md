@@ -105,8 +105,10 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 - Presentation of _SQLMap_
 - _NoSQL_ injection
 
-###### Server-Side Request Forgery (SSRF)
-- What is it?
+###### Content Security Policy (CSP)
+- Definition
+- Most common directives
+- Possible configuration
 - What is the impact?
 - How to protect & how to bypass
 
