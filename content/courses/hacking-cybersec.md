@@ -122,7 +122,7 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 - Path traversal
 - Local & remote file inclusion
 
-#### Day 3 - authenticated user vulnerabilities
+#### Day 3 - Authenticated user vulnerabilities
 ###### Authentication & vulnerabilities
 - Authentication
 - User enumeration
@@ -151,7 +151,7 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 - How to protect & how to bypass
 
 ###### Authorization & access control
-- Authentication vs authorization
+- Authentication vs. authorization
 - Roles and permissions
 - Insecure direct object reference
 

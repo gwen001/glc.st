@@ -45,7 +45,7 @@ It delves into advanced vulnerabilities and equips participants with the skills 
 - Carriage Return Line Feed injection (CRLF)
 - Second order bugs
 - Prototype pollution
-- _PostMessage_
+- _postMessage_
 - Server-Side Request Forgery (SSRF)
 
 #### Day 2

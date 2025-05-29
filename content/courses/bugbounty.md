@@ -42,14 +42,14 @@ This half-a-day course offers a complete introduction to the world of bug bounty
 ###### Welcome & icebreaker
 - Instructor intro & participant backgrounds  
 - What to expect from the course  
-- What is _bug bounty_ and why it matters  
+- What is _bug bounty_ and why it matters?  
 
 ###### Understanding _bug bounty_: the ecosystem
 - History and evolution of programs
 - Roles and motivations: companies, platforms, hackers, 3rd parties
 - _Pentest_ vs _bug bounty_: key differences
 
-###### Anatomy of a bug bounty program
+###### Anatomy of a _bug bounty_ program
 - How programs are structured
 - Public vs private programs
 - What companies expect vs what hackers expect

@@ -44,7 +44,7 @@ This one-day course is designed for __Laravel developers__ who want to build sec
 - Basic PHP security
 - Global configuration
 - Sessions
-- APP_KEY
+- _APP_KEY_
 
 ###### The basics
 - Raw PHP in views
@@ -89,28 +89,28 @@ This one-day course is designed for __Laravel developers__ who want to build sec
 - How to protect?
 - Take away
 
-###### Sql injection
+###### SQL injection (SQLi)
 - What is it?
 - Prepared statements
 - Parameter binding
 - Dangers
 - Take away
 
-###### Cross site scripting
+###### Cross-Site Scripting (XSS)
 - What is it?
-- Crontrollers
+- Controllers
 - Templates
 - Input sanitization
 - External helps
 
-###### Cross site request forgery
+###### Cross-Site Request Forgery (CSRF)
 - What is it?
 - CSRF token
 - Middleware
 - Forms
 - _X-csrf-token_ and _X-xsrf-token_
 
-###### Cross origin resources sharing
+###### Cross-Origin Resources Sharing (CORS)
 - What is it?
 - Configuration
 - _allowed_origins_ and _supports_credentials_

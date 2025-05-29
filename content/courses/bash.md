@@ -42,7 +42,7 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
 #### Day 1 - Introduction to Bash and file manipulation
 ###### Introduction to Bash
 - What is Bash?
-- Why Learn Bash?
+- Why learn Bash?
 - Basic commands
 
 ###### Writing and Running Bash scripts

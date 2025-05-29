@@ -45,30 +45,30 @@ This training is __ideal for novice developers__ seeking to create applications 
 
 ## Program:
 #### Day 1 - PHP basics
-#### What is PHP?
+###### What is PHP?
 - A bit of History
 - What is PHP and what is a PHP File?
 
-#### PHP basics
+###### PHP basics
 - PHP tags & short tags
 - PHP + HTML
 - Comments
 
-#### Variables
+###### Variables
 - Variables types
 - Constants
 - Quotes
 - Concatenation
 - Operators
 
-#### Control Structures
-- if, elseif, else, while, for, while, for, foreach
-- break, continue
-- switch...case
-- match
-- include, require
+###### Control Structures
+- _if, elseif, else, while, for, while, for, foreach_
+- _break, continue_
+- _switch...case_
+- _match_
+- _include, require_
 
-#### Functions
+###### Functions
 - Recursion
 - Types declaration
 - Variable arguments
@@ -76,13 +76,13 @@ This training is __ideal for novice developers__ seeking to create applications 
 - Anonymous functions
 - Arrow functions
 
-#### HTTP methods
+###### HTTP methods
 - Superglobals
 - _GET_ and _POST_
 - Other HTTP methods
 - Forms and filters
 
-#### Persistency and storage
+###### Persistency and storage
 - Sessions
 - Cookies
 - File storage
