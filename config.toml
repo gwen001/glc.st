@@ -72,9 +72,9 @@ unsafe= true
     url = "https://www.linkedin.com/in/gwendal-le-coguic/"
 [[params.social]]
     name = "Twitter"
-    icon = "fab fa-twitter"
+    icon = "fab fa-x-twitter"
     weight = 3
-    url = "https://twitter.com/gwendallecoguic/"
+    url = "https://x.com/gwendallecoguic/"
 
 # Menu links
 [[menu.main]]

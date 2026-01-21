@@ -172,12 +172,12 @@ As an old school web developper and now security expert I can easily understand 
 - No code reviews, no security test
 - Countless developers with no security knowledge
 
-At that point we can just say that the software editor doesn't care as there was absolutely __no effort put in security at all__.
+At this point we can just say that the software editor doesn't care as there was absolutely __no effort put in security at all__.
 
 
 ## What's next?
 
-In 20222, I reported the situation to ANSSI - France's national cybersecurity agency - following responsible disclosure principles.
+In 2022, I reported the situation to ANSSI - France's national cybersecurity agency - following responsible disclosure principles.
 
 I did not access any personal data, nor did I modify, delete, or interfere with any system elements. My goal was purely to prevent a disaster.
 
