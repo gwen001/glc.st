@@ -58,21 +58,21 @@ Feel free to <a href="mailto:contact@glc.st" target="_blank">get in touch</a> if
 </div>
 
 <div class="course">
-    <a href="/courses/introduction-to-bash-scripting/"><img src="/assets/img/courses/bash.png" alt="Introduction to Bash scripting" /></a>
+    <a href="/courses/php-for-beginners/"><img src="/assets/img/courses/php.png" alt="PHP for beginners" /></a>
     <div class="descr">
-        <h2 style="margin-top:0;margin-bottom:10px;">Introduction to Bash scripting</h2>
-        A course to learn, automate, simplify with Bash.
-        <a href="/courses/introduction-to-bash-scripting/">read the full program</a>
+        <h2 style="margin-top:0;margin-bottom:10px;">PHP for beginners</h2>
+        Understand the basics of PHP: object-oriented programming, storage, data exfiltration, database and more...
+        <a href="/courses/php-for-beginners/">read the full program</a>
     </div>
     <div style="clear:both;"></div>
 </div>
 
 <div class="course">
-    <a href="/courses/laravel-security/"><img src="/assets/img/courses/laravel.png" alt="Laravel security" /></a>
+    <a href="/courses/introduction-to-bash-scripting/"><img src="/assets/img/courses/bash.png" alt="Introduction to Bash scripting" /></a>
     <div class="descr">
-        <h2 style="margin-top:0;margin-bottom:10px;">Laravel security</h2>
-        Best practices to protect your applications based on one of the most popular PHP framework.
-        <a href="/courses/laravel-security/">read the full program</a>
+        <h2 style="margin-top:0;margin-bottom:10px;">Introduction to Bash scripting</h2>
+        A course to learn, automate, simplify with Bash.
+        <a href="/courses/introduction-to-bash-scripting/">read the full program</a>
     </div>
     <div style="clear:both;"></div>
 </div>
@@ -88,11 +88,11 @@ Feel free to <a href="mailto:contact@glc.st" target="_blank">get in touch</a> if
 </div>
 
 <div class="course">
-    <a href="/courses/php-for-beginners/"><img src="/assets/img/courses/php.png" alt="PHP for beginners" /></a>
+    <a href="/courses/laravel-security/"><img src="/assets/img/courses/laravel.png" alt="Laravel security" /></a>
     <div class="descr">
-        <h2 style="margin-top:0;margin-bottom:10px;">PHP for beginners</h2>
-        Understand the basics of PHP: object-oriented programming, storage, data exfiltration, database and more...
-        <a href="/courses/php-for-beginners/">read the full program</a>
+        <h2 style="margin-top:0;margin-bottom:10px;">Laravel security</h2>
+        Best practices to protect your applications based on one of the most popular PHP framework.
+        <a href="/courses/laravel-security/">read the full program</a>
     </div>
     <div style="clear:both;"></div>
 </div>
