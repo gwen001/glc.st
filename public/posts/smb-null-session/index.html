@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,7 +10,7 @@
     <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+<meta name="twitter:image" content="http://localhost:1313/assets/img/header-background.jpg"/>
 
 <meta name="twitter:title" content="SMB null session"/>
 <meta name="twitter:description" content="While performing a pentest, if you discover a server running the SMB protocol 
@@ -54,15 +54,15 @@ Enter &#39;s password:
 rpcclient $&gt;
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://glc.st/posts/smb-null-session/" />
+<meta property="og:url" content="http://localhost:1313/posts/smb-null-session/" />
 
-<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="og:image" content="http://localhost:1313/assets/img/header-background.jpg" />
 <meta property="article:published_time" content="2015-05-09T00:00:00+00:00" />
 <meta property="article:modified_time" content="2015-05-09T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
     
-      <base href="https://glc.st/posts/smb-null-session/">
+      <base href="http://localhost:1313/posts/smb-null-session/">
     
     <title>
     SMB null session · Gwendal Le Coguic
@@ -70,7 +70,7 @@ rpcclient $&gt;
 
     
         
-            <link rel="canonical" href="https://glc.st/posts/smb-null-session/">
+            <link rel="canonical" href="http://localhost:1313/posts/smb-null-session/">
         
     
 
@@ -81,7 +81,7 @@ rpcclient $&gt;
     
       
       
-      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="http://localhost:1313/assets/css/coder.css" media="screen">
     
 
     
@@ -89,14 +89,14 @@ rpcclient $&gt;
     
 
     
-      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+      <link rel="stylesheet" href="http://localhost:1313/assets/css/custom.css" />
     
 
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
   </head>
@@ -121,7 +121,7 @@ rpcclient $&gt;
 
       <nav class="navigation d-print-none">
   <section class="container">
-    <a class="navigation-title" href="https://glc.st/">
+    <a class="navigation-title" href="http://localhost:1313/">
       Gwendal Le Coguic
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -130,27 +130,27 @@ rpcclient $&gt;
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+            <a class="navigation-link" href="http://localhost:1313/posts/">Posts</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/courses/">Courses</a>
+            <a class="navigation-link" href="http://localhost:1313/courses/">Courses</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/clients/">Clients</a>
+            <a class="navigation-link" href="http://localhost:1313/clients/">Clients</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+            <a class="navigation-link" href="http://localhost:1313/projects/">Projects</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+            <a class="navigation-link" href="http://localhost:1313/cves/">CVEs</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+            <a class="navigation-link" href="http://localhost:1313/press/">Press</a>
           </li>
         
       
@@ -196,14 +196,14 @@ rpcclient $&gt;
     <div id="sharer">
     <div class="sharer-buttons">
 
-        <a href="https://twitter.com/intent/tweet?text=SMB%20null%20session%20https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
-        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f&title=SMB%20null%20session" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
-        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f&amp;t=SMB%20null%20session" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
-        <a href="mailto:?subject=SMB%20null%20session&body=https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
-        <a href="https://wa.me/?text=SMB%20null%20session%20https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
-        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f&text=SMB%20null%20session" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f&amp;title=SMB%20null%20session" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fsmb-null-session%2f&t=SMB%20null%20session" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+        <a href="https://twitter.com/intent/tweet?text=SMB%20null%20session%20http%3a%2f%2flocalhost%3a1313%2fposts%2fsmb-null-session%2f" target="_blank"><img class="twitter" src="http://localhost:1313/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fsmb-null-session%2f&title=SMB%20null%20session" target="_blank"><img class="reddit" src="http://localhost:1313/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fsmb-null-session%2f&amp;t=SMB%20null%20session" target="_blank"><img class="hackernews" src="http://localhost:1313/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=SMB%20null%20session&body=http%3a%2f%2flocalhost%3a1313%2fposts%2fsmb-null-session%2f" target="_blank"><img class="mail" src="http://localhost:1313/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=SMB%20null%20session%20http%3a%2f%2flocalhost%3a1313%2fposts%2fsmb-null-session%2f" target="_blank"><img class="whatsapp" src="http://localhost:1313/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fsmb-null-session%2f&text=SMB%20null%20session" target="_blank"><img class="telegram" src="http://localhost:1313/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fsmb-null-session%2f&amp;title=SMB%20null%20session" target="_blank"><img class="linkedin" src="http://localhost:1313/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fsmb-null-session%2f&t=SMB%20null%20session" target="_blank"><img class="facebook" src="http://localhost:1313/assets/img/share/facebook.svg" alt="facebook"></a>
 
         
     </div>
@@ -231,9 +231,9 @@ rpcclient $&gt;
                 
                 <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/smb/">smb</a>
+    <a href="http://localhost:1313/tags/smb/">smb</a>
       <span class="separator">•</span>
-    <a href="https://glc.st/tags/rpc/">rpc</a></div>
+    <a href="http://localhost:1313/tags/rpc/">rpc</a></div>
 
             </div>
         </header>
@@ -243,7 +243,7 @@ rpcclient $&gt;
 you can test if it&rsquo;s vulnerable to anonymous connection (also called null session) and then glean a lot of informations with
 a <a href="http://en.wikipedia.org/wiki/Remote_procedure_call" title="Remote Procedure Call">RPC</a> client.
 Nmap is usefull to locate that kind of service:</p>
-<p><img src="https://glc.st/images/smb-null-session-1.png" alt="smb null session"></p>
+<p><img src="http://localhost:1313/images/smb-null-session-1.png" alt="smb null session"></p>
 <p>Now you can try to interact with the remote machine with the help of <a href="https://www.samba.org/samba/docs/man/manpages/rpcclient.1.html" title="Man rpcclient">rpcclient</a>.
 To perform a null session you have to specify an empty user and an empty password.
 If the host is not vulnerable, you will get the following error:</p>
@@ -344,7 +344,7 @@ According to the documentation : &ldquo;[&hellip;] this script is basically just
       </script>
 
     
-      <script src="https://glc.st/assets/js/scripts.js"></script>
+      <script src="http://localhost:1313/assets/js/scripts.js"></script>
     
 
   </body>

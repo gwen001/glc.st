@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,7 +10,7 @@
     <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+<meta name="twitter:image" content="http://localhost:1313/assets/img/header-background.jpg"/>
 
 <meta name="twitter:title" content="DVWA - XSS reflected"/>
 <meta name="twitter:description" content="According to OWASP Top 10, Cross-Site Scripting aka XSS takes the 3rd place in the more common and important web vulnerabilities list.
@@ -46,15 +46,15 @@ if( !array_key_exists (&#34;name&#34;, $_GET) || $_GET[&#39;name&#39;] == NULL |
 ?&gt;
 This code output the name parameter without any filter so it&rsquo;s very vulnerable to XSS!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://glc.st/posts/dvwa-xss-reflected/" />
+<meta property="og:url" content="http://localhost:1313/posts/dvwa-xss-reflected/" />
 
-<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="og:image" content="http://localhost:1313/assets/img/header-background.jpg" />
 <meta property="article:published_time" content="2015-01-20T00:00:00+00:00" />
 <meta property="article:modified_time" content="2015-01-20T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
     
-      <base href="https://glc.st/posts/dvwa-xss-reflected/">
+      <base href="http://localhost:1313/posts/dvwa-xss-reflected/">
     
     <title>
     DVWA - XSS reflected · Gwendal Le Coguic
@@ -62,7 +62,7 @@ This code output the name parameter without any filter so it&rsquo;s very vulne
 
     
         
-            <link rel="canonical" href="https://glc.st/posts/dvwa-xss-reflected/">
+            <link rel="canonical" href="http://localhost:1313/posts/dvwa-xss-reflected/">
         
     
 
@@ -73,7 +73,7 @@ This code output the name parameter without any filter so it&rsquo;s very vulne
     
       
       
-      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="http://localhost:1313/assets/css/coder.css" media="screen">
     
 
     
@@ -81,14 +81,14 @@ This code output the name parameter without any filter so it&rsquo;s very vulne
     
 
     
-      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+      <link rel="stylesheet" href="http://localhost:1313/assets/css/custom.css" />
     
 
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
   </head>
@@ -113,7 +113,7 @@ This code output the name parameter without any filter so it&rsquo;s very vulne
 
       <nav class="navigation d-print-none">
   <section class="container">
-    <a class="navigation-title" href="https://glc.st/">
+    <a class="navigation-title" href="http://localhost:1313/">
       Gwendal Le Coguic
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -122,27 +122,27 @@ This code output the name parameter without any filter so it&rsquo;s very vulne
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+            <a class="navigation-link" href="http://localhost:1313/posts/">Posts</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/courses/">Courses</a>
+            <a class="navigation-link" href="http://localhost:1313/courses/">Courses</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/clients/">Clients</a>
+            <a class="navigation-link" href="http://localhost:1313/clients/">Clients</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+            <a class="navigation-link" href="http://localhost:1313/projects/">Projects</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+            <a class="navigation-link" href="http://localhost:1313/cves/">CVEs</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+            <a class="navigation-link" href="http://localhost:1313/press/">Press</a>
           </li>
         
       
@@ -188,14 +188,14 @@ This code output the name parameter without any filter so it&rsquo;s very vulne
     <div id="sharer">
     <div class="sharer-buttons">
 
-        <a href="https://twitter.com/intent/tweet?text=DVWA%20-%20XSS%20reflected%20https%3a%2f%2fglc.st%2fposts%2fdvwa-xss-reflected%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
-        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fdvwa-xss-reflected%2f&title=DVWA%20-%20XSS%20reflected" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
-        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fdvwa-xss-reflected%2f&amp;t=DVWA%20-%20XSS%20reflected" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
-        <a href="mailto:?subject=DVWA%20-%20XSS%20reflected&body=https%3a%2f%2fglc.st%2fposts%2fdvwa-xss-reflected%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
-        <a href="https://wa.me/?text=DVWA%20-%20XSS%20reflected%20https%3a%2f%2fglc.st%2fposts%2fdvwa-xss-reflected%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
-        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fdvwa-xss-reflected%2f&text=DVWA%20-%20XSS%20reflected" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fdvwa-xss-reflected%2f&amp;title=DVWA%20-%20XSS%20reflected" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fdvwa-xss-reflected%2f&t=DVWA%20-%20XSS%20reflected" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+        <a href="https://twitter.com/intent/tweet?text=DVWA%20-%20XSS%20reflected%20http%3a%2f%2flocalhost%3a1313%2fposts%2fdvwa-xss-reflected%2f" target="_blank"><img class="twitter" src="http://localhost:1313/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fdvwa-xss-reflected%2f&title=DVWA%20-%20XSS%20reflected" target="_blank"><img class="reddit" src="http://localhost:1313/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fdvwa-xss-reflected%2f&amp;t=DVWA%20-%20XSS%20reflected" target="_blank"><img class="hackernews" src="http://localhost:1313/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=DVWA%20-%20XSS%20reflected&body=http%3a%2f%2flocalhost%3a1313%2fposts%2fdvwa-xss-reflected%2f" target="_blank"><img class="mail" src="http://localhost:1313/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=DVWA%20-%20XSS%20reflected%20http%3a%2f%2flocalhost%3a1313%2fposts%2fdvwa-xss-reflected%2f" target="_blank"><img class="whatsapp" src="http://localhost:1313/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fdvwa-xss-reflected%2f&text=DVWA%20-%20XSS%20reflected" target="_blank"><img class="telegram" src="http://localhost:1313/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fdvwa-xss-reflected%2f&amp;title=DVWA%20-%20XSS%20reflected" target="_blank"><img class="linkedin" src="http://localhost:1313/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fdvwa-xss-reflected%2f&t=DVWA%20-%20XSS%20reflected" target="_blank"><img class="facebook" src="http://localhost:1313/assets/img/share/facebook.svg" alt="facebook"></a>
 
         
     </div>
@@ -223,11 +223,11 @@ This code output the name parameter without any filter so it&rsquo;s very vulne
                 
                 <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/dvwa/">dvwa</a>
+    <a href="http://localhost:1313/tags/dvwa/">dvwa</a>
       <span class="separator">•</span>
-    <a href="https://glc.st/tags/xss/">xss</a>
+    <a href="http://localhost:1313/tags/xss/">xss</a>
       <span class="separator">•</span>
-    <a href="https://glc.st/tags/training/">training</a></div>
+    <a href="http://localhost:1313/tags/training/">training</a></div>
 
             </div>
         </header>
@@ -248,9 +248,9 @@ You can train XSS in Damn Vulnerable Web Application, here are some tests you ca
 </span></span><span style="display:flex;"><span><span style="color:#75715e">?&gt;</span><span style="color:#960050;background-color:#1e0010">
 </span></span></span></code></pre></div><p>This code output the <code>name</code> parameter without any filter so it&rsquo;s very vulnerable to XSS!</p>
 <p>If you provide a single name it works perfectly but if you insert any HTML code it will be interpreted:</p>
-<p><img src="https://glc.st/images/dvwa_xss_reflected_low0.png" alt="DVWA XSS reflected low"></p>
+<p><img src="http://localhost:1313/images/dvwa_xss_reflected_low0.png" alt="DVWA XSS reflected low"></p>
 <p>That means you can also use JavaScript:</p>
-<p><img src="https://glc.st/images/dvwa_xss_reflected_low1.png" alt="DVWA XSS reflected low"></p>
+<p><img src="http://localhost:1313/images/dvwa_xss_reflected_low1.png" alt="DVWA XSS reflected low"></p>
 <h2 id="medium">Medium</h2>
 <p>In the second level, the parameter is sanitized by removing the HTML tag <code>&lt;script&gt;</code> :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span><span style="color:#f92672">&lt;?</span><span style="color:#a6e22e">php</span>
@@ -264,7 +264,7 @@ You can train XSS in Damn Vulnerable Web Application, here are some tests you ca
 </span></span></code></pre></div><p>Is that enough? Of course not because the text you provide can have many different forms.
 The test is not even case insensitive.
 So you can simply use the same payload as previously and just add an uppercase letter or some few useless characters like white spaces:</p>
-<p><img src="https://glc.st/images/dvwa_xss_reflected_low2.png" alt="DVWA XSS reflected medium"></p>
+<p><img src="http://localhost:1313/images/dvwa_xss_reflected_low2.png" alt="DVWA XSS reflected medium"></p>
 <h2 id="high">High</h2>
 <p>The final level is a good example of how to protect your site.
 Before echoing the <code>name</code> the script escapes it with <code>htmlspecialchars()</code>.
@@ -285,7 +285,7 @@ You can then perform a redirection:</p>
 <li><a href="https://www.owasp.org/index.php/Top_10_2013-A3-Cross-Site_Scripting_(XSS)">OWASP XSS description</a></li>
 <li><a href="https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet">Filter Evasion Cheat Sheet</a></li>
 <li><a href="http://excess-xss.com/">A (very) comprehensive tutorial on cross-site scripting</a></li>
-<li><a href="https://glc.st/damn-vulnerable-web-application/">Damn Vulnerable Web Application</a></li>
+<li><a href="http://localhost:1313/damn-vulnerable-web-application/">Damn Vulnerable Web Application</a></li>
 </ul>
         </div>
 
@@ -329,7 +329,7 @@ You can then perform a redirection:</p>
       </script>
 
     
-      <script src="https://glc.st/assets/js/scripts.js"></script>
+      <script src="http://localhost:1313/assets/js/scripts.js"></script>
     
 
   </body>

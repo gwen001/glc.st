@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,7 +10,7 @@
     <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+<meta name="twitter:image" content="http://localhost:1313/assets/img/header-background.jpg"/>
 
 <meta name="twitter:title" content="Fail at CTF h1-212 - The Evil Job"/>
 <meta name="twitter:description" content="Hackerone recently released a CTF created by Jobert Abma. Even if I didn&rsquo;t complete the challenge, it was so exciting and I was so close from the solution that I wanted to share a writeup.
@@ -32,15 +32,15 @@ And here is the full description:
 
 An engineer of acme.org launched a new server for a new admin panel at http://104.236.20.43/. He is completely confident that the server can’t be hacked. He added a tripwire that notifies him when the flag file is read. He also noticed that the default Apache page is still there, but according to him that’s intentional and doesn’t hurt anyone. Your goal? Read the flag!" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://glc.st/posts/fail-at-ctf-h1-212-the-evil-job/" />
+<meta property="og:url" content="http://localhost:1313/posts/fail-at-ctf-h1-212-the-evil-job/" />
 
-<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="og:image" content="http://localhost:1313/assets/img/header-background.jpg" />
 <meta property="article:published_time" content="2017-11-20T00:00:00+00:00" />
 <meta property="article:modified_time" content="2017-11-20T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
     
-      <base href="https://glc.st/posts/fail-at-ctf-h1-212-the-evil-job/">
+      <base href="http://localhost:1313/posts/fail-at-ctf-h1-212-the-evil-job/">
     
     <title>
     Fail at CTF h1-212 - The Evil Job · Gwendal Le Coguic
@@ -48,7 +48,7 @@ An engineer of acme.org launched a new server for a new admin panel at http://10
 
     
         
-            <link rel="canonical" href="https://glc.st/posts/fail-at-ctf-h1-212-the-evil-job/">
+            <link rel="canonical" href="http://localhost:1313/posts/fail-at-ctf-h1-212-the-evil-job/">
         
     
 
@@ -59,7 +59,7 @@ An engineer of acme.org launched a new server for a new admin panel at http://10
     
       
       
-      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="http://localhost:1313/assets/css/coder.css" media="screen">
     
 
     
@@ -67,14 +67,14 @@ An engineer of acme.org launched a new server for a new admin panel at http://10
     
 
     
-      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+      <link rel="stylesheet" href="http://localhost:1313/assets/css/custom.css" />
     
 
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
   </head>
@@ -99,7 +99,7 @@ An engineer of acme.org launched a new server for a new admin panel at http://10
 
       <nav class="navigation d-print-none">
   <section class="container">
-    <a class="navigation-title" href="https://glc.st/">
+    <a class="navigation-title" href="http://localhost:1313/">
       Gwendal Le Coguic
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -108,27 +108,27 @@ An engineer of acme.org launched a new server for a new admin panel at http://10
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+            <a class="navigation-link" href="http://localhost:1313/posts/">Posts</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/courses/">Courses</a>
+            <a class="navigation-link" href="http://localhost:1313/courses/">Courses</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/clients/">Clients</a>
+            <a class="navigation-link" href="http://localhost:1313/clients/">Clients</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+            <a class="navigation-link" href="http://localhost:1313/projects/">Projects</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+            <a class="navigation-link" href="http://localhost:1313/cves/">CVEs</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+            <a class="navigation-link" href="http://localhost:1313/press/">Press</a>
           </li>
         
       
@@ -174,14 +174,14 @@ An engineer of acme.org launched a new server for a new admin panel at http://10
     <div id="sharer">
     <div class="sharer-buttons">
 
-        <a href="https://twitter.com/intent/tweet?text=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job%20https%3a%2f%2fglc.st%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
-        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f&title=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
-        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f&amp;t=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
-        <a href="mailto:?subject=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job&body=https%3a%2f%2fglc.st%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
-        <a href="https://wa.me/?text=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job%20https%3a%2f%2fglc.st%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
-        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f&text=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f&amp;title=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f&t=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+        <a href="https://twitter.com/intent/tweet?text=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job%20http%3a%2f%2flocalhost%3a1313%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f" target="_blank"><img class="twitter" src="http://localhost:1313/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f&title=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job" target="_blank"><img class="reddit" src="http://localhost:1313/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f&amp;t=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job" target="_blank"><img class="hackernews" src="http://localhost:1313/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job&body=http%3a%2f%2flocalhost%3a1313%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f" target="_blank"><img class="mail" src="http://localhost:1313/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job%20http%3a%2f%2flocalhost%3a1313%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f" target="_blank"><img class="whatsapp" src="http://localhost:1313/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a1313%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f&text=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job" target="_blank"><img class="telegram" src="http://localhost:1313/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f&amp;title=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job" target="_blank"><img class="linkedin" src="http://localhost:1313/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2ffail-at-ctf-h1-212-the-evil-job%2f&t=Fail%20at%20CTF%20h1-212%20-%20The%20Evil%20Job" target="_blank"><img class="facebook" src="http://localhost:1313/assets/img/share/facebook.svg" alt="facebook"></a>
 
         
     </div>
@@ -209,7 +209,7 @@ An engineer of acme.org launched a new server for a new admin panel at http://10
                 
                 <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/ctf/">ctf</a></div>
+    <a href="http://localhost:1313/tags/ctf/">ctf</a></div>
 
             </div>
         </header>
@@ -230,39 +230,39 @@ Here is the tweet that tiggered the war:</p>
 </span></span><span style="display:flex;"><span>http://104.236.20.43/flag
 </span></span></code></pre></div><p>At the end of the scan I tried to compare the discovered items with my local Apache using <code>diff</code> to check if any modification occured but they were all identical.
 While <code>/index.html</code> is the default Apache index page, <code>/icons/README</code> the default Apache icons list and of course it would be too easy if this <code>/flag</code> file would be the good one&hellip;<br>
-<img src="https://glc.st/images/ctf-h1-212-fake-flag.png" alt="ctf h1-212 fake flag"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-fake-flag.png" alt="ctf h1-212 fake flag"></p>
 <p>At the same time I ran a Nmap scan on all TCP ports and top 500 UDP. This result to only two open ports: 22 and 80.
 I quickly tried a brute force against SSH with Patator but it failed.</p>
 <p>I then decided to use Burp Suite to try another type of issue called <code>Virtual Host Enumeration</code>.
 I jumped on this because I recently read an article about that and I also sent a similar report to a private program a week before. Since the brilliant engineer works for <code>acme.org</code>, I configured the attack for this domain.
 And it found something interesting at <code>admin.acme.org</code>:
-<img src="https://glc.st/images/ctf-h1-212-host-attack.png" alt="ctf h1-212 host attack"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-host-attack.png" alt="ctf h1-212 host attack"></p>
 <p><strong>Resources:</strong><br>
 <a href="https://blog.securitybreached.org/2017/11/04/access-localhost-via-virtual-host-virtual-host-enumeration/">Accessing Localhost via Vhost | VIRTUAL HOST ENUMERATION</a><br>
 <a href="https://github.com/jobertabma/virtual-host-discovery">Jobert tool: virtual host scanner</a><br>
 <a href="https://github.com/gwen001/vhost-brute">vhost-brute: a PHP tool I wrote right after the CTF</a></p>
 <h2 id="step-2-bargain-with-the-server">Step 2, bargain with the server</h2>
 <p>I was supposed to have access to an hidden admin now so what&rsquo;s next ? Let&rsquo;s check the response of the server:
-<img src="https://glc.st/images/ctf-h1-212-host-found.png" alt="ctf h1-212 host found"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-host-found.png" alt="ctf h1-212 host found"></p>
 <p>Looks like we have a cookie to play with! Obviously the first thing you would try is to change the value from <code>admin=no</code> to <code>admin=yes</code>&hellip;
 Here we go, and the new response is:<br>
-<img src="https://glc.st/images/ctf-h1-212-admin-yes.png" alt="ctf h1-212 admin yes"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-admin-yes.png" alt="ctf h1-212 admin yes"></p>
 <p>The message is clear enough, the <code>GET</code> method is not allowed, so switching to <code>POST</code> would return:<br>
-<img src="https://glc.st/images/ctf-h1-212-method-post.png" alt="ctf h1-212 method post"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-method-post.png" alt="ctf h1-212 method post"></p>
 <p>According to the official documentation, aka Wikipedia xD<br>
 <em>&quot;<strong>406 Not Acceptable</strong>:
 The requested resource is capable of generating only content not acceptable according to the Accept headers sent in the request.&quot;</em></p>
 <p>Ok then&hellip; Altering the header <code>Accept</code> will not change anything, however if I also change the <code>Content-Type</code> in the request&hellip;<br>
-<img src="https://glc.st/images/ctf-h1-212-content-type-json.png" alt="ctf h1-212 content type json"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-content-type-json.png" alt="ctf h1-212 content type json"></p>
 <p>Server says that I am supposed to provide a body now, let&rsquo;s say parameters, in JSON format. Since I have no idea about the name of the parameters, I supplied an empty string:<br>
-<img src="https://glc.st/images/ctf-h1-212-body-param.png" alt="ctf h1-212 body param"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-body-param.png" alt="ctf h1-212 body param"></p>
 <p>The server requires a <code>domain</code> so let&rsquo;s feed him with that! I won&rsquo;t show you all the errors returned by the server (<code>.com</code> required, <code>212</code> required etc&hellip;) but here is the final string I got:<br>
-<img src="https://glc.st/images/ctf-h1-212-good-domain.png" alt="ctf h1-212 good domain"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-good-domain.png" alt="ctf h1-212 good domain"></p>
 <p><strong>Resources:</strong><br>
 <a href="https://en.wikipedia.org/wiki/List_of_HTTP_status_codes">List of HTTP status codes</a></p>
 <h2 id="step-3-start-crying-12">Step 3, start crying 1/2</h2>
 <p>At this point here is the request I had:<br>
-<img src="https://glc.st/images/ctf-h1-212-read-php.png" alt="ctf h1-212 read php"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-read-php.png" alt="ctf h1-212 read php"></p>
 <p>I firstly tried SQLi by injecting single quote, double quotes, encoded values, using SQLmap blablabla, nothing.<br>
 I then tried XSS by injecting single quote, double quotes, less-than symbol, encoded values again and still nothing.<br>
 I tried Local File Inclusion with Jhaddix worlists, nothing.<br>
@@ -275,7 +275,7 @@ I simply thought that the previous step was done and jumped to the next one with
 <p>So I did it too. I PHP curly scripted the requests, and from here I only used my script to find the flag, that was my second mistake, this is probably the reason why I didn&rsquo;t get it.</p>
 <p>So basically, altering the <code>domain</code> provided in the JSON param in the body of the POST request would lead to a different response when calling <code>read.php</code> with the corresponding <code>id</code> returned by the server.
 After playing a little bit with the value, injecting stupid characters and so on, I finally was able to retrieve datas and I quickly realized that I was in front of a SSRF issue.<br>
-<img src="https://glc.st/images/ctf-h1-212-ssrf-80.png" alt="ctf h1-212 ssrf 80"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-ssrf-80.png" alt="ctf h1-212 ssrf 80"></p>
 <p>The final response is the base64 encoded result of the HTTP request performed by the server. In this case: <code>http://localhost:80/index.html</code> the default Apache page.</p>
 <p><strong>Important note:</strong> at each HTTP POST request performed by the server, <code>id</code> is incremented by 1.
 Sometimes it get back to 0 but I didn&rsquo;t figure out why/when/how. It doesn&rsquo;t seem to be shared between the hackers.</p>
@@ -285,9 +285,9 @@ Sometimes it get back to 0 but I didn&rsquo;t figure out why/when/how. It doesn&
 Ok, Jobert said that brute force is not the key but you know&hellip; I&rsquo;m still a kid in my mind, I&rsquo;m a geek, I&rsquo;m a hacker so&hellip;
 when someone tell me to NOT do something, then I feel really bad if I don&rsquo;t give it a single try!</p>
 <p>After few minutes and some false positive, my script displayed a different response corresponding to the port <code>1337</code>:<br>
-<img src="https://glc.st/images/ctf-h1-212-ssrf-1337.png" alt="ctf h1-212 ssrf 1337"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-ssrf-1337.png" alt="ctf h1-212 ssrf 1337"></p>
 <p>Confirmed with Burp:
-<img src="https://glc.st/images/ctf-h1-212-ssrf-1337-burp.png" alt="ctf h1-212 ssrf 1337 burp"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-ssrf-1337-burp.png" alt="ctf h1-212 ssrf 1337 burp"></p>
 <p>Easy peasy.<br>
 I was pretty sure this was the key so I stopped my script at port 19187, enough spam.</p>
 <p><strong>Resources:</strong><br>
@@ -301,7 +301,7 @@ Hopefully this is the final step. Unfortunately this is where things gone wrong 
 The idea: <code>http://1.1.1.1 &amp;@2.2.2.2# @3.3.3.3/</code><br>
 Since <code>&amp;</code>, <code>%</code> and <code>#</code> are forbidden characters in this challenge, from this two papers I understood that I should combine the SSRF with a CRLF.
 Dealing with <code>\r</code> and <code>\n</code> I quickly got a strange behavior:<br>
-<img src="https://glc.st/images/ctf-h1-212-ssrf-1337-400.png" alt="ctf h1-212 ssrf 1337 400"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-ssrf-1337-400.png" alt="ctf h1-212 ssrf 1337 400"></p>
 <p>Yes, yes, yes, it&rsquo;s not Apache anymore, I am now dealing with a Nginx install.
 Does it matter ? Well I don&rsquo;t know, maybe those servers don&rsquo;t react to CRLF the same way&hellip;</p>
 <p>Since the first part of the domain must contain <code>212</code> and the last part must end by <code>.com</code>, I had configure a dns <code>A</code> record of my own domain to point to <code>127.0.0.1</code>, that was useless but hey, how could I know!
@@ -326,15 +326,15 @@ Same same but different:</p>
 </span></span><span style="display:flex;"><span>poc212.10degres.net:1337 @/flag @h1-212.10degres.com
 </span></span><span style="display:flex;"><span>poc212.10degres.net:1337 @www.google.com @/h1-212.10degres.com
 </span></span></code></pre></div><p>Checking the log, again and again and still got this f*****g error 400:
-<img src="https://glc.st/images/ctf-h1-212-nginx-400.png" alt="ctf h1-212 nginx 400"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-nginx-400.png" alt="ctf h1-212 nginx 400"></p>
 <p>Better use Netcat to see the headers received:<br>
-<img src="https://glc.st/images/ctf-h1-212-netcat-400.png" alt="ctf h1-212 netcat 400"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-netcat-400.png" alt="ctf h1-212 netcat 400"></p>
 <p>Well not so much information here&hellip; Let&rsquo;s try with tcdump then:
-<img src="https://glc.st/images/ctf-h1-212-tcpdump.png" alt="ctf h1-212 tcpdump"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-tcpdump.png" alt="ctf h1-212 tcpdump"></p>
 <p>Still nothing&hellip; Let&rsquo;s try something a bit more tricky. What about CRLF combined with header injection ?
 My new payload looked like:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>poc212.10degres.net:1337/flag HTTP/1.0\rHost: admin.acme.org\rCookie: admin=yes\r @h1-212.10degres.com
-</span></span></code></pre></div><p><img src="https://glc.st/images/ctf-h1-212-header-injection.png" alt="ctf h1-212 header injection"></p>
+</span></span></code></pre></div><p><img src="http://localhost:1313/images/ctf-h1-212-header-injection.png" alt="ctf h1-212 header injection"></p>
 <p>Hey but what about encoding ? Yeah yeah yeah I tried that too, since <code>%</code> is not allowed, I had to try something else:
 <code>\x0A</code> <code>0x0A</code> <code>\u000A</code> and the whole family, of course it didn&rsquo;t work&hellip;</p>
 <p>At the end of the day, the great <a href="https://twitter.com/EdOverflow">@EdOverflow</a> gave me a hint, <em>kudos</em> to him.
@@ -362,10 +362,10 @@ Since the challenge was ended, I decided to ask the answer to <a href="https://t
 But what if I inject a CRLF and the server does 2 requests ? Then the id returned will be incremented by 2, because 1+1=2!
 Holy cow!!!!</p>
 <p>Running my script like a moron, I only focused my mind on the result of <code>/read.php</code> and I didn&rsquo;t even notice that the id jump the steps 2 by 2&hellip;<br>
-<img src="https://glc.st/images/ctf-h1-212-moron.png" alt="ctf h1-212 moron"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-moron.png" alt="ctf h1-212 moron"></p>
 <p>So I need to decrease the id by 1 to get the result of the previous request.
 Which is supposed to be the content of the file I requested aka <code>http://0:1337/flag</code>.
-<img src="https://glc.st/images/ctf-h1-212-answer.png" alt="ctf h1-212 answer"></p>
+<img src="http://localhost:1313/images/ctf-h1-212-answer.png" alt="ctf h1-212 answer"></p>
 <p>Et voilà ! Decoded value:<br>
 FLAG: CF,2dsV\/]fRAYQ.TDEp`w&quot;M(%mU;p9+&hellip;&hellip;&hellip;</p>
 <h2 id="conclusion">Conclusion</h2>
@@ -424,7 +424,7 @@ FLAG: CF,2dsV\/]fRAYQ.TDEp`w&quot;M(%mU;p9+&hellip;&hellip;&hellip;</p>
       </script>
 
     
-      <script src="https://glc.st/assets/js/scripts.js"></script>
+      <script src="http://localhost:1313/assets/js/scripts.js"></script>
     
 
   </body>

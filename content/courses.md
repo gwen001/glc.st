@@ -58,6 +58,16 @@ Feel free to <a href="mailto:contact@glc.st" target="_blank">get in touch</a> if
 </div>
 
 <div class="course">
+    <a href="/courses/introduction-to-bash-scripting/"><img src="/assets/img/courses/bash.png" alt="Introduction to Bash scripting" /></a>
+    <div class="descr">
+        <h2 style="margin-top:0;margin-bottom:10px;">Introduction to Bash scripting</h2>
+        A course to learn, automate, simplify with Bash.
+        <a href="/courses/introduction-to-bash-scripting/">read the full program</a>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+<div class="course">
     <a href="/courses/laravel-security/"><img src="/assets/img/courses/laravel.png" alt="Laravel security" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">Laravel security</h2>
@@ -93,16 +103,6 @@ Feel free to <a href="mailto:contact@glc.st" target="_blank">get in touch</a> if
         <h2 style="margin-top:0;margin-bottom:10px;">The basics of SQL</h2>
         For tech peoples who want to  learn the basic vulnerabilities of modern webapps: input validation, xss, sqli, passwords, cookies, tools and true stories...
         <a href="/courses/the-basics-of-sql/">read the full program</a>
-    </div>
-    <div style="clear:both;"></div>
-</div>
-
-<div class="course">
-    <a href="/courses/introduction-to-bash-scripting/"><img src="/assets/img/courses/bash.png" alt="Introduction to Bash scripting" /></a>
-    <div class="descr">
-        <h2 style="margin-top:0;margin-bottom:10px;">Introduction to Bash scripting</h2>
-        A course to learn, automate, simplify with Bash.
-        <a href="/courses/introduction-to-bash-scripting/">read the full program</a>
     </div>
     <div style="clear:both;"></div>
 </div>

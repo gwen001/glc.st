@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,7 +10,7 @@
     <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+<meta name="twitter:image" content="http://localhost:1313/assets/img/header-background.jpg"/>
 
 <meta name="twitter:title" content="MySQL Truncation"/>
 <meta name="twitter:description" content="Description
@@ -46,15 +46,15 @@ CREATE TABLE IF NOT EXISTS `user` (
 );
 " />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://glc.st/posts/mysql-truncation/" />
+<meta property="og:url" content="http://localhost:1313/posts/mysql-truncation/" />
 
-<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="og:image" content="http://localhost:1313/assets/img/header-background.jpg" />
 <meta property="article:published_time" content="2015-01-28T00:00:00+00:00" />
 <meta property="article:modified_time" content="2015-01-28T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
     
-      <base href="https://glc.st/posts/mysql-truncation/">
+      <base href="http://localhost:1313/posts/mysql-truncation/">
     
     <title>
     MySQL Truncation · Gwendal Le Coguic
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
     
         
-            <link rel="canonical" href="https://glc.st/posts/mysql-truncation/">
+            <link rel="canonical" href="http://localhost:1313/posts/mysql-truncation/">
         
     
 
@@ -73,7 +73,7 @@ CREATE TABLE IF NOT EXISTS `user` (
     
       
       
-      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="http://localhost:1313/assets/css/coder.css" media="screen">
     
 
     
@@ -81,14 +81,14 @@ CREATE TABLE IF NOT EXISTS `user` (
     
 
     
-      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+      <link rel="stylesheet" href="http://localhost:1313/assets/css/custom.css" />
     
 
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
   </head>
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 
       <nav class="navigation d-print-none">
   <section class="container">
-    <a class="navigation-title" href="https://glc.st/">
+    <a class="navigation-title" href="http://localhost:1313/">
       Gwendal Le Coguic
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -122,27 +122,27 @@ CREATE TABLE IF NOT EXISTS `user` (
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+            <a class="navigation-link" href="http://localhost:1313/posts/">Posts</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/courses/">Courses</a>
+            <a class="navigation-link" href="http://localhost:1313/courses/">Courses</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/clients/">Clients</a>
+            <a class="navigation-link" href="http://localhost:1313/clients/">Clients</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+            <a class="navigation-link" href="http://localhost:1313/projects/">Projects</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+            <a class="navigation-link" href="http://localhost:1313/cves/">CVEs</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+            <a class="navigation-link" href="http://localhost:1313/press/">Press</a>
           </li>
         
       
@@ -188,14 +188,14 @@ CREATE TABLE IF NOT EXISTS `user` (
     <div id="sharer">
     <div class="sharer-buttons">
 
-        <a href="https://twitter.com/intent/tweet?text=MySQL%20Truncation%20https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
-        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f&title=MySQL%20Truncation" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
-        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f&amp;t=MySQL%20Truncation" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
-        <a href="mailto:?subject=MySQL%20Truncation&body=https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
-        <a href="https://wa.me/?text=MySQL%20Truncation%20https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
-        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f&text=MySQL%20Truncation" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f&amp;title=MySQL%20Truncation" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fmysql-truncation%2f&t=MySQL%20Truncation" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+        <a href="https://twitter.com/intent/tweet?text=MySQL%20Truncation%20http%3a%2f%2flocalhost%3a1313%2fposts%2fmysql-truncation%2f" target="_blank"><img class="twitter" src="http://localhost:1313/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmysql-truncation%2f&title=MySQL%20Truncation" target="_blank"><img class="reddit" src="http://localhost:1313/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fmysql-truncation%2f&amp;t=MySQL%20Truncation" target="_blank"><img class="hackernews" src="http://localhost:1313/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=MySQL%20Truncation&body=http%3a%2f%2flocalhost%3a1313%2fposts%2fmysql-truncation%2f" target="_blank"><img class="mail" src="http://localhost:1313/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=MySQL%20Truncation%20http%3a%2f%2flocalhost%3a1313%2fposts%2fmysql-truncation%2f" target="_blank"><img class="whatsapp" src="http://localhost:1313/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmysql-truncation%2f&text=MySQL%20Truncation" target="_blank"><img class="telegram" src="http://localhost:1313/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fmysql-truncation%2f&amp;title=MySQL%20Truncation" target="_blank"><img class="linkedin" src="http://localhost:1313/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fmysql-truncation%2f&t=MySQL%20Truncation" target="_blank"><img class="facebook" src="http://localhost:1313/assets/img/share/facebook.svg" alt="facebook"></a>
 
         
     </div>
@@ -223,9 +223,9 @@ CREATE TABLE IF NOT EXISTS `user` (
                 
                 <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/mysql/">mysql</a>
+    <a href="http://localhost:1313/tags/mysql/">mysql</a>
       <span class="separator">•</span>
-    <a href="https://glc.st/tags/bdd/">bdd</a></div>
+    <a href="http://localhost:1313/tags/bdd/">bdd</a></div>
 
             </div>
         </header>
@@ -245,21 +245,21 @@ No message, no warning, nothing at all. This flaw can lead to security issue in 
 </span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">PRIMARY</span> <span style="color:#66d9ef">KEY</span> (<span style="color:#f92672">`</span>id<span style="color:#f92672">`</span>)
 </span></span><span style="display:flex;"><span>);
 </span></span></code></pre></div><p>Then I insert some users:</p>
-<p><img src="https://glc.st/images/mysql-truncation-1.png" alt="MySQL Truncation">](/images/mysql-truncation-1.png)</p>
+<p><img src="http://localhost:1313/images/mysql-truncation-1.png" alt="MySQL Truncation">](/images/mysql-truncation-1.png)</p>
 <p>My three users are ok and absolutly regular.
 But now what&rsquo;s happen if I try to insert another user who has a name longer that 8 (<code>login</code> max length)?</p>
-<p><img src="https://glc.st/images/mysql-truncation-2.png" alt="MySQL Truncation"></p>
+<p><img src="http://localhost:1313/images/mysql-truncation-2.png" alt="MySQL Truncation"></p>
 <p>See? It has been truncated to 8 without any additionnal message. So maybe I can try another one?</p>
-<p><img src="https://glc.st/images/mysql-truncation-3.png" alt="MySQL Truncation"></p>
+<p><img src="http://localhost:1313/images/mysql-truncation-3.png" alt="MySQL Truncation"></p>
 <p>Looks like it worked.
 Now I have a user &ldquo;<code>admin</code>&rdquo; and a user &ldquo;<code>admin  </code> &quot; with some trailing spaces.
 Unfortunatly MySQL strings compare also suffers of another issue who ignores trailing spaces, that means those two strings are considered as equal in some case. POC:</p>
-<p><img src="https://glc.st/images/mysql-truncation-4.png" alt="MySQL Truncation"></p>
+<p><img src="http://localhost:1313/images/mysql-truncation-4.png" alt="MySQL Truncation"></p>
 <p>Et voilà! MySQL clause <code>group by</code> considers user <code>1</code> and user <code>4</code> as &ldquo;equal&rdquo;.</p>
 <p>Tests with operator &lsquo;<code>=' </code>:
-<img src="https://glc.st/images/mysql-truncation-5.png" alt="MySQL Truncation"></p>
+<img src="http://localhost:1313/images/mysql-truncation-5.png" alt="MySQL Truncation"></p>
 <p>Tests with operator <code>like </code>:
-<img src="https://glc.st/images/mysql-truncation-6.png" alt="MySQL Truncation"></p>
+<img src="http://localhost:1313/images/mysql-truncation-6.png" alt="MySQL Truncation"></p>
 <p>In this situation <code>like</code> seems to be safer.</p>
 <h2 id="why-is-it-dangerous">Why is it dangerous ?</h2>
 <p>First of all, it should not be allowed to register two users with the same login/email in any system.
@@ -269,7 +269,7 @@ A user could receive an email with credentials of another user&hellip;</p>
 <p>According to <a href="http://dev.mysql.com/doc/refman/5.0/en/sql-mode.html#sqlmode_strict_trans_tables" title="MySQL documentation">MySQL documentation</a>, a trick is to change <code>sql_mode</code> to be more strict:</p>
 <blockquote>
 <p>If a value could not be inserted as given into a transactional table, abort the statement.</p></blockquote>
-<p><a href="https://glc.st/images/mysql-truncation-7.png"><img src="https://glc.st/images/mysql-truncation-7.png" alt="MySQL Truncation"></a></p>
+<p><a href="http://localhost:1313/images/mysql-truncation-7.png"><img src="http://localhost:1313/images/mysql-truncation-7.png" alt="MySQL Truncation"></a></p>
 <p>As a matter of fact I&rsquo;m not sure this is a good solution.
 Many developers don&rsquo;t even test the result of their sql requests so if the server uses this parameter this can leads to many holes.</p>
 <p>Another solution would be to use a unique index on the proper field, MySQL will trigger an error because it will (again) consider &ldquo;<code>admin</code>&rdquo; and &ldquo;<code>admin  </code> &quot; as equal.</p>
@@ -317,7 +317,7 @@ This must be tested&hellip;</p>
       </script>
 
     
-      <script src="https://glc.st/assets/js/scripts.js"></script>
+      <script src="http://localhost:1313/assets/js/scripts.js"></script>
     
 
   </body>
