@@ -146,7 +146,7 @@ No need to say what would happen if a malicious user found this:
 ## A huge attack surface
 
 How many medical centers were using _OptiMed_, how many instances have been deployed and how many users would have been impacted by a leak?
-Using some dorks on Shodan, including the good old [favicon hash trick](https://github.com/gwen001/favicon-hashtrick), I discovered about __190 medical centers in France__ and a few in Switzerland that were using this application.
+Using some dorks on Shodan, including the good old [favicon hash trick](https://github.com/gwen001/favicon-hashtrick), I found about __190 medical centers in France__ and a few in Switzerland that were using this application.
 
 ![OptiMed Shodan](/images/optimed-shodan.png)
 
@@ -159,13 +159,13 @@ Using some dorks on Shodan, including the good old [favicon hash trick](https://
 
 <div style="clear:both;"></div>
 
-Finally all added, about __28 millions of patients and 77 millions of results of medical exams__.
+Finally all added, about __28 millions of patients__ and __77 millions of results of medical exams__.
 This was huge!
 
 
 ## What this reveals
 
-As an old school web developper and now security expert I can easily understand where the problems come from:
+As an old school web developper and now security expert I can easily understand where the problem come from:
 - No input validation
 - No privilege separation
 - Years of accumulated bad practices
