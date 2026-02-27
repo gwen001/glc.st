@@ -38,26 +38,6 @@ Feel free to <a href="mailto:contact@glc.st" target="_blank">get in touch</a> if
 </div>
 
 <div class="course">
-    <a href="/courses/cybersecurity-awareness/"><img src="/assets/img/courses/sensibilisation-cybersec.png" alt="Cybersecurity awareness" /></a>
-    <div class="descr">
-        <h2 style="margin-top:0;margin-bottom:10px;">Cybersecurity awareness</h2>
-        Strengthen your IT security, protect your data, avoid phishing and ransomware and become the security expert in your company!
-        <a href="/courses/cybersecurity-awareness/">read the full program</a>
-    </div>
-    <div style="clear:both;"></div>
-</div>
-
-<div class="course">
-    <a href="/courses/introduction-to-pentesting/"><img src="/assets/img/courses/pentest.png" alt="Introduction to pentesting" /></a>
-    <div class="descr">
-        <h2 style="margin-top:0;margin-bottom:10px;">Introduction to pentesting</h2>
-        Learn how to find and exploit the most common vulnerabilities in web testing and other network services.
-        <a href="/courses/introduction-to-pentesting/">read the full program</a>
-    </div>
-    <div style="clear:both;"></div>
-</div>
-
-<div class="course">
     <a href="/courses/php-for-beginners/"><img src="/assets/img/courses/php.png" alt="PHP for beginners" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">PHP for beginners</h2>
@@ -73,6 +53,26 @@ Feel free to <a href="mailto:contact@glc.st" target="_blank">get in touch</a> if
         <h2 style="margin-top:0;margin-bottom:10px;">Introduction to Bash scripting</h2>
         A course to learn, automate, simplify with Bash.
         <a href="/courses/introduction-to-bash-scripting/">read the full program</a>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+<div class="course">
+    <a href="/courses/cybersecurity-awareness/"><img src="/assets/img/courses/sensibilisation-cybersec.png" alt="Cybersecurity awareness" /></a>
+    <div class="descr">
+        <h2 style="margin-top:0;margin-bottom:10px;">Cybersecurity awareness</h2>
+        Strengthen your IT security, protect your data, avoid phishing and ransomware and become the security expert in your company!
+        <a href="/courses/cybersecurity-awareness/">read the full program</a>
+    </div>
+    <div style="clear:both;"></div>
+</div>
+
+<div class="course">
+    <a href="/courses/introduction-to-pentesting/"><img src="/assets/img/courses/pentest.png" alt="Introduction to pentesting" /></a>
+    <div class="descr">
+        <h2 style="margin-top:0;margin-bottom:10px;">Introduction to pentesting</h2>
+        Learn how to find and exploit the most common vulnerabilities in web testing and other network services.
+        <a href="/courses/introduction-to-pentesting/">read the full program</a>
     </div>
     <div style="clear:both;"></div>
 </div>
