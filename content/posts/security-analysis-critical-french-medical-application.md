@@ -102,7 +102,7 @@ I triggered [SQLMap](https://sqlmap.org/) to grab some informations about the st
 
 ![OptiMed utilisateurs](/images/optimed-utilisateurs.png)
 
-Passwords were obviously stored using a weak hasing algorithm. With the helps of [hashes.com](https://hashes.com/en/decrypt/hash) I could get some passwords decrypted in a second:
+Passwords were obviously stored using a weak hashing algorithm. With the helps of [hashes.com](https://hashes.com/en/decrypt/hash) I could get some passwords decrypted in a second:
 
 ![OptiMed passwords](/images/optimed-passwords.png)
 

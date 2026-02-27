@@ -284,7 +284,7 @@ Most pages contained unfiltered SQL queries, clearly lacking input validation.</
 <p>Exploiting one of the numerous SQL injection in order to check how the database looked like.
 I triggered <a href="https://sqlmap.org/">SQLMap</a> to grab some informations about the structure of the database when the table <code>utilisateur</code> catched my attention.</p>
 <p><img src="https://glc.st/images/optimed-utilisateurs.png" alt="OptiMed utilisateurs"></p>
-<p>Passwords were obviously stored using a weak hasing algorithm. With the helps of <a href="https://hashes.com/en/decrypt/hash">hashes.com</a> I could get some passwords decrypted in a second:</p>
+<p>Passwords were obviously stored using a weak hashing algorithm. With the helps of <a href="https://hashes.com/en/decrypt/hash">hashes.com</a> I could get some passwords decrypted in a second:</p>
 <p><img src="https://glc.st/images/optimed-passwords.png" alt="OptiMed passwords"></p>
 <p><em>administrateur</em> password retrieved, admin panel unlocked!</p>
 <h3 id="arbitrary-file-upload">Arbitrary file upload</h3>
