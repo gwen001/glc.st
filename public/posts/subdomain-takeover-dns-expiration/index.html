@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,7 +10,7 @@
     <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://localhost:1313/assets/img/header-background.jpg"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
 <meta name="twitter:title" content="Subdomain takeover - DNS expiration"/>
 <meta name="twitter:description" content="One quick and easy way to make cash in bug bounty job is subdomain takeover.
@@ -30,15 +30,15 @@ This way he could trick users and even the employees of the company to grab usef
 First of all you have to find a list of subdomains of your target.
 To perform that task, you can use a single tool like TheHarvester or DNSRecon." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/posts/subdomain-takeover-dns-expiration/" />
+<meta property="og:url" content="https://glc.st/posts/subdomain-takeover-dns-expiration/" />
 
-<meta property="og:image" content="http://localhost:1313/assets/img/header-background.jpg" />
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
 <meta property="article:published_time" content="2016-10-12T00:00:00+00:00" />
 <meta property="article:modified_time" content="2016-10-12T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
     
-      <base href="http://localhost:1313/posts/subdomain-takeover-dns-expiration/">
+      <base href="https://glc.st/posts/subdomain-takeover-dns-expiration/">
     
     <title>
     Subdomain takeover - DNS expiration · Gwendal Le Coguic
@@ -46,7 +46,7 @@ To perform that task, you can use a single tool like TheHarvester or DNSRecon." 
 
     
         
-            <link rel="canonical" href="http://localhost:1313/posts/subdomain-takeover-dns-expiration/">
+            <link rel="canonical" href="https://glc.st/posts/subdomain-takeover-dns-expiration/">
         
     
 
@@ -57,7 +57,7 @@ To perform that task, you can use a single tool like TheHarvester or DNSRecon." 
     
       
       
-      <link rel="stylesheet" href="http://localhost:1313/assets/css/coder.css" media="screen">
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -65,14 +65,14 @@ To perform that task, you can use a single tool like TheHarvester or DNSRecon." 
     
 
     
-      <link rel="stylesheet" href="http://localhost:1313/assets/css/custom.css" />
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
     
 
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-256x256.png" sizes="256x256">
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-128x128.png" sizes="128x128">
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-64x64.png" sizes="64x64">
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
   </head>
@@ -97,7 +97,7 @@ To perform that task, you can use a single tool like TheHarvester or DNSRecon." 
 
       <nav class="navigation d-print-none">
   <section class="container">
-    <a class="navigation-title" href="http://localhost:1313/">
+    <a class="navigation-title" href="https://glc.st/">
       Gwendal Le Coguic
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -106,27 +106,27 @@ To perform that task, you can use a single tool like TheHarvester or DNSRecon." 
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/posts/">Posts</a>
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/courses/">Courses</a>
+            <a class="navigation-link" href="https://glc.st/courses/">Courses</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/clients/">Clients</a>
+            <a class="navigation-link" href="https://glc.st/clients/">Clients</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/projects/">Projects</a>
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/cves/">CVEs</a>
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/press/">Press</a>
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
           </li>
         
       
@@ -172,14 +172,14 @@ To perform that task, you can use a single tool like TheHarvester or DNSRecon." 
     <div id="sharer">
     <div class="sharer-buttons">
 
-        <a href="https://twitter.com/intent/tweet?text=Subdomain%20takeover%20-%20DNS%20expiration%20http%3a%2f%2flocalhost%3a1313%2fposts%2fsubdomain-takeover-dns-expiration%2f" target="_blank"><img class="twitter" src="http://localhost:1313/assets/img/share/twitter.svg" alt="twitter"></a>
-        <a href="http://www.reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fsubdomain-takeover-dns-expiration%2f&title=Subdomain%20takeover%20-%20DNS%20expiration" target="_blank"><img class="reddit" src="http://localhost:1313/assets/img/share/reddit.svg" alt="reddit"></a>
-        <a href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fsubdomain-takeover-dns-expiration%2f&amp;t=Subdomain%20takeover%20-%20DNS%20expiration" target="_blank"><img class="hackernews" src="http://localhost:1313/assets/img/share/hackernews.svg" alt="hackernews"></a>
-        <a href="mailto:?subject=Subdomain%20takeover%20-%20DNS%20expiration&body=http%3a%2f%2flocalhost%3a1313%2fposts%2fsubdomain-takeover-dns-expiration%2f" target="_blank"><img class="mail" src="http://localhost:1313/assets/img/share/mail.svg" alt="mail"></a>
-        <a href="https://wa.me/?text=Subdomain%20takeover%20-%20DNS%20expiration%20http%3a%2f%2flocalhost%3a1313%2fposts%2fsubdomain-takeover-dns-expiration%2f" target="_blank"><img class="whatsapp" src="http://localhost:1313/assets/img/share/whatsapp.svg" alt="facebook"></a>
-        <a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fsubdomain-takeover-dns-expiration%2f&text=Subdomain%20takeover%20-%20DNS%20expiration" target="_blank"><img class="telegram" src="http://localhost:1313/assets/img/share/telegram.svg" alt="facebook"></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fsubdomain-takeover-dns-expiration%2f&amp;title=Subdomain%20takeover%20-%20DNS%20expiration" target="_blank"><img class="linkedin" src="http://localhost:1313/assets/img/share/linkedin.svg" alt="linkedin"></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fsubdomain-takeover-dns-expiration%2f&t=Subdomain%20takeover%20-%20DNS%20expiration" target="_blank"><img class="facebook" src="http://localhost:1313/assets/img/share/facebook.svg" alt="facebook"></a>
+        <a href="https://twitter.com/intent/tweet?text=Subdomain%20takeover%20-%20DNS%20expiration%20https%3a%2f%2fglc.st%2fposts%2fsubdomain-takeover-dns-expiration%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fsubdomain-takeover-dns-expiration%2f&title=Subdomain%20takeover%20-%20DNS%20expiration" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fsubdomain-takeover-dns-expiration%2f&amp;t=Subdomain%20takeover%20-%20DNS%20expiration" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Subdomain%20takeover%20-%20DNS%20expiration&body=https%3a%2f%2fglc.st%2fposts%2fsubdomain-takeover-dns-expiration%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Subdomain%20takeover%20-%20DNS%20expiration%20https%3a%2f%2fglc.st%2fposts%2fsubdomain-takeover-dns-expiration%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fsubdomain-takeover-dns-expiration%2f&text=Subdomain%20takeover%20-%20DNS%20expiration" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fsubdomain-takeover-dns-expiration%2f&amp;title=Subdomain%20takeover%20-%20DNS%20expiration" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fsubdomain-takeover-dns-expiration%2f&t=Subdomain%20takeover%20-%20DNS%20expiration" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
 
         
     </div>
@@ -207,13 +207,13 @@ To perform that task, you can use a single tool like TheHarvester or DNSRecon." 
                 
                 <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://localhost:1313/tags/dns/">dns</a>
+    <a href="https://glc.st/tags/dns/">dns</a>
       <span class="separator">•</span>
-    <a href="http://localhost:1313/tags/subdomain/">subdomain</a>
+    <a href="https://glc.st/tags/subdomain/">subdomain</a>
       <span class="separator">•</span>
-    <a href="http://localhost:1313/tags/tools/">tools</a>
+    <a href="https://glc.st/tags/tools/">tools</a>
       <span class="separator">•</span>
-    <a href="http://localhost:1313/tags/subdomain-takeover/">subdomain takeover</a></div>
+    <a href="https://glc.st/tags/subdomain-takeover/">subdomain takeover</a></div>
 
             </div>
         </header>
@@ -224,7 +224,7 @@ The goal is to steal a forgetted/unused subdomain of your target and put a PoC i
 If you are able to do that, that means that instead of a plain text file, an attacker could replicate the true site of the victim and perform phishing.
 This way he could trick users and even the employees of the company to grab useful data like credentials, this can also have really huge impact on the companies reputation.</p>
 <p>First of all you have to find a list of subdomains of your target.
-To perform that task, you can use a single tool like <a href="http://localhost:1313/theharvester/">TheHarvester</a> or <a href="https://github.com/darkoperator/dnsrecon">DNSRecon</a>.</p>
+To perform that task, you can use a single tool like <a href="https://glc.st/theharvester/">TheHarvester</a> or <a href="https://github.com/darkoperator/dnsrecon">DNSRecon</a>.</p>
 <p>Then for each subdomains you should check if it is an alias or not, I personnally use the command <code>host</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ host rencontres.leparisien.fr
 </span></span><span style="display:flex;"><span>rencontres.leparisien.fr is an alias for www.pointscommuns.com.
@@ -245,7 +245,7 @@ Usage is:</p>
 </span></span><span style="display:flex;"><span>    php dnsexpire.php -f example.com
 </span></span><span style="display:flex;"><span>    php dnsexpire.php -a 10 -f dns.txt
 </span></span></code></pre></div><p>Output is:</p>
-<p><img src="http://localhost:1313/images/dnsexpire-example.jpg" alt="DNS expiration PHP tool"></p>
+<p><img src="https://glc.st/images/dnsexpire-example.jpg" alt="DNS expiration PHP tool"></p>
 <p>The code is available on my <a href="https://github.com/gwen001/dnsexpire">GitHub repository</a> so give it a try!</p>
 <h2 id="external-resources">External resources</h2>
 <ul>
@@ -293,7 +293,7 @@ Usage is:</p>
       </script>
 
     
-      <script src="http://localhost:1313/assets/js/scripts.js"></script>
+      <script src="https://glc.st/assets/js/scripts.js"></script>
     
 
   </body>

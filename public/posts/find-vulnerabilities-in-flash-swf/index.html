@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,7 +10,7 @@
     <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://localhost:1313/images/swf-testing-xss.png"/>
+<meta name="twitter:image" content="https://glc.st/images/swf-testing-xss.png"/>
 
 <meta name="twitter:title" content="Find vulnerabilities in Flash SWF"/>
 <meta name="twitter:description" content="As a user I would say that I don&rsquo;t care about all these Flash stuff that try to catch my eyes, most of the time I have a plugin to disable them.
@@ -26,15 +26,15 @@ As a developper, it reminds me the (not so good) old time when the marketing peo
 As a hacker, well&hellip; I didn&rsquo;t know how nice it could be, but I recently learned how to find issue in there and it&rsquo;s funny as hell.
 I was close to the success as I quickly found 3 XSS, but unfortunately all my reports were marked as duplicate :/" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/posts/find-vulnerabilities-in-flash-swf/" />
+<meta property="og:url" content="https://glc.st/posts/find-vulnerabilities-in-flash-swf/" />
 
-<meta property="og:image" content="http://localhost:1313/images/swf-testing-xss.png" />
+<meta property="og:image" content="https://glc.st/images/swf-testing-xss.png" />
 <meta property="article:published_time" content="2018-05-17T00:00:00+00:00" />
 <meta property="article:modified_time" content="2018-05-17T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
     
-      <base href="http://localhost:1313/posts/find-vulnerabilities-in-flash-swf/">
+      <base href="https://glc.st/posts/find-vulnerabilities-in-flash-swf/">
     
     <title>
     Find vulnerabilities in Flash SWF · Gwendal Le Coguic
@@ -42,7 +42,7 @@ I was close to the success as I quickly found 3 XSS, but unfortunately all my re
 
     
         
-            <link rel="canonical" href="http://localhost:1313/posts/find-vulnerabilities-in-flash-swf/">
+            <link rel="canonical" href="https://glc.st/posts/find-vulnerabilities-in-flash-swf/">
         
     
 
@@ -53,7 +53,7 @@ I was close to the success as I quickly found 3 XSS, but unfortunately all my re
     
       
       
-      <link rel="stylesheet" href="http://localhost:1313/assets/css/coder.css" media="screen">
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -61,14 +61,14 @@ I was close to the success as I quickly found 3 XSS, but unfortunately all my re
     
 
     
-      <link rel="stylesheet" href="http://localhost:1313/assets/css/custom.css" />
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
     
 
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-256x256.png" sizes="256x256">
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-128x128.png" sizes="128x128">
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-64x64.png" sizes="64x64">
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
   </head>
@@ -93,7 +93,7 @@ I was close to the success as I quickly found 3 XSS, but unfortunately all my re
 
       <nav class="navigation d-print-none">
   <section class="container">
-    <a class="navigation-title" href="http://localhost:1313/">
+    <a class="navigation-title" href="https://glc.st/">
       Gwendal Le Coguic
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -102,27 +102,27 @@ I was close to the success as I quickly found 3 XSS, but unfortunately all my re
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/posts/">Posts</a>
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/courses/">Courses</a>
+            <a class="navigation-link" href="https://glc.st/courses/">Courses</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/clients/">Clients</a>
+            <a class="navigation-link" href="https://glc.st/clients/">Clients</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/projects/">Projects</a>
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/cves/">CVEs</a>
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/press/">Press</a>
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
           </li>
         
       
@@ -168,14 +168,14 @@ I was close to the success as I quickly found 3 XSS, but unfortunately all my re
     <div id="sharer">
     <div class="sharer-buttons">
 
-        <a href="https://twitter.com/intent/tweet?text=Find%20vulnerabilities%20in%20Flash%20SWF%20http%3a%2f%2flocalhost%3a1313%2fposts%2ffind-vulnerabilities-in-flash-swf%2f" target="_blank"><img class="twitter" src="http://localhost:1313/assets/img/share/twitter.svg" alt="twitter"></a>
-        <a href="http://www.reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&title=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="reddit" src="http://localhost:1313/assets/img/share/reddit.svg" alt="reddit"></a>
-        <a href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&amp;t=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="hackernews" src="http://localhost:1313/assets/img/share/hackernews.svg" alt="hackernews"></a>
-        <a href="mailto:?subject=Find%20vulnerabilities%20in%20Flash%20SWF&body=http%3a%2f%2flocalhost%3a1313%2fposts%2ffind-vulnerabilities-in-flash-swf%2f" target="_blank"><img class="mail" src="http://localhost:1313/assets/img/share/mail.svg" alt="mail"></a>
-        <a href="https://wa.me/?text=Find%20vulnerabilities%20in%20Flash%20SWF%20http%3a%2f%2flocalhost%3a1313%2fposts%2ffind-vulnerabilities-in-flash-swf%2f" target="_blank"><img class="whatsapp" src="http://localhost:1313/assets/img/share/whatsapp.svg" alt="facebook"></a>
-        <a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a1313%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&text=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="telegram" src="http://localhost:1313/assets/img/share/telegram.svg" alt="facebook"></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&amp;title=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="linkedin" src="http://localhost:1313/assets/img/share/linkedin.svg" alt="linkedin"></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&t=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="facebook" src="http://localhost:1313/assets/img/share/facebook.svg" alt="facebook"></a>
+        <a href="https://twitter.com/intent/tweet?text=Find%20vulnerabilities%20in%20Flash%20SWF%20https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&title=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&amp;t=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Find%20vulnerabilities%20in%20Flash%20SWF&body=https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Find%20vulnerabilities%20in%20Flash%20SWF%20https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&text=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&amp;title=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2ffind-vulnerabilities-in-flash-swf%2f&t=Find%20vulnerabilities%20in%20Flash%20SWF" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
 
         
     </div>
@@ -203,9 +203,9 @@ I was close to the success as I quickly found 3 XSS, but unfortunately all my re
                 
                 <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="http://localhost:1313/tags/flash/">flash</a>
+    <a href="https://glc.st/tags/flash/">flash</a>
       <span class="separator">•</span>
-    <a href="http://localhost:1313/tags/xss/">xss</a></div>
+    <a href="https://glc.st/tags/xss/">xss</a></div>
 
             </div>
         </header>
@@ -221,7 +221,7 @@ I was close to the success as I quickly found 3 XSS, but unfortunately all my re
 <a href="https://www.adobe.com/support/flashplayer/debug_downloads.html">Flash Player Projector content</a> standalone flash player I configured in JPEXS.<br>
 <a href="https://www.adobe.com/support/flashplayer/debug_downloads.html">Flash Player Projector content debugger</a> debug version of the standalone flash player I configured in JPEXS.<br>
 <a href="https://www.adobe.com/support/flashplayer/debug_downloads.html">Flash Player Plugin content debugger</a> to enable the debug mode of the flash plugin of the browser.<br>
-<a href="http://localhost:1313/assets/testflash.txt">testflash.php</a> a quick page I wrote to perform local tests.</p>
+<a href="https://glc.st/assets/testflash.txt">testflash.php</a> a quick page I wrote to perform local tests.</p>
 <p>Using the debug version of the flash player (standalone or browser) and with the help of the <a href="https://help.adobe.com/en_US/flex/using/WS2db454920e96a9e51e63e3d11c0bf69084-7fc9.html">MacroMedia config file</a>, the flash log is enabled and will contain the trace setted by the developper:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>$ cat ~/mm.cfg
 </span></span><span style="display:flex;"><span>ErrorReportingEnable=1
@@ -238,7 +238,7 @@ I was close to the success as I quickly found 3 XSS, but unfortunately all my re
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>right click <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">export</span> selection
 </span></span></code></pre></div><p>5/ Remove duplicate files:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>find <span style="color:#f92672">&lt;</span>export_dir<span style="color:#f92672">&gt;</span> <span style="color:#f92672">-</span>type f <span style="color:#f92672">-</span>name <span style="color:#e6db74">&#34;*_[0123456789]*&#34;</span> <span style="color:#f92672">-</span>exec rm {} \;
-</span></span></code></pre></div><p><img src="http://localhost:1313/images/swf-testing-jpexs.png" alt="SWF testing JPEXS"></p>
+</span></span></code></pre></div><p><img src="https://glc.st/images/swf-testing-jpexs.png" alt="SWF testing JPEXS"></p>
 <h2 id="extract-datas">Extract datas</h2>
 <p>Find comments:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>extract<span style="color:#f92672">-</span>endpoints <span style="color:#f92672">-</span>d <span style="color:#f92672">&lt;</span>export_dir<span style="color:#f92672">&gt;</span> <span style="color:#f92672">-</span>n <span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">-</span>r <span style="color:#f92672">-</span>e <span style="color:#e6db74">&#34;*&#34;</span> <span style="color:#f92672">-</span>v <span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span>c
@@ -269,7 +269,7 @@ I was close to the success as I quickly found 3 XSS, but unfortunately all my re
 </span></span><span style="display:flex;"><span>Flash XSS (HIGH);;ExternalInterface.call XSS;;ExternalInterface\.call\(.*(_root\.|_level0\.|_global\.).*\)
 </span></span><span style="display:flex;"><span>...
 </span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div><p><img src="http://localhost:1313/images/swf-testing-extract-datas.png" alt="SWF testing extract datas"></p>
+</span></span></code></pre></div><p><img src="https://glc.st/images/swf-testing-extract-datas.png" alt="SWF testing extract datas"></p>
 <h2 id="manual-analysis">Manual analysis</h2>
 <p>Enable and check the Flash log:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cd /usr/lib/adobe-flashplugin
@@ -281,7 +281,7 @@ I was close to the success as I quickly found 3 XSS, but unfortunately all my re
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>ctrl<span style="color:#f92672">+</span>shift<span style="color:#f92672">+</span>F <span style="color:#f92672">+</span> Ignore <span style="color:#66d9ef">case</span> <span style="color:#f92672">-&gt;</span> flashvars
 </span></span></code></pre></div><p>Find dangerous methods in JPEXS and reverse track the parameters:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ctrl+shift+F + Ignore case -&gt; geturl
-</span></span></code></pre></div><p><img src="http://localhost:1313/images/swf-testing-flash-log.jpg" alt="SWF testing flash log"></p>
+</span></span></code></pre></div><p><img src="https://glc.st/images/swf-testing-flash-log.jpg" alt="SWF testing flash log"></p>
 <h2 id="take-care-of">Take care of</h2>
 <p>Unsafe methods in Actionscript:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-gdscript3" data-lang="gdscript3"><span style="display:flex;"><span>loadVariables()
@@ -403,7 +403,7 @@ I was close to the success as I quickly found 3 XSS, but unfortunately all my re
       </script>
 
     
-      <script src="http://localhost:1313/assets/js/scripts.js"></script>
+      <script src="https://glc.st/assets/js/scripts.js"></script>
     
 
   </body>
