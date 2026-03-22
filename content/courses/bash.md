@@ -52,23 +52,11 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
 - Grant permissions
 - Run a script
 
-###### Variables and arguments
+###### Variables
 - Understanding variables
 - Declaring and using variables
-- Command line arguments
+- Types of variables
 
-###### File and directory operations
-- Creating and manipulating files/directories
-
-###### Permissions and access rights
-- Understanding Linux file permissions
-- View and change permissions
-
-###### Redirection and pipelines
-- Output and error redirection
-- Using pipelines
-
-#### Day 2 - Control structures, functions, and advanced scripting
 ###### Conditional statements
 - What are conditional statements?
 - _if-else_ statements
@@ -83,9 +71,21 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
 - Why use functions?
 - Defining and calling functions
 
-###### Handling user input and arguments
+#### Day 2 - Control structures, functions, and advanced scripting
+###### User input and arguments
 - Reading user input
 - Script arguments
+
+###### Redirection and pipelines
+- Output and error redirection
+- Using pipelines
+
+###### File and directory operations
+- Creating and manipulating files/directories
+
+###### Permissions and access rights
+- Understanding Linux file permissions
+- View and change permissions
 
 ###### Debugging and error handling
 - Debugging
