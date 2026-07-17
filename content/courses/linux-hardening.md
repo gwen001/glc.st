@@ -1,5 +1,5 @@
 ---
-date: 2025-04-22
+date: 2026-07-14
 slug: Linux hardening
 title: Linux hardening
 images: [/assets/img/courses/linux-hardening.png]
