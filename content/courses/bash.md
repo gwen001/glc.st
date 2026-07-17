@@ -9,7 +9,7 @@ tags:
 - bash
 ---
 
-This 3-day hands-on course introduces participants to Bash scripting for task automation and system administration. From writing __simple scripts__ to __managing processes__, __securing code__, and __working over SSH__, you'll learn practical skills to boost productivity and control over your Linux environment. Perfect for __devs__ and __sysadmins__.
+This 3-day hands-on course introduces participants to Bash scripting for task automation and system administration. From writing __simple scripts__ to __managing processes__, __securing code__, you'll learn practical skills to boost productivity and control over your Linux environment. Perfect for __devs__ and __sysadmins__.
 <!--more-->
 
 <br>
@@ -92,10 +92,14 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
 - Handling errors
 - Handle script interruptions
 
-#### Day 3 - Process management, automation, and security
 ###### Process management in Bash
 - Understanding processes in Linux
 - Viewing processes
+
+#### Day 3 - Process management, automation, and security
+###### Handling signals and traps
+- What are signals?
+- How to handle signals
 
 ###### Scheduling tasks
 - Automating tasks
@@ -105,19 +109,15 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
 - Logging
 - Checking system logs
 
-###### Handling signals and traps
-- What are signals?
-- How to handle signals
-
 ###### Securing Bash scripts
 - File permissions and execution restrictions
 - Validating user input
-- Using _sudo_ securely
 
-###### Working with remote servers and SSH
-- Connect to a remote server
-- Copying files securely
-- Automating SSH tasks
+###### Resources
+- Books
+- Interactive platforms
+- Courses & videos
+- Tools
 
 <br><br>
 

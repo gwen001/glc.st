@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/courses/linux-hardening.png"/>
+
+<meta name="twitter:title" content="Linux hardening"/>
+<meta name="twitter:description" content="This intensive 1‑day training teaches you how to harden a Linux server from the ground up.
+You’ll learn to minimize the system footprint, lock down user privileges, secure network exposure, and reinforce critical services.
+Through hands‑on exercises, you’ll apply real‑world hardening techniques used by security professionals."/>
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Linux hardening" />
+<meta property="og:description" content="This intensive 1‑day training teaches you how to harden a Linux server from the ground up.
+You’ll learn to minimize the system footprint, lock down user privileges, secure network exposure, and reinforce critical services.
+Through hands‑on exercises, you’ll apply real‑world hardening techniques used by security professionals." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/courses/linux-hardening/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/courses/linux-hardening.png" />
+<meta property="article:published_time" content="2025-04-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-04-22T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/courses/linux-hardening/">
+    
+    <title>
+    Linux hardening · Gwendal Le Coguic
+</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/courses/linux-hardening/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.147.0">
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <div id="google_translate_element"></div>
+
+<style>
+ #google_translate_element {
+     
+    display: none;
+ }
+  
+</style>
+<script type="text/javascript">
+    function googleTranslateElementInit() {
+        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
+    }
+</script>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/courses/">Courses</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/clients/">Clients</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+<section class="container post course">
+    
+        <div id="sharer">
+    <div class="sharer-buttons">
+
+        <a href="https://twitter.com/intent/tweet?text=Linux%20hardening%20https%3a%2f%2fglc.st%2fcourses%2flinux-hardening%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fcourses%2flinux-hardening%2f&title=Linux%20hardening" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fcourses%2flinux-hardening%2f&amp;t=Linux%20hardening" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Linux%20hardening&body=https%3a%2f%2fglc.st%2fcourses%2flinux-hardening%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Linux%20hardening%20https%3a%2f%2fglc.st%2fcourses%2flinux-hardening%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fcourses%2flinux-hardening%2f&text=Linux%20hardening" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fcourses%2flinux-hardening%2f&amp;title=Linux%20hardening" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fcourses%2flinux-hardening%2f&t=Linux%20hardening" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+    
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Linux hardening</h1>
+            </div>
+        </header>
+
+        <div>
+            <p>This intensive 1‑day training teaches you how to harden a Linux server from the ground up.
+You’ll learn to minimize the <strong>system footprint</strong>, lock down <strong>user privileges</strong>, secure <strong>network exposure</strong>, and reinforce <strong>critical services</strong>.
+Through hands‑on exercises, you’ll apply real‑world hardening techniques used by security professionals.</p>
+<br>
+<center>
+    <img src="https://glc.st/assets/img/courses/linux-hardening.png" alt="Laravel security" width="500" />
+</center>
+<h2 id="targeted-audience">Targeted audience:</h2>
+<ul>
+<li>System administrators</li>
+<li>Dev(Sec)Ops engineers</li>
+</ul>
+<h2 id="educational-goals">Educational goals:</h2>
+<ul>
+<li>Identify common entry points, privilege‑escalation paths, and misconfigurations</li>
+<li>Minimize installed software and apply kernel and filesystem protections</li>
+<li>Configure strong authentication, secure sudo policies, and controlled user environments</li>
+<li>Secure network interfaces, firewall rules, and remote access pathways</li>
+<li>Deploy logging, auditing, and basic intrusion‑detection mechanisms</li>
+</ul>
+<h2 id="prerequisites">Prerequisites:</h2>
+<ul>
+<li>Being comfortable with CLI mode</li>
+<li>Familiarity with basic Linux administration</li>
+</ul>
+<h2 id="program">Program:</h2>
+<h6 id="introduction">Introduction</h6>
+<ul>
+<li>Why hardening matters?</li>
+<li>Understanding the attack surface</li>
+<li>Defense in depth</li>
+<li>Principle of least privilege</li>
+</ul>
+<h6 id="system--account-hardening">System &amp; account hardening</h6>
+<ul>
+<li>Partitioning strategy</li>
+<li>Account and <em>sudo</em> hardening</li>
+<li>Password and authentication policy</li>
+<li>Unnecessary packages &amp; services</li>
+<li>Unused kernel modules</li>
+</ul>
+<h6 id="network--access-hardening">Network &amp; access hardening</h6>
+<ul>
+<li>SSH hardening</li>
+<li>Firewalling</li>
+<li>Brute-force mitigation</li>
+</ul>
+<h6 id="filesystem-permissions--integrity">Filesystem, permissions &amp; integrity</h6>
+<ul>
+<li><em>SUID/SGID</em> auditing</li>
+<li>Sticky bit and ACLs</li>
+<li>Immutable attributes</li>
+<li>File integrity monitoring</li>
+</ul>
+<h6 id="logging-auditing--monitoring">Logging, auditing &amp; monitoring</h6>
+<ul>
+<li>Kernel-level security event</li>
+<li>Centralized logging</li>
+<li>Intrusion detection concepts</li>
+</ul>
+<h6 id="automation--compliance-validation">Automation &amp; compliance validation</h6>
+<ul>
+<li>Scoring with <em>Lynis</em></li>
+<li>Formal compliance scoring with <em>OpenSCAP</em></li>
+<li>Hardening-as-code with <em>Ansible</em></li>
+</ul>
+<h6 id="resources">Resources</h6>
+<ul>
+<li>Books</li>
+<li>Interactive platforms</li>
+<li>Courses &amp; videos</li>
+<li>Tools</li>
+</ul>
+<p><br><br></p>
+<p>Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank"><a href="mailto:contact@glc.st">contact@glc.st</a></a> - quotes on request - SIRET 79778302400038</p>
+        </div>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>
