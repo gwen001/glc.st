@@ -45,22 +45,31 @@ Through hands‑on exercises, you’ll apply real‑world hardening techniques u
 - Understanding the attack surface
 - Defense in depth
 - Principle of least privilege
+- Minimal install philosophy
+- Hardening is role-specific
+- Reference frameworks
+- Baseline vs. hardening vs. compliance
 
 ###### System baseline
 - Partitioning strategy
 - Unnecessary packages & services
 - Unused kernel modules
-- Hardening the Kernel with _sysctl_
+- Hardening the Kernel
 
 ###### Account hardening
 - Mandatory Access Control (MAC)
 - Account and _sudo_ hardening
 - Password and authentication policy
 
-###### Network & access hardening
-- SSH hardening
-- Firewalling with _nftables_
+###### Network hardening
+- Network exposure
+- Firewalling
 - Brute-force mitigation
+
+###### Services hardening
+- Dedicated users
+- File permissions
+- Service sandboxing
 
 ###### Filesystem, permissions & integrity
 - _SUID/SGID_ auditing
