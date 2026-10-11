@@ -23,7 +23,7 @@ Boolean based blind, Error based, Union based, Stacked queries, Time based blind
 - crack hashed password using a dictionnary attack
 - and a lot more...
 
-Below some examples of the main functions using [bWAPP](/an-extremely-buggy-web-app/)
+Below some examples of the main functions using [bWAPP](/posts/an-extremely-buggy-web-app/)
 
 
 ## Basic usage

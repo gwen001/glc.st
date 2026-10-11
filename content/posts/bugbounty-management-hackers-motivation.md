@@ -42,7 +42,7 @@ Deliver some nice catches!
 
 &gt; If you're not familiar with SLAs, check this [post on Hackerone](https://www.hackerone.com/blog/Healthy-programs-make-happy-hackers-Introducing-response-SLAs).
 
-As I already mentioned in the previous article [5 things to avoid in bug bounty](/5-things-to-avoid-in-bug-bounty/), having a good communication is a requirement as well as having good Service Level Agreement.
+As I already mentioned in the previous article [5 things to avoid in bug bounty](/posts/5-things-to-avoid-in-bug-bounty/), having a good communication is a requirement as well as having good Service Level Agreement.
 You basically have <u>4 meters with all the same level of importance</u> for all actors:
 
 - time to first response: notify the hacker you get the report

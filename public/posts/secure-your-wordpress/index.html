@@ -219,7 +219,7 @@ This post is directly inspired from <a href="http://codex.wordpress.org/Hardenin
 <p>According to Worpdress documentation, and I won&rsquo;t discuss this point here, directories must have the following permission: <code>drwxr-xr-x</code> (755) and files must be: <code>-rw-r--r--</code> (644).
 Wordpress says that automatic update changes file/dir permissions, that&rsquo;s true but not that way in my case, maybe a cron job could do it ?</p>
 <h2 id="database">Database</h2>
-<p>It&rsquo;s very important that your database is protected with strong credentials, check the post about <a href="https://glc.st/choose-your-password/">how to choose a good password</a>. 
+<p>It&rsquo;s very important that your database is protected with strong credentials, check the post about <a href="https://glc.st/posts/choose-your-password/">how to choose a good password</a>. 
 Keep in mind that a SQL user must be only used for one application and <strong>must not have administrator privileges</strong>.</p>
 <p>It&rsquo;s also possible to change the table prefix which is <code>wp_</code> by default, this will prevent from automatic SQL injection attacks.
 However this must be done while performing the installation, it&rsquo;s too hard/dangerous to change that parameter on a running app.</p>
@@ -301,7 +301,7 @@ file integrity, brute force, updates, log in and so on&hellip;</p>
 <h2 id="external-resources">External resources</h2>
 <ul>
 <li><a href="https://wordpress.org/">Official WordPress</a></li>
-<li><a href="https://glc.st/choose-your-password/">How to choose a good password</a></li>
+<li><a href="https://glc.st/posts/choose-your-password/">How to choose a good password</a></li>
 <li><a href="https://blog.sucuri.net/">Sucuri blog</a></li>
 <li><a href="http://www.fail2ban.org/">Official Fail2ban</a></li>
 </ul>

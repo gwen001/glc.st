@@ -14,7 +14,7 @@ see_also:
 ---
 Cross-Site Request Forgery aka CSRF is an attack unintentionally triggered by the user himself.
 It sends HTTP requests to execute unexpected actions in different ways: trough `img` tag to perform `GET` requests or with Ajax requests when `POST` is required.
-You can learn basic CSRF in [DVWA](/damn-vulnerable-web-application/ "Damn Vulnerable Web Application").
+You can learn basic CSRF in [DVWA](/posts/damn-vulnerable-web-application/ "Damn Vulnerable Web Application").
 
 To perform this CSRF you firstly need to log in, then you must visit a malicious site who will perform a stealth HTTP request who will submit the change password form with specific values.
 

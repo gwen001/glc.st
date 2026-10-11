@@ -108,6 +108,6 @@ It would be also possible to bypass this if you could upload an `.htaccess` but 
 ## External resources
 
 - [Introduction to DVWA]({{< ref "/posts/damn-vulnerable-web-application" >}})
-- [My favourites browser extensions](/browser-extensions/)
+- [My favourites browser extensions](/posts/browser-extensions/)
 - [OWASP Unrestricted File Upload](https://www.owasp.org/index.php/Unrestricted_File_Upload)
 - [File upload on InfoSec](http://resources.infosecinstitute.com/file-upload-vulnerabilities/)

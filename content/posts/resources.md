@@ -59,7 +59,7 @@ Sometime it works, sometimes not but bug bounty is also about patience. Happy re
 
 
 ## Personal blogs
-[Vulnerabilities list](/vulnerabiliies-list/) by me  
+[Vulnerabilities list](/posts/vulnerabiliies-list/) by me  
 
 --2017  
 
@@ -147,10 +147,10 @@ Sometime it works, sometimes not but bug bounty is also about patience. Happy re
 [Web Hacker's Favorites](https://addons.mozilla.org/en-US/firefox/collections/yehgdotnet/webhacker/): collection of Firefox add-ons  
 [soldierx.com](https://www.soldierx.com/Tools): tools organized by category  
 
-[Vulnerability assessment tools](/vulnerability-assessment-tools/) by me  
-[Post exploitation tools](/pentest-post-exploitation-tools/) by me  
-[Information gathering tools](/pentest-information-gathering-tools/) by me  
-[Exploitation tools](/pentest-exploitation-tools/) by me  
+[Vulnerability assessment tools](/posts/vulnerability-assessment-tools/) by me  
+[Post exploitation tools](/posts/pentest-post-exploitation-tools/) by me  
+[Information gathering tools](/posts/pentest-information-gathering-tools/) by me  
+[Exploitation tools](/posts/pentest-exploitation-tools/) by me  
 
 
 ## Books

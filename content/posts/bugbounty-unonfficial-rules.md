@@ -21,9 +21,9 @@ Create well detailed policies to ensure that hunters will focus on the most inte
 Prepare the internal workflow of all concerned teams to handle the flow of reports.
 Estimate the severity of every reports and consequently reward and finally, <u>fix the bugs</u>.
 
-&gt; [5 things to do before running your first bug bounty program](/5-things-to-do-before-running-your-first-bug-bounty-program/)  
-&gt; [5 things to avoid in bug bounty](/5-things-to-avoid-in-bug-bounty/)  
-&gt; [How to keep hackers motivated in bug bounty](/how-to-keep-hackers-motivated-in-bug-bounty/)
+&gt; [5 things to do before running your first bug bounty program](/posts/5-things-to-do-before-running-your-first-bug-bounty-program/)  
+&gt; [5 things to avoid in bug bounty](/posts/5-things-to-avoid-in-bug-bounty/)  
+&gt; [How to keep hackers motivated in bug bounty](/posts/how-to-keep-hackers-motivated-in-bug-bounty/)
 
 **Hackers: the solution.** Nerds who want to use their skills to get some cash.  
 Their work is to find bugs of course, but not only.
@@ -31,7 +31,7 @@ Writing a good report is very important to ensure companies understand what it's
 It's also the job of the hackers to prove the severity of the bugs <u>as well as the business impact</u> which is the main criteria to decide the bounties.
 Finally check the fix deployed, which is not mandatory but still appreciated by companies.
 
-&gt; [How to write a Bug Bounty report](/how-to-write-a-bug-bounty-report/)
+&gt; [How to write a Bug Bounty report](/posts/how-to-write-a-bug-bounty-report/)
 
 **Platforms: the glue.**  
 The popular bug bounty industry as we know it today, probably won't exist without platforms.

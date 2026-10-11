@@ -7,7 +7,7 @@ tags:
 see_also:
   -
     link: Introduction to pentesting
-    url: /introduction-to-pentesting/
+    url: /posts/introduction-to-pentesting/
 ---
 In the second part of the first phase of a penetration test, active information gathering,it's important to mapas accurate as possible the network of you target.
 To find live hosts there isa technique called _ping sweep_.
@@ -68,4 +68,4 @@ The grep and cut command are only usedfor a nice display ;)
 
 ## External resources
 
-- [Introduction to pentesting](/introduction-to-pentesting/)
+- [Introduction to pentesting](/posts/introduction-to-pentesting/)

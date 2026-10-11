@@ -19,7 +19,7 @@ see_also:
 **bWAPP** is a PHP web application which is intentionnally crackable. It covers a very large set of common vulns but also some unusual case you can meet on the Internet.
 
 The goal here is to train your development skill and hacking knowledge to be able to write a better (more secure) code.
-Compared to [DVWA](/damn-vulnerable-web-application/), you have to consider bWAPP as a much more advanced level of difficulty.
+Compared to [DVWA](/posts/damn-vulnerable-web-application/), you have to consider bWAPP as a much more advanced level of difficulty.
 
 ![bwapp](/images/bwapp.png)
 <!--more-->

@@ -7,7 +7,7 @@ tags:
 see_also:
   -
     link: Introduction to pentesting
-    url: /introduction-to-pentesting/
+    url: /posts/introduction-to-pentesting/
 ---
 Information gathering is the first and the most important step of a penetration test. 
 More informations you will grab, easier the exploit will be. 
@@ -48,4 +48,4 @@ Example:
 
 ## External resources
 
-- [Introduction to pentesting](/introduction-to-pentesting/)
+- [Introduction to pentesting](/posts/introduction-to-pentesting/)

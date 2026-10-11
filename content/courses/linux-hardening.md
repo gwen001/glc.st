@@ -46,16 +46,20 @@ Through hands‑on exercises, you’ll apply real‑world hardening techniques u
 - Defense in depth
 - Principle of least privilege
 
-###### System & account hardening
+###### System baseline
 - Partitioning strategy
-- Account and _sudo_ hardening
-- Password and authentication policy
 - Unnecessary packages & services
 - Unused kernel modules
+- Hardening the Kernel with _sysctl_
+
+###### Account hardening
+- Mandatory Access Control (MAC)
+- Account and _sudo_ hardening
+- Password and authentication policy
 
 ###### Network & access hardening
 - SSH hardening
-- Firewalling
+- Firewalling with _nftables_
 - Brute-force mitigation
 
 ###### Filesystem, permissions & integrity

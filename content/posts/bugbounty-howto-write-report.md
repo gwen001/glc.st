@@ -128,7 +128,7 @@ Providing the response is also a good thing to show the team the difference betw
 ## PoC
 
 As we often say, a picture speaks a thousand words. Provide everything that can prove the bug.
-One of my previous article about [Colorize your hunt](/colorize-your-hunt/) can help to visualize things.
+One of my previous article about [Colorize your hunt](/posts/colorize-your-hunt/) can help to visualize things.
 Also, keep in mind that the report can be publicly disclosed in the futur, so take care of hidding personal informations you want to keep private.
 
 **Videos** that replays the whole drama that leads you to this great report.
@@ -193,7 +193,6 @@ The goal is to help the team to understand and fix the issue but also show her t
     They have to prioritize the tasks.
     Acting like a kid does not only discredit yourself but the whole community.  
     <br /><br />
-
     <span style="color:#EE3B3B"><b>Do not harass more!</b></span>
     Do not spam the company over and over with the same report closed as informative or N/A in order to change their mind about it.
     They won't unless you give important additional informations.

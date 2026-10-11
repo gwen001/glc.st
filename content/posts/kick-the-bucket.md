@@ -13,7 +13,7 @@ see_also:
     link: Documentation of s3api
     url: http://docs.aws.amazon.com/cli/latest/reference/s3api/index.html
 ---
-I already wrote [a post about Amazon S3 buckets](/playing-with-s3-buckets/) but they became so popular these last weeks  that many people explain what is a bucket, what is the danger and how to exploit misconfiguration. My goal here is more: how/where to find those vulnerable buckets.
+I already wrote [a post about Amazon S3 buckets](/posts/playing-with-s3-buckets/) but they became so popular these last weeks  that many people explain what is a bucket, what is the danger and how to exploit misconfiguration. My goal here is more: how/where to find those vulnerable buckets.
 
 First I assume you already know the basics, if not, you can read the excellent article from [Frans Rosen on Detectify](https://labs.detectify.com/2017/07/13/a-deep-dive-into-aws-s3-access-controls-taking-full-control-over-your-assets/).
 <!--more-->

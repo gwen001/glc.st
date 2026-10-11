@@ -18,16 +18,16 @@ see_also:
     url: https://bugbountyforum.com/resources/
 ---
 Here is a non exhausted list of vulnerabilities that I use as a reminder with links for reference.
-It's based on many different [resources](/resources/) available on the Internet.
+It's based on many different [resources](/posts/resources/) available on the Internet.
 <!--more-->
 
-[SQL injection aka SQLi](/vuln-sql-injection/)  
-[Cross-site scriptting aka XSS](/vuln-cross-site-scripting/)  
-[Subdomain takeover](/vuln-subdomain-takeover/)  
-[Relative path overwrite / Path-relative style sheet import](/vuln-relative-path-overwrite/)  
-[Cross-site request forgery aka CSRF](/vuln-cross-site-request-forgery/)  
-[Clickjacking](/vuln-clickjacking/)  
-[Cross-origin resource sharing aka CORS](/vuln-cross-origin-resource-sharing/)  
+[SQL injection aka SQLi](/posts/vuln-sql-injection/)  
+[Cross-site scriptting aka XSS](/posts/vuln-cross-site-scripting/)  
+[Subdomain takeover](/posts/vuln-subdomain-takeover/)  
+[Relative path overwrite / Path-relative style sheet import](/posts/vuln-relative-path-overwrite/)  
+[Cross-site request forgery aka CSRF](/posts/vuln-cross-site-request-forgery/)  
+[Clickjacking](/posts/vuln-clickjacking/)  
+[Cross-origin resource sharing aka CORS](/posts/vuln-cross-origin-resource-sharing/)  
 
 
 ## Cookies

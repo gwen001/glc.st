@@ -20,7 +20,7 @@ see_also:
     url: http://excess-xss.com/
   -
     link: Damn Vulnerable Web Application
-    url: /damn-vulnerable-web-application/
+    url: /posts/damn-vulnerable-web-application/
 ---
 According to OWASP Top 10, Cross-Site Scripting aka XSS takes the 3rd place in the more common and important web vulnerabilities list. 
 Her primary goal is to spoof the session of another user by stealing his cookie id, usually a privileged user like an admin. 
@@ -106,4 +106,4 @@ Or display cookies...
 - [OWASP XSS description](https://www.owasp.org/index.php/Top_10_2013-A3-Cross-Site_Scripting_(XSS))
 - [Filter Evasion Cheat Sheet](https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet)
 - [A (very) comprehensive tutorial on cross-site scripting](http://excess-xss.com/)
-- [Damn Vulnerable Web Application](/damn-vulnerable-web-application/)
+- [Damn Vulnerable Web Application](/posts/damn-vulnerable-web-application/)

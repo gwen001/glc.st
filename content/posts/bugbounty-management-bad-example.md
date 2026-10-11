@@ -5,9 +5,9 @@ tags:
 - bug bounty
 - management
 ---
-As I lately released an article about a [good bug bounty program example](/bug-bounty-management-a-great-example-zomato/), I also wanted to write something about what kind of behaviours companies should avoid to keep the community motivated.
+As I lately released an article about a [good bug bounty program example](/posts/bug-bounty-management-a-great-example-zomato/), I also wanted to write something about what kind of behaviours companies should avoid to keep the community motivated.
 
-In 2017, I worked on a great program, so great that I published an article about them called "[The Bug Bounty program that changed my life](/the-bug-bounty-program-that-changed-my-life/)".
+In 2017, I worked on a great program, so great that I published an article about them called "[The Bug Bounty program that changed my life](/posts/the-bug-bounty-program-that-changed-my-life/)".
 Since I was very successful on that program, some weeks ago I decided to give another try.
 I quickly checked the policy on their Hackerone page and noticed some changes in the rules.
 I quickly reported some small bugs and also noticed some changes in the reports management process.
