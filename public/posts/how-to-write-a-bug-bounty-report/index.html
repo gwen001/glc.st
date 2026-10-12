@@ -6,29 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="One of the first thing I learned when I started security, is that the report is just as important as the pentest itself. Some bug bounty platforms give reputation points according the quality. While …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/images/report-h1-empty.png"/>
 
-<meta name="twitter:title" content="How to write a Bug Bounty report"/>
-<meta name="twitter:description" content="One of the first thing I learned when I started security, is that the report is just as important as the pentest itself.
-Some bug bounty platforms give reputation points according the quality.
-While there is no official rules to write a good report, there are some good practices to know and some bad ones to avoid.
-Mines are probably not the best but I never had any problem with any company, it&rsquo;s also pretty rare that the secteam asks for more informations since I try to detail as much as I can in the initial report.
-Let me give you some tips and the global pattern of my templates.
-If you like it, use it, if not, then create your own :)"/>
+<meta name="twitter:title" content="How to write a Bug Bounty report - Gwendal Le Coguic" />
+<meta name="twitter:description" content="One of the first thing I learned when I started security, is that the report is just as important as the pentest itself. Some bug bounty platforms give reputation points according the quality. While …" />
+
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="How to write a Bug Bounty report" />
-<meta property="og:description" content="One of the first thing I learned when I started security, is that the report is just as important as the pentest itself.
-Some bug bounty platforms give reputation points according the quality.
-While there is no official rules to write a good report, there are some good practices to know and some bad ones to avoid.
-Mines are probably not the best but I never had any problem with any company, it&rsquo;s also pretty rare that the secteam asks for more informations since I try to detail as much as I can in the initial report.
-Let me give you some tips and the global pattern of my templates.
-If you like it, use it, if not, then create your own :)" />
+    <meta property="og:title" content="How to write a Bug Bounty report - Gwendal Le Coguic" />
+<meta property="og:description" content="One of the first thing I learned when I started security, is that the report is just as important as the pentest itself. Some bug bounty platforms give reputation points according the quality. While …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/how-to-write-a-bug-bounty-report/" />
 
@@ -38,11 +29,10 @@ If you like it, use it, if not, then create your own :)" />
 
 
     
-      <base href="https://glc.st/posts/how-to-write-a-bug-bounty-report/">
+      <base href="https://glc.st/">
     
-    <title>
-    How to write a Bug Bounty report · Gwendal Le Coguic
-</title>
+
+    <title>How to write a Bug Bounty report - Gwendal Le Coguic</title>
 
     
         
@@ -75,26 +65,14 @@ If you like it, use it, if not, then create your own :)" />
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2019-03-01","datePublished":"2019-03-01","description":"","headline":"How to write a Bug Bounty report","image":"https://glc.st/images/report-h1-empty.png","inLanguage":"en","keywords":"bug bounty, writing, report","mainEntityOfPage":{"@id":"https://glc.st/posts/how-to-write-a-bug-bounty-report/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/how-to-write-a-bug-bounty-report/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -204,15 +182,6 @@ If you like it, use it, if not, then create your own :)" />
                         8 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/bug-bounty/">bug bounty</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/writing/">writing</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/report/">report</a></div>
-
             </div>
         </header>
 

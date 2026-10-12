@@ -6,51 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="Cross-Site Request Forgery aka CSRF is an attack unintentionally triggered by the user himself. It sends HTTP requests to execute unexpected actions in different ways: trough img tag to perform GET …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
-<meta name="twitter:title" content="DVWA - CSRF"/>
-<meta name="twitter:description" content="Cross-Site Request Forgery aka CSRF is an attack unintentionally triggered by the user himself.
-It sends HTTP requests to execute unexpected actions in different ways: trough img tag to perform GET requests or with Ajax requests when POST is required.
-You can learn basic CSRF in DVWA.
-To perform this CSRF you firstly need to log in, then you must visit a malicious site who will perform a stealth HTTP request who will submit the change password form with specific values.
-Low
-The original request can be found by using a local proxy like Burp Suite or analyzing HTTP headers with a browser extension like Live HTTP Headers.
-The payload:
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;My malicious website&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;p&gt;It works like a charm!&lt;/p&gt;
-    &lt;img src=&#34;http://local.dvwa.com/vulnerabilities/csrf/?password_new=azerty&amp;password_conf=azerty&amp;Change=Change&#34; width=&#34;1&#34; height=&#34;1&#34; /&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-"/>
+<meta name="twitter:title" content="DVWA - CSRF - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Cross-Site Request Forgery aka CSRF is an attack unintentionally triggered by the user himself. It sends HTTP requests to execute unexpected actions in different ways: trough img tag to perform GET …" />
+
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="DVWA - CSRF" />
-<meta property="og:description" content="Cross-Site Request Forgery aka CSRF is an attack unintentionally triggered by the user himself.
-It sends HTTP requests to execute unexpected actions in different ways: trough img tag to perform GET requests or with Ajax requests when POST is required.
-You can learn basic CSRF in DVWA.
-To perform this CSRF you firstly need to log in, then you must visit a malicious site who will perform a stealth HTTP request who will submit the change password form with specific values.
-Low
-The original request can be found by using a local proxy like Burp Suite or analyzing HTTP headers with a browser extension like Live HTTP Headers.
-The payload:
-&lt;html&gt;
-  &lt;head&gt;
-    &lt;title&gt;My malicious website&lt;/title&gt;
-  &lt;/head&gt;
-  &lt;body&gt;
-    &lt;p&gt;It works like a charm!&lt;/p&gt;
-    &lt;img src=&#34;http://local.dvwa.com/vulnerabilities/csrf/?password_new=azerty&amp;password_conf=azerty&amp;Change=Change&#34; width=&#34;1&#34; height=&#34;1&#34; /&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-" />
+    <meta property="og:title" content="DVWA - CSRF - Gwendal Le Coguic" />
+<meta property="og:description" content="Cross-Site Request Forgery aka CSRF is an attack unintentionally triggered by the user himself. It sends HTTP requests to execute unexpected actions in different ways: trough img tag to perform GET …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/dvwa-csrf/" />
 
@@ -60,11 +29,10 @@ The payload:
 
 
     
-      <base href="https://glc.st/posts/dvwa-csrf/">
+      <base href="https://glc.st/">
     
-    <title>
-    DVWA - CSRF · Gwendal Le Coguic
-</title>
+
+    <title>DVWA - CSRF - Gwendal Le Coguic</title>
 
     
         
@@ -97,26 +65,14 @@ The payload:
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2015-03-26","datePublished":"2015-03-26","description":"","headline":"DVWA - CSRF","inLanguage":"en","keywords":"dvwa, csrf","mainEntityOfPage":{"@id":"https://glc.st/posts/dvwa-csrf/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/dvwa-csrf/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -226,13 +182,6 @@ The payload:
                         2 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/dvwa/">dvwa</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/csrf/">csrf</a></div>
-
             </div>
         </header>
 

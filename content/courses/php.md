@@ -7,6 +7,31 @@ tags:
 - courses
 - programming
 - php
+workload: "P3D"
+description: "Comprehensive 3-day PHP course for beginners: syntax, control structures, functions, sessions, object-oriented programming, MySQL with PDO and Composer."
+prerequisites:
+  - "Basic knowledge of HTML and CSS"
+  - "Familiarity with web browsers and text editors"
+audience:
+  - "Beginners in web development"
+  - "Aspiring backend developers"
+  - "Anyone interested in PHP and MySQL to build dynamic websites"
+teaches:
+  - "PHP syntax, tags and embedding PHP in HTML"
+  - "Variable types, constants and operators"
+  - "Control structures and recursion"
+  - "Functions, anonymous functions and arrow functions"
+  - "Superglobals and HTTP methods (GET, POST)"
+  - "Forms and input filters"
+  - "Sessions and cookies"
+  - "File storage"
+  - "Object-oriented programming in PHP"
+  - "Inheritance, abstract, final and static"
+  - "Interfaces, traits and namespaces"
+  - "Errors and exceptions"
+  - "Databases with mysqli and PDO"
+  - "Composer, autoloading and Dotenv"
+  - "PHPUnit and the PHP CLI"
 ---
 
 A comprehensive 3-day training designed for beginners aiming to __build dynamic web applications using PHP__.

@@ -1,0 +1,86 @@
+{{- $schema := false -}}
+
+{{- $images := slice -}}
+{{- with .Params.images -}}
+  {{- range . }}{{ $images = $images | append (absURL .) }}{{ end -}}
+{{- end -}}
+{{- with .Params.image -}}
+  {{- $images = $images | append (absURL .) -}}
+{{- end -}}
+{{- $images = $images | uniq -}}
+{{- $image := false -}}
+{{- if eq (len $images) 1 }}{{ $image = index $images 0 }}
+{{- else if gt (len $images) 1 }}{{ $image = $images }}{{ end -}}
+
+{{- $sameAs := slice -}}
+{{- range sort site.Params.social "weight" -}}
+  {{- $u := .url | default "" -}}
+  {{- if hasPrefix $u "http" -}}
+    {{- $sameAs = $sameAs | append $u -}}
+  {{- end -}}
+{{- end -}}
+{{- range site.Params.profiles -}}
+  {{- $sameAs = $sameAs | append . -}}
+{{- end -}}
+{{- $sameAs = $sameAs | uniq -}}
+
+{{- if .IsHome -}}
+  {{- $schema = dict
+      "@context" "https://schema.org"
+      "@type" "Person"
+      "name" site.Params.author
+      "url" site.BaseURL
+      "jobTitle" site.Params.info
+      "email" site.Params.contact_mailto
+      "description" site.Params.description
+      "knowsLanguage" (slice "fr" "en")
+      "knowsAbout" (slice "Pentest" "Webapp security"
+                          "Config audit" "Code audit"
+                          "Bug bounty" "Linux hardening")
+      "sameAs" $sameAs
+  -}}
+
+{{- else if eq .Section "courses" -}}
+  {{- $instance := dict
+      "@type" "CourseInstance"
+      "courseMode" (slice "onsite" "online")
+      "instructor" (dict "@type" "Person" "name" site.Params.author "url" site.BaseURL)
+  -}}
+  {{- with .Params.workload }}{{ $instance = merge $instance (dict "courseWorkload" .) }}{{ end -}}
+
+  {{- $schema = dict
+      "@context" "https://schema.org"
+      "@type" "Course"
+      "name" .Title
+      "description" (.Description | plainify)
+      "url" .Permalink
+      "knowsLanguage" (slice "fr" "en")
+      "provider" (dict "@type" "Person" "name" site.Params.author "url" site.BaseURL)
+      "hasCourseInstance" (slice $instance)
+  -}}
+  {{- with .Params.prerequisites }}{{ $schema = merge $schema (dict "coursePrerequisites" .) }}{{ end -}}
+  {{- with .Params.teaches }}{{ $schema = merge $schema (dict "teaches" .) }}{{ end -}}
+  {{- with .Params.audience }}{{ $schema = merge $schema (dict "audience" (dict "@type" "Audience" "audienceType" (delimit . ", "))) }}{{ end -}}
+  {{- with $image }}{{ $schema = merge $schema (dict "image" .) }}{{ end -}}
+
+{{- else if and .IsPage (gt .Date.Year 2000) -}}
+  {{- $schema = dict
+      "@context" "https://schema.org"
+      "@type" "BlogPosting"
+      "headline" .Title
+      "description" (.Description | plainify)
+      "url" .Permalink
+      "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
+      "datePublished" (.Date.Format "2006-01-02")
+      "dateModified" (.Lastmod.Format "2006-01-02")
+      "author" (dict "@type" "Person" "name" site.Params.author "url" site.BaseURL)
+      "publisher" (dict "@type" "Person" "name" site.Params.author "url" site.BaseURL)
+      "inLanguage" .Language.Lang
+  -}}
+  {{- with .Params.tags }}{{ $schema = merge $schema (dict "keywords" (delimit . ", ")) }}{{ end -}}
+  {{- with $image }}{{ $schema = merge $schema (dict "image" .) }}{{ end -}}
+{{- end -}}
+
+{{- with $schema }}
+<script type="application/ld+json">{{ . | jsonify | safeJS }}</script>
+{{ end -}}

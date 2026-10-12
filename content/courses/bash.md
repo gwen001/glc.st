@@ -7,7 +7,34 @@ tags:
 - courses
 - programming
 - bash
+workload: "P3D"
+description: "Hands-on 3-day Bash scripting course for sysadmins and DevOps: variables, loops, functions, redirection, process management, cron and script security."
+prerequisites:
+  - "Comfortable working on the command line"
+  - "Familiarity with basic Linux commands"
+audience:
+  - "System administrators"
+  - "Dev(Sec)Ops engineers"
+  - "Anyone interested in automation"
+teaches:
+  - "Bash scripting syntax and the shebang"
+  - "Variables and variable types"
+  - "Conditional statements (if, case)"
+  - "Loops (for, while, until)"
+  - "Functions"
+  - "User input and script arguments"
+  - "Output and error redirection, pipelines"
+  - "File and directory operations"
+  - "Linux file permissions and access rights"
+  - "Debugging and error handling"
+  - "Process management"
+  - "Signals and traps"
+  - "Task scheduling with cron"
+  - "Logging and monitoring"
+  - "Securing Bash scripts and validating user input"
 ---
+
+
 
 This 3-day hands-on course introduces participants to Bash scripting for task automation and system administration. From writing __simple scripts__ to __managing processes__, __securing code__, you'll learn practical skills to boost productivity and control over your Linux environment. Perfect for __devs__ and __sysadmins__.
 <!--more-->

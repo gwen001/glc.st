@@ -6,19 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="This is the current thread in the bug hunter community: how to find sensitive informations on GitHub. Understand how to find tokens/keys/passwords on the largest code database in the world in order to …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/images/github-whitehat.jpg"/>
 
-<meta name="twitter:title" content="GitHub tools collection"/>
-<meta name="twitter:description" content="This is the current thread in the bug hunter community: how to find sensitive informations on GitHub. Understand how to find tokens/keys/passwords on the largest code database in the world in order to pwn a company and get massive rewards. Using tools or doing it manually, some very talented people like Th3G3nt3lman are real wizards when it comes to discover such treasures. Many tools are now available but since I wanted to learn Python for a long time, I jumped at the opportunity. In this article I&rsquo;m going to present some scripts I wrote in PHP and Python to fit my needs."/>
+<meta name="twitter:title" content="GitHub tools collection - Gwendal Le Coguic" />
+<meta name="twitter:description" content="This is the current thread in the bug hunter community: how to find sensitive informations on GitHub. Understand how to find tokens/keys/passwords on the largest code database in the world in order to …" />
+
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="GitHub tools collection" />
-<meta property="og:description" content="This is the current thread in the bug hunter community: how to find sensitive informations on GitHub. Understand how to find tokens/keys/passwords on the largest code database in the world in order to pwn a company and get massive rewards. Using tools or doing it manually, some very talented people like Th3G3nt3lman are real wizards when it comes to discover such treasures. Many tools are now available but since I wanted to learn Python for a long time, I jumped at the opportunity. In this article I&rsquo;m going to present some scripts I wrote in PHP and Python to fit my needs." />
+    <meta property="og:title" content="GitHub tools collection - Gwendal Le Coguic" />
+<meta property="og:description" content="This is the current thread in the bug hunter community: how to find sensitive informations on GitHub. Understand how to find tokens/keys/passwords on the largest code database in the world in order to …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/github-tools-collection/" />
 
@@ -28,11 +29,10 @@
 
 
     
-      <base href="https://glc.st/posts/github-tools-collection/">
+      <base href="https://glc.st/">
     
-    <title>
-    GitHub tools collection · Gwendal Le Coguic
-</title>
+
+    <title>GitHub tools collection - Gwendal Le Coguic</title>
 
     
         
@@ -65,26 +65,14 @@
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2019-10-10","datePublished":"2019-10-10","description":"","headline":"GitHub tools collection","image":"https://glc.st/images/github-whitehat.jpg","inLanguage":"en","keywords":"recon, tools","mainEntityOfPage":{"@id":"https://glc.st/posts/github-tools-collection/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/github-tools-collection/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -194,13 +182,6 @@
                         10 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/recon/">recon</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/tools/">tools</a></div>
-
             </div>
         </header>
 

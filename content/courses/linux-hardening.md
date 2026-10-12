@@ -7,6 +7,30 @@ tags:
 - courses
 - cybersecurity
 - linux
+workload: "P1D"
+description: "Intensive 1-day hands-on course on hardening a Linux server: attack surface reduction, sudo and account policy, firewalling, auditing with Lynis and OpenSCAP."
+prerequisites:
+  - "Comfortable working on the command line"
+  - "Familiarity with basic Linux administration"
+audience:
+  - "System administrators"
+  - "Dev(Sec)Ops engineers"
+teaches:
+  - "Attack surface analysis and defense in depth"
+  - "Minimal install and package reduction"
+  - "Partitioning strategy"
+  - "Kernel hardening and unused kernel modules"
+  - "Mandatory Access Control (MAC)"
+  - "Account and sudo hardening"
+  - "Password and authentication policy"
+  - "Firewalling and network exposure"
+  - "Brute-force mitigation"
+  - "Service sandboxing and dedicated users"
+  - "SUID/SGID auditing, ACLs and immutable attributes"
+  - "File integrity monitoring"
+  - "Centralized logging and intrusion detection"
+  - "Compliance scoring with Lynis and OpenSCAP"
+  - "Hardening-as-code with Ansible"
 ---
 
 This intensive 1‑day training teaches you how to harden a Linux server from the ground up.

@@ -6,57 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="Path traversal is a very powerful attack but not necessarily easy to find, fortunatly DotDotPwn is here to help you! DotDotPwn is a powerful traversal directory fuzzer. Written in perl, it’s installed …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
-<meta name="twitter:title" content="DotDotPwn"/>
-<meta name="twitter:description" content="Path traversal is a very powerful attack but not necessarily easy to find, fortunatly DotDotPwn is here to help you! DotDotPwn is a powerful traversal directory fuzzer.
-Written in perl, it&rsquo;s installed in Kali Linux by default.
-Basic usage is:
-dotdotpwn.pl -m &lt;module&gt; -h &lt;host&gt;
-Several options are available:
--h: the host you want to test
--m: it supports http, ftp or text file as a payload
--o and -O: enable the operating system detection
--d: max depth it will look for (ie. max ../)
--f: file to grab (default is /etc/passwd for *nix system)
--E: try to grab some extra files depending of the os detection result
--S: ssl support
--x: specify the port
--r: output file
--q: quiet mode
--k: keyword to match in the response who means a win
--b: exit after the first vulnerability found
--M: http method to use with http module (can&rsquo;t make it work)
--e: add an extension (.php, .png, &hellip;)
-and some more&hellip;"/>
+<meta name="twitter:title" content="DotDotPwn - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Path traversal is a very powerful attack but not necessarily easy to find, fortunatly DotDotPwn is here to help you! DotDotPwn is a powerful traversal directory fuzzer. Written in perl, it’s installed …" />
+
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="DotDotPwn" />
-<meta property="og:description" content="Path traversal is a very powerful attack but not necessarily easy to find, fortunatly DotDotPwn is here to help you! DotDotPwn is a powerful traversal directory fuzzer.
-Written in perl, it&rsquo;s installed in Kali Linux by default.
-Basic usage is:
-dotdotpwn.pl -m &lt;module&gt; -h &lt;host&gt;
-Several options are available:
--h: the host you want to test
--m: it supports http, ftp or text file as a payload
--o and -O: enable the operating system detection
--d: max depth it will look for (ie. max ../)
--f: file to grab (default is /etc/passwd for *nix system)
--E: try to grab some extra files depending of the os detection result
--S: ssl support
--x: specify the port
--r: output file
--q: quiet mode
--k: keyword to match in the response who means a win
--b: exit after the first vulnerability found
--M: http method to use with http module (can&rsquo;t make it work)
--e: add an extension (.php, .png, &hellip;)
-and some more&hellip;" />
+    <meta property="og:title" content="DotDotPwn - Gwendal Le Coguic" />
+<meta property="og:description" content="Path traversal is a very powerful attack but not necessarily easy to find, fortunatly DotDotPwn is here to help you! DotDotPwn is a powerful traversal directory fuzzer. Written in perl, it’s installed …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/dotdotpwn/" />
 
@@ -66,11 +29,10 @@ and some more&hellip;" />
 
 
     
-      <base href="https://glc.st/posts/dotdotpwn/">
+      <base href="https://glc.st/">
     
-    <title>
-    DotDotPwn · Gwendal Le Coguic
-</title>
+
+    <title>DotDotPwn - Gwendal Le Coguic</title>
 
     
         
@@ -103,26 +65,14 @@ and some more&hellip;" />
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2015-01-23","datePublished":"2015-01-23","description":"","headline":"DotDotPwn","inLanguage":"en","keywords":"pentest, path traversal","mainEntityOfPage":{"@id":"https://glc.st/posts/dotdotpwn/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/dotdotpwn/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -232,13 +182,6 @@ and some more&hellip;" />
                         2 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/pentest/">pentest</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/path-traversal/">path traversal</a></div>
-
             </div>
         </header>
 

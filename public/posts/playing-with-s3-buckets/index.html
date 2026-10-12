@@ -6,53 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="Amazon Simple Storage Service aka S3 is a cloud storage for the Internet. You first create a bucket and you can then upload any number of objects (photos, videos, documents etc.) to it. However if the …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
-<meta name="twitter:title" content="Playing with S3 buckets"/>
-<meta name="twitter:description" content="Amazon Simple Storage Service aka S3 is a cloud storage for the Internet.
-You first create a bucket and you can then upload any number of objects (photos, videos, documents etc.) to it.
-However if the permissions (ACL) are not well settled, bad things can happen.
-Recently disclosed by Hackerone, a misconfiguration in their Amazon Web Services S3 buckets allowed any authenticated user to write in there.
-From here an attacker could upload a malicious file waiting for someone open it, or overwrite existing files.
-When you crawl a website, you can you can check the presence of S3 by intercepting calls to amazonaws.com.
-The bucket call can have different look:
-https://&lt;aws_region&gt;.amazonaws.com/&lt;bucket_name&gt;/&lt;file_path&gt;
-or:
-https://&lt;bucket_name&gt;.amazonaws.com/&lt;file_path&gt;
-Once you get the bucket name, you can execute many tests using awscli to check his permissions.
-If you try to access to a bucket who doesn&rsquo;t exist, you&rsquo;ll get this message:
-$ aws s3 ls s3://gwen001-azertyuiop  
-A client error (NoSuchBucket) occurred when calling the ListObjects operation: The specified bucket does not exist
-If you try to execute a command you are not allowed to, you&rsquo;ll then get something like this:
-$ aws s3 ls s3://gwen001-test000/
-A client error (AccessDenied) occurred when calling the ListObjects operation: Access Denied
-"/>
+<meta name="twitter:title" content="Playing with S3 buckets - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Amazon Simple Storage Service aka S3 is a cloud storage for the Internet. You first create a bucket and you can then upload any number of objects (photos, videos, documents etc.) to it. However if the …" />
+
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="Playing with S3 buckets" />
-<meta property="og:description" content="Amazon Simple Storage Service aka S3 is a cloud storage for the Internet.
-You first create a bucket and you can then upload any number of objects (photos, videos, documents etc.) to it.
-However if the permissions (ACL) are not well settled, bad things can happen.
-Recently disclosed by Hackerone, a misconfiguration in their Amazon Web Services S3 buckets allowed any authenticated user to write in there.
-From here an attacker could upload a malicious file waiting for someone open it, or overwrite existing files.
-When you crawl a website, you can you can check the presence of S3 by intercepting calls to amazonaws.com.
-The bucket call can have different look:
-https://&lt;aws_region&gt;.amazonaws.com/&lt;bucket_name&gt;/&lt;file_path&gt;
-or:
-https://&lt;bucket_name&gt;.amazonaws.com/&lt;file_path&gt;
-Once you get the bucket name, you can execute many tests using awscli to check his permissions.
-If you try to access to a bucket who doesn&rsquo;t exist, you&rsquo;ll get this message:
-$ aws s3 ls s3://gwen001-azertyuiop  
-A client error (NoSuchBucket) occurred when calling the ListObjects operation: The specified bucket does not exist
-If you try to execute a command you are not allowed to, you&rsquo;ll then get something like this:
-$ aws s3 ls s3://gwen001-test000/
-A client error (AccessDenied) occurred when calling the ListObjects operation: Access Denied
-" />
+    <meta property="og:title" content="Playing with S3 buckets - Gwendal Le Coguic" />
+<meta property="og:description" content="Amazon Simple Storage Service aka S3 is a cloud storage for the Internet. You first create a bucket and you can then upload any number of objects (photos, videos, documents etc.) to it. However if the …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/playing-with-s3-buckets/" />
 
@@ -62,11 +29,10 @@ A client error (AccessDenied) occurred when calling the ListObjects operation: A
 
 
     
-      <base href="https://glc.st/posts/playing-with-s3-buckets/">
+      <base href="https://glc.st/">
     
-    <title>
-    Playing with S3 buckets · Gwendal Le Coguic
-</title>
+
+    <title>Playing with S3 buckets - Gwendal Le Coguic</title>
 
     
         
@@ -99,26 +65,14 @@ A client error (AccessDenied) occurred when calling the ListObjects operation: A
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2016-04-15","datePublished":"2016-04-15","description":"","headline":"Playing with S3 buckets","inLanguage":"en","keywords":"aws, s3, bucket","mainEntityOfPage":{"@id":"https://glc.st/posts/playing-with-s3-buckets/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/playing-with-s3-buckets/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -228,15 +182,6 @@ A client error (AccessDenied) occurred when calling the ListObjects operation: A
                         2 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/aws/">aws</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/s3/">s3</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/bucket/">bucket</a></div>
-
             </div>
         </header>
 

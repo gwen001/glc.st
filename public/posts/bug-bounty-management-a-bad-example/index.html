@@ -6,31 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="As I lately released an article about a good bug bounty program example, I also wanted to write something about what kind of behaviours companies should avoid to keep the community motivated. In 2017, …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
-<meta name="twitter:title" content="Bug bounty management, a bad example"/>
-<meta name="twitter:description" content="As I lately released an article about a good bug bounty program example, I also wanted to write something about what kind of behaviours companies should avoid to keep the community motivated.
-In 2017, I worked on a great program, so great that I published an article about them called &ldquo;The Bug Bounty program that changed my life&rdquo;.
-Since I was very successful on that program, some weeks ago I decided to give another try.
-I quickly checked the policy on their Hackerone page and noticed some changes in the rules.
-I quickly reported some small bugs and also noticed some changes in the reports management process.
-Unfortunately all those changes now make the program terrible.
-Here is my analysis."/>
+<meta name="twitter:title" content="Bug bounty management, a bad example - Gwendal Le Coguic" />
+<meta name="twitter:description" content="As I lately released an article about a good bug bounty program example, I also wanted to write something about what kind of behaviours companies should avoid to keep the community motivated. In 2017, …" />
+
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="Bug bounty management, a bad example" />
-<meta property="og:description" content="As I lately released an article about a good bug bounty program example, I also wanted to write something about what kind of behaviours companies should avoid to keep the community motivated.
-In 2017, I worked on a great program, so great that I published an article about them called &ldquo;The Bug Bounty program that changed my life&rdquo;.
-Since I was very successful on that program, some weeks ago I decided to give another try.
-I quickly checked the policy on their Hackerone page and noticed some changes in the rules.
-I quickly reported some small bugs and also noticed some changes in the reports management process.
-Unfortunately all those changes now make the program terrible.
-Here is my analysis." />
+    <meta property="og:title" content="Bug bounty management, a bad example - Gwendal Le Coguic" />
+<meta property="og:description" content="As I lately released an article about a good bug bounty program example, I also wanted to write something about what kind of behaviours companies should avoid to keep the community motivated. In 2017, …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/bug-bounty-management-a-bad-example/" />
 
@@ -40,11 +29,10 @@ Here is my analysis." />
 
 
     
-      <base href="https://glc.st/posts/bug-bounty-management-a-bad-example/">
+      <base href="https://glc.st/">
     
-    <title>
-    Bug bounty management, a bad example · Gwendal Le Coguic
-</title>
+
+    <title>Bug bounty management, a bad example - Gwendal Le Coguic</title>
 
     
         
@@ -77,26 +65,14 @@ Here is my analysis." />
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2019-12-16","datePublished":"2019-12-16","description":"","headline":"Bug bounty management, a bad example","inLanguage":"en","keywords":"bug bounty, management","mainEntityOfPage":{"@id":"https://glc.st/posts/bug-bounty-management-a-bad-example/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/bug-bounty-management-a-bad-example/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -206,13 +182,6 @@ Here is my analysis." />
                         9 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/bug-bounty/">bug bounty</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/management/">management</a></div>
-
             </div>
         </header>
 

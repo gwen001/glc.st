@@ -6,41 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="In the second part of the first phase of a penetration test, active information gathering,it’s important to mapas accurate as possible the network of you target. To find live hosts there isa technique …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
-<meta name="twitter:title" content="Ping sweep"/>
-<meta name="twitter:description" content="In the second part of the first phase of a penetration test, active information gathering,it&rsquo;s important to mapas accurate as possible the network of you target.
-To find live hosts there isa technique called ping sweep.
-Different tools exist to perform that task.
-Ping
-A single ping can give you the ip address of the target, the ttl and the time. However since the methodis based on ICMP requests, the target could be configured to block or trash them&hellip; With a simple bash script, you can loop throught a range of ip address to test them all:
-#!/bin/bash
+<meta name="twitter:title" content="Ping sweep - Gwendal Le Coguic" />
+<meta name="twitter:description" content="In the second part of the first phase of a penetration test, active information gathering,it’s important to mapas accurate as possible the network of you target. To find live hosts there isa technique …" />
 
-for ip in $(seq 200 220); do
-  ping -c 1 192.168.11.$ip | grep &#34;bytes from&#34; | cut -d &#34; &#34; -f 4 | cut -d &#34;:&#34; -f1 &amp;
-done
-The -c option is configuredto only send 1 request. The grep is usedto display onlythe host who respond to the request (and supposed alive) and finally cut is used for a nice display. Notice the &amp; at the end of the line, it&rsquo;s very usefull pto paralellize tasks and make the script faster. Here is the result:
-"/>
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="Ping sweep" />
-<meta property="og:description" content="In the second part of the first phase of a penetration test, active information gathering,it&rsquo;s important to mapas accurate as possible the network of you target.
-To find live hosts there isa technique called ping sweep.
-Different tools exist to perform that task.
-Ping
-A single ping can give you the ip address of the target, the ttl and the time. However since the methodis based on ICMP requests, the target could be configured to block or trash them&hellip; With a simple bash script, you can loop throught a range of ip address to test them all:
-#!/bin/bash
-
-for ip in $(seq 200 220); do
-  ping -c 1 192.168.11.$ip | grep &#34;bytes from&#34; | cut -d &#34; &#34; -f 4 | cut -d &#34;:&#34; -f1 &amp;
-done
-The -c option is configuredto only send 1 request. The grep is usedto display onlythe host who respond to the request (and supposed alive) and finally cut is used for a nice display. Notice the &amp; at the end of the line, it&rsquo;s very usefull pto paralellize tasks and make the script faster. Here is the result:
-" />
+    <meta property="og:title" content="Ping sweep - Gwendal Le Coguic" />
+<meta property="og:description" content="In the second part of the first phase of a penetration test, active information gathering,it’s important to mapas accurate as possible the network of you target. To find live hosts there isa technique …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/ping-sweep/" />
 
@@ -50,11 +29,10 @@ The -c option is configuredto only send 1 request. The grep is usedto display on
 
 
     
-      <base href="https://glc.st/posts/ping-sweep/">
+      <base href="https://glc.st/">
     
-    <title>
-    Ping sweep · Gwendal Le Coguic
-</title>
+
+    <title>Ping sweep - Gwendal Le Coguic</title>
 
     
         
@@ -87,26 +65,14 @@ The -c option is configuredto only send 1 request. The grep is usedto display on
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2015-03-13","datePublished":"2015-03-13","description":"","headline":"Ping sweep","inLanguage":"en","keywords":"pentest, information gathering","mainEntityOfPage":{"@id":"https://glc.st/posts/ping-sweep/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/ping-sweep/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -216,13 +182,6 @@ The -c option is configuredto only send 1 request. The grep is usedto display on
                         2 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/pentest/">pentest</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/information-gathering/">information gathering</a></div>
-
             </div>
         </header>
 

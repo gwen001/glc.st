@@ -1,1 +1,1 @@
-Sitemap: https://blog.glc.st/sitemap.xml
+Sitemap: https://glc.st/sitemap.xml

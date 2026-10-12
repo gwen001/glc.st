@@ -6,11 +6,39 @@ images: [/assets/img/courses/hacking-websec.png]
 tags:
 - courses
 - cybersecurity
+workload: "P3D"
+description: "Intensive 3-day hands-on course for developers and sysadmins: find, exploit and fix the most common web application vulnerabilities with Burp Suite and SQLmap."
+prerequisites:
+  - "Basic knowledge of web development (HTML, CSS, JavaScript)"
+  - "Familiarity with web protocols (HTTP, HTTPS)"
+  - "Experience with command-line tools"
+audience:
+  - "Web developers"
+  - "System administrators"
+  - "Dev(Sec)Ops engineers"
+  - "Cybersecurity enthusiasts"
+teaches:
+  - "OWASP, CWE, CVE and CVSS"
+  - "HTTP protocol analysis with Burp Suite"
+  - "Disclosure of sensitive information"
+  - "Input validation"
+  - "Cross-Site Scripting (XSS)"
+  - "SQL injection (SQLi) and SQLmap"
+  - "Content Security Policy (CSP)"
+  - "Code and OS command injection"
+  - "Arbitrary file upload and path traversal"
+  - "Authentication and password security"
+  - "Cookie attributes and session hijacking"
+  - "Cross-Site Request Forgery (CSRF)"
+  - "Clickjacking"
+  - "Broken access control and IDOR"
+  - "Cross-Origin Resource Sharing (CORS)"
 ---
 
 This intensive 3-day training is designed for __developers__ and __system administrators__ aiming to enhance the security of their web applications.
 Combining __theoretical knowledge__ with __practical exercises__, the course covers __common vulnerabilities__, utilization of __essential tools__, __best practices__ in secure web development​.
-Participants will learn to __identify__, __exploit__, and __remediate__ security flaws, gaining hands-on experience to proactively defend against real-world threats.​<!--more-->
+Participants will learn to __identify__, __exploit__, and __remediate__ security flaws, gaining hands-on experience to proactively defend against real-world threats.
+​<!--more-->
 
 <br>
 <center>

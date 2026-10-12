@@ -6,35 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="While performing a pentest the information gathering phase is the most important, it’s the key of a successful test. The DNS is very great source of informations, whith some simple queries you will be …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
-<meta name="twitter:title" content="DNS enumeration with Host"/>
-<meta name="twitter:description" content="While performing a pentest the information gathering phase is the most important, it&rsquo;s the key of a successful test.
-The DNS is very great source of informations, whith some simple queries you will be able to grab usefull datas about the domain you are targeting.
-The host command is a very powerful DNS lookup utility which is present in all Linux distribution.
-For the examples, I will use a domain which allows that kind of query at this moment.
-Basic usage
-As the man says, host is normally used to convert names to IP addresses and vice versa:
+<meta name="twitter:title" content="DNS enumeration with Host - Gwendal Le Coguic" />
+<meta name="twitter:description" content="While performing a pentest the information gathering phase is the most important, it’s the key of a successful test. The DNS is very great source of informations, whith some simple queries you will be …" />
 
-If the domain doesn&rsquo;t exist, you will meet that message: Host pmolkijn.de not found: 3(NXDOMAIN)
-If the ip doesn&rsquo;t point anywhere, you will get this message: Host 91.121.139.2 not found: 3(NXDOMAIN)"/>
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="DNS enumeration with Host" />
-<meta property="og:description" content="While performing a pentest the information gathering phase is the most important, it&rsquo;s the key of a successful test.
-The DNS is very great source of informations, whith some simple queries you will be able to grab usefull datas about the domain you are targeting.
-The host command is a very powerful DNS lookup utility which is present in all Linux distribution.
-For the examples, I will use a domain which allows that kind of query at this moment.
-Basic usage
-As the man says, host is normally used to convert names to IP addresses and vice versa:
-
-If the domain doesn&rsquo;t exist, you will meet that message: Host pmolkijn.de not found: 3(NXDOMAIN)
-If the ip doesn&rsquo;t point anywhere, you will get this message: Host 91.121.139.2 not found: 3(NXDOMAIN)" />
+    <meta property="og:title" content="DNS enumeration with Host - Gwendal Le Coguic" />
+<meta property="og:description" content="While performing a pentest the information gathering phase is the most important, it’s the key of a successful test. The DNS is very great source of informations, whith some simple queries you will be …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/dns-enumeration-with-host/" />
 
@@ -44,11 +29,10 @@ If the ip doesn&rsquo;t point anywhere, you will get this message: Host 91.121.1
 
 
     
-      <base href="https://glc.st/posts/dns-enumeration-with-host/">
+      <base href="https://glc.st/">
     
-    <title>
-    DNS enumeration with Host · Gwendal Le Coguic
-</title>
+
+    <title>DNS enumeration with Host - Gwendal Le Coguic</title>
 
     
         
@@ -81,26 +65,14 @@ If the ip doesn&rsquo;t point anywhere, you will get this message: Host 91.121.1
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2015-02-27","datePublished":"2015-02-27","description":"","headline":"DNS enumeration with Host","inLanguage":"en","keywords":"pentest, information gathering, dns","mainEntityOfPage":{"@id":"https://glc.st/posts/dns-enumeration-with-host/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/dns-enumeration-with-host/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -210,15 +182,6 @@ If the ip doesn&rsquo;t point anywhere, you will get this message: Host 91.121.1
                         2 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/pentest/">pentest</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/information-gathering/">information gathering</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/dns/">dns</a></div>
-
             </div>
         </header>
 

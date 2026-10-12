@@ -1,3 +1,24 @@
+{{- $desc := "" -}}
+{{- with .Description -}}
+  {{- $desc = . -}}
+{{- else -}}
+  {{- if .IsPage -}}
+    {{- $desc = .Summary -}}
+  {{- else -}}
+    {{- $desc = site.Params.description -}}
+  {{- end -}}
+{{- end -}}
+{{- $desc = $desc | plainify | htmlUnescape | replaceRE `\s+` " " | replaceRE `^ | $` "" | truncate 200 -}}
+
+{{- $title := site.Params.titlelong -}}
+{{- if .Title -}}
+  {{- $title = .Title -}}
+  {{- with .Params.cve }}{{ $title = printf "%s - %s" . $title }}{{ end -}}
+  {{- $suffix := site.Params.titlelong -}}
+  {{- if .IsPage }}{{ $suffix = site.Params.title }}{{ end -}}
+  {{- $title = printf "%s - %s" $title $suffix -}}
+{{- end -}}
+
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
 
@@ -6,16 +27,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
-    {{ with .Site.Params.description }}<meta name="description" content="{{ . }}">{{ end }}
+    <meta name="description" content="{{ $desc }}" />
     {{ with .Site.Params.keywords }}<meta name="keywords" content="{{ . }}">{{ end }}
 
     {{ partial "twitter_cards.html" . }}
     {{ partial "opengraph.html" . }}
 
     {{ if .Permalink }}
-      <base href="{{ .Permalink }}">
+      <base href="{{ site.BaseURL }}">
     {{ end }}
-    <title>{{ block "title" . }}{{ .Site.Title }}{{ end }}</title>
+
+    <title>{{ $title }}</title>
 
     {{ if .Site.Params.link_canonical }}
         {{ if .Permalink }}
@@ -76,11 +98,12 @@
     {{ end -}}
 
     {{ hugo.Generator }}
+
+    {{ partial "schema.html" . }}
   </head>
 
   <body class="{{ if .Site.Params.rtl }}rtl{{ end }} {{ if .Site.Params.inverted }}inverted{{ end }}">
         <main class="wrapper">
-      {{ partial "google_translate.html" . }}
       {{ partial "header.html" . }}
 
       <div class="content">

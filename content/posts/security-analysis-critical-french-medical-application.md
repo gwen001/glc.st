@@ -6,7 +6,7 @@ tags:
 - pii
 - leak
 - git
-- sqli
+- sql injection
 - rce
 - file upload
 - php

@@ -6,7 +6,7 @@ tags:
 - tools
 - cybersecurity
 ---
-Below some of my projects I'm really proud of.
+Here are some of my projects I'm really proud of.
 Mainly developed to help me in bug hunting, you can find them all and much more on my [GitHub](https://github.com/gwen001) profile.
 Feel free to clone and update them as much as you want to fit your own needs.
 <!--more-->

@@ -6,31 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="Hackerone recently released a CTF created by Jobert Abma. Even if I didn’t complete the challenge, it was so exciting and I was so close from the solution that I wanted to share a writeup. Here is the …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
-<meta name="twitter:title" content="Fail at CTF h1-212 - The Evil Job"/>
-<meta name="twitter:description" content="Hackerone recently released a CTF created by Jobert Abma. Even if I didn&rsquo;t complete the challenge, it was so exciting and I was so close from the solution that I wanted to share a writeup.
-Here is the tweet that tiggered the war:
+<meta name="twitter:title" content="Fail at CTF h1-212 - The Evil Job - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Hackerone recently released a CTF created by Jobert Abma. Even if I didn’t complete the challenge, it was so exciting and I was so close from the solution that I wanted to share a writeup. Here is the …" />
 
-Hackers, hack your way to NYC this December for h1-212! An engineer of http://acme.org launched a new server for a new admin panel. He is completely confident that the server can’t be hacked, so he hid a flag. Details: https://www.hackerone.com/blog/hack-your-way-to-nyc-this-december-for-h1-212 …. #TogetherWeHitHarder
-And here is the full description:
-
-An engineer of acme.org launched a new server for a new admin panel at http://104.236.20.43/. He is completely confident that the server can’t be hacked. He added a tripwire that notifies him when the flag file is read. He also noticed that the default Apache page is still there, but according to him that’s intentional and doesn’t hurt anyone. Your goal? Read the flag!"/>
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="Fail at CTF h1-212 - The Evil Job" />
-<meta property="og:description" content="Hackerone recently released a CTF created by Jobert Abma. Even if I didn&rsquo;t complete the challenge, it was so exciting and I was so close from the solution that I wanted to share a writeup.
-Here is the tweet that tiggered the war:
-
-Hackers, hack your way to NYC this December for h1-212! An engineer of http://acme.org launched a new server for a new admin panel. He is completely confident that the server can’t be hacked, so he hid a flag. Details: https://www.hackerone.com/blog/hack-your-way-to-nyc-this-december-for-h1-212 …. #TogetherWeHitHarder
-And here is the full description:
-
-An engineer of acme.org launched a new server for a new admin panel at http://104.236.20.43/. He is completely confident that the server can’t be hacked. He added a tripwire that notifies him when the flag file is read. He also noticed that the default Apache page is still there, but according to him that’s intentional and doesn’t hurt anyone. Your goal? Read the flag!" />
+    <meta property="og:title" content="Fail at CTF h1-212 - The Evil Job - Gwendal Le Coguic" />
+<meta property="og:description" content="Hackerone recently released a CTF created by Jobert Abma. Even if I didn’t complete the challenge, it was so exciting and I was so close from the solution that I wanted to share a writeup. Here is the …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/fail-at-ctf-h1-212-the-evil-job/" />
 
@@ -40,11 +29,10 @@ An engineer of acme.org launched a new server for a new admin panel at http://10
 
 
     
-      <base href="https://glc.st/posts/fail-at-ctf-h1-212-the-evil-job/">
+      <base href="https://glc.st/">
     
-    <title>
-    Fail at CTF h1-212 - The Evil Job · Gwendal Le Coguic
-</title>
+
+    <title>Fail at CTF h1-212 - The Evil Job - Gwendal Le Coguic</title>
 
     
         
@@ -77,26 +65,14 @@ An engineer of acme.org launched a new server for a new admin panel at http://10
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2017-11-20","datePublished":"2017-11-20","description":"","headline":"Fail at CTF h1-212 - The Evil Job","inLanguage":"en","keywords":"ctf","mainEntityOfPage":{"@id":"https://glc.st/posts/fail-at-ctf-h1-212-the-evil-job/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/fail-at-ctf-h1-212-the-evil-job/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -206,11 +182,6 @@ An engineer of acme.org launched a new server for a new admin panel at http://10
                         10 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/ctf/">ctf</a></div>
-
             </div>
         </header>
 

@@ -6,29 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="A friend recently asked me what methods I use to find subdomains. To be honest I was confused, like “oooohhh so much, brute force mmm… zone transfer and… brute for… wait Google and mmm… many other …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/images/subdomain-enumeration-aquatone.jpg"/>
 
-<meta name="twitter:title" content="Subdomain enumeration"/>
-<meta name="twitter:description" content="A friend recently asked me what methods I use to find subdomains.
-To be honest I was confused, like &ldquo;oooohhh so much, brute force mmm&hellip; zone transfer and&hellip; brute for&hellip; wait Google and mmm&hellip; many other tools!&rdquo;
-What a shame that I was so inaccurate after so much time spent to look for subdomains.
-Time to dig a little bit!
-After I wrote a list of the most popular methods, I tried to make a list of some tools and online resources to exploit them.
-Of course this list is far from exhaustive, there are many new stuff every day, but it&rsquo;s still a good start :)"/>
+<meta name="twitter:title" content="Subdomain enumeration - Gwendal Le Coguic" />
+<meta name="twitter:description" content="A friend recently asked me what methods I use to find subdomains. To be honest I was confused, like “oooohhh so much, brute force mmm… zone transfer and… brute for… wait Google and mmm… many other …" />
+
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="Subdomain enumeration" />
-<meta property="og:description" content="A friend recently asked me what methods I use to find subdomains.
-To be honest I was confused, like &ldquo;oooohhh so much, brute force mmm&hellip; zone transfer and&hellip; brute for&hellip; wait Google and mmm&hellip; many other tools!&rdquo;
-What a shame that I was so inaccurate after so much time spent to look for subdomains.
-Time to dig a little bit!
-After I wrote a list of the most popular methods, I tried to make a list of some tools and online resources to exploit them.
-Of course this list is far from exhaustive, there are many new stuff every day, but it&rsquo;s still a good start :)" />
+    <meta property="og:title" content="Subdomain enumeration - Gwendal Le Coguic" />
+<meta property="og:description" content="A friend recently asked me what methods I use to find subdomains. To be honest I was confused, like “oooohhh so much, brute force mmm… zone transfer and… brute for… wait Google and mmm… many other …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/subdomain-enumeration/" />
 
@@ -38,11 +29,10 @@ Of course this list is far from exhaustive, there are many new stuff every day, 
 
 
     
-      <base href="https://glc.st/posts/subdomain-enumeration/">
+      <base href="https://glc.st/">
     
-    <title>
-    Subdomain enumeration · Gwendal Le Coguic
-</title>
+
+    <title>Subdomain enumeration - Gwendal Le Coguic</title>
 
     
         
@@ -75,26 +65,14 @@ Of course this list is far from exhaustive, there are many new stuff every day, 
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2018-04-21","datePublished":"2018-04-21","description":"","headline":"Subdomain enumeration","image":"https://glc.st/images/subdomain-enumeration-aquatone.jpg","inLanguage":"en","keywords":"recon, bug bounty, information gathering, tools, recon, subdomain takeover","mainEntityOfPage":{"@id":"https://glc.st/posts/subdomain-enumeration/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/subdomain-enumeration/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -204,21 +182,6 @@ Of course this list is far from exhaustive, there are many new stuff every day, 
                         3 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/recon/">recon</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/bug-bounty/">bug bounty</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/information-gathering/">information gathering</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/tools/">tools</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/recon/">recon</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/subdomain-takeover/">subdomain takeover</a></div>
-
             </div>
         </header>
 

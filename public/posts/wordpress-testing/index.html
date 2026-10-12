@@ -6,41 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="Here is the way I usually follow to test a Wordpress install. Information gathering Get basic informations with WPScan: wpscan -r --enumerate u --url http://www.example.com If it can’t retrieve the …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
-<meta name="twitter:title" content="Wordpress testing"/>
-<meta name="twitter:description" content="Here is the way I usually follow to test a Wordpress install.
-Information gathering
-Get basic informations with WPScan:
-wpscan -r --enumerate u --url http://www.example.com
-If it can&rsquo;t retrieve the user list, try to use provided script stop_user_enumeration_bypass.rb
-For each user found, try to brute with basic passwords:
-wpscan -r --url http://www.example.com --wordlist /Wordlists/Passwords/best1050.txt --username &lt;username&gt;
-If the version of Wordpress has been found, download it from the official archive directory:
-https://wordpress.org/download/release-archive/
-Open the tested website and take a look at the source to find those strings:
-wp-content/themes and wp-content/plugins
-This could reveal more themes/plugins."/>
+<meta name="twitter:title" content="Wordpress testing - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Here is the way I usually follow to test a Wordpress install. Information gathering Get basic informations with WPScan: wpscan -r --enumerate u --url http://www.example.com If it can’t retrieve the …" />
+
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="Wordpress testing" />
-<meta property="og:description" content="Here is the way I usually follow to test a Wordpress install.
-Information gathering
-Get basic informations with WPScan:
-wpscan -r --enumerate u --url http://www.example.com
-If it can&rsquo;t retrieve the user list, try to use provided script stop_user_enumeration_bypass.rb
-For each user found, try to brute with basic passwords:
-wpscan -r --url http://www.example.com --wordlist /Wordlists/Passwords/best1050.txt --username &lt;username&gt;
-If the version of Wordpress has been found, download it from the official archive directory:
-https://wordpress.org/download/release-archive/
-Open the tested website and take a look at the source to find those strings:
-wp-content/themes and wp-content/plugins
-This could reveal more themes/plugins." />
+    <meta property="og:title" content="Wordpress testing - Gwendal Le Coguic" />
+<meta property="og:description" content="Here is the way I usually follow to test a Wordpress install. Information gathering Get basic informations with WPScan: wpscan -r --enumerate u --url http://www.example.com If it can’t retrieve the …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/wordpress-testing/" />
 
@@ -50,11 +29,10 @@ This could reveal more themes/plugins." />
 
 
     
-      <base href="https://glc.st/posts/wordpress-testing/">
+      <base href="https://glc.st/">
     
-    <title>
-    Wordpress testing · Gwendal Le Coguic
-</title>
+
+    <title>Wordpress testing - Gwendal Le Coguic</title>
 
     
         
@@ -87,26 +65,14 @@ This could reveal more themes/plugins." />
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2017-09-12","datePublished":"2017-09-12","description":"","headline":"Wordpress testing","inLanguage":"en","keywords":"wordpress, upload, rce, sql injection","mainEntityOfPage":{"@id":"https://glc.st/posts/wordpress-testing/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/wordpress-testing/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -216,17 +182,6 @@ This could reveal more themes/plugins." />
                         3 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/wordpress/">wordpress</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/upload/">upload</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/rce/">rce</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/sql-injection/">sql injection</a></div>
-
             </div>
         </header>
 

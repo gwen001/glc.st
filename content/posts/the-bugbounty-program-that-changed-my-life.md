@@ -3,7 +3,7 @@ date: 2018-02-11
 title: The Bug Bounty program that changed my life
 images: [/images/pp-rce-1.png]
 tags:
-- sqli
+- sql injection
 - xss
 - subdomain
 - rce

@@ -6,39 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="Weevely is a PHP command line web shell usually used as a backdoor while performing the post exploitation phase of a penetration test. By default in Kali Linux, the installed version 1.1 isn’t …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
-<meta name="twitter:title" content="Weevely"/>
-<meta name="twitter:description" content="Weevely is a PHP command line web shell usually used as a backdoor while performing the post exploitation phase of a penetration test.
-By default in Kali Linux, the installed version 1.1 isn&rsquo;t supported anymore but version 3 is available on GitHub.
-Generate the backdoor:
-weevely generate.&lt;mode&gt; &lt;password&gt; &lt;path&gt;
-The password is optionnal but it&rsquo;s important to protect your customer from other users because an unwanted access can easily lead to a full access on the server with privileges escalation. There is three kinds of backdoor available but this functionnality seems to have been removed in version 3.
+<meta name="twitter:title" content="Weevely - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Weevely is a PHP command line web shell usually used as a backdoor while performing the post exploitation phase of a penetration test. By default in Kali Linux, the installed version 1.1 isn’t …" />
 
-htaccess: a single .htaccess file is created containing the malicious code and the right Apache directive so that all .htaccess files are considered as regular PHP script
-img: giving an existing image, Weevely will concatenate the binary datas and the malicious code, plus it also creates an .htaccess
-to tell Apache that the image should be considered as a regular PHP script (that means both files should be uploaded on the target server)
-php: this is the default, a single PHP script is generated
-"/>
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="Weevely" />
-<meta property="og:description" content="Weevely is a PHP command line web shell usually used as a backdoor while performing the post exploitation phase of a penetration test.
-By default in Kali Linux, the installed version 1.1 isn&rsquo;t supported anymore but version 3 is available on GitHub.
-Generate the backdoor:
-weevely generate.&lt;mode&gt; &lt;password&gt; &lt;path&gt;
-The password is optionnal but it&rsquo;s important to protect your customer from other users because an unwanted access can easily lead to a full access on the server with privileges escalation. There is three kinds of backdoor available but this functionnality seems to have been removed in version 3.
-
-htaccess: a single .htaccess file is created containing the malicious code and the right Apache directive so that all .htaccess files are considered as regular PHP script
-img: giving an existing image, Weevely will concatenate the binary datas and the malicious code, plus it also creates an .htaccess
-to tell Apache that the image should be considered as a regular PHP script (that means both files should be uploaded on the target server)
-php: this is the default, a single PHP script is generated
-" />
+    <meta property="og:title" content="Weevely - Gwendal Le Coguic" />
+<meta property="og:description" content="Weevely is a PHP command line web shell usually used as a backdoor while performing the post exploitation phase of a penetration test. By default in Kali Linux, the installed version 1.1 isn’t …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/weevely/" />
 
@@ -48,11 +29,10 @@ php: this is the default, a single PHP script is generated
 
 
     
-      <base href="https://glc.st/posts/weevely/">
+      <base href="https://glc.st/">
     
-    <title>
-    Weevely · Gwendal Le Coguic
-</title>
+
+    <title>Weevely - Gwendal Le Coguic</title>
 
     
         
@@ -85,26 +65,14 @@ php: this is the default, a single PHP script is generated
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2015-02-19","datePublished":"2015-02-19","description":"","headline":"Weevely","inLanguage":"en","keywords":"backdoor, remote command execution","mainEntityOfPage":{"@id":"https://glc.st/posts/weevely/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/weevely/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -214,13 +182,6 @@ php: this is the default, a single PHP script is generated
                         3 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/backdoor/">backdoor</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/remote-command-execution/">remote command execution</a></div>
-
             </div>
         </header>
 

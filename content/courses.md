@@ -2,7 +2,7 @@
 title: "Courses"
 date: 2025-04-22T18:05:10+01:00
 ---
-Welcome! I'm passionate about web security and ethical hacking - and I'm here to share that with you.
+Passionate about web security and ethical hacking - I'm here to share that with you.
 Whether you're just getting started or looking to <b>level up your skills</b>, my courses offer hands-on, <b>real-world training</b> to help you understand how websites are attacked and how to defend them. _Let's turn curiosity into capability._
 <!--more-->
 
@@ -88,11 +88,11 @@ Feel free to <a href="mailto:contact@glc.st" target="_blank">get in touch</a> if
 </div>
 
 <div class="course">
-    <a href="/courses/bugbounty-overview"><img src="/assets/img/courses/bugbounty.png" alt="Bug Bounty overview" /></a>
+    <a href="/courses/bugbounty-overview/"><img src="/assets/img/courses/bugbounty.png" alt="Bug Bounty overview" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">Bug Bounty overview</h2>
         A presentation for companies who want to know more about bug bounty to take the good descision: actors, programs, reports, rewards, rules, evolution, case studies...
-        <a href="/courses/bugbounty-overview">read the full program</a>
+        <a href="/courses/bugbounty-overview/">read the full program</a>
     </div>
     <div style="clear:both;"></div>
 </div>

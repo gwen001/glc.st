@@ -7,6 +7,34 @@ tags:
 - courses
 - cybersecurity
 - laravel
+workload: "P1D"
+description: "One-day Laravel security course for PHP developers: secure configuration, authentication and policies, mass assignment, SQLi, XSS, CSRF, CORS and file uploads."
+prerequisites:
+  - "Solid experience with PHP and the Laravel framework"
+  - "Understanding of web application security concepts"
+  - "Working knowledge of basic web vulnerabilities (XSS, CSRF, SQLi)"
+audience:
+  - "Laravel developers"
+  - "Security professionals"
+  - "Dev(Sec)Ops engineers"
+teaches:
+  - "Secure global configuration and APP_KEY management"
+  - "Input validation"
+  - "Logging and error handling"
+  - "Updates and backups"
+  - "Cookies, sessions and session fixation"
+  - "Data encryption and decryption"
+  - "Password validation and reset flows"
+  - "Laravel Passport and official auth packages"
+  - "Gates, policies, roles and permissions"
+  - "Rate limiting routes and actions"
+  - "Secure file uploads and storage"
+  - "Mass assignment"
+  - "Excessive data exposure"
+  - "SQL injection, prepared statements and parameter binding"
+  - "Cross-Site Scripting in Blade templates"
+  - "CSRF tokens and middleware"
+  - "CORS configuration"
 ---
 
 This one-day course is designed for __Laravel developers__ who want to build secure applications from the ground up. You’ll learn to __identify common vulnerabilities__, __apply Laravel’s built-in protections__, and __adopt best practices__ to secure __authentication__, __authorization__, __input validation__, and more.

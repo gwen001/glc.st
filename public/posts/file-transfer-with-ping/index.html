@@ -6,43 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="Introduction Anyone who ever deals with server managment knows the famous ping utility. Ping send ICMP request to a remote host, it’s commonly used to test if a server is alive or to know his ip …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
-<meta name="twitter:title" content="File transfer with ping"/>
-<meta name="twitter:description" content="Introduction
-Anyone who ever deals with server managment knows the famous ping utility.
-Ping send ICMP request to a remote host, it&rsquo;s commonly used to test if a server is alive or to know his ip address.
-However ping options allow us to customize this requests in some way, then it becomes possible to transfer any type of data.
-For the purpose I test my script with different media types like png or mp3 and it worked perfectly.
-The idea
-By default ping requests are formed with 98 bytes including 56 bytes of data and various headers.
-With the -p option, ping allows you to customize 16 of those 56 bytes:
+<meta name="twitter:title" content="File transfer with ping - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Introduction Anyone who ever deals with server managment knows the famous ping utility. Ping send ICMP request to a remote host, it’s commonly used to test if a server is alive or to know his ip …" />
 
-Here is the request catched with tcpdump on the remote host:
-
-As you can see the submitted string repeats again and again until the end of the data request.
-If you provide a string longer than 16 bytes it will be truncated. From here, we can convert any data to hexa and send it through ping request."/>
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="File transfer with ping" />
-<meta property="og:description" content="Introduction
-Anyone who ever deals with server managment knows the famous ping utility.
-Ping send ICMP request to a remote host, it&rsquo;s commonly used to test if a server is alive or to know his ip address.
-However ping options allow us to customize this requests in some way, then it becomes possible to transfer any type of data.
-For the purpose I test my script with different media types like png or mp3 and it worked perfectly.
-The idea
-By default ping requests are formed with 98 bytes including 56 bytes of data and various headers.
-With the -p option, ping allows you to customize 16 of those 56 bytes:
-
-Here is the request catched with tcpdump on the remote host:
-
-As you can see the submitted string repeats again and again until the end of the data request.
-If you provide a string longer than 16 bytes it will be truncated. From here, we can convert any data to hexa and send it through ping request." />
+    <meta property="og:title" content="File transfer with ping - Gwendal Le Coguic" />
+<meta property="og:description" content="Introduction Anyone who ever deals with server managment knows the famous ping utility. Ping send ICMP request to a remote host, it’s commonly used to test if a server is alive or to know his ip …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/file-transfer-with-ping/" />
 
@@ -52,11 +29,10 @@ If you provide a string longer than 16 bytes it will be truncated. From here, we
 
 
     
-      <base href="https://glc.st/posts/file-transfer-with-ping/">
+      <base href="https://glc.st/">
     
-    <title>
-    File transfer with ping · Gwendal Le Coguic
-</title>
+
+    <title>File transfer with ping - Gwendal Le Coguic</title>
 
     
         
@@ -89,26 +65,14 @@ If you provide a string longer than 16 bytes it will be truncated. From here, we
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2015-10-26","datePublished":"2015-10-26","description":"","headline":"File transfer with ping","inLanguage":"en","keywords":"ping, icmp, file transfer","mainEntityOfPage":{"@id":"https://glc.st/posts/file-transfer-with-ping/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/file-transfer-with-ping/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -218,15 +182,6 @@ If you provide a string longer than 16 bytes it will be truncated. From here, we
                         2 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/ping/">ping</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/icmp/">icmp</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/file-transfer/">file transfer</a></div>
-
             </div>
         </header>
 

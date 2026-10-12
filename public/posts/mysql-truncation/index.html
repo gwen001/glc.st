@@ -6,45 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="Description Here is a very interesting issue in MySQL database. SQL truncation occurs when you try to insert/update a field with a string which is longer than the maximum length defined in the table …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
-<meta name="twitter:title" content="MySQL Truncation"/>
-<meta name="twitter:description" content="Description
-Here is a very interesting issue in MySQL database.
-SQL truncation occurs when you try to insert/update a field with a string which is longer than the maximum length defined in the table structure.
-For instance if you defined a column name as a varchar(8) and you provide abracadabra wich is 11, MySQL will truncate the string to 8 and will insert abracada instead.
-No message, no warning, nothing at all. This flaw can lead to security issue in some case.
-Example
-First I create this small table:
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `login` varchar(8) NOT NULL,
-  `passwd` varchar(64) NOT NULL,
-  PRIMARY KEY (`id`)
-);
-"/>
+<meta name="twitter:title" content="MySQL Truncation - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Description Here is a very interesting issue in MySQL database. SQL truncation occurs when you try to insert/update a field with a string which is longer than the maximum length defined in the table …" />
+
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="MySQL Truncation" />
-<meta property="og:description" content="Description
-Here is a very interesting issue in MySQL database.
-SQL truncation occurs when you try to insert/update a field with a string which is longer than the maximum length defined in the table structure.
-For instance if you defined a column name as a varchar(8) and you provide abracadabra wich is 11, MySQL will truncate the string to 8 and will insert abracada instead.
-No message, no warning, nothing at all. This flaw can lead to security issue in some case.
-Example
-First I create this small table:
-CREATE TABLE IF NOT EXISTS `user` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `login` varchar(8) NOT NULL,
-  `passwd` varchar(64) NOT NULL,
-  PRIMARY KEY (`id`)
-);
-" />
+    <meta property="og:title" content="MySQL Truncation - Gwendal Le Coguic" />
+<meta property="og:description" content="Description Here is a very interesting issue in MySQL database. SQL truncation occurs when you try to insert/update a field with a string which is longer than the maximum length defined in the table …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/mysql-truncation/" />
 
@@ -54,11 +29,10 @@ CREATE TABLE IF NOT EXISTS `user` (
 
 
     
-      <base href="https://glc.st/posts/mysql-truncation/">
+      <base href="https://glc.st/">
     
-    <title>
-    MySQL Truncation · Gwendal Le Coguic
-</title>
+
+    <title>MySQL Truncation - Gwendal Le Coguic</title>
 
     
         
@@ -91,26 +65,14 @@ CREATE TABLE IF NOT EXISTS `user` (
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2015-01-28","datePublished":"2015-01-28","description":"","headline":"MySQL Truncation","inLanguage":"en","keywords":"mysql, bdd","mainEntityOfPage":{"@id":"https://glc.st/posts/mysql-truncation/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/mysql-truncation/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -220,13 +182,6 @@ CREATE TABLE IF NOT EXISTS `user` (
                         3 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/mysql/">mysql</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/bdd/">bdd</a></div>
-
             </div>
         </header>
 

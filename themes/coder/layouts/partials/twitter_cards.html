@@ -1,3 +1,24 @@
+{{- $desc := "" -}}
+{{- with .Description -}}
+  {{- $desc = . -}}
+{{- else -}}
+  {{- if .IsPage -}}
+    {{- $desc = .Summary -}}
+  {{- else -}}
+    {{- $desc = site.Params.description -}}
+  {{- end -}}
+{{- end -}}
+{{- $desc = $desc | plainify | htmlUnescape | replaceRE `\s+` " " | replaceRE `^ | $` "" | truncate 200 -}}
+
+{{- $title := site.Params.titlelong -}}
+{{- if .Title -}}
+  {{- $title = .Title -}}
+  {{- with .Params.cve }}{{ $title = printf "%s - %s" . $title }}{{ end -}}
+  {{- $suffix := site.Params.titlelong -}}
+  {{- if .IsPage }}{{ $suffix = site.Params.title }}{{ end -}}
+  {{- $title = printf "%s - %s" $title $suffix -}}
+{{- end -}}
+
 {{- with $.Params.images -}}
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="{{ index . 0 | absURL }}"/>
@@ -17,8 +38,9 @@
 {{- end -}}
 {{- end -}}
 {{- end }}
-<meta name="twitter:title" content="{{ if .Params.cve }}{{ .Params.cve }} · {{ end }}{{ .Title }}"/>
-<meta name="twitter:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end -}}"/>
+<meta name="twitter:title" content="{{ $title }}" />
+<meta name="twitter:description" content="{{ $desc }}" />
+
 {{ with .Site.Params.title -}}
 <meta name="twitter:site" content="@{{ . }}"/>
 {{ end -}}

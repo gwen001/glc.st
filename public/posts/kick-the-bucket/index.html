@@ -6,21 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="I already wrote a post about Amazon S3 buckets but they became so popular these last weeks that many people explain what is a bucket, what is the danger and how to exploit misconfiguration. My goal …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
-<meta name="twitter:title" content="Kick the bucket"/>
-<meta name="twitter:description" content="I already wrote a post about Amazon S3 buckets but they became so popular these last weeks  that many people explain what is a bucket, what is the danger and how to exploit misconfiguration. My goal here is more: how/where to find those vulnerable buckets.
-First I assume you already know the basics, if not, you can read the excellent article from Frans Rosen on Detectify."/>
+<meta name="twitter:title" content="Kick the bucket - Gwendal Le Coguic" />
+<meta name="twitter:description" content="I already wrote a post about Amazon S3 buckets but they became so popular these last weeks that many people explain what is a bucket, what is the danger and how to exploit misconfiguration. My goal …" />
+
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="Kick the bucket" />
-<meta property="og:description" content="I already wrote a post about Amazon S3 buckets but they became so popular these last weeks  that many people explain what is a bucket, what is the danger and how to exploit misconfiguration. My goal here is more: how/where to find those vulnerable buckets.
-First I assume you already know the basics, if not, you can read the excellent article from Frans Rosen on Detectify." />
+    <meta property="og:title" content="Kick the bucket - Gwendal Le Coguic" />
+<meta property="og:description" content="I already wrote a post about Amazon S3 buckets but they became so popular these last weeks that many people explain what is a bucket, what is the danger and how to exploit misconfiguration. My goal …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/kick-the-bucket/" />
 
@@ -30,11 +29,10 @@ First I assume you already know the basics, if not, you can read the excellent a
 
 
     
-      <base href="https://glc.st/posts/kick-the-bucket/">
+      <base href="https://glc.st/">
     
-    <title>
-    Kick the bucket · Gwendal Le Coguic
-</title>
+
+    <title>Kick the bucket - Gwendal Le Coguic</title>
 
     
         
@@ -67,26 +65,14 @@ First I assume you already know the basics, if not, you can read the excellent a
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2017-08-01","datePublished":"2017-08-01","description":"","headline":"Kick the bucket","inLanguage":"en","keywords":"aws, s3, bucket","mainEntityOfPage":{"@id":"https://glc.st/posts/kick-the-bucket/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/kick-the-bucket/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -196,15 +182,6 @@ First I assume you already know the basics, if not, you can read the excellent a
                         3 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/aws/">aws</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/s3/">s3</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/bucket/">bucket</a></div>
-
             </div>
         </header>
 

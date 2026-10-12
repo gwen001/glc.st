@@ -2,7 +2,8 @@ baseURL = "https://glc.st/"
 # baseURL = "http://glc.st.local.net/"
 googleAnalytics = "G-NRF716WMB7"
 languageCode = "en-us"
-title = "Gwendal Le Coguic"
+# title = "Gwendal Le Coguic origin"
+# title = "Gwendal Le Coguic | Independant cybersecurity expert: pentest, audits, courses, bug bounty 1111"
 theme = "coder"
 
 defaultcontentlanguage = "en"
@@ -18,8 +19,8 @@ pygmentsUseClassic = false
 
 disqusShortname = ""
 
-disableKinds = ['RSS']
-# disableKinds = ['RSS','sitemap','taxonomy','term']
+# disableKinds = ['RSS']
+disableKinds = ['RSS','taxonomy','term']
 
 [markup.goldmark.renderer]
 unsafe= true
@@ -28,17 +29,21 @@ unsafe= true
   tag = "tags"
 
 [params]
+#    lang = "en"
     author = "Gwendal Le Coguic"
     title = "Gwendal Le Coguic"
+    titlelong = "Gwendal Le Coguic | Independant cybersecurity expert:  pentest, audits, courses, bug bounty"
     twitter = "gwendallecoguic"
     info = "Independent cybersecurity expert"
-    # info = "Expert indépendant en cybersécurité"
-    description = "Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert"
-    keywords = "developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools"
+    # info = "Expert cybersécurité indépendant: pentest, audits, formations, bug bounty"
+    description = "Gwendal Le Coguic: developer, independent cybersecurity expert, trainer, bug hunter"
+    keywords = "developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools"
     avatarurl = "/assets/img/me.jpg"
 #    avatarurl = "/assets/img/avatar.jpg"
     images = ["/assets/img/header-background.jpg"]
     link_canonical = true
+    contact = "contact@glc.st"
+    contact_mailto = "mailto:contact@glc.st"
 
     favicon_256 = "/assets/img/favicon-256x256.png"
     favicon_128 = "/assets/img/favicon-128x128.png"

@@ -7,6 +7,29 @@ tags:
 - courses
 - database
 - sql
+workload: "P2D"
+description: "Hands-on 2-day SQL course for developers and analysts: relational design, normalization, joins, aggregation, subqueries, window functions and query optimization."
+prerequisites:
+  - "Basic understanding of data and how it is organized (spreadsheets, tables)"
+  - "Familiarity with fundamental programming or logic concepts (variables, conditions)"
+audience:
+  - "Developers"
+  - "Data analysts"
+  - "System administrators"
+teaches:
+  - "Relational model and database architecture"
+  - "ER diagrams and normalization"
+  - "CREATE TABLE and constraints (PRIMARY KEY, FOREIGN KEY)"
+  - "Data types and indexing"
+  - "Retrieving data with SELECT and filtering with WHERE"
+  - "Operators (AND, OR, LIKE, IN)"
+  - "Sorting results with ORDER BY"
+  - "INNER, LEFT, RIGHT and FULL JOIN"
+  - "Combining results with UNION and INTERSECT"
+  - "GROUP BY, HAVING and aggregate functions"
+  - "Subqueries with EXISTS and NOT EXISTS"
+  - "Window functions (OVER, PARTITION BY)"
+  - "Query optimization with indexing"
 ---
 
 This hands-on training is designed to give developers, analysts, and IT professionals a solid foundation in SQL. You'll learn how to __design databases__, __write efficient queries__, and __analyze data__ using real-world exercises and best practices. Whether you're just getting started or looking to deepen your skills, _this course will make you fluent in relational database querying_.

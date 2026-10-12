@@ -6,6 +6,29 @@ images: [/assets/img/courses/hacking-websec-advanced.png]
 tags:
 - courses
 - cybersecurity
+workload: "P2D"
+description: "Intensive 2-day advanced web security course: SSRF, XXE, prototype pollution, JWT flaws, dependency confusion and subdomain takeover, hands-on."
+prerequisites:
+  - "Basic knowledge of web development (HTML, CSS, JavaScript)"
+  - "Familiarity with web protocols (HTTP, HTTPS)"
+  - "Experience with command-line tools"
+  - "Working knowledge of basic web vulnerabilities (XSS, CSRF, SQLi)"
+audience:
+  - "Web developers"
+  - "System administrators"
+  - "Dev(Sec)Ops engineers"
+  - "Cybersecurity enthusiasts"
+teaches:
+  - "Carriage Return Line Feed injection (CRLF)"
+  - "Second-order vulnerabilities"
+  - "Prototype pollution"
+  - "postMessage security"
+  - "Server-Side Request Forgery (SSRF)"
+  - "Dependency confusion"
+  - "Subdomain takeover"
+  - "JSON Web Token (JWT) security"
+  - "XML External Entity injection (XXE)"
+  - "Email security"
 ---
 
 An intensive 2-day training designed for professionals with a solid foundation in web security.

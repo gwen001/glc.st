@@ -1,5 +1,26 @@
-<meta property="og:title" content="{{ if .Params.cve }}{{ .Params.cve }} · {{ end }}{{ .Title }}" />
-<meta property="og:description" content="{{ with .Description }}{{ . }}{{ else }}{{if .IsPage}}{{ .Summary }}{{ else }}{{ with .Site.Params.description }}{{ . }}{{ end }}{{ end }}{{ end }}" />
+{{- $desc := "" -}}
+{{- with .Description -}}
+  {{- $desc = . -}}
+{{- else -}}
+  {{- if .IsPage -}}
+    {{- $desc = .Summary -}}
+  {{- else -}}
+    {{- $desc = site.Params.description -}}
+  {{- end -}}
+{{- end -}}
+{{- $desc = $desc | plainify | htmlUnescape | replaceRE `\s+` " " | replaceRE `^ | $` "" | truncate 200 -}}
+
+{{- $title := site.Params.titlelong -}}
+{{- if .Title -}}
+  {{- $title = .Title -}}
+  {{- with .Params.cve }}{{ $title = printf "%s - %s" . $title }}{{ end -}}
+  {{- $suffix := site.Params.titlelong -}}
+  {{- if .IsPage }}{{ $suffix = site.Params.title }}{{ end -}}
+  {{- $title = printf "%s - %s" $title $suffix -}}
+{{- end -}}
+
+<meta property="og:title" content="{{ $title }}" />
+<meta property="og:description" content="{{ $desc }}" />
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 {{ with $.Param "images" }}{{ range first 6 . }}

@@ -6,6 +6,32 @@ images: [/assets/img/courses/sensibilisation-cybersec.png]
 tags:
 - courses
 - cybersecurity
+workload: "P1D"
+description: "One-day cybersecurity awareness session for all employees: phishing, ransomware, password hygiene, MFA, secure remote work, GDPR duties and incident reporting."
+prerequisites:
+  - "No prior technical knowledge required"
+audience:
+  - "Employees at all levels"
+  - "Managers and team leaders"
+  - "Human resources and administrative staff"
+  - "IT support and technical teams"
+  - "Remote workers"
+teaches:
+  - "Cybersecurity fundamentals and the human factor"
+  - "Organizational roles and shared responsibilities"
+  - "GDPR and regulatory obligations"
+  - "Current threat landscape and attack scenarios"
+  - "Phishing identification"
+  - "Ransomware"
+  - "Password hygiene"
+  - "Multi-factor authentication"
+  - "Email security"
+  - "Safe browsing and social media use"
+  - "Device security (computers, phones, USB drives)"
+  - "Secure remote work"
+  - "Data backup and software updates"
+  - "Detecting and reporting suspicious activity"
+  - "Incident response for end users"
 ---
 
 This one-day awareness course is designed for all __employees and collaborators__ who interact with digital tools in their daily work. The goal is to demystify cybersecurity, present the __major threats and risks__ facing organizations today, and empower participants with concrete, practical knowledge to reduce vulnerabilities. Through __clear explanations__, __real-world examples__, and __actionable advice__, this session helps create a culture of shared responsibility around information security.

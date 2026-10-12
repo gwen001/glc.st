@@ -6,53 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Gwendal Le Coguic, developer, bug hunter, independent cybersecurity expert">
-    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,bash,php,python,golang,offsectools">
+    <meta name="description" content="While performing a pentest, if you discover a server running the SMB protocol you can test if it’s vulnerable to anonymous connection (also called null session) and then glean a lot of informations …" />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools">
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
 
-<meta name="twitter:title" content="SMB null session"/>
-<meta name="twitter:description" content="While performing a pentest, if you discover a server running the SMB protocol 
-you can test if it&rsquo;s vulnerable to anonymous connection (also called null session) and then glean a lot of informations with
-a RPC client.
-Nmap is usefull to locate that kind of service:
+<meta name="twitter:title" content="SMB null session - Gwendal Le Coguic" />
+<meta name="twitter:description" content="While performing a pentest, if you discover a server running the SMB protocol you can test if it’s vulnerable to anonymous connection (also called null session) and then glean a lot of informations …" />
 
-Now you can try to interact with the remote machine with the help of rpcclient.
-To perform a null session you have to specify an empty user and an empty password.
-If the host is not vulnerable, you will get the following error:
-$ rpcclient -U &#34;&#34; 192.168.1.31
-Enter &#39;s password:
-could not initialise lsa pipe. Error was NT_STATUS_ACCESS_DENIED
-could not obtain sid for domain WORKGROUP
-error: NT_STATUS_ACCESS_DENIED
-But if the host is vulnerable you will immediatly get a prompt:
-$ rpcclient -U &#34;&#34; 192.168.1.18
-Enter &#39;s password:
-rpcclient $&gt;
-"/>
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="SMB null session" />
-<meta property="og:description" content="While performing a pentest, if you discover a server running the SMB protocol 
-you can test if it&rsquo;s vulnerable to anonymous connection (also called null session) and then glean a lot of informations with
-a RPC client.
-Nmap is usefull to locate that kind of service:
-
-Now you can try to interact with the remote machine with the help of rpcclient.
-To perform a null session you have to specify an empty user and an empty password.
-If the host is not vulnerable, you will get the following error:
-$ rpcclient -U &#34;&#34; 192.168.1.31
-Enter &#39;s password:
-could not initialise lsa pipe. Error was NT_STATUS_ACCESS_DENIED
-could not obtain sid for domain WORKGROUP
-error: NT_STATUS_ACCESS_DENIED
-But if the host is vulnerable you will immediatly get a prompt:
-$ rpcclient -U &#34;&#34; 192.168.1.18
-Enter &#39;s password:
-rpcclient $&gt;
-" />
+    <meta property="og:title" content="SMB null session - Gwendal Le Coguic" />
+<meta property="og:description" content="While performing a pentest, if you discover a server running the SMB protocol you can test if it’s vulnerable to anonymous connection (also called null session) and then glean a lot of informations …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/posts/smb-null-session/" />
 
@@ -62,11 +29,10 @@ rpcclient $&gt;
 
 
     
-      <base href="https://glc.st/posts/smb-null-session/">
+      <base href="https://glc.st/">
     
-    <title>
-    SMB null session · Gwendal Le Coguic
-</title>
+
+    <title>SMB null session - Gwendal Le Coguic</title>
 
     
         
@@ -99,26 +65,14 @@ rpcclient $&gt;
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
 
     <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2015-05-09","datePublished":"2015-05-09","description":"","headline":"SMB null session","inLanguage":"en","keywords":"smb, rpc","mainEntityOfPage":{"@id":"https://glc.st/posts/smb-null-session/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/smb-null-session/"}</script>
+
   </head>
 
   <body class=" ">
         <main class="wrapper">
-      <div id="google_translate_element"></div>
-
-<style>
- #google_translate_element {
-     
-    display: none;
- }
-  
-</style>
-<script type="text/javascript">
-    function googleTranslateElementInit() {
-        new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL}, 'google_translate_element');
-    }
-</script>
-<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
       <nav class="navigation d-print-none">
   <section class="container">
     <a class="navigation-title" href="https://glc.st/">
@@ -228,13 +182,6 @@ rpcclient $&gt;
                         2 minutes read
                     </span>
                 </div>
-                
-                <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://glc.st/tags/smb/">smb</a>
-      <span class="separator">•</span>
-    <a href="https://glc.st/tags/rpc/">rpc</a></div>
-
             </div>
         </header>
 
