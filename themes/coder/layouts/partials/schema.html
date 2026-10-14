@@ -54,7 +54,7 @@
       "name" .Title
       "description" (.Description | plainify)
       "url" .Permalink
-      "knowsLanguage" (slice "fr" "en")
+      "inLanguage" (slice "fr" "en")
       "provider" (dict "@type" "Person" "name" site.Params.author "url" site.BaseURL)
       "hasCourseInstance" (slice $instance)
   -}}
