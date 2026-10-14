@@ -43,7 +43,7 @@ This one-day course is designed for __Laravel developers__ who want to build sec
 <br>
 <center>
     <img src="/assets/img/courses/laravel.png" alt="Laravel security" width="500" />
-    <br /><a href="/assets/courses/SÉCURITÉ LARAVEL - EN.pdf" target="_blank">Download the program</a> (pdf)
+    <br /><a href="/assets/courses/LARAVEL SECURITY - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
 
