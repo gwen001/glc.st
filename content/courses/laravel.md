@@ -43,6 +43,7 @@ This one-day course is designed for __Laravel developers__ who want to build sec
 <br>
 <center>
     <img src="/assets/img/courses/laravel.png" alt="Laravel security" width="500" />
+    <br /><a href="/assets/courses/SÉCURITÉ LARAVEL - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
 
@@ -145,4 +146,5 @@ This one-day course is designed for __Laravel developers__ who want to build sec
 
 <br><br>
 
+---
 Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a> - quotes on request - SIRET 79778302400038

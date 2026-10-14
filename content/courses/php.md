@@ -44,6 +44,7 @@ This training is __ideal for novice developers__ seeking to create applications 
 <br>
 <center>
     <img src="/assets/img/courses/php.png" alt="Laravel security" width="500" />
+    <br /><a href="/assets/courses/PHP FOR BEGINNERS - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
 
@@ -147,4 +148,5 @@ This training is __ideal for novice developers__ seeking to create applications 
 
 <br><br>
 
+---
 Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a> - quotes on request - SIRET 79778302400038

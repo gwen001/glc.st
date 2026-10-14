@@ -38,6 +38,7 @@ It delves into advanced vulnerabilities and equips participants with the skills 
 <br>
 <center>
     <img src="/assets/img/courses/hacking-websec-advanced.png" alt="Advanced hacking & web application security" width="500" />
+    <br /><a href="/assets/courses/ADVANCED HACKING & WEB APPLICATION SECURITY - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
 
@@ -80,4 +81,5 @@ It delves into advanced vulnerabilities and equips participants with the skills 
 
 <br><br>
 
+---
 Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a> - quotes on request - SIRET 79778302400038

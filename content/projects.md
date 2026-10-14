@@ -35,8 +35,8 @@ Feel free to clone and update them as much as you want to fit your own needs.
 <div class="project">
     <a href="https://github.com/gwen001/github-search" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/github-regexp/master/preview.png" alt="github-regexp" /></a>
     <div class="descr">
-        <h2 style="margin-top:0;margin-bottom:10px;">github-*</h2>
-        A collection of scripts to find data on GitHub: secrets, subdomains, endpoints, employees...
+        <h2 style="margin-top:0;margin-bottom:10px;">github collection</h2>
+        A pool of scripts to find data on GitHub: secrets, subdomains, endpoints, employees...
         <a href="https://github.com/gwen001/github-search" target="_blank">link</a>
     </div>
     <div style="clear:both;"></div>

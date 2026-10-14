@@ -40,6 +40,7 @@ This one-day awareness course is designed for all __employees and collaborators_
 <br>
 <center>
     <img src="/assets/img/courses/sensibilisation-cybersec.png" alt="Laravel security" width="500" />
+    <br /><a href="/assets/courses/CYBERSECURITY AWARENESS - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
 
@@ -106,4 +107,5 @@ This one-day awareness course is designed for all __employees and collaborators_
 
 <br><br>
 
+---
 Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a> - quotes on request - SIRET 79778302400038

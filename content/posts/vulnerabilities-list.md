@@ -1,6 +1,6 @@
 ---
-date: 1970-01-01
 title: Vulnerabilities list
+date: 2011-12-01
 tags:
 - resources
 see_also:

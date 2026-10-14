@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Linux configuration and hardening audit against ANSSI-BP-028 and CIS benchmarks: exposure, accounts, services, logging, prioritised findings and retesting." />
+    <meta name="keywords" content="[configuration audit, Linux hardening audit, ANSSI BP-028, server hardening, independent cybersecurity expert]" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Linux configuration and hardening audit - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Linux configuration and hardening audit against ANSSI-BP-028 and CIS benchmarks: exposure, accounts, services, logging, prioritised findings and retesting." />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Linux configuration and hardening audit - Gwendal Le Coguic" />
+<meta property="og:description" content="Linux configuration and hardening audit against ANSSI-BP-028 and CIS benchmarks: exposure, accounts, services, logging, prioritised findings and retesting." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/linux-configuration-hardening-audit/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2026-10-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2026-10-13T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Linux configuration and hardening audit - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/linux-configuration-hardening-audit/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2026-10-13","datePublished":"2026-10-13","description":"Linux configuration and hardening audit against ANSSI-BP-028 and CIS benchmarks: exposure, accounts, services, logging, prioritised findings and retesting.","headline":"Linux configuration and hardening audit","inLanguage":"en","mainEntityOfPage":{"@id":"https://glc.st/linux-configuration-hardening-audit/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/linux-configuration-hardening-audit/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/courses/">Courses</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/clients/">Clients</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Linux configuration and hardening audit</h1>
+    </header>
+
+    <p>A <a href="https://glc.st/web-application-penetration-testing/">penetration test</a> finds the way in.
+A <a href="https://glc.st/source-code-security-audit/">code audit</a> finds why the way in exists. A configuration audit answers the question that follows both:
+<strong>once someone is on the machine, how far do they get?</strong></p>
+<p>That is a different question, and most organisations have never asked it.
+They have a server that works, which is not the same as a server built to contain a compromise.</p>
+<h2 id="why-now">Why now</h2>
+<p><strong>Exploitation of exposed systems is how breaches start.</strong>
+The Verizon <a href="https://www.verizon.com/business/resources/reports/dbir/">DBIR 2026</a>, built on more than 22,000 confirmed breaches across 145 countries,
+puts vulnerability exploitation at <strong>31%</strong> of initial access - now ahead of phishing (16%) and credential abuse (13%).
+In North America the figure reaches 44%. And the gap is widening: <strong>only 26% of critical vulnerabilities were fully remediated</strong> in 2025,
+against 38% the previous year, while the median time to full resolution rose from 32 to <strong>43 days</strong>.</p>
+<p><strong>Misconfiguration moved up the ranking.</strong>
+In the <a href="https://top10.owasp.org/2025/">OWASP Top 10:2025</a>, Security Misconfiguration is now <strong>A02</strong>, second overall.
+Not an exotic flaw class - the default that nobody changed.</p>
+<p><strong>The French picture is specific and unflattering.</strong>
+<a href="https://www.cert.ssi.gouv.fr/uploads/CERTFR-2026-CTI-002.pdf">ANSSI&rsquo;s Panorama de la cybermenace 2025</a> records <strong>1,366 confirmed incidents</strong>, flat against 2024.
+It describes edge equipment repeatedly compromised through its own vulnerabilities, and industrial control interfaces reachable from
+the internet <strong>with no authentication at all, or with default passwords still in place</strong>.
+Data exfiltration incidents went from 130 to <strong>196</strong> in a year.</p>
+<figure><img src="https://glc.st/assets/img/services/panorama-cybermenace-2025.png"
+    alt="Verizon bdir" width="500">
+</figure>
+
+<p>Put those together and the shape of the problem is clear.
+The entry point is usually an exposed service that was not patched or not meant to be exposed.
+What determines whether that becomes an incident or a catastrophe is everything behind it: privilege separation, service isolation, logging, segmentation.
+That is what a configuration audit measures.</p>
+<h2 id="when-to-run-one">When to run one</h2>
+<ul>
+<li><strong>Before putting a server into production</strong>: the cheapest possible moment, and the rarest in practice.</li>
+<li><strong>After a penetration test or a code audit</strong>: you know how someone gets in; now find out what they reach afterwards. This is the natural follow-on engagement.</li>
+<li><strong>After an incident</strong>: to verify that containment was real and that the attacker&rsquo;s path is actually closed, not just the entry point.</li>
+<li><strong>When inheriting infrastructure</strong>: the admin who built it has left, there is no documentation, and nobody is sure what is running or why.</li>
+<li><strong>During or after a migration</strong>: new distribution major version, move to cloud, containerisation. Hardening rarely survives a migration intact.</li>
+<li><strong>For a third-party requirement</strong>: enterprise security questionnaires, insurers, public-sector procurement, or NIS2 and DORA obligations for entities in scope.
+<a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679">GDPR article 32</a> already requires regularly testing the effectiveness of technical measures.</li>
+<li><strong>On a cycle, for drift</strong>: this is the one people underestimate. A server hardened eighteen months ago is not a hardened server.
+Packages get installed for a debugging session and stay, firewall rules get opened for a migration and are never closed, a contractor&rsquo;s SSH key is still authorised.
+Configuration drift is quiet and cumulative.</li>
+</ul>
+<h2 id="reference-frameworks">Reference frameworks</h2>
+<p>The audit is conducted against a named baseline, not against my personal taste.</p>
+<p><a href="https://cyber.gouv.fr/sites/default/files/document/linux_configuration-en-v2.pdf">ANSSI-BP-028 v2.0</a>,
+the French national cybersecurity agency&rsquo;s configuration recommendations for a GNU/Linux system,
+is the primary reference, and the one I applied for four years auditing systems for the Ministry of Armies.
+It defines four levels of hardening (minimal, intermediary, enhanced, high), and <strong>choosing the target level is part of the scoping conversation</strong>,
+not a default I impose. Auditing a public-facing marketing server against the &ldquo;high&rdquo; profile produces a hundred findings nobody will ever act on.</p>
+<p>Alongside it: <a href="https://www.cisecurity.org/cis-benchmarks">CIS Benchmarks</a> for distribution-specific and service-specific controls,
+and <strong>OpenSCAP</strong> with the <a href="https://www.open-scap.org/security-policies/scap-security-guide/">SCAP Security Guide</a>,
+which ships ready-made <code>anssi_bp28_*</code> profiles for the major distributions - convenient for producing a reproducible,
+formally scored baseline you can re-run yourself after I leave.</p>
+<h2 id="what-i-audit">What I audit</h2>
+<p><strong>System baseline</strong>: partitioning and mount options, installed package inventory against what is actually needed, enabled services,
+loadable kernel modules, kernel parameters, and mandatory access control (SELinux or AppArmor) status and policy.</p>
+<p><strong>Accounts and privileges</strong>: the sudo policy line by line, which is where I find the most serious issues most often: a single <code>NOPASSWD</code> rule
+on a binary with a shell escape undoes everything else on this list. Also password and authentication policy, PAM stack,
+SSH configuration and authorised key inventory, service accounts with shells they do not need.</p>
+<p><strong>Network exposure</strong>: what actually listens, on which interfaces, versus what you believe listens. Firewall rules and their ordering,
+remote access paths, brute-force mitigation, and the exposure of administration interfaces and databases.</p>
+<p><strong>Service hardening</strong>: dedicated unprivileged users, systemd sandboxing directives, web server and reverse proxy configuration,
+TLS configuration and certificate handling, database listeners and authentication.</p>
+<p><strong>Filesystem and integrity</strong>: permissions on sensitive paths, a SUID/SGID inventory with a judgement on each one, ACLs and sticky bits,
+immutable attributes, and file integrity monitoring.</p>
+<p><strong>Logging, audit and detection</strong>: whether anything is actually recorded, whether it is centralised somewhere an attacker cannot erase,
+kernel-level audit rules, retention, and whether anyone would notice. A log nobody reads is a compliance artefact, not a control.</p>
+<p><strong>Secrets and credentials on disk</strong>: environment files, configuration files, deployment scripts, cron jobs, shell history, backup archives.
+This overlaps with my <a href="https://glc.st/source-code-security-audit/">code audit</a> work, and it is consistently productive.</p>
+<p><strong>Containers and orchestration</strong>: image provenance and base image currency, privileged containers,
+mounted sockets, capabilities, resource limits, registry access.</p>
+<p><strong>Automation and backups</strong>: CI/CD runners and their credentials and network reach, backup integrity and restoration,
+and whether your backups are reachable from the machine they protect, which is the detail that turns a ransomware incident into a total loss.</p>
+<br>
+<blockquote>
+<p>Linux systems - Debian and Ubuntu, RHEL and derivatives - plus Docker and
+container configuration, and infrastructure as code (Ansible). <strong>Not Windows, not
+Active Directory.</strong> If your estate is Microsoft-centred, I will say so in the
+first exchange and point you to someone better placed.</p></blockquote>
+<h2 id="how-it-runs">How it runs</h2>
+<p><strong>1. Scoping</strong>: inventory of systems in scope, their roles, the target ANSSI level, access method,
+a maintenance window if any intrusive check is needed, and the signed audit agreement.</p>
+<p><strong>2. Collection</strong>: read-only data gathering, by SSH with an unprivileged account plus a precisely scoped sudo allowance,
+or from a configuration export if you prefer. Nothing is modified. I will tell you exactly which commands run before anything runs.</p>
+<p><strong>3. Automated baseline</strong>: Lynis and OpenSCAP and custom tools against the agreed profile, to get reproducible coverage and
+a score you can track over time. Output goes into triage, never straight into the report.</p>
+<p><strong>4. Manual review</strong>: the part that matters. Automated tools check whether a setting matches a value; they cannot tell you
+that this particular sudo rule, on this particular machine, given what this service does, is a path to root. That judgement is the deliverable.</p>
+<p><strong>5. Report and debrief</strong>: written deliverable.</p>
+<figure><img src="https://glc.st/assets/img/services/lynis.png"
+    alt="Lynis report" width="500">
+</figure>
+
+<h2 id="the-report">The report</h2>
+<ul>
+<li><strong>A one-page summary</strong> for management: current posture against the target level, the handful of things that genuinely matter,
+and an honest statement of what was and was not covered.</li>
+<li><strong>Findings by system</strong>, each with the exact setting or rule at fault, its location, the reference control (ANSSI-BP-028 rule identifier, CIS control),
+a contextualised severity, the concrete exploitation path where one exists, and the exact change to make.</li>
+<li><strong>Remediation ordered by impact against risk of breakage</strong>: because this is the specific trap of hardening work.
+A recommendation that breaks the application gets reverted on Monday and the server ends up less secure than before I came.
+Each item says what might break.</li>
+<li><strong>A re-runnable baseline</strong>: the OpenSCAP profile and scoring method, so you can measure your own drift at any point without calling me.</li>
+</ul>
+<br>
+<blockquote>
+<p>A publicly reachable admin login page is an informational finding, not a critical vulnerability.
+Inflating scores fills the report and empties its value: by the third audit where everything is &ldquo;high&rdquo;,
+nobody reads it any more, and the one genuinely critical finding drowns in the noise.
+Accept short reports when the application is in good shape.</p></blockquote>
+<h2 id="what-this-is-not">What this is not</h2>
+<ul>
+<li><strong>It is not a compliance certification.</strong> I produce an audit report against a published baseline.
+I am not an accredited certification body and this is not a PASSI-qualified engagement.
+If your requirement explicitly demands a qualified provider, you need one, and I will tell you so rather than let you discover it at the review meeting.</li>
+<li><strong>It is not a scanner report with a cover page.</strong> Automated tools are inputs. You can run them yourself for free, and you should.
+What you are buying is the triage and the exploitation judgement.</li>
+<li><strong>It is not maximum hardening.</strong> The target level is a decision based on what the system does and what it is worth.
+Hardening that breaks production is not hardening.</li>
+<li><strong>It is not a penetration test.</strong> This audit is conducted with legitimate access and full visibility.
+It tells you how deep a compromise would go, not whether someone can get in, that is the
+<a href="https://glc.st/web-application-penetration-testing/">pentest</a>.</li>
+<li><strong>It does not stay true.</strong> Recall the drift point above: this is a snapshot.</li>
+</ul>
+<h2 id="why-me">Why me</h2>
+<ul>
+<li><strong>Auditor for the French Ministry of Armies, 2020 to 2024</strong>: configuration audits of Linux systems against ANSSI recommendations,
+alongside penetration testing and code audits. Four years of applying this specific baseline to systems where the consequences of getting
+it wrong were not theoretical.</li>
+<li><strong>A sysadmin before being an auditor</strong>: I administered Linux servers for years before I started breaking them.
+I know what a recommendation costs to apply at 3am on a system with users on it.</li>
+<li><strong>Bug hunter since 2016</strong>: several hundred reports to programmes at EDF, Decathlon, Payfit, BlaBlaCar, Swisscom, Uber and others,
+including remote command execution and cloud account takeover obtained from exposed services and leaked credentials. Published <a href="https://glc.st/cves/">CVEs</a> under my own name.</li>
+<li><strong>Trainer since 2022</strong>: I teach <a href="https://glc.st/courses/linux-hardening/">Linux hardening</a> and <a href="https://glc.st/courses/introduction-to-bash-scripting/">Bash scripting</a>,
+which means your team gets explanations rather than a list of settings to copy.</li>
+</ul>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>How long does it take?</strong>
+Two to three days for a single server including the report. For a fleet, it depends on how homogeneous it is:
+ten identical web servers cost barely more than one, ten different roles cost close to ten times as much.
+I will tell you which situation you are in after a look at the inventory.</p>
+<p><strong>What does it cost?</strong>
+Quote on request, fixed price. The drivers: number of distinct system roles, target ANSSI level, whether retesting is included.</p>
+<p><strong>What access do you need?</strong>
+SSH with an unprivileged account and a scoped sudo allowance for read-only collection.
+No configuration change, no software installed without your explicit agreement.
+I will send you the exact command list in advance for review.</p>
+<p><strong>Can it disrupt production?</strong>
+Collection is read-only and safe. The only step carrying any risk is the demonstration of an exploitable finding,
+which happens only with your written agreement, in a window you choose, and on a clone whenever one exists.</p>
+<p><strong>We already run Lynis and our score is good. What do you add?</strong>
+Judgement, and the things a score cannot see. A hardening index measures conformity to a checklist; it does not know that your deployment user
+can write to a directory that a root cron job executes. Most of the serious findings I report are compositions of individually acceptable settings.</p>
+<p><strong>Can you apply the fixes rather than just report them?</strong>
+I deliver the priority findings and I can walk your team through applying them. I do not take over the
+remediation of production systems I do not operate, that needs someone who will still be there next month.</p>
+<p><strong>What if everything is already in good shape?</strong>
+You get a short report that says so, with the detail that makes it defensible in front of a customer or an auditor,
+plus the baseline to track drift. It happens, and it is a good outcome.</p>
+<h2 id="lets-talk">Let&rsquo;s talk</h2>
+<p>Tell me how many systems, what they run, which distributions, and what is prompting the question.
+I will reply with a proposed scope, a target level and a price range.</p>
+<p><br><br></p>
+<hr>
+<p>Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank"><a href="mailto:contact@glc.st">contact@glc.st</a></a> - quotes on request - SIRET 79778302400038</p>
+<style>
+    .content figure {
+        border: 0px solid #000;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        padding: 0px;
+        text-align: center;
+    }
+
+    blockquote {
+        font-size: 0.9em;
+        text-align: justify;
+        background-color: #fef6e1;
+        border: 1px solid #f9b915;
+        font-style: normal;
+        padding: 2rem;
+    }
+    blockquote p {
+        margin: 1.0rem 0 1.0rem 0;
+    }
+</style>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

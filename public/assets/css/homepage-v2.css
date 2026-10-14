@@ -1566,3 +1566,14 @@ ul.icons a:hover {
   padding-left: 2rem;
   padding-right: 2rem;
 }
+
+a.highlight {
+    color: #1EC8BB;
+    font-weight: normal;
+    text-decoration: none !important;
+}
+a.highlight:hover {
+    color: #1EC8BB;
+    font-weight: normal;
+    text-decoration: underline !important;
+}

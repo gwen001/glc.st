@@ -43,7 +43,9 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 <br>
 <center>
     <img src="/assets/img/courses/hacking-websec.png" alt="Hacking & web application security" width="500" />
+    <br /><a href="/assets/courses/HACKING & WEB APPLICATION SECURITY - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
+
 
 
 ## Targeted audience:
@@ -191,4 +193,5 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 
 <br><br>
 
+---
 Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a> - quotes on request - SIRET 79778302400038

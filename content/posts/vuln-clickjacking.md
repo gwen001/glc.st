@@ -1,6 +1,6 @@
 ---
 title: Vulnerability - Clickjacking
-date: 1970-01-01
+date: 2011-11-01
 tags:
 - clickjacking
 - resources

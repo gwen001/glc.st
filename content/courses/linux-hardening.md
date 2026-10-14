@@ -41,6 +41,7 @@ Through hands‑on exercises, you’ll apply real‑world hardening techniques u
 <br>
 <center>
     <img src="/assets/img/courses/linux-hardening.png" alt="Laravel security" width="500" />
+    <br /><a href="/assets/courses/LINUX HARDENING - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
 
@@ -119,4 +120,5 @@ Through hands‑on exercises, you’ll apply real‑world hardening techniques u
 
 <br><br>
 
+---
 Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a> - quotes on request - SIRET 79778302400038

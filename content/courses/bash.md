@@ -42,6 +42,7 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
 <br>
 <center>
     <img src="/assets/img/courses/bash.png" alt="Laravel security" width="500" />
+    <br /><a href="/assets/courses/INTRODUCTION TO BASH SCRIPTING - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
 
@@ -148,4 +149,5 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
 
 <br><br>
 
+---
 Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a> - quotes on request - SIRET 79778302400038

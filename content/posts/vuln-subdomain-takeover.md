@@ -1,6 +1,6 @@
 ---
 title: Vulnerability - Subdomain takeover
-date: 1970-01-01
+date: 2011-05-01
 tags:
 - sql injection
 - resources

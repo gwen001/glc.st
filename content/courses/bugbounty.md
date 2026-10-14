@@ -36,6 +36,7 @@ This half-a-day course offers a complete introduction to the world of bug bounty
 <br>
 <center>
     <img src="/assets/img/courses/bugbounty.png" alt="Laravel security" width="500" />
+    <br /><a href="/assets/courses/BUG BOUNTY OVERVIEW - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
 
@@ -95,4 +96,5 @@ This half-a-day course offers a complete introduction to the world of bug bounty
 
 <br><br>
 
+---
 Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a> - quotes on request - SIRET 79778302400038

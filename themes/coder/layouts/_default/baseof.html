@@ -19,6 +19,12 @@
   {{- $title = printf "%s - %s" $title $suffix -}}
 {{- end -}}
 
+{{- $keywords := site.Params.keywords -}}
+{{- if .Keywords -}}
+  {{- $keywords = .Keywords -}}
+{{- end -}}
+
+
 <!DOCTYPE html>
 <html lang="{{ .Site.Language.Lang }}">
 
@@ -28,7 +34,7 @@
 
     {{ with .Site.Params.author }}<meta name="author" content="{{ . }}">{{ end }}
     <meta name="description" content="{{ $desc }}" />
-    {{ with .Site.Params.keywords }}<meta name="keywords" content="{{ . }}">{{ end }}
+    <meta name="keywords" content="{{ $keywords }}" />
 
     {{ partial "twitter_cards.html" . }}
     {{ partial "opengraph.html" . }}

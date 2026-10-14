@@ -1,6 +1,6 @@
 ---
-date: 1990-01-01
 title: Resources
+date: 2013-12-01
 tags:
 - bug bounty
 - pentest

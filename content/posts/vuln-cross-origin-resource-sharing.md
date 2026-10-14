@@ -1,6 +1,6 @@
 ---
 title: Vulnerability - Cross Origin Resource Sharing aka CORS
-date: 1970-01-01
+date: 2011-10-01
 tags:
 - cors
 - resources

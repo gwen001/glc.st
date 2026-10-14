@@ -1,6 +1,6 @@
 ---
 title: Vulnerability - Cross Site Scripting aka XSS
-date: 1970-01-01
+date: 2011-08-01
 tags:
 - xss
 - resources

@@ -15,7 +15,7 @@ Each course focuses on <b>practical demonstrations</b>, <b>interactive exercises
     <li><b>indidividually</b> or in <b>groups</b></li>
 </ul>
 
-Feel free to <a href="mailto:contact@glc.st" target="_blank">get in touch</a> if you have any question.
+Feel free to <a href="mailto:contact@glc.st" target="_blank">get in touch</a> if you have any question or <a href="/assets/courses/Gwendal Le Coguic Formations EN.pdf" target="_blank">download all programs</a> (pdf).
 
 <div class="course">
     <a href="/courses/hacking-and-web-application-security/"><img src="/assets/img/courses/hacking-websec.png" alt="Hacking & web application security"/></a>
@@ -116,6 +116,11 @@ Feel free to <a href="mailto:contact@glc.st" target="_blank">get in touch</a> if
     </div>
     <div style="clear:both;"></div>
 </div>
+
+<br><br>
+
+---
+Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a> - quotes on request - SIRET 79778302400038
 
 <style>
     .course {

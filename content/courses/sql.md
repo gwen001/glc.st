@@ -38,6 +38,7 @@ This hands-on training is designed to give developers, analysts, and IT professi
 <br>
 <center>
     <img src="/assets/img/courses/sql.png" alt="The basics of SQL" width="500" />
+    <br /><a href="/assets/courses/THE BASICS OF SQL - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
 
@@ -97,4 +98,5 @@ This hands-on training is designed to give developers, analysts, and IT professi
 
 <br><br>
 
+---
 Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a> - quotes on request - SIRET 79778302400038

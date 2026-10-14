@@ -1,6 +1,6 @@
 ---
 title: Vulnerability - SQL Injection aka SQLi
-date: 1970-01-01
+date: 2011-06-01
 tags:
 - sql injection
 - resources

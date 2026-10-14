@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Source code security audit by an independent expert: manual review, dependency and secrets analysis, prioritised findings and retesting. Quote on request." />
+    <meta name="keywords" content="[source code security audit, secure code review, code audit, independent cybersecurity expert]" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Source code security audit - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Source code security audit by an independent expert: manual review, dependency and secrets analysis, prioritised findings and retesting. Quote on request." />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Source code security audit - Gwendal Le Coguic" />
+<meta property="og:description" content="Source code security audit by an independent expert: manual review, dependency and secrets analysis, prioritised findings and retesting. Quote on request." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/source-code-security-audit/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2026-10-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2026-10-13T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Source code security audit - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/source-code-security-audit/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.147.0">
+
+    
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2026-10-13","datePublished":"2026-10-13","description":"Source code security audit by an independent expert: manual review, dependency and secrets analysis, prioritised findings and retesting. Quote on request.","headline":"Source code security audit","inLanguage":"en","mainEntityOfPage":{"@id":"https://glc.st/source-code-security-audit/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/source-code-security-audit/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/courses/">Courses</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/clients/">Clients</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Source code security audit</h1>
+    </header>
+
+    <p>A <a href="https://glc.st/web-application-penetration-testing/">penetration test</a> tells you what an attacker can reach today.
+A source code audit tells you what is fragile underneath - including the parts that are not reachable yet, but will be after the next release.</p>
+<p>The two answer different questions. This page is about the second one: <strong>where does this codebase break, and why does it keep breaking the same way?</strong></p>
+<h2 id="why-now">Why now</h2>
+<p>Three numbers frame the problem.</p>
+<p><strong>Your code is mostly other people&rsquo;s code.</strong>
+The <a href="https://www.blackduck.com/resources/analyst-reports/open-source-security-risk-analysis.html">2026 Open Source Security and Risk Analysis Report</a>,
+built on 947 audited codebases between November 2024 and October 2025, found open source components in <strong>98%</strong> of them.
+<strong>87%</strong> contained known open source vulnerabilities, <strong>78%</strong> at high risk and <strong>44%</strong> at critical risk.
+The mean number of vulnerabilities per codebase reached <strong>581, up from 280 a year earlier</strong> - a 107% jump.
+And <strong>93%</strong> of codebases carried components with no development activity in over two years: not vulnerable yet, simply unmaintained,
+which is the same problem with a delay.</p>
+<figure><img src="https://glc.st/assets/img/services/2026-open-source-security-and-risk-analysis-report.png"
+    alt="Verizon bdir" width="500">
+</figure>
+
+<p><strong>Flaws are not being fixed.</strong>
+Veracode&rsquo;s <a href="https://www.veracode.com/resources/analyst-reports/state-of-software-security-2026/">2026 State of Software Security</a>
+puts security debt - flaws left unresolved more than a year after discovery - at <strong>82% of organisations</strong>, up from 74% the year before and 71% in 2024.
+Critical security debt now affects <strong>60%</strong>, against 50% last year. High-risk flaws are up 36% year over year. The problem is no longer detection; it is prioritisation.</p>
+<p><strong>Secrets leak from the inside.</strong>
+<a href="https://www.gitguardian.com/state-of-secrets-sprawl-report-2026">GitGuardian&rsquo;s 2026 report</a>
+counted around <strong>29 million secrets</strong> detected on public GitHub in 2025, a 34% increase.
+More to the point for an audit: <strong>internal repositories are roughly six times more likely to contain hardcoded secrets than public ones</strong>,
+and <strong>64% of valid secrets leaked in 2022 were still not revoked in 2026</strong>.
+The same report measured AI-assisted commits leaking secrets at <strong>3.2% against a 1.5% baseline</strong>, twice the rate.</p>
+<p>That last figure matters if your team has adopted AI coding assistants in the past two years. Volume went up; review did not.</p>
+<h2 id="when-to-run-a-code-audit">When to run a code audit</h2>
+<ul>
+<li><strong>Before a security-sensitive release</strong>: a payment flow, an authentication rewrite, a multi-tenant feature, an API opened to partners.</li>
+<li><strong>Technical due diligence</strong>: you are acquiring, investing in, or inheriting a codebase and need to know what you are signing for,
+including licence exposure. 68% of audited codebases had licence conflicts in the OSSRA 2026 dataset, the highest rate it has ever recorded.</li>
+<li><strong>Taking over a legacy codebase</strong>: new CTO, new team, outsourced development brought back in house, original authors gone.</li>
+<li><strong>After a penetration test</strong>: when a finding&rsquo;s root cause is unclear, or when you want to know whether the same mistake
+exists in the twelve places the test did not reach.</li>
+<li><strong>Because development got faster</strong>: heavy AI assistance, a sharp increase in merged pull requests, or a review process that quietly stopped happening.</li>
+<li><strong>For an obligation</strong>: <a href="https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX%3A32016R0679">GDPR article 32</a>
+requires regularly testing the effectiveness of technical measures;
+NIS2 and DORA reinforce that for entities in scope; enterprise customers increasingly ask for an SBOM and a code review attestation.</li>
+</ul>
+<h2 id="what-i-review">What I review</h2>
+<p><strong>Authentication and authorisation logic.</strong> Not whether a login exists, but whether every path that should check a permission actually does.
+Missing checks cluster on the routes nobody demonstrates: admin endpoints, internal APIs, queue workers, scheduled jobs, export and import features.
+This is still OWASP&rsquo;s A01 category in the <a href="https://top10.owasp.org/2025/">Top 10:2025</a> and it remains the richest vein in real codebases.</p>
+<p><strong>Input handling and injection sinks.</strong> Tracing untrusted data from entry point to sink, rather than pattern-matching on function names:
+SQL and NoSQL queries built by concatenation, command execution, template rendering, deserialisation, dynamic includes.</p>
+<p><strong>Cryptography and secrets handling.</strong> Password storage, token generation and entropy, encryption key management,
+signature verification that returns early, JWT validation that trusts the algorithm header.</p>
+<p><strong>File handling.</strong> Upload validation, storage location and permissions, how uploaded files are served back, path construction.</p>
+<p><strong>Business logic.</strong> Step sequences that can be skipped or replayed, quantity and amount handling, state machines with unreachable guards,
+race conditions on shared resources. No tool finds these, and they are often the most expensive flaws in the codebase.</p>
+<p><strong>Dependencies and supply chain.</strong> Direct and transitive components, known vulnerabilities, unmaintained packages, lockfile integrity, build-time substitution risk.
+OWASP moved software supply chain failures to A03 in the 2025 Top 10, and the <a href="https://www.verizon.com/business/resources/reports/dbir/">DBIR 2026</a>
+found third-party involvement in 48% of breaches, a 60% increase year over year.</p>
+<p><strong>Secrets, including in git history.</strong> A secret removed from the working tree is still in the history, still valid, and still indexable.
+I check both. I have written and published the <a href="https://glc.st/projects/">tooling</a> for this side of the work, and found live cloud
+credentials in client repositories more than once.</p>
+<p><strong>Configuration and infrastructure as code.</strong> Dockerfiles, CI/CD pipeline definitions, Ansible playbooks, environment handling.
+Pipelines with write access to production are a target, and they are rarely reviewed.</p>
+<br>
+<blockquote>
+<p>PHP and Laravel in depth, JavaScript and TypeScript (Node), Python, Bash, SQL, and
+infrastructure as code (Docker, Ansible). For a codebase dominated by Java, .NET, Go or Rust,
+I will tell you up front and point you to someone better placed - a shallow review in a language
+I do not live in is worth less than no review.</p></blockquote>
+<h2 id="how-it-runs">How it runs</h2>
+<p><strong>1. Scoping</strong> - repositories in scope, languages, approximate size, branch or tag to audit, access method (a read-only deploy key is preferred,
+no copy leaves my encrypted workstation), non-disclosure agreement, and a named technical contact for questions.</p>
+<p><strong>2. Architecture pass</strong> - entry points, trust boundaries, data flows, the authorisation model as it is actually implemented rather than as documented.
+This phase decides where the remaining time is spent, which is why it comes before any tooling.</p>
+<p><strong>3. Automated coverage net</strong> - static analysis, dependency scanning and secret detection, run to make sure nothing obvious is missed.
+Output goes into triage, never into the report as-is. A tool&rsquo;s finding is a lead, not a conclusion.</p>
+<p><strong>4. Manual review of critical paths</strong> - the core of the engagement, guided by the
+<a href="https://owasp.org/www-project-code-review-guide/">OWASP Code Review Guide</a> for method,
+<a href="https://owasp.org/www-project-application-security-verification-standard/">OWASP ASVS</a> for the level of rigour,
+and the <a href="https://cwe.mitre.org/top25/">CWE Top 25</a> and OWASP Top 10:2025 for coverage of weakness classes.</p>
+<p><strong>5. Verification</strong> - for each serious finding, a working proof on a local instance where possible. I would rather hand you one demonstrated flaw than five theoretical ones.</p>
+<p><strong>6. Report and debrief</strong> - written deliverable, then a working session with the developers, in French or English.</p>
+<h2 id="the-report">The report</h2>
+<ul>
+<li><strong>A one-page summary</strong> for management: what was reviewed, what the real risks are, what to fix first, and an honest statement of coverage limits.</li>
+<li><strong>Each finding</strong> with its location (file and line, commit reference), the CWE class, a severity contextualised to your application,
+the attack scenario, and a concrete remediation - in your language and your framework, not a link to a generic article.</li>
+<li><strong>Recurring patterns</strong>, which is where a code audit earns its price. One missing authorisation check is a bug; the same omission
+in fourteen controllers is a design problem, and the recommendation is different.</li>
+<li><strong>A dependency inventory</strong> with what to upgrade, in what order, and what breaks when you do.</li>
+<li><strong>Secrets found</strong>, with an urgent revocation list separated from the rest. That section goes to you by encrypted channel before
+the report is finished if anything live turns up.</li>
+</ul>
+<br>
+<blockquote>
+<p>A publicly reachable admin login page is an informational finding, not a critical vulnerability.
+Inflating scores fills the report and empties its value: by the third audit where
+everything is &ldquo;high&rdquo;, nobody reads it any more, and the one genuinely critical
+finding drowns in the noise. Accept short reports when the application is in good shape.</p></blockquote>
+<h2 id="what-a-code-audit-is-not">What a code audit is not</h2>
+<ul>
+<li><strong>It is not a scanner report with a cover page.</strong> If you wanted SAST output you can run it yourself for less than my day rate. What I sell is the triage.</li>
+<li><strong>It is not exhaustive.</strong> A bounded budget over a codebase of any real size means prioritised coverage.
+The report states explicitly what was reviewed in depth, what was reviewed superficially, and what was not opened at all.</li>
+<li><strong>It is not a replacement for a penetration test.</strong> Code review misses deployment and configuration reality -
+the staging database reachable from the internet, the forgotten subdomain. The <a href="https://glc.st/web-application-penetration-testing/">pentest</a> misses
+what the code does on paths it never walks. Run both, in that order of preference depending on which question is keeping you awake.</li>
+<li><strong>It is not a code quality review.</strong> I will not reformat your code or argue about architecture, except where the architecture <em>is</em> the vulnerability.</li>
+<li><strong>It fixes nothing by itself.</strong> Recall the 82% security debt figure above: the bottleneck is not finding flaws, it is acting on them.</li>
+</ul>
+<h2 id="why-me">Why me</h2>
+<ul>
+<li><strong>Auditor for the French Ministry of Armies, 2020 to 2024</strong>: code audits, configuration audits against ANSSI recommendations,
+and penetration testing on Linux systems and web applications.</li>
+<li><strong>A developer for about 25 years before that</strong>, across several French web companies. I read your code without a translator,
+and my recommendations take into account what they cost to implement, which is the part most security reports get wrong.</li>
+<li><strong>Bug hunter since 2016</strong>: several hundred reports to programmes at EDF, Decathlon, Payfit, BlaBlaCar, Uber, Yahoo, Zillow and others,
+including cloud secret leaks and source code exposure. Published <a href="https://glc.st/cves/">CVEs</a> under my own name, most of them found by reading code.</li>
+<li><strong>Author of the tooling</strong>: I wrote and published the <a href="https://glc.st/projects/">scripts and extensions</a> I use to hunt secrets, endpoints and exposed repositories.</li>
+<li><strong>Trainer since 2022</strong>: <a href="https://glc.st/courses/">dozen of courses</a>, including <a href="https://glc.st/courses/laravel-security/">Laravel security</a>
+and <a href="https://glc.st/courses/hacking-and-web-application-security/">web application security</a> for developers.
+If the audit shows the same class of flaw repeating, the fix is upstream of the code.</li>
+</ul>
+<p>A public example, where a source code leak was the entry point to everything else:
+my <a href="https://glc.st/posts/analysis-of-a-critical-french-medical-application/">analysis of a critical French medical application</a>.</p>
+<h2 id="frequently-asked-questions">Frequently asked questions</h2>
+<p><strong>How long does it take?</strong>
+Five to fifteen days depending on size and language, plus reporting.
+A mid-sized Laravel or Node application is usually around eight days.
+I give you an estimate after a look at the repository statistics, not before.</p>
+<p><strong>What does it cost?</strong>
+Quote on request, fixed price. The drivers: lines of code in scope, number of languages, availability of a running instance,
+and whether retesting is included. You get a range in our first exchange.</p>
+<p><strong>Do you need access to our repository?</strong>
+Yes, read-only, on the branch or tag we agree on. A read-only deploy key or a time-limited access token is ideal.
+Nothing is copied outside my encrypted workstation, and everything is destroyed after the retest unless you ask otherwise. NDA signed before access.</p>
+<p><strong>Can you work from an archive instead?</strong>
+Yes, but you lose the git history and that is where the secrets are.
+If confidentiality rules it out, say so and we scope around it.</p>
+<p><strong>What if the codebase is a mess?</strong>
+That is the common case, and it is not a reason to decline.
+It changes the method: more time on architecture and on finding recurring patterns, less on exhaustive coverage.</p>
+<p><strong>What if you find nothing serious?</strong>
+You get a report that says so, with the coverage detail that makes it defensible in front of a customer or an auditor.
+It is the outcome I prefer, and it is rarer than you would hope.</p>
+<p>Finally, if the findings point at a skills gap rather than isolated mistakes,
+<a href="https://glc.st/courses/">training</a> is cheaper than auditing the same codebase again next year.</p>
+<h2 id="lets-talk">Let&rsquo;s talk</h2>
+<p>Tell me what the codebase does, roughly how big it is, which languages, and what is prompting the question.
+I will reply with a proposed scope and a price range.</p>
+<p><br><br></p>
+<hr>
+<p>Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank"><a href="mailto:contact@glc.st">contact@glc.st</a></a> - quotes on request - SIRET 79778302400038</p>
+<style>
+    .content figure {
+        border: 0px solid #000;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        padding: 0px;
+        text-align: center;
+    }
+
+    blockquote {
+        font-size: 0.9em;
+        text-align: justify;
+        background-color: #fef6e1;
+        border: 1px solid #f9b915;
+        font-style: normal;
+        padding: 2rem;
+    }
+    blockquote p {
+        margin: 1.0rem 0 1.0rem 0;
+    }
+</style>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

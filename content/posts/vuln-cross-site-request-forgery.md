@@ -1,6 +1,6 @@
 ---
 title: Vulnerability - Cross Site Request Forgery aka CSRF
-date: 1970-01-01
+date: 2011-09-01
 tags:
 - csrf
 - resources
