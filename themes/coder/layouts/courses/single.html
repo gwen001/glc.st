@@ -5,7 +5,9 @@
 {{ define "content" }}
 <section class="container post course">
     {{ if ne .RelPermalink "/courses/" }}
-        {{ partial "posts/sharer.html" . }}
+        {{ if ne .RelPermalink "/fr/formations/" }}
+            {{ partial "posts/sharer.html" . }}
+        {{ end }}
     {{ end }}
     <article>
         <header>

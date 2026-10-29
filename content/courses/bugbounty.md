@@ -1,33 +1,33 @@
 ---
 date: 2025-04-22
-slug: BugBounty Overview
+slug: bugbounty-overview
 title: Bug Bounty Overview
 images: [/assets/img/courses/bugbounty.png]
 tags:
-- courses
-- bug bounty
-- cybersecurity
+    - courses
+    - bug bounty
+    - cybersecurity
 workload: "PT4H"
 description: "Half-day bug bounty briefing for CISOs and security teams: how programs work, report triage, disputes, safe harbour policies and real-world case studies."
 prerequisites:
-  - "Basic understanding of cybersecurity principles"
-  - "Familiarity with vulnerability management and risk assessment"
+    - "Basic understanding of cybersecurity principles"
+    - "Familiarity with vulnerability management and risk assessment"
 audience:
-  - "Cybersecurity managers and security teams"
-  - "CISOs and risk management professionals"
-  - "Organizations new to bug bounty"
+    - "Cybersecurity managers and security teams"
+    - "CISOs and risk management professionals"
+    - "Organizations new to bug bounty"
 teaches:
-  - "Bug bounty ecosystem, history and evolution"
-  - "Roles and motivations of companies, platforms and hackers"
-  - "Pentest versus bug bounty"
-  - "Anatomy of a bug bounty program"
-  - "Public versus private programs"
-  - "Lifecycle of a vulnerability report"
-  - "Report triage, duplicates and disputes"
-  - "Program policy, scope and reward design"
-  - "Safe harbour and disclosure policies"
-  - "Common program management mistakes"
-  - "Bug bounty readiness assessment"
+    - "Bug bounty ecosystem, history and evolution"
+    - "Roles and motivations of companies, platforms and hackers"
+    - "Pentest versus bug bounty"
+    - "Anatomy of a bug bounty program"
+    - "Public versus private programs"
+    - "Lifecycle of a vulnerability report"
+    - "Report triage, duplicates and disputes"
+    - "Program policy, scope and reward design"
+    - "Safe harbour and disclosure policies"
+    - "Common program management mistakes"
+    - "Bug bounty readiness assessment"
 ---
 
 This half-a-day course offers a complete introduction to the world of bug bounty. __Tailored for directors__, __CISO__, __team leader__, this session covers everything from the history and structure of bug bounty programs to real-world vulnerability reporting and triaging. Through __case studies__, __best practices__, and __industry insights__, participants will leave equipped with a strong foundation to begin (or improve) their bug bounty journey, __both from the hacker and company perspectives__.

@@ -32,7 +32,7 @@ img {
     padding: 0px;
 }
 .navigation-list .language img {
-    padding-bottom: 4px;
+    padding-bottom: 3px;
     vertical-align: middle;
     width: 20px;
 }
@@ -151,4 +151,9 @@ svg. {
 
 .text-danger {
     color: #f00;
+}
+
+.navigation .navigation-list .navigation-item a, .navigation .navigation-list .navigation-item span {
+    margin-left: 0.8rem;
+    margin-right: 0.8rem;
 }

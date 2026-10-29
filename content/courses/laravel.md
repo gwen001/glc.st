@@ -1,6 +1,6 @@
 ---
 date: 2025-04-22
-slug: Laravel security
+slug: laravel-security
 title: Laravel security
 images: [/assets/img/courses/laravel.png]
 tags:

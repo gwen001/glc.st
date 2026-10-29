@@ -40,7 +40,11 @@
 {{- end }}{{/* .IsPage */}}
 
 {{- with .Params.audio }}<meta property="og:audio" content="{{ . }}" />{{ end }}
-{{- with .Params.locale }}<meta property="og:locale" content="{{ . }}" />{{ end }}
+{{- $loc := .Params.locale | default site.Params.og_locale -}}
+{{- with $loc }}<meta property="og:locale" content="{{ . }}" />{{ end }}
+{{- range .Translations }}
+<meta property="og:locale:alternate" content="{{ .Site.Params.og_locale }}" />
+{{- end }}
 {{- with .Site.Params.title }}<meta property="og:site_name" content="{{ . }}" />{{ end }}
 {{- with .Params.videos }}
 {{- range . }}

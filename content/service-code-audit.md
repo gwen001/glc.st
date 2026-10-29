@@ -1,6 +1,6 @@
 ---
 title: "Source code security audit"
-url: "/source-code-security-audit/"
+slug: "source-code-security-audit"
 date: 2026-10-13
 description: "Source code security audit by an independent expert: manual review, dependency and secrets analysis, prioritised findings and retesting. Quote on request."
 keywords: "source code security audit, secure code review, code audit, independent cybersecurity expert"

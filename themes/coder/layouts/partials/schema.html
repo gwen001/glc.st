@@ -1,5 +1,14 @@
-{{- $schema := false -}}
+{{/* ------------------------------------------------------------------ */}}
+{{/* Shared values                                                       */}}
+{{/* ------------------------------------------------------------------ */}}
 
+{{/* The Person entity is defined once on the home page and referenced
+     everywhere else by this @id, so Google resolves a single entity
+     instead of one anonymous Person per page. */}}
+{{- $personID := site.Params.person_id -}}
+{{- $personRef := dict "@id" $personID -}}
+
+{{/* Images: `images` list in front matter, `image` singular as fallback. */}}
 {{- $images := slice -}}
 {{- with .Params.images -}}
   {{- range . }}{{ $images = $images | append (absURL .) }}{{ end -}}
@@ -12,39 +21,106 @@
 {{- if eq (len $images) 1 }}{{ $image = index $images 0 }}
 {{- else if gt (len $images) 1 }}{{ $image = $images }}{{ end -}}
 
+{{/* Description: computed once, never emitted empty. Falls back to the
+     page summary, whitespace-collapsed. */}}
+{{- $desc := "" -}}
+{{- with .Description -}}
+  {{- $desc = . | plainify -}}
+{{- else -}}
+  {{- with .Summary -}}
+    {{- $desc = . | plainify | replaceRE `\s+` " " | replaceRE `^ | $` "" | truncate 155 -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* sameAs: derived from [[params.social]] plus params.profiles. */}}
 {{- $sameAs := slice -}}
 {{- range sort site.Params.social "weight" -}}
   {{- $u := .url | default "" -}}
-  {{- if hasPrefix $u "http" -}}
-    {{- $sameAs = $sameAs | append $u -}}
-  {{- end -}}
+  {{- if hasPrefix $u "http" }}{{ $sameAs = $sameAs | append $u }}{{ end -}}
 {{- end -}}
-{{- range site.Params.profiles -}}
-  {{- $sameAs = $sameAs | append . -}}
-{{- end -}}
+{{- range site.Params.profiles }}{{ $sameAs = $sameAs | append . }}{{ end -}}
 {{- $sameAs = $sameAs | uniq -}}
+
+{{- $schema := false -}}
+
+{{/* ------------------------------------------------------------------ */}}
+{{/* Home — the Person entity                                            */}}
+{{/* ------------------------------------------------------------------ */}}
 
 {{- if .IsHome -}}
   {{- $schema = dict
       "@context" "https://schema.org"
       "@type" "Person"
+      "@id" $personID
       "name" site.Params.author
       "url" site.BaseURL
       "jobTitle" site.Params.info
-      "email" site.Params.contact_mailto
+      "email" (replace site.Params.contact_mailto "mailto:" "")
       "description" site.Params.description
       "knowsLanguage" (slice "fr" "en")
-      "knowsAbout" (slice "Pentest" "Webapp security"
-                          "Config audit" "Code audit"
+      "knowsAbout" (slice "Penetration testing" "Web application security"
+                          "Configuration audit" "Source code audit"
                           "Bug bounty" "Linux hardening")
       "sameAs" $sameAs
   -}}
+  {{- with $image }}{{ $schema = merge $schema (dict "image" .) }}{{ end -}}
+
+{{/* ------------------------------------------------------------------ */}}
+{{/* Service pages — front matter: service: true                         */}}
+{{/* ------------------------------------------------------------------ */}}
+
+{{- else if .Params.service -}}
+  {{- $schema = dict
+      "@context" "https://schema.org"
+      "@type" "Service"
+      "name" .Title
+      "serviceType" (.Params.serviceType | default .Title)
+      "url" .Permalink
+      "provider" $personRef
+      "areaServed" (dict "@type" "Country" "name" "France")
+      "availableLanguage" (slice "en" "fr")
+  -}}
+  {{- with $desc }}{{ $schema = merge $schema (dict "description" .) }}{{ end -}}
+  {{- with $image }}{{ $schema = merge $schema (dict "image" .) }}{{ end -}}
+
+{{/* ------------------------------------------------------------------ */}}
+{{/* Catalog pages — front matter: collection: "<section name>"           */}}
+{{/* ------------------------------------------------------------------ */}}
+
+{{- else if .Params.collection -}}
+  {{- $items := slice -}}
+  {{- range $i, $p := (where site.RegularPages "Section" $.Params.collection) -}}
+    {{- $items = $items | append (dict
+        "@type" "ListItem"
+        "position" (add $i 1)
+        "url" $p.Permalink
+        "name" $p.Title) -}}
+  {{- end -}}
+  {{- $schema = dict
+      "@context" "https://schema.org"
+      "@type" "CollectionPage"
+      "name" .Title
+      "url" .Permalink
+      "isPartOf" (dict "@type" "WebSite" "url" site.BaseURL)
+      "about" $personRef
+  -}}
+  {{- with $desc }}{{ $schema = merge $schema (dict "description" .) }}{{ end -}}
+  {{- with $items -}}
+    {{- $schema = merge $schema (dict "mainEntity" (dict
+        "@type" "ItemList"
+        "numberOfItems" (len .)
+        "itemListElement" .)) -}}
+  {{- end -}}
+
+{{/* ------------------------------------------------------------------ */}}
+{{/* Courses                                                             */}}
+{{/* ------------------------------------------------------------------ */}}
 
 {{- else if eq .Section "courses" -}}
   {{- $instance := dict
       "@type" "CourseInstance"
       "courseMode" (slice "onsite" "online")
-      "instructor" (dict "@type" "Person" "name" site.Params.author "url" site.BaseURL)
+      "instructor" $personRef
   -}}
   {{- with .Params.workload }}{{ $instance = merge $instance (dict "courseWorkload" .) }}{{ end -}}
 
@@ -52,31 +128,34 @@
       "@context" "https://schema.org"
       "@type" "Course"
       "name" .Title
-      "description" (.Description | plainify)
       "url" .Permalink
       "inLanguage" (slice "fr" "en")
-      "provider" (dict "@type" "Person" "name" site.Params.author "url" site.BaseURL)
+      "provider" $personRef
       "hasCourseInstance" (slice $instance)
   -}}
+  {{- with $desc }}{{ $schema = merge $schema (dict "description" .) }}{{ end -}}
   {{- with .Params.prerequisites }}{{ $schema = merge $schema (dict "coursePrerequisites" .) }}{{ end -}}
   {{- with .Params.teaches }}{{ $schema = merge $schema (dict "teaches" .) }}{{ end -}}
   {{- with .Params.audience }}{{ $schema = merge $schema (dict "audience" (dict "@type" "Audience" "audienceType" (delimit . ", "))) }}{{ end -}}
   {{- with $image }}{{ $schema = merge $schema (dict "image" .) }}{{ end -}}
 
+{{/* ------------------------------------------------------------------ */}}
+{{/* Articles and CVEs                                                   */}}
+{{/* ------------------------------------------------------------------ */}}
+
 {{- else if and .IsPage (gt .Date.Year 2000) -}}
   {{- $schema = dict
       "@context" "https://schema.org"
-      "@type" "BlogPosting"
+      "@type" (cond (eq .Section "cves") "TechArticle" "BlogPosting")
       "headline" .Title
-      "description" (.Description | plainify)
       "url" .Permalink
-      "mainEntityOfPage" (dict "@type" "WebPage" "@id" .Permalink)
       "datePublished" (.Date.Format "2006-01-02")
       "dateModified" (.Lastmod.Format "2006-01-02")
-      "author" (dict "@type" "Person" "name" site.Params.author "url" site.BaseURL)
-      "publisher" (dict "@type" "Person" "name" site.Params.author "url" site.BaseURL)
+      "author" $personRef
+      "publisher" $personRef
       "inLanguage" .Language.Lang
   -}}
+  {{- with $desc }}{{ $schema = merge $schema (dict "description" .) }}{{ end -}}
   {{- with .Params.tags }}{{ $schema = merge $schema (dict "keywords" (delimit . ", ")) }}{{ end -}}
   {{- with $image }}{{ $schema = merge $schema (dict "image" .) }}{{ end -}}
 {{- end -}}

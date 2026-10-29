@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +24,7 @@
 
 <meta property="og:image" content="https://glc.st/images/mbh.png" />
 <meta property="article:published_time" content="2018-08-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-08-01T00:00:00+00:00" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+<meta property="article:modified_time" content="2018-08-01T00:00:00+00:00" /><meta property="og:locale" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
     
@@ -62,12 +61,16 @@
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
-
-    <meta name="generator" content="Hugo 0.147.0">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16"><meta name="generator" content="Hugo 0.147.0">
 
     
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"dateModified":"2018-08-01","datePublished":"2018-08-01","description":"","headline":"Colorize your hunt","image":"https://glc.st/images/mbh.png","inLanguage":"en","keywords":"bug bounty, burp suite, tools, chrome","mainEntityOfPage":{"@id":"https://glc.st/posts/colorize-your-hunt/","@type":"WebPage"},"publisher":{"@type":"Person","name":"Gwendal Le Coguic","url":"https://glc.st/"},"url":"https://glc.st/posts/colorize-your-hunt/"}</script>
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2018-08-01","datePublished":"2018-08-01","description":"As a full time bug hunter, it\u0026amp;rsquo;s important to use the tools you are confortable with, sometimes a small improvement can change your life. During the …","headline":"Colorize your hunt","image":"https://glc.st/images/mbh.png","inLanguage":"en","keywords":"bug bounty, burp suite, tools, chrome","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/posts/colorize-your-hunt/"}</script>
 
   </head>
 
@@ -96,6 +99,10 @@
           </li>
         
           <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
             <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
           </li>
         
@@ -109,10 +116,15 @@
         
       
       
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/fr/" hreflang="fr" lang="fr" rel="alternate"><img src="https://glc.st/assets/img/flags/fr.png" class="icon-flag" /></a>
+      </li>
     </ul>
   </section>
 </nav>
-
 
 <script>
     
@@ -149,7 +161,6 @@
 <section class="container post">
     <div id="sharer">
     <div class="sharer-buttons">
-
         <a href="https://twitter.com/intent/tweet?text=Colorize%20your%20hunt%20https%3a%2f%2fglc.st%2fposts%2fcolorize-your-hunt%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
         <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fcolorize-your-hunt%2f&title=Colorize%20your%20hunt" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
         <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fcolorize-your-hunt%2f&amp;t=Colorize%20your%20hunt" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
@@ -234,7 +245,7 @@ I also added a small test to &ldquo;negate&rdquo; the out of scope urls. They wi
 <p>What more can I say ? In a nutshell this extension logs absolutly ALL requests, that&rsquo;s it.
 You can apply filters to hide requests or regexp search in your traffic history, this is very useful.</p>
 <p>I added filters to fit Autochrome&rsquo;s colors, that way it&rsquo;s looks like the Proxy tab.
-<img src="https://glc.st/images/logger++-filters-ac.png" alt="autochrome android green."></p>
+<img src="https://glc.st/images/logger&#43;&#43;-filters-ac.png" alt="autochrome android green."></p>
 <h2 id="issues">Issues</h2>
 <p>The main problem is that Multi Browser Highlighting is not compatible with Collaborator Everywhere which also alter the User-Agent to inject a custom payload.<br>
 <strong>Edit:</strong> solution from <a href="https://twitter.com/albinowax">James Kettle</a>: swap the order the extensions are executed in using the Up/Down buttons on the extender tab.</p>

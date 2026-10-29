@@ -1,5 +1,6 @@
 ---
 title: "Clients"
+slug: "clients"
 date: 2025-04-22T18:05:10+01:00
 ---
 ## Courses
@@ -51,7 +52,7 @@ __Chaturbate:__ numerous XSS
 __Zillow group:__ dozen of XSS, AWS bucket takeovers, SQL injections, file upload, SSRF, RCE...  
 __Swisscom:__ file upload, remote command execution  
 __Uber:__ SQL injections  
-__Yahoo:__ numeros XSS and IDOR + SSRF  
+__Yahoo:__ numerous XSS and IDOR + SSRF  
 
 and many more...
 

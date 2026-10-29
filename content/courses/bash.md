@@ -1,6 +1,6 @@
 ---
 date: 2025-04-22
-slug: Introduction to Bash scripting
+slug: introduction-to-bash-scripting
 title: Introduction to Bash scripting
 images: [/assets/img/courses/bash.png]
 tags:
@@ -34,26 +34,23 @@ teaches:
   - "Securing Bash scripts and validating user input"
 ---
 
-
-
 This 3-day hands-on course introduces participants to Bash scripting for task automation and system administration. From writing __simple scripts__ to __managing processes__, __securing code__, you'll learn practical skills to boost productivity and control over your Linux environment. Perfect for __devs__ and __sysadmins__.
 <!--more-->
 
 <br>
 <center>
-    <img src="/assets/img/courses/bash.png" alt="Laravel security" width="500" />
-    <br /><a href="/assets/courses/INTRODUCTION TO BASH SCRIPTING - EN.pdf" target="_blank">Download the program</a> (pdf)
+    <img src="/assets/img/courses/bash.png" alt="Initiation Bash" width="500" />
+    <br /><a href="/assets/formations/INITIATION BASH - FR.pdf" target="_blank">Télécharger le programme</a> (pdf)
 </center>
 
 
-## Targeted audience:
-
+## Public cible:
 - System administrators
 - Dev(Sec)Ops engineers
 - Anyone interested in automation
 
 
-## Educational goals:
+## Objectifs pédagogiques:
 - Understand the fundamentals of the Bash shell and scripting syntax
 - Write and execute basic to intermediate Bash scripts
 - Automate common system tasks using loops, conditions, and variables
@@ -61,12 +58,12 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
 - Handle user input, signals, and logging in scripts
 
 
-## Prerequisites:
+## Pré-requis:
 - Being comfortable with CLI mode
 - Familiarity with basic Linux commands
 
 
-## Program:
+## Programme:
 #### Day 1 - Introduction to Bash and file manipulation
 ###### Introduction to Bash
 - What is Bash?
@@ -150,4 +147,4 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
 <br><br>
 
 ---
-Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a> - quotes on request - SIRET 79778302400038
+Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a> - devis sur demande - SIRET 79778302400038

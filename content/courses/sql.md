@@ -1,6 +1,6 @@
 ---
 date: 2025-04-22
-slug: The basics of SQL
+slug: the-basics-of-sql
 title: The basics of SQL
 images: [/assets/img/courses/sql.png]
 tags:

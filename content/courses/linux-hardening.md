@@ -1,36 +1,36 @@
 ---
 date: 2026-07-14
-slug: Linux hardening
+slug: linux-hardening
 title: Linux hardening
 images: [/assets/img/courses/linux-hardening.png]
 tags:
-- courses
-- cybersecurity
-- linux
+    - courses
+    - cybersecurity
+    - linux
 workload: "P1D"
 description: "Intensive 1-day hands-on course on hardening a Linux server: attack surface reduction, sudo and account policy, firewalling, auditing with Lynis and OpenSCAP."
 prerequisites:
-  - "Comfortable working on the command line"
-  - "Familiarity with basic Linux administration"
+    - "Comfortable working on the command line"
+    - "Familiarity with basic Linux administration"
 audience:
-  - "System administrators"
-  - "Dev(Sec)Ops engineers"
+    - "System administrators"
+    - "Dev(Sec)Ops engineers"
 teaches:
-  - "Attack surface analysis and defense in depth"
-  - "Minimal install and package reduction"
-  - "Partitioning strategy"
-  - "Kernel hardening and unused kernel modules"
-  - "Mandatory Access Control (MAC)"
-  - "Account and sudo hardening"
-  - "Password and authentication policy"
-  - "Firewalling and network exposure"
-  - "Brute-force mitigation"
-  - "Service sandboxing and dedicated users"
-  - "SUID/SGID auditing, ACLs and immutable attributes"
-  - "File integrity monitoring"
-  - "Centralized logging and intrusion detection"
-  - "Compliance scoring with Lynis and OpenSCAP"
-  - "Hardening-as-code with Ansible"
+    - "Attack surface analysis and defense in depth"
+    - "Minimal install and package reduction"
+    - "Partitioning strategy"
+    - "Kernel hardening and unused kernel modules"
+    - "Mandatory Access Control (MAC)"
+    - "Account and sudo hardening"
+    - "Password and authentication policy"
+    - "Firewalling and network exposure"
+    - "Brute-force mitigation"
+    - "Service sandboxing and dedicated users"
+    - "SUID/SGID auditing, ACLs and immutable attributes"
+    - "File integrity monitoring"
+    - "Centralized logging and intrusion detection"
+    - "Compliance scoring with Lynis and OpenSCAP"
+    - "Hardening-as-code with Ansible"
 ---
 
 This intensive 1‑day training teaches you how to harden a Linux server from the ground up.
@@ -40,7 +40,7 @@ Through hands‑on exercises, you’ll apply real‑world hardening techniques u
 
 <br>
 <center>
-    <img src="/assets/img/courses/linux-hardening.png" alt="Laravel security" width="500" />
+    <img src="/assets/img/courses/linux-hardening.png" alt="Linux hardening" width="500" />
     <br /><a href="/assets/courses/LINUX HARDENING - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 

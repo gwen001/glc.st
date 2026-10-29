@@ -7,6 +7,7 @@ languageCode = "en-us"
 theme = "coder"
 
 defaultcontentlanguage = "en"
+defaultContentLanguageInSubdir = false
 
 # paginate = 2000
 pagination.pagerSize = 2000
@@ -28,42 +29,6 @@ unsafe= true
 [taxonomies]
   tag = "tags"
 
-[params]
-#    lang = "en"
-    author = "Gwendal Le Coguic"
-    title = "Gwendal Le Coguic"
-    titlelong = "Gwendal Le Coguic | Independent cybersecurity expert: pentest, audits, courses, bug bounty"
-    twitter = "gwendallecoguic"
-    info = "Independent cybersecurity expert"
-    # info = "Expert cybersécurité indépendent: pentest, audits, formations, bug bounty"
-    description = "Gwendal Le Coguic: developer, independent cybersecurity expert, trainer, bug hunter"
-    keywords = "developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools"
-    avatarurl = "/assets/img/me.jpg"
-#    avatarurl = "/assets/img/avatar.jpg"
-    images = ["/assets/img/header-background.jpg"]
-    link_canonical = true
-    contact = "contact@glc.st"
-    contact_mailto = "mailto:contact@glc.st"
-
-    favicon_256 = "/assets/img/favicon-256x256.png"
-    favicon_128 = "/assets/img/favicon-128x128.png"
-    favicon_64 = "/assets/img/favicon-64x64.png"
-    favicon_32 = "/assets/img/favicon-32x32.png"
-    favicon_16 = "/assets/img/favicon-16x16.png"
-
-    footercontent = ""
-
-    hidecredits = true
-    hidecopyright = true
-
-    rtl = false
-
-    math = true
-    custom_css = ["/assets/css/custom.css"]
-    custom_js = ["/assets/js/scripts.js"]
-
-    disable_comments = true
-
 # Social links
 [[params.social]]
     name = "Github"
@@ -81,41 +46,159 @@ unsafe= true
     weight = 3
     url = "https://x.com/gwendallecoguic/"
 
-# Menu links
-[[menu.main]]
-    name = "Posts"
-    weight = 1
-    url  = "/posts/"
-[[menu.main]]
-    name = "Projects"
-    weight = 4
-    url  = "/projects/"
-[[menu.main]]
-    name = "CVEs"
-    weight = 5
-    url  = "/cves/"
-# [[menu.main]]
-#     name = "Services"
-#     weight = 4
-#     url  = "/services/"
-[[menu.main]]
-    name = "Courses"
-    weight = 2
-    url  = "/courses/"
-[[menu.main]]
-    name = "Clients"
-    weight = 3
-    url  = "/clients/"
-[[menu.main]]
-    name = "Press"
-    weight = 6
-    url  = "/press/"
-# [[menu.main]]
-#     name = "About"
-#     weight = 7
-#     url = "/about/"
-
-
 [permalinks]
   posts = "/posts/:title/"
   # cves = "/cves/:slug/"
+
+[params]
+  person_id = "https://glc.st/#person"
+
+[languages]
+    [languages.en]
+        languageCode = "en"
+        languageName = "English"
+        weight = 1
+
+    [languages.en.params]
+        og_locale = "en_US"
+        author = "Gwendal Le Coguic"
+        title = "Gwendal Le Coguic"
+        titlelong = "Gwendal Le Coguic | Pentest, security audits & training"
+        twitter = "gwendallecoguic"
+        info = "Independent cybersecurity expert"
+        description = "Gwendal Le Coguic: developer, independent cybersecurity expert, trainer, bug hunter"
+        keywords = "developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools"
+        avatarurl = "/assets/img/me.jpg"
+        images = ["/assets/img/header-background.jpg"]
+        link_canonical = true
+        contact = "contact@glc.st"
+        contact_mailto = "mailto:contact@glc.st"
+
+        favicon_256 = "/assets/img/favicon-256x256.png"
+        favicon_128 = "/assets/img/favicon-128x128.png"
+        favicon_64 = "/assets/img/favicon-64x64.png"
+        favicon_32 = "/assets/img/favicon-32x32.png"
+        favicon_16 = "/assets/img/favicon-16x16.png"
+
+        footercontent = ""
+
+        hidecredits = true
+        hidecopyright = true
+
+        rtl = false
+
+        math = true
+        custom_css = ["/assets/css/custom.css"]
+        custom_js = ["/assets/js/scripts.js"]
+
+        disable_comments = true
+
+        [languages.en.menus]
+            [[languages.en.menu.main]]
+                name = "Posts"
+                weight = 1
+                url  = "/posts/"
+            [[languages.en.menu.main]]
+                name = "Courses"
+                weight = 2
+                url  = "/courses/"
+            [[languages.en.menu.main]]
+                name = "Clients"
+                weight = 3
+                url  = "/clients/"
+            [[languages.en.menu.main]]
+                name = "Services"
+                weight = 4
+                url  = "/services/"
+            [[languages.en.menu.main]]
+                name = "Projects"
+                weight = 5
+                url  = "/projects/"
+            [[languages.en.menu.main]]
+                name = "CVEs"
+                weight = 6
+                url  = "/cves/"
+            [[languages.en.menu.main]]
+                name = "Press"
+                weight = 7
+                url  = "/press/"
+            # [[languages.en.menu.main]]
+            #     name = "About"
+            #     weight = 7
+            #     url = "/about/"
+
+    [languages.fr]
+        languageCode = "fr-FR"
+        languageName = "Français"
+        weight = 2
+
+        [languages.fr.params]
+            og_locale = "fr_FR"
+            author = "Gwendal Le Coguic"
+            title = "Gwendal Le Coguic"
+            titlelong = "Gwendal Le Coguic | Tests d’intrusion, audits de sécurité et formation"
+            twitter = "gwendallecoguic"
+            info = "Expert indépendant en cybersécurité"
+            description = "Gwendal Le Coguic : développeur, expert indépendant en cybersécurité, formateur, bug hunter"
+            keywords = "développeur,application web,cybersécurité,test d'intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs"
+            avatarurl = "/assets/img/me.jpg"
+            images = ["/assets/img/header-background.jpg"]
+            link_canonical = true
+            contact = "contact@glc.st"
+            contact_mailto = "mailto:contact@glc.st"
+
+            favicon_256 = "/assets/img/favicon-256x256.png"
+            favicon_128 = "/assets/img/favicon-128x128.png"
+            favicon_64 = "/assets/img/favicon-64x64.png"
+            favicon_32 = "/assets/img/favicon-32x32.png"
+            favicon_16 = "/assets/img/favicon-16x16.png"
+
+            footercontent = ""
+
+            hidecredits = true
+            hidecopyright = true
+
+            rtl = false
+
+            math = true
+            custom_css = ["/assets/css/custom.css"]
+            custom_js = ["/assets/js/scripts.js"]
+
+            disable_comments = true
+
+        [languages.fr.menus]
+            [[languages.fr.menu.main]]
+                name = "Articles"
+                weight = 1
+                url  = "/articles/"
+            [[languages.fr.menu.main]]
+                name = "Formations"
+                weight = 2
+                url  = "/formations/"
+            [[languages.fr.menu.main]]
+                name = "Références"
+                weight = 3
+                url  = "/references/"
+            [[languages.fr.menu.main]]
+                name = "Prestations"
+                weight = 4
+                url  = "/prestations/"
+            [[languages.fr.menu.main]]
+                name = "Projets"
+                weight = 5
+                url  = "/projets/"
+            [[languages.fr.menu.main]]
+                name = "CVEs"
+                weight = 6
+                url  = "/cves/"
+            [[languages.fr.menu.main]]
+                name = "Presse"
+                weight = 7
+                url  = "/presse/"
+            # [[languages.fr.menu.main]]
+            #     name = "About"
+            #     weight = 7
+            #     url = "/about/"
+
+        [languages.fr.permalinks]
+            courses = "/formations/:slug/"

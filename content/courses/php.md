@@ -1,6 +1,6 @@
 ---
 date: 2025-04-22
-slug: PHP for beginners
+slug: php-for-beginners
 title: PHP for beginners
 images: [/assets/img/courses/php.png]
 tags:
@@ -43,7 +43,7 @@ This training is __ideal for novice developers__ seeking to create applications 
 
 <br>
 <center>
-    <img src="/assets/img/courses/php.png" alt="Laravel security" width="500" />
+    <img src="/assets/img/courses/php.png" alt="PHP for beginners" width="500" />
     <br /><a href="/assets/courses/PHP FOR BEGINNERS - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 

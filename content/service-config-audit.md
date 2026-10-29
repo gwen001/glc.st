@@ -1,6 +1,6 @@
 ---
 title: "Linux configuration and hardening audit"
-url: "/linux-configuration-hardening-audit/"
+slug: "linux-configuration-hardening-audit"
 date: 2026-10-13
 description: "Linux configuration and hardening audit against ANSSI-BP-028 and CIS benchmarks: exposure, accounts, services, logging, prioritised findings and retesting."
 keywords: "configuration audit, Linux hardening audit, ANSSI BP-028, server hardening, independent cybersecurity expert"

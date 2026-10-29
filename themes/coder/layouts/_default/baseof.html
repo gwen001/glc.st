@@ -11,12 +11,10 @@
 {{- $desc = $desc | plainify | htmlUnescape | replaceRE `\s+` " " | replaceRE `^ | $` "" | truncate 200 -}}
 
 {{- $title := site.Params.titlelong -}}
-{{- if .Title -}}
+{{- if and .Title (not .IsHome) -}}
   {{- $title = .Title -}}
   {{- with .Params.cve }}{{ $title = printf "%s - %s" . $title }}{{ end -}}
-  {{- $suffix := site.Params.titlelong -}}
-  {{- if .IsPage }}{{ $suffix = site.Params.title }}{{ end -}}
-  {{- $title = printf "%s - %s" $title $suffix -}}
+  {{- $title = printf "%s - %s" $title site.Params.title -}}
 {{- end -}}
 
 {{- $keywords := site.Params.keywords -}}
@@ -26,8 +24,7 @@
 
 
 <!DOCTYPE html>
-<html lang="{{ .Site.Language.Lang }}">
-
+<html lang="{{ .Language.LanguageCode | default .Language.Lang }}">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,6 +95,15 @@
     <link rel="icon" type="image/png" href="{{ .Site.Params.favicon_64 | default "/images/favicon-64x64.png" | absURL }}" sizes="64x64">
     <link rel="icon" type="image/png" href="{{ .Site.Params.favicon_32 | default "/images/favicon-32x32.png" | absURL }}" sizes="32x32">
     <link rel="icon" type="image/png" href="{{ .Site.Params.favicon_16 | default "/images/favicon-16x16.png" | absURL }}" sizes="16x16">
+
+    {{- if .IsTranslated }}
+        {{- range .AllTranslations }}
+            <link rel="alternate" hreflang="{{ .Language.Lang }}" href="{{ .Permalink }}">
+        {{- end }}
+        {{- range .AllTranslations }}{{ if eq .Language.Lang "en" }}
+            <link rel="alternate" hreflang="x-default" href="{{ .Permalink }}">
+        {{- end }}{{ end }}
+    {{- end -}}
 
     {{ range .AlternativeOutputFormats -}}
       {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}

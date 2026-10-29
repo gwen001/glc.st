@@ -1,6 +1,6 @@
 ---
 date: 2025-04-22
-slug: Cybersecurity awareness
+slug: cybersecurity-awareness
 title: Cybersecurity awareness
 images: [/assets/img/courses/sensibilisation-cybersec.png]
 tags:
@@ -39,7 +39,7 @@ This one-day awareness course is designed for all __employees and collaborators_
 
 <br>
 <center>
-    <img src="/assets/img/courses/sensibilisation-cybersec.png" alt="Laravel security" width="500" />
+    <img src="/assets/img/courses/sensibilisation-cybersec.png" alt="Cybersecurity awareness" width="500" />
     <br /><a href="/assets/courses/CYBERSECURITY AWARENESS - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
