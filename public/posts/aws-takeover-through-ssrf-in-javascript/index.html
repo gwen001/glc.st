@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,7 +9,7 @@
     <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools" />
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="http://localhost:1313/images/aws-webservices.png"/>
+<meta name="twitter:image" content="https://glc.st/images/aws-webservices.png"/>
 
 <meta name="twitter:title" content="AWS takeover through SSRF in JavaScript - Gwendal Le Coguic" />
 <meta name="twitter:description" content="Here is the story of a bug I found in a private bug bounty program on Hackerone. It took me exactly 12h30 -no break- to find it, exploit and report. I was able to dump the AWS credentials, this lead …" />
@@ -20,22 +20,22 @@
     <meta property="og:title" content="AWS takeover through SSRF in JavaScript - Gwendal Le Coguic" />
 <meta property="og:description" content="Here is the story of a bug I found in a private bug bounty program on Hackerone. It took me exactly 12h30 -no break- to find it, exploit and report. I was able to dump the AWS credentials, this lead …" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="http://localhost:1313/posts/aws-takeover-through-ssrf-in-javascript/" />
+<meta property="og:url" content="https://glc.st/posts/aws-takeover-through-ssrf-in-javascript/" />
 
-<meta property="og:image" content="http://localhost:1313/images/aws-webservices.png" />
+<meta property="og:image" content="https://glc.st/images/aws-webservices.png" />
 <meta property="article:published_time" content="2018-10-02T00:00:00+00:00" />
 <meta property="article:modified_time" content="2018-10-02T00:00:00+00:00" /><meta property="og:locale" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
     
-      <base href="http://localhost:1313/">
+      <base href="https://glc.st/">
     
 
     <title>AWS takeover through SSRF in JavaScript - Gwendal Le Coguic</title>
 
     
         
-            <link rel="canonical" href="http://localhost:1313/posts/aws-takeover-through-ssrf-in-javascript/">
+            <link rel="canonical" href="https://glc.st/posts/aws-takeover-through-ssrf-in-javascript/">
         
     
 
@@ -46,7 +46,7 @@
     
       
       
-      <link rel="stylesheet" href="http://localhost:1313/assets/css/coder.css" media="screen">
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -54,14 +54,14 @@
     
 
     
-      <link rel="stylesheet" href="http://localhost:1313/assets/css/custom.css" />
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
     
 
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-256x256.png" sizes="256x256">
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-128x128.png" sizes="128x128">
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-64x64.png" sizes="64x64">
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-16x16.png" sizes="16x16"><meta name="generator" content="Hugo 0.147.0">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16"><meta name="generator" content="Hugo 0.147.0">
 
     
 
@@ -70,7 +70,7 @@
 
 
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2018-10-02","datePublished":"2018-10-02","description":"Here is the story of a bug I found in a private bug bounty program on Hackerone. It took me exactly 12h30 -no break- to find it, exploit and report. I was …","headline":"AWS takeover through SSRF in JavaScript","image":"http://localhost:1313/images/aws-webservices.png","inLanguage":"en","keywords":"bug bounty, aws, ssrf, javascript","publisher":{"@id":"https://glc.st/#person"},"url":"http://localhost:1313/posts/aws-takeover-through-ssrf-in-javascript/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2018-10-02","datePublished":"2018-10-02","description":"Here is the story of a bug I found in a private bug bounty program on Hackerone. It took me exactly 12h30 -no break- to find it, exploit and report. I was …","headline":"AWS takeover through SSRF in JavaScript","image":"https://glc.st/images/aws-webservices.png","inLanguage":"en","keywords":"bug bounty, aws, ssrf, javascript","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/posts/aws-takeover-through-ssrf-in-javascript/"}</script>
 
   </head>
 
@@ -78,7 +78,7 @@
         <main class="wrapper">
       <nav class="navigation d-print-none">
   <section class="container">
-    <a class="navigation-title" href="http://localhost:1313/">
+    <a class="navigation-title" href="https://glc.st/">
       Gwendal Le Coguic
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -87,31 +87,31 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/posts/">Posts</a>
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/courses/">Courses</a>
+            <a class="navigation-link" href="https://glc.st/courses/">Courses</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/clients/">Clients</a>
+            <a class="navigation-link" href="https://glc.st/clients/">Clients</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/services/">Services</a>
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/projects/">Projects</a>
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/cves/">CVEs</a>
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="http://localhost:1313/press/">Press</a>
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
           </li>
         
       
@@ -120,7 +120,7 @@
         <span>|</span>
     </li>
       <li class="navigation-item language">
-        <a href="http://localhost:1313/fr/" hreflang="fr" lang="fr" rel="alternate"><img src="http://localhost:1313/assets/img/flags/fr.png" class="icon-flag" /></a>
+        <a href="https://glc.st/fr/" hreflang="fr" lang="fr" rel="alternate"><img src="https://glc.st/assets/img/flags/fr.png" class="icon-flag" /></a>
       </li>
     </ul>
   </section>
@@ -161,14 +161,14 @@
 <section class="container post">
     <div id="sharer">
     <div class="sharer-buttons">
-        <a href="https://twitter.com/intent/tweet?text=AWS%20takeover%20through%20SSRF%20in%20JavaScript%20http%3a%2f%2flocalhost%3a1313%2fposts%2faws-takeover-through-ssrf-in-javascript%2f" target="_blank"><img class="twitter" src="http://localhost:1313/assets/img/share/twitter.svg" alt="twitter"></a>
-        <a href="http://www.reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2faws-takeover-through-ssrf-in-javascript%2f&title=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="reddit" src="http://localhost:1313/assets/img/share/reddit.svg" alt="reddit"></a>
-        <a href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2fposts%2faws-takeover-through-ssrf-in-javascript%2f&amp;t=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="hackernews" src="http://localhost:1313/assets/img/share/hackernews.svg" alt="hackernews"></a>
-        <a href="mailto:?subject=AWS%20takeover%20through%20SSRF%20in%20JavaScript&body=http%3a%2f%2flocalhost%3a1313%2fposts%2faws-takeover-through-ssrf-in-javascript%2f" target="_blank"><img class="mail" src="http://localhost:1313/assets/img/share/mail.svg" alt="mail"></a>
-        <a href="https://wa.me/?text=AWS%20takeover%20through%20SSRF%20in%20JavaScript%20http%3a%2f%2flocalhost%3a1313%2fposts%2faws-takeover-through-ssrf-in-javascript%2f" target="_blank"><img class="whatsapp" src="http://localhost:1313/assets/img/share/whatsapp.svg" alt="facebook"></a>
-        <a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a1313%2fposts%2faws-takeover-through-ssrf-in-javascript%2f&text=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="telegram" src="http://localhost:1313/assets/img/share/telegram.svg" alt="facebook"></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2faws-takeover-through-ssrf-in-javascript%2f&amp;title=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="linkedin" src="http://localhost:1313/assets/img/share/linkedin.svg" alt="linkedin"></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2faws-takeover-through-ssrf-in-javascript%2f&t=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="facebook" src="http://localhost:1313/assets/img/share/facebook.svg" alt="facebook"></a>
+        <a href="https://twitter.com/intent/tweet?text=AWS%20takeover%20through%20SSRF%20in%20JavaScript%20https%3a%2f%2fglc.st%2fposts%2faws-takeover-through-ssrf-in-javascript%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2faws-takeover-through-ssrf-in-javascript%2f&title=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2faws-takeover-through-ssrf-in-javascript%2f&amp;t=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=AWS%20takeover%20through%20SSRF%20in%20JavaScript&body=https%3a%2f%2fglc.st%2fposts%2faws-takeover-through-ssrf-in-javascript%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=AWS%20takeover%20through%20SSRF%20in%20JavaScript%20https%3a%2f%2fglc.st%2fposts%2faws-takeover-through-ssrf-in-javascript%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2faws-takeover-through-ssrf-in-javascript%2f&text=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2faws-takeover-through-ssrf-in-javascript%2f&amp;title=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2faws-takeover-through-ssrf-in-javascript%2f&t=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
 
         
     </div>
@@ -362,7 +362,7 @@ Thanks <a href="https://stackoverflow.com/a/45529432">StackOverflow</a>.</p>
 <p>Since I found some S3 buckets related to ArticMonkey (<code>articmonkey-xxx</code>), I thought that this company might also use AWS servers for their webapp (which was also confirmed by the header in some responses <code>x-cache: Hit from cloudfront</code>).
 I quickly jumped on the list of the most common <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SSRF%20injection">SSRF URL for Cloud Instances</a>.</p>
 <p>And got a nice hit when I tried to access the metadatas of the instance.
-<a href="http://localhost:1313/images/ssrf-aws-takeover-burpsuite.png" title="aws takeover through ssrf in javascript" target="_blank"><img src="http://localhost:1313/images/ssrf-aws-takeover-burpsuite.png" alt="aws takeover through ssrf in javascript" /></a></p>
+<a href="https://glc.st/images/ssrf-aws-takeover-burpsuite.png" title="aws takeover through ssrf in javascript" target="_blank"><img src="https://glc.st/images/ssrf-aws-takeover-burpsuite.png" alt="aws takeover through ssrf in javascript" /></a></p>
 <p>Decoded output is the directory listing returned:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ami-id
 </span></span><span style="display:flex;"><span>ami-launch-index
@@ -399,7 +399,7 @@ err&hellip;</p>
 </span></span></code></pre></div><p>Checking my idendity with the following command proved that I was not myself anymore.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>aws sts get-caller-identity
 </span></span></code></pre></div><p>And then&hellip;<br>
-<a href="http://localhost:1313/images/ssrf-aws-takeover-poc.png" title="aws takeover through ssrf in javascript" target="_blank"><img src="http://localhost:1313/images/ssrf-aws-takeover-poc.png" alt="aws takeover through ssrf in javascript" /></a></p>
+<a href="https://glc.st/images/ssrf-aws-takeover-poc.png" title="aws takeover through ssrf in javascript" target="_blank"><img src="https://glc.st/images/ssrf-aws-takeover-poc.png" alt="aws takeover through ssrf in javascript" /></a></p>
 <p>Left: listing of the EC2 instances configured by ArticMonkey. Probably a big part -or the whole- of their system.</p>
 <p>Right: the company owns 20 buckets containing, highly sensitive datas from customers, static files for the web application and, according to the name of the buckets, probably logs/backups of their servers.</p>
 <p>Impact: lethal.</p>
@@ -466,7 +466,7 @@ err&hellip;</p>
       </script>
 
     
-      <script src="http://localhost:1313/assets/js/scripts.js"></script>
+      <script src="https://glc.st/assets/js/scripts.js"></script>
     
 
   </body>
