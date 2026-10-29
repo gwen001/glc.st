@@ -2,251 +2,251 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://glc.st/fr/</loc>
+    <loc>http://localhost:1313/fr/</loc>
     <lastmod>2026-10-29T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/"
+                href="http://localhost:1313/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/"
+                href="http://localhost:1313/fr/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/prestations/</loc>
+    <loc>http://localhost:1313/fr/prestations/</loc>
     <lastmod>2026-10-29T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/services/"
+                href="http://localhost:1313/services/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/prestations/"
+                href="http://localhost:1313/fr/prestations/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/audit-de-code-source/</loc>
+    <loc>http://localhost:1313/fr/audit-de-code-source/</loc>
     <lastmod>2026-10-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/source-code-security-audit/"
+                href="http://localhost:1313/source-code-security-audit/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/audit-de-code-source/"
+                href="http://localhost:1313/fr/audit-de-code-source/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/audit-configuration-durcissement-linux/</loc>
+    <loc>http://localhost:1313/fr/audit-configuration-durcissement-linux/</loc>
     <lastmod>2026-10-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/linux-configuration-hardening-audit/"
+                href="http://localhost:1313/linux-configuration-hardening-audit/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/audit-configuration-durcissement-linux/"
+                href="http://localhost:1313/fr/audit-configuration-durcissement-linux/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/test-intrusion-application-web/</loc>
+    <loc>http://localhost:1313/fr/test-intrusion-application-web/</loc>
     <lastmod>2026-10-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/web-application-penetration-testing/"
+                href="http://localhost:1313/web-application-penetration-testing/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/test-intrusion-application-web/"
+                href="http://localhost:1313/fr/test-intrusion-application-web/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/formations/durcissement-linux/</loc>
+    <loc>http://localhost:1313/fr/formations/durcissement-linux/</loc>
     <lastmod>2026-07-14T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/courses/linux-hardening/"
+                href="http://localhost:1313/courses/linux-hardening/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/formations/durcissement-linux/"
+                href="http://localhost:1313/fr/formations/durcissement-linux/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/formations/</loc>
+    <loc>http://localhost:1313/fr/formations/</loc>
     <lastmod>2025-04-22T18:05:10+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/courses/"
+                href="http://localhost:1313/courses/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/formations/"
+                href="http://localhost:1313/fr/formations/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/references/</loc>
+    <loc>http://localhost:1313/fr/references/</loc>
     <lastmod>2025-04-22T18:05:10+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/clients/"
+                href="http://localhost:1313/clients/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/references/"
+                href="http://localhost:1313/fr/references/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/formations/hacking-et-securite-application-web/</loc>
+    <loc>http://localhost:1313/fr/formations/hacking-et-securite-application-web/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/courses/hacking-and-web-application-security/"
+                href="http://localhost:1313/courses/hacking-and-web-application-security/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/formations/hacking-et-securite-application-web/"
+                href="http://localhost:1313/fr/formations/hacking-et-securite-application-web/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/formations/hacking-et-securite-application-web-avancee/</loc>
+    <loc>http://localhost:1313/fr/formations/hacking-et-securite-application-web-avancee/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/courses/advanced-hacking-and-web-application-security/"
+                href="http://localhost:1313/courses/advanced-hacking-and-web-application-security/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/formations/hacking-et-securite-application-web-avancee/"
+                href="http://localhost:1313/fr/formations/hacking-et-securite-application-web-avancee/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/formations/initiation-test-intrusion/</loc>
+    <loc>http://localhost:1313/fr/formations/initiation-test-intrusion/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/courses/introduction-to-pentesting/"
+                href="http://localhost:1313/courses/introduction-to-pentesting/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/formations/initiation-test-intrusion/"
+                href="http://localhost:1313/fr/formations/initiation-test-intrusion/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/formations/initiation-bash/</loc>
+    <loc>http://localhost:1313/fr/formations/initiation-bash/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/courses/introduction-to-bash-scripting/"
+                href="http://localhost:1313/courses/introduction-to-bash-scripting/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/formations/initiation-bash/"
+                href="http://localhost:1313/fr/formations/initiation-bash/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/formations/introduction-au-bugbounty/</loc>
+    <loc>http://localhost:1313/fr/formations/introduction-au-bugbounty/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/courses/bugbounty-overview/"
+                href="http://localhost:1313/courses/bugbounty-overview/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/formations/introduction-au-bugbounty/"
+                href="http://localhost:1313/fr/formations/introduction-au-bugbounty/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/formations/les-bases-de-sql/</loc>
+    <loc>http://localhost:1313/fr/formations/les-bases-de-sql/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/courses/the-basics-of-sql/"
+                href="http://localhost:1313/courses/the-basics-of-sql/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/formations/les-bases-de-sql/"
+                href="http://localhost:1313/fr/formations/les-bases-de-sql/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/formations/php-debutant/</loc>
+    <loc>http://localhost:1313/fr/formations/php-debutant/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/courses/php-for-beginners/"
+                href="http://localhost:1313/courses/php-for-beginners/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/formations/php-debutant/"
+                href="http://localhost:1313/fr/formations/php-debutant/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/formations/securite-laravel/</loc>
+    <loc>http://localhost:1313/fr/formations/securite-laravel/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/courses/laravel-security/"
+                href="http://localhost:1313/courses/laravel-security/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/formations/securite-laravel/"
+                href="http://localhost:1313/fr/formations/securite-laravel/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/formations/sensibilisation-cybersecurite/</loc>
+    <loc>http://localhost:1313/fr/formations/sensibilisation-cybersecurite/</loc>
     <lastmod>2025-04-22T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/courses/cybersecurity-awareness/"
+                href="http://localhost:1313/courses/cybersecurity-awareness/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/formations/sensibilisation-cybersecurite/"
+                href="http://localhost:1313/fr/formations/sensibilisation-cybersecurite/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/projets/</loc>
+    <loc>http://localhost:1313/fr/projets/</loc>
     <lastmod>2023-05-05T18:05:10+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/projects/"
+                href="http://localhost:1313/projects/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/projets/"
+                href="http://localhost:1313/fr/projets/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/presse/</loc>
+    <loc>http://localhost:1313/fr/presse/</loc>
     <lastmod>2019-10-18T17:50:10+02:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/press/"
+                href="http://localhost:1313/press/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/presse/"
+                href="http://localhost:1313/fr/presse/"
                 />
   </url>
 </urlset>

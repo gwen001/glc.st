@@ -112,6 +112,37 @@
         "itemListElement" .)) -}}
   {{- end -}}
 
+
+{{/* ------------------------------------------------------------------ */}}
+{{/* Services
+{{/* ------------------------------------------------------------------ */}}
+
+{{- else if .Params.services_hub -}}
+  {{- $items := slice -}}
+  {{- range $i, $p := (where site.RegularPages "Params.service" true) -}}
+    {{- $items = $items | append (dict
+        "@type" "ListItem"
+        "position" (add $i 1)
+        "url" $p.Permalink
+        "name" $p.Title) -}}
+  {{- end -}}
+  {{- $schema = dict
+      "@context" "https://schema.org"
+      "@type" "CollectionPage"
+      "name" .Title
+      "url" .Permalink
+      "isPartOf" (dict "@type" "WebSite" "url" site.BaseURL)
+      "about" $personRef
+  -}}
+  {{- with $desc }}{{ $schema = merge $schema (dict "description" .) }}{{ end -}}
+  {{- with $items -}}
+    {{- $schema = merge $schema (dict "mainEntity" (dict
+        "@type" "ItemList"
+        "numberOfItems" (len .)
+        "itemListElement" .)) -}}
+  {{- end -}}
+
+
 {{/* ------------------------------------------------------------------ */}}
 {{/* Courses                                                             */}}
 {{/* ------------------------------------------------------------------ */}}

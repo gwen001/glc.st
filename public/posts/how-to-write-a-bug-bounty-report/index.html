@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -9,7 +9,7 @@
     <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools" />
 
     <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:image" content="https://glc.st/images/report-h1-empty.png"/>
+<meta name="twitter:image" content="http://localhost:1313/images/report-h1-empty.png"/>
 
 <meta name="twitter:title" content="How to write a Bug Bounty report - Gwendal Le Coguic" />
 <meta name="twitter:description" content="One of the first thing I learned when I started security, is that the report is just as important as the pentest itself. Some bug bounty platforms give reputation points according the quality. While …" />
@@ -20,22 +20,22 @@
     <meta property="og:title" content="How to write a Bug Bounty report - Gwendal Le Coguic" />
 <meta property="og:description" content="One of the first thing I learned when I started security, is that the report is just as important as the pentest itself. Some bug bounty platforms give reputation points according the quality. While …" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://glc.st/posts/how-to-write-a-bug-bounty-report/" />
+<meta property="og:url" content="http://localhost:1313/posts/how-to-write-a-bug-bounty-report/" />
 
-<meta property="og:image" content="https://glc.st/images/report-h1-empty.png" />
+<meta property="og:image" content="http://localhost:1313/images/report-h1-empty.png" />
 <meta property="article:published_time" content="2019-03-01T00:00:00+00:00" />
 <meta property="article:modified_time" content="2019-03-01T00:00:00+00:00" /><meta property="og:locale" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
     
-      <base href="https://glc.st/">
+      <base href="http://localhost:1313/">
     
 
     <title>How to write a Bug Bounty report - Gwendal Le Coguic</title>
 
     
         
-            <link rel="canonical" href="https://glc.st/posts/how-to-write-a-bug-bounty-report/">
+            <link rel="canonical" href="http://localhost:1313/posts/how-to-write-a-bug-bounty-report/">
         
     
 
@@ -46,7 +46,7 @@
     
       
       
-      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="http://localhost:1313/assets/css/coder.css" media="screen">
     
 
     
@@ -54,14 +54,14 @@
     
 
     
-      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+      <link rel="stylesheet" href="http://localhost:1313/assets/css/custom.css" />
     
 
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16"><meta name="generator" content="Hugo 0.147.0">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://localhost:1313/assets/img/favicon-16x16.png" sizes="16x16"><meta name="generator" content="Hugo 0.147.0">
 
     
 
@@ -70,7 +70,7 @@
 
 
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2019-03-01","datePublished":"2019-03-01","description":"One of the first thing I learned when I started security, is that the report is just as important as the pentest itself. Some bug bounty platforms give …","headline":"How to write a Bug Bounty report","image":"https://glc.st/images/report-h1-empty.png","inLanguage":"en","keywords":"bug bounty, writing, report","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/posts/how-to-write-a-bug-bounty-report/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2019-03-01","datePublished":"2019-03-01","description":"One of the first thing I learned when I started security, is that the report is just as important as the pentest itself. Some bug bounty platforms give …","headline":"How to write a Bug Bounty report","image":"http://localhost:1313/images/report-h1-empty.png","inLanguage":"en","keywords":"bug bounty, writing, report","publisher":{"@id":"https://glc.st/#person"},"url":"http://localhost:1313/posts/how-to-write-a-bug-bounty-report/"}</script>
 
   </head>
 
@@ -78,7 +78,7 @@
         <main class="wrapper">
       <nav class="navigation d-print-none">
   <section class="container">
-    <a class="navigation-title" href="https://glc.st/">
+    <a class="navigation-title" href="http://localhost:1313/">
       Gwendal Le Coguic
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -87,31 +87,31 @@
       
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+            <a class="navigation-link" href="http://localhost:1313/posts/">Posts</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/courses/">Courses</a>
+            <a class="navigation-link" href="http://localhost:1313/courses/">Courses</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/clients/">Clients</a>
+            <a class="navigation-link" href="http://localhost:1313/clients/">Clients</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+            <a class="navigation-link" href="http://localhost:1313/services/">Services</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+            <a class="navigation-link" href="http://localhost:1313/projects/">Projects</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+            <a class="navigation-link" href="http://localhost:1313/cves/">CVEs</a>
           </li>
         
           <li class="navigation-item">
-            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+            <a class="navigation-link" href="http://localhost:1313/press/">Press</a>
           </li>
         
       
@@ -120,7 +120,7 @@
         <span>|</span>
     </li>
       <li class="navigation-item language">
-        <a href="https://glc.st/fr/" hreflang="fr" lang="fr" rel="alternate"><img src="https://glc.st/assets/img/flags/fr.png" class="icon-flag" /></a>
+        <a href="http://localhost:1313/fr/" hreflang="fr" lang="fr" rel="alternate"><img src="http://localhost:1313/assets/img/flags/fr.png" class="icon-flag" /></a>
       </li>
     </ul>
   </section>
@@ -161,14 +161,14 @@
 <section class="container post">
     <div id="sharer">
     <div class="sharer-buttons">
-        <a href="https://twitter.com/intent/tweet?text=How%20to%20write%20a%20Bug%20Bounty%20report%20https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
-        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f&title=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
-        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f&amp;t=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
-        <a href="mailto:?subject=How%20to%20write%20a%20Bug%20Bounty%20report&body=https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
-        <a href="https://wa.me/?text=How%20to%20write%20a%20Bug%20Bounty%20report%20https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
-        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f&text=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f&amp;title=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2fhow-to-write-a-bug-bounty-report%2f&t=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+        <a href="https://twitter.com/intent/tweet?text=How%20to%20write%20a%20Bug%20Bounty%20report%20http%3a%2f%2flocalhost%3a1313%2fposts%2fhow-to-write-a-bug-bounty-report%2f" target="_blank"><img class="twitter" src="http://localhost:1313/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fhow-to-write-a-bug-bounty-report%2f&title=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="reddit" src="http://localhost:1313/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fhow-to-write-a-bug-bounty-report%2f&amp;t=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="hackernews" src="http://localhost:1313/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=How%20to%20write%20a%20Bug%20Bounty%20report&body=http%3a%2f%2flocalhost%3a1313%2fposts%2fhow-to-write-a-bug-bounty-report%2f" target="_blank"><img class="mail" src="http://localhost:1313/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=How%20to%20write%20a%20Bug%20Bounty%20report%20http%3a%2f%2flocalhost%3a1313%2fposts%2fhow-to-write-a-bug-bounty-report%2f" target="_blank"><img class="whatsapp" src="http://localhost:1313/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=http%3a%2f%2flocalhost%3a1313%2fposts%2fhow-to-write-a-bug-bounty-report%2f&text=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="telegram" src="http://localhost:1313/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http%3a%2f%2flocalhost%3a1313%2fposts%2fhow-to-write-a-bug-bounty-report%2f&amp;title=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="linkedin" src="http://localhost:1313/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=http%3a%2f%2flocalhost%3a1313%2fposts%2fhow-to-write-a-bug-bounty-report%2f&t=How%20to%20write%20a%20Bug%20Bounty%20report" target="_blank"><img class="facebook" src="http://localhost:1313/assets/img/share/facebook.svg" alt="facebook"></a>
 
         
     </div>
@@ -230,7 +230,7 @@ Unless you can chain several vulnerabilities of course (for example: OR + CSRF +
 <p>Take time to rate the issue, in an <strong><u>obvious</u></strong> way.
 Too low, there is a chance that the secteam pass over it, but you could be happy if finally the bounty is higher than your expectations.
 Too high, the secteam could think that you overrated in order to increase the bounty, they will notice, lower the rating, lower the bounty and you will be disappointed.</p>
-<img src="https://glc.st/images/report-cvss.png" alt="report cvss" width="220" style="float:left;" />
+<img src="http://localhost:1313/images/report-cvss.png" alt="report cvss" width="220" style="float:left;" />
 <div style="float:right;width:600px;">
     Sometimes optional, sometimes mandatory, if available, try to fill the <a href="https://www.first.org/cvss/calculator/3.0">CVSS</a> score.
     Even if it's not perfect and context dependent, it gives a good idea of the criticity of the issue <u>in a technical point of view</u>.
@@ -281,16 +281,16 @@ It&rsquo;s very easy to reproduce the issue that way, you simply need to copy/pa
 <p>Providing the response is also a good thing to show the team the difference between a legit result and an unexpected behavior.</p>
 <h2 id="poc">PoC</h2>
 <p>As we often say, a picture speaks a thousand words. Provide everything that can prove the bug.
-One of my previous article about <a href="https://glc.st/posts/colorize-your-hunt/">Colorize your hunt</a> can help to visualize things.
+One of my previous article about <a href="http://localhost:1313/posts/colorize-your-hunt/">Colorize your hunt</a> can help to visualize things.
 Also, keep in mind that the report can be publicly disclosed in the futur, so take care of hidding personal informations you want to keep private.</p>
 <p><strong>Videos</strong> that replays the whole drama that leads you to this great report.</p>
 <p><strong>Screenhosts</strong> that you can quickly modify with an image editor in order to highlight payloads and datas extracted.
 No need to be a great designer here.</p>
 <div  style="width:400px;float:left;margin-right:20px;">
-  <a href="https://glc.st/images/report-poc-xss.png" title="poc example xss" target="_blank" ><img src="https://glc.st/images/report-poc-xss.png" alt="poc example xss" /></a>
+  <a href="http://localhost:1313/images/report-poc-xss.png" title="poc example xss" target="_blank" ><img src="http://localhost:1313/images/report-poc-xss.png" alt="poc example xss" /></a>
 </div>
 <div  style="width:400px;float:left;">
-  <a href="https://glc.st/images/report-poc-rce.png" title="poc example rce" target="_blank"><img src="https://glc.st/images/report-poc-rce.png" alt="poc example rce" /></a>
+  <a href="http://localhost:1313/images/report-poc-rce.png" title="poc example rce" target="_blank"><img src="http://localhost:1313/images/report-poc-rce.png" alt="poc example rce" /></a>
 </div>
 <div style="clear:both;"></div>
 <h2 id="mitigation">Mitigation</h2>
@@ -304,7 +304,7 @@ Remember that bug bounty is also about learning (for both parts).</p>
 Try to create a possible scenario showing the potential risks of the issue.
 But take care to not fall to the &ldquo;Hollywood syndrom&rdquo;, there is only a few chance that a Full Path Disclosure leads to an earthquake followed by a tsunami, stamping out the human race.
 Seriously, it&rsquo;s not gonna happen.</p>
-<p><img src="https://glc.st/images/2012-movie.jpg" alt="2012 movie"></p>
+<p><img src="http://localhost:1313/images/2012-movie.jpg" alt="2012 movie"></p>
 <h2 id="additional-notes">Additional notes</h2>
 <p>Sometimes you have to provide small details that can be helpful to the team to better understand the issue, why it works most of the time but fails in a specific case.
 Some weeks ago I reported a P1 to a program regarding their user permissions.
@@ -327,7 +327,7 @@ The goal is to help the team to understand and fix the issue but also show her t
     They won't unless you give important additional informations.
     If you really feel that something is going wrong with this report/program then consider to request an intervention from the platform itself.
 </div>
-<img src="https://glc.st/images/yoda-medit.jpg" alt="Yoda mediting" width="250" style="float:right;" />
+<img src="http://localhost:1313/images/yoda-medit.jpg" alt="Yoda mediting" width="250" style="float:right;" />
 <div style="clear:both;"></div>
 <p><span style="color:#4BAE50"><strong>Be patient :)</strong></span>
 I personally ping every 2 weeks when no news.
@@ -381,7 +381,7 @@ Patience is a vertue in bug bounty.</p>
       </script>
 
     
-      <script src="https://glc.st/assets/js/scripts.js"></script>
+      <script src="http://localhost:1313/assets/js/scripts.js"></script>
     
 
   </body>
