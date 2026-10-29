@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Audit de code source par un expert indépendant : revue manuelle, analyse des dépendances et des secrets, trouvailles priorisées. Devis sur demande." />
+    <meta name="keywords" content="[audit de code source, revue de code sécurité, audit de code, expert cybersécurité indépendant]" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Audit de code source - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Audit de code source par un expert indépendant : revue manuelle, analyse des dépendances et des secrets, trouvailles priorisées. Devis sur demande." />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Audit de code source - Gwendal Le Coguic" />
+<meta property="og:description" content="Audit de code source par un expert indépendant : revue manuelle, analyse des dépendances et des secrets, trouvailles priorisées. Devis sur demande." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/audit-de-code-source/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2026-10-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2026-10-13T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Audit de code source - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/audit-de-code-source/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/source-code-security-audit/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/audit-de-code-source/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/source-code-security-audit/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","areaServed":{"@type":"Country","name":"France"},"availableLanguage":["en","fr"],"description":"Audit de code source par un expert indépendant : revue manuelle, analyse des dépendances et des secrets, trouvailles priorisées. Devis sur demande.","name":"Audit de code source","provider":{"@id":"https://glc.st/#person"},"serviceType":"Audit de code source","url":"https://glc.st/fr/audit-de-code-source/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/source-code-security-audit/" hreflang="en" lang="en" rel="alternate"><img src="https://glc.st/assets/img/flags/en.png" class="icon-flag" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Audit de code source</h1>
+    </header>
+
+    <p>Un <a href="https://glc.st/fr/test-intrusion-application-web/">test d&rsquo;intrusion</a> vous dit ce qu&rsquo;un attaquant peut atteindre aujourd&rsquo;hui.
+Un audit de code source vous dit ce qui est fragile en dessous - y compris les parties qui ne sont pas encore atteignables, mais le seront après la prochaine version.</p>
+<p>Les deux répondent à des questions différentes. Cette page traite de la seconde : <strong>où cette base de code casse-t-elle, et pourquoi casse-t-elle toujours de la même façon ?</strong></p>
+<h2 id="pourquoi-maintenant">Pourquoi maintenant</h2>
+<p>Trois chiffres cadrent le problème.</p>
+<p><strong>Votre code est surtout le code des autres.</strong>
+Le <a href="https://www.blackduck.com/resources/analyst-reports/open-source-security-risk-analysis.html">rapport Open Source Security and Risk Analysis 2026</a>,
+établi sur 947 bases de code auditées entre novembre 2024 et octobre 2025, a trouvé des composants open source dans <strong>98 %</strong> d&rsquo;entre elles.
+<strong>87 %</strong> contenaient des vulnérabilités open source connues, <strong>78 %</strong> à risque élevé et <strong>44 %</strong> à risque critique.
+Le nombre moyen de vulnérabilités par base de code atteint <strong>581, contre 280 un an plus tôt</strong> - un bond de 107 %.
+Et <strong>93 %</strong> des bases de code embarquaient des composants sans aucune activité de développement depuis plus de deux ans : pas encore vulnérables, simplement non maintenus,
+ce qui est le même problème avec un délai.</p>
+<figure><img src="https://glc.st/assets/img/services/2026-open-source-security-and-risk-analysis-report.png"
+    alt="Rapport Open Source Security and Risk Analysis 2026" width="500">
+</figure>
+
+<p><strong>Les failles ne sont pas corrigées.</strong>
+Le <a href="https://www.veracode.com/resources/analyst-reports/state-of-software-security-2026/">State of Software Security 2026</a> de Veracode
+situe la dette de sécurité - les failles non résolues plus d&rsquo;un an après leur découverte - à <strong>82 % des organisations</strong>, contre 74 % l&rsquo;année précédente et 71 % en 2024.
+La dette critique touche désormais <strong>60 %</strong>, contre 50 % l&rsquo;an dernier. Les failles à haut risque augmentent de 36 % sur un an. Le problème n&rsquo;est plus la détection, c&rsquo;est la priorisation.</p>
+<p><strong>Les secrets fuient depuis l&rsquo;intérieur.</strong>
+Le <a href="https://www.gitguardian.com/state-of-secrets-sprawl-report-2026">rapport 2026 de GitGuardian</a>
+a compté environ <strong>29 millions de secrets</strong> détectés sur GitHub public en 2025, soit une hausse de 34 %.
+Plus parlant pour un audit : <strong>les dépôts internes sont environ six fois plus susceptibles de contenir des secrets en dur que les dépôts publics</strong>,
+et <strong>64 % des secrets valides fuités en 2022 n&rsquo;étaient toujours pas révoqués en 2026</strong>.
+Le même rapport mesure un taux de fuite de secrets de <strong>3,2 % sur les commits assistés par IA, contre 1,5 % de référence</strong>, soit le double.</p>
+<p>Ce dernier chiffre compte si votre équipe a adopté des assistants de code IA ces deux dernières années. Le volume a augmenté ; la revue, non.</p>
+<h2 id="quand-lancer-un-audit-de-code">Quand lancer un audit de code</h2>
+<ul>
+<li><strong>Avant une version sensible</strong> : un parcours de paiement, une refonte de l&rsquo;authentification, une fonctionnalité multi-tenant, une API ouverte à des partenaires.</li>
+<li><strong>Due diligence technique</strong> : vous rachetez, investissez dans ou héritez d&rsquo;une base de code et devez savoir ce que vous signez,
+exposition aux licences comprise. 68 % des bases de code auditées présentaient des conflits de licence dans le jeu de données OSSRA 2026, le taux le plus élevé jamais relevé.</li>
+<li><strong>Reprise d&rsquo;un code existant</strong> : nouveau CTO, nouvelle équipe, développement externalisé réinternalisé, auteurs d&rsquo;origine partis.</li>
+<li><strong>Après un test d&rsquo;intrusion</strong> : quand la cause racine d&rsquo;une trouvaille reste floue, ou quand vous voulez savoir si la même erreur
+existe dans les douze endroits que le test n&rsquo;a pas atteints.</li>
+<li><strong>Parce que le développement s&rsquo;est accéléré</strong> : forte assistance IA, hausse marquée des pull requests fusionnées, ou un processus de revue qui a discrètement cessé d&rsquo;exister.</li>
+<li><strong>Pour une obligation</strong> : l&rsquo;<a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A32016R0679">article 32 du RGPD</a>
+impose de tester régulièrement l&rsquo;efficacité des mesures techniques ;
+NIS2 et DORA renforcent cette exigence pour les entités concernées ; les grands comptes demandent de plus en plus une SBOM et une attestation de revue de code.</li>
+</ul>
+<h2 id="ce-que-je-revois">Ce que je revois</h2>
+<p><strong>La logique d&rsquo;authentification et d&rsquo;autorisation.</strong> Pas de vérifier qu&rsquo;un login existe, mais que chaque chemin censé contrôler une permission le fait réellement.
+Les contrôles manquants se concentrent sur les routes que personne ne démontre : endpoints d&rsquo;administration, API internes, workers de file, tâches planifiées, fonctions d&rsquo;import et d&rsquo;export.
+C&rsquo;est toujours la catégorie A01 de l&rsquo;<a href="https://top10.owasp.org/2025/">OWASP Top 10:2025</a> et ça reste le filon le plus riche dans les vraies bases de code.</p>
+<p><strong>Le traitement des entrées et les points d&rsquo;aboutissement d&rsquo;injection.</strong> Suivre les données non fiables du point d&rsquo;entrée jusqu&rsquo;au sink, plutôt que de chercher des motifs sur des noms de fonctions :
+requêtes SQL et NoSQL construites par concaténation, exécution de commandes, rendu de templates, désérialisation, inclusions dynamiques.</p>
+<p><strong>La cryptographie et la gestion des secrets.</strong> Stockage des mots de passe, génération de jetons et entropie, gestion des clés de chiffrement,
+vérification de signature qui retourne trop tôt, validation de JWT qui fait confiance à l&rsquo;en-tête d&rsquo;algorithme.</p>
+<p><strong>Le traitement des fichiers.</strong> Validation des uploads, emplacement et permissions de stockage, façon dont les fichiers déposés sont resservis, construction des chemins.</p>
+<p><strong>La logique métier.</strong> Séquences d&rsquo;étapes contournables ou rejouables, traitement des quantités et des montants, machines à états avec des gardes inatteignables,
+conditions de course sur des ressources partagées. Aucun outil ne les trouve, et ce sont souvent les failles les plus coûteuses de la base de code.</p>
+<p><strong>Les dépendances et la chaîne d&rsquo;approvisionnement.</strong> Composants directs et transitifs, vulnérabilités connues, paquets non maintenus, intégrité des lockfiles, risque de substitution à la compilation.
+L&rsquo;OWASP a fait passer les défaillances de la chaîne d&rsquo;approvisionnement logicielle en A03 dans le Top 10 2025, et le <a href="https://www.verizon.com/business/resources/reports/dbir/">DBIR 2026</a>
+constate l&rsquo;implication d&rsquo;un tiers dans 48 % des compromissions, en hausse de 60 % sur un an.</p>
+<p><strong>Les secrets, y compris dans l&rsquo;historique Git.</strong> Un secret retiré de l&rsquo;arbre de travail est toujours dans l&rsquo;historique, toujours valide, et toujours indexable.
+Je vérifie les deux. J&rsquo;ai écrit et publié <a href="https://glc.st/fr/projets/">l&rsquo;outillage</a> pour cette partie du travail, et j&rsquo;ai trouvé des identifiants cloud actifs
+dans des dépôts clients à plus d&rsquo;une reprise.</p>
+<p><strong>La configuration et l&rsquo;infrastructure as code.</strong> Dockerfiles, définitions de pipelines CI/CD, playbooks Ansible, gestion des environnements.
+Les pipelines qui ont un accès en écriture à la production sont une cible, et ils sont rarement revus.</p>
+<br>
+<blockquote>
+<p>PHP et Laravel en profondeur, JavaScript et TypeScript (Node), Python, Bash, SQL, et
+l&rsquo;infrastructure as code (Docker, Ansible). Pour une base de code dominée par Java, .NET, Go ou Rust,
+je vous le dis d&rsquo;emblée et je vous oriente vers quelqu&rsquo;un de mieux placé - une revue superficielle dans un langage
+que je ne pratique pas au quotidien vaut moins que pas de revue du tout.</p></blockquote>
+<h2 id="comment-ça-se-déroule">Comment ça se déroule</h2>
+<p><strong>1. Cadrage</strong> - dépôts concernés, langages, taille approximative, branche ou tag à auditer, méthode d&rsquo;accès (une clé de déploiement en lecture seule est préférable,
+aucune copie ne quitte mon poste chiffré), accord de confidentialité, et un contact technique nommé pour les questions.</p>
+<p><strong>2. Passe d&rsquo;architecture</strong> - points d&rsquo;entrée, frontières de confiance, flux de données, le modèle d&rsquo;autorisation tel qu&rsquo;il est réellement implémenté plutôt que tel qu&rsquo;il est documenté.
+Cette phase décide où passe le temps restant, c&rsquo;est pourquoi elle précède tout outillage.</p>
+<p><strong>3. Filet de couverture automatisé</strong> - analyse statique, scan de dépendances et détection de secrets, exécutés pour s&rsquo;assurer que rien d&rsquo;évident n&rsquo;est manqué.
+La sortie part en triage, jamais telle quelle dans le rapport. La trouvaille d&rsquo;un outil est une piste, pas une conclusion.</p>
+<p><strong>4. Revue manuelle des chemins critiques</strong> - le cœur de la mission, guidée par le
+<a href="https://owasp.org/www-project-code-review-guide/">OWASP Code Review Guide</a> pour la méthode,
+l&rsquo;<a href="https://owasp.org/www-project-application-security-verification-standard/">OWASP ASVS</a> pour le niveau d&rsquo;exigence,
+et le <a href="https://cwe.mitre.org/top25/">CWE Top 25</a> ainsi que l&rsquo;OWASP Top 10:2025 pour la couverture des classes de faiblesses.</p>
+<p><strong>5. Vérification</strong> - pour chaque trouvaille sérieuse, une preuve fonctionnelle sur une instance locale quand c&rsquo;est possible. Je préfère vous remettre une faille démontrée que cinq failles théoriques.</p>
+<p><strong>6. Rapport et restitution</strong> - livrable écrit, puis une séance de travail avec les développeurs, en français ou en anglais.</p>
+<h2 id="le-rapport">Le rapport</h2>
+<ul>
+<li><strong>Une synthèse d&rsquo;une page</strong> pour la direction : ce qui a été revu, quels sont les risques réels, ce qu&rsquo;il faut corriger en premier, et un énoncé honnête des limites de couverture.</li>
+<li><strong>Chaque trouvaille</strong> avec sa localisation (fichier et ligne, référence de commit), la classe CWE, une criticité contextualisée à votre application,
+le scénario d&rsquo;attaque, et une remédiation concrète - dans votre langage et votre framework, pas un lien vers un article générique.</li>
+<li><strong>Les motifs récurrents</strong>, et c&rsquo;est là qu&rsquo;un audit de code justifie son prix. Un contrôle d&rsquo;autorisation manquant est un bug ; la même omission
+dans quatorze contrôleurs est un problème de conception, et la recommandation n&rsquo;est pas la même.</li>
+<li><strong>Un inventaire des dépendances</strong> avec ce qu&rsquo;il faut mettre à jour, dans quel ordre, et ce qui casse quand vous le faites.</li>
+<li><strong>Les secrets trouvés</strong>, avec une liste de révocation urgente séparée du reste. Cette section vous parvient par canal chiffré avant
+la fin du rapport si quelque chose d&rsquo;actif remonte.</li>
+</ul>
+<br>
+<blockquote>
+<p>Une page d&rsquo;administration accessible publiquement est une information, pas une vulnérabilité critique.
+Gonfler les scores remplit le rapport et vide sa valeur : au troisième audit où
+tout est « élevé », plus personne ne le lit, et la seule trouvaille réellement critique
+se noie dans le bruit. Acceptez les rapports courts quand l&rsquo;application est saine.</p></blockquote>
+<h2 id="ce-quun-audit-de-code-nest-pas">Ce qu&rsquo;un audit de code n&rsquo;est pas</h2>
+<ul>
+<li><strong>Ce n&rsquo;est pas un rapport de scanner avec une page de garde.</strong> Si vous voulez une sortie de SAST, vous pouvez l&rsquo;exécuter vous-même pour moins que mon taux journalier. Ce que je vends, c&rsquo;est le triage.</li>
+<li><strong>Ce n&rsquo;est pas exhaustif.</strong> Un budget borné sur une base de code de taille réelle implique une couverture priorisée.
+Le rapport énonce explicitement ce qui a été revu en profondeur, ce qui a été survolé, et ce qui n&rsquo;a pas été ouvert du tout.</li>
+<li><strong>Ce n&rsquo;est pas un remplacement du test d&rsquo;intrusion.</strong> La revue de code ignore la réalité du déploiement et de la configuration -
+la base de données de recette joignable depuis Internet, le sous-domaine oublié. Le <a href="https://glc.st/fr/test-intrusion-application-web/">pentest</a> ignore
+ce que fait le code sur les chemins qu&rsquo;il n&rsquo;emprunte jamais. Faites les deux, dans l&rsquo;ordre de préférence selon la question qui vous empêche de dormir.</li>
+<li><strong>Ce n&rsquo;est pas une revue de qualité de code.</strong> Je ne reformaterai pas votre code et je ne débattrai pas d&rsquo;architecture, sauf là où l&rsquo;architecture <em>est</em> la vulnérabilité.</li>
+<li><strong>Ça ne corrige rien tout seul.</strong> Rappel du chiffre de 82 % de dette de sécurité plus haut : le goulot n&rsquo;est pas de trouver les failles, c&rsquo;est d&rsquo;agir dessus.</li>
+</ul>
+<h2 id="pourquoi-moi">Pourquoi moi</h2>
+<ul>
+<li><strong>Auditeur pour le ministère des Armées, de 2020 à 2024</strong> : audits de code, audits de configuration selon les recommandations de l&rsquo;ANSSI,
+et tests d&rsquo;intrusion sur des systèmes Linux et des applications web.</li>
+<li><strong>Développeur pendant environ 25 ans avant ça</strong>, dans plusieurs sociétés web françaises. Je lis votre code sans traducteur,
+et mes recommandations tiennent compte de ce qu&rsquo;elles coûtent à implémenter, ce qui est précisément la partie que la plupart des rapports de sécurité ratent.</li>
+<li><strong>Chasseur de vulnérabilités depuis 2016</strong> : plusieurs centaines de rapports à des programmes chez EDF, Decathlon, Payfit, BlaBlaCar, Uber, Yahoo, Zillow et d&rsquo;autres,
+dont des fuites de secrets cloud et des expositions de code source. Des <a href="https://glc.st/cves/">CVEs</a> publiées sous mon nom, la plupart trouvées en lisant du code.</li>
+<li><strong>Auteur de l&rsquo;outillage</strong> : j&rsquo;ai écrit et publié les <a href="https://glc.st/fr/projets/">scripts et extensions</a> que j&rsquo;utilise pour chasser secrets, endpoints et dépôts exposés.</li>
+<li><strong>Formateur depuis 2022</strong> : une <a href="https://glc.st/fr/formations/">dizaine de formations</a>, dont <a href="https://glc.st/fr/formations/">sécurité Laravel</a>
+et <a href="https://glc.st/fr/formations/">sécurité des applications web</a> pour développeurs.
+Si l&rsquo;audit montre la même classe de faille qui se répète, le correctif est en amont du code.</li>
+</ul>
+<p>Un exemple public, où une fuite de code source était le point d&rsquo;entrée vers tout le reste :
+mon <a href="https://glc.st/posts/analysis-of-a-critical-french-medical-application/">analyse d&rsquo;une application médicale française critique</a>.</p>
+<h2 id="questions-fréquentes">Questions fréquentes</h2>
+<p><strong>Combien de temps ?</strong>
+Cinq à quinze jours selon la taille et le langage, plus la rédaction.
+Une application Laravel ou Node de taille moyenne tourne autour de huit jours.
+Je vous donne une estimation après un coup d&rsquo;œil aux statistiques du dépôt, pas avant.</p>
+<p><strong>Combien ça coûte ?</strong>
+Devis sur demande, au forfait. Les facteurs : lignes de code dans le périmètre, nombre de langages, disponibilité d&rsquo;une instance en fonctionnement,
+et inclusion ou non d&rsquo;une contre-vérification. Vous obtenez une fourchette dès le premier échange.</p>
+<p><strong>Avez-vous besoin d&rsquo;un accès à notre dépôt ?</strong>
+Oui, en lecture seule, sur la branche ou le tag convenu. Une clé de déploiement en lecture seule ou un jeton d&rsquo;accès à durée limitée est l&rsquo;idéal.
+Rien n&rsquo;est copié hors de mon poste chiffré, et tout est détruit après la contre-vérification sauf demande contraire. Accord de confidentialité signé avant l&rsquo;accès.</p>
+<p><strong>Pouvez-vous travailler à partir d&rsquo;une archive ?</strong>
+Oui, mais vous perdez l&rsquo;historique Git, et c&rsquo;est là que sont les secrets.
+Si la confidentialité l&rsquo;interdit, dites-le et nous cadrerons autour.</p>
+<p><strong>Et si la base de code est un chantier ?</strong>
+C&rsquo;est le cas courant, et ce n&rsquo;est pas une raison de refuser.
+Ça change la méthode : plus de temps sur l&rsquo;architecture et sur la recherche de motifs récurrents, moins sur la couverture exhaustive.</p>
+<p><strong>Et si vous ne trouvez rien de grave ?</strong>
+Vous obtenez un rapport qui le dit, avec le détail de couverture qui le rend défendable devant un client ou un auditeur.
+C&rsquo;est le résultat que je préfère, et il est plus rare qu&rsquo;on ne l&rsquo;espère.</p>
+<p>Enfin, si les trouvailles pointent un manque de compétence plutôt que des erreurs isolées,
+une <a href="https://glc.st/fr/formations/">formation</a> coûte moins cher que d&rsquo;auditer la même base de code l&rsquo;année prochaine.</p>
+<h2 id="parlons-en">Parlons-en</h2>
+<p>Dites-moi ce que fait la base de code, à peu près quelle taille, quels langages, et ce qui déclenche la question.
+Je vous réponds avec un périmètre proposé et une fourchette de prix.</p>
+<p><br><br></p>
+<hr>
+<p>Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank"><a href="mailto:contact@glc.st">contact@glc.st</a></a> - devis sur demande - SIRET 79778302400038</p>
+<style>
+    .content figure {
+        border: 0px solid #000;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        padding: 0px;
+        text-align: center;
+    }
+
+    blockquote {
+        font-size: 0.9em;
+        text-align: justify;
+        background-color: #fef6e1;
+        border: 1px solid #f9b915;
+        font-style: normal;
+        padding: 2rem;
+    }
+    blockquote p {
+        margin: 1.0rem 0 1.0rem 0;
+    }
+</style>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

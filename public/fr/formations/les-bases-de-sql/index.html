@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Formation pratique de 2 jours sur SQL, destinée aux développeurs et aux analystes : conception relationnelle, normalisation, jointures, agrégation, sous-requêtes, fonctions de fenêtrage et …" />
+    <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/courses/sql.png"/>
+
+<meta name="twitter:title" content="Les bases de SQL - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Formation pratique de 2 jours sur SQL, destinée aux développeurs et aux analystes : conception relationnelle, normalisation, jointures, agrégation, sous-requêtes, fonctions de fenêtrage et …" />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Les bases de SQL - Gwendal Le Coguic" />
+<meta property="og:description" content="Formation pratique de 2 jours sur SQL, destinée aux développeurs et aux analystes : conception relationnelle, normalisation, jointures, agrégation, sous-requêtes, fonctions de fenêtrage et …" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/formations/les-bases-de-sql/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/courses/sql.png" />
+<meta property="article:published_time" content="2025-04-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-04-22T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Les bases de SQL - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/formations/les-bases-de-sql/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/courses/the-basics-of-sql/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/formations/les-bases-de-sql/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/courses/the-basics-of-sql/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","audience":{"@type":"Audience","audienceType":"Développeurs, Analystes de données, Administrateurs système"},"coursePrerequisites":["Compréhension de base des données et de leur organisation (feuilles de calcul, tableaux)","Connaissance des concepts fondamentaux de programmation ou de logique (variables, conditions)"],"description":"Formation pratique de 2 jours sur SQL, destinée aux développeurs et aux analystes : conception relationnelle, normalisation, jointures, agrégation, sous-requêtes, fonctions de fenêtrage et optimisation des requêtes.","hasCourseInstance":[{"@type":"CourseInstance","courseMode":["onsite","online"],"courseWorkload":"P2D","instructor":{"@id":"https://glc.st/#person"}}],"image":"https://glc.st/assets/img/courses/sql.png","inLanguage":["fr","en"],"name":"Les bases de SQL","provider":{"@id":"https://glc.st/#person"},"teaches":["Modèle relationnel et architecture de base de données","Modèles entité-association et normalisation","Création de tables (CREATE TABLE) et contraintes (clés primaires, clés étrangères)","Types de données et indexation","Extraction de données (SELECT) et filtrage (WHERE)","Opérateurs (AND, OR, LIKE, IN)","Tri des résultats (ORDER BY)","Jointures (INNER, LEFT, RIGHT, FULL JOIN)","Combinaison de résultats (UNION, INTERSECT)","Agrégation (GROUP BY, HAVING et fonctions d'agrégation)","Sous-requêtes (EXISTS, NOT EXISTS)","Fonctions de fenêtrage (OVER, PARTITION BY)","Optimisation des requêtes par l'indexation"],"url":"https://glc.st/fr/formations/les-bases-de-sql/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/courses/the-basics-of-sql/" hreflang="en" lang="en" rel="alternate"><img src="https://glc.st/assets/img/flags/en.png" class="icon-flag" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+<section class="container post course">
+    
+        
+            <div id="sharer">
+    <div class="sharer-buttons">
+        <a href="https://twitter.com/intent/tweet?text=Les%20bases%20de%20SQL%20https%3a%2f%2fglc.st%2ffr%2fformations%2fles-bases-de-sql%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2ffr%2fformations%2fles-bases-de-sql%2f&title=Les%20bases%20de%20SQL" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2ffr%2fformations%2fles-bases-de-sql%2f&amp;t=Les%20bases%20de%20SQL" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Les%20bases%20de%20SQL&body=https%3a%2f%2fglc.st%2ffr%2fformations%2fles-bases-de-sql%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Les%20bases%20de%20SQL%20https%3a%2f%2fglc.st%2ffr%2fformations%2fles-bases-de-sql%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2ffr%2fformations%2fles-bases-de-sql%2f&text=Les%20bases%20de%20SQL" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2ffr%2fformations%2fles-bases-de-sql%2f&amp;title=Les%20bases%20de%20SQL" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2ffr%2fformations%2fles-bases-de-sql%2f&t=Les%20bases%20de%20SQL" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+        
+    
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Les bases de SQL</h1>
+            </div>
+        </header>
+
+        <div>
+            <p>Cette formation pratique est conçue pour donner aux développeurs, analystes et
+professionnels de l&rsquo;informatique des bases solides en SQL. Vous apprendrez à
+<strong>concevoir des bases de données</strong>, à <strong>écrire des requêtes efficaces et à analyser
+des données</strong> grâce à des exercices concrets et des bonnes pratiques. Que vous
+débutiez ou que vous souhaitiez approfondir vos compétences, ce cours vous
+permettra de maîtriser le requêtage de bases de données relationnelles.</p>
+<br>
+<center>
+    <img src="https://glc.st/assets/img/courses/sql.png" alt="Les bases de SQL" width="500" />
+    <br /><a href="https://glc.st/assets/formations/LES BASES DE SQL - FR.pdf" target="_blank">Télécharger le programme</a> (pdf)
+</center>
+<h2 id="public-cible">Public cible:</h2>
+<ul>
+<li>Développeurs</li>
+<li>Analystes de donnéesCommenterSurligner</li>
+<li>Administrateurs système</li>
+</ul>
+<h2 id="objectifs-pédagogiques">Objectifs pédagogiques:</h2>
+<ul>
+<li>Comprendre la structure et la logique des bases de données relationnelles</li>
+<li>Concevoir des schémas de bases de données normalisés</li>
+<li>Rédiger des requêtes SQL simples et avancées pour récupérer et manipuler des données</li>
+<li>Agréger et analyser des données à l&rsquo;aide de fonctions SQL</li>
+<li>Optimiser les requêtes et appliquer les bonnes pratiques pour une meilleure performance</li>
+</ul>
+<h2 id="pré-requis">Pré-requis:</h2>
+<ul>
+<li>Compréhension des bases des données et de leur organisation (tableurs, tableaux)</li>
+<li>Familiarité avec les concepts fondamentaux de la programmation et de la logique (variables, conditions)</li>
+</ul>
+<h2 id="programme">Programme:</h2>
+<h4 id="jour-1---fondamentaux-sql">Jour 1 - Fondamentaux SQL</h4>
+<h6 id="introduction-à-sql-et-aux-bases-de-données-relationnelles">Introduction à SQL et aux bases de données relationnelles</h6>
+<ul>
+<li>Explication théorique du modèle relationnel</li>
+<li>Architecture et composants des bases de données</li>
+<li>Bases de SQL : syntaxe, structure et exécution</li>
+</ul>
+<h6 id="conception-de-bases-de-données-et-création-de-schémas">Conception de bases de données et création de schémas</h6>
+<ul>
+<li>Compréhension des diagrammes ER et de la normalisation</li>
+<li>Création de tables : <em>CREATE TABLE</em>, contraintes (<em>PRIMARY KEY, FOREIGN KEY</em>, etc.)</li>
+<li>Types de données et indexation</li>
+</ul>
+<h6 id="requêtes-sql-de-base">Requêtes SQL de base</h6>
+<ul>
+<li>Récupération de données avec <em>SELECT</em>, filtrage avec <em>WHERE</em></li>
+<li>Utilisation des opérateurs (<em>AND, OR, LIKE, IN</em>)</li>
+<li>Tri des résultats avec <em>ORDER BY</em></li>
+</ul>
+<h4 id="jour-2---concepts-sql-avancés">Jour 2 - Concepts SQL avancés</h4>
+<h6 id="requêtes-et-jointures-avancées">Requêtes et jointures avancées</h6>
+<ul>
+<li>Compréhension des jointures</li>
+<li>Combinaison des résultats avec <em>UNION</em> et <em>INTERSECT</em></li>
+</ul>
+<h6 id="agrégations-et-sous-requêtes">Agrégations et sous-requêtes</h6>
+<ul>
+<li>Regroupement de données avec <em>GROUP BY</em>, filtrage avec <em>HAVING</em></li>
+<li>Utilisation de fonctions d&rsquo;agrégation (<em>COUNT, SUM, AVG</em>, etc.)</li>
+<li>Écriture de sous-requêtes avec <em>EXISTS, NOT EXISTS</em></li>
+</ul>
+<h6 id="fonctions-de-fenêtrage">Fonctions de fenêtrage</h6>
+<ul>
+<li>Introduction aux fonctions de fenêtrage (<em>OVER, PARTITION BY</em>)</li>
+</ul>
+<h6 id="optimisation-des-performances">Optimisation des performances</h6>
+<ul>
+<li>Optimisation des requêtes avec indexation</li>
+<li>Pièges courants et bonnes pratiques</li>
+</ul>
+<p><br><br></p>
+<hr>
+<p>Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank"><a href="mailto:contact@glc.st">contact@glc.st</a></a> - devis sur demande - SIRET 79778302400038</p>
+        </div>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

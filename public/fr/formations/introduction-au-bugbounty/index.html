@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Session d&#39;une demi-journée sur les programmes de Bug Bounty (primes aux vulnérabilités), destinée aux responsables de la sécurité des systèmes d&#39;information (RSSI) et aux équipes de sécurité : …" />
+    <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/courses/bugbounty.png"/>
+
+<meta name="twitter:title" content="Introduction au Bug Bounty - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Session d&#39;une demi-journée sur les programmes de Bug Bounty (primes aux vulnérabilités), destinée aux responsables de la sécurité des systèmes d&#39;information (RSSI) et aux équipes de sécurité : …" />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Introduction au Bug Bounty - Gwendal Le Coguic" />
+<meta property="og:description" content="Session d&#39;une demi-journée sur les programmes de Bug Bounty (primes aux vulnérabilités), destinée aux responsables de la sécurité des systèmes d&#39;information (RSSI) et aux équipes de sécurité : …" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/formations/introduction-au-bugbounty/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/courses/bugbounty.png" />
+<meta property="article:published_time" content="2025-04-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-04-22T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Introduction au Bug Bounty - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/formations/introduction-au-bugbounty/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/courses/bugbounty-overview/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/formations/introduction-au-bugbounty/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/courses/bugbounty-overview/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","audience":{"@type":"Audience","audienceType":"Responsables de la cybersécurité et équipes de sécurité, RSSI et professionnels de la gestion des risques, Organisations découvrant les programmes de bug bounty"},"coursePrerequisites":["Compréhension des principes fondamentaux de la cybersécurité","Connaissance de la gestion des vulnérabilités et de l'évaluation des risques"],"description":"Session d'une demi-journée sur les programmes de Bug Bounty (primes aux vulnérabilités), destinée aux responsables de la sécurité des systèmes d'information (RSSI) et aux équipes de sécurité : fonctionnement des programmes, tri des rapports, gestion des litiges, politiques de Safe Harbor (protection juridique) et études de cas concrets.","hasCourseInstance":[{"@type":"CourseInstance","courseMode":["onsite","online"],"courseWorkload":"PT4H","instructor":{"@id":"https://glc.st/#person"}}],"image":"https://glc.st/assets/img/courses/bugbounty.png","inLanguage":["fr","en"],"name":"Introduction au Bug Bounty","provider":{"@id":"https://glc.st/#person"},"teaches":["Écosystème, histoire et évolution du bug bounty","Rôles et motivations des entreprises, des plateformes et des chercheurs en sécurité","Tests d'intrusion (pentests) versus bug bounty","Anatomie d'un programme de bug bounty","Programmes publics versus privés","Cycle de vie d'un rapport de vulnérabilité","Tri des rapports, doublons et gestion des litiges","Définition des politiques, du périmètre et des systèmes de récompense","Politiques de Safe Harbor et de divulgation des vulnérabilités","Erreurs fréquentes dans la gestion d'un programme","Évaluation de la maturité pour la mise en place d'un programme de bug bounty"],"url":"https://glc.st/fr/formations/introduction-au-bugbounty/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/courses/bugbounty-overview/" hreflang="en" lang="en" rel="alternate"><img src="https://glc.st/assets/img/flags/en.png" class="icon-flag" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+<section class="container post course">
+    
+        
+            <div id="sharer">
+    <div class="sharer-buttons">
+        <a href="https://twitter.com/intent/tweet?text=Introduction%20au%20Bug%20Bounty%20https%3a%2f%2fglc.st%2ffr%2fformations%2fintroduction-au-bugbounty%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2ffr%2fformations%2fintroduction-au-bugbounty%2f&title=Introduction%20au%20Bug%20Bounty" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2ffr%2fformations%2fintroduction-au-bugbounty%2f&amp;t=Introduction%20au%20Bug%20Bounty" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Introduction%20au%20Bug%20Bounty&body=https%3a%2f%2fglc.st%2ffr%2fformations%2fintroduction-au-bugbounty%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Introduction%20au%20Bug%20Bounty%20https%3a%2f%2fglc.st%2ffr%2fformations%2fintroduction-au-bugbounty%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2ffr%2fformations%2fintroduction-au-bugbounty%2f&text=Introduction%20au%20Bug%20Bounty" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2ffr%2fformations%2fintroduction-au-bugbounty%2f&amp;title=Introduction%20au%20Bug%20Bounty" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2ffr%2fformations%2fintroduction-au-bugbounty%2f&t=Introduction%20au%20Bug%20Bounty" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+        
+    
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Introduction au Bug Bounty</h1>
+            </div>
+        </header>
+
+        <div>
+            <p>Cette formation d&rsquo;une demi-journée offre une introduction complète au monde du bug
+bounty. <strong>Adaptée aux directeurs</strong>, <strong>RSSI</strong> et <strong>chefs d&rsquo;équipe</strong>, cette session aborde tous
+les aspects, de l&rsquo;historique et de la structure des programmes de bug bounty au
+signalement et au tri des vulnérabilités en situation réelle. Grâce à des <strong>études de
+cas</strong>, des <strong>bonnes pratiques</strong> et des <strong>analyses sectorielles</strong>, les participants
+repartiront avec des bases solides pour démarrer (ou améliorer) leur expérience du
+bug bounty, <strong>tant du point de vue du hacker que de celui de l&rsquo;entreprise</strong>.</p>
+<br>
+<center>
+    <img src="https://glc.st/assets/img/courses/bugbounty.png" alt="Introduction au Bug Bounty" width="500" />
+    <br /><a href="https://glc.st/assets/formations/INTRODUCTION AU BUG BOUNTY - FR.pdf" target="_blank">Télécharger le programme</a> (pdf)
+</center>
+<h2 id="public-cible">Public cible:</h2>
+<ul>
+<li>Responsables de la cybersécurité et équipes de sécurité</li>
+<li>RSSI et professionnels de la gestion des risques</li>
+<li>Organisations novices en matière de <em>bug bounty</em></li>
+</ul>
+<h2 id="objectifs-pédagogiques">Objectifs pédagogiques:</h2>
+<ul>
+<li>Comprendre ce qu&rsquo;est un programme de bug bounty</li>
+<li>Apprendre comment le <em>bug bounty</em> s&rsquo;intègre dans une stratégie de sécurité</li>
+<li>Identifier les rôles et responsabilités clés</li>
+<li>Savoir comment gérer les rapports de vulnérabilités</li>
+<li>Évaluer la préparation de votre organisation au bug bounty</li>
+</ul>
+<h2 id="pré-requis">Pré-requis:</h2>
+<ul>
+<li>Compréhension de base des principes de cybersécurité</li>
+<li>Familiarité avec la gestion des vulnérabilités et l&rsquo;évaluation des risques</li>
+</ul>
+<h2 id="programme">Programme:</h2>
+<h6 id="présentation">Présentation</h6>
+<ul>
+<li>Présentation du formateur et des participants</li>
+<li>À quoi s&rsquo;attendre lors de la formation</li>
+<li>Qu&rsquo;est-ce que le <em>bug bounty</em> et pourquoi est-il important ?</li>
+</ul>
+<h6 id="comprendre-le-bug-bounty--lécosystème">Comprendre le bug bounty : l&rsquo;écosystème</h6>
+<ul>
+<li>Historique et évolution des programmes</li>
+<li>Rôles et motivations : entreprises, plateformes, hackers, tiers</li>
+<li><em>Test d&rsquo;intrusion</em> vs. <em>bug bounty</em> : principales différences</li>
+</ul>
+<h6 id="anatomie-dun-programme-de-bug-bounty">Anatomie d&rsquo;un programme de bug bounty</h6>
+<ul>
+<li>Structure des programmes</li>
+<li>Programmes publics vs. privés</li>
+<li>Attentes des entreprises vs. attentes des hackers</li>
+</ul>
+<h6 id="rapports--tri-et-gestion-des-conflits">Rapports : tri et gestion des conflits</h6>
+<ul>
+<li>Cycle de vie d&rsquo;un rapport</li>
+<li>Gestion des doublons et des litiges</li>
+</ul>
+<h6 id="gestion-des-politiques-et-des-programmes">Gestion des politiques et des programmes</h6>
+<ul>
+<li>Ce que les entreprises doivent préparer avant le lancement</li>
+<li>Evolution d’un programme : périmètre, récompenses, confidentialité</li>
+<li>Erreurs courantes à éviter</li>
+</ul>
+<h6 id="règles-éthique-et-études-de-cas-réels">Règles, éthique et études de cas réels</h6>
+<ul>
+<li>Règles non officielles du <em>bug bounty</em></li>
+<li>Sphère de sécurité, politiques de divulgation</li>
+<li>Échecs et réussites : <em>Verizon</em>, <em>Shopify</em>, <em>Zomato</em>&hellip;</li>
+</ul>
+<h6 id="synthèse-et-questions-réponses">Synthèse et questions-réponses</h6>
+<ul>
+<li>Résumé de la journée</li>
+<li>Questions-réponses ouvertes et conseils personnalisés</li>
+</ul>
+<p><br><br></p>
+<hr>
+<p>Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank"><a href="mailto:contact@glc.st">contact@glc.st</a></a> - devis sur demande - SIRET 79778302400038</p>
+        </div>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

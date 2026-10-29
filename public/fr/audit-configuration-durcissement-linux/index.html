@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Audit de configuration et durcissement Linux selon ANSSI-BP-028 et les CIS Benchmarks : exposition, comptes, services, journalisation, trouvailles priorisées." />
+    <meta name="keywords" content="[audit de configuration, audit durcissement Linux, ANSSI BP-028, durcissement serveur, expert cybersécurité indépendant]" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Audit de configuration et durcissement Linux - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Audit de configuration et durcissement Linux selon ANSSI-BP-028 et les CIS Benchmarks : exposition, comptes, services, journalisation, trouvailles priorisées." />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Audit de configuration et durcissement Linux - Gwendal Le Coguic" />
+<meta property="og:description" content="Audit de configuration et durcissement Linux selon ANSSI-BP-028 et les CIS Benchmarks : exposition, comptes, services, journalisation, trouvailles priorisées." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/audit-configuration-durcissement-linux/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2026-10-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2026-10-13T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Audit de configuration et durcissement Linux - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/audit-configuration-durcissement-linux/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/linux-configuration-hardening-audit/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/audit-configuration-durcissement-linux/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/linux-configuration-hardening-audit/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","areaServed":{"@type":"Country","name":"France"},"availableLanguage":["en","fr"],"description":"Audit de configuration et durcissement Linux selon ANSSI-BP-028 et les CIS Benchmarks : exposition, comptes, services, journalisation, trouvailles priorisées.","name":"Audit de configuration et durcissement Linux","provider":{"@id":"https://glc.st/#person"},"serviceType":"Audit de configuration et durcissement Linux","url":"https://glc.st/fr/audit-configuration-durcissement-linux/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/linux-configuration-hardening-audit/" hreflang="en" lang="en" rel="alternate"><img src="https://glc.st/assets/img/flags/en.png" class="icon-flag" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Audit de configuration et durcissement Linux</h1>
+    </header>
+
+    <p>Un <a href="https://glc.st/fr/test-intrusion-application-web/">test d&rsquo;intrusion</a> trouve la porte d&rsquo;entrée.
+Un <a href="https://glc.st/fr/audit-de-code-source/">audit de code</a> trouve pourquoi cette porte existe. Un audit de configuration répond à la question qui suit les deux :
+<strong>une fois quelqu&rsquo;un sur la machine, jusqu&rsquo;où va-t-il ?</strong></p>
+<p>C&rsquo;est une question différente, et la plupart des organisations ne se la sont jamais posée.
+Elles ont un serveur qui fonctionne, ce qui n&rsquo;est pas la même chose qu&rsquo;un serveur conçu pour contenir une compromission.</p>
+<h2 id="pourquoi-maintenant">Pourquoi maintenant</h2>
+<p><strong>L&rsquo;exploitation de systèmes exposés est le point de départ des compromissions.</strong>
+Le <a href="https://www.verizon.com/business/resources/reports/dbir/">DBIR 2026</a> de Verizon, établi sur plus de 22 000 compromissions confirmées dans 145 pays,
+situe l&rsquo;exploitation de vulnérabilités à <strong>31 %</strong> des accès initiaux - désormais devant le phishing (16 %) et l&rsquo;abus d&rsquo;identifiants (13 %).
+En Amérique du Nord, le chiffre atteint 44 %. Et l&rsquo;écart se creuse : <strong>seules 26 % des vulnérabilités critiques ont été entièrement corrigées</strong> en 2025,
+contre 38 % l&rsquo;année précédente, tandis que le délai médian de résolution complète passait de 32 à <strong>43 jours</strong>.</p>
+<p><strong>La mauvaise configuration a gagné des places.</strong>
+Dans l&rsquo;<a href="https://top10.owasp.org/2025/">OWASP Top 10:2025</a>, Security Misconfiguration est désormais en <strong>A02</strong>, deuxième au classement général.
+Pas une classe de faille exotique - le réglage par défaut que personne n&rsquo;a changé.</p>
+<p><strong>Le tableau français est spécifique et peu flatteur.</strong>
+Le <a href="https://www.cert.ssi.gouv.fr/uploads/CERTFR-2026-CTI-002.pdf">Panorama de la cybermenace 2025 de l&rsquo;ANSSI</a> recense <strong>1 366 incidents confirmés</strong>, stable par rapport à 2024.
+Il décrit des équipements de bordure compromis à répétition par leurs propres vulnérabilités, et des interfaces de contrôle industriel joignables depuis
+Internet <strong>sans aucune authentification, ou avec les mots de passe par défaut toujours en place</strong>.
+Les incidents d&rsquo;exfiltration de données passent de 130 à <strong>196</strong> en un an.</p>
+<figure><img src="https://glc.st/assets/img/services/panorama-cybermenace-2025.png"
+    alt="Panorama de la cybermenace 2025 de l&#39;ANSSI" width="500">
+</figure>
+
+<p>Mis bout à bout, la forme du problème est claire.
+Le point d&rsquo;entrée est généralement un service exposé qui n&rsquo;a pas été corrigé, ou qui n&rsquo;était pas censé être exposé.
+Ce qui détermine si ça devient un incident ou une catastrophe, c&rsquo;est tout ce qui se trouve derrière : séparation des privilèges, isolation des services, journalisation, segmentation.
+C&rsquo;est ce que mesure un audit de configuration.</p>
+<h2 id="quand-en-lancer-un">Quand en lancer un</h2>
+<ul>
+<li><strong>Avant la mise en production d&rsquo;un serveur</strong> : le moment le moins cher possible, et le plus rare en pratique.</li>
+<li><strong>Après un test d&rsquo;intrusion ou un audit de code</strong> : vous savez comment on entre ; il s&rsquo;agit maintenant de savoir ce qu&rsquo;on atteint ensuite. C&rsquo;est la mission qui enchaîne naturellement.</li>
+<li><strong>Après un incident</strong> : pour vérifier que le confinement était réel et que le chemin de l&rsquo;attaquant est bien fermé, pas seulement le point d&rsquo;entrée.</li>
+<li><strong>En reprenant une infrastructure</strong> : l&rsquo;administrateur qui l&rsquo;a construite est parti, il n&rsquo;y a pas de documentation, et personne n&rsquo;est sûr de ce qui tourne ni pourquoi.</li>
+<li><strong>Pendant ou après une migration</strong> : nouvelle version majeure de distribution, passage au cloud, conteneurisation. Le durcissement survit rarement intact à une migration.</li>
+<li><strong>Pour une exigence externe</strong> : questionnaires sécurité de grands comptes, assureurs, marchés publics, ou obligations NIS2 et DORA pour les entités concernées.
+L&rsquo;<a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A32016R0679">article 32 du RGPD</a> impose déjà de tester régulièrement l&rsquo;efficacité des mesures techniques.</li>
+<li><strong>En cycle, pour la dérive</strong> : c&rsquo;est celle qu&rsquo;on sous-estime. Un serveur durci il y a dix-huit mois n&rsquo;est plus un serveur durci.
+Des paquets installés pour une séance de débogage y restent, des règles de pare-feu ouvertes pour une migration ne sont jamais refermées, la clé SSH d&rsquo;un prestataire est toujours autorisée.
+La dérive de configuration est silencieuse et cumulative.</li>
+</ul>
+<h2 id="référentiels">Référentiels</h2>
+<p>L&rsquo;audit est conduit face à un référentiel nommé, pas face à mon goût personnel.</p>
+<p>L&rsquo;<a href="https://cyber.gouv.fr/sites/default/files/document/linux_configuration-en-v2.pdf">ANSSI-BP-028 v2.0</a>,
+les recommandations de configuration d&rsquo;un système GNU/Linux de l&rsquo;agence nationale,
+est la référence principale, et celle que j&rsquo;ai appliquée pendant quatre ans en auditant des systèmes pour le ministère des Armées.
+Il définit quatre niveaux de durcissement (minimal, intermédiaire, renforcé, élevé), et <strong>le choix du niveau cible fait partie de la conversation de cadrage</strong>,
+pas d&rsquo;un défaut que j&rsquo;impose. Auditer un serveur vitrine public selon le profil « élevé » produit cent recommandations sur lesquelles personne n&rsquo;agira jamais.</p>
+<p>À côté : les <a href="https://www.cisecurity.org/cis-benchmarks">CIS Benchmarks</a> pour les contrôles propres à une distribution ou à un service,
+et <strong>OpenSCAP</strong> avec le <a href="https://www.open-scap.org/security-policies/scap-security-guide/">SCAP Security Guide</a>,
+qui livre des profils <code>anssi_bp28_*</code> prêts à l&rsquo;emploi pour les principales distributions - pratique pour produire une base de référence reproductible et
+formellement notée, que vous pourrez rejouer vous-même après mon départ.</p>
+<h2 id="ce-que-jaudite">Ce que j&rsquo;audite</h2>
+<p><strong>Socle système</strong> : partitionnement et options de montage, inventaire des paquets installés face à ce qui est réellement nécessaire, services activés,
+modules noyau chargeables, paramètres du noyau, et état et politique du contrôle d&rsquo;accès obligatoire (SELinux ou AppArmor).</p>
+<p><strong>Comptes et privilèges</strong> : la politique sudo ligne par ligne, et c&rsquo;est là que je trouve le plus souvent les problèmes les plus graves : une seule règle <code>NOPASSWD</code>
+sur un binaire qui permet une évasion de shell annule tout le reste de cette liste. Également la politique de mots de passe et d&rsquo;authentification, la pile PAM,
+la configuration SSH et l&rsquo;inventaire des clés autorisées, les comptes de service dotés d&rsquo;un shell dont ils n&rsquo;ont pas besoin.</p>
+<p><strong>Exposition réseau</strong> : ce qui écoute réellement, sur quelles interfaces, face à ce que vous croyez qui écoute. Règles de pare-feu et leur ordre,
+chemins d&rsquo;accès distant, atténuation du force brute, et exposition des interfaces d&rsquo;administration et des bases de données.</p>
+<p><strong>Durcissement des services</strong> : utilisateurs dédiés non privilégiés, directives de sandboxing systemd, configuration du serveur web et du reverse proxy,
+configuration TLS et gestion des certificats, écouteurs et authentification des bases de données.</p>
+<p><strong>Système de fichiers et intégrité</strong> : permissions sur les chemins sensibles, inventaire SUID/SGID avec un jugement sur chaque entrée, ACLs et sticky bits,
+attributs d&rsquo;immuabilité, et surveillance de l&rsquo;intégrité des fichiers.</p>
+<p><strong>Journalisation, audit et détection</strong> : si quelque chose est effectivement enregistré, si c&rsquo;est centralisé là où un attaquant ne peut pas l&rsquo;effacer,
+règles d&rsquo;audit au niveau du noyau, rétention, et si quiconque s&rsquo;en apercevrait. Un journal que personne ne lit est un artefact de conformité, pas un contrôle.</p>
+<p><strong>Secrets et identifiants sur disque</strong> : fichiers d&rsquo;environnement, fichiers de configuration, scripts de déploiement, tâches cron, historique de shell, archives de sauvegarde.
+Ça recoupe mon travail d&rsquo;<a href="https://glc.st/fr/audit-de-code-source/">audit de code</a>, et c&rsquo;est systématiquement productif.</p>
+<p><strong>Conteneurs et orchestration</strong> : provenance des images et fraîcheur des images de base, conteneurs privilégiés,
+sockets montées, capabilities, limites de ressources, accès au registre.</p>
+<p><strong>Automatisation et sauvegardes</strong> : runners CI/CD avec leurs identifiants et leur portée réseau, intégrité et restauration des sauvegardes,
+et si vos sauvegardes sont joignables depuis la machine qu&rsquo;elles protègent - le détail qui transforme un incident de rançongiciel en perte totale.</p>
+<br>
+<blockquote>
+<p>Systèmes Linux - Debian et Ubuntu, RHEL et dérivés - plus Docker et la
+configuration de conteneurs, et l&rsquo;infrastructure as code (Ansible). <strong>Pas Windows, pas
+Active Directory.</strong> Si votre parc est centré sur Microsoft, je vous le dis dès le
+premier échange et je vous oriente vers quelqu&rsquo;un de mieux placé.</p></blockquote>
+<h2 id="comment-ça-se-déroule">Comment ça se déroule</h2>
+<p><strong>1. Cadrage</strong> : inventaire des systèmes concernés, leurs rôles, le niveau ANSSI cible, la méthode d&rsquo;accès,
+une fenêtre de maintenance si une vérification intrusive est nécessaire, et la convention d&rsquo;audit signée.</p>
+<p><strong>2. Collecte</strong> : récupération de données en lecture seule, par SSH avec un compte non privilégié et une autorisation sudo précisément délimitée,
+ou depuis un export de configuration si vous préférez. Rien n&rsquo;est modifié. Je vous dis exactement quelles commandes s&rsquo;exécutent avant que quoi que ce soit s&rsquo;exécute.</p>
+<p><strong>3. Base de référence automatisée</strong> : Lynis, OpenSCAP et des outils maison face au profil convenu, pour obtenir une couverture reproductible et
+un score que vous pourrez suivre dans le temps. La sortie part en triage, jamais directement dans le rapport.</p>
+<p><strong>4. Revue manuelle</strong> : la partie qui compte. Les outils automatisés vérifient qu&rsquo;un réglage correspond à une valeur ; ils ne peuvent pas vous dire
+que cette règle sudo précise, sur cette machine précise, compte tenu de ce que fait ce service, est un chemin vers root. Ce jugement est le livrable.</p>
+<p><strong>5. Rapport et restitution</strong> : livrable écrit.</p>
+<figure><img src="https://glc.st/assets/img/services/lynis.png"
+    alt="Rapport Lynis" width="500">
+</figure>
+
+<h2 id="le-rapport">Le rapport</h2>
+<ul>
+<li><strong>Une synthèse d&rsquo;une page</strong> pour la direction : posture actuelle face au niveau cible, la poignée de choses qui comptent vraiment,
+et un énoncé honnête de ce qui a été couvert et de ce qui ne l&rsquo;a pas été.</li>
+<li><strong>Les trouvailles par système</strong>, chacune avec le réglage ou la règle exacte en cause, sa localisation, le contrôle de référence (identifiant de règle ANSSI-BP-028, contrôle CIS),
+une criticité contextualisée, le chemin d&rsquo;exploitation concret là où il en existe un, et la modification exacte à apporter.</li>
+<li><strong>Une remédiation ordonnée par impact rapporté au risque de casse</strong> : parce que c&rsquo;est le piège propre au travail de durcissement.
+Une recommandation qui casse l&rsquo;application est annulée le lundi et le serveur finit moins sûr qu&rsquo;avant mon passage.
+Chaque point indique ce qui pourrait casser.</li>
+<li><strong>Une base de référence rejouable</strong> : le profil OpenSCAP et la méthode de notation, pour que vous puissiez mesurer votre propre dérive à tout moment sans m&rsquo;appeler.</li>
+</ul>
+<br>
+<blockquote>
+<p>Une page d&rsquo;administration accessible publiquement est une information, pas une vulnérabilité critique.
+Gonfler les scores remplit le rapport et vide sa valeur : au troisième audit où tout est « élevé »,
+plus personne ne le lit, et la seule trouvaille réellement critique se noie dans le bruit.
+Acceptez les rapports courts quand le système est bien construit.</p></blockquote>
+<h2 id="ce-que-ce-nest-pas">Ce que ce n&rsquo;est pas</h2>
+<ul>
+<li><strong>Ce n&rsquo;est pas une certification de conformité.</strong> Je produis un rapport d&rsquo;audit face à un référentiel publié.
+Je ne suis pas un organisme de certification accrédité et ce n&rsquo;est pas une prestation qualifiée PASSI.
+Si votre exigence impose explicitement un prestataire qualifié, il vous en faut un, et je vous le dis plutôt que de vous laisser le découvrir en réunion de restitution.</li>
+<li><strong>Ce n&rsquo;est pas un rapport de scanner avec une page de garde.</strong> Les outils automatisés sont des entrées. Vous pouvez les exécuter vous-même gratuitement, et vous devriez.
+Ce que vous achetez, c&rsquo;est le triage et le jugement d&rsquo;exploitabilité.</li>
+<li><strong>Ce n&rsquo;est pas du durcissement maximal.</strong> Le niveau cible est une décision fondée sur ce que fait le système et sur ce qu&rsquo;il vaut.
+Un durcissement qui casse la production n&rsquo;est pas du durcissement.</li>
+<li><strong>Ce n&rsquo;est pas un test d&rsquo;intrusion.</strong> Cet audit est conduit avec un accès légitime et une visibilité complète.
+Il vous dit jusqu&rsquo;où irait une compromission, pas si quelqu&rsquo;un peut entrer - ça, c&rsquo;est le
+<a href="https://glc.st/fr/test-intrusion-application-web/">pentest</a>.</li>
+<li><strong>Ça ne reste pas vrai.</strong> Rappel du point sur la dérive plus haut : c&rsquo;est une photographie.</li>
+</ul>
+<h2 id="pourquoi-moi">Pourquoi moi</h2>
+<ul>
+<li><strong>Auditeur pour le ministère des Armées, de 2020 à 2024</strong> : audits de configuration de systèmes Linux selon les recommandations de l&rsquo;ANSSI,
+en parallèle de tests d&rsquo;intrusion et d&rsquo;audits de code. Quatre ans à appliquer ce référentiel précis à des systèmes où les conséquences d&rsquo;une erreur
+n&rsquo;étaient pas théoriques.</li>
+<li><strong>Administrateur système avant d&rsquo;être auditeur</strong> : j&rsquo;ai administré des serveurs Linux pendant des années avant de commencer à les casser.
+Je sais ce que coûte une recommandation à appliquer à 3 h du matin sur un système avec des utilisateurs dessus.</li>
+<li><strong>Chasseur de vulnérabilités depuis 2016</strong> : plusieurs centaines de rapports à des programmes chez EDF, Decathlon, Payfit, BlaBlaCar, Swisscom, Uber et d&rsquo;autres,
+dont des exécutions de commandes à distance et des prises de contrôle de comptes cloud obtenues depuis des services exposés et des identifiants fuités. Des <a href="https://glc.st/cves/">CVEs</a> publiées sous mon nom.</li>
+<li><strong>Formateur depuis 2022</strong> : j&rsquo;enseigne le <a href="https://glc.st/fr/formations/">durcissement Linux</a> et le <a href="https://glc.st/fr/formations/">scripting Bash</a>,
+ce qui veut dire que votre équipe reçoit des explications plutôt qu&rsquo;une liste de réglages à recopier.</li>
+</ul>
+<h2 id="questions-fréquentes">Questions fréquentes</h2>
+<p><strong>Combien de temps ?</strong>
+Deux à trois jours pour un serveur, rapport compris. Pour un parc, ça dépend de son homogénéité :
+dix serveurs web identiques coûtent à peine plus qu&rsquo;un seul, dix rôles différents coûtent près de dix fois plus.
+Je vous dis dans quel cas vous êtes après un coup d&rsquo;œil à l&rsquo;inventaire.</p>
+<p><strong>Combien ça coûte ?</strong>
+Devis sur demande, au forfait. Les facteurs : nombre de rôles systèmes distincts, niveau ANSSI cible, inclusion ou non d&rsquo;une contre-vérification.</p>
+<p><strong>Quel accès vous faut-il ?</strong>
+SSH avec un compte non privilégié et une autorisation sudo délimitée, pour une collecte en lecture seule.
+Aucune modification de configuration, aucun logiciel installé sans votre accord explicite.
+Je vous envoie la liste exacte des commandes à l&rsquo;avance, pour relecture.</p>
+<p><strong>Est-ce que ça peut perturber la production ?</strong>
+La collecte est en lecture seule et sans risque. La seule étape qui en comporte est la démonstration d&rsquo;une trouvaille exploitable,
+qui n&rsquo;a lieu qu&rsquo;avec votre accord écrit, dans une fenêtre que vous choisissez, et sur un clone dès qu&rsquo;il en existe un.</p>
+<p><strong>On fait déjà tourner Lynis et notre score est bon. Qu&rsquo;apportez-vous ?</strong>
+Le jugement, et ce qu&rsquo;un score ne peut pas voir. Un indice de durcissement mesure la conformité à une liste de contrôles ; il ne sait pas que votre utilisateur de déploiement
+peut écrire dans un répertoire qu&rsquo;une tâche cron root exécute. La plupart des trouvailles sérieuses que je remonte sont des compositions de réglages individuellement acceptables.</p>
+<p><strong>Pouvez-vous appliquer les correctifs au lieu de seulement les signaler ?</strong>
+Je livre les trouvailles prioritaires et je peux accompagner votre équipe dans leur application. Je ne reprends pas la
+remédiation de systèmes de production que je n&rsquo;exploite pas, ça demande quelqu&rsquo;un qui sera encore là le mois prochain.</p>
+<p><strong>Et si tout est déjà en bon état ?</strong>
+Vous obtenez un rapport court qui le dit, avec le détail qui le rend défendable devant un client ou un auditeur,
+plus la base de référence pour suivre la dérive. Ça arrive, et c&rsquo;est un bon résultat.</p>
+<h2 id="parlons-en">Parlons-en</h2>
+<p>Dites-moi combien de systèmes, ce qu&rsquo;ils font tourner, quelles distributions, et ce qui déclenche la question.
+Je vous réponds avec un périmètre proposé, un niveau cible et une fourchette de prix.</p>
+<p><br><br></p>
+<hr>
+<p>Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank"><a href="mailto:contact@glc.st">contact@glc.st</a></a> - devis sur demande - SIRET 79778302400038</p>
+<style>
+    .content figure {
+        border: 0px solid #000;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        padding: 0px;
+        text-align: center;
+    }
+
+    blockquote {
+        font-size: 0.9em;
+        text-align: justify;
+        background-color: #fef6e1;
+        border: 1px solid #f9b915;
+        font-style: normal;
+        padding: 2rem;
+    }
+    blockquote p {
+        margin: 1.0rem 0 1.0rem 0;
+    }
+</style>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

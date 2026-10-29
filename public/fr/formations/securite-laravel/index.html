@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Formation d&#39;une journée sur la sécurité dans Laravel, destinée aux développeurs PHP : configuration sécurisée, authentification et politiques d&#39;accès, *mass assignment* (affectation de masse), …" />
+    <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/courses/laravel.png"/>
+
+<meta name="twitter:title" content="Sécurité Laravel - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Formation d&#39;une journée sur la sécurité dans Laravel, destinée aux développeurs PHP : configuration sécurisée, authentification et politiques d&#39;accès, *mass assignment* (affectation de masse), …" />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Sécurité Laravel - Gwendal Le Coguic" />
+<meta property="og:description" content="Formation d&#39;une journée sur la sécurité dans Laravel, destinée aux développeurs PHP : configuration sécurisée, authentification et politiques d&#39;accès, *mass assignment* (affectation de masse), …" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/formations/securite-laravel/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/courses/laravel.png" />
+<meta property="article:published_time" content="2025-04-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-04-22T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Sécurité Laravel - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/formations/securite-laravel/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/courses/laravel-security/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/formations/securite-laravel/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/courses/laravel-security/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","audience":{"@type":"Audience","audienceType":"Développeurs Laravel, Professionnels de la sécurité, Ingénieurs Dev(Sec)Ops"},"coursePrerequisites":["Solide expérience de PHP et du framework Laravel","Compréhension des concepts de sécurité des applications web","Connaissance pratique des vulnérabilités web courantes (XSS, CSRF, injections SQL)"],"description":"Formation d'une journée sur la sécurité dans Laravel, destinée aux développeurs PHP : configuration sécurisée, authentification et politiques d'accès, *mass assignment* (affectation de masse), injections SQL, XSS, CSRF, CORS et gestion des téléversements de fichiers.","hasCourseInstance":[{"@type":"CourseInstance","courseMode":["onsite","online"],"courseWorkload":"P1D","instructor":{"@id":"https://glc.st/#person"}}],"image":"https://glc.st/assets/img/courses/laravel.png","inLanguage":["fr","en"],"name":"Sécurité Laravel","provider":{"@id":"https://glc.st/#person"},"teaches":["Configuration globale sécurisée et gestion de la clé d'application","Validation des données d'entrée","Journalisation et gestion des erreurs","Mises à jour et sauvegardes","Cookies, sessions et fixation de session","Chiffrement et déchiffrement des données","Validation des mots de passe et procédures de réinitialisation","Laravel Passport et les packages d'authentification officiels","*Gates*, politiques d'accès, rôles et permissions","Limitation du taux de requêtes (*rate limiting*) sur les routes et les actions","Téléversement et stockage sécurisés de fichiers","*Mass assignment* (affectation de masse)","Exposition excessive de données","Injections SQL, requêtes préparées et liaison de paramètres","Cross-Site Scripting (XSS) dans les templates Blade","Jetons CSRF et middleware","Configuration CORS"],"url":"https://glc.st/fr/formations/securite-laravel/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/courses/laravel-security/" hreflang="en" lang="en" rel="alternate"><img src="https://glc.st/assets/img/flags/en.png" class="icon-flag" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+<section class="container post course">
+    
+        
+            <div id="sharer">
+    <div class="sharer-buttons">
+        <a href="https://twitter.com/intent/tweet?text=S%c3%a9curit%c3%a9%20Laravel%20https%3a%2f%2fglc.st%2ffr%2fformations%2fsecurite-laravel%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2ffr%2fformations%2fsecurite-laravel%2f&title=S%c3%a9curit%c3%a9%20Laravel" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2ffr%2fformations%2fsecurite-laravel%2f&amp;t=S%c3%a9curit%c3%a9%20Laravel" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=S%c3%a9curit%c3%a9%20Laravel&body=https%3a%2f%2fglc.st%2ffr%2fformations%2fsecurite-laravel%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=S%c3%a9curit%c3%a9%20Laravel%20https%3a%2f%2fglc.st%2ffr%2fformations%2fsecurite-laravel%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2ffr%2fformations%2fsecurite-laravel%2f&text=S%c3%a9curit%c3%a9%20Laravel" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2ffr%2fformations%2fsecurite-laravel%2f&amp;title=S%c3%a9curit%c3%a9%20Laravel" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2ffr%2fformations%2fsecurite-laravel%2f&t=S%c3%a9curit%c3%a9%20Laravel" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+        
+    
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Sécurité Laravel</h1>
+            </div>
+        </header>
+
+        <div>
+            <p>Cette formation d&rsquo;une journée est destinée aux <strong>développeurs Laravel</strong> qui souhaitent
+créer des applications sécurisées de A à Z. Vous apprendrez à <strong>identifier les
+vulnérabilités</strong> courantes, à <strong>appliquer les protections intégrées de Laravel</strong> et à
+<strong>adopter les meilleures pratiques</strong> pour sécuriser l&rsquo;<strong>authentification</strong>, l&rsquo;<strong>autorisation</strong>,
+la <strong>validation des entrées</strong>, et bien plus encore.</p>
+<br>
+<center>
+    <img src="https://glc.st/assets/img/courses/laravel.png" alt="Sécurité Laravel" width="500" />
+    <br /><a href="https://glc.st/assets/formations/SÉCURITÉ LARAVEL - FR.pdf" target="_blank">Télécharger le programme</a> (pdf)
+</center>
+<h2 id="public-cible">Public cible:</h2>
+<ul>
+<li>Développeurs Laravel</li>
+<li>Professionnels de la sécurité</li>
+<li>Ingénieurs Dev(Sec)Ops</li>
+</ul>
+<h2 id="objectifs-pédagogiques">Objectifs pédagogiques:</h2>
+<ul>
+<li>Reconnaître les vulnérabilités web courantes et les protections de Laravel</li>
+<li>Implémenter une authentification et une autorisation sécurisées avec les outils Laravel</li>
+<li>Configurer correctement les protections CORS et CSRF</li>
+<li>Valider et nettoyer les entrées utilisateur de manière sécurisée</li>
+<li>Gérer les uploads et le stockage de fichiers en toute sécurité</li>
+</ul>
+<h2 id="pré-requis">Pré-requis:</h2>
+<ul>
+<li>Good experience with PHP and Laravel framework</li>
+<li>Bonne expérience avec PHP et le framework Laravel</li>
+<li>Compréhension des concepts de sécurité des applications web</li>
+<li>Familiarité avec les vulnérabilités web de base (XSS, CSRF, SQLi…), <a href="https://glc.st/fr/formations/hacking-et-securite-application-web/">voir la formation cybersécurité débutant</a></li>
+</ul>
+<h2 id="programme">Programme:</h2>
+<h6 id="configuration-globale">Configuration globale</h6>
+<ul>
+<li>Sécurité PHP de base</li>
+<li>Configuration globale</li>
+<li>Sessions</li>
+<li><em>APP_KEY</em></li>
+</ul>
+<h6 id="les-bases">Les bases</h6>
+<ul>
+<li>PHP brut dans les vues</li>
+<li>Validation des entrées</li>
+<li>Journalisation et gestion des erreurs</li>
+<li>Mises à jour et sauvegardes</li>
+<li>Tromper les robots</li>
+</ul>
+<h6 id="cookies-et-sessions">Cookies et sessions</h6>
+<ul>
+<li>Configuration globale</li>
+<li>Configuration spécifique à Laravel</li>
+<li>Fixation de session</li>
+</ul>
+<h6 id="mots-de-passe-et-chiffrement">Mots de passe et chiffrement</h6>
+<ul>
+<li>Chiffrer/déchiffrer les données</li>
+<li>Validation des mots de passe</li>
+<li>Réinitialiser les mots de passe</li>
+</ul>
+<h6 id="authentification-et-permissions">Authentification et permissions</h6>
+<ul>
+<li>Packages officiels</li>
+<li>Laravel Passeport</li>
+<li>Gates et Policies</li>
+<li>Utilisateurs / rôles / permissions</li>
+</ul>
+<h6 id="rate-limiting">Rate limiting</h6>
+<ul>
+<li>Utilisation de base</li>
+<li>Limiter les actions / routes</li>
+</ul>
+<h6 id="téléchargement-et-stockage-de-fichiers">Téléchargement et stockage de fichiers</h6>
+<ul>
+<li>Qu&rsquo;est-ce que c&rsquo;est ?</li>
+<li>Règles de validation et nettoyage</li>
+<li>Configuration et utilisation des stockages</li>
+<li>Autorisations / permissions / visibilité</li>
+</ul>
+<h6 id="affectation-de-masse">Affectation de masse</h6>
+<ul>
+<li>Qu&rsquo;est-ce que c&rsquo;est ?</li>
+<li>Attentes vs. réalité</li>
+<li>Comment se protéger</li>
+</ul>
+<h6 id="exposition-excessive-des-données">Exposition excessive des données</h6>
+<ul>
+<li>Qu&rsquo;est-ce que c&rsquo;est ?CommenterSurligner</li>
+<li>Comment se protéger</li>
+<li>Ce qu’il faut retenir</li>
+</ul>
+<h6 id="injection-sql-sqli">Injection SQL (SQLi)</h6>
+<ul>
+<li>Qu&rsquo;est-ce que c&rsquo;est ?</li>
+<li>Requêtes préparées</li>
+<li>Paramètres liés</li>
+<li>Les dangers</li>
+<li>Ce qu’il faut retenir</li>
+</ul>
+<h6 id="cross-site-scripting-xss">Cross-Site scripting (XSS)</h6>
+<ul>
+<li>Qu&rsquo;est-ce que c&rsquo;est ?</li>
+<li>Contrôleurs</li>
+<li>Modèles</li>
+<li>Nettoyage des entrées</li>
+<li>Aides externes</li>
+</ul>
+<h6 id="cross-site-request-forgery-csrf">Cross-Site Request Forgery (CSRF)</h6>
+<ul>
+<li>Qu&rsquo;est-ce que c&rsquo;est ?</li>
+<li>Jeton anti-CSRF</li>
+<li>Middleware</li>
+<li>Formulaires</li>
+<li><em>X-csrf-token</em> et <em>X-xsrf-token</em></li>
+</ul>
+<h6 id="cross-origin-resources-sharing-cors">Cross origin resources sharing (CORS)</h6>
+<ul>
+<li>Qu&rsquo;est-ce que c&rsquo;est ?</li>
+<li>Configuration</li>
+<li><em>allowed_origins</em> et <em>supports_credentials</em></li>
+</ul>
+<p><br><br></p>
+<hr>
+<p>Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank"><a href="mailto:contact@glc.st">contact@glc.st</a></a> - devis sur demande - SIRET 79778302400038</p>
+        </div>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

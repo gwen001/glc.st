@@ -1,0 +1,24 @@
+{{/* layouts/partials/lang-switch.html */}}
+{{- if gt (len site.Languages) 1 -}}
+{{- $cur := .Language.Lang -}}
+{{- with .Translations -}}
+  {{/* la page existe dans l'autre langue : vraie alternative */}}
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+
+  {{- range . }}
+      <li class="navigation-item language">
+        <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Lang }}" lang="{{ .Language.Lang }}" rel="alternate"><img src="/assets/img/flags/{{ .Language }}.png" class="icon-flag" /></a>
+      </li>
+  {{- end }}
+{{- else -}}
+  {{/* pas de traduction : lien de navigation vers l'accueil de l'autre langue,
+       volontairement sans rel=alternate ni hreflang */}}
+  {{- range site.Home.AllTranslations }}
+    {{- if ne .Language.Lang $cur }}
+      <!-- <a href="{{ .RelPermalink }}" lang="{{ .Language.Lang }}">{{ .Language.LanguageName }}</a> -->
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- end -}}

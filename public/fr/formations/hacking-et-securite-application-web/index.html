@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Formation intensive et pratique de 3 jours destinée aux développeurs et aux administrateurs système : apprenez à identifier, exploiter et corriger les vulnérabilités les plus courantes des …" />
+    <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/courses/hacking-websec.png"/>
+
+<meta name="twitter:title" content="Hacking &amp; securité des applications web - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Formation intensive et pratique de 3 jours destinée aux développeurs et aux administrateurs système : apprenez à identifier, exploiter et corriger les vulnérabilités les plus courantes des …" />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Hacking &amp; securité des applications web - Gwendal Le Coguic" />
+<meta property="og:description" content="Formation intensive et pratique de 3 jours destinée aux développeurs et aux administrateurs système : apprenez à identifier, exploiter et corriger les vulnérabilités les plus courantes des …" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/formations/hacking-et-securite-application-web/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/courses/hacking-websec.png" />
+<meta property="article:published_time" content="2025-04-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-04-22T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Hacking &amp; securité des applications web - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/formations/hacking-et-securite-application-web/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/courses/hacking-and-web-application-security/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/formations/hacking-et-securite-application-web/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/courses/hacking-and-web-application-security/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Course","audience":{"@type":"Audience","audienceType":"Développeurs web, Administrateurs système, Ingénieurs Dev(Sec)Ops, Passionnés de cybersécurité"},"coursePrerequisites":["Connaissances de base en développement web (HTML, CSS, JavaScript)","Familiarité avec les protocoles web (HTTP, HTTPS)","Expérience de l'utilisation d'outils en ligne de commande"],"description":"Formation intensive et pratique de 3 jours destinée aux développeurs et aux administrateurs système : apprenez à identifier, exploiter et corriger les vulnérabilités les plus courantes des applications web à l'aide de Burp Suite et SQLmap.","hasCourseInstance":[{"@type":"CourseInstance","courseMode":["onsite","online"],"courseWorkload":"P3D","instructor":{"@id":"https://glc.st/#person"}}],"image":"https://glc.st/assets/img/courses/hacking-websec.png","inLanguage":["fr","en"],"name":"Hacking \u0026 securité des applications web","provider":{"@id":"https://glc.st/#person"},"teaches":["OWASP, CWE, CVE et CVSS","Analyse du protocole HTTP avec Burp Suite","Divulgation d'informations sensibles","Validation des entrées","Cross-Site Scripting (XSS)","Injections SQL (SQLi) et utilisation de SQLmap","Content Security Policy (CSP)","Injections de code et de commandes système","Téléversement arbitraire de fichiers et traversée de répertoires (path traversal)","Authentification et sécurité des mots de passe","Attributs des cookies et détournement de session (session hijacking)","Cross-Site Request Forgery (CSRF)","Clickjacking","Contrôle d'accès défaillant et IDOR (Insecure Direct Object Reference)","Cross-Origin Resource Sharing (CORS)"],"url":"https://glc.st/fr/formations/hacking-et-securite-application-web/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/courses/hacking-and-web-application-security/" hreflang="en" lang="en" rel="alternate"><img src="https://glc.st/assets/img/flags/en.png" class="icon-flag" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+<section class="container post course">
+    
+        
+            <div id="sharer">
+    <div class="sharer-buttons">
+        <a href="https://twitter.com/intent/tweet?text=Hacking%20%26%20securit%c3%a9%20des%20applications%20web%20https%3a%2f%2fglc.st%2ffr%2fformations%2fhacking-et-securite-application-web%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2ffr%2fformations%2fhacking-et-securite-application-web%2f&title=Hacking%20%26%20securit%c3%a9%20des%20applications%20web" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2ffr%2fformations%2fhacking-et-securite-application-web%2f&amp;t=Hacking%20%26%20securit%c3%a9%20des%20applications%20web" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Hacking%20%26%20securit%c3%a9%20des%20applications%20web&body=https%3a%2f%2fglc.st%2ffr%2fformations%2fhacking-et-securite-application-web%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Hacking%20%26%20securit%c3%a9%20des%20applications%20web%20https%3a%2f%2fglc.st%2ffr%2fformations%2fhacking-et-securite-application-web%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2ffr%2fformations%2fhacking-et-securite-application-web%2f&text=Hacking%20%26%20securit%c3%a9%20des%20applications%20web" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2ffr%2fformations%2fhacking-et-securite-application-web%2f&amp;title=Hacking%20%26%20securit%c3%a9%20des%20applications%20web" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2ffr%2fformations%2fhacking-et-securite-application-web%2f&t=Hacking%20%26%20securit%c3%a9%20des%20applications%20web" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+        
+    
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Hacking &amp; securité des applications web</h1>
+            </div>
+        </header>
+
+        <div>
+            <p>Cette formation intensive de 3 jours est destinée aux <strong>développeurs</strong> et
+<strong>administrateurs système</strong> souhaitant renforcer la sécurité de leurs applications web.
+Combinant <strong>connaissances théorique</strong> et <strong>exercices pratiques</strong>, elle aborde les
+<strong>vulnérabilités courantes</strong>, l&rsquo;utilisation des <strong>outils essentiels</strong> et les <strong>bonnes
+pratiques</strong> en matière de développement web sécurisé. Les participants apprendront
+à <strong>identifier</strong>, <strong>exploiter</strong> et <strong>corriger</strong> les failles de sécurité, acquérant ainsi une
+expérience pratique pour se défendre proactivement contre les menaces réelles.
+​</p>
+<br>
+<center>
+    <img src="https://glc.st/assets/img/courses/hacking-websec.png" alt="Hacking & securité des applications web" width="500" />
+    <br /><a href="https://glc.st/assets/formations/HACKING & SÉCURITÉ DES APPLICATIONS WEB - FR.pdf" target="_blank">Télécharger le programme</a> (pdf)
+</center>
+<h2 id="public-cible">Public cible:</h2>
+<ul>
+<li>Développeurs web</li>
+<li>Administrateurs système</li>
+<li>Ingénieurs Dev(Sec)Ops</li>
+<li>Passionnés de cybersécurité</li>
+</ul>
+<h2 id="objectifs-pédagogiques">Objectifs pédagogiques:</h2>
+<ul>
+<li>Comprendre les principales vulnérabilités des applications web</li>
+<li>Apprendre à détecter et exploiter les failles de sécurité courantes</li>
+<li>Utiliser efficacement des outils comme <em>Burp Suite</em> et <em>SQLmap</em></li>
+<li>Appliquer les bonnes pratiques de codage sécurisé pour prévenir les attaques</li>
+<li>Améliorer la résilience globale des applications face aux menaces</li>
+</ul>
+<h2 id="pré-requis">Pré-requis:</h2>
+<ul>
+<li>Connaissances de base en développement web (HTML, CSS, JavaScript)</li>
+<li>Familiarité avec les protocoles web (HTTP, HTTPS)</li>
+<li>Expérience avec les outils en ligne de commande</li>
+</ul>
+<h2 id="programme">Programme:</h2>
+<h4 id="jour-1---les-bases-de-la-sécurité-web">Jour 1 - Les bases de la sécurité web</h4>
+<h6 id="le-paysage-de-linsécurité-web">Le paysage de l&rsquo;insécurité web</h6>
+<ul>
+<li>La sécurité web : un vaste sujet</li>
+<li>Architecture type d&rsquo;une application web</li>
+<li>Projet de sécurité des applications web ouvertes (OWASP)</li>
+<li>CWE, CVE et CVSS</li>
+<li>Attaquants externes et internes</li>
+<li>Les différentes étapes d&rsquo;une attaque</li>
+<li>La boîte à outils d&rsquo;un attaquant</li>
+<li>Idées reçues</li>
+</ul>
+<h6 id="place-de-la-sécurité-dans-le-cycle-de-développement">Place de la sécurité dans le cycle de développement</h6>
+<ul>
+<li>L&rsquo;importance de l&rsquo;inventaire</li>
+<li>Shadow IT</li>
+<li>Biais de production et incompatibilité avec les approches agiles</li>
+<li>Le concept de <em>DevSecOps</em></li>
+<li>L&rsquo;importance des tests et des revues de code</li>
+<li>Analyse statique et dynamique</li>
+</ul>
+<h6 id="aide-externe">Aide externe</h6>
+<ul>
+<li>Audits de sécurité et <em>Bug Bounty</em></li>
+<li>Politique de divulgation des vulnérabilités</li>
+</ul>
+<h6 id="protocole-http">Protocole HTTP</h6>
+<ul>
+<li>Rappel sur le protocole HTTP(s)</li>
+<li>Anatomie des requêtes et réponses HTTP</li>
+<li>Sémantique et codes de retour</li>
+<li>Introduction aux <em>Dev Tools</em></li>
+<li>Introduction à <em>Burp Suite</em></li>
+</ul>
+<h6 id="urls">URLs</h6>
+<ul>
+<li>Anatomie d&rsquo;une URL</li>
+<li>Exploitation des redirections ouvertes</li>
+</ul>
+<h6 id="divulgation-dinformations-sensibles-informations">Divulgation d&rsquo;informations sensibles Informations</h6>
+<ul>
+<li>ID séquentiels</li>
+<li>Messages d&rsquo;erreur détaillés</li>
+<li>Liste des répertoires</li>
+<li>Journalisation en clair des informations sensibles</li>
+<li>Secrets côté client</li>
+<li>Exposition excessive des données API</li>
+<li>Dépôts et historique <em>Git</em> publiques</li>
+<li>Répertoire <em>Git</em> déployé</li>
+</ul>
+<h4 id="jour-2---failles-de-saisie-utilisateur">Jour 2 - Failles de saisie utilisateur</h4>
+<h6 id="validation-des-saisies">Validation des saisies</h6>
+<ul>
+<li>Côté client, côté serveur ou les deux ?</li>
+<li>Pollution des paramètres HTTP</li>
+<li>Assignation de masse</li>
+</ul>
+<h6 id="cross-site-scripting-xss">Cross-Site Scripting (XSS)</h6>
+<ul>
+<li>Les XSS sont omniprésentes</li>
+<li>Types de XSS</li>
+<li>Quel impact ?</li>
+<li>Comment se protéger</li>
+</ul>
+<h6 id="injections-sql-sqli">Injections SQL (SQLi)</h6>
+<ul>
+<li>De quoi s&rsquo;agit-il ?</li>
+<li>Quel impact ?</li>
+<li>Comment se protéger</li>
+<li>Présentation de <em>SQLMap</em></li>
+<li>Injection <em>NoSQL</em></li>
+</ul>
+<h6 id="content-security-policy-csp">Content Security Policy (CSP)</h6>
+<ul>
+<li>Définition</li>
+<li>Directives les plus courantes</li>
+<li>Configuration possible</li>
+<li>Comment se protéger</li>
+</ul>
+<h6 id="autres-formes-dinjections">Autres formes d&rsquo;injections</h6>
+<ul>
+<li>Injection HTML</li>
+<li>Injection de code</li>
+<li>Injection de commandes système</li>
+</ul>
+<h6 id="fichiers">Fichiers</h6>
+<ul>
+<li>Problèmes courants liés aux fichiers</li>
+<li>Téléchargement de fichiers arbitraires</li>
+<li>Traversée de chemin</li>
+<li>Inclusion de fichiers locaux et distants</li>
+</ul>
+<h4 id="jour-3---vulnérabilités-des-utilisateurs-authentifiés">Jour 3 - Vulnérabilités des utilisateurs authentifiés</h4>
+<h6 id="authentification-et-vulnérabilités">Authentification et vulnérabilités</h6>
+<ul>
+<li>Authentification</li>
+<li>Enumération des utilisateurs</li>
+<li>Questions de sécurité et Rate Limit</li>
+<li>Authentification multifacteur</li>
+</ul>
+<h6 id="mots-de-passe">Mots de passe</h6>
+<ul>
+<li>Cryptographie en bref : codage, hachage, chiffrement</li>
+<li>Politique de sécurité des mots de passe</li>
+<li>Fuites de mots de passe</li>
+<li>Stockage des mots de passe</li>
+<li>Outils de cassage</li>
+</ul>
+<h6 id="cookies">Cookies</h6>
+<ul>
+<li>Attributs des cookies : <em>secure, httponly, domain, samesite</em>&hellip;</li>
+<li>Détournement de session</li>
+</ul>
+<h6 id="cross-site-request-forgery-csrf">Cross-Site Request Forgery (CSRF)</h6>
+<ul>
+<li>Qu&rsquo;est-ce que c&rsquo;est ?</li>
+<li>Quel impact ?</li>
+<li>Comment se protéger</li>
+</ul>
+<h6 id="détournement-de-clic">Détournement de clic</h6>
+<ul>
+<li>Qu&rsquo;est-ce que c&rsquo;est ?</li>
+<li>Quel impact ?</li>
+<li>Comment se protéger</li>
+</ul>
+<h6 id="autorisation-et-contrôle-daccès">Autorisation et contrôle d&rsquo;accès</h6>
+<ul>
+<li>Authentification vs. autorisation</li>
+<li>Rôles et permissions</li>
+<li>Référence directe d&rsquo;objet non sécurisée</li>
+</ul>
+<h6 id="cross-origin-resource-sharing-cors">Cross-Origin resource sharing (CORS)</h6>
+<ul>
+<li>Rappel à propos de <em>Same-Origin Policy</em></li>
+<li>Erreurs de configuration possibles</li>
+<li>Quel impact ?</li>
+<li>Comment se protéger</li>
+</ul>
+<p><br><br></p>
+<hr>
+<p>Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank"><a href="mailto:contact@glc.st">contact@glc.st</a></a> - devis sur demande - SIRET 79778302400038</p>
+        </div>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Test d&#39;intrusion d&#39;application web par un expert indépendant : périmètre, méthodologie OWASP, rapport exploitable. Devis sur demande." />
+    <meta name="keywords" content="[test d&#39;intrusion, pentest application web, audit de sécurité web, expert cybersécurité indépendant]" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Test d&#39;intrusion d&#39;application web - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Test d&#39;intrusion d&#39;application web par un expert indépendant : périmètre, méthodologie OWASP, rapport exploitable. Devis sur demande." />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Test d&#39;intrusion d&#39;application web - Gwendal Le Coguic" />
+<meta property="og:description" content="Test d&#39;intrusion d&#39;application web par un expert indépendant : périmètre, méthodologie OWASP, rapport exploitable. Devis sur demande." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/test-intrusion-application-web/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2026-10-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2026-10-13T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Test d&#39;intrusion d&#39;application web - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/test-intrusion-application-web/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/web-application-penetration-testing/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/test-intrusion-application-web/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/web-application-penetration-testing/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Service","areaServed":{"@type":"Country","name":"France"},"availableLanguage":["en","fr"],"description":"Test d'intrusion d'application web par un expert indépendant : périmètre, méthodologie OWASP, rapport exploitable. Devis sur demande.","name":"Test d'intrusion d'application web","provider":{"@id":"https://glc.st/#person"},"serviceType":"Test d'intrusion d'application web","url":"https://glc.st/fr/test-intrusion-application-web/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/web-application-penetration-testing/" hreflang="en" lang="en" rel="alternate"><img src="https://glc.st/assets/img/flags/en.png" class="icon-flag" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Test d&#39;intrusion d&#39;application web</h1>
+    </header>
+
+    <p>Vous avez une application en production. Elle gère des comptes clients, des données personnelles, peut-être des paiements.
+Personne n&rsquo;a jamais sérieusement essayé de la casser, et la question commence à remonter.
+Un client vous envoie un questionnaire sécurité, un auditeur demande des preuves, ou vous avez simplement lu l&rsquo;actualité ce matin.</p>
+<p>Un test d&rsquo;intrusion répond à une question précise : <strong>qu&rsquo;est-ce qu&rsquo;un attaquant peut réellement obtenir, et par où ?</strong></p>
+<p>Pas « avez-vous des vulnérabilités », la réponse est toujours oui, mais lesquelles sont exploitables, dans quel ordre,
+et avec quel impact concret sur votre métier.</p>
+<h2 id="pourquoi-maintenant">Pourquoi maintenant</h2>
+<p>L&rsquo;exploitation de vulnérabilités est devenue le <strong>premier vecteur d&rsquo;entrée des compromissions : 31 %</strong>, devant le phishing (16 %) et l&rsquo;abus d&rsquo;identifiants (13 %).
+C&rsquo;est le constat du <a href="https://www.verizon.com/business/resources/reports/dbir/">Verizon DBIR 2026</a>,
+établi sur plus de 22 000 compromissions confirmées dans 145 pays entre octobre 2024 et novembre 2025.
+L&rsquo;ordre s&rsquo;est inversé : pendant des années, le vol d&rsquo;identifiants dominait.</p>
+<figure><img src="https://glc.st/assets/img/services/verizon-dbir.png"
+    alt="Verizon DBIR 2026" width="500">
+</figure>
+
+<p>Le même rapport donne le revers de la médaille. En 2025, <strong>seules 26 % des vulnérabilités critiques ont été entièrement corrigées</strong>, contre 38 % l&rsquo;année précédente.
+Le délai médian de résolution complète est passé de 32 à 43 jours. L&rsquo;exploitation accélère pendant que la correction ralentit.</p>
+<p>Pour les PME, le rapport est encore plus dur : trois schémas d&rsquo;attaque pour <strong>100 % des compromissions</strong> observées :</p>
+<ul>
+<li>l&rsquo;intrusion système</li>
+<li>les attaques web basiques</li>
+<li>l&rsquo;ingénierie sociale</li>
+</ul>
+<p>En France, le <a href="https://www.cert.ssi.gouv.fr/uploads/CERTFR-2026-CTI-002.pdf">Panorama de la cybermenace 2025 de l&rsquo;ANSSI</a>
+recense <strong>1 366 incidents confirmés</strong>, un niveau stable par rapport à 2024 (1 361).
+Les signalements, eux, baissent de 18 %, mais l&rsquo;ANSSI attribue en partie cette baisse au pic lié aux Jeux de Paris 2024,
+pas à une détente. En revanche, les incidents d&rsquo;exfiltration de données passent de 130 à <strong>196 en un an</strong>.</p>
+<p>La conclusion utile : votre surface web exposée est la porte d&rsquo;entrée la plus empruntée,
+et savoir ce qu&rsquo;elle laisse passer coûte beaucoup moins cher que de l&rsquo;apprendre autrement.</p>
+<h2 id="quand-lancer-un-test">Quand lancer un test</h2>
+<p>Les déclencheurs les plus fréquents :</p>
+<ul>
+<li><strong>Avant une mise en production majeure</strong> : nouvelle application, refonte, ouverture d&rsquo;une API à des partenaires.</li>
+<li><strong>Après un changement d&rsquo;architecture</strong> : migration cloud, découpage en microservices, changement de fournisseur d&rsquo;authentification.</li>
+<li><strong>Parce qu&rsquo;un tiers le demande</strong> : appel d&rsquo;offres, due diligence, questionnaire sécurité d&rsquo;un grand compte, exigence d&rsquo;un assureur.</li>
+<li><strong>Pour une obligation réglementaire</strong> : l&rsquo;<a href="https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX%3A32016R0679">article 32 du RGPD</a>
+impose des mesures techniques appropriées, incluant explicitement « une procédure visant à tester, à analyser et à évaluer régulièrement l&rsquo;efficacité » de ces mesures.
+Les cadres NIS2 et DORA renforcent cette exigence de tests réguliers pour les entités concernées.</li>
+<li><strong>Après un incident</strong> : pour mesurer l&rsquo;étendue réelle et confirmer que la porte est bien refermée.</li>
+<li><strong>En cycle</strong> : une fois par an, ou à chaque version majeure, selon le rythme de vos déploiements.</li>
+</ul>
+<p>Si aucun de ces cas ne s&rsquo;applique et que personne ne vous le demande, un test d&rsquo;intrusion n&rsquo;est peut-être pas votre priorité.
+Commencer par une <a href="https://glc.st/fr/formations/">formation des développeurs</a> coûte moins cher et
+évite de payer pour faire constater les mêmes classes de failles à chaque audit.</p>
+<h2 id="ce-que-je-teste">Ce que je teste</h2>
+<p>Le périmètre est défini avec vous au cadrage. Les tests suivants sont mon terrain de chasse depuis 10 ans sur une application web type, voir mes <a href="https://glc.st/cves/">CVEs</a> et mes <a href="https://glc.st/fr/articles/">articles techniques</a> :</p>
+<ul>
+<li><strong>Authentification et gestion de session</strong> : énumération de comptes, réinitialisation de mot de passe, limitation de débit, attributs de cookies, fixation et détournement de session, multi-facteur…</li>
+<li><strong>Contrôle d&rsquo;accès</strong> : élévation horizontale et verticale, références directes d&rsquo;objets, cloisonnement entre comptes.
+C&rsquo;est la catégorie A01 de l&rsquo;<a href="https://top10.owasp.org/2025/">OWASP Top 10:2025</a>, et toujours la première source de trouvailles sérieuses en pratique.</li>
+<li><strong>Injections</strong> : SQL et NoSQL, commandes système, code, templates, injection côté client…</li>
+<li><strong>Traitement des fichiers</strong> : upload arbitraire, traversée de chemin, inclusion locale et distante, stockage et servitude des fichiers déposés.</li>
+<li><strong>Logique métier</strong> : enchaînements d&rsquo;étapes contournables, manipulation de montants ou de quantités, conditions de course. C&rsquo;est ce qu&rsquo;aucun scanner ne trouve.</li>
+<li><strong>Configuration et exposition</strong> : en-têtes, Content Security Policy, CORS, messages d&rsquo;erreur verbeux, secrets côté client, dépôts Git et sauvegardes accessibles, fuites d&rsquo;API…</li>
+<li><strong>Surface d&rsquo;attaque périphérique</strong> : sous-domaines oubliés, services annexes, secrets publiés par inadvertance.</li>
+</ul>
+<figure><img src="https://glc.st/assets/img/services/hacker-hoodie.png"
+    alt="Illustration : un homme en sweat à capuche devant un écran vert dans une pièce sombre" width="400">
+</figure>
+
+<p><em>Non, ça ne ressemble pas à ça. En vrai : beaucoup de lecture de code, un tableur de suivi, et trois cafés avant d&rsquo;expliquer pourquoi un identifiant de commande incrémental est un problème.</em></p>
+<h2 id="comment-ça-se-déroule">Comment ça se déroule</h2>
+<p><strong>1. Cadrage</strong> : périmètre technique, comptes de test, environnement (recette ou production), fenêtre d&rsquo;intervention, contacts d&rsquo;urgence, convention d&rsquo;audit signée.
+Rien ne commence avant cette signature.</p>
+<p><strong>2. Reconnaissance</strong> : cartographie de la surface réellement exposée.
+C&rsquo;est souvent la première surprise : l&rsquo;inventaire que vous avez en tête et ce qui est joignable depuis Internet ne coïncident que rarement.</p>
+<p><strong>3. Cartographie fonctionnelle</strong> : parcours utilisateurs, rôles, points d&rsquo;entrée, endpoints d&rsquo;API.
+L&rsquo;objectif est de comprendre l&rsquo;application avant de l&rsquo;attaquer, sinon on teste au hasard.</p>
+<p><strong>4. Tests manuels</strong> : le cœur du travail. L&rsquo;outillage sert à paralléliser (Burp Suite Pro, SQLmap, scripts dédiés), pas à décider.
+Référentiels utilisés : l&rsquo;<a href="https://owasp.org/www-project-web-security-testing-guide/">OWASP Web Security Testing Guide</a>
+pour la couverture, l&rsquo;<a href="https://owasp.org/www-project-application-security-verification-standard/">OWASP ASVS</a>
+pour le niveau d&rsquo;exigence, <a href="http://www.pentest-standard.org/">PTES</a> pour la structure globale.</p>
+<p><strong>5. Exploitation mesurée</strong> : démontrer l&rsquo;impact sans dégrader le service.
+Une preuve d&rsquo;exploitation, pas une démonstration de force. Les actions destructives sont exclues par défaut et ne sont jamais tentées sans accord écrit explicite.</p>
+<p><strong>6. Rapport et restitution</strong> : livrable écrit, puis un échange avec vos développeurs.</p>
+<h2 id="le-rapport">Le rapport</h2>
+<p>C&rsquo;est le livrable, et c&rsquo;est la partie que la plupart des prestataires bâclent.</p>
+<ul>
+<li><strong>Une synthèse d&rsquo;une page</strong>, sans jargon, lisible par une direction : ce qui a été testé, ce qui a été trouvé, ce qu&rsquo;il faut corriger en premier.</li>
+<li><strong>L&rsquo;inventaire des vulnérabilités</strong>, chacune avec son <a href="https://www.first.org/cvss/">score CVSS</a>, une criticité <em>contextualisée</em> à votre environnement, le scénario d&rsquo;attaque complet et les étapes reproductibles.</li>
+<li><strong>Des preuves exploitables</strong> : requêtes brutes, captures, conditions de reproduction. Votre développeur doit pouvoir rejouer la faille sans me rappeler.</li>
+<li><strong>Des recommandations priorisées</strong>, classées par impact rapporté à l&rsquo;effort de correction, et pas une liste alphabétique de bonnes pratiques génériques.</li>
+<li><strong>Une restitution orale</strong> avec l&rsquo;équipe technique, pour les questions qui ne tiennent pas dans un document.</li>
+</ul>
+<br>
+<blockquote>
+<p>Une page d&rsquo;administration accessible publiquement est une information, pas une vulnérabilité critique.
+Gonfler les scores remplit le rapport et vide sa valeur : au troisième audit où tout est « élevé »,
+plus personne ne le lit, et la seule trouvaille réellement critique se noie dans le bruit. Acceptez les rapports courts quand l&rsquo;application est saine !</p></blockquote>
+<h2 id="ce-quun-test-dintrusion-nest-pas">Ce qu&rsquo;un test d&rsquo;intrusion n&rsquo;est pas</h2>
+<p>Autant le dire avant de signer :</p>
+<ul>
+<li><strong>Ce n&rsquo;est pas un scan automatisé rebadgé.</strong> Si le rapport ressemble à un export d&rsquo;outil, vous avez payé une licence, pas une expertise.</li>
+<li><strong>Ce n&rsquo;est pas exhaustif.</strong> Le temps est borné, donc la couverture l&rsquo;est aussi. Un test d&rsquo;intrusion donne une photographie, à une date, sur un périmètre, avec un budget.
+Il ne prouve pas l&rsquo;absence de failles, rien ne le prouve.</li>
+<li><strong>Ce n&rsquo;est pas un audit de code.</strong> Les deux sont complémentaires : le pentest voit ce qui est exploitable de l&rsquo;extérieur, l&rsquo;audit de code voit ce qui est fragile de l&rsquo;intérieur.</li>
+<li><strong>Ce n&rsquo;est pas un bug bounty.</strong> Un programme de bug bounty vous achète de la durée et de la diversité d&rsquo;approches ; un test d&rsquo;intrusion vous achète de la profondeur et de la traçabilité
+sur un périmètre défini. J&rsquo;ai pratiqué les deux côtés et je peux vous dire lequel correspond à votre situation, y compris quand la réponse est « aucun des deux, pour l&rsquo;instant ».</li>
+<li><strong>Ça ne corrige rien tout seul.</strong> Rappel du chiffre plus haut : 74 % des vulnérabilités critiques ne sont pas corrigées.
+Un rapport qui finit dans un dossier partagé n&rsquo;a amélioré la sécurité de personne.</li>
+</ul>
+<h2 id="pourquoi-moi">Pourquoi moi</h2>
+<p>Environ 25 ans de développement web, puis la sécurité à plein temps.</p>
+<ul>
+<li><strong>Auditeur pour le ministère des Armées, de 2020 à 2024</strong> : tests d&rsquo;intrusion, audits de configuration selon les recommandations de l&rsquo;ANSSI, et audits de code sur des systèmes Linux et des applications web.</li>
+<li><strong>Chasseur de vulnérabilités depuis 2016</strong> : plusieurs centaines de rapports soumis à des <a href="https://glc.st/fr/references/">startups, grands comptes et institutions publiques</a>. Dont des prises de contrôle de sous-domaines, injections SQL, SSRF, exécution de commandes à distance, prise de contrôle complète d&rsquo;un compte AWS et bien d&rsquo;autres…</li>
+<li><strong>Des CVEs publiées</strong> sous mon nom : voir la <a href="https://glc.st/cves/">liste</a>.</li>
+<li><strong>Formateur depuis 2022</strong> : une <a href="https://glc.st/fr/formations/">dizaine de formations</a> dispensées, ce qui veut dire que je sais expliquer une faille à l&rsquo;équipe qui devra la corriger.</li>
+<li><strong>Développeur avant tout le reste</strong> : je lis votre code sans traducteur, et mes recommandations tiennent compte de ce qu&rsquo;elles coûtent à implémenter.</li>
+</ul>
+<p>Un exemple public de ce que ça donne : mon
+<a href="https://glc.st/posts/analysis-of-a-critical-french-medical-application/">analyse d&rsquo;une application médicale française critique</a>.</p>
+<h2 id="questions-fréquentes">Questions fréquentes</h2>
+<p><strong>Combien de temps ?</strong>
+Trois à dix jours d&rsquo;intervention selon le périmètre, plus la rédaction.
+Une application métier de taille moyenne tourne autour de cinq jours.</p>
+<p><strong>Combien ça coûte ?</strong>
+Devis sur demande, au forfait. Les facteurs : nombre de fonctionnalités et de rôles, présence d&rsquo;une API, disponibilité d&rsquo;un environnement de test,
+et nécessité d&rsquo;une contre-vérification. Je donne une fourchette dès le premier échange, avant tout engagement.</p>
+<p><strong>Boîte noire ou boîte grise ?</strong>
+Boîte grise dans la grande majorité des cas, avec des comptes de test pour chaque rôle.
+Un attaquant réel finit par obtenir un compte ; me les refuser fait dépenser votre budget à franchir une porte au lieu d&rsquo;explorer ce qu&rsquo;il y a derrière.</p>
+<p><strong>Est-ce que ça peut casser la production ?</strong>
+Le risque n&rsquo;est jamais nul, c&rsquo;est pourquoi un environnement de recette iso-production est préférable.
+Sur production, les tests intrusifs sont écartés, la fenêtre est convenue à l&rsquo;avance, et vous avez mon numéro pendant toute la durée.</p>
+<p><strong>Et si vous ne trouvez rien de grave ?</strong>
+Vous obtenez un rapport qui le dit, avec le détail de ce qui a été testé et comment.
+C&rsquo;est un document utile à présenter à un client ou à un auditeur, et c&rsquo;est le résultat que je préfère.</p>
+<p>Enfin, si vos équipes veulent monter en compétence pour ne plus retrouver les mêmes catégories de failles l&rsquo;année prochaine,
+c&rsquo;est exactement l&rsquo;objet de <a href="https://glc.st/fr/formations/">mes formations</a>.</p>
+<h2 id="parlons-en">Parlons-en</h2>
+<p>Décrivez-moi votre application en quelques lignes : ce qu&rsquo;elle fait, qui l&rsquo;utilise, ce qui vous inquiète. Je vous réponds avec un périmètre proposé et une fourchette de prix.</p>
+<p><br><br></p>
+<hr>
+<p>Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank"><a href="mailto:contact@glc.st">contact@glc.st</a></a> - devis sur demande - SIRET 79778302400038</p>
+<style>
+    .content figure {
+        border: 0px solid #000;
+        margin-bottom: 20px;
+        margin-top: 20px;
+        padding: 0px;
+        text-align: center;
+    }
+
+    blockquote {
+        font-size: 0.9em;
+        text-align: justify;
+        background-color: #fef6e1;
+        border: 1px solid #f9b915;
+        font-style: normal;
+        padding: 2rem;
+    }
+    blockquote p {
+        margin: 1.0rem 0 1.0rem 0;
+    }
+</style>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Trois prestations de sécurité : test d&#39;intrusion d&#39;application web, audit de code source, audit de configuration Linux. Laquelle vous correspond, et pourquoi." />
+    <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Audits et tests d&#39;intrusion - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Trois prestations de sécurité : test d&#39;intrusion d&#39;application web, audit de code source, audit de configuration Linux. Laquelle vous correspond, et pourquoi." />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Audits et tests d&#39;intrusion - Gwendal Le Coguic" />
+<meta property="og:description" content="Trois prestations de sécurité : test d&#39;intrusion d&#39;application web, audit de code source, audit de configuration Linux. Laquelle vous correspond, et pourquoi." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/prestations/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2026-10-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2026-10-29T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Audits et tests d&#39;intrusion - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/prestations/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/services/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/prestations/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/services/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2026-10-29","datePublished":"2026-10-29","description":"Trois prestations de sécurité : test d'intrusion d'application web, audit de code source, audit de configuration Linux. Laquelle vous correspond, et pourquoi.","headline":"Audits et tests d'intrusion","inLanguage":"fr","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/fr/prestations/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/services/" hreflang="en" lang="en" rel="alternate"><img src="https://glc.st/assets/img/flags/en.png" class="icon-flag" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Audits et tests d&#39;intrusion</h1>
+    </header>
+
+    <p>Trois prestations, trois questions différentes. La plupart des gens qui me contactent savent qu&rsquo;ils ont besoin de<br>
+<em>&ldquo;quelque chose en sécurité&rdquo;</em> sans savoir laquelle des trois répond à leur problème. Cette page est là pour trancher en cinq minutes.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Prestation</th>
+          <th>La question à laquelle elle répond</th>
+          <th>Durée</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><a href="https://glc.st/fr/test-intrusion-application-web/">Test d&rsquo;intrusion</a></td>
+          <td>Par où entre-t-on ?</td>
+          <td>3 à 10 jours</td>
+      </tr>
+      <tr>
+          <td><a href="https://glc.st/fr/audit-de-code-source/">Audit de code source</a></td>
+          <td>Pourquoi cette porte existe-t-elle ?</td>
+          <td>5 à 15 jours</td>
+      </tr>
+      <tr>
+          <td><a href="https://glc.st/fr/audit-configuration-durcissement-linux/">Audit de configuration</a></td>
+          <td>Jusqu&rsquo;où va-t-on une fois entré ?</td>
+          <td>2 à 3 jours par serveur</td>
+      </tr>
+  </tbody>
+</table>
+<h2 id="test-dintrusion-dapplication-web">Test d&rsquo;intrusion d&rsquo;application web</h2>
+<p>J&rsquo;attaque votre application comme le ferait quelqu&rsquo;un de mal intentionné, dans un
+périmètre et un calendrier convenus, et je vous remets la liste de ce qui est
+réellement exploitable — pas la liste de ce qui pourrait théoriquement l&rsquo;être.</p>
+<p>Pour vous si : votre application est en production et personne ne l&rsquo;a jamais
+testée sérieusement, ou un client vous demande une preuve.</p>
+<p><strong><a href="https://glc.st/fr/test-intrusion-application-web/">Voir le détail →</a></strong></p>
+<h2 id="audit-de-code-source">Audit de code source</h2>
+<p>Je lis votre code, vos dépendances et votre historique Git pour trouver ce qui
+est fragile à l&rsquo;intérieur, y compris sur les chemins qu&rsquo;un test d&rsquo;intrusion
+n&rsquo;emprunte jamais, et les secrets que vous croyez avoir supprimés.</p>
+<p>Pour vous si : vous reprenez une base de code, vous préparez une due diligence,
+ou vous voulez savoir si une faille trouvée ailleurs existe aussi dans les douze
+autres endroits où le même oubli a pu se produire.</p>
+<p><strong><a href="https://glc.st/fr/audit-de-code-source/">Voir le détail →</a></strong></p>
+<h2 id="audit-de-configuration-et-durcissement-linux">Audit de configuration et durcissement Linux</h2>
+<p>Je mesure l&rsquo;écart entre vos serveurs et un référentiel nommé: le guide
+ANSSI-BP-028, au niveau que nous choisissons ensemble — et je vous livre les
+correctifs sous forme de tâches Ansible rejouables.</p>
+<p>Pour vous si : vos serveurs n&rsquo;ont jamais été durcis, vous sortez d&rsquo;un incident et
+voulez vérifier que le confinement est réel, ou on vous demande une conformité
+aux recommandations de l&rsquo;ANSSI.</p>
+<p><strong><a href="https://glc.st/fr/audit-configuration-durcissement-linux/">Voir le détail →</a></strong></p>
+<h2 id="laquelle-vous-faut-il">Laquelle vous faut-il</h2>
+<p>Dans l&rsquo;ordre de ce que j&rsquo;entends le plus souvent :</p>
+<p><strong>« Notre appli est en ligne, on n&rsquo;a jamais rien fait. »</strong> → Test d&rsquo;intrusion.<br>
+C&rsquo;est le point de départ par défaut : il vous dit où vous en êtes avant d&rsquo;investir ailleurs.</p>
+<p><strong>« Un client nous demande un rapport de sécurité. »</strong> → Test d&rsquo;intrusion.<br>
+C&rsquo;est le livrable qui se présente le mieux à un tiers, parce qu&rsquo;il décrit des scénarios d&rsquo;attaque concrets plutôt qu&rsquo;une liste de réglages.</p>
+<p><strong>« On hérite d&rsquo;un code dont les auteurs sont partis. »</strong> → Audit de code.<br>
+Un test d&rsquo;intrusion ne vous dira rien de la dette qui dort dans les branches que personne n&rsquo;exécute encore.</p>
+<p><strong>« On rachète une société / on lève des fonds. »</strong> → Audit de code.<br>
+Pour le risque technique et l&rsquo;exposition aux licences.</p>
+<p><strong>« On s&rsquo;est fait attaquer le mois dernier. »</strong> → Audit de configuration d&rsquo;abord, pour vérifier que l&rsquo;attaquant n&rsquo;a plus de chemin,
+puis test d&rsquo;intrusion pour confirmer que la porte d&rsquo;entrée est fermée.</p>
+<p><strong>« Le pentest a trouvé une injection SQL et ça nous inquiète. »</strong> → Audit de code.<br>
+Une faille trouvée est un bug ; la même faille à quatorze endroits est un problème de conception, et c&rsquo;est une autre conversation.</p>
+<p><strong>« On nous demande d&rsquo;être conformes à l&rsquo;ANSSI. »</strong> → Audit de configuration.<br>
+Avec le niveau du guide fixé au cadrage.</p>
+<p><strong>« On retrouve les mêmes failles à chaque audit. »</strong> → Aucune des trois.<br>
+C&rsquo;est une <a href="https://glc.st/fr/formations/">formation</a> qu&rsquo;il vous faut : payer pour faire constater les mêmes catégories d&rsquo;erreurs
+tous les ans coûte plus cher que d&rsquo;apprendre à ne plus les écrire.</p>
+<p><strong>« On ne sait pas, personne ne nous demande rien. »</strong> → Alors peut-être rien, pour l&rsquo;instant.<br>
+Écrivez-moi quand même en deux lignes, je vous le dirai franchement,
+une prestation vendue à quelqu&rsquo;un qui n&rsquo;en avait pas besoin ne me rapporte qu&rsquo;une fois.</p>
+<h2 id="les-combinaisons-qui-ont-du-sens">Les combinaisons qui ont du sens</h2>
+<p>Le test d&rsquo;intrusion et l&rsquo;audit de configuration se complètent bien : le premier
+trouve l&rsquo;entrée, le second détermine jusqu&rsquo;où elle mène. C&rsquo;est l&rsquo;enchaînement que
+je recommande le plus souvent, et le second coûte beaucoup moins cher que le
+premier.</p>
+<p>L&rsquo;audit de code se justifie surtout <strong>après</strong> un test d&rsquo;intrusion, quand vous
+voulez comprendre la cause plutôt que le symptôme — ou <strong>avant</strong> une mise en
+production majeure, quand il n&rsquo;y a encore rien à attaquer.</p>
+<p>Je ne vends pas de « pack des trois ». Si vous les enchaînez, c&rsquo;est parce que le
+résultat du précédent le justifie, pas parce que c&rsquo;était dans le devis.</p>
+<h2 id="ce-que-je-ne-fais-pas">Ce que je ne fais pas</h2>
+<p>Autant le dire avant que vous écriviez.</p>
+<p>Je travaille seul. Pour un périmètre très large, une mission en équipe sur
+plusieurs semaines, ou une prestation exigeant une qualification formelle — un
+prestataire PASSI, un test TLPT au titre de DORA — je vous le dis au premier
+échange et je vous oriente ailleurs. Mes rapports sont des rapports d&rsquo;audit, pas
+des certifications.</p>
+<p>Côté systèmes, je couvre Linux et les conteneurs. Pas Windows, pas Active
+Directory.</p>
+<p>Et je ne gonfle pas les criticités. Une page d&rsquo;administration accessible
+publiquement est une information, pas une faille critique. Au troisième rapport
+où tout est « élevé », plus personne ne lit, et c&rsquo;est la vraie faille qui se noie.</p>
+<h2 id="parlons-en">Parlons-en</h2>
+<p>Décrivez-moi votre situation en quelques lignes, ce que fait l&rsquo;application ou le
+système, qui l&rsquo;utilise, ce qui déclenche la question, et je vous réponds avec la
+prestation qui correspond, un périmètre proposé et une fourchette de prix. Si la
+réponse est <em>&ldquo;aucune des trois&rdquo;</em>, je vous le dirai aussi.</p>
+<p><br><br></p>
+<hr>
+<p>Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank"><a href="mailto:contact@glc.st">contact@glc.st</a></a> - devis sur demande - SIRET 79778302400038</p>
+
+  </article>
+</section>
+
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

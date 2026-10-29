@@ -1,0 +1,75 @@
+{{/* layouts/partials/home.html
+     Ã‰crase themes/coder/layouts/partials/home.html.
+     Ne modifie jamais le fichier du thÃ¨me : il reste en place, celui-ci gagne. */}}
+
+<section class="container centered">
+  <div class="about">
+    {{ with site.Params.avatarurl }}
+      <div class="avatar"><img src="{{ . }}" alt="{{ site.Params.author }}"></div>
+    {{ end }}
+
+    <h1>{{ .Title | default site.Params.author }}</h1>
+    <h2>{{ site.Params.info }}</h2>
+
+    {{ with site.Params.social }}
+    <ul class="social">
+      {{ range sort . "weight" }}
+        {{ if .icon }}
+          <li>
+            <a href="{{ .url }}" aria-label="{{ .name }}"{{ with .rel }} rel="{{ . }}"{{ end }}>
+              <i class="{{ .icon }}" aria-hidden="true"></i>
+            </a>
+          </li>
+        {{ else }}
+          <li>
+            <a href="{{ .url }}" aria-label="{{ .name }}"{{ with .rel }} rel="{{ . }}"{{ end }}>{{ .name }}</a>
+          </li>
+        {{ end }}
+      {{ end }}
+    </ul>
+    {{ end }}
+  </div>
+</section>
+
+{{/* ---- Prose : le corps de _index.md ---- */}}
+{{ with .Content }}
+<section class="container home-about">
+  <h3>{{ i18n "home_about" | default "About" }}</h3>
+  {{ . }}
+</section>
+{{ end }}
+
+{{/* ---- Parcours : front matter `experiences` ---- */}}
+{{ with .Params.experiences }}
+<section class="container home-experiences">
+  <h3>{{ i18n "home_experiences" | default "Main experiences" }}</h3>
+  {{ range . }}
+  <article class="experience">
+    <h4>{{ .role }}{{ with .org }} &mdash; {{ . }}{{ end }}</h4>
+    {{ with .period }}<p class="period">{{ . }}</p>{{ end }}
+    {{ with .body }}<p>{{ . }}</p>{{ end }}
+    {{ with .links }}
+    <ul class="links">
+      {{ range . }}<li><a href="{{ .url }}">{{ .label }}</a></li>{{ end }}
+    </ul>
+    {{ end }}
+  </article>
+  {{ end }}
+</section>
+{{ end }}
+
+{{/* ---- Certifications : front matter `certificates` ---- */}}
+{{ with .Params.certificates }}
+<section class="container home-certificates">
+  <h3>{{ i18n "home_certificates" | default "Scholarship and certificates" }}</h3>
+  <ul class="certificates">
+    {{ range . }}
+    <li>
+      <span class="cert-name">{{ .name }}</span>
+      {{ with .issuer }}<span class="cert-issuer">{{ . }}</span>{{ end }}
+      {{ with .year }}<span class="cert-year">{{ . }}</span>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+</section>
+{{ end }}
