@@ -51,7 +51,6 @@ RedirectPermanent /cves/cve-2020-7229/ /cves/cve-2020-7229-unauthenticated-sql-i
 RedirectPermanent /cves/cve-2016-11018/ /cves/cve-2016-11018-unauthenticated-sql-injection-in-wordpress-plugin-gallery-images/
 RedirectPermanent /about/ /
 RedirectPermanent /resume/ /
-RedirectPermanent /services/ /
 RedirectPermanent /cve-demystified/ /posts/cve-demystified/
 RedirectPermanent /one-takeover-to-rule-them-all/ /posts/one-takeover-to-rule-them-all/
 RedirectPermanent /the-underlying-rules-of-bug-bounty/ /posts/the-underlying-rules-of-bug-bounty/
