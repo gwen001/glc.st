@@ -8,7 +8,7 @@
 
   {{- range . }}
       <li class="navigation-item language">
-        <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Lang }}" lang="{{ .Language.Lang }}" rel="alternate"><img src="/assets/img/flags/{{ .Language }}.png" class="icon-flag" /></a>
+        <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Lang }}" lang="{{ .Language.Lang }}" rel="alternate"><img src="/assets/img/flags/{{ .Language }}.png" class="icon-flag" alt="{{ .Language.LanguageName }}" /></a>
       </li>
   {{- end }}
 {{- else -}}
@@ -20,7 +20,7 @@
   {{- range site.Home.AllTranslations }}
     {{- if ne .Language.Lang $cur }}
       <li class="navigation-item language">
-        <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Lang }}" lang="{{ .Language.Lang }}" rel="alternate"><img src="/assets/img/flags/{{ .Language }}.png" class="icon-flag" /></a>
+        <a href="{{ .RelPermalink }}" hreflang="{{ .Language.Lang }}" lang="{{ .Language.Lang }}" rel="alternate"><img src="/assets/img/flags/{{ .Language }}.png" class="icon-flag" alt="{{ .Language.LanguageName }}" /></a>
       </li>
     {{- end }}
   {{- end }}

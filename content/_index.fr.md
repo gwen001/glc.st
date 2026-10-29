@@ -164,7 +164,7 @@
         </div>
     </div>
     <div id="education" class="container list-container">
-        <h3>Educations et formations</h3>
+        <h3>Etudes et certifications</h3>
         <div class="row clearfix layout layout-left">
             <div class="col-xs-12 col-sm-12 col-md-7 col-print-6 details">
                 <h4>Docker</h4>

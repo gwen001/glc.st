@@ -119,4 +119,7 @@ uses it, what is prompting the question — and I will reply with the service th
 fits, a proposed scope and a price range. If the answer is _"none of the three"_, I
 will tell you that too.
 
-**[contact@glc.st](mailto:contact@glc.st)**
+<br><br>
+
+---
+Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.st</a> - quotes on request - SIRET 79778302400038

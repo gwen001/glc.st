@@ -10,8 +10,8 @@ RedirectPermanent /cve-2016-11018-image-gallery-sql-injection/ /cves/cve-2016-11
 RedirectPermanent /a-simple-guide-to-your-first-cve/ /cve-demystified/
 
 # fr - en
-RedirectPermanent /fr/cves/ /cves/
-RedirectPermanent /fr/articles/ /posts/
+# RedirectPermanent /fr/cves/ /cves/
+# RedirectPermanent /fr/articles/ /posts/
 
 
 # fix 404

@@ -2,6 +2,7 @@
 title: "Courses"
 slug: "courses"
 date: 2025-04-22T18:05:10+01:00
+collection: "courses"
 ---
 Passionate about web security and ethical hacking - I'm here to share that with you.
 Whether you're just getting started or looking to <b>level up your skills</b>, my courses offer hands-on, <b>real-world training</b> to help you understand how websites are attacked and how to defend them. _Let's turn curiosity into capability._

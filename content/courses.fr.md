@@ -2,6 +2,7 @@
 title: "Formations"
 slug: "formations"
 date: 2025-04-22T18:05:10+01:00
+collection: "courses"
 ---
 Passionné par la sécurité web et le piratage éthique, je suis là pour partager ces connaissances avec vous.
 Que vous soyez débutant ou que vous cherchiez à <b>faire progresser vos compétences</b>, mes formations proposent une approche pratique, ancrée dans la <b>réalité du terrain</b>, pour vous aider à comprendre comment les sites web sont attaqués et comment les défendre. _Transformons votre curiosité en compétences concrètes._
