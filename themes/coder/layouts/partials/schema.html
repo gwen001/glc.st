@@ -1,14 +1,18 @@
 {{/* ------------------------------------------------------------------ */}}
-{{/* Shared values                                                       */}}
+{{/* Shared values                                                        */}}
 {{/* ------------------------------------------------------------------ */}}
 
 {{/* The Person entity is defined once on the home page and referenced
      everywhere else by this @id, so Google resolves a single entity
-     instead of one anonymous Person per page. */}}
+     instead of one anonymous Person per page.
+     Taken from a root-level param on purpose: absURL is language-aware
+     and would produce https://glc.st/fr/#person on French pages. */}}
 {{- $personID := site.Params.person_id -}}
 {{- $personRef := dict "@id" $personID -}}
 
-{{/* Images: `images` list in front matter, `image` singular as fallback. */}}
+{{/* Images: `images` list in front matter, `image` singular as fallback.
+     Never pipe an asset path through relURL/absURL elsewhere in the
+     templates: on a French page it gains a /fr/ prefix and 404s. */}}
 {{- $images := slice -}}
 {{- with .Params.images -}}
   {{- range . }}{{ $images = $images | append (absURL .) }}{{ end -}}
@@ -48,6 +52,11 @@
 {{/* ------------------------------------------------------------------ */}}
 
 {{- if .IsHome -}}
+  {{- $knowsAbout := site.Params.knows_about | default (slice
+      "Penetration testing" "Web application security"
+      "Configuration audit" "Source code audit"
+      "Bug bounty" "Linux hardening") -}}
+
   {{- $schema = dict
       "@context" "https://schema.org"
       "@type" "Person"
@@ -56,11 +65,9 @@
       "url" site.BaseURL
       "jobTitle" site.Params.info
       "email" (replace site.Params.contact_mailto "mailto:" "")
-      "description" site.Params.description
+      "description" ($desc | default site.Params.description)
       "knowsLanguage" (slice "fr" "en")
-      "knowsAbout" (slice "Penetration testing" "Web application security"
-                          "Configuration audit" "Source code audit"
-                          "Bug bounty" "Linux hardening")
+      "knowsAbout" $knowsAbout
       "sameAs" $sameAs
   -}}
   {{- with $image }}{{ $schema = merge $schema (dict "image" .) }}{{ end -}}
@@ -82,9 +89,20 @@
   -}}
   {{- with $desc }}{{ $schema = merge $schema (dict "description" .) }}{{ end -}}
   {{- with $image }}{{ $schema = merge $schema (dict "image" .) }}{{ end -}}
+  {{/* absURL is language-aware, and here that is exactly what we want:
+       the French service page points at the French contact page.
+       Emits nothing until site.Params.contact_url is defined. */}}
+  {{- with site.Params.contact_url -}}
+    {{- $schema = merge $schema (dict "offers" (dict
+        "@type" "Offer"
+        "category" "Paid"
+        "url" (absURL .))) -}}
+  {{- end -}}
 
 {{/* ------------------------------------------------------------------ */}}
-{{/* Catalog pages — front matter: collection: "<section name>"           */}}
+{{/* Catalog pages — front matter: collection: "<section name>"          */}}
+{{/* Goes on the LIST page (content/courses.md, content/posts/_index.md, */}}
+{{/* content/cves/_index.md), never on the individual pages.             */}}
 {{/* ------------------------------------------------------------------ */}}
 
 {{- else if .Params.collection -}}
@@ -112,9 +130,10 @@
         "itemListElement" .)) -}}
   {{- end -}}
 
-
 {{/* ------------------------------------------------------------------ */}}
-{{/* Services
+{{/* Services hub — front matter: services_hub: true                     */}}
+{{/* site.RegularPages is per-language, so each hub lists its own         */}}
+{{/* language's service pages.                                           */}}
 {{/* ------------------------------------------------------------------ */}}
 
 {{- else if .Params.services_hub -}}
@@ -142,9 +161,8 @@
         "itemListElement" .)) -}}
   {{- end -}}
 
-
 {{/* ------------------------------------------------------------------ */}}
-{{/* Courses                                                             */}}
+{{/* Courses                                                              */}}
 {{/* ------------------------------------------------------------------ */}}
 
 {{- else if eq .Section "courses" -}}
@@ -171,7 +189,9 @@
   {{- with $image }}{{ $schema = merge $schema (dict "image" .) }}{{ end -}}
 
 {{/* ------------------------------------------------------------------ */}}
-{{/* Articles and CVEs                                                   */}}
+{{/* Articles and CVEs                                                    */}}
+{{/* The date guard keeps pages with a placeholder date out of the        */}}
+{{/* schema rather than declaring a wrong datePublished.                  */}}
 {{/* ------------------------------------------------------------------ */}}
 
 {{- else if and .IsPage (gt .Date.Year 2000) -}}
@@ -191,6 +211,9 @@
   {{- with $image }}{{ $schema = merge $schema (dict "image" .) }}{{ end -}}
 {{- end -}}
 
+{{/* safeJS is required: inside a script element Go's contextual
+    escaper would otherwise re-encode the JSON as a JS string literal.
+    safeHTML does NOT work here. */}}
 {{- with $schema }}
 <script type="application/ld+json">{{ . | jsonify | safeJS }}</script>
 {{ end -}}

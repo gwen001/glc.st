@@ -143,7 +143,7 @@
         <div class="row clearfix layout layout-left">
             <div class="col-xs-12 col-sm-12 col-md-3 col-print-12 details">
                 <p class="quote d-print-none">&nbsp;</p>
-                <h4>Développeur <br class="d-print-none"> full stack</h4>
+                <h4>Développeur <br class="d-print-none">full stack</h4>
                 <p>Depuis 1999</p>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-9 col-print-12 content">
