@@ -1,3 +1,6 @@
+---
+images: ["/assets/img/me.jpg"]
+---
 
 <link rel="stylesheet" href="/assets/css/homepage-v2.css">
 
@@ -164,7 +167,7 @@
         </div>
     </div>
     <div id="education" class="container list-container">
-        <h3>Etudes et certifications</h3>
+        <h3>Études et certifications</h3>
         <div class="row clearfix layout layout-left">
             <div class="col-xs-12 col-sm-12 col-md-7 col-print-6 details">
                 <h4>Docker</h4>

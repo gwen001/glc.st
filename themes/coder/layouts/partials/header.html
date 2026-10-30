@@ -1,6 +1,6 @@
 <nav class="navigation d-print-none">
   <section class="container">
-    <a class="navigation-title" href="{{ .Site.BaseURL | relLangURL }}">
+    <a class="navigation-title" href="{{ site.Home.Permalink }}">
       {{ .Site.Params.Author }}
     </a>
     <input type="checkbox" id="menu-toggle" />
@@ -9,7 +9,7 @@
       {{ with .Site.Menus.main}}
         {{ range sort . }}
           <li class="navigation-item">
-            <a class="navigation-link" href="{{ .URL | absLangURL }}">{{ .Name }}</a>
+            <a class="navigation-link" href="{{ .URL | absURL }}">{{ .Name }}</a>
           </li>
         {{ end }}
       {{ end }}

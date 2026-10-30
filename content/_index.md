@@ -1,3 +1,6 @@
+---
+images: ["/assets/img/me.jpg"]
+---
 
 <link rel="stylesheet" href="/assets/css/homepage-v2.css">
 

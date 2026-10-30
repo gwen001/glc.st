@@ -52,6 +52,7 @@ unsafe= true
 
 [params]
   person_id = "https://glc.st/#person"
+  profiles = ["https://offsec.tools/"]
 
 [languages]
     [languages.en]
@@ -172,23 +173,23 @@ unsafe= true
             [[languages.fr.menu.main]]
                 name = "Articles"
                 weight = 1
-                url  = "/articles/"
+                url  = "/posts/"
             [[languages.fr.menu.main]]
                 name = "Formations"
                 weight = 2
-                url  = "/formations/"
+                url  = "/fr/formations/"
             [[languages.fr.menu.main]]
                 name = "Références"
                 weight = 3
-                url  = "/references/"
+                url  = "/fr/references/"
             [[languages.fr.menu.main]]
                 name = "Prestations"
                 weight = 4
-                url  = "/prestations/"
+                url  = "/fr/prestations/"
             [[languages.fr.menu.main]]
                 name = "Projets"
                 weight = 5
-                url  = "/projets/"
+                url  = "/fr/projets/"
             [[languages.fr.menu.main]]
                 name = "CVEs"
                 weight = 6
@@ -196,11 +197,11 @@ unsafe= true
             [[languages.fr.menu.main]]
                 name = "Presse"
                 weight = 7
-                url  = "/presse/"
+                url  = "/fr/presse/"
             # [[languages.fr.menu.main]]
             #     name = "About"
             #     weight = 7
-            #     url = "/about/"
+            #     url = "/fr/about/"
 
         [languages.fr.permalinks]
             courses = "/formations/:slug/"
