@@ -13,7 +13,7 @@ Feel free to clone and update them as much as you want to fit your own needs.
 <!--more-->
 
 <div class="project">
-    <a href="https://offsec.tools" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/offsectools_www/main/static/img/preview.png" alt="offsec.tools" /></a>
+    <a href="https://offsec.tools" target="_blank"><img src="/assets/img/projects/offsectools.png" alt="offsec.tools" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">offsec.tools</h2>
         A vast collection of security tools for bug bounty, pentest and red teaming. Curated by the community, feel free to add your own tool and subscribe the newsletter.
@@ -23,7 +23,7 @@ Feel free to clone and update them as much as you want to fit your own needs.
 </div>
 
 <div class="project">
-    <a href="https://github.com/gwen001/DataExtractor" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/DataExtractor/main/endpoints.png" alt="DataExtractor" /></a>
+    <a href="https://github.com/gwen001/DataExtractor" target="_blank"><img src="/assets/img/projects/dataextractor.png" alt="DataExtractor" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">DataExtractor</h2>
         A Burp Suite extension to extract data from source code while browsing.
@@ -34,7 +34,7 @@ Feel free to clone and update them as much as you want to fit your own needs.
 </div>
 
 <div class="project">
-    <a href="https://github.com/gwen001/github-search" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/github-regexp/master/preview.png" alt="github-regexp" /></a>
+    <a href="https://github.com/gwen001/github-search" target="_blank"><img src="/assets/img/projects/github-collection.png" alt="github-regexp" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">github collection</h2>
         A pool of scripts to find data on GitHub: secrets, subdomains, endpoints, employees...
@@ -44,7 +44,7 @@ Feel free to clone and update them as much as you want to fit your own needs.
 </div>
 
 <div class="project">
-    <a href="https://github.com/gwen001/related-domains" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/related-domains/master/preview.gif" alt="related-domains" /></a>
+    <a href="https://github.com/gwen001/related-domains" target="_blank"><img src="/assets/img/projects/related-domains.png" alt="related-domains" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">related-domains</h2>
         Find related domains of a given domain.
@@ -55,7 +55,7 @@ Feel free to clone and update them as much as you want to fit your own needs.
 </div>
 
 <div class="project">
-    <a href="https://github.com/gwen001/cloudflare-origin-ip" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/cloudflare-origin-ip/master/preview.png" alt="cloudflare-origin-ip" /></a>
+    <a href="https://github.com/gwen001/cloudflare-origin-ip" target="_blank"><img src="/assets/img/projects/cloudflare-origin-ip.png" alt="cloudflare-origin-ip" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">cloudflare-origin-ip</h2>
         Try to find the origin IP of a webapp protected by Cloudflare.
@@ -66,7 +66,7 @@ Feel free to clone and update them as much as you want to fit your own needs.
 </div>
 
 <div class="project">
-    <a href="https://github.com/gwen001/favicon-hashtrick" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/favicon-hashtrick/master/preview.png" alt="favicon-hashtrick" /></a>
+    <a href="https://github.com/gwen001/favicon-hashtrick" target="_blank"><img src="/assets/img/projects/favicon-hashtrick.png" alt="favicon-hashtrick" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">favicon-hashtrick</h2>
         This Python tool calculates the hash of a given image (a favicon file or url) and then performs a search on Shodan to find webapps that use the same favicon. This is very useful to find subdomains during the recon process.
@@ -76,7 +76,7 @@ Feel free to clone and update them as much as you want to fit your own needs.
 </div>
 
 <div class="project">
-    <a href="https://github.com/gwen001/csp-analyzer" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/csp-analyzer/master/preview.png" alt="csp-analyzer" /></a>
+    <a href="https://github.com/gwen001/csp-analyzer" target="_blank"><img src="/assets/img/projects/csp-analyzer.png" alt="csp-analyzer" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">csp-analyzer</h2>
         This Python tool displays the Content-Security-Policy header of a given URL in a pretty way. The colors show the "severity" of the potential issue.

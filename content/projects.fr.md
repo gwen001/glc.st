@@ -13,7 +13,7 @@ N'hésitez pas à les cloner et à les mettre à jour autant que vous le souhait
 <!--more-->
 
 <div class="project">
-    <a href="https://offsec.tools" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/offsectools_www/main/static/img/preview.png" alt="offsec.tools" /></a>
+    <a href="https://offsec.tools" target="_blank"><img src="/assets/img/projects/offsectools.png" alt="offsec.tools" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">offsec.tools</h2>
         Une vaste collection d'outils de sécurité dédiés au Bug Bounty, aux tests d'intrusion et au Red Teaming. Sélectionnée par la communauté ; n'hésitez pas à ajouter vos propres outils et à vous inscrire à la newsletter.
@@ -23,7 +23,7 @@ N'hésitez pas à les cloner et à les mettre à jour autant que vous le souhait
 </div>
 
 <div class="project">
-    <a href="https://github.com/gwen001/DataExtractor" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/DataExtractor/main/endpoints.png" alt="DataExtractor" /></a>
+    <a href="https://github.com/gwen001/DataExtractor" target="_blank"><img src="/assets/img/projects/dataextractor.png" alt="DataExtractor" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">DataExtractor</h2>
         Une extension pour Burp Suite permettant d'extraire des données du code source lors de la navigation. 
@@ -34,7 +34,7 @@ N'hésitez pas à les cloner et à les mettre à jour autant que vous le souhait
 </div>
 
 <div class="project">
-    <a href="https://github.com/gwen001/github-search" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/github-regexp/master/preview.png" alt="github-regexp" /></a>
+    <a href="https://github.com/gwen001/github-search" target="_blank"><img src="/assets/img/projects/github-collection.png" alt="github-regexp" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">collection github</h2>
         Un ensemble de scripts pour rechercher des données sur GitHub : secrets, sous-domaines, points de terminaison, employés...
@@ -44,7 +44,7 @@ N'hésitez pas à les cloner et à les mettre à jour autant que vous le souhait
 </div>
 
 <div class="project">
-    <a href="https://github.com/gwen001/related-domains" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/related-domains/master/preview.gif" alt="related-domains" /></a>
+    <a href="https://github.com/gwen001/related-domains" target="_blank"><img src="/assets/img/projects/related-domains.png" alt="related-domains" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">related-domains</h2>
         Trouvez des domaines associés à un domaine donné. 
@@ -56,7 +56,7 @@ N'hésitez pas à les cloner et à les mettre à jour autant que vous le souhait
 </div>
 
 <div class="project">
-    <a href="https://github.com/gwen001/cloudflare-origin-ip" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/cloudflare-origin-ip/master/preview.png" alt="cloudflare-origin-ip" /></a>
+    <a href="https://github.com/gwen001/cloudflare-origin-ip" target="_blank"><img src="/assets/img/projects/cloudflare-origin-ip.png" alt="cloudflare-origin-ip" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">cloudflare-origin-ip</h2>
         Essayez de découvrir l'adresse IP d'origine d'une application web protégée par Cloudflare. 
@@ -67,7 +67,7 @@ N'hésitez pas à les cloner et à les mettre à jour autant que vous le souhait
 </div>
 
 <div class="project">
-    <a href="https://github.com/gwen001/favicon-hashtrick" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/favicon-hashtrick/master/preview.png" alt="favicon-hashtrick" /></a>
+    <a href="https://github.com/gwen001/favicon-hashtrick" target="_blank"><img src="/assets/img/projects/favicon-hashtrick.png" alt="favicon-hashtrick" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">favicon-hashtrick</h2>
         Cet outil Python calcule le hash d'une image donnée et effectue ensuite une recherche sur Shodan afin d'identifier des applications web utilisant ce même favicon. Cela s'avère très utile pour découvrir des sous-domaines lors de la phase de reconnaissance.
@@ -77,7 +77,7 @@ N'hésitez pas à les cloner et à les mettre à jour autant que vous le souhait
 </div>
 
 <div class="project">
-    <a href="https://github.com/gwen001/csp-analyzer" target="_blank"><img src="https://raw.githubusercontent.com/gwen001/csp-analyzer/master/preview.png" alt="csp-analyzer" /></a>
+    <a href="https://github.com/gwen001/csp-analyzer" target="_blank"><img src="/assets/img/projects/csp-analyzer.png" alt="csp-analyzer" /></a>
     <div class="descr">
         <h2 style="margin-top:0;margin-bottom:10px;">csp-analyzer</h2>
         Cet outil Python affiche l'en-tête Content-Security-Policy d'une URL donnée, de manière lisible et esthétique.
