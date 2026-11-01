@@ -50,7 +50,7 @@ __CamSoda:__ XSS, fuite de données clients, divulgation de fichiers locaux
 __Chaturbate:__ nombreuses XSS  
 __Zillow group:__ dizaines de failles XSS, AWS bucket takeovers, injections SQL, upload de fichiers, SSRF, RCE...  
 __Swisscom:__ upload de fichiers, exécution de commandes à distance  
-__Uber:__ injections SQL  
+__Uber:__ injections SQL, [lire l'article](/cves/cve-2016-11018-unauthenticated-sql-injection-in-wordpress-plugin-gallery-images/)  
 __Yahoo:__ nombreuses XSS et IDOR + SSRF  
 
 et bien plus encore...
