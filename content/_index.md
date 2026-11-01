@@ -238,7 +238,7 @@ images: ["/assets/img/me.jpg"]
         </div>
     </div>
     <div id="languages" class="container text-container">
-        <h3>Langues</h3>
+        <h3>Languages</h3>
         <div class="row clearfix">
             <div class="col-md-12">
                 <ul class="m-0">
@@ -249,7 +249,7 @@ images: ["/assets/img/me.jpg"]
         </div>
     </div>
     <div id="hobbies" class="container text-container">
-        <h3>Autres occupations</h3>
+        <h3>Hobbies</h3>
         <div class="row clearfix">
             <div class="col-md-12">
                 <p>Beside technology, I favor physical and artistic activities, including:</p>
