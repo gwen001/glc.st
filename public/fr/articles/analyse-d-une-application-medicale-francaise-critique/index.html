@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Dans le cadre de mes activités habituelles en tant que chasseur de vulnérabilités (“bug bounty hunter”) et auditeur de sécurité pour des institutions sensibles, j’ai découvert une application dédiée …" />
+    <meta name="description" content="Dans le cadre de mes activités habituelles en tant que bug hunter et auditeur de sécurité pour des institutions sensibles, j’ai découvert une application dédiée au secteur de la santé, baptisée …" />
     <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/images/optimed-preview.png"/>
 
 <meta name="twitter:title" content="Analyse d&#39;une application médicale française critique - Gwendal Le Coguic" />
-<meta name="twitter:description" content="Dans le cadre de mes activités habituelles en tant que chasseur de vulnérabilités (“bug bounty hunter”) et auditeur de sécurité pour des institutions sensibles, j’ai découvert une application dédiée …" />
+<meta name="twitter:description" content="Dans le cadre de mes activités habituelles en tant que bug hunter et auditeur de sécurité pour des institutions sensibles, j’ai découvert une application dédiée au secteur de la santé, baptisée …" />
 
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
     <meta property="og:title" content="Analyse d&#39;une application médicale française critique - Gwendal Le Coguic" />
-<meta property="og:description" content="Dans le cadre de mes activités habituelles en tant que chasseur de vulnérabilités (“bug bounty hunter”) et auditeur de sécurité pour des institutions sensibles, j’ai découvert une application dédiée …" />
+<meta property="og:description" content="Dans le cadre de mes activités habituelles en tant que bug hunter et auditeur de sécurité pour des institutions sensibles, j’ai découvert une application dédiée au secteur de la santé, baptisée …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/" />
 
@@ -74,7 +74,7 @@
 
 
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2025-04-21","datePublished":"2025-04-21","description":"Dans le cadre de mes activités habituelles en tant que chasseur de vulnérabilités (\u0026amp;ldquo;bug bounty hunter\u0026amp;rdquo;) et auditeur de sécurité pour des …","headline":"Analyse d'une application médicale française critique","image":"https://glc.st/images/optimed-preview.png","inLanguage":"fr","keywords":"pii, leak, git, sql injection, rce, file upload, php","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2025-04-21","datePublished":"2025-04-21","description":"Dans le cadre de mes activités habituelles en tant que bug hunter et auditeur de sécurité pour des institutions sensibles, j\u0026amp;rsquo;ai découvert une …","headline":"Analyse d'une application médicale française critique","image":"https://glc.st/images/optimed-preview.png","inLanguage":"fr","keywords":"pii, leak, git, sql injection, rce, file upload, php","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/"}</script>
 
   </head>
 
@@ -201,13 +201,13 @@
         </header>
 
         <div>
-            <p>Dans le cadre de mes activités habituelles en tant que chasseur de vulnérabilités (&ldquo;bug bounty hunter&rdquo;) et auditeur de sécurité pour des institutions sensibles, j&rsquo;ai découvert une application dédiée au secteur de la santé, baptisée <strong>OptiMed</strong> (rédigé), développée par <strong>Synaptek Digital</strong> (rédigé) et utilisée dans de nombreux centres d&rsquo;imagerie médicale en France. Malheureusement, ce logiciel présente un niveau de sécurité catastrophique, exposant ainsi <strong>des millions de dossiers médicaux sensibles</strong>.</p>
+            <p>Dans le cadre de mes activités habituelles en tant que bug hunter et auditeur de sécurité pour des institutions sensibles, j&rsquo;ai découvert une application dédiée au secteur de la santé, baptisée <strong>OptiMed</strong> (rédigé), développée par <strong>Synaptek Digital</strong> (rédigé) et utilisée dans de nombreux centres d&rsquo;imagerie médicale en France. Malheureusement, ce logiciel présente un niveau de sécurité catastrophique, exposant ainsi <strong>des millions de dossiers médicaux sensibles</strong>.</p>
 <h2 id="introducing-optimed">Introducing OptiMed</h2>
-<p>Selon le site du fournisseur :</p>
+<p>Selon le site de l&rsquo;éditeur :</p>
 <blockquote>
-<p>Synaptek Digital propose une solution globale entièrement intégrée, couvrant l&rsquo;ensemble des besoins d&rsquo;un centre ou d&rsquo;un service d&rsquo;imagerie médicale.</p></blockquote>
+<p>Synaptek Digital propose une solution globale entièrement intégrée, couvrant l&rsquo;ensemble des besoins d&rsquo;un service d&rsquo;imagerie médicale.</p></blockquote>
 <p><em>OptiMed</em> prend en charge les examens médicaux tels que les scanners et les IRMs, et prévoit différents rôles utilisateurs : patients, médecins, personnel administratif, administrateurs système, etc.</p>
-<p>Toujours selon leur site web :</p>
+<p>Toujours selon leur site :</p>
 <blockquote>
 <p>Synaptek Digital est expert en matière d&rsquo;interopérabilité et de sécurité des systèmes d&rsquo;information de santé depuis plus de 10 ans.</p></blockquote>
 <p>Pourtant, dans la réalité, la mise en œuvre constitue un véritable <strong>cauchemar en matière de sécurité</strong>.</p>
@@ -220,7 +220,7 @@
     </code>
     <p>
         Le souci, dans ce genre de situation, est qu'il est généralement possible de récupérer le code source de l'application. 
-        À l'aide de quelques manipulations Git et d'outils de piratage, j'ai rapidement pu récupérer le tout.
+        À l'aide de quelques manipulations Git et d'outils, j'ai rapidement pu récupérer le tout.
     </p>
     <p>
         Répertoires et sous-répertoires, fichiers PHP, fichiers cachés, fichiers de configuration... rien ne manquait, et le code source était parfaitement intact. 
@@ -261,7 +261,7 @@ La plupart des pages contenaient des requêtes SQL non filtrées, manifestement 
 </span></span><span style="display:flex;"><span>$request<span style="color:#f92672">.=</span> <span style="color:#e6db74">&#34; AND email=&#39;</span><span style="color:#e6db74">$email</span><span style="color:#e6db74">&#39; &#34;</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$result <span style="color:#f92672">=</span> $mysql<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">query</span>($request);
-</span></span></code></pre></div><p>Il s&rsquo;agit de vulnérabilités classiques par injection SQL qui peuvent permettre :</p>
+</span></span></code></pre></div><p>Il s&rsquo;agit de vulnérabilités classiques mais critiques de type injection SQL qui peuvent permettre :</p>
 <ul>
 <li>L&rsquo;extraction de données</li>
 <li>Le contournement de l&rsquo;authentification</li>
@@ -272,14 +272,14 @@ La plupart des pages contenaient des requêtes SQL non filtrées, manifestement 
 J&rsquo;ai utilisé <a href="https://sqlmap.org/">SQLMap</a> pour recueillir des informations sur cette structure, lorsque la table <code>utilisateur</code> a attiré mon attention.</p>
 <p><img src="https://glc.st/images/optimed-utilisateurs.png" alt="OptiMed utilisateurs"></p>
 <p>Les mots de passe étaient manifestement stockés à l&rsquo;aide d&rsquo;un algorithme de hachage faible.
-Grâce à <a href="https://hashes.com/en/decrypt/hash">hashes.com</a>, j&rsquo;ai pu déchiffrer certains mots de passe en un instant :</p>
+Grâce à <a href="https://hashes.com/en/decrypt/hash">hashes.com</a>, j&rsquo;ai pu déchiffrer certains mots de passe en un clin d&rsquo;oeil :</p>
 <p><img src="https://glc.st/images/optimed-passwords.png" alt="OptiMed passwords"></p>
-<p>Mot de passe <em>administrateur</em> récupéré : accès au panneau d&rsquo;administration débloqué !</p>
+<p>Mot de passe <em>administrateur</em> récupéré : accès au backoffice d&rsquo;administration débloqué !</p>
 <h3 id="téléchargement-de-fichiers-arbitraires">Téléchargement de fichiers arbitraires</h3>
-<p>Une vulnérabilité liée au téléchargement de fichiers arbitraires survient lorsqu&rsquo;une application web permet aux utilisateurs
-de téléverser n&rsquo;importe quel type de fichier sans contrôles adéquats.
-Un attaquant peut exploiter cette faille pour importer des fichiers malveillants, tels que des &ldquo;web shells&rdquo;, ce qui peut conduire à l&rsquo;exécution de code à distance,
-au vol de données ou à la compromission du serveur.</p>
+<p>Une vulnérabilité liée au téléchargement de fichiers arbitraires survient lorsqu&rsquo;une application permet aux utilisateurs
+d&rsquo;uploader n&rsquo;importe quel type de fichier sans les contrôles adéquats.
+Un attaquant peut exploiter cette faille pour importer des fichiers malveillants, tels que des <em>prompts web</em>, ce qui peut conduire à
+l&rsquo;exécution de code à distance, au vol de données ou à la compromission du serveur.</p>
 <p>Plusieurs scripts de téléchargement de fichiers non protégés, comme celui-ci, étaient présents dans l&rsquo;application.<br>
 Une situation extrêmement dangereuse.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>$uploadDir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;./&#34;</span>;
@@ -309,7 +309,7 @@ j&rsquo;ai identifié environ <strong>190 centres médicaux en France</strong> (
 <p><img src="https://glc.st/images/optimed-shodan.png" alt="OptiMed Shodan"></p>
 <div style="float:left;width:450px;">
     En utilisant une injection SQL sur l'ensemble d'entre eux, j'ai pu me faire une idée approximative du nombre d'utilisateurs exposés, hôte par hôte.
-    Les chiffres étaient effrayants ; je ne m'attendais absolument pas à cela.
+    Les chiffres étaient effrayants, je ne m'attendais absolument pas à cela.
 </div>
 <img src="https://glc.st/images/optimed-count.png" alt="OptiMed count" width="400" style="float:right;" />
 <div style="clear:both;"></div>
@@ -326,7 +326,7 @@ C&rsquo;était colossale !</p>
 </ul>
 <p>À ce stade, on peut affirmer que l&rsquo;éditeur du logiciel ne se sent pas concerné, car <strong>aucun effort n&rsquo;a été consacré à la sécurité</strong>.</p>
 <h2 id="et-ensuite-">Et ensuite ?</h2>
-<p>En 2022, j&rsquo;ai signalé la situation à l&rsquo;ANSSI - l&rsquo;agence nationale française de la sécurité des systèmes d&rsquo;information - en respectant les principes de divulgation responsable.</p>
+<p>En 2022, j&rsquo;ai signalé la situation à l&rsquo;<a href="https://cyber.gouv.fr/">ANSSI</a> - l&rsquo;agence nationale française de la sécurité des systèmes d&rsquo;information - en respectant les principes de divulgation responsable.</p>
 <p>Je n&rsquo;ai accédé à aucune donnée personnelle, et je n&rsquo;ai ni modifié, ni supprimé, ni altéré le moindre élément du système.
 Mon unique objectif était d&rsquo;éviter une catastrophe.</p>
 <p>En 2025, je constate que de nombreux centres médicaux ont changé de logiciel.

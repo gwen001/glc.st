@@ -12,18 +12,18 @@ tags:
 - file upload
 - php
 ---
-Dans le cadre de mes activités habituelles en tant que chasseur de vulnérabilités ("bug bounty hunter") et auditeur de sécurité pour des institutions sensibles, j'ai découvert une application dédiée au secteur de la santé, baptisée __OptiMed__ (rédigé), développée par __Synaptek Digital__ (rédigé) et utilisée dans de nombreux centres d'imagerie médicale en France. Malheureusement, ce logiciel présente un niveau de sécurité catastrophique, exposant ainsi __des millions de dossiers médicaux sensibles__.
+Dans le cadre de mes activités habituelles en tant que bug hunter et auditeur de sécurité pour des institutions sensibles, j'ai découvert une application dédiée au secteur de la santé, baptisée __OptiMed__ (rédigé), développée par __Synaptek Digital__ (rédigé) et utilisée dans de nombreux centres d'imagerie médicale en France. Malheureusement, ce logiciel présente un niveau de sécurité catastrophique, exposant ainsi __des millions de dossiers médicaux sensibles__.
 <!--more-->
 
 
 ## Introducing OptiMed
 
-Selon le site du fournisseur :
-> Synaptek Digital propose une solution globale entièrement intégrée, couvrant l'ensemble des besoins d'un centre ou d'un service d'imagerie médicale.
+Selon le site de l'éditeur :
+> Synaptek Digital propose une solution globale entièrement intégrée, couvrant l'ensemble des besoins d'un service d'imagerie médicale.
 
 _OptiMed_ prend en charge les examens médicaux tels que les scanners et les IRMs, et prévoit différents rôles utilisateurs : patients, médecins, personnel administratif, administrateurs système, etc.
 
-Toujours selon leur site web :
+Toujours selon leur site :
 > Synaptek Digital est expert en matière d'interopérabilité et de sécurité des systèmes d'information de santé depuis plus de 10 ans.
 
 Pourtant, dans la réalité, la mise en œuvre constitue un véritable __cauchemar en matière de sécurité__.
@@ -40,7 +40,7 @@ Pourtant, dans la réalité, la mise en œuvre constitue un véritable __cauchem
     </code>
     <p>
         Le souci, dans ce genre de situation, est qu'il est généralement possible de récupérer le code source de l'application. 
-        À l'aide de quelques manipulations Git et d'outils de piratage, j'ai rapidement pu récupérer le tout.
+        À l'aide de quelques manipulations Git et d'outils, j'ai rapidement pu récupérer le tout.
     </p>
     <p>
         Répertoires et sous-répertoires, fichiers PHP, fichiers cachés, fichiers de configuration... rien ne manquait, et le code source était parfaitement intact. 
@@ -91,7 +91,7 @@ $request.= " AND email='$email' ";
 
 $result = $mysql->query($request);
 ```
-Il s'agit de vulnérabilités classiques par injection SQL qui peuvent permettre :
+Il s'agit de vulnérabilités classiques mais critiques de type injection SQL qui peuvent permettre :
 - L'extraction de données
 - Le contournement de l'authentification
 - L'accès administrateur
@@ -104,18 +104,18 @@ J'ai utilisé [SQLMap](https://sqlmap.org/) pour recueillir des informations sur
 ![OptiMed utilisateurs](/images/optimed-utilisateurs.png)
 
 Les mots de passe étaient manifestement stockés à l'aide d'un algorithme de hachage faible. 
-Grâce à [hashes.com](https://hashes.com/en/decrypt/hash), j'ai pu déchiffrer certains mots de passe en un instant :
+Grâce à [hashes.com](https://hashes.com/en/decrypt/hash), j'ai pu déchiffrer certains mots de passe en un clin d'oeil :
 
 ![OptiMed passwords](/images/optimed-passwords.png)
 
-Mot de passe _administrateur_ récupéré : accès au panneau d'administration débloqué !
+Mot de passe _administrateur_ récupéré : accès au backoffice d'administration débloqué !
 
 ### Téléchargement de fichiers arbitraires
 
-Une vulnérabilité liée au téléchargement de fichiers arbitraires survient lorsqu'une application web permet aux utilisateurs 
-de téléverser n'importe quel type de fichier sans contrôles adéquats. 
-Un attaquant peut exploiter cette faille pour importer des fichiers malveillants, tels que des "web shells", ce qui peut conduire à l'exécution de code à distance, 
-au vol de données ou à la compromission du serveur.
+Une vulnérabilité liée au téléchargement de fichiers arbitraires survient lorsqu'une application permet aux utilisateurs 
+d'uploader n'importe quel type de fichier sans les contrôles adéquats. 
+Un attaquant peut exploiter cette faille pour importer des fichiers malveillants, tels que des _prompts web_, ce qui peut conduire à 
+l'exécution de code à distance, au vol de données ou à la compromission du serveur.
 
 Plusieurs scripts de téléchargement de fichiers non protégés, comme celui-ci, étaient présents dans l'application.  
 Une situation extrêmement dangereuse.
@@ -158,7 +158,7 @@ j'ai identifié environ __190 centres médicaux en France__ (ainsi que quelques-
 
 <div style="float:left;width:450px;">
     En utilisant une injection SQL sur l'ensemble d'entre eux, j'ai pu me faire une idée approximative du nombre d'utilisateurs exposés, hôte par hôte.
-    Les chiffres étaient effrayants ; je ne m'attendais absolument pas à cela.
+    Les chiffres étaient effrayants, je ne m'attendais absolument pas à cela.
 </div>
 
 <img src="/images/optimed-count.png" alt="OptiMed count" width="400" style="float:right;" />
@@ -183,7 +183,7 @@ En tant que développeur web "à l'ancienne" devenu expert en sécurité, je com
 
 ## Et ensuite ?
 
-En 2022, j'ai signalé la situation à l'ANSSI - l'agence nationale française de la sécurité des systèmes d'information - en respectant les principes de divulgation responsable.
+En 2022, j'ai signalé la situation à l'[ANSSI](https://cyber.gouv.fr/) - l'agence nationale française de la sécurité des systèmes d'information - en respectant les principes de divulgation responsable.
 
 Je n'ai accédé à aucune donnée personnelle, et je n'ai ni modifié, ni supprimé, ni altéré le moindre élément du système. 
 Mon unique objectif était d'éviter une catastrophe.

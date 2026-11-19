@@ -118,7 +118,7 @@ Enfin, il faut savoir que la réputation, c'est comme l'argent : plus on en a, 
 Dès qu'un hacker atteint un rang élevé, il devient une valeur sûre pour les plateformes.
 Il est promu, reçoit davantage d'invitations privées, d'accès à des ressources privées, d'entretiens et d'événements, ce qui se traduit par plus de bugs et une meilleure réputation, indépendamment de la pertinence de ses rapports.
 
-Attention, je ne dis pas que tous les hackers les mieux classés sont des « farmeurs », loin de là, mais certains le sont.
+Attention, je ne dis pas que tous les hackers les mieux classés sont des "farmeurs", loin de là, mais certains le sont.
 Et alors ?
 Ce n'est pas grave, ça fait partie du jeu. Ce n'est pas un problème dès que tout le monde en est conscient.
 Alors, analysez attentivement les chiffres et comprenez leur signification.
@@ -194,7 +194,7 @@ Exemple : absence de protection CSRF, tous les formulaires du site sont vulnér
 **Cas 2 : Un seul bug hunter, problème spécifique.**  
 La règle : *1 correction → 1 prime* s'applique.
 Exemple : 5 injections SQL ont été découvertes dans 5 points de terminaison, les URLs sont quasiment identiques, tout comme le paramètre vulnérable. 
-Si, en arrière-plan, la même fonction est appelée et qu'une correction dans cette fonction résout le problème, la règle *« même cause racine »* s'applique : 
+Si, en arrière-plan, la même fonction est appelée et qu'une correction dans cette fonction résout le problème, la règle *"même cause racine"* s'applique : 
 le hacker est récompensé uniquement lorsque tous les autres rapports sont clos de manière à ce qu'il ne perde aucun point.
 Cependant, si le code nécessite cinq corrections, les cinq rapports doivent être récompensés en fonction de leur gravité respective.
 
@@ -214,8 +214,8 @@ Parlons maintenant des raisons pour lesquelles les doublons sont si fréquents. 
 
 - **Règles inadéquates.**
 L'entreprise a peut-être connaissance de certains problèmes suite à un test d'intrusion.
-Certains bugs ne sont pas considérés comme de véritables bugs : problèmes connus, non corrigés, « on verra bien », « ce n'est pas si grave », 
-« on verra plus tard »...
+Certains bugs ne sont pas considérés comme de véritables bugs : problèmes connus, non corrigés, "on verra bien", "ce n'est pas si grave", 
+"on verra plus tard"...
 Les hackers sont certes des magiciens, mais ils ne lisent pas dans les pensées.
 
 - **Surcharge.** Dès le lancement d'un programme, tous les hackers de la communauté se ruent sur la cible, ou seulement les invités, ou encore leurs bots.

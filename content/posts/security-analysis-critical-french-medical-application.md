@@ -89,7 +89,7 @@ $request.= " AND email='$email' ";
 
 $result = $mysql->query($request);
 ```
-These are classic SQL Injection vulnerabilities that can allow:
+These are classic but critical SQL Injection vulnerabilities that can allow:
 - Data extraction
 - Authentication bypass
 - Admin access
@@ -111,7 +111,7 @@ _administrateur_ password retrieved, admin panel unlocked!
 
 ### Arbitrary file upload
 
-An arbitrary file upload vulnerability happens when a web application allows users to upload any file without proper checks. Attackers can exploit it to upload malicious files like web shells, leading to remote code execution, data theft, or server compromise.
+An arbitrary file upload vulnerability happens when a web application allows users to upload any file without proper checks. Attackers can exploit it to upload malicious files like _web shells_, leading to remote code execution, data theft, or server compromise.
 
 Several unprotected file upload scripts like this one were available in the app, deadly.
 ```php
@@ -177,7 +177,7 @@ At this point we can just say that the software editor doesn't care as there was
 
 ## What's next?
 
-In 2022, I reported the situation to ANSSI - France's national cybersecurity agency - following responsible disclosure principles.
+In 2022, I reported the situation to [ANSSI](https://cyber.gouv.fr/) - France's national cybersecurity agency - following responsible disclosure principles.
 
 I did not access any personal data, nor did I modify, delete, or interfere with any system elements. My goal was purely to prevent a disaster.
 

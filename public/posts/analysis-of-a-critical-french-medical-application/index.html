@@ -260,7 +260,7 @@ Most pages contained unfiltered SQL queries, clearly lacking input validation.</
 </span></span><span style="display:flex;"><span>$request<span style="color:#f92672">.=</span> <span style="color:#e6db74">&#34; AND email=&#39;</span><span style="color:#e6db74">$email</span><span style="color:#e6db74">&#39; &#34;</span>;
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>$result <span style="color:#f92672">=</span> $mysql<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">query</span>($request);
-</span></span></code></pre></div><p>These are classic SQL Injection vulnerabilities that can allow:</p>
+</span></span></code></pre></div><p>These are classic but critical SQL Injection vulnerabilities that can allow:</p>
 <ul>
 <li>Data extraction</li>
 <li>Authentication bypass</li>
@@ -274,7 +274,7 @@ I triggered <a href="https://sqlmap.org/">SQLMap</a> to grab some informations a
 <p><img src="https://glc.st/images/optimed-passwords.png" alt="OptiMed passwords"></p>
 <p><em>administrateur</em> password retrieved, admin panel unlocked!</p>
 <h3 id="arbitrary-file-upload">Arbitrary file upload</h3>
-<p>An arbitrary file upload vulnerability happens when a web application allows users to upload any file without proper checks. Attackers can exploit it to upload malicious files like web shells, leading to remote code execution, data theft, or server compromise.</p>
+<p>An arbitrary file upload vulnerability happens when a web application allows users to upload any file without proper checks. Attackers can exploit it to upload malicious files like <em>web shells</em>, leading to remote code execution, data theft, or server compromise.</p>
 <p>Several unprotected file upload scripts like this one were available in the app, deadly.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>$uploadDir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;./&#34;</span>;
 </span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">isset</span>($_FILES[<span style="color:#e6db74">&#39;FileToImport&#39;</span>]))
@@ -318,7 +318,7 @@ This was huge!</p>
 </ul>
 <p>At this point we can just say that the software editor doesn&rsquo;t care as there was absolutely <strong>no effort put in security at all</strong>.</p>
 <h2 id="whats-next">What&rsquo;s next?</h2>
-<p>In 2022, I reported the situation to ANSSI - France&rsquo;s national cybersecurity agency - following responsible disclosure principles.</p>
+<p>In 2022, I reported the situation to <a href="https://cyber.gouv.fr/">ANSSI</a> - France&rsquo;s national cybersecurity agency - following responsible disclosure principles.</p>
 <p>I did not access any personal data, nor did I modify, delete, or interfere with any system elements. My goal was purely to prevent a disaster.</p>
 <p>As far as I can see now in 2025, many medical centers have change the software, for those who are still using it, I remain available to both the authorities and the vendor to help address this issue.</p>
 <h2 id="conclusion">Conclusion</h2>
