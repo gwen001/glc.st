@@ -5,10 +5,13 @@ slug: "pending: SQL Injection in Online Magazine Management System"
 title: "SQL Injection in Online Magazine Management System"
 images: [/images/cve-mitre.png]
 date: 2022-10-10
+related:
+  - /posts/sqlmap
+  - /services/code-audit
 tags:
-- cve
-- sql injection
-- sqli
+  - cve
+  - sql injection
+  - sqli
 ---
 Login form of Online Magazine Management System v1.0 is prone to SQL injection. An attacker could exploit parameters `username` and `password` to get administrator access.
 <!--more-->

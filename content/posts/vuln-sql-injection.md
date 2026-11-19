@@ -6,9 +6,7 @@ related:
   - /posts/vulnerability-in-wordpress-video-gallery
   - /posts/sqlmap
   - /cves/cve-2016-11018
-  - /cves/cve-2020-7229
-  - /cves/cve-2020-8645
-  - /cves/cve-2020-22154
+  - /courses/sql
   - /services/pentest
 tags:
   - sql injection

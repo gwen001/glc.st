@@ -2,6 +2,7 @@
 date: 2015-05-09
 title: SMB null session
 related:
+  - /courses/linux-hardening
   - /services/pentest
 tags:
   - smb

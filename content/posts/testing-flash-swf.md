@@ -5,6 +5,8 @@ images: [/images/swf-testing-xss.png]
 related:
   - /posts/wordpress-testing
   - /posts/my-way-to-go
+  - /posts/vuln-cross-site-scripting
+  - /services/code-audit
   - /services/pentest
 tags:
   - flash

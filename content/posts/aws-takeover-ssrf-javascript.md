@@ -4,6 +4,7 @@ title: AWS takeover through SSRF in JavaScript
 images: [/images/aws-webservices.png]
 related:
   - /posts/ctf-h1-212
+  - /courses/hacking-cybersec
   - /services/code-audit
   - /services/pentest
 tags:

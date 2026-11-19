@@ -5,6 +5,7 @@ images: [/images/dotdotpwn.png]
 related:
   - /posts/damn-vulnerable-web-application
   - /posts/an-extremely-buggy-web-app
+  - /courses/hacking-cybersec
   - /services/pentest
 tags:
   - pentest

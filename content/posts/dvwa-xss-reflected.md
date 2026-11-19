@@ -7,6 +7,7 @@ related:
   - /posts/massive-pwnage
   - /posts/an-extremely-buggy-web-app
   - /posts/vuln-cross-site-scripting
+  - /courses/hacking-cybersec
   - /services/pentest
 tags:
   - dvwa

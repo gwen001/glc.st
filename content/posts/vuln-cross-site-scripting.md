@@ -4,6 +4,7 @@ date: 2011-08-01
 related:
   - /posts/massive-pwnage
   - /posts/dvwa-xss-reflected
+  - /cves/cve-2020-22143
   - /posts/vulnerability-assessment-tools
   - /services/pentest
 tags:

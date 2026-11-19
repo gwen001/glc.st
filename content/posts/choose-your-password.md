@@ -2,7 +2,7 @@
 date: 2015-03-02
 title: Choose your password
 related:
-  - /services/config-audit
+  - /courses/hacking-cybersec
   - /services/pentest
 tags:
   - password

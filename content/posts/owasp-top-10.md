@@ -2,7 +2,7 @@
 date: 2015-02-09
 title: OWASP Top 10
 related:
-  - /services
+  - /services/
 tags:
   - owasp
 ---

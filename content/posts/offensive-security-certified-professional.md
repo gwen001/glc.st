@@ -2,6 +2,8 @@
 date: 2015-09-08
 title: Offensive Security Certified Professional
 related:
+  - /courses/hacking-cybersec
+  - /courses/linux-hardening
   - /services
 tags:
   - training

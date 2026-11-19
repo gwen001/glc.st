@@ -5,9 +5,8 @@ title: "L'audit de configuration Linux : démarche, outillage et livrables"
 date: 2026-11-12
 description: "Cadre contractuel, interlocuteurs, référentiels ANSSI, scripts de collecte et d'analyse, rapport et livrables : la démarche complète d'un audit de configuration de serveurs GNU/Linux."
 related:
+  - /courses/linux-hardening
   - /services/config-audit
-  - /services/code-audit
-  - /services/pentest
 tags: ["audit", "ANSSI", "BP-028", "PASSI", "Linux", "OpenSSH", "durcissement"]
 ---
 

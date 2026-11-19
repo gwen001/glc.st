@@ -8,6 +8,7 @@ related:
   - /posts/vuln-cross-site-scripting
   - /posts/vuln-cross-site-request-forgery
   - /posts/vuln-sql-injection
+  - /courses/hacking-cybersec
   - /services/pentest
 tags:
  - training

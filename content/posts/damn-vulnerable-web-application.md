@@ -3,6 +3,8 @@ date: 2014-12-10
 title: Damn Vulnerable Web Application
 images: [/images/dvwa.png]
 related:
+  - /courses/hacking-cybersec
+  - /courses/php
   - /services/pentest
 tags:
   - dvwa
