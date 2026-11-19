@@ -24,6 +24,10 @@ disqusShortname = ""
 # disableKinds = ['RSS']
 disableKinds = ['RSS','taxonomy','term']
 
+[frontmatter]
+  lastmod = ['lastmod', 'modified', ':git', 'date', 'publishdate', 'pubdate', 'published']
+  # lastmod = ["lastmod", ":git", "date", "publishDate"]
+
 [markup.goldmark.renderer]
   unsafe= true
 
