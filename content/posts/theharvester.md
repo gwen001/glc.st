@@ -1,13 +1,12 @@
 ---
 date: 2015-01-22
 title: theHarvester
+related:
+  - /posts/introduction-to-pentesting
+  - /services/pentest
 tags:
-- pentest
-- information gathering
-see_also:
-  -
-    link: Introduction to pentesting
-    url: /posts/introduction-to-pentesting/
+  - pentest
+  - information gathering
 ---
 Information gathering is the first and the most important step of a penetration test. 
 More informations you will grab, easier the exploit will be. 
@@ -44,8 +43,3 @@ Some options are available to tweak your request:
 Example:
 
 ![theHarvester](/images/theharvester_1.png)
-
-
-## External resources
-
-- [Introduction to pentesting](/posts/introduction-to-pentesting/)

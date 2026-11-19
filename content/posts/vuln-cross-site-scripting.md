@@ -1,10 +1,15 @@
 ---
 title: Vulnerability - Cross Site Scripting aka XSS
 date: 2011-08-01
+related:
+  - /posts/massive-pwnage
+  - /posts/dvwa-xss-reflected
+  - /posts/vulnerability-assessment-tools
+  - /services/pentest
 tags:
-- xss
-- resources
-- tools
+  - xss
+  - resources
+  - tools
 ---
 
 ## Description

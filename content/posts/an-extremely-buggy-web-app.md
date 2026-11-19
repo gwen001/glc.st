@@ -1,20 +1,19 @@
 ---
 date: 2016-01-28
 title: An extremely buggy web app !
+images: [/images/bwapp.png]
+related:
+  - /services/pentest
 tags:
-- training
-- csrf
-- xss
-- sql injection
-- bwapp
-- brute force
-- command injection
-- lfi&rfi
-- path traversal
-see_also:
-  -
-    link: Official website of bWAPP
-    url: http://www.itsecgames.com/
+ - training
+ - csrf
+ - xss
+ - sql injection
+ - bwapp
+ - brute force
+ - command injection
+ - lfi&rfi
+ - path traversal
 ---
 **bWAPP** is a PHP web application which is intentionnally crackable. It covers a very large set of common vulns but also some unusual case you can meet on the Internet.
 

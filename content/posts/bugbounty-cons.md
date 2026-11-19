@@ -2,11 +2,22 @@
 date: 2018-06-15
 title: Cons of Bug Bounty
 tags:
-- bug bounty
+  - bug bounty
+related:
+  - /services/
+  - /posts/interview-bugbounty-program
+  - /posts/bug-bounty-programs
+  - /posts/bugbounty-howto-write-report
+  - /posts/bugbounty-management-bad-example
+  - /posts/bugbounty-management-hackers-motivation
+  - /posts/bugbounty-management-todo-before-launch
+  - /posts/bugbounty-management-what-to-avoid
+  - /posts/bugbounty-management-zomato
+  - /posts/bugbounty-unonfficial-rules
+  - /posts/platform-tournament
+  - /posts/the-bugbounty-program-that-changed-my-life
+  - /posts/why-bugbounty
 see_also:
-  -
-    link: Why Bug Bounty
-    url: /why-bugbounty/
   -
     link: Why bug bounty hunters love the thrill of the chase
     url: https://www.csoonline.com/article/2846873/data-protection/why-bug-bounty-hunters-love-the-thrill-of-the-chase.html
@@ -108,7 +119,6 @@ As I previously said in the previous article I previously wrote, the best way to
 
 ## External resources
 
-- [Why Bug Bounty]({{< ref "/posts/why-bugbounty" >}})
 - [Why bug bounty hunters love the thrill of the chase](https://www.csoonline.com/article/2846873/data-protection/why-bug-bounty-hunters-love-the-thrill-of-the-chase.html)
 - [Bug bounty is a joke](https://medium.com/@phwd/bug-bounty-is-a-joke-91bc1875c890)
 - [Bug bounties, a broken system](https://hackernoon.com/bug-bounties-a-broken-system-7781fe0bf7d)

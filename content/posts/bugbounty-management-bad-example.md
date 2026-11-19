@@ -1,9 +1,20 @@
 ---
 date: 2019-12-16
 title: "Bug bounty management, a bad example"
+related:
+  - /services/
+  - /posts/interview-bugbounty-program
+  - /posts/bug-bounty-programs
+  - /posts/bugbounty-cons
+  - /posts/bugbounty-howto-write-report
+  - /posts/bugbounty-management-hackers-motivation
+  - /posts/bugbounty-management-todo-before-launch
+  - /posts/bugbounty-management-what-to-avoid
+  - /posts/bugbounty-management-zomato
+  - /posts/bugbounty-unonfficial-rules
 tags:
-- bug bounty
-- management
+  - bug bounty
+  - management
 ---
 As I lately released an article about a [good bug bounty program example](/posts/bug-bounty-management-a-great-example-zomato/), I also wanted to write something about what kind of behaviours companies should avoid to keep the community motivated.
 

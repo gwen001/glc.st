@@ -1,10 +1,19 @@
 ---
 title: Vulnerability - SQL Injection aka SQLi
 date: 2011-06-01
+related:
+  - /posts/security-analysis-critical-french-medical-application
+  - /posts/vulnerability-in-wordpress-video-gallery
+  - /posts/sqlmap
+  - /cves/cve-2016-11018
+  - /cves/cve-2020-7229
+  - /cves/cve-2020-8645
+  - /cves/cve-2020-22154
+  - /services/pentest
 tags:
-- sql injection
-- resources
-- tools
+  - sql injection
+  - resources
+  - tools
 ---
 
 ## Description

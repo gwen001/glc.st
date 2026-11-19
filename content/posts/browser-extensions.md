@@ -1,9 +1,11 @@
 ---
 date: 2015-01-14
 title: Browser extensions
+related:
+  - /services/pentest
 tags:
-- resources
-- tools
+  - resources
+  - tools
 ---
 There is a lot of browser extensions developed by the community, here are my favorites.
 

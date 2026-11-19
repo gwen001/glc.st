@@ -1,18 +1,16 @@
 ---
 date: 2017-09-12
 title: Wordpress testing
+related:
+  - /posts/testing-flash-swf
+  - /posts/wordpress-testing
+  - /posts/my-way-to-go
+  - /services/pentest
 tags:
-- wordpress
-- upload
-- rce
-- sql injection
-see_also:
-  -
-    link: OneLogin authentication bypass on WordPress sites
-    url: https://hackerone.com/reports/136169
-  -
-    link: Image Gallery SQL Injection
-    url: /cves/cve-2016-11018/
+  - wordpress
+  - upload
+  - rce
+  - sql injection
 ---
 Here is the way I usually follow to test a Wordpress install.
 

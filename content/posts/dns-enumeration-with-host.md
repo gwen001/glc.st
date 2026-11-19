@@ -1,14 +1,12 @@
 ---
 date: 2015-02-27
 title: DNS enumeration with Host
+related:
+  - /services/pentest
 tags:
-- pentest
-- information gathering
-- dns
-see_also:
-  -
-    link: Zone transfer on Wikipedia
-    url: http://en.wikipedia.org/wiki/DNS_zone_transfer
+  - pentest
+  - information gathering
+  - dns
 ---
 While performing a pentest the information gathering phase is the most important, it's the key of a successful test. 
 The DNS is very great source of informations, whith some simple queries you will be able to grab usefull datas about the domain you are targeting. 

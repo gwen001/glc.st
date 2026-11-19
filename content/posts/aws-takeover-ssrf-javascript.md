@@ -2,24 +2,15 @@
 date: 2018-10-02
 title: AWS takeover through SSRF in JavaScript
 images: [/images/aws-webservices.png]
+related:
+  - /posts/ctf-h1-212
+  - /services/pentest
+  - /services/code-audit
 tags:
-- bug bounty
-- aws
-- ssrf
-- javascript
-see_also:
-  -
-    link: React
-    url: https://reactjs.org/
-  -
-    link: Introduction to fetch()
-    url: https://developers.google.com/web/updates/2015/03/introduction-to-fetch
-  -
-    link: PayloadsAllTheThings
-    url: https://github.com/swisskyrepo/PayloadsAllTheThings
-  -
-    link: AWS Documentation
-    url: https://docs.aws.amazon.com/
+  - bug bounty
+  - aws
+  - ssrf
+  - javascript
 ---
 Here is the story of a bug I found in a private bug bounty program on [Hackerone](https://hackerone.com/).
 It took me exactly 12h30 -no break- to find it, exploit and report.

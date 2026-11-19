@@ -2,9 +2,15 @@
 date: 2023-04-01
 draft: yes
 title: The basics of subdomain takeover
+related:
+  - /posts/edf-subdomain-takeover
+  - /posts/subdomain-enumeration
+  - /posts/subdomain-takeover-dns-expiration
+  - /posts/vuln-subdomain-takeover
+  - /services/pentest
 tags:
-- bug bounty
-- subdomain takeover
+  - bug bounty
+  - subdomain takeover
 ---
 While subdomain takeover is very popular in the bug hunters community, it looks like some companies or bug bounty triagers have a hard time trying to understand what is it and more important what is the impact of this critical vulnerability.
 

@@ -1,10 +1,20 @@
 ---
 title: Vulnerability - Cross Origin Resource Sharing aka CORS
 date: 2011-10-01
+related:
+  - /posts/vuln-clickjacking
+  - /posts/vuln-cross-site-request-forgery
+  - /posts/vuln-cross-site-scripting
+  - /posts/vuln-relative-path-overwrite
+  - /posts/vuln-sql-injection
+  - /posts/vuln-subdomain-takeover
+  - /posts/vulnerabilities-list
+  - /posts/vulnerability-assessment-tools
+  - /services/pentest
 tags:
-- cors
-- resources
-- tools
+  - cors
+  - resources
+  - tools
 ---
 
 ## Description

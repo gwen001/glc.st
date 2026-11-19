@@ -2,14 +2,7 @@
 date: 2015-10-18
 title: Steganography
 tags:
-- stegano
-see_also:
-  -
-    link: A very nice Steganography project from Kazuyuki Hayashi written in PHP
-    url: https://github.com/kzykhys/Steganography
-  -
-    link: OpenStego for Linux and Windows
-    url: http://www.openstego.com/
+  - stegano
 ---
 ## Definition
 

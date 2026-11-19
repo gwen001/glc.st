@@ -2,22 +2,13 @@
 date: 2018-05-17
 title: Find vulnerabilities in Flash SWF
 images: [/images/swf-testing-xss.png]
+related:
+  - /posts/wordpress-testing
+  - /posts/my-way-to-go
+  - /services/pentest
 tags:
-- flash
-- xss
-see_also:
-  -
-    link: Analysing SWF files for vulnerabilities by MLT
-    url: https://ret2libc.wordpress.com/2016/04/04/analysing-swf-files-for-vulnerabilities/
-  -
-    link: Flash it baby! by IRSDL
-    url: http://media.wix.com/ugd/533dd4_c096c1fa67814318acb84d41a04fb258.pdf
-  -
-    link: Finding XSS vulnerabilities in flash files by Smiegles
-    url: https://olivierbeg.com/finding-xss-vulnerabilities-in-flash-files/
-  -
-    link: Setting a crossdomain.xml file for HTTP streaming
-    url: https://www.adobe.com/devnet/adobe-media-server/articles/cross-domain-xml-for-streaming.html
+  - flash
+  - xss
 ---
 As a user I would say that I don't care about all these Flash stuff that try to catch my eyes, most of the time I have a plugin to disable them.
 As a developper, it reminds me the (not so good) old time when the marketing peoples always wanted to add "movement" in the website, yeah it looks so kool!

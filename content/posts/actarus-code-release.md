@@ -2,12 +2,14 @@
 date: 2017-03-20
 title: Actarus code release
 draft: yes
+related:
+  - /services/pentest
 tags:
-- actarus
-- information gathering
-- bug bounty
-- tools
-- recon
+  - actarus
+  - information gathering
+  - bug bounty
+  - tools
+  - recon
 ---
 Actarus is a custom tool that can perform automatic recon and store all datas in a database. 
 Afterwards you could consult/search keywords in it to find vulnerabilities or at least entry points.

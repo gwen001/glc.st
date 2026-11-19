@@ -1,17 +1,15 @@
 ---
 date: 2017-08-01
 title: Kick the bucket
+images: [/images/s3bucket-wfuzz.png]
+related:
+  - /posts/massive-pwnage
+  - /posts/playing-with-s3-buckets
+  - /services/pentest
 tags:
-- aws
-- s3
-- bucket
-see_also:
-  -
-    link: Documentation of S3 commands
-    url: http://docs.aws.amazon.com/cli/latest/reference/s3/
-  -
-    link: Documentation of s3api
-    url: http://docs.aws.amazon.com/cli/latest/reference/s3api/index.html
+  - aws
+  - s3
+  - bucket
 ---
 I already wrote [a post about Amazon S3 buckets](/posts/playing-with-s3-buckets/) but they became so popular these last weeks  that many people explain what is a bucket, what is the danger and how to exploit misconfiguration. My goal here is more: how/where to find those vulnerable buckets.
 

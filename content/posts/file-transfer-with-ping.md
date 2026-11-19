@@ -2,13 +2,9 @@
 date: 2015-10-26
 title: File transfer with ping
 tags:
-- ping
-- icmp
-- file transfer
-see_also:
-  -
-    link: Data Transfer over ICMP
-    url: http://www.unixist.com/security/data-transfer-over-icmp/index.html
+  - ping
+  - icmp
+  - file transfer
 ---
 ## Introduction
 

@@ -2,12 +2,8 @@
 date: 2015-03-02
 title: Choose your password
 tags:
-- password
-- security
-see_also:
-  -
-    link: A good article about how to test your password
-    url: http://www.makeuseof.com/tag/test-password-strength-tool-hackers-use/
+  - password
+  - security
 ---
 I recently worked with a well known web agency in France. 
 They have a good reputation, they were rewarded last year for their good works and they are in the top 40 of the best french agencies. 

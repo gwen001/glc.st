@@ -66,9 +66,9 @@ images: ["/assets/img/me.jpg"]
                 <p>I have worked in this capacity for several years as a <mark>consultant</mark>, <mark>auditor</mark>, and <mark>trainer</mark>. I've also had the opportunity to supervise teams of developers/auditors as a manager, as well as to address UX, SEO, and security issues.</p>
                 <p>Now as an <strong>independent expert</strong>, I offer my expertise through the following services:</p>
                 <ul>
-                    <li><a class="highlight" href="/web-application-penetration-testing/">Penetration testing</a></li>
-                    <li><a class="highlight" href="/source-code-security-audit/">Code audit</a></li>
-                    <li><a class="highlight" href="/linux-configuration-hardening-audit/">Configuration audit</a></li>
+                    <li><a class="highlight" href="/services/web-application-penetration-testing/">Penetration testing</a></li>
+                    <li><a class="highlight" href="/services/source-code-security-audit/">Code audit</a></li>
+                    <li><a class="highlight" href="/services/linux-configuration-hardening-audit/">Configuration audit</a></li>
                     <li><a class="highlight" href="/courses/">Trainings and awareness for all audiences</a></li>
                 </ul>
                 <!-- <ul style="list-style-type:none;">

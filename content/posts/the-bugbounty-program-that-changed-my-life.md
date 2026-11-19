@@ -3,19 +3,12 @@ date: 2018-02-11
 title: The Bug Bounty program that changed my life
 images: [/images/pp-rce-1.png]
 tags:
-- sql injection
-- xss
-- subdomain
-- rce
-- upload
-- repository
-see_also:
-  -
-    link: LevelUP 2017 videos
-    url: https://www.youtube.com/watch?v=BEaMhs9LmoY&list=PLIK9nm3mu-S5InvR-myOS7hnae8w4EPFV&index=11
-  -
-    link: My endpoints extractor
-    url: https://github.com/gwen001/pentest-tools/blob/master/extract-endpoints.php
+  - sql injection
+  - xss
+  - subdomain
+  - rce
+  - upload
+  - repository
 ---
 This is a real story or not, that occured in mid 2017 or not, about a private program or not, on Hackerone or not, believe me or not, but it changed my life.
 I would like to thanks all the people from this company I talked with.

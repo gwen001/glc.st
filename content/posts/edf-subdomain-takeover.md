@@ -2,9 +2,14 @@
 date: 2022-09-21
 title: One takeover to rule them all
 images: [/images/edf-subto.png]
+related:
+  - /posts/subdomain-enumeration
+  - /posts/subdomain-takeover-basics
+  - /posts/subdomain-takeover-dns-expiration
+  - /services/pentest
 tags:
-- tools
-- subdomain takeover
+  - tools
+  - subdomain takeover
 ---
 Because of Covid, the first quarantaine in France occured in March 2020.
 During that time I wrote a Python script to detect Subdomain Takeover.

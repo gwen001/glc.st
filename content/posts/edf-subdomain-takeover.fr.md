@@ -3,9 +3,15 @@ date: 2022-09-21
 slug: "subdomain-takeover-en-pagaille-chez-EDF"
 title: "Subdomain Takeover en pagaille chez EDF"
 images: [/images/edf-subto.png]
+related:
+  - /posts/edf-subdomain-takeover
+  - /posts/subdomain-enumeration
+  - /posts/subdomain-takeover-basics
+  - /posts/subdomain-takeover-dns-expiration
+  - /services/pentest
 tags:
-- tools
-- subdomain takeover
+  - tools
+  - subdomain takeover
 ---
 En raison du Covid, le premier confinement en France a eu lieu en mars 2020.
 Durant cette période, j'ai codé un script Python pour détecter les détournements de sous-domaines aka _Subdomain Takeover_.

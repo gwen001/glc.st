@@ -1,8 +1,17 @@
 ---
 date: 2018-09-10
 title: Interview with a Bug Bounty program
+related:
+  - /services/
+  - /posts/bug-bounty-programs
+  - /posts/bugbounty-management-bad-example
+  - /posts/bugbounty-management-hackers-motivation
+  - /posts/bugbounty-management-todo-before-launch
+  - /posts/bugbounty-management-what-to-avoid
+  - /posts/bugbounty-management-zomato
+  - /posts/bugbounty-unonfficial-rules
 tags:
-- bug bounty
+  - bug bounty
 ---
 One month ago I started to chase on a new private program.
 Since we were in touch by mail and since their office is pretty close to my place, I proposed to meet.

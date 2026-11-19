@@ -2,21 +2,8 @@
 date: 2015-05-10
 title: Secure your Wordpress
 tags:
-- security
-- wordpress
-see_also:
-  -
-    link: Official WordPress
-    url: https://wordpress.org/
-  -
-    link: How to choose a good password
-    url: /posts/choose-your-password/
-  -
-    link: Sucuri blog
-    url: https://blog.sucuri.net/
-  -
-    link: Official Fail2ban
-    url: http://www.fail2ban.org/
+  - security
+  - wordpress
 ---
 With more than 60 million websites, WordPress is the most popular CMS currently in use but it's also based on the most hacked environment aka LAMP. 
 

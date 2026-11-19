@@ -1,10 +1,10 @@
 ---
 date: 2017-04-19
 title: My way to go
-see_also:
-  -
-    link: The Bug Hunters Methodology by Jason Haddix
-    url: https://github.com/jhaddix/tbhm
+related:
+  - /posts/testing-flash-swf
+  - /posts/wordpress-testing
+  - /services/pentest
 ---
 
 ## Project

@@ -2,14 +2,20 @@
 date: 2019-07-13
 title: Swag Store
 images: [/images/swag-store.png]
+related:
+  - /services/
+  - /posts/bug-bounty-programs
+  - /posts/bugbounty-cons
+  - /posts/bugbounty-howto-write-report
+  - /posts/bugbounty-management-hackers-motivation
+  - /posts/bugbounty-unonfficial-rules
+  - /posts/interview-bugbounty-program
+  - /posts/why-bugbounty
+  - /posts/platform-tournament
 tags:
-- bug bounty
-- swag
-- project
-see_also:
-  -
-    link: Shopify REST Admin API reference
-    url: https://help.shopify.com/en/api/reference
+  - bug bounty
+  - swag
+  - project
 ---
 
 In the bug bounty industry, companies/programs reward hackers with bounties for their contribution, most of the time money and swag from time to time.

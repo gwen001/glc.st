@@ -1,22 +1,15 @@
 ---
 date: 2016-09-06
 title: GitHub search
+images: [/images/github-search-example.png]
+related:
+  - /posts/github-tools-collection
 tags:
-- github
-- password
-- security
-- bug bounty
-- tools
-see_also:
-  -
-    link: Uber database keys revealed
-    url: http://arstechnica.com/security/2015/03/in-major-goof-uber-stored-sensitive-database-key-on-public-github-page/
-  -
-    link: Public Slack credentials
-    url: http://arstechnica.co.uk/security/2016/04/hacking-slack-accounts-as-easy-as-searching-github/
-  -
-    link: GitHub dorks
-    url: https://github.com/techgaun/github-dorks/blob/master/github-dorks.txt
+  - github
+  - password
+  - security
+  - bug bounty
+  - tools
 ---
 We all know the famous quote "*Think out of the box*".
 Technical knowledge is important but creativity is also.

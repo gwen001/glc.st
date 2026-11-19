@@ -1,20 +1,14 @@
 ---
 date: 2016-04-15
 title: Playing with S3 buckets
+related:
+  - /posts/kick-the-bucket
+  - /posts/massive-pwnage
+  - /services/pentest
 tags:
-- aws
-- s3
-- bucket
-see_also:
-  -
-    link: Managing your bucket access with ACLs
-    url: https://docs.aws.amazon.com/AmazonS3/latest/dev/S3_ACLs_UsingACLs.html
-  -
-    link: Demo video from Pete Yaworks
-    url: https://www.youtube.com/watch?v=_x5VKuFjvrk
-  -
-    link: The initial report on Hackerone
-    url: https://hackerone.com/reports/128088
+  - aws
+  - s3
+  - bucket
 ---
 Amazon Simple Storage Service aka S3 is a cloud storage for the Internet. 
 You first create a bucket and you can then upload any number of objects (photos, videos, documents etc.) to it.

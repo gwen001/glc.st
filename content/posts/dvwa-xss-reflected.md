@@ -1,26 +1,15 @@
 ---
 date: 2015-01-20
 title: DVWA - XSS reflected
+images: [/images/dvwa.png]
+related:
+  - /posts/massive-pwnage
+  - /posts/vuln-cross-site-scripting
+  - /services/pentest
 tags:
-- dvwa
-- xss
-- training
-see_also:
-  -
-    link: OWASP Top 10
-    url: https://www.owasp.org/index.php/Top_10_2013-Top_10
-  -
-    link: OWASP XSS description
-    url: https://www.owasp.org/index.php/Top_10_2013-A3-Cross-Site_Scripting_(XSS)
-  -
-    link: Filter Evasion Cheat Sheet
-    url: https://www.owasp.org/index.php/XSS_Filter_Evasion_Cheat_Sheet
-  -
-    link: A (very) comprehensive tutorial on cross-site scripting
-    url: http://excess-xss.com/
-  -
-    link: Damn Vulnerable Web Application
-    url: /posts/damn-vulnerable-web-application/
+  - dvwa
+  - xss
+  - training
 ---
 According to OWASP Top 10, Cross-Site Scripting aka XSS takes the 3rd place in the more common and important web vulnerabilities list. 
 Her primary goal is to spoof the session of another user by stealing his cookie id, usually a privileged user like an admin. 

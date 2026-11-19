@@ -1,8 +1,10 @@
 ---
 date: 2015-02-09
 title: OWASP Top 10
+related:
+  - /services
 tags:
-- owasp
+  - owasp
 ---
 The Open Web Application Security Project (OWASP) is an open community dedicated to enabling organizations to develop, purchase, and maintain applications that can be trusted.
 All of the OWASP tools, documents, forums, and chapters are free and open to anyone interested in improving application security.
@@ -60,7 +62,3 @@ Guidance on how to effectively find vulnerabilities in web applications is provi
 
 **Constant change.** This Top 10 will continue to change.
 Even without changing a single line of your application’s code, you may become vulnerable as new flaws are discovered and attack methods are refined: "Scanned today Hacked tomorrow".
-
-<br>
-
-Source: [OWASP](https://www.owasp.org/index.php/Main_Page "OWASP")

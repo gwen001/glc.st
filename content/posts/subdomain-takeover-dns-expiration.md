@@ -1,15 +1,17 @@
 ---
 date: 2016-10-12
 title: Subdomain takeover - DNS expiration
+related:
+  - /posts/edf-subdomain-takeover
+  - /posts/subdomain-enumeration
+  - /posts/subdomain-takeover-basics
+  - /posts/vuln-subdomain-takeover
+  - /services/pentest
 tags:
-- dns
-- subdomain
-- tools
-- subdomain takeover
-see_also:
-  -
-    link: Explanation by Peter Yaworski
-    url: https://www.youtube.com/watch?v=aurAbCcF-lk
+  - dns
+  - subdomain
+  - tools
+  - subdomain takeover
 ---
 One quick and easy way to make cash in bug bounty job is subdomain takeover.
 The goal is to steal a forgetted/unused subdomain of your target and put a PoC in place.

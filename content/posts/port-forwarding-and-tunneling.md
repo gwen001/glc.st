@@ -1,17 +1,13 @@
 ---
 date: 2015-09-17
 title: Port forwarding and tunneling
+related:
+  - /services/config-audit
+  - /services/pentest
 tags:
-- ssh
-- post exploitation
-- pivot
-see_also:
-  -
-    link: Hak5 videos
-    url: https://www.youtube.com/watch?v=Wuu_n0Pvbsk
-  -
-    link: Port forwarding tutoriel on linux-france (fr)
-    url: http://www.linux-france.org/prj/edu/archinet/systeme/ch13s04.html
+  - ssh
+  - post exploitation
+  - pivot
 ---
 As a pentester, you might be able to take control of systems that have a direct access but you also might be able to test the internal network and check the machine who are inside a subnetwork. 
 <!--more-->

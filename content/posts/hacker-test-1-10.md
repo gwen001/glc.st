@@ -1,8 +1,14 @@
 ---
 date: 2015-03-05
 title: Hacker Test 1-10
+related:
+  - /posts/exploit-exercices-nebula-level00
+  - /posts/exploit-exercices-nebula-level01
+  - /posts/exploit-exercices-nebula-level02
+  - /posts/exploit-exercices-nebula-level03
+  - /services/code-audit
 tags:
-- training
+  - training
 ---
 [Hacker Test](http://www.hackertest.net/ "Hacker Test") is an online hacker simulation.
 20 levels to test your PHP, HTML and Javascript knowledge.

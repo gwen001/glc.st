@@ -3,14 +3,20 @@ date: 2025-04-21
 slug: "analyse-d-une-application-medicale-francaise-critique"
 title: "Analyse d'une application médicale française critique"
 images: [/images/optimed-preview.png]
+related:
+  - /posts/github-tools-collection
+  - /posts/sqlmap
+  - /posts/vulnerability-in-wordpress-video-gallery
+  - /services/pentest
+  - /services/code-audit
 tags:
-- pii
-- leak
-- git
-- sql injection
-- rce
-- file upload
-- php
+  - pii
+  - leak
+  - git
+  - sql injection
+  - rce
+  - file upload
+  - php
 ---
 Dans le cadre de mes activités habituelles en tant que bug hunter et auditeur de sécurité pour des institutions sensibles, j'ai découvert une application dédiée au secteur de la santé, baptisée __OptiMed__ (rédigé), développée par __Synaptek Digital__ (rédigé) et utilisée dans de nombreux centres d'imagerie médicale en France. Malheureusement, ce logiciel présente un niveau de sécurité catastrophique, exposant ainsi __des millions de dossiers médicaux sensibles__.
 <!--more-->

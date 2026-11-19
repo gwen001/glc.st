@@ -1,16 +1,19 @@
 ---
 date: 2016-01-18
 title: Sqlmap
+images: [/images/sqlmap-datas.png]
+related:
+  - /posts/security-analysis-critical-french-medical-application
+  - /posts/vulnerability-in-wordpress-video-gallery
+  - /posts/vuln-sql-injection
+  - /cves/cve-2016-11018
+  - /cves/cve-2020-7229
+  - /cves/cve-2020-8645
+  - /cves/cve-2020-22154
+  - /services/pentest
 tags:
-- sql injection
-- sqlmap
-see_also:
-  -
-    link: Sqlmap official website
-    url: http://sqlmap.org/
-  -
-    link: Sqlmap usage on the GitHub project
-    url: https://github.com/sqlmapproject/sqlmap/wiki/Usage
+  - sql injection
+  - sqlmap
 ---
 Written in Python by [Miroslav Stamper](https://twitter.com/stamparm), Sqlmap is probably the best automated tool to detect and exploit SQL Injection.
 

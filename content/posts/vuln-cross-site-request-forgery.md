@@ -1,9 +1,13 @@
 ---
 title: Vulnerability - Cross Site Request Forgery aka CSRF
 date: 2011-09-01
+related:
+  - /posts/dvwa-csrf
+  - /posts/vulnerability-assessment-tools
+  - /services/pentest
 tags:
-- csrf
-- resources
+  - csrf
+  - resources
 ---
 
 ## Description

@@ -1,10 +1,20 @@
 ---
 date: 2020-04-04
 title: "How to keep hackers motivated in bug bounty"
+related:
+  - /services/
+  - /posts/interview-bugbounty-program
+  - /posts/bug-bounty-programs
+  - /posts/bugbounty-management-bad-example
+  - /posts/bugbounty-management-todo-before-launch
+  - /posts/bugbounty-management-what-to-avoid
+  - /posts/bugbounty-management-zomato
+  - /posts/bugbounty-unonfficial-rules
+  - /posts/platform-tournament
 tags:
-- bug bounty
-- management
-- hackers
+  - bug bounty
+  - management
+  - hackers
 ---
 
 Nowadays, there is thousands of programs on several platforms, so how would you attract hackers to you?

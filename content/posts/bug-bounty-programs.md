@@ -1,9 +1,20 @@
 ---
 date: 2015-10-08
 title: Bug Bounty Programs
+related:
+  - /services/
+  - /posts/interview-bugbounty-program
+  - /posts/bugbounty-cons
+  - /posts/bugbounty-howto-write-report
+  - /posts/bugbounty-management-bad-example
+  - /posts/bugbounty-management-hackers-motivation
+  - /posts/bugbounty-management-todo-before-launch
+  - /posts/bugbounty-management-what-to-avoid
+  - /posts/bugbounty-management-zomato
+  - /posts/bugbounty-unonfficial-rules
 tags:
-- bug bounty
-- hacker
+  - bug bounty
+  - hacker
 ---
 With the evolution of cybercrime this last years, security is became an important budget in large companies. 
 For instance, [Facebook](https://www.facebook.com/whitehat/) has created a dedicated platform for security reseacher and frequently reward them ($1.3 million spent in 2014). 

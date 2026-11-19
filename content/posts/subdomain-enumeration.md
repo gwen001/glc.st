@@ -2,20 +2,19 @@
 date: 2018-04-21
 title: Subdomain enumeration
 images: [/images/subdomain-enumeration-aquatone.jpg]
+related:
+  - /posts/edf-subdomain-takeover
+  - /posts/subdomain-takeover-basics
+  - /posts/subdomain-takeover-dns-expiration
+  - /posts/vuln-subdomain-takeover
+  - /services/pentest
 tags:
-- recon
-- bug bounty
-- information gathering
-- tools
-- recon
-- subdomain takeover
-see_also:
-  -
-    link: The Art of Subdomain Enumeration
-    url: https://blog.sweepatic.com/art-of-subdomain-enumeration/
-  -
-    link: A penetration tester’s guide to sub-domain enumeration
-    url: https://blog.appsecco.com/a-penetration-testers-guide-to-sub-domain-enumeration-7d842d5570f6
+  - recon
+  - bug bounty
+  - information gathering
+  - tools
+  - recon
+  - subdomain takeover
 ---
 A friend recently asked me what methods I use to find subdomains.
 To be honest I was confused, like *"oooohhh so much, brute force mmm... zone transfer and... brute for... wait Google and mmm... many other tools!"*

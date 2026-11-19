@@ -2,17 +2,18 @@
 date: 2018-02-03
 title: Massive pwnage
 images: [/images/massive-xss.png]
+related:
+  - /posts/kick-the-bucket
+  - /posts/playing-with-s3-buckets
+  - /posts/vuln-cross-site-scripting
+  - /services/pentest
 tags:
-- aws
-- bucket
-- subdomain
-- xss
-- heroku
-- cloudfront
-see_also:
-  -
-    link: Top 500 Most Important XSS Script Cheat
-    url: https://gbhackers.com/top-500-important-xss-cheat-sheet/
+  - aws
+  - bucket
+  - subdomain
+  - xss
+  - heroku
+  - cloudfront
 ---
 There is different ways to hunt for vulnerabilities, depending of your knowledge, your skills, your expectation and how you like to chase.
 I personally love programming and, as a true developper, I'm lazy, so I love to automate things.

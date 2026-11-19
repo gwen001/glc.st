@@ -1,9 +1,19 @@
 ---
 date: 2019-11-19
 title: "Bug bounty management, a great example: Zomato"
+related:
+  - /services/
+  - /posts/interview-bugbounty-program
+  - /posts/bug-bounty-programs
+  - /posts/bugbounty-howto-write-report
+  - /posts/bugbounty-management-bad-example
+  - /posts/bugbounty-management-hackers-motivation
+  - /posts/bugbounty-management-todo-before-launch
+  - /posts/bugbounty-management-what-to-avoid
+  - /posts/bugbounty-unonfficial-rules
 tags:
-- bug bounty
-- management
+  - bug bounty
+  - management
 ---
 Since I decided to work on my advisor position in the bug bounty industry, I wanted to know more details about what makes a good program, what are the important keys and what to avoid.
 
@@ -124,4 +134,5 @@ In that narrow timeframe, he managed to mentor me!</p>&mdash; Karim Rahal (@Kari
 Remember that the more hackers like your program, the more they will work on it, meaning more bugs found -> enhanced security!
 
 <br />
+
 Thanks to [Prateek Tiwari](https://twitter.com/prateek_0490).

@@ -12,9 +12,9 @@ _"quelque chose en sécurité"_ sans savoir laquelle des trois répond à leur p
 
 | Prestation | La question à laquelle elle répond | Durée |
 |---|---|---|
-| [Test d'intrusion](/fr/test-intrusion-application-web/) | Par où entre-t-on ? | 3 à 10 jours |
-| [Audit de code source](/fr/audit-de-code-source/) | Pourquoi cette porte existe-t-elle ? | 5 à 15 jours |
-| [Audit de configuration](/fr/audit-configuration-durcissement-linux/) | Jusqu'où va-t-on une fois entré ? | 2 à 3 jours par serveur |
+| [Test d'intrusion](/fr/prestations/test-intrusion-application-web/) | Par où entre-t-on ? | 3 à 10 jours |
+| [Audit de code source](/fr/prestations/audit-de-code-source/) | Pourquoi cette porte existe-t-elle ? | 5 à 15 jours |
+| [Audit de configuration](/fr/prestations/audit-configuration-durcissement-linux/) | Jusqu'où va-t-on une fois entré ? | 2 à 3 jours par serveur |
 
 ## Test d'intrusion d'application web
 
@@ -25,7 +25,7 @@ réellement exploitable — pas la liste de ce qui pourrait théoriquement l'êt
 Pour vous si : votre application est en production et personne ne l'a jamais
 testée sérieusement, ou un client vous demande une preuve.
 
-**[Voir le détail →](/fr/test-intrusion-application-web/)**
+**[Voir le détail →](/fr/prestations/test-intrusion-application-web/)**
 
 ## Audit de code source
 
@@ -37,7 +37,7 @@ Pour vous si : vous reprenez une base de code, vous préparez une due diligence,
 ou vous voulez savoir si une faille trouvée ailleurs existe aussi dans les douze
 autres endroits où le même oubli a pu se produire.
 
-**[Voir le détail →](/fr/audit-de-code-source/)**
+**[Voir le détail →](/fr/prestations/audit-de-code-source/)**
 
 ## Audit de configuration et durcissement Linux
 
@@ -49,7 +49,7 @@ Pour vous si : vos serveurs n'ont jamais été durcis, vous sortez d'un incident
 voulez vérifier que le confinement est réel, ou on vous demande une conformité
 aux recommandations de l'ANSSI.
 
-**[Voir le détail →](/fr/audit-configuration-durcissement-linux/)**
+**[Voir le détail →](/fr/prestations/audit-configuration-durcissement-linux/)**
 
 ## Laquelle vous faut-il
 

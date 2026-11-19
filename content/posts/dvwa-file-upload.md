@@ -1,22 +1,12 @@
 ---
 date: 2015-02-11
 title: DVWA - File upload
+images: [/images/dvwa.png]
+related:
+  - /services/pentest
 tags:
-- dvwa
-- file upload
-see_also:
-  -
-    link: Introduction to DVWA
-    url: /damn-vulnerable-web-application/
-  -
-    link: My favourites browser extensions
-    url: /browser-extensions/
-  -
-    link: OWASP Unrestricted File Upload
-    url: https://www.owasp.org/index.php/Unrestricted_File_Upload
-  -
-    link: File upload on InfoSec
-    url: http://resources.infosecinstitute.com/file-upload-vulnerabilities/
+  - dvwa
+  - file upload
 ---
 A very useful aspect of PHP is the ability to manage file uploads. 
 Allowing users to send a file opens a whole can of worms, so be careful when allowing this fonctionnality. 

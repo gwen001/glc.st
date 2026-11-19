@@ -2,14 +2,20 @@
 date: 2025-04-21
 title: Analysis of a critical french medical application
 images: [/images/optimed-preview.png]
+related:
+  - /posts/github-tools-collection
+  - /posts/sqlmap
+  - /posts/vulnerability-in-wordpress-video-gallery
+  - /services/pentest
+  - /services/code-audit
 tags:
-- pii
-- leak
-- git
-- sql injection
-- rce
-- file upload
-- php
+  - pii
+  - leak
+  - git
+  - sql injection
+  - rce
+  - file upload
+  - php
 ---
 During my regular activities as a bug bounty hunter and security auditor for sensitive institutions, I came across a healthcare application called __OptiMed__ (redacted), developed by __Synaptek Digital__ (redacted), and used in numerous medical imaging centers in France. Unfortunately, this software demonstrates a catastrophic level of security, putting __millions of sensitive medical records__ at risk.
 <!--more-->

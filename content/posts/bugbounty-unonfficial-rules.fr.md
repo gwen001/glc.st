@@ -2,9 +2,20 @@
 date: 2022-08-01
 slug: "les-regles-sous-jacentes-du-bug-bounty"
 title: "Les règles sous-jacentes du bug bounty"
+related:
+  - /services/
+  - /posts/interview-bugbounty-program
+  - /posts/bug-bounty-programs
+  - /posts/bugbounty-management-bad-example
+  - /posts/bugbounty-management-hackers-motivation
+  - /posts/bugbounty-management-todo-before-launch
+  - /posts/bugbounty-management-what-to-avoid
+  - /posts/bugbounty-management-zomato
+  - /posts/platform-tournament
+  - /posts/swag-store
 tags:
-- bug bounty
-- management
+  - bug bounty
+  - management
 ---
 Les programmes de bug bounty s'accompagnent de plateformes, de périmètres et de rémunérations, mais aussi d'un ensemble de règles officieuses.
 Ces normes invisibles façonnent les interactions entre les hackers et les entreprises, qu'il s'agisse de communication, de confiance, 

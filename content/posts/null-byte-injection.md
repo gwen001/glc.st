@@ -1,16 +1,11 @@
 ---
 date: 2015-01-10
 title: Null Byte Injection
+related:
+  - /posts/mysql-truncation
 tags:
-- php
-- null byte
-see_also:
-  -
-    link: OWASP description
-    url: https://www.owasp.org/index.php/OWASP_Periodic_Table_of_Vulnerabilities_-_Null_Byte_Injection
-  -
-    link: Another article about Null byte injection
-    url: http://blog.benjaminwalters.net/?p=22139
+  - php
+  - null byte
 ---
 I recently read a nice article on [InfoSec Institute](http://resources.infosecinstitute.com/null-byte-injection-php/ "Null byte injection") 
 (again) about Null byte injection. 

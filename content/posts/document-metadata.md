@@ -2,8 +2,8 @@
 date: 2015-06-09
 title: Document Metadata
 tags:
-- information gathering
-- metadata
+  - information gathering
+  - metadata
 ---
 Metadata are informations stored in a document itself but not easy to find for common mortals. 
 Those infos usually are: file name/type/size, author, organization, created date, last modified date and so on... 

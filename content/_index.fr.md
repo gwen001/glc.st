@@ -66,9 +66,9 @@ images: ["/assets/img/me.jpg"]
                 <p>J'exerce à ce titre depuis plusieurs années comme <mark>consultant</mark>, <mark>auditeur</mark> et <mark>formateur</mark>. J'ai également eu l'opportunité d'encadrer des équipes de développeurs/auditeurs en tant que responsable, ainsi que de traiter des questions UX, référencement et sécurité.</p>
                 <p>Désormais <strong>expert indépendant</strong>, je vous propose mon savoir-faire au travers des prestations suivantes :</p>
                 <ul>
-                    <li><a class="highlight" href="/fr/test-intrusion-application-web/">Test d'intrusion</a></li>
-                    <li><a class="highlight" href="/fr/audit-de-code-source/">Audit de code</a></li>
-                    <li><a class="highlight" href="/fr/audit-configuration-durcissement-linux/">Audit de configuration</a></li>
+                    <li><a class="highlight" href="/fr/prestations/test-intrusion-application-web/">Test d'intrusion</a></li>
+                    <li><a class="highlight" href="/fr/prestations/audit-de-code-source/">Audit de code</a></li>
+                    <li><a class="highlight" href="/fr/prestations/audit-configuration-durcissement-linux/">Audit de configuration</a></li>
                     <li><a class="highlight" href="/fr/formations/">Formations et sensibilisation pour tous types de publics</a></li>
                 </ul>
                 <!-- <ul>

@@ -1,9 +1,11 @@
 ---
 date: 2015-05-09
 title: SMB null session
+related:
+  - /services/pentest
 tags:
-- smb
-- rpc
+  - smb
+  - rpc
 ---
 While performing a pentest, if you discover a server running the [SMB protocol](http://en.wikipedia.org/wiki/Server_Message_Block "Server Message Block") 
 you can test if it's vulnerable to anonymous connection (also called null session) and then glean a lot of informations with 

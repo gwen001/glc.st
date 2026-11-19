@@ -1,10 +1,16 @@
 ---
 title: Vulnerability - Subdomain takeover
 date: 2011-05-01
+related:
+  - /posts/edf-subdomain-takeover
+  - /posts/subdomain-enumeration
+  - /posts/subdomain-takeover-basics
+  - /posts/subdomain-takeover-dns-expiration
+  - /services/pentest
 tags:
-- sql injection
-- resources
-- tools
+  - sql injection
+  - resources
+  - tools
 ---
 
 ## Articles

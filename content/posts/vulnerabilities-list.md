@@ -1,21 +1,18 @@
 ---
 title: Vulnerabilities list
 date: 2011-12-01
+related:
+  - /posts/vuln-clickjacking
+  - /posts/vuln-cross-origin-resource-sharing
+  - /posts/vuln-cross-site-request-forgery
+  - /posts/vuln-cross-site-scripting
+  - /posts/vuln-relative-path-overwrite
+  - /posts/vuln-sql-injection
+  - /posts/vuln-subdomain-takeover
+  - /posts/vulnerability-assessment-tools
+  - /services/pentest
 tags:
-- resources
-see_also:
-  -
-    link: OWASP
-    url: https://www.owasp.org/index.php/Main_Page
-  -
-    link: Common Weakness Enumeration
-    url: https://cwe.mitre.org/data/index.html
-  -
-    link: PortSwigger list
-    url: https://portswigger.net/knowledgebase/Issues/
-  -
-    link: Bug Bounty forum
-    url: https://bugbountyforum.com/resources/
+  - resources
 ---
 Here is a non exhausted list of vulnerabilities that I use as a reminder with links for reference.
 It's based on many different [resources](/posts/resources/) available on the Internet.

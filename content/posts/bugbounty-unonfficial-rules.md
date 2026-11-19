@@ -1,9 +1,20 @@
 ---
 date: 2022-08-01
 title: "The underlying rules of bug bounty"
+related:
+  - /services/
+  - /posts/interview-bugbounty-program
+  - /posts/bug-bounty-programs
+  - /posts/bugbounty-management-bad-example
+  - /posts/bugbounty-management-hackers-motivation
+  - /posts/bugbounty-management-todo-before-launch
+  - /posts/bugbounty-management-what-to-avoid
+  - /posts/bugbounty-management-zomato
+  - /posts/platform-tournament
+  - /posts/swag-store
 tags:
-- bug bounty
-- management
+  - bug bounty
+  - management
 ---
 Bug bounty programs come with platforms, scopes, and payouts - but also with a set of unofficial rules.
 These invisible norms shape how hackers and companies interact, from communication and trust to report etiquette and rewards.

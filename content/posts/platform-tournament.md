@@ -2,12 +2,19 @@
 date: 2019-03-24
 title: The Hunter Games
 images: [/images/platforms-tournament-calendar.jpg]
+related:
+  - /posts/bugbounty-management-hackers-motivation
+  - /posts/bugbounty-management-what-to-avoid
+  - /posts/bugbounty-unonfficial-rules
+  - /posts/interview-bugbounty-program
+  - /posts/why-bugbounty
+  - /services/
 tags:
-- bug bounty
-- ctf
-- hunter
-- game
-- project
+  - bug bounty
+  - ctf
+  - hunter
+  - game
+  - project
 ---
 What if bug bounty platforms had their own contest?
 Imagine a tournament where bug hunters would be promoted and sponsored by platforms like in every (e-)sports.

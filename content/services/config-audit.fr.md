@@ -7,8 +7,8 @@ keywords: "audit de configuration, audit durcissement Linux, ANSSI BP-028, durci
 service: true
 ---
 
-Un [test d'intrusion](/fr/test-intrusion-application-web/) trouve la porte d'entrée.
-Un [audit de code](/fr/audit-de-code-source/) trouve pourquoi cette porte existe. Un audit de configuration répond à la question qui suit les deux :
+Un [test d'intrusion](/fr/prestations/test-intrusion-application-web/) trouve la porte d'entrée.
+Un [audit de code](/fr/prestations/audit-de-code-source/) trouve pourquoi cette porte existe. Un audit de configuration répond à la question qui suit les deux :
  **une fois quelqu'un sur la machine, jusqu'où va-t-il ?**
 
 C'est une question différente, et la plupart des organisations ne se la sont jamais posée.

@@ -7,7 +7,7 @@ keywords: "source code security audit, secure code review, code audit, independe
 service: true
 ---
 
-A [penetration test](/web-application-penetration-testing/) tells you what an attacker can reach today. 
+A [penetration test](/services/web-application-penetration-testing/) tells you what an attacker can reach today. 
 A source code audit tells you what is fragile underneath - including the parts that are not reachable yet, but will be after the next release.
 
 The two answer different questions. This page is about the second one: **where does this codebase break, and why does it keep breaking the same way?**

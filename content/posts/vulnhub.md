@@ -2,8 +2,8 @@
 date: 2014-12-22
 title: Vulnerable by Design
 tags:
-- training
-- virtual machine
+  - training
+  - virtual machine
 ---
 [VulnHub](https://www.vulnhub.com/ "VulnHub") is a training platform which provides "_a catalogue of 'stuff' that is (legally) 'breakable, 
 hackable & exploitable'_", understand: a pool of vulnerable virtual machines. 

@@ -2,12 +2,8 @@
 date: 2015-03-13
 title: Ping sweep
 tags:
-- pentest
-- information gathering
-see_also:
-  -
-    link: Introduction to pentesting
-    url: /posts/introduction-to-pentesting/
+  - pentest
+  - information gathering
 ---
 In the second part of the first phase of a penetration test, active information gathering,it's important to mapas accurate as possible the network of you target.
 To find live hosts there isa technique called _ping sweep_.
@@ -64,8 +60,3 @@ Nmap is so powerful that you don't needto write a script, a simple command can d
 `-sn` : ping scan, disable port scan
 
 The grep and cut command are only usedfor a nice display ;)
-
-
-## External resources
-
-- [Introduction to pentesting](/posts/introduction-to-pentesting/)

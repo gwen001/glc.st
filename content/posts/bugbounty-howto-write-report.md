@@ -2,10 +2,19 @@
 date: 2019-03-01
 title: How to write a Bug Bounty report
 images: [/images/report-h1-empty.png]
+related:
+  - /services/
+  - /posts/interview-bugbounty-program
+  - /posts/bug-bounty-programs
+  - /posts/bugbounty-cons
+  - /posts/bugbounty-unonfficial-rules
+  - /posts/platform-tournament
+  - /posts/the-bugbounty-program-that-changed-my-life
+  - /posts/why-bugbounty
 tags:
-- bug bounty
-- writing
-- report
+  - bug bounty
+  - writing
+  - report
 ---
 One of the first thing I learned when I started security, is that the report is just as important as the pentest itself.
 Some bug bounty platforms give reputation points according the quality.

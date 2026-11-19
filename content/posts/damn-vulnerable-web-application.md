@@ -1,17 +1,20 @@
 ---
 date: 2014-12-10
 title: Damn Vulnerable Web Application
+images: [/images/dvwa.png]
+related:
+  - /services/pentest
 tags:
-- dvwa
-- captcha
-- csrf
-- xss
-- brute force
-- sql injection
-- command execution
-- training
-- file upload
-- path traversal
+  - dvwa
+  - captcha
+  - csrf
+  - xss
+  - brute force
+  - sql injection
+  - command execution
+  - training
+  - file upload
+  - path traversal
 ---
 **DVWA** is a PHP/MySQL web application that is intentionally vulnerable. 
 The goal is to learn common web vulnerabilities and improve your security skills by training yourself on your own server. 

@@ -1,9 +1,12 @@
 ---
 date: 2015-03-13
 title: DVWA - Insecure CAPTCHA
+images: [/images/dvwa.png]
+related:
+  - /services/pentest
 tags:
-- dvwa
-- captcha
+  - dvwa
+  - captcha
 ---
 Captchas are usually used to prevent robots to make an action instead of humans. 
 It should add an extra layer of security but badly configured it could lead to unauthorized access...

@@ -1,9 +1,18 @@
 ---
 date: 2020-01-16
 title: "5 things to do before running your first bug bounty program"
+related:
+  - /services/
+  - /posts/interview-bugbounty-program
+  - /posts/bug-bounty-programs
+  - /posts/bugbounty-management-bad-example
+  - /posts/bugbounty-management-hackers-motivation
+  - /posts/bugbounty-management-what-to-avoid
+  - /posts/bugbounty-management-zomato
+  - /posts/bugbounty-unonfficial-rules
 tags:
-- bug bounty
-- management
+  - bug bounty
+  - management
 ---
 Welcome 2020!
 I will start this year with a set of articles about program management.

@@ -13,9 +13,9 @@ their actual problem. This page is here to settle that in five minutes.
 
 | Service | The question it answers | Duration |
 |---|---|---|
-| [Penetration testing](/web-application-penetration-testing/) | Where do they get in? | 3 to 10 days |
-| [Source code audit](/source-code-security-audit/) | Why does that door exist? | 5 to 15 days |
-| [Configuration audit](/linux-configuration-hardening-audit/) | How far do they get once inside? | 2 to 3 days per server |
+| [Penetration testing](/services/web-application-penetration-testing/) | Where do they get in? | 3 to 10 days |
+| [Source code audit](/services/source-code-security-audit/) | Why does that door exist? | 5 to 15 days |
+| [Configuration audit](/services/linux-configuration-hardening-audit/) | How far do they get once inside? | 2 to 3 days per server |
 
 ## Web application penetration testing
 
@@ -26,7 +26,7 @@ agreed scope and schedule, and hand you the list of what is actually exploitable
 For you if: your application is in production and nobody has ever tested it
 seriously, or a client is asking you for evidence.
 
-**[See the details →](/web-application-penetration-testing/)**
+**[See the details →](/services/web-application-penetration-testing/)**
 
 ## Source code audit
 
@@ -38,7 +38,7 @@ For you if: you are taking over a codebase, preparing due diligence, or you want
 to know whether a flaw found in one place also exists in the twelve others where
 the same omission could have happened.
 
-**[See the details →](/source-code-security-audit/)**
+**[See the details →](/services/source-code-security-audit/)**
 
 ## Linux configuration and hardening audit
 
@@ -50,7 +50,7 @@ For you if: your servers have never been hardened, you are coming out of an
 incident and want to verify that containment is real, or you are being asked to
 demonstrate conformity with ANSSI recommendations.
 
-**[See the details →](/linux-configuration-hardening-audit/)**
+**[See the details →](/services/linux-configuration-hardening-audit/)**
 
 ## Which one do you need
 

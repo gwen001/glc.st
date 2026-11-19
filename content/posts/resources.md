@@ -2,12 +2,12 @@
 title: Resources
 date: 2013-12-01
 tags:
-- bug bounty
-- pentest
-- resources
-- books
-- videos
-- tools
+  - bug bounty
+  - pentest
+  - resources
+  - books
+  - videos
+  - tools
 ---
 There is a lot of resources available about hacking and security, here are my favorites.
 

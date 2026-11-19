@@ -1,0 +1,22 @@
+{{/* layouts/partials/see-also.html */}}
+{{- with .Params.related -}}
+{{- $items := slice -}}
+{{- range . -}}
+  {{- with site.GetPage . -}}
+    {{- $items = $items | append . -}}
+  {{- else -}}
+    {{- warnf "see-also: page introuvable %q (référencée par %s)" . $.RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+
+{{- with $items }}
+<aside class="see-also">
+  <h3>{{ i18n "see_also" | default "See also" }}</h3>
+  <ul>
+    {{- range . }}
+    <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+    {{- end }}
+  </ul>
+</aside>
+{{- end }}
+{{- end -}}

@@ -1,9 +1,18 @@
 ---
 date: 2020-01-30
 title: "5 things to avoid in bug bounty"
+related:
+  - /services/
+  - /posts/bug-bounty-programs
+  - /posts/bugbounty-howto-write-report
+  - /posts/bugbounty-management-bad-example
+  - /posts/bugbounty-management-hackers-motivation
+  - /posts/bugbounty-management-todo-before-launch
+  - /posts/bugbounty-management-zomato
+  - /posts/bugbounty-unonfficial-rules
 tags:
-- bug bounty
-- management
+  - bug bounty
+  - management
 ---
 The second article of a serie about bug bounty management.
 This one give some tips to companies about what kind of mistakes they should avoid to keep good relationship with hackers.

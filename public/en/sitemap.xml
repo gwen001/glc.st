@@ -15,43 +15,43 @@
                 href="https://glc.st/services/"
                 />
   </url><url>
-    <loc>https://glc.st/linux-configuration-hardening-audit/</loc>
-    <lastmod>2026-10-29T17:39:28+01:00</lastmod>
+    <loc>https://glc.st/services/linux-configuration-hardening-audit/</loc>
+    <lastmod>2026-10-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/audit-configuration-durcissement-linux/"
+                href="https://glc.st/fr/prestations/audit-configuration-durcissement-linux/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/linux-configuration-hardening-audit/"
+                href="https://glc.st/services/linux-configuration-hardening-audit/"
                 />
   </url><url>
-    <loc>https://glc.st/source-code-security-audit/</loc>
-    <lastmod>2026-10-29T17:39:28+01:00</lastmod>
+    <loc>https://glc.st/services/source-code-security-audit/</loc>
+    <lastmod>2026-10-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/audit-de-code-source/"
+                href="https://glc.st/fr/prestations/audit-de-code-source/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/source-code-security-audit/"
+                href="https://glc.st/services/source-code-security-audit/"
                 />
   </url><url>
-    <loc>https://glc.st/web-application-penetration-testing/</loc>
-    <lastmod>2026-10-29T17:39:28+01:00</lastmod>
+    <loc>https://glc.st/services/web-application-penetration-testing/</loc>
+    <lastmod>2026-10-13T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/test-intrusion-application-web/"
+                href="https://glc.st/fr/prestations/test-intrusion-application-web/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://glc.st/web-application-penetration-testing/"
+                href="https://glc.st/services/web-application-penetration-testing/"
                 />
   </url><url>
     <loc>https://glc.st/courses/linux-hardening/</loc>

@@ -7,8 +7,8 @@ keywords: "configuration audit, Linux hardening audit, ANSSI BP-028, server hard
 service: true
 ---
 
-A [penetration test](/web-application-penetration-testing/) finds the way in. 
-A [code audit](/source-code-security-audit/) finds why the way in exists. A configuration audit answers the question that follows both:
+A [penetration test](/services/web-application-penetration-testing/) finds the way in. 
+A [code audit](/services/source-code-security-audit/) finds why the way in exists. A configuration audit answers the question that follows both:
  **once someone is on the machine, how far do they get?**
 
 That is a different question, and most organisations have never asked it. 

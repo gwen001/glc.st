@@ -7,7 +7,7 @@ keywords: "audit de code source, revue de code sécurité, audit de code, expert
 service: true
 ---
 
-Un [test d'intrusion](/fr/test-intrusion-application-web/) vous dit ce qu'un attaquant peut atteindre aujourd'hui.
+Un [test d'intrusion](/fr/prestations/test-intrusion-application-web/) vous dit ce qu'un attaquant peut atteindre aujourd'hui.
 Un audit de code source vous dit ce qui est fragile en dessous - y compris les parties qui ne sont pas encore atteignables, mais le seront après la prochaine version.
 
 Les deux répondent à des questions différentes. Cette page traite de la seconde : **où cette base de code casse-t-elle, et pourquoi casse-t-elle toujours de la même façon ?**

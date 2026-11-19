@@ -1,10 +1,20 @@
 ---
 title: Vulnerability - Relative Path Overwrite aka RPO or PRSSI
 date: 2011-07-01
+related:
+  - /posts/vuln-clickjacking
+  - /posts/vuln-cross-origin-resource-sharing
+  - /posts/vuln-cross-site-request-forgery
+  - /posts/vuln-cross-site-scripting
+  - /posts/vuln-sql-injection
+  - /posts/vuln-subdomain-takeover
+  - /posts/vulnerabilities-list
+  - /posts/vulnerability-assessment-tools
+  - /services/pentest
 tags:
-- rpo
-- prssi
-- resources
+  - rpo
+  - prssi
+  - resources
 ---
 
 ## Description

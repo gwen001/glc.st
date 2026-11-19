@@ -2,11 +2,17 @@
 date: 2018-08-01
 title: Colorize your hunt
 images: [/images/mbh.png]
+related:
+  - /services/pentest
+  - /posts/bugbounty-cons
+  - /posts/bugbounty-howto-write-report
+  - /posts/bugbounty-unonfficial-rules
+  - /posts/why-bugbounty
 tags:
-- bug bounty
-- burp suite
-- tools
-- chrome
+  - bug bounty
+  - burp suite
+  - tools
+  - chrome
 ---
 As a full time bug hunter, it's important to use the tools you are confortable with, sometimes a small improvement can change your life.
 During the great 3 days course presented by [Nicolas Grégoire](http://www.agarri.fr/), he showed us a browser called Autochrome.

@@ -1,16 +1,13 @@
 ---
 date: 2015-03-26
 title: DVWA - CSRF
+images: [/images/dvwa.png]
+related:
+  - /posts/vuln-cross-site-request-forgery
+  - /services/pentest
 tags:
-- dvwa
-- csrf
-see_also:
-  -
-    link: OWASP description
-    url: https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)
-  -
-    link: Burp Suite by PortSwigger
-    url: http://portswigger.net/burp/
+  - dvwa
+  - csrf
 ---
 Cross-Site Request Forgery aka CSRF is an attack unintentionally triggered by the user himself.
 It sends HTTP requests to execute unexpected actions in different ways: trough `img` tag to perform `GET` requests or with Ajax requests when `POST` is required.

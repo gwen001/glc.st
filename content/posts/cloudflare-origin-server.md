@@ -2,34 +2,14 @@
 date: 2019-07-31
 title: Cloudflare origin server
 images: [/images/cloudflare-blocked.png]
+related:
+  - /services/pentest
 tags:
-- cloudflare
-- recon
-- WAF
-- firewall
-- tools
-see_also:
-  -
-    link: Introducing CFire - Evading CloudFlare Security Protections
-    url: https://rhinosecuritylabs.com/cloud-security/cloudflare-bypassing-cloud-security/
-  -
-    link: Cloudflare Bypass Security
-    url: http://www.securityidiots.com/Web-Pentest/Information-Gathering/Cloudflare-Bypass/Part-2-Cloudflare-Security-Bypass.html
-  -
-    link: Exposing Server IPs Behind CloudFlare
-    url: http://www.chokepoint.net/2017/10/exposing-server-ips-behind-cloudflare.html
-  -
-    link: CloudFlair - Bypassing Cloudflare using Internet-wide scan data
-    url: https://blog.christophetd.fr/bypassing-cloudflare-using-internet-wide-scan-data/
-  -
-    link: Cloudflare IP ranges
-    url: https://www.cloudflare.com/ips/
-  -
-    link: One tweet about it
-    url: https://twitter.com/gwendallecoguic/status/1043484797799223297
-  -
-    link: And another tweet about it
-    url: https://twitter.com/gwendallecoguic/status/1113777240876228609
+  - cloudflare
+  - recon
+  - WAF
+  - firewall
+  - tools
 ---
 
 What is [Cloudflare](https://www.cloudflare.com/)? In short: Content Delivery Network (CDN), Web Application Firewall (WAF) and cherry/icing on the cake, 1 year go Cloudflare released a fast DNS resolver.

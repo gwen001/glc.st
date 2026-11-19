@@ -1,19 +1,16 @@
 ---
 date: 2015-01-23
 title: DotDotPwn
+images: [/images/dotdotpwn.png]
+related:
+  - /services/pentest
 tags:
-- pentest
-- path traversal
-see_also:
-  -
-    link: OWASP Path Traversal
-    url: https://www.owasp.org/index.php/Path_Traversal
-  -
-    link: Damn Vulnerable Web Application
-    url: /damn-vulnerable-web-application/
+  - pentest
+  - path traversal
 ---
 Path traversal is a very powerful attack but not necessarily easy to find, fortunatly DotDotPwn is here to help you! [DotDotPwn](http://dotdotpwn.blogspot.fr/ "DotDotPwn") is a powerful traversal directory fuzzer. 
 Written in perl, it's installed in Kali Linux by default.
+<!--more-->
 
 Basic usage is:
 
@@ -38,15 +35,7 @@ Several options are available:
 
 and some more...
 
-<!--more-->
-
-Example:
-
-![dotdotpwn](/images/dotdotpwn_1.png)
-
-Will produce the following Apache logs (note that the User-Agent is different for each request):
-
-![dotdotpwn](/images/dotdotpwn_2.png)
+![dotdotpwn](/images/dotdotpwn.png)
 
 To deal with session and cookies you can use a payload to provide details about the HTTP request.
 The keyword `TRAVERSAL` is required by DotDotPwn to specify where the injection should be performed.

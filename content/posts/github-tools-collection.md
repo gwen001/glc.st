@@ -2,19 +2,12 @@
 date: 2019-10-10
 title: GitHub tools collection
 images: [/images/github-whitehat.jpg]
+related:
+  - /posts/github-search
+  - /services/pentest
 tags:
-- recon
-- tools
-see_also:
-  -
-    link: gitGraber from Adrien Jeanneau
-    url: https://github.com/hisxo/gitGraber
-  -
-    link: Tools to get sensitive info / secrets from @github
-    url: https://twitter.com/soaj1664ashar/status/1176769454035939328
-  -
-    link: How bad can it git?
-    url: https://www.ndss-symposium.org/wp-content/uploads/2019/02/ndss2019_04B-3_Meli_paper.pdf
+  - recon
+  - tools
 ---
 
 This is the current thread in the bug hunter community: how to find sensitive informations on GitHub. Understand how to find tokens/keys/passwords on the largest code database in the world in order to pwn a company and get massive rewards. Using tools or doing it manually, some very talented people like [Th3G3nt3lman](https://twitter.com/Th3G3nt3lman) are real wizards when it comes to discover such treasures. Many tools are now available but since I wanted to learn Python for a long time, I jumped at the opportunity. In this article I'm going to present some scripts I wrote in PHP and Python to fit my needs.

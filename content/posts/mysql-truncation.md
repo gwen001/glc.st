@@ -1,9 +1,11 @@
 ---
 date: 2015-01-28
 title: MySQL Truncation
+related:
+  - /posts/null-byte-injection
 tags:
-- mysql
-- bdd
+  - mysql
+  - bdd
 ---
 ## Description
 

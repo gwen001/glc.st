@@ -209,6 +209,7 @@ disableKinds = ['RSS','taxonomy','term']
             #     url = "/fr/about/"
 
         [languages.fr.permalinks]
-            courses = "/formations/:slug/"
             posts   = "/articles/:slug/"
+            courses = "/formations/:slug/"
+            services = "/prestations/:slug/"
 

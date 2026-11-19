@@ -1,22 +1,17 @@
 ---
 date: 2015-09-08
 title: Offensive Security Certified Professional
+related:
+  - /services
 tags:
-- training
-- pentest
-- exploitation
-- oscp
-- offsec
-- pwk
-- kali
-- metasploit
-see_also:
-  -
-    link: Offensive Security
-    url: https://www.offensive-security.com/
-  -
-    link: Try harder
-    url: https://www.youtube.com/watch?v=c3PjAuoTllI
+  - training
+  - pentest
+  - exploitation
+  - oscp
+  - offsec
+  - pwk
+  - kali
+  - metasploit
 ---
 The famous Offensive Security Certified Professional aka [OSCP](https://www.offensive-security.com/information-security-certifications/oscp-offensive-security-certified-professional/) 
 is the certification of the Penetration Testing with Kali Linux course aka [PWK](https://www.offensive-security.com/information-security-training/penetration-testing-training-kali-linux/) 
@@ -71,9 +66,3 @@ During the Offensive Security Certified Professional you have access to the vir
 After completing the PWK course, you could pass the final exam, you have 24 hour to gain root access to 5 vulnerable machines. 
 Finally you again have 24 hour to write the final report containing your findings, code, screenshot and other proof of concept. 
 According to Offensive Security staff, points are awarded for each compromised host, based on their difficulty and level of access obtained.
-
-
-## External resources
-
-- [Offensive Security](https://www.offensive-security.com/)
-- [Try harder](https://www.youtube.com/watch?v=c3PjAuoTllI)

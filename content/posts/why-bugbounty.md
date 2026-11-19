@@ -2,21 +2,18 @@
 date: 2018-03-29
 title: Why Bug Bounty
 images: [/images/bb-mybblife.png]
+related:
+  - /services/
+  - /posts/interview-bugbounty-program
+  - /posts/bug-bounty-programs
+  - /posts/bugbounty-cons
+  - /posts/bugbounty-howto-write-report
+  - /posts/bugbounty-unonfficial-rules
+  - /posts/the-bugbounty-program-that-changed-my-life
+  - /posts/platform-tournament
+  - /posts/swag-store
 tags:
-- bug bounty
-see_also:
-  -
-    link: Bug Bounty Cons
-    url: /bugbounty-cons/
-  -
-    link: Why bug bounty hunters love the thrill of the chase
-    url: https://www.csoonline.com/article/2846873/data-protection/why-bug-bounty-hunters-love-the-thrill-of-the-chase.html
-  -
-    link: Bug bounty is a joke
-    url: https://medium.com/@phwd/bug-bounty-is-a-joke-91bc1875c890
-  -
-    link: Bug bounties, a broken system
-    url: https://hackernoon.com/bug-bounties-a-broken-system-7781fe0bf7d
+  - bug bounty
 ---
 People are usually surprised by the answer when they ask me what I do for living, questions rain, here are some answers. 
 My first report was a XSS on a Yahoo acquisition, it happened the 26th January 2016. Since this date, I (try to) perform Bug Bounty as a full time job on [Hackerone](https://hackerone.com). 
