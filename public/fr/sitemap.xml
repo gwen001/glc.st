@@ -2,34 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://glc.st/fr/</loc>
-    <lastmod>2026-11-12T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://glc.st/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr-FR"
-                href="https://glc.st/fr/"
-                />
-  </url><url>
-    <loc>https://glc.st/fr/articles/</loc>
-    <lastmod>2026-11-12T00:00:00+00:00</lastmod>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://glc.st/posts/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="fr-FR"
-                href="https://glc.st/fr/articles/"
-                />
-  </url><url>
     <loc>https://glc.st/fr/prestations/</loc>
-    <lastmod>2026-10-29T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -42,7 +16,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/audit-de-code-source/</loc>
-    <lastmod>2026-10-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -55,7 +29,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/audit-configuration-durcissement-linux/</loc>
-    <lastmod>2026-10-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -68,7 +42,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/test-intrusion-application-web/</loc>
-    <lastmod>2026-10-13T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -81,7 +55,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/formations/durcissement-linux/</loc>
-    <lastmod>2026-07-14T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -94,7 +68,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/formations/</loc>
-    <lastmod>2025-04-22T18:05:10+01:00</lastmod>
+    <lastmod>2026-10-29T22:13:24+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -107,7 +81,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/references/</loc>
-    <lastmod>2025-04-22T18:05:10+01:00</lastmod>
+    <lastmod>2026-11-01T11:06:55+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -120,7 +94,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/formations/hacking-et-securite-application-web/</loc>
-    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -133,7 +107,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/formations/hacking-et-securite-application-web-avancee/</loc>
-    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -146,7 +120,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/formations/initiation-test-intrusion/</loc>
-    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -159,7 +133,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/formations/initiation-bash/</loc>
-    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -172,7 +146,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/formations/introduction-au-bugbounty/</loc>
-    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -185,7 +159,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/formations/les-bases-de-sql/</loc>
-    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -198,7 +172,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/formations/php-debutant/</loc>
-    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -211,7 +185,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/formations/securite-laravel/</loc>
-    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -224,7 +198,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/formations/sensibilisation-cybersecurite/</loc>
-    <lastmod>2025-04-22T00:00:00+00:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -237,7 +211,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/</loc>
-    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-19T17:36:53+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -250,7 +224,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/projets/</loc>
-    <lastmod>2023-05-05T18:05:10+01:00</lastmod>
+    <lastmod>2026-10-31T13:01:46+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -263,7 +237,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/articles/les-cves-demystifiees/</loc>
-    <lastmod>2022-10-26T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-19T17:47:23+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -276,7 +250,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/articles/subdomain-takeover-en-pagaille-chez-edf/</loc>
-    <lastmod>2022-09-21T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-19T17:55:37+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -289,7 +263,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/</loc>
-    <lastmod>2022-08-01T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-19T18:30:42+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -302,7 +276,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/presse/</loc>
-    <lastmod>2019-10-18T17:50:10+02:00</lastmod>
+    <lastmod>2026-10-29T17:36:56+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -312,6 +286,32 @@
                 rel="alternate"
                 hreflang="fr-FR"
                 href="https://glc.st/fr/presse/"
+                />
+  </url><url>
+    <loc>https://glc.st/fr/</loc>
+    <lastmod>2026-10-30T17:44:29+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/"
+                />
+  </url><url>
+    <loc>https://glc.st/fr/articles/</loc>
+    <lastmod>2026-11-19T17:24:39+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/"
                 />
   </url>
 </urlset>
