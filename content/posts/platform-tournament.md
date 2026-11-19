@@ -8,7 +8,7 @@ related:
   - /posts/bugbounty-unonfficial-rules
   - /posts/interview-bugbounty-program
   - /posts/why-bugbounty
-  - /services/
+  - /services/pentest
 tags:
   - bug bounty
   - ctf

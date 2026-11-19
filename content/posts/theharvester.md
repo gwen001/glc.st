@@ -4,6 +4,8 @@ title: theHarvester
 related:
   - /posts/introduction-to-pentesting
   - /posts/dns-enumeration-with-host
+  - /posts/subdomain-enumeration
+  - /posts/subdomain-takeover-basics
   - /services/pentest
 tags:
   - pentest
