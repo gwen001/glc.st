@@ -93,8 +93,3 @@ Another good point for Weevely is the verbosity, the remote agent is very low fo
 ![Weevely traces](/images/weevely-traces.png)
 
 As you may notice the user-agent has also been randomized wich is usually a good idea...
-
-
-## External resources
-
-- [Introduction to pentesting]({{< ref "/posts/introduction-to-pentesting" >}})

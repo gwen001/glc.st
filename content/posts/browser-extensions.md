@@ -2,6 +2,7 @@
 date: 2015-01-14
 title: Browser extensions
 related:
+  - /posts/colorize-your-hunt
   - /services/pentest
 tags:
   - resources

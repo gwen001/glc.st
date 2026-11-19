@@ -24,7 +24,7 @@
 
 <meta property="og:image" content="https://glc.st/images/dvwa.png" />
 <meta property="article:published_time" content="2015-03-26T00:00:00+00:00" />
-<meta property="article:modified_time" content="2026-10-11T11:53:01+02:00" /><meta property="og:locale" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+<meta property="article:modified_time" content="2026-11-19T21:38:01+01:00" /><meta property="og:locale" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
     
@@ -70,7 +70,7 @@
 
 
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2026-10-11","datePublished":"2015-03-26","description":"Cross-Site Request Forgery aka CSRF is an attack unintentionally triggered by the user himself. It sends HTTP requests to execute unexpected actions in …","headline":"DVWA - CSRF","image":"https://glc.st/images/dvwa.png","inLanguage":"en","keywords":"dvwa, csrf","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/posts/dvwa-csrf/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2026-11-19","datePublished":"2015-03-26","description":"Cross-Site Request Forgery aka CSRF is an attack unintentionally triggered by the user himself. It sends HTTP requests to execute unexpected actions in …","headline":"DVWA - CSRF","image":"https://glc.st/images/dvwa.png","inLanguage":"en","keywords":"dvwa, csrf","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/posts/dvwa-csrf/"}</script>
 
   </head>
 
@@ -197,7 +197,7 @@
         </header>
 
         <div>
-            <p>Cross-Site Request Forgery aka CSRF is an attack unintentionally triggered by the user himself.
+            <p><a href="https://www.owasp.org/index.php/Cross-Site_Request_Forgery_%28CSRF%29">Cross-Site Request Forgery</a> aka CSRF is an attack unintentionally triggered by the user himself.
 It sends HTTP requests to execute unexpected actions in different ways: trough <code>img</code> tag to perform <code>GET</code> requests or with Ajax requests when <code>POST</code> is required.
 You can learn basic CSRF in <a href="https://glc.st/posts/damn-vulnerable-web-application/" title="Damn Vulnerable Web Application">DVWA</a>.</p>
 <p>To perform this CSRF you firstly need to log in, then you must visit a malicious site who will perform a stealth HTTP request who will submit the change password form with specific values.</p>
@@ -254,7 +254,9 @@ Another approach is to configure the sessions to close with the browser and with
 <aside class="see-also">
   <h3>See also</h3>
   <ul>
+    <li><a href="https://glc.st/posts/damn-vulnerable-web-application/">Damn Vulnerable Web Application</a></li>
     <li><a href="https://glc.st/posts/vulnerability-cross-site-request-forgery-aka-csrf/">Vulnerability - Cross Site Request Forgery aka CSRF</a></li>
+    <li><a href="https://glc.st/posts/an-extremely-buggy-web-app/">An extremely buggy web app !</a></li>
     <li><a href="https://glc.st/services/web-application-penetration-testing/">Web application penetration testing</a></li>
   </ul>
 </aside>

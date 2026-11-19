@@ -3,6 +3,7 @@ date: 2015-01-22
 title: theHarvester
 related:
   - /posts/introduction-to-pentesting
+  - /posts/dns-enumeration-with-host
   - /services/pentest
 tags:
   - pentest

@@ -209,8 +209,3 @@ trading system
 
 Let's says that a hacker already got several swag pack from his favorite platform? Let's say that he already got that Hackerone cap 5 times, another hacker doesn't have it but he has 5 tee-shirt. Maybe they could do a trade?
 -->
-
-
-## External resources
-
-- [Shopify REST Admin API reference](https://help.shopify.com/en/api/reference)

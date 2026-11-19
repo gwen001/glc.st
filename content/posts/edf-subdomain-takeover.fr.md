@@ -8,6 +8,7 @@ related:
   - /posts/subdomain-enumeration
   - /posts/subdomain-takeover-basics
   - /posts/subdomain-takeover-dns-expiration
+  - /posts/dns-enumeration-with-host
   - /services/pentest
 tags:
   - tools

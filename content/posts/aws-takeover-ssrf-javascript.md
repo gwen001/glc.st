@@ -4,8 +4,8 @@ title: AWS takeover through SSRF in JavaScript
 images: [/images/aws-webservices.png]
 related:
   - /posts/ctf-h1-212
-  - /services/pentest
   - /services/code-audit
+  - /services/pentest
 tags:
   - bug bounty
   - aws
@@ -345,7 +345,7 @@ Impact: lethal.
 
 I learnt alot because of this bug:
 
-- ReactJS, fetch(), AWS metadatas.
+- [ReactJS](https://reactjs.org/), [fetch()](https://developers.google.com/web/updates/2015/03/introduction-to-fetch), AWS metadatas.
 - RTFM! The official documentation is always a great source of (useful) informations.
 - At each step new problems appeared. I had to search everywhere, try many different things, I had to push my limits to not give up.
 - I now know that I can fully compromise a system by myself starting from 0, which is a great personal  achievement and statisfaction :)
@@ -361,10 +361,3 @@ When someone tells you that you'll never be able to do something, don't waste yo
 
 Thanks to ArticMonkey for being so fast to fix and reward, and agreed this article :)
 
-
-## External resources
-
-- [React](https://reactjs.org/)
-- [Introduction to fetch()](https://developers.google.com/web/updates/2015/03/introduction-to-fetch)
-- [PayloadsAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings)
-- [AWS Documentation](https://docs.aws.amazon.com/)

@@ -16,7 +16,6 @@ Afterwards you could consult/search keywords in it to find vulnerabilities or at
 
 After some months of inactivity, I finally decided to publicly release the source code of Actarus.
 I started this project to learn Symfony, now I hate it. Maybe someone will give him another chance to grow up.
-
 <!--more-->
 
 Below a quick list of Actarus features:

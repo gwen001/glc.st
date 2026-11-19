@@ -24,7 +24,7 @@
 
 <meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
 <meta property="article:published_time" content="2015-02-27T00:00:00+00:00" />
-<meta property="article:modified_time" content="2025-04-23T11:05:38+02:00" /><meta property="og:locale" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+<meta property="article:modified_time" content="2026-11-19T21:38:01+01:00" /><meta property="og:locale" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
     
@@ -70,7 +70,7 @@
 
 
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2025-04-23","datePublished":"2015-02-27","description":"While performing a pentest the information gathering phase is the most important, it\u0026amp;rsquo;s the key of a successful test. The DNS is very great source of …","headline":"DNS enumeration with Host","inLanguage":"en","keywords":"pentest, information gathering, dns","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/posts/dns-enumeration-with-host/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2026-11-19","datePublished":"2015-02-27","description":"While performing a pentest the information gathering phase is the most important, it\u0026amp;rsquo;s the key of a successful test. The DNS is very great source of …","headline":"DNS enumeration with Host","inLanguage":"en","keywords":"pentest, information gathering, dns","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/posts/dns-enumeration-with-host/"}</script>
 
   </head>
 
@@ -229,7 +229,7 @@ Imagine a text file containing those few keywords:</p>
 <p><img src="https://glc.st/images/dns-enumeration-host-reverse.png" alt="DNS enumeration host reverse"></p>
 <h2 id="zone-transfer">Zone transfer</h2>
 <p>Finally the best technique is to try a zone transfer.
-Zone transfer is a mechanism available for administrators to replicate DNS databases across a set of DNS servers.</p>
+<a href="http://en.wikipedia.org/wiki/DNS_zone_transfer">Zone transfer</a> is a mechanism available for administrators to replicate DNS databases across a set of DNS servers.</p>
 <p>With the <code>-t</code> option you can grab specific informations about the domain: name server (ns), exchange mail (mx), alias (cname), etc.:</p>
 <p><img src="https://glc.st/images/dns-enumeration-host-zone-transfer-1.png" alt="DNS enumeration host zone transfer"></p>
 <p>Then, for each name server found we will try to perform a zone transfer for the domain of the example:</p>
@@ -238,10 +238,6 @@ Zone transfer is a mechanism available for administrators to replicate DNS dat
 If the zone transfer fails, you will get this message: <code>; Transfer failed.</code></p>
 <p>There is many tools to deal with DNS: <code>dig</code>, <code>dnsenum</code>, <code>dnsrecon</code> can also do the trick.
 My favorite and probably the easiest is <a href="http://ha.ckers.org/fierce/" title="Fierce">Fierce</a>.</p>
-<h2 id="external-resources">External resources</h2>
-<ul>
-<li><a href="http://en.wikipedia.org/wiki/DNS_zone_transfer">Zone transfer on Wikipedia</a></li>
-</ul>
         </div>
 
         <footer>
@@ -256,6 +252,9 @@ My favorite and probably the easiest is <a href="http://ha.ckers.org/fierce/" ti
 <aside class="see-also">
   <h3>See also</h3>
   <ul>
+    <li><a href="https://glc.st/posts/one-takeover-to-rule-them-all/">One takeover to rule them all</a></li>
+    <li><a href="https://glc.st/posts/subdomain-takeover-dns-expiration/">Subdomain takeover - DNS expiration</a></li>
+    <li><a href="https://glc.st/posts/vulnerability-subdomain-takeover/">Vulnerability - Subdomain takeover</a></li>
     <li><a href="https://glc.st/services/web-application-penetration-testing/">Web application penetration testing</a></li>
   </ul>
 </aside>

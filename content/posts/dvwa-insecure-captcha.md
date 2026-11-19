@@ -3,6 +3,7 @@ date: 2015-03-13
 title: DVWA - Insecure CAPTCHA
 images: [/images/dvwa.png]
 related:
+  - /posts/damn-vulnerable-web-application
   - /services/pentest
 tags:
   - dvwa

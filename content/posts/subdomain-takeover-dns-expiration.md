@@ -5,6 +5,7 @@ related:
   - /posts/edf-subdomain-takeover
   - /posts/subdomain-enumeration
   - /posts/subdomain-takeover-basics
+  - /posts/dns-enumeration-with-host
   - /posts/vuln-subdomain-takeover
   - /services/pentest
 tags:
@@ -55,8 +56,3 @@ Output is:
 ![DNS expiration PHP tool](/images/dnsexpire-example.jpg)
 
 The code is available on my [GitHub repository](https://github.com/gwen001/dnsexpire) so give it a try!
-
-
-## External resources
-
-- [Explanation by Peter Yaworski](https://www.youtube.com/watch?v=aurAbCcF-lk)

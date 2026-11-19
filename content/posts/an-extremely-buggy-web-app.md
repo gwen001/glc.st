@@ -3,6 +3,11 @@ date: 2016-01-28
 title: An extremely buggy web app !
 images: [/images/bwapp.png]
 related:
+  - /posts/damn-vulnerable-web-application
+  - /posts/vuln-clickjacking
+  - /posts/vuln-cross-site-scripting
+  - /posts/vuln-cross-site-request-forgery
+  - /posts/vuln-sql-injection
   - /services/pentest
 tags:
  - training
@@ -15,7 +20,7 @@ tags:
  - lfi&rfi
  - path traversal
 ---
-**bWAPP** is a PHP web application which is intentionnally crackable. It covers a very large set of common vulns but also some unusual case you can meet on the Internet.
+[**bWAPP**](http://www.itsecgames.com/) is a PHP web application which is intentionnally crackable. It covers a very large set of common vulns but also some unusual case you can meet on the Internet.
 
 The goal here is to train your development skill and hacking knowledge to be able to write a better (more secure) code.
 Compared to [DVWA](/posts/damn-vulnerable-web-application/), you have to consider bWAPP as a much more advanced level of difficulty.
@@ -186,8 +191,3 @@ We Steal Secrets... (plain)
 WSDL File (Web Services/SOAP)  
 
 Have fun !
-
-
-## External resources
-
-- [Official website of bWAPP](http://www.itsecgames.com/)

@@ -129,8 +129,3 @@ As far as I can see, chasing in the wild is fun, you can learn alot, but you won
 [My tool: 3party-services](https://github.com/gwen001/3rdparty-services)  
 [The Cloudfront checker script](/assets/cloudfront.txt)  
 [My tool: s3-buckets-finder](https://github.com/gwen001/s3-buckets-finder)  
-
-
-## External resources
-
-- [Top 500 Most Important XSS Script Cheat](https://gbhackers.com/top-500-important-xss-cheat-sheet/)

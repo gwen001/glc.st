@@ -3,12 +3,14 @@ date: 2015-01-23
 title: DotDotPwn
 images: [/images/dotdotpwn.png]
 related:
+  - /posts/damn-vulnerable-web-application
+  - /posts/an-extremely-buggy-web-app
   - /services/pentest
 tags:
   - pentest
   - path traversal
 ---
-Path traversal is a very powerful attack but not necessarily easy to find, fortunatly DotDotPwn is here to help you! [DotDotPwn](http://dotdotpwn.blogspot.fr/ "DotDotPwn") is a powerful traversal directory fuzzer. 
+[Path traversal](https://www.owasp.org/index.php/Path_Traversal) is a very powerful attack but not necessarily easy to find, fortunatly DotDotPwn is here to help you! [DotDotPwn](http://dotdotpwn.blogspot.fr/ "DotDotPwn") is a powerful traversal directory fuzzer. 
 Written in perl, it's installed in Kali Linux by default.
 <!--more-->
 
@@ -50,9 +52,3 @@ Cookie: security=low; PHPSESSID=rcvkns45jv1i62t1c4jqj8ogu4
 With the following command:
 
 `$ dotdotpwn.pl -m payload -h local.dvwa.com -p ~/dvwa_fi.txt -x 80 -k "root:" -f /etc/passwd`
-
-
-## External resources
-
-- [OWASP Path Traversal](https://www.owasp.org/index.php/Path_Traversal)
-- [Damn Vulnerable Web Application]({{< ref "/posts/damn-vulnerable-web-application" >}})

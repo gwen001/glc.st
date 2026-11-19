@@ -17,7 +17,7 @@ tags:
 ---
 Written in Python by [Miroslav Stamper](https://twitter.com/stamparm), Sqlmap is probably the best automated tool to detect and exploit SQL Injection.
 
-Sqlmap fully supports many databases as MySQL, Microsoft SQL Server, PostgreSQL, Oracle (and many more) and is able to detect the following injection types : 
+[Sqlmap](http://sqlmap.org/) fully supports many databases as MySQL, Microsoft SQL Server, PostgreSQL, Oracle (and many more) and is able to detect the following injection types : 
 Boolean based blind, Error based, Union based, Stacked queries, Time based blind, Inline queries. Depending of the target status, sqlmap is also able to :
 
 - prompt an interactive sql shell
@@ -138,9 +138,3 @@ Smartphone impersonation
 Website crawling
 
 Windows registry access
-
-
-## External resources
-
-- [Sqlmap official website](http://sqlmap.org/)
-- [Sqlmap usage on the GitHub project](https://github.com/sqlmapproject/sqlmap/wiki/Usage)

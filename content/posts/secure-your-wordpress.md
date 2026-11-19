@@ -1,6 +1,10 @@
 ---
 date: 2015-05-10
 title: Secure your Wordpress
+related:
+  - /posts/wordpress-testing
+  - /services/code-audit
+  - /services/pentest
 tags:
   - security
   - wordpress

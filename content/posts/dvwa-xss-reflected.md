@@ -3,7 +3,9 @@ date: 2015-01-20
 title: DVWA - XSS reflected
 images: [/images/dvwa.png]
 related:
+  - /posts/damn-vulnerable-web-application
   - /posts/massive-pwnage
+  - /posts/an-extremely-buggy-web-app
   - /posts/vuln-cross-site-scripting
   - /services/pentest
 tags:

@@ -19,6 +19,7 @@ tags:
 **DVWA** is a PHP/MySQL web application that is intentionally vulnerable. 
 The goal is to learn common web vulnerabilities and improve your security skills by training yourself on your own server. 
 3 levels are available (low, medium and high) to perform those following attacks :
+<!--more-->
 
 - Bruce Force
 - Command Execution
@@ -30,8 +31,6 @@ The goal is to learn common web vulnerabilities and improve your security skills
 - XSS
 
 The lowest level is usually pretty easy to bypass but the high level as a best practice presents the right way to protect your application.
-
-<!--more-->
 
 The installation is pretty easy, you simply need to extract the zip archive found on [DVWA official website](http://www.dvwa.co.uk/ "Damn Vulnerable Web Application") 
 in the root directory of your web server. 

@@ -164,7 +164,6 @@ My opinion.
 
 ## External resources
 
-- [Bug Bounty Cons]({{< ref "/posts/bugbounty-cons" >}})
 - [Why bug bounty hunters love the thrill of the chase](https://www.csoonline.com/article/2846873/data-protection/why-bug-bounty-hunters-love-the-thrill-of-the-chase.html)
 - [Bug bounty is a joke](https://medium.com/@phwd/bug-bounty-is-a-joke-91bc1875c890)
 - [Bug bounties, a broken system](https://hackernoon.com/bug-bounties-a-broken-system-7781fe0bf7d)

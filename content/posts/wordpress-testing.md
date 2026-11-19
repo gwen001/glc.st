@@ -5,6 +5,7 @@ related:
   - /posts/testing-flash-swf
   - /posts/wordpress-testing
   - /posts/my-way-to-go
+  - /cves/cve-2016-11018
   - /services/pentest
 tags:
   - wordpress
@@ -118,9 +119,3 @@ egrep -ri 'header|setcookie|content-disposition' . | grep -i ".php" | egrep --co
 
 Finally, you can use the same technics you use on any other website. Try to find endpoints from Google, Wayback Machine, etc... and test SQLi, XSS and so on...
 Far from exhaustive, you also need to check authentication deeper, specially if oauth is part of the game.
-
-
-## External resources
-
-- [OneLogin authentication bypass on WordPress sites](https://hackerone.com/reports/136169)
-- [Image Gallery SQL Injection]({{< ref "/cves/cve-2016-11018" >}})

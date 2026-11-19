@@ -1,6 +1,9 @@
 ---
 date: 2015-03-02
 title: Choose your password
+related:
+  - /services/config-audit
+  - /services/pentest
 tags:
   - password
   - security
@@ -47,8 +50,3 @@ I choosed a small sentence from "Fade into you" by Mazzy Star:
 5. add symbols to reach a good length: `#Sk0n1yD*`
 
 An attack based on a dictionary would fail against this password. A brute force still possible but will be much much loooooonnnnnnger :)
-
-
-## External resources
-
-- [A good article about how to test your password](http://www.makeuseof.com/tag/test-password-strength-tool-hackers-use/)

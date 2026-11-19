@@ -3,13 +3,15 @@ date: 2015-03-26
 title: DVWA - CSRF
 images: [/images/dvwa.png]
 related:
+  - /posts/damn-vulnerable-web-application
   - /posts/vuln-cross-site-request-forgery
+  - /posts/an-extremely-buggy-web-app
   - /services/pentest
 tags:
   - dvwa
   - csrf
 ---
-Cross-Site Request Forgery aka CSRF is an attack unintentionally triggered by the user himself.
+[Cross-Site Request Forgery](https://www.owasp.org/index.php/Cross-Site_Request_Forgery_(CSRF)) aka CSRF is an attack unintentionally triggered by the user himself.
 It sends HTTP requests to execute unexpected actions in different ways: trough `img` tag to perform `GET` requests or with Ajax requests when `POST` is required.
 You can learn basic CSRF in [DVWA](/posts/damn-vulnerable-web-application/ "Damn Vulnerable Web Application").
 

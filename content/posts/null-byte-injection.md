@@ -3,6 +3,7 @@ date: 2015-01-10
 title: Null Byte Injection
 related:
   - /posts/mysql-truncation
+  - /services/pentest
 tags:
   - php
   - null byte

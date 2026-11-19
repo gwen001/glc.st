@@ -6,6 +6,7 @@ related:
   - /posts/edf-subdomain-takeover
   - /posts/subdomain-enumeration
   - /posts/subdomain-takeover-dns-expiration
+  - /posts/dns-enumeration-with-host
   - /posts/vuln-subdomain-takeover
   - /services/pentest
 tags:

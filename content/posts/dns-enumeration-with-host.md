@@ -2,6 +2,10 @@
 date: 2015-02-27
 title: DNS enumeration with Host
 related:
+  - /posts/edf-subdomain-takeover
+  - /posts/subdomain-takeover-basics
+  - /posts/subdomain-takeover-dns-expiration
+  - /posts/vuln-subdomain-takeover
   - /services/pentest
 tags:
   - pentest
@@ -11,8 +15,10 @@ tags:
 While performing a pentest the information gathering phase is the most important, it's the key of a successful test. 
 The DNS is very great source of informations, whith some simple queries you will be able to grab usefull datas about the domain you are targeting. 
 The `host` command is a very powerful DNS lookup utility which is present in all Linux distribution.
+<!--more-->
 
 For the examples, I will use a domain which allows that kind of query at this moment.
+
 
 ## Basic usage
 
@@ -24,7 +30,6 @@ If the domain doesn't exist, you will meet that message: `Host pmolkijn.de not f
 
 If the ip doesn't point anywhere, you will get this message: `Host 91.121.139.2 not found: 3(NXDOMAIN)`
 
-<!--more-->
 
 ## Forward
 
@@ -47,6 +52,7 @@ Will output:
 
 ![DNS enumeration host forward](/images/dns-enumeration-host-forward.png)
 
+
 ## Reverse
 
 Of course you could query the discovered ip address but you can also query all ip in the same network to find more subdomains. Here is a simple shell script:
@@ -63,10 +69,11 @@ Will output:
 
 ![DNS enumeration host reverse](/images/dns-enumeration-host-reverse.png)
 
+
 ## Zone transfer
 
 Finally the best technique is to try a zone transfer.
-Zone transfer is a mechanism available for administrators to replicate DNS databases across a set of DNS servers.
+[Zone transfer](http://en.wikipedia.org/wiki/DNS_zone_transfer) is a mechanism available for administrators to replicate DNS databases across a set of DNS servers.
 
 With the `-t` option you can grab specific informations about the domain: name server (ns), exchange mail (mx), alias (cname), etc.:
 
@@ -82,7 +89,3 @@ If the zone transfer fails, you will get this message: `; Transfer failed.`
 There is many tools to deal with DNS: `dig`, `dnsenum`, `dnsrecon` can also do the trick. 
 My favorite and probably the easiest is [Fierce](http://ha.ckers.org/fierce/ "Fierce").
 
-
-## External resources
-
-- [Zone transfer on Wikipedia](http://en.wikipedia.org/wiki/DNS_zone_transfer)
