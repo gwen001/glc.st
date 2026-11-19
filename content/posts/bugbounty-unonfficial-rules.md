@@ -78,7 +78,7 @@ It's their job to handle such situations, kind of referees, they are (well) paid
 **High reputation doesn't imply good hacker.**
 The goal here is not to detail all reputation systems but only demonstrate some pitfalls.
 
-The first point is, only few cases lead to a loss of reputation, which is ok, but that means if you're not a crazy spammer but a normal person - as normal as hackers can be - your reputation will only go up. With time, you'll reach those famous 5k, 10k, 15k...
+The first point is, only few cases lead to a loss of reputation, which is ok, but that means if you're not a crazy spammer but a "normal" person - as normal as hackers can be - your reputation will only go up. With time, you'll reach those famous 5k, 10k, 15k...
 
 Then, if we take a look at Hackerone, we can notice that a valid critical report is 57 points while a low report is 17 points.
 On YesWeHack, an accepted critical report is 50 points and a low one is 15.
@@ -191,7 +191,7 @@ Now let's talk about the reason why duplicates are so common. There is basically
 - **Poor policies.**
 Some issues the company is aware of because of a preceding pentest perhaps.
 Some bugs not considered as real bugs, known issues/won't fix/let's see how it goes/it's not that bad/yeah later...
-Hackers are kind of magicians, yeah, but they are not mind reader.
+Hackers are kind of magicians, yeah, but they are not mind reader and they don't have access to your audit reports.
 
 - **Overloading.**
 A program just starts, all hackers in the community rush the target, or only the invited ones, or their bots.
