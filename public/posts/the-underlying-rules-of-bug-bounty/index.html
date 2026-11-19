@@ -24,7 +24,8 @@
 
 <meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
 <meta property="article:published_time" content="2022-08-01T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-08-01T00:00:00+00:00" /><meta property="og:locale" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+<meta property="article:modified_time" content="2022-08-01T00:00:00+00:00" /><meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="fr_FR" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
     
@@ -61,7 +62,10 @@
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16"><meta name="generator" content="Hugo 0.147.0">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/posts/the-underlying-rules-of-bug-bounty/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/posts/the-underlying-rules-of-bug-bounty/"><meta name="generator" content="Hugo 0.147.0">
 
     
 
@@ -120,7 +124,7 @@
         <span>|</span>
     </li>
       <li class="navigation-item language">
-        <a href="https://glc.st/fr/" lang="fr" title="Français"><img width="20" height="23" src="https://glc.st/assets/img/flags/fr.png" class="icon-flag" alt="Français" /></a>
+        <a href="https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/" hreflang="fr" lang="fr" rel="alternate" title="Français"><img width="20" height="23" src="https://glc.st/assets/img/flags/fr.png" class="icon-flag" alt="Français" /></a>
       </li>
     </ul>
   </section>
@@ -241,9 +245,9 @@ From my experience, programs always agree to review the severity (and sometimes 
 <p>As a program, you should understand that hackers spend alot of time trying to find bugs, it&rsquo;s very time consuming.
 So it&rsquo;s always a pain to see a report being refused because it&rsquo;s something you were aware of 6 months ago, but didn&rsquo;t fix&hellip;
 When your dev team is able to escalate a bug from P2 to P1, be honest and adjust the reward accordingly, hackers don&rsquo;t have access to all informations you have.
-Also you should strongly consider to <u>reward on triage</u>, kudos don&rsquo;t pay the bills as well as $$$ do.</p>
+Also you should strongly consider to <strong>reward on triage</strong>, <em>kudos</em> don&rsquo;t pay the bills as well as $$$ do.</p>
 <p>If none of you is able to handle the situation in a proper way, no need to come to an offensive language or punishment.
-Remember that <u>respect works both way</u>, you can&rsquo;t ask for it if you shit on peoples, so keep calm, open a ticket on the platform support.
+Remember that <strong>respect works both way</strong>, you can&rsquo;t ask for it if you shit on peoples, so keep calm, open a ticket on the platform support.
 It&rsquo;s their job to handle such situations, kind of referees, they are (well) paid for that (% of reward + companies subscription), so use them as much as you can, no matter on what side you are.</p>
 <h2 id="reputation-isnt-everything">Reputation isn&rsquo;t everything</h2>
 <p><strong>High reputation doesn&rsquo;t imply good hacker.</strong>
@@ -252,9 +256,9 @@ The goal here is not to detail all reputation systems but only demonstrate some 
 <p>Then, if we take a look at Hackerone, we can notice that a valid critical report is 57 points while a low report is 17 points.
 On YesWeHack, an accepted critical report is 50 points and a low one is 15.
 Basically on both of them <strong>3 low reports are worth a single critical</strong> -&gt; 3<em>CRLF = 1</em>RCE.</p>
-<p>On some platforms like YWH, the variable gain is calculated depending the reward itself and not the severity, but a 500€ reward could be considered as critical on program X and considered as low by program Y, right?</p>
+<p>On some platforms like Yogosha, the variable gain is also calculated depending the reward itself and not the severity, but a 500€ reward could be considered as critical on program X and considered as low by program Y, right?</p>
 <p>Moreover, a report with a 50€ reward will get the same points than a 500€ report, and a 2000€ report will get the same points than a 10000€ report.
-In that way, Hackerone system is a bit better since the severity used in the formula is based on the rewards and relative to the program configuration.</p>
+In that way, Hackerone system is better since the severity used in the formula is based on the rewards and relative to the program configuration.</p>
 <div style="float:left">
     <a href="https://glc.st/images/hackerone_reputation.jpg"><img src="https://glc.st/images/hackerone_reputation.jpg" alt="hackerone reputation" height="450" /></a>
 </div>
@@ -298,19 +302,18 @@ It has been reported by many whistleblowers.
 But wait!
 Problem is, when it was publicly revealed, there was no wild exploitation reported, not even a public exploit.
 So does it deserve the same attention?</p>
-<p>We can also talk about the SSL/TLS issues all hunters try to monetize at least once: CRIME, PODDLE, BREACH, DROWN&hellip;
+<p>We can also talk about the SSL/TLS issues all hunters try to monetize at least once: <em>CRIME, PODDLE, BREACH, DROWN</em>.
 Very famous, danger is real, but who is going to exploit such vulnerabilities?
 It&rsquo;s now considered out of scope by most of the security programs.</p>
-<p>Hunters: don&rsquo;t be mad if the bounties don&rsquo;t reflect the <i>potential</i> severity of the bugs you report.
-<u>Companies have to consider</u> the real risk, <u>the business impact</u> in case of exploitation against their systems/users.</p>
-<p>Companies: it works both way. 3 &ldquo;low&rdquo; bugs, individually rated 3.0 could lead to a disaster when chained, scoring a nice 10.0.
+<p>Hunters: don&rsquo;t be mad if the bounties don&rsquo;t reflect the potential severity of the bugs you report.
+<strong>Companies have to consider the real risk, the business impact</strong> in case of exploitation against their systems/users.</p>
+<p>Companies: it works both way. 3 low bugs, individually rated 3.0 could lead to a disaster when chained, scoring a nice 10.0.
 For example: login/logout CSRF + open redirect + self XSS.
 So don&rsquo;t be narrow.</p>
-<p>&gt; <a href="https://securityboulevard.com/2020/03/dont-be-misled-by-cvss-scores/">Don’t Be Misled by CVSS Scores</a><br>
+<p>&gt; <a href="https://securityboulevard.com/2020/03/dont-be-misled-by-cvss-scores/">Don&rsquo;t Be Misled by CVSS Scores</a><br>
 &gt; <a href="https://www.troopers.de/media/filer_public/cb/f0/cbf0181b-e9d8-408c-aef3-651bfd114d76/troopers13-pitfalls_of_vulnerability_ratinga_new_approach_called_errs-ernw_rapid_rating_system-michael_thumannmatthias_luft.pdf">Pitfalls of Vulnerability Rating</a></p>
 <h2 id="duplicates">Duplicates</h2>
-<p>Companies often encounter a problem when it comes to manage duplicate reports, here
-are my recommendations to deal with that.</p>
+<p>Companies often encounter a problem when it comes to manage duplicate reports, here are my recommendations to deal with that.</p>
 <p><strong>Case 1: single hunter, global issue.</strong><br>
 If it’s a global issue in the target, then only <u>1 report should be payed</u>.
 The hacker doesn’t really need to open several reports but if he does then he should get a unique good reward by taking care to explain why.
@@ -377,7 +380,7 @@ His story has been mentionned in a presentation by <a href="https://twitter.com/
 <p>Safe Harbor is real help as soon as it&rsquo;s included in the security policies.
 In my opinion it should be mandatory in every bug bounty programs on every platforms.
 For now, it&rsquo;s still pretty rare.
-Hackerone, Bugcrowd and Intigriti are the good examples.</p>
+Hackerone, Bugcrowd and Intigriti are the good examples in this topic.</p>
 <img src="https://glc.st/images/intigriti-safe-harbour.png" alt="intigriti safe harbour" />
 <p>&gt; <a href="https://www.digitalnewsasia.com/digital-economy/hackerone-offer-white-hats-safe-harbour">Hackerone: offer white hats a safe harbour</a><br>
 &gt; <a href="https://docs.github.com/en/site-policy/security-policies/github-bug-bounty-program-legal-safe-harbor">GitHub Bug Bounty Program Legal Safe Harbor</a><br>
@@ -388,8 +391,8 @@ Hackerone, Bugcrowd and Intigriti are the good examples.</p>
 <p>Take a minute to think about people who perform bug bounty as a full time job, think about beginnners.
 Hunters are not like big companies with a huge cash flow!
 They are normal peoples with duties and responsibilities <strong>#paythebills</strong>.</p>
-<h2 id="disclosure">Disclosure</h2>
-<p>Disclosure is a good marketing move as it shows companies concern about security.
+<h2 id="responsible-disclosure">Responsible disclosure</h2>
+<p>Reponsible disclosure is a good marketing move as it shows companies concern about security.
 It also helps to promote programs with the community.
 As reports are one of the best resource for hackers to learn, as they get better from them, it can be seen as good investment.</p>
 <p>Sharable informations:</p>
@@ -402,10 +405,7 @@ As reports are one of the best resource for hackers to learn, as they get better
 <li>full reports</li>
 <li>…</li>
 </ul>
-<p>Disclosure can be community reserved or public.</p>
-<style>
-    iframe { width: 400px !important; }
-</style>
+<p>Reponsible disclosure can be community reserved or public.</p>
         </div>
 
         <footer>

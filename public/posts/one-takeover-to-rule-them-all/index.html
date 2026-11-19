@@ -24,7 +24,8 @@
 
 <meta property="og:image" content="https://glc.st/images/edf-subto.png" />
 <meta property="article:published_time" content="2022-09-21T00:00:00+00:00" />
-<meta property="article:modified_time" content="2022-09-21T00:00:00+00:00" /><meta property="og:locale" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+<meta property="article:modified_time" content="2022-09-21T00:00:00+00:00" /><meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="fr_FR" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
     
@@ -61,7 +62,10 @@
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16"><meta name="generator" content="Hugo 0.147.0">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/posts/one-takeover-to-rule-them-all/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/articles/subdomain-takeover-en-pagaille-chez-edf/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/posts/one-takeover-to-rule-them-all/"><meta name="generator" content="Hugo 0.147.0">
 
     
 
@@ -120,7 +124,7 @@
         <span>|</span>
     </li>
       <li class="navigation-item language">
-        <a href="https://glc.st/fr/" lang="fr" title="Français"><img width="20" height="23" src="https://glc.st/assets/img/flags/fr.png" class="icon-flag" alt="Français" /></a>
+        <a href="https://glc.st/fr/articles/subdomain-takeover-en-pagaille-chez-edf/" hreflang="fr" lang="fr" rel="alternate" title="Français"><img width="20" height="23" src="https://glc.st/assets/img/flags/fr.png" class="icon-flag" alt="Français" /></a>
       </li>
     </ul>
   </section>
@@ -239,10 +243,10 @@ Exploited by a malicious user, it could have been devastating: social engineerin
 One admin bought <code>edf-linkbynet.FR</code> and the other one configured all CNAMEs to point to <code>edf-linkbynet.COM</code>, as simple as that!</p>
 <h2 id="the-tool">The tool</h2>
 <p>The tool, called <a href="https://github.com/gwen001/dnspy">dnspy</a>, is composed of 3 modules:</p>
-<p>1/ the grabber tries to find subdomains using external tools like subfinder, oneforall, github, amass&hellip; then alterations are created using altdns or dnsgen.</p>
-<p>2/ the resolver performs DNS queries on all subdomains grabbed and generated using massdns, trying to detect dead hosts, cnames&hellip;</p>
-<p>3/ the interpreter reads the output of the resolver and looks for possible takeover using the fingerprint file.
-It&rsquo;s inspired of subjack with some extra features like regexps support and an ignore list.</p>
+<p>1/ the <strong>grabber</strong> tries to find subdomains using external tools like <em>subfinder, oneforall, github, amass</em>&hellip; then alterations are created using altdns or dnsgen.</p>
+<p>2/ the <strong>resolver</strong> performs DNS queries on all subdomains grabbed and generated using <em>massdns</em>, trying to detect dead hosts, cnames&hellip;</p>
+<p>3/ the <strong>interpreter</strong> reads the output of the resolver and looks for possible takeover using the fingerprint file.
+It&rsquo;s inspired of <em>subjack</em> with some extra features like regexps support and an ignore list.</p>
 <p>The whole thing is daemon based and can be independently launched. Below some good findings.</p>
 <img src="https://glc.st/images/dnspy-acef.png" alt="edf nuclaire subdomain takeover" />
 <img src="https://glc.st/images/dnspy-bred.png" alt="edf nuclaire subdomain takeover" />

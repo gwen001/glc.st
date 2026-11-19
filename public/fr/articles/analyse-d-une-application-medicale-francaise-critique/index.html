@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Dans le cadre de mes activités habituelles en tant que chasseur de vulnérabilités (“bug bounty hunter”) et auditeur de sécurité pour des institutions sensibles, j’ai découvert une application dédiée …" />
+    <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/images/optimed-preview.png"/>
+
+<meta name="twitter:title" content="Analyse d&#39;une application médicale française critique - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Dans le cadre de mes activités habituelles en tant que chasseur de vulnérabilités (“bug bounty hunter”) et auditeur de sécurité pour des institutions sensibles, j’ai découvert une application dédiée …" />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Analyse d&#39;une application médicale française critique - Gwendal Le Coguic" />
+<meta property="og:description" content="Dans le cadre de mes activités habituelles en tant que chasseur de vulnérabilités (“bug bounty hunter”) et auditeur de sécurité pour des institutions sensibles, j’ai découvert une application dédiée …" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/" />
+
+<meta property="og:image" content="https://glc.st/images/optimed-preview.png" />
+<meta property="article:published_time" content="2025-04-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-04-21T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Analyse d&#39;une application médicale française critique - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/posts/analysis-of-a-critical-french-medical-application/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/posts/analysis-of-a-critical-french-medical-application/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2025-04-21","datePublished":"2025-04-21","description":"Dans le cadre de mes activités habituelles en tant que chasseur de vulnérabilités (\u0026amp;ldquo;bug bounty hunter\u0026amp;rdquo;) et auditeur de sécurité pour des …","headline":"Analyse d'une application médicale française critique","image":"https://glc.st/images/optimed-preview.png","inLanguage":"fr","keywords":"pii, leak, git, sql injection, rce, file upload, php","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/posts/analysis-of-a-critical-french-medical-application/" hreflang="en" lang="en" rel="alternate" title="English"><img width="20" height="23" src="https://glc.st/assets/img/flags/en.png" class="icon-flag" alt="English" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+        <a href="https://twitter.com/intent/tweet?text=Analyse%20d%27une%20application%20m%c3%a9dicale%20fran%c3%a7aise%20critique%20https%3a%2f%2fglc.st%2ffr%2farticles%2fanalyse-d-une-application-medicale-francaise-critique%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fanalyse-d-une-application-medicale-francaise-critique%2f&title=Analyse%20d%27une%20application%20m%c3%a9dicale%20fran%c3%a7aise%20critique" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fanalyse-d-une-application-medicale-francaise-critique%2f&amp;t=Analyse%20d%27une%20application%20m%c3%a9dicale%20fran%c3%a7aise%20critique" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Analyse%20d%27une%20application%20m%c3%a9dicale%20fran%c3%a7aise%20critique&body=https%3a%2f%2fglc.st%2ffr%2farticles%2fanalyse-d-une-application-medicale-francaise-critique%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Analyse%20d%27une%20application%20m%c3%a9dicale%20fran%c3%a7aise%20critique%20https%3a%2f%2fglc.st%2ffr%2farticles%2fanalyse-d-une-application-medicale-francaise-critique%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fanalyse-d-une-application-medicale-francaise-critique%2f&text=Analyse%20d%27une%20application%20m%c3%a9dicale%20fran%c3%a7aise%20critique" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2ffr%2farticles%2fanalyse-d-une-application-medicale-francaise-critique%2f&amp;title=Analyse%20d%27une%20application%20m%c3%a9dicale%20fran%c3%a7aise%20critique" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fanalyse-d-une-application-medicale-francaise-critique%2f&t=Analyse%20d%27une%20application%20m%c3%a9dicale%20fran%c3%a7aise%20critique" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Analyse d&#39;une application médicale française critique</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2025-04-21T00:00:00Z'>
+                            April 21, 2025
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        6 minutes de lecture
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <div>
+            <p>Dans le cadre de mes activités habituelles en tant que chasseur de vulnérabilités (&ldquo;bug bounty hunter&rdquo;) et auditeur de sécurité pour des institutions sensibles, j&rsquo;ai découvert une application dédiée au secteur de la santé, baptisée <strong>OptiMed</strong> (rédigé), développée par <strong>Synaptek Digital</strong> (rédigé) et utilisée dans de nombreux centres d&rsquo;imagerie médicale en France. Malheureusement, ce logiciel présente un niveau de sécurité catastrophique, exposant ainsi <strong>des millions de dossiers médicaux sensibles</strong>.</p>
+<h2 id="introducing-optimed">Introducing OptiMed</h2>
+<p>Selon le site du fournisseur :</p>
+<blockquote>
+<p>Synaptek Digital propose une solution globale entièrement intégrée, couvrant l&rsquo;ensemble des besoins d&rsquo;un centre ou d&rsquo;un service d&rsquo;imagerie médicale.</p></blockquote>
+<p><em>OptiMed</em> prend en charge les examens médicaux tels que les scanners et les IRMs, et prévoit différents rôles utilisateurs : patients, médecins, personnel administratif, administrateurs système, etc.</p>
+<p>Toujours selon leur site web :</p>
+<blockquote>
+<p>Synaptek Digital est expert en matière d&rsquo;interopérabilité et de sécurité des systèmes d&rsquo;information de santé depuis plus de 10 ans.</p></blockquote>
+<p>Pourtant, dans la réalité, la mise en œuvre constitue un véritable <strong>cauchemar en matière de sécurité</strong>.</p>
+<h2 id="vulnérabilités-critiques">Vulnérabilités critiques</h2>
+<h3 id="fuite-de-code-source">Fuite de code source</h3>
+<div style="float:left;width:550px;">
+    Premier problème critique : le répertoire <code>.git</code> était accessible publiquement à la racine du portail web :
+    <code>
+        https://www.irm-redacted.fr/.git/
+    </code>
+    <p>
+        Le souci, dans ce genre de situation, est qu'il est généralement possible de récupérer le code source de l'application. 
+        À l'aide de quelques manipulations Git et d'outils de piratage, j'ai rapidement pu récupérer le tout.
+    </p>
+    <p>
+        Répertoires et sous-répertoires, fichiers PHP, fichiers cachés, fichiers de configuration... rien ne manquait, et le code source était parfaitement intact. 
+    </p>
+    <p>
+        Au vu du désordre régnant dans le répertoire racine, je me doutais déjà que la situation serait grave. 
+        Il était temps de procéder à un audit de code "sérieux". 
+    </p>
+</div>
+<img src="https://glc.st/images/optimed-ls.png" alt="OptiMed file listing" width="300" style="float:right;" />
+<div style="clear:both;"></div>
+<h3 id="secrets">Secrets</h3>
+<div style="float:left;width:550px;">
+    Comme je réalise souvent des audits de code, je dispose d'expressions régulières personnalisées qui me permettent de détecter des éléments sensibles : 
+    <i>noms d'utilisateur</i>, <i>mots de passe</i>, <i>jetons</i>, <i>clés d'API</i>...
+    <p>
+        En somme, un simple <code>grep</code> lancé depuis le répertoire racine suffit à faire ressortir ces informations sensibles. 
+    </p>
+    <p>
+        Le résultat a été inattendu (enfin...) : j'ai mis la main sur des éléments plutôt compromettants, notamment :
+        des identifiants FTP, SMTP ou de base de données, des accès administrateur, et bien plus encore. 
+    </p>
+</div>
+<img src="https://glc.st/images/optimed-secrets-1.png" alt="OptiMed secrets" width="300" style="float:right;" vspace="3" />
+<img src="https://glc.st/images/optimed-secrets-2.png" alt="OptiMed secrets" width="300" style="float:right;" vspace="3" />
+<img src="https://glc.st/images/optimed-secrets-4.png" alt="OptiMed secrets" width="300" style="float:right;" vspace="3" />
+<div style="clear:both;"></div>
+<h3 id="injections-sql">Injections SQL</h3>
+<p>En ouvrant des fichiers PHP au hasard pour en examiner la qualité du code, je suis tombé sur de véritables abbérations.
+La plupart des pages contenaient des requêtes SQL non filtrées, manifestement dépourvues de toute validation des données en entrée.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>$lastname		<span style="color:#f92672">=</span> <span style="color:#a6e22e">isset</span>($_POST[<span style="color:#e6db74">&#39;nom&#39;</span>]) <span style="color:#f92672">?</span> $_POST[<span style="color:#e6db74">&#39;nom&#39;</span>] <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>$firstname		<span style="color:#f92672">=</span> <span style="color:#a6e22e">isset</span>($_POST[<span style="color:#e6db74">&#39;prenom&#39;</span>]) <span style="color:#f92672">?</span> $_POST[<span style="color:#e6db74">&#39;prenom&#39;</span>] <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>$email			<span style="color:#f92672">=</span> <span style="color:#a6e22e">isset</span>($_POST[<span style="color:#e6db74">&#39;email&#39;</span>]) <span style="color:#f92672">?</span> $_POST[<span style="color:#e6db74">&#39;email&#39;</span>] <span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;&#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$request <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;SELECT * FROM radio &#34;</span>;
+</span></span><span style="display:flex;"><span>$request<span style="color:#f92672">.=</span> <span style="color:#e6db74">&#34; WHERE lastname=&#39;</span><span style="color:#e6db74">$lastname</span><span style="color:#e6db74">&#39; &#34;</span>;
+</span></span><span style="display:flex;"><span>$request<span style="color:#f92672">.=</span> <span style="color:#e6db74">&#34; AND firstname=&#39;</span><span style="color:#e6db74">$firstname</span><span style="color:#e6db74">&#39; &#34;</span>;
+</span></span><span style="display:flex;"><span>$request<span style="color:#f92672">.=</span> <span style="color:#e6db74">&#34; AND email=&#39;</span><span style="color:#e6db74">$email</span><span style="color:#e6db74">&#39; &#34;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>$result <span style="color:#f92672">=</span> $mysql<span style="color:#f92672">-&gt;</span><span style="color:#a6e22e">query</span>($request);
+</span></span></code></pre></div><p>Il s&rsquo;agit de vulnérabilités classiques par injection SQL qui peuvent permettre :</p>
+<ul>
+<li>L&rsquo;extraction de données</li>
+<li>Le contournement de l&rsquo;authentification</li>
+<li>L&rsquo;accès administrateur</li>
+</ul>
+<h3 id="mots-de-passe">Mots de passe</h3>
+<p>En exploitant l&rsquo;une des nombreuses injection SQL, j&rsquo;ai pu examiner la structure de la base de données.
+J&rsquo;ai utilisé <a href="https://sqlmap.org/">SQLMap</a> pour recueillir des informations sur cette structure, lorsque la table <code>utilisateur</code> a attiré mon attention.</p>
+<p><img src="https://glc.st/images/optimed-utilisateurs.png" alt="OptiMed utilisateurs"></p>
+<p>Les mots de passe étaient manifestement stockés à l&rsquo;aide d&rsquo;un algorithme de hachage faible.
+Grâce à <a href="https://hashes.com/en/decrypt/hash">hashes.com</a>, j&rsquo;ai pu déchiffrer certains mots de passe en un instant :</p>
+<p><img src="https://glc.st/images/optimed-passwords.png" alt="OptiMed passwords"></p>
+<p>Mot de passe <em>administrateur</em> récupéré : accès au panneau d&rsquo;administration débloqué !</p>
+<h3 id="téléchargement-de-fichiers-arbitraires">Téléchargement de fichiers arbitraires</h3>
+<p>Une vulnérabilité liée au téléchargement de fichiers arbitraires survient lorsqu&rsquo;une application web permet aux utilisateurs
+de téléverser n&rsquo;importe quel type de fichier sans contrôles adéquats.
+Un attaquant peut exploiter cette faille pour importer des fichiers malveillants, tels que des &ldquo;web shells&rdquo;, ce qui peut conduire à l&rsquo;exécution de code à distance,
+au vol de données ou à la compromission du serveur.</p>
+<p>Plusieurs scripts de téléchargement de fichiers non protégés, comme celui-ci, étaient présents dans l&rsquo;application.<br>
+Une situation extrêmement dangereuse.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>$uploadDir <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;./&#34;</span>;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">isset</span>($_FILES[<span style="color:#e6db74">&#39;FileToImport&#39;</span>]))
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	$fichier <span style="color:#f92672">=</span> $uploadDir<span style="color:#f92672">.</span><span style="color:#a6e22e">basename</span>($_FILES[<span style="color:#e6db74">&#39;FileToImport&#39;</span>][<span style="color:#e6db74">&#39;name&#39;</span>]);
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span>(<span style="color:#a6e22e">move_uploaded_file</span>($_FILES[<span style="color:#e6db74">&#39;FileToImport&#39;</span>][<span style="color:#e6db74">&#39;tmp_name&#39;</span>], $fichier)) {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;Upload effectué avec succés !&lt;br&gt;&#39;</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">else</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">echo</span> <span style="color:#e6db74">&#39;Echec de l\&#39;upload !&lt;br&gt;&#39;</span>;
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">return</span>;
+</span></span><span style="display:flex;"><span>	}
+</span></span></code></pre></div><h3 id="interaction-système">Interaction système</h3>
+<p>Dans le pire des cas, les vulnérabilités par injection de commandes permettent l&rsquo;exécution arbitraire de commandes système à partir
+de données fournies par l&rsquo;utilisateur :</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-php" data-lang="php"><span style="display:flex;"><span>$PID <span style="color:#f92672">=</span> $_POST[<span style="color:#e6db74">&#39;PID&#39;</span>];
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">exec</span>(<span style="color:#e6db74">&#34;taskkill /F /PID </span><span style="color:#e6db74">$PID</span><span style="color:#e6db74">&#34;</span> );
+</span></span></code></pre></div><p>Un attaquant pourrait alors injecter n&rsquo;importe quelle commande pour neutraliser le système.</p>
+<p>Certains outils d&rsquo;administration critiques étaient également accessibles au public, sans aucun système d&rsquo;authentification.
+Inutile de préciser ce qui se passerait si un utilisateur malveillant venait à découvrir cela :
+<img src="https://glc.st/images/optimed-services.png" alt="OptiMed services"></p>
+<h2 id="une-surface-dattaque-gigantesque">Une surface d&rsquo;attaque gigantesque</h2>
+<p>Combien de centres médicaux utilisaient <em>OptiMed</em>, combien d&rsquo;instances ont été déployées et combien d&rsquo;utilisateurs auraient été affectés par une fuite de données ?
+En effectuant quelques recherches sur Shodan, notamment la classique technique du <a href="https://github.com/gwen001/favicon-hashtrick">hachage de favicon</a>,
+j&rsquo;ai identifié environ <strong>190 centres médicaux en France</strong> (ainsi que quelques-uns en Suisse) qui utilisaient cette application.</p>
+<p><img src="https://glc.st/images/optimed-shodan.png" alt="OptiMed Shodan"></p>
+<div style="float:left;width:450px;">
+    En utilisant une injection SQL sur l'ensemble d'entre eux, j'ai pu me faire une idée approximative du nombre d'utilisateurs exposés, hôte par hôte.
+    Les chiffres étaient effrayants ; je ne m'attendais absolument pas à cela.
+</div>
+<img src="https://glc.st/images/optimed-count.png" alt="OptiMed count" width="400" style="float:right;" />
+<div style="clear:both;"></div>
+<p>Au total, cela représente environ <strong>28 millions de patients</strong> et <strong>77 millions de résultats d&rsquo;examens médicaux</strong>.
+C&rsquo;était colossale !</p>
+<h2 id="ce-que-cela-révèle">Ce que cela révèle</h2>
+<p>En tant que développeur web &ldquo;à l&rsquo;ancienne&rdquo; devenu expert en sécurité, je comprends aisément l&rsquo;origine du problème :</p>
+<ul>
+<li>Absence de validation des données en entrée</li>
+<li>Absence de séparation des privilèges</li>
+<li>Des années de mauvaises pratiques accumulées</li>
+<li>Absence de revue de code et de tests de sécurité</li>
+<li>Un nombre incalculable de développeurs dépourvus de connaissances en matière de sécurité</li>
+</ul>
+<p>À ce stade, on peut affirmer que l&rsquo;éditeur du logiciel ne se sent pas concerné, car <strong>aucun effort n&rsquo;a été consacré à la sécurité</strong>.</p>
+<h2 id="et-ensuite-">Et ensuite ?</h2>
+<p>En 2022, j&rsquo;ai signalé la situation à l&rsquo;ANSSI - l&rsquo;agence nationale française de la sécurité des systèmes d&rsquo;information - en respectant les principes de divulgation responsable.</p>
+<p>Je n&rsquo;ai accédé à aucune donnée personnelle, et je n&rsquo;ai ni modifié, ni supprimé, ni altéré le moindre élément du système.
+Mon unique objectif était d&rsquo;éviter une catastrophe.</p>
+<p>En 2025, je constate que de nombreux centres médicaux ont changé de logiciel.
+Pour ceux qui continuent de l&rsquo;utiliser, je reste à la disposition des autorités et de l&rsquo;éditeur pour aider à résoudre ce problème.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>La sécurité dans les applications médicales ne saurait être facultative.
+Elle doit être intégrée dès le premier jour, ancrée dans les pratiques de développement et faire l&rsquo;objet d&rsquo;audits réguliers.</p>
+<p>Dans un monde où les données de santé constituent une cible critique à haute valeur, <em>OptiMed</em> représente l&rsquo;exemple type de ce qu&rsquo;il ne faut pas faire.</p>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

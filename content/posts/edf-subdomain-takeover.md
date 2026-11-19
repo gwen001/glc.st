@@ -63,12 +63,12 @@ One admin bought <code>edf-linkbynet.FR</code> and the other one configured all 
 
 The tool, called [dnspy](https://github.com/gwen001/dnspy), is composed of 3 modules:
 
-1/ the grabber tries to find subdomains using external tools like subfinder, oneforall, github, amass... then alterations are created using altdns or dnsgen.
+1/ the __grabber__ tries to find subdomains using external tools like _subfinder, oneforall, github, amass_... then alterations are created using altdns or dnsgen.
 
-2/ the resolver performs DNS queries on all subdomains grabbed and generated using massdns, trying to detect dead hosts, cnames...
+2/ the __resolver__ performs DNS queries on all subdomains grabbed and generated using _massdns_, trying to detect dead hosts, cnames...
 
-3/ the interpreter reads the output of the resolver and looks for possible takeover using the fingerprint file.
-It's inspired of subjack with some extra features like regexps support and an ignore list.
+3/ the __interpreter__ reads the output of the resolver and looks for possible takeover using the fingerprint file.
+It's inspired of _subjack_ with some extra features like regexps support and an ignore list.
 
 The whole thing is daemon based and can be independently launched. Below some good findings.
 

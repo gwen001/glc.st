@@ -173,7 +173,7 @@ unsafe= true
             [[languages.fr.menu.main]]
                 name = "Articles"
                 weight = 1
-                url  = "/posts/"
+                url  = "/fr/articles/"
             [[languages.fr.menu.main]]
                 name = "Formations"
                 weight = 2
@@ -205,3 +205,5 @@ unsafe= true
 
         [languages.fr.permalinks]
             courses = "/formations/:slug/"
+            posts   = "/articles/:slug/"
+

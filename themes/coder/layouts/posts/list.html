@@ -5,6 +5,12 @@
   <section class="container list posts">
     <h1 class="title">{{ .Title }}</h1>
 
+    {{ with .Content }}
+        <div class="list-intro">
+            {{ . }}
+        </div>
+    {{ end }}
+
     <ul>
       {{- range .Paginator.Pages -}}
         {{ $.Scratch.Set "year" (.Date.Format "2006") }}

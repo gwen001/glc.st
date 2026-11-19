@@ -225,9 +225,29 @@
   </url><url>
     <loc>https://glc.st/posts/analysis-of-a-critical-french-medical-application/</loc>
     <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/analysis-of-a-critical-french-medical-application/"
+                />
   </url><url>
     <loc>https://glc.st/posts/</loc>
     <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/"
+                />
   </url><url>
     <loc>https://glc.st/projects/</loc>
     <lastmod>2023-05-05T18:05:10+01:00</lastmod>
@@ -250,12 +270,42 @@
   </url><url>
     <loc>https://glc.st/posts/cve-demystified/</loc>
     <lastmod>2022-10-26T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/les-cves-demystifiees/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/cve-demystified/"
+                />
   </url><url>
     <loc>https://glc.st/posts/one-takeover-to-rule-them-all/</loc>
     <lastmod>2022-09-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/subdomain-takeover-en-pagaille-chez-edf/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/one-takeover-to-rule-them-all/"
+                />
   </url><url>
     <loc>https://glc.st/posts/the-underlying-rules-of-bug-bounty/</loc>
     <lastmod>2022-08-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/the-underlying-rules-of-bug-bounty/"
+                />
   </url><url>
     <loc>https://glc.st/posts/how-to-keep-hackers-motivated-in-bug-bounty/</loc>
     <lastmod>2020-04-04T00:00:00+00:00</lastmod>

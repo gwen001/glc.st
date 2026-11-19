@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="En raison du Covid, le premier confinement en France a eu lieu en mars 2020. Durant cette période, j’ai écrit un script Python pour détecter les détournements de sous-domaines (“Subdomain Takeover”). …" />
+    <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/images/edf-subto.png"/>
+
+<meta name="twitter:title" content="Subdomain Takeover en pagaille chez EDF - Gwendal Le Coguic" />
+<meta name="twitter:description" content="En raison du Covid, le premier confinement en France a eu lieu en mars 2020. Durant cette période, j’ai écrit un script Python pour détecter les détournements de sous-domaines (“Subdomain Takeover”). …" />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Subdomain Takeover en pagaille chez EDF - Gwendal Le Coguic" />
+<meta property="og:description" content="En raison du Covid, le premier confinement en France a eu lieu en mars 2020. Durant cette période, j’ai écrit un script Python pour détecter les détournements de sous-domaines (“Subdomain Takeover”). …" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/articles/subdomain-takeover-en-pagaille-chez-edf/" />
+
+<meta property="og:image" content="https://glc.st/images/edf-subto.png" />
+<meta property="article:published_time" content="2022-09-21T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-09-21T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Subdomain Takeover en pagaille chez EDF - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/articles/subdomain-takeover-en-pagaille-chez-edf/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/posts/one-takeover-to-rule-them-all/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/articles/subdomain-takeover-en-pagaille-chez-edf/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/posts/one-takeover-to-rule-them-all/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2022-09-21","datePublished":"2022-09-21","description":"En raison du Covid, le premier confinement en France a eu lieu en mars 2020. Durant cette période, j\u0026amp;rsquo;ai écrit un script Python pour détecter les …","headline":"Subdomain Takeover en pagaille chez EDF","image":"https://glc.st/images/edf-subto.png","inLanguage":"fr","keywords":"tools, subdomain takeover","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/fr/articles/subdomain-takeover-en-pagaille-chez-edf/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/posts/one-takeover-to-rule-them-all/" hreflang="en" lang="en" rel="alternate" title="English"><img width="20" height="23" src="https://glc.st/assets/img/flags/en.png" class="icon-flag" alt="English" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+        <a href="https://twitter.com/intent/tweet?text=Subdomain%20Takeover%20en%20pagaille%20chez%20EDF%20https%3a%2f%2fglc.st%2ffr%2farticles%2fsubdomain-takeover-en-pagaille-chez-edf%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fsubdomain-takeover-en-pagaille-chez-edf%2f&title=Subdomain%20Takeover%20en%20pagaille%20chez%20EDF" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fsubdomain-takeover-en-pagaille-chez-edf%2f&amp;t=Subdomain%20Takeover%20en%20pagaille%20chez%20EDF" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Subdomain%20Takeover%20en%20pagaille%20chez%20EDF&body=https%3a%2f%2fglc.st%2ffr%2farticles%2fsubdomain-takeover-en-pagaille-chez-edf%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Subdomain%20Takeover%20en%20pagaille%20chez%20EDF%20https%3a%2f%2fglc.st%2ffr%2farticles%2fsubdomain-takeover-en-pagaille-chez-edf%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fsubdomain-takeover-en-pagaille-chez-edf%2f&text=Subdomain%20Takeover%20en%20pagaille%20chez%20EDF" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2ffr%2farticles%2fsubdomain-takeover-en-pagaille-chez-edf%2f&amp;title=Subdomain%20Takeover%20en%20pagaille%20chez%20EDF" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fsubdomain-takeover-en-pagaille-chez-edf%2f&t=Subdomain%20Takeover%20en%20pagaille%20chez%20EDF" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Subdomain Takeover en pagaille chez EDF</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2022-09-21T00:00:00Z'>
+                            September 21, 2022
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        3 minutes de lecture
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <div>
+            <p>En raison du Covid, le premier confinement en France a eu lieu en mars 2020.
+Durant cette période, j&rsquo;ai écrit un script Python pour détecter les détournements de sous-domaines (&ldquo;Subdomain Takeover&rdquo;).
+Après avoir obtenu plusieurs succès avec cet outil, l&rsquo;un d&rsquo;entre eux s&rsquo;est avéré particulièrement remarquable.</p>
+<p><span style="font-size:1.5em;"><em>L&rsquo;histoire sur la manière dont j&rsquo;ai pris le contrôle de +450 sous-domaines du distributeur national d&rsquo;électricité en France <a href="https://www.edf.fr/">EDF</a>.</em></span></p>
+<p><a href="https://glc.st/images/edf-subto.png" target="_blank"><img src="https://glc.st/images/edf-subto.png" alt="edf subdomain takeover" height="450" /></a></p>
+<br>
+<hr>
+Je ne vais pas expliquer en quoi consiste le détournement de sous-domaine ; consultez donc les articles suivants si vous souhaitez en savoir plus :
+<p><a href="https://owasp.org/www-project-web-security-testing-guide/latest/4-Web_Application_Security_Testing/02-Configuration_and_Deployment_Management_Testing/10-Test_for_Subdomain_Takeover">Guide OWASP</a><br>
+<a href="https://www.hackerone.com/application-security/guide-subdomain-takeovers">Guide Hackerone</a><br>
+<a href="https://0xpatrik.com/subdomain-takeover-basics/">Les bases selon 0xpatrik</a></p>
+<hr>
+<br>
+Comme nous le savons tous, il existe plusieurs manières de prendre le contrôle d'un sous-domaine, mais la méthode la plus simple consiste probablement à acheter un nom de domaine expiré qui est disponible à l'achat.
+<br><br><br>
+<div style="float:left;width:420px">
+    <b>Découverte :</b><br>
+    À l'aide de mon outil <a href="https://github.com/gwen001/dnspy">dnspy</a>, j'ai découvert que <code>nucleaire.edf.fr</code> 
+    était un alias de <code>edf-linkbynet.com</code>. 
+    Une rapide recherche sur Gandi m'a permis de constater que ce dernier était disponible à l'achat pour environ 12 €/an. 
+    Sans savoir ce qui allait se passer ensuite, j'ai acheté le nom de domaine et l'ai configuré sur mon serveur pour afficher une page de démo.
+</div>
+<img hspace="10" src="https://glc.st/images/edf-subto-nucleaire.png" alt="Prise de contrôle de sous-domaine EDF (nucleaire.edf.fr)" height="300" />
+<div style="clear:both;"></div>
+<br>
+<div style="float:left;width:510px">
+    <b>Afflux de trafic !</b><br>
+    Quelques jours plus tard, j'ai consulté les journaux de mon serveur pour voir si quelqu'un avait effectué des requêtes vers le sous-domaine détourné. 
+    Quelle ne fut pas ma surprise de constater une multitude de requêtes ciblant divers sous-domaines dont j'ignorais absolument tout.
+</div>
+<a href="https://glc.st/images/edf-subto-logs.png" target="_blank"><img hspace="10" src="https://glc.st/images/edf-subto-logs.png" alt="Journaux relatifs au détournement de sous-domaine" height="300" /></a>
+<div style="clear:both;"></div>
+<p><br><br>
+À l&rsquo;époque, EDF disposait d&rsquo;un programme privé de Bug Bounty sur la plateforme française YesWeHack.
+N&rsquo;y ayant pas été invité, j&rsquo;ai utilisé le formulaire de contact dédié sur leur site web.
+Six semaines plus tard, et après plusieurs tentatives pour les joindre, le problème a été corrigé, comme par magie et en toute discrétion.</p>
+<p>Au total, plus de 450 sous-domaines étaient redirigés vers mon serveur.
+Entre les mains d&rsquo;une personne malveillante, les conséquences auraient pu être désastreuses : ingénierie sociale, hameçonnage, manipulation de cookies, faux systèmes de paiement, atteinte à la réputation de l&rsquo;entreprise&hellip;
+(Un simple <em>&ldquo;merci&rdquo;</em> aurait été apprécié).</p>
+<p>Quant à l&rsquo;origine du problème, je suppose qu&rsquo;il s&rsquo;agit d&rsquo;un défaut de communication entre les responsables techniques.
+L&rsquo;un des administrateurs a acheté le domaine <code>edf-linkbynet.FR</code>, tandis qu&rsquo;un autre a configuré tous les enregistrements CNAME pour pointer vers <code>edf-linkbynet.COM</code>, tout simplement !</p>
+<h2 id="the-tool">The tool</h2>
+<p>L&rsquo;outil, baptisé <a href="https://github.com/gwen001/dnspy">dnspy</a>, se compose de 3 modules :</p>
+<p>1/ Le <strong>collecteur</strong> tente de découvrir des sous-domaines en utilisant des outils externes tels que <em>subfinder, oneforall, github, amass,</em> etc. ; des variantes sont ensuite générées à l&rsquo;aide d&rsquo;altdns ou de dnsgen.</p>
+<p>2/ Le <strong>resolveur</strong> effectue des requêtes DNS sur l&rsquo;ensemble des sous-domaines collectés et générés, en utilisant <em>massdns</em>, afin de détecter des hôtes inactifs, des enregistrements CNAME, etc.</p>
+<p>3/ L&rsquo;<strong>interpreteur</strong> analyse les résultats fournis par le resolveur et recherche des possibilités de rachats en s&rsquo;appuyant sur un fichier d&rsquo;empreintes.
+L&rsquo;outil s&rsquo;inspire de <em>subjack</em>, tout en proposant des fonctionnalités supplémentaires, comme la prise en charge d&rsquo;expressions régulières et une liste d&rsquo;exclusions.</p>
+<p>L&rsquo;ensemble fonctionne sous forme de démon et peut être lancé de manière indépendante. Vous trouverez ci-dessous quelques exemples de résultats intéressants.</p>
+<img src="https://glc.st/images/dnspy-acef.png" alt="edf nuclaire subdomain takeover" />
+<img src="https://glc.st/images/dnspy-bred.png" alt="edf nuclaire subdomain takeover" />
+<img src="https://glc.st/images/dnspy-ce-picardie.png" alt="edf nuclaire subdomain takeover" />
+<img src="https://glc.st/images/dnspy-bpce.png" alt="edf nuclaire subdomain takeover" />
+<img src="https://glc.st/images/dnspy-jeunesse-gouv.png" alt="edf nuclaire subdomain takeover" height="200" />
+<img src="https://glc.st/images/dnspy-hillary.png" alt="edf nuclaire subdomain takeover" height="200" />
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

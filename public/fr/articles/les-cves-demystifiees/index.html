@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="En tant que chercheur en sécurité débutant, vous pourriez considérer l’obtention de votre propre CVE comme le Graal. Que sont les CVEs ? Qui peut les réclamer ? Est-il possible d’en obtenir à son nom …" />
+    <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/images/cve-mitre.png"/>
+
+<meta name="twitter:title" content="Les CVEs démystifiées - Gwendal Le Coguic" />
+<meta name="twitter:description" content="En tant que chercheur en sécurité débutant, vous pourriez considérer l’obtention de votre propre CVE comme le Graal. Que sont les CVEs ? Qui peut les réclamer ? Est-il possible d’en obtenir à son nom …" />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Les CVEs démystifiées - Gwendal Le Coguic" />
+<meta property="og:description" content="En tant que chercheur en sécurité débutant, vous pourriez considérer l’obtention de votre propre CVE comme le Graal. Que sont les CVEs ? Qui peut les réclamer ? Est-il possible d’en obtenir à son nom …" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/articles/les-cves-demystifiees/" />
+
+<meta property="og:image" content="https://glc.st/images/cve-mitre.png" />
+<meta property="article:published_time" content="2022-10-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-10-26T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Les CVEs démystifiées - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/articles/les-cves-demystifiees/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/posts/cve-demystified/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/articles/les-cves-demystifiees/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/posts/cve-demystified/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2022-10-26","datePublished":"2022-10-26","description":"En tant que chercheur en sécurité débutant, vous pourriez considérer l\u0026amp;rsquo;obtention de votre propre CVE comme le Graal. Que sont les CVEs ? Qui peut les …","headline":"Les CVEs démystifiées","image":"https://glc.st/images/cve-mitre.png","inLanguage":"fr","keywords":"cve","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/fr/articles/les-cves-demystifiees/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/posts/cve-demystified/" hreflang="en" lang="en" rel="alternate" title="English"><img width="20" height="23" src="https://glc.st/assets/img/flags/en.png" class="icon-flag" alt="English" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+        <a href="https://twitter.com/intent/tweet?text=Les%20CVEs%20d%c3%a9mystifi%c3%a9es%20https%3a%2f%2fglc.st%2ffr%2farticles%2fles-cves-demystifiees%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fles-cves-demystifiees%2f&title=Les%20CVEs%20d%c3%a9mystifi%c3%a9es" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fles-cves-demystifiees%2f&amp;t=Les%20CVEs%20d%c3%a9mystifi%c3%a9es" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Les%20CVEs%20d%c3%a9mystifi%c3%a9es&body=https%3a%2f%2fglc.st%2ffr%2farticles%2fles-cves-demystifiees%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Les%20CVEs%20d%c3%a9mystifi%c3%a9es%20https%3a%2f%2fglc.st%2ffr%2farticles%2fles-cves-demystifiees%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fles-cves-demystifiees%2f&text=Les%20CVEs%20d%c3%a9mystifi%c3%a9es" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2ffr%2farticles%2fles-cves-demystifiees%2f&amp;title=Les%20CVEs%20d%c3%a9mystifi%c3%a9es" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fles-cves-demystifiees%2f&t=Les%20CVEs%20d%c3%a9mystifi%c3%a9es" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Les CVEs démystifiées</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2022-10-26T00:00:00Z'>
+                            October 26, 2022
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        5 minutes de lecture
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <div>
+            <p>En tant que chercheur en sécurité débutant, vous pourriez considérer l&rsquo;obtention de votre propre CVE comme le Graal.</p>
+<p>Que sont les CVEs ?
+Qui peut les réclamer ?
+Est-il possible d&rsquo;en obtenir à son nom ?
+Où effectuer des recherches ? Sur quels produits ?</p>
+<p>Levons le voile sur ce mythe.</p>
+<h2 id="à-propose-des-cves">À propose des CVEs</h2>
+<p>Il peut y avoir de nombreuses raisons de vouloir obtenir son propre identifiant CVE : apprendre le processus, briller sur Twitter,
+l&rsquo;ajouter à son CV pour impressionner les recruteurs - même s&rsquo;ils ne savent pas forcément ce que cela signifie - ou toute autre motivation&hellip;
+Aucun jugement :)
+Certains trouveront cela stupide, d&rsquo;autres y verront une forme de reconnaissance, quoi qu&rsquo;il en soit, je pense qu&rsquo;il est intéressant de tenter
+l&rsquo;expérience dès que l&rsquo;on fait ses premiers pas dans le secteur de la cybersécurité, afin de comprendre comment le système fonctionne et
+ce que cela implique réellement.</p>
+<blockquote>
+<p>Le système &ldquo;Common Vulnerabilities and Exposures&rdquo; (CVE) constitue un répertoire d&rsquo;informations publiques sur les vulnérabilités de sécurité. Il est géré par la société Mitre Corporation, avec le soutien de la division nationale de cybersécurité (National Cyber ​​Security Division) du département de la Sécurité intérieure des États-Unis (US Department of Homeland Security). Ce système a été officiellement mis à la disposition du public en septembre 1999.</p></blockquote>
+<p>Si vous examinez les détails de la vulnérabilité <a href="https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2014-6271">Shellshock</a>, vous y trouverez les informations suivantes :</p>
+<p><strong>CVE-ID :</strong> il se présente sous la forme <code>CVE-AAAA-XXXX</code>, où <code>AAAA</code> correspond à l&rsquo;année d&rsquo;attribution et <code>XXXX</code> à un numéro séquentiel.</p>
+<p><strong>Description :</strong> un bref descriptif du problème en question.</p>
+<p><strong>References :</strong> une liste d&rsquo;URL renvoyant vers des articles, des annonces publiques, des exemples d&rsquo;exploits, etc.</p>
+<p><strong>Assigning CNA :</strong> l&rsquo;entité ayant attribué l&rsquo;identifiant CVE à la vulnérabilité.<br>
+<a href="https://www.cve.org/PartnerInformation/ListofPartners">https://www.cve.org/PartnerInformation/ListofPartners</a></p>
+<p><strong>Date Record Created :</strong> la date à laquelle l&rsquo;entrée a été créée.</p>
+<p>Les champs <em>Phase</em>, <em>Votes</em>, <em>Comments</em> (commentaires) et <em>Proposed</em> (proposé) sont désormais obsolètes.</p>
+<img src="https://glc.st/images/cve-infos.png" alt="cve informations" />
+<h2 id="trouver-des-failles">Trouver des failles</h2>
+<p>Vous pouvez facilement trouver un projet cible en fonction de vos ambitions.
+Gardez à l&rsquo;esprit qu&rsquo;il sera sans doute plus difficile de dénicher une faille au coeur d&rsquo;un logiciel comme GitLab que
+dans un plugin WordPress qui ne compte que 100 téléchargements, a été créé il y a 5 ans et n&rsquo;est plus maintenu.</p>
+<p>Pour rester au courant des dernières tendances en matière de sécurité, vous pouvez <a href="https://cve.mitre.org/data/downloads/index.html">télécharger la base de données des CVE</a> ou suivre <a href="https://twitter.com/CVEnew">CVEnew sur Twitter</a>, c&rsquo;est un excellent moyen de se tenir informé.</p>
+<p>Une bonne approche consiste à effectuer une <a href="https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=php">recherche de CVE</a> en lien avec vos compétences,
+ou à explorer des répertoires comme <a href="https://www.sourcecodester.com/php-project">sourcecodester.com</a>.
+C&rsquo;est une source INCROYABLE pour dénicher des CVE potentielles (particulièrement recommandé pour trouver des vulnérabilités faciles d&rsquo;accès).</p>
+<img src="https://glc.st/images/cve-search.png" alt="recherche de CVE" />
+<p>Une fois que vous avez identifié un projet qui correspond à vos critères, il est important de <a href="https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=Online&#43;Magazine&#43;Management">vérifier les CVE existantes</a> pour ce produit.
+Cela vous donnera une idée de sa popularité, de son niveau de sécurité et du type de vulnérabilités auxquelles vous pouvez vous attendre.
+Un nombre élevé de résultats indique la présence de nombreux bugs, et probablement que d&rsquo;autres personnes travaillent déjà sur le sujet.
+À l&rsquo;inverse, l&rsquo;absence de résultats peut signifier soit que le projet est très sécurisé, soit que personne ne s&rsquo;y est encore penché&hellip;</p>
+<p>Enfin, téléchargez le projet choisi et lancez-vous !
+Si vous débutez dans l&rsquo;audit de code, jetez un œil à cet ancien article que j&rsquo;ai rédigé sur <a href="https://glc.st/posts/wordpress-testing/">le test de plugins WordPress</a>,
+vous y trouverez des expressions régulières simples mais très utiles.</p>
+<h2 id="processus-de-demande">Processus de demande</h2>
+<p>Notez que tout le monde peut signaler une vulnérabilité ou demander un identifiant CVE.</p>
+<p>Je vous recommande tout d&rsquo;abord de consulter le <a href="https://github.com/CVEProject/cveproject.github.io/blob/gh-pages/requester/reservation-guidelines.md">guide officiel</a>, qui fournit toutes les précisions nécessaires sur le processus de demande, une procédure relativement simple.</p>
+<p>Lorsque vous découvrez une faille, vous devez impérativement vérifier si elle a déjà été signalée.
+Il est impossible de signaler deux fois la même vulnérabilité, votre demande serait rejetée.
+Prenez donc le temps de <a href="https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=Online&#43;Magazine&#43;Management">vérifier les CVE existantes</a> pour le projet concerné.</p>
+<p>Si la faille semble inédite, vous pouvez contacter l&rsquo;éditeur en lui fournissant tous les détails :</p>
+<ul>
+<li>nom du projet</li>
+<li>URL ou paramètre vulnérable</li>
+<li>procédure de reproduction du bug</li>
+<li>capture d&rsquo;écran ou vidéo</li>
+<li>exploit</li>
+<li>&hellip;</li>
+</ul>
+<p>Il est d&rsquo;usage d&rsquo;accorder à l&rsquo;auteur un délai suffisant pour corriger le problème et publier une nouvelle version.</p>
+<p>L&rsquo;étape suivante consiste à remplir le formulaire disponible à l&rsquo;adresse suivante : <a href="https://cveform.mitre.org/">https://cveform.mitre.org/</a>
+Sélectionnez l&rsquo;option <em>&ldquo;Report Vulnerability/Request CVE ID&rdquo;</em> (Signaler une vulnérabilité/Demander un identifiant CVE) et
+saisissez toutes les informations requises.
+N&rsquo;hésitez pas à <a href="https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=file&#43;upload">rechercher des failles similaires</a> pour vous aider à rédiger la description.</p>
+<p>Une fois la demande soumise, vous recevrez un e-mail confirmant sa bonne réception, il se présente comme suit :
+<img src="https://glc.st/images/cve-request-confirmation.png" width="750" alt="Confirmation de demande CVE" /></p>
+<p>Si votre demande est acceptée, vous recevrez ultérieurement un autre e-mail contenant votre identifiant CVE ainsi qu&rsquo;un récapitulatif
+de toutes les informations associées.</p>
+<p>Enfin, vous pouvez publier un article et en transmettre l&rsquo;URL à MITRE en répondant à cet e-mail,
+OU retourner sur le <a href="https://cveform.mitre.org/">formulaire de demande</a> et sélectionner l&rsquo;option <em>&ldquo;Notify CVE about a publication&rdquo;</em>.
+Les références de votre CVE seront alors mises à jour.</p>
+<p>Et voilà, c&rsquo;est tout !</p>
+<p><strong>Notez que l&rsquo;ensemble du processus peut prendre un certain temps, en fonction de la popularité du projet concerné, de la criticité de la faille et de la charge de travail des personnes en charge de ce processus.</strong></p>
+<br>
+Enjoy !
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

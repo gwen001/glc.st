@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Les programmes de bug bounty s’accompagnent de plateformes, de périmètres et de rémunérations, mais aussi d’un ensemble de règles officieuses. Ces normes invisibles façonnent les interactions entre …" />
+    <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Les règles sous-jacentes du bug bounty - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Les programmes de bug bounty s’accompagnent de plateformes, de périmètres et de rémunérations, mais aussi d’un ensemble de règles officieuses. Ces normes invisibles façonnent les interactions entre …" />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Les règles sous-jacentes du bug bounty - Gwendal Le Coguic" />
+<meta property="og:description" content="Les programmes de bug bounty s’accompagnent de plateformes, de périmètres et de rémunérations, mais aussi d’un ensemble de règles officieuses. Ces normes invisibles façonnent les interactions entre …" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2022-08-01T00:00:00+00:00" />
+<meta property="article:modified_time" content="2022-08-01T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Les règles sous-jacentes du bug bounty - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/posts/the-underlying-rules-of-bug-bounty/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/posts/the-underlying-rules-of-bug-bounty/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2022-08-01","datePublished":"2022-08-01","description":"Les programmes de bug bounty s’accompagnent de plateformes, de périmètres et de rémunérations, mais aussi d’un ensemble de règles officieuses. Ces normes …","headline":"Les règles sous-jacentes du bug bounty","inLanguage":"fr","keywords":"bug bounty, management","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/posts/the-underlying-rules-of-bug-bounty/" hreflang="en" lang="en" rel="alternate" title="English"><img width="20" height="23" src="https://glc.st/assets/img/flags/en.png" class="icon-flag" alt="English" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+        <a href="https://twitter.com/intent/tweet?text=Les%20r%c3%a8gles%20sous-jacentes%20du%20bug%20bounty%20https%3a%2f%2fglc.st%2ffr%2farticles%2fles-regles-sous-jacentes-du-bug-bounty%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fles-regles-sous-jacentes-du-bug-bounty%2f&title=Les%20r%c3%a8gles%20sous-jacentes%20du%20bug%20bounty" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fles-regles-sous-jacentes-du-bug-bounty%2f&amp;t=Les%20r%c3%a8gles%20sous-jacentes%20du%20bug%20bounty" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Les%20r%c3%a8gles%20sous-jacentes%20du%20bug%20bounty&body=https%3a%2f%2fglc.st%2ffr%2farticles%2fles-regles-sous-jacentes-du-bug-bounty%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Les%20r%c3%a8gles%20sous-jacentes%20du%20bug%20bounty%20https%3a%2f%2fglc.st%2ffr%2farticles%2fles-regles-sous-jacentes-du-bug-bounty%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fles-regles-sous-jacentes-du-bug-bounty%2f&text=Les%20r%c3%a8gles%20sous-jacentes%20du%20bug%20bounty" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2ffr%2farticles%2fles-regles-sous-jacentes-du-bug-bounty%2f&amp;title=Les%20r%c3%a8gles%20sous-jacentes%20du%20bug%20bounty" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fles-regles-sous-jacentes-du-bug-bounty%2f&t=Les%20r%c3%a8gles%20sous-jacentes%20du%20bug%20bounty" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Les règles sous-jacentes du bug bounty</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2022-08-01T00:00:00Z'>
+                            August 1, 2022
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        15 minutes de lecture
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <div>
+            <p>Les programmes de bug bounty s’accompagnent de plateformes, de périmètres et de rémunérations, mais aussi d’un ensemble de règles officieuses.
+Ces normes invisibles façonnent les interactions entre les hackers et les entreprises, qu’il s’agisse de communication, de confiance,
+des usages en matière de signalement de vulnérabilités ou des récompenses.
+Cet article met en lumière les bonnes et les mauvaises pratiques, les « à faire » et les « à éviter », que tout chasseur de vulnérabilités et
+tout responsable de programme se doit de connaître.</p>
+<h2 id="3-entités-3-rôles">3 entités, 3 rôles</h2>
+<p>Le milieu du bug bounty se compose principalement de 3 grandes entités, chacune ayant un rôle spécifique :</p>
+<p><strong>Programmes : le besoin.</strong> Les entreprises souhaitant tester leur sécurité.
+Au-delà du tri des remontées, les entreprises ont fort à faire :
+Établir des politiques détaillées pour orienter les chercheurs vers les vulnérabilités les plus critiques.
+Préparer les processus internes des équipes concernées pour gérer le flux de rapports.
+Évaluer la sévérité de chaque signalement, verser les récompenses correspondantes et, enfin, <u>corriger les failles</u>.</p>
+<p>&gt; <a href="https://glc.st/posts/5-things-to-do-before-running-your-first-bug-bounty-program/">5 points à aborder avant de lancer votre premier programme de bug bounty</a><br>
+&gt; <a href="https://glc.st/posts/5-things-to-avoid-in-bug-bounty/">5 erreurs à éviter dans le cadre d’un programme de bug bounty</a><br>
+&gt; <a href="https://glc.st/posts/how-to-keep-hackers-motivated-in-bug-bounty/">Comment maintenir la motivation des hackers dans un programme de bug bounty</a></p>
+<p><strong>Hackers : la solution.</strong> Des passionnés d’informatique qui souhaitent mettre leurs compétences à profit pour générer des revenus.
+Leur mission consiste, bien évidemment, à découvrir des failles, mais pas seulement.
+La rédaction d’un rapport de qualité est essentielle pour permettre aux entreprises de bien comprendre la nature du problème.
+Il incombe également aux hackers de démontrer la gravité des failles, <u>ainsi que leur impact sur l’activité</u>,
+un critère déterminant pour le montant des récompenses.
+Enfin, ils peuvent vérifier la correction déployée ; une démarche facultative, mais très appréciée par les entreprises.</p>
+<p>&gt; <a href="https://glc.st/posts/how-to-write-a-bug-bounty-report/">Comment rédiger un rapport dans le cadre d’un programme de bug bounty</a></p>
+<p><strong>Plateformes : le lien manquant.</strong>
+Le secteur du bug bounty, tel que nous le connaissons aujourd’hui, n’existerait probablement pas sans ces plateformes.
+Cela ne signifie pas pour autant qu’elles occupent une position dominante ; elles ont un rôle crucial à jouer auprès des deux autres parties prenantes.
+Leur mission consiste essentiellement à accompagner les entreprises ET les hackers, en instaurant une relation de confiance entre tous les acteurs.
+<u>Elles jouent un rôle essentiel dans la préparation des entreprises</u> face à des situations imprévues, agissant en quelque sorte comme des mentors.
+Et puisqu’elles vendent littéralement les services de hackers, il incombe aux plateformes de veiller à ce que ces derniers soient
+<u>respectés et récompensés</u> pour leur travail.</p>
+<p>&gt; <a href="https://github.com/disclose/bug-bounty-platforms">Liste de plateformes de programmes de bug bounty</a></p>
+<h2 id="respect">Respect</h2>
+<p>Oui, c&rsquo;est une règle bien réelle, et même l&rsquo;une des plus importantes !</p>
+<p>Cela peut paraître évident, voire naturel, mais je vois trop de signalements où les parties ne se comprennent pas,
+ce qui débouche rapidement sur des réactions discourtoises.
+Si vous vous retrouvez dans une situation où vous ne comprenez pas la décision prise par l&rsquo;autre partie, essayez de vous mettre
+à sa place pendant un instant ; cela pourrait changer votre point de vue.</p>
+<p>En tant que hacker, vous devez comprendre que les programmes doivent gérer un volume considérable de remontées.
+Ils sont contraints d&rsquo;établir des priorités ; inutile donc de demander des nouvelles toutes les deux heures, attendez au moins une semaine.
+Si la récompense n&rsquo;est pas à la hauteur de vos attentes, relisez votre signalement : peut-être manque-t-il de clarté,
+ou peut-être n&rsquo;avez-vous pas suffisamment démontré l&rsquo;impact réel du problème.
+D&rsquo;après mon expérience, les programmes acceptent généralement de réexaminer la sévérité (et parfois le montant de la prime) si vous parvenez à
+avancer des arguments pertinents ; toutefois, <strong>rester professionnel est une condition indispensable</strong>.</p>
+<div style="float:left">
+    <img src="https://glc.st/images/weekend-update.jpg" alt="weekend update on report" />
+</div>
+<div style="float:right">
+    <blockquote class="twitter-tweet"><p lang="en" dir="ltr">I have a new found respect for triage teams for bug bounties. Oh my gods the stuff they have to put up with.</p>&mdash; Alyssa Herrera🇩🇰 🏳️‍⚧️ (@Alyssa_Herrera_) <a href="https://twitter.com/Alyssa_Herrera_/status/1260656416118849536?ref_src=twsrc%5Etfw">May 13, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</div>
+<div style="clear:both;"></div>
+<p>En tant que gestionnaire de programme, vous devez comprendre que les hackers consacrent beaucoup de temps à la recherche de failles ;
+c&rsquo;est une activité très chronophage.
+Il est donc toujours frustrant de voir un rapport rejeté au motif que le problème était connu depuis six mois, sans pour autant avoir été corrigé&hellip;
+Si votre équipe de développement est en mesure d&rsquo;escalader une faille d&rsquo;un niveau moyenne à critique,
+faites preuve d&rsquo;honnêteté et ajustez la récompense en conséquence ; les hackers n&rsquo;ont pas accès à toutes les informations dont vous disposez.
+Par ailleurs, vous devriez sérieusement envisager de <strong>rémunérer dès l&rsquo;étape du triage</strong> : les remerciements <em>&ldquo;kudos&rdquo;</em> ne payent pas
+les factures aussi bien que de l&rsquo;argent.</p>
+<p>Si aucune des parties ne parvient à gérer la situation de manière appropriée, inutile de recourir à des propos offensants ou à des sanctions.
+N&rsquo;oubliez pas que <strong>le respect est une voie à double sens</strong> : vous ne pouvez pas l&rsquo;exiger si vous traitez les autres avec mépris.
+Gardez donc votre calme et ouvrez un ticket auprès du support de la plateforme.
+C&rsquo;est leur rôle de gérer ce type de situation, ils agissent en quelque sorte comme des arbitres, et ils sont (bien) rémunérés pour cela (% des récompenses et les abonnements des entreprises).
+N&rsquo;hésitez donc pas à faire appel à eux, quel que soit le camp auquel vous appartenez.</p>
+<h2 id="la-réputation-ne-fait-pas-tout">La réputation ne fait pas tout</h2>
+<p><strong>Une réputation élevée n&rsquo;est pas synonyme de bon hacker.</strong>
+L&rsquo;objectif ici n&rsquo;est pas de détailler tous les systèmes de réputation, mais simplement de mettre en évidence certains de leurs écueils.</p>
+<p>Tout d&rsquo;abord, il faut noter que rares sont les situations entraînant une perte de réputation, ce qui est en soi une bonne chose.
+Cela implique que, si vous n&rsquo;êtes pas un spammeur invétéré mais plutôt un hacker normale - autant qu&rsquo;un hacker puisse l&rsquo;être - votre réputation ne fera qu&rsquo;augmenter.
+Avec le temps, vous finirez par atteindre ces fameux paliers de 5k, 10k, 15k points&hellip;</p>
+<p>Par ailleurs, si l&rsquo;on examine la plateforme HackerOne, on constate qu&rsquo;un rapport jugé critique rapporte 57 points, contre 17 points pour un rapport de gravité faible.
+Sur YesWeHack, un rapport critique accepté rapporte 50 points, tandis qu&rsquo;un rapport faible en rapporte 15.
+En somme, sur ces deux plateformes, <strong>3 rapports de criticité faible rivalisent avec un seul rapport critique</strong> -&gt; 3<em>CRLF = 1</em>RCE.</p>
+<p>Sur certaines plateformes comme Yogosha, le gain de points est également calculé en fonction du montant de la prime plutôt qu&rsquo;en fonction de la sévérité.
+Or, une prime de 500€ peut être considérée comme critique sur un programme donné, mais comme faible sur un autre, n&rsquo;est-ce pas ?</p>
+<p>De plus, un rapport récompensé par 50€ rapporte autant de points qu&rsquo;un rapport récompensé par 500€, et un rapport primé à 2000€ en rapporte autant qu&rsquo;un autre primé à 10000€.
+À cet égard, le système de HackerOne est mieux conçu, car la gravité utilisée dans le calcul est déterminée en fonction des primes, tout en restant relative à la configuration propre à chaque programme.</p>
+<div style="float:left">
+    <a href="https://glc.st/images/hackerone_reputation.jpg"><img src="https://glc.st/images/hackerone_reputation.jpg" alt="hackerone reputation" height="450" /></a>
+</div>
+<div style="float:right">
+    <a href="https://glc.st/images/yeswehack_report_workflow.jpg"><img src="https://glc.st/images/yeswehack_report_workflow.jpg" alt="yeswehack report workflow" height="450" /></a>
+</div>
+<div style="clear:both;"></div>
+<p>Enfin, il faut savoir que la réputation, c&rsquo;est comme l&rsquo;argent : plus on en a, plus on en reçoit.
+Dès qu&rsquo;un hacker atteint un rang élevé, il devient une valeur sûre pour les plateformes.
+Il est promu, reçoit davantage d&rsquo;invitations privées, d&rsquo;accès à des ressources privées, d&rsquo;entretiens et d&rsquo;événements, ce qui se traduit par plus de bugs et une meilleure réputation, indépendamment de la pertinence de ses rapports.</p>
+<p>Attention, je ne dis pas que tous les hackers les mieux classés sont des « farmeurs », loin de là, mais certains le sont.
+Et alors ?
+Ce n&rsquo;est pas grave, ça fait partie du jeu. Ce n&rsquo;est pas un problème dès que tout le monde en est conscient.
+Alors, analysez attentivement les chiffres et comprenez leur signification.</p>
+<p>Heureusement, certaines plateformes utilisent d&rsquo;autres indicateurs comme le <strong>signal</strong>, l&rsquo;<strong>impact</strong> et le <strong>taux d&rsquo;acceptation</strong>, qui sont de bons indicateurs de qualité.
+En tant que responsable de programme, vous préférerez peut-être vous fier à ces indicateurs pour la sélection des hunters.</p>
+<p>&gt; <a href="https://docs.hackerone.com/hackers/signal-and-impact.html">Signal en Impact sur Hackerone</a><br>
+&gt; <a href="https://www.bugcrowd.com/blog/how-we-measure-researcher-performance/">Comment nous mesurons la performance des chercheurs sur Bugcrowd</a></p>
+<h2 id="le-cvss-nest-pas-tout">Le CVSS n&rsquo;est pas tout</h2>
+<p>Comme indiqué sur le <a href="https://www.first.org/cvss/calculator/3.1">site officiel</a> :</p>
+<blockquote>
+<p>Le Common Vulnerability Scoring System (CVSS) est un cadre ouvert permettant de communiquer les caractéristiques et la gravité des vulnérabilités logicielles. CVSS se compose de trois groupes de métriques : Base, Temporelles et Environnementales. Le groupe Base représente les qualités intrinsèques d&rsquo;une vulnérabilité, constantes dans le temps et quel que soit l&rsquo;environnement utilisateur. Le groupe Temporelles reflète les caractéristiques d&rsquo;une vulnérabilité qui évoluent avec le temps. Enfin, le groupe Environnemental représente les caractéristiques d&rsquo;une vulnérabilité propres à l&rsquo;environnement de l&rsquo;utilisateur. Les métriques Base produisent un score compris entre 0 et 10, qui peut ensuite être ajusté en fonction des scores des métriques Temporelles et Environnementales.</p></blockquote>
+<p>Là encore, je ne vais pas expliquer en détail ce qu&rsquo;est le CVSS et comment il fonctionne, mais seulement illustrer certains pièges qui le rendent inutile dans certaines situations. Car oui, je vous le dis haut et fort :
+<strong>CVSS n&rsquo;est pas la seule source de vérité.</strong></p>
+<p>Les 7 différences :</p>
+<div style="float:left">
+    <img src="https://glc.st/images/cvss-rce2.jpg" alt="cvss rce" width="420" />
+</div>
+<div style="float:right">
+    <img src="https://glc.st/images/cvss-rce2.jpg" alt="cvss rce" width="420" />
+</div>
+<div style="clear:both;"></div>
+<p>Ne vous cassez pas la tête, il s&rsquo;agit de la même image.
+Imaginez un instant que la première capture d&rsquo;écran concerne un serveur web ou un serveur de base de données en production, tandis que la seconde
+provient d&rsquo;un serveur de test hébergeant uniquement le script malveillant, sans aucune donnée ni connexion réseau.
+Le score CVSS est identique, mais l&rsquo;impact serait-il le même ?
+De ce fait, les primes peuvent varier considérablement.</p>
+<p>Dans le camp des vulnérabilités critiques, on trouve des failles très connues comme <a href="https://www.cvedetails.com/cve/CVE-2016-3714/">ImageTragick</a>
+et <a href="https://www.cvedetails.com/cve/CVE-2017-5638/">Struts</a>, toutes deux avec un score CVSS de 10.0 en raison de leur impact dévastateur.
+Ces deux failles ont été largement signalées et exploitées avec succès sur de nombreux systèmes.
+D&rsquo;un autre côté, on retrouve une autre faille célèbre appelée <a href="https://www.cvedetails.com/cve/CVE-2019-0708/">Bluekeep</a>,
+qui mérite elle aussi une excellente note (10/10) en raison de la gravité de son impact potentiel.
+Elle a été signalée par de nombreux lanceurs d&rsquo;alerte.
+Le problème, c&rsquo;est que lors de sa révélation publique, aucune exploitation à grande échelle n&rsquo;a été signalée, pas même une exploitation publique !
+Mérite-t-elle alors la même attention ?</p>
+<p>On peut également évoquer les failles SSL/TLS que tous les bug hunters tentent d&rsquo;exploiter au moins une fois : <em>CRIME, PODDLE, BREACH, DROWN</em>.
+Très connues, le danger est bien réel, mais qui va exploiter de telles vulnérabilités ?
+Elles sont désormais considérées comme hors de leur champ d&rsquo;action par la plupart des programmes de sécurité.</p>
+<p>Hackers : ne vous énervez pas si les primes ne reflètent pas la sévérité potentielle des bugs que vous signalez.
+<strong>Les entreprises doivent prendre en compte le risque réel et l&rsquo;impact commercial</strong> en cas d&rsquo;exploitation de leurs systèmes ou de leurs utilisateurs.</p>
+<p>Attention : cela fonctionne dans les deux sens.
+Trois failles mineures, notées individuellement à 3.0, peuvent s&rsquo;avérer catastrophiques lorsqu&rsquo;elles sont combinées, atteignant un score de 10.0.
+Par exemple : une faille CSRF lors de la connexion/déconnexion, redirection ouverte et XSS réfléchie.
+Il est donc essentiel d&rsquo;avoir une vision globale.</p>
+<p>&gt; <a href="https://securityboulevard.com/2020/03/dont-be-misled-by-cvss-scores/">Ne vous laissez pas tromper par les scores CVSS.</a><br>
+&gt; <a href="https://www.troopers.de/media/filer_public/cb/f0/cbf0181b-e9d8-408c-aef3-651bfd114d76/troopers13-pitfalls_of_vulnerability_ratinga_new_approach_called_errs-ernw_rapid_rating_system-michael_thumannmatthias_luft.pdf">Pièges liés à l&rsquo;évaluation de vulnérabilité</a></p>
+<h2 id="doublons">Doublons</h2>
+<p>Les entreprises rencontrent souvent des difficultés pour gérer les rapports en double.
+Voici mes recommandations pour y remédier.</p>
+<p><strong>Cas 1 : Un seul chercheur, problème global.</strong><br>
+S&rsquo;il s&rsquo;agit d&rsquo;un problème global au sein de la cible, <u>un seul rapport doit être rémunéré</u>.
+Le chercheur n&rsquo;a pas besoin d&rsquo;ouvrir plusieurs rapports, mais s&rsquo;il le fait, il doit recevoir une récompense conséquente en
+expliquant clairement ses motivations.
+Exemple : absence de protection CSRF, tous les formulaires du site sont vulnérables, il s&rsquo;agit d&rsquo;un problème global.</p>
+<p><strong>Cas 2 : Un seul bug hunter, problème spécifique.</strong><br>
+La règle : <em>1 correction → 1 prime</em> s&rsquo;applique.
+Exemple : 5 injections SQL ont été découvertes dans 5 points de terminaison, les URLs sont quasiment identiques, tout comme le paramètre vulnérable.
+Si, en arrière-plan, la même fonction est appelée et qu&rsquo;une correction dans cette fonction résout le problème, la règle <em>« même cause racine »</em> s&rsquo;applique :
+le hacker est récompensé uniquement lorsque tous les autres rapports sont clos de manière à ce qu&rsquo;il ne perde aucun point.
+Cependant, si le code nécessite cinq corrections, les cinq rapports doivent être récompensés en fonction de leur gravité respective.</p>
+<p><strong>Cas 3 : plusieurs bug hunters, même problème</strong>, la situation la plus courante.<br>
+La règle courante dans le secteur des programmes de primes aux bogues s&rsquo;applique : <strong>premier arrivé, premier servi</strong>.
+Toutefois, si un chasseur fournit plus d&rsquo;informations que ses prédécesseurs (rapport détaillé, informations additionnelles&hellip;), il mérite une prime.
+Exemple : le chasseur 1 signale une vulnérabilité CSRF dans un formulaire, le chasseur 2 la révèle sur l&rsquo;ensemble du site web. <u>les deux méritent une récompense</u>.</p>
+<p>Quelle que soit la situation, un chercher devrait toujours être invité à consulter le signalement initial, ou au moins obtenir l&rsquo;identifiant, c&rsquo;est le minimum.
+Notez que chaque plateforme gère les doublons différemment.
+D&rsquo;un bonus lié au statut du signalement à une perte de réputation, tout est possible.
+Et, au final, les chercheurs n&rsquo;ont aucun contrôle sur cette problèmatique, c&rsquo;est plus un inconvénient qu&rsquo;autre chose pour eux.</p>
+<img src="https://glc.st/images/duplicates.jpg" alt="duplicates" />
+<p>Parlons maintenant des raisons pour lesquelles les doublons sont si fréquents.  Il y en a essentiellement 3 raisons :</p>
+<ul>
+<li>
+<p><strong>Règles inadéquates.</strong>
+L&rsquo;entreprise a peut-être connaissance de certains problèmes suite à un test d&rsquo;intrusion.
+Certains bugs ne sont pas considérés comme de véritables bugs : problèmes connus, non corrigés, « on verra bien », « ce n&rsquo;est pas si grave »,
+« on verra plus tard »&hellip;
+Les hackers sont certes des magiciens, mais ils ne lisent pas dans les pensées.</p>
+</li>
+<li>
+<p><strong>Surcharge.</strong> Dès le lancement d&rsquo;un programme, tous les hackers de la communauté se ruent sur la cible, ou seulement les invités, ou encore leurs bots.
+Quoi qu&rsquo;il en soit, les signalements affluent dans les jours qui suivent.
+Une entreprise mal préparée ne pourra pas tous les traiter dans un délai raisonnable.</p>
+</li>
+<li>
+<p><strong>Bugs non corrigés.</strong> La honte absolue.
+À quoi sert alors un programme de bug bounty ?
+C&rsquo;est un manque de respect envers les hackers qui consacrent leur temps à trouver des failles dans un système.
+Hunters : évitez ces programmes autant que possible.</p>
+</li>
+</ul>
+<h2 id="safe-harbor">Safe Harbor</h2>
+<p>Selon le secteur d&rsquo;activité (banque, assurance, gouvernement&hellip;), il peut être très difficile pour une entreprise de mettre en place un programme de bug bounty en raison des réglementations applicables : traçabilité des utilisateurs, conservation des fichiers de logs pendant des mois/années, restrictions géographiques, etc.
+C&rsquo;est pourquoi les plateformes déploient des efforts considérables pour fournir les services nécessaires : VPN, logs, sauvegardes, sélection des hackers (qui ne repose pas uniquement sur la réputation).</p>
+<p>L&rsquo;objectif est bien sûr de respecter la loi, mais c&rsquo;est aussi un moyen pour les entreprises de suivre les tests exécutés et par qui.
+Imaginez qu&rsquo;un hacker signale une injection SQL et que les développeurs constatent la suppression de certains enregistrements.
+Imaginez également qu&rsquo;une plateforme client se bloque quelques minutes après son lancement : le client voudra sans doute savoir ce qui s&rsquo;est passé et qui est responsable.</p>
+<p>Les entreprises disposent donc de moyens et d&rsquo;outils pour se protéger légalement en cas de problème.
+Mais qu&rsquo;en est-il des hackers ?
+N&rsquo;oublions pas que les hackers sont les piliers de ce secteur.
+Sans hackers, pas de bug bounty.
+Alors, comment les protéger un minimum ?
+Alors que le domaine du bug bounty connait une croissance fulgurante à travers le monde, <strong>entreprises et hackers doivent trouver un terrain d&rsquo;entente sur les conditions juridiques</strong>.
+C&rsquo;est précisément l&rsquo;objectif du Safe Harbor.</p>
+<blockquote>
+<p>Afin d&rsquo;encourager la recherche et la divulgation responsable des failles de sécurité, nous n&rsquo;engagerons aucune action civile ou pénale et n&rsquo;enverrons aucune notification aux forces de l&rsquo;ordre en cas de violation accidentelle ou de bonne foi des conditions générales du programme de primes aux bogues de Microsoft.</p></blockquote>
+<p>En tant que hacker éthique, nous avons tous déjà vécu cette situation stressante : la réaction d&rsquo;une entreprise contactée suite à
+la découverte d&rsquo;un bug sur son site.
+Des remerciements à l&rsquo;indifférence, en passant par des poursuites judiciaires, tout est possible, on ne sait jamais&hellip;
+Il y a quelques mois, <a href="https://twitter.com/ChloeMessdaghi">Chloé Messdaghi</a> a lancé une pétition pour soutenir les hackers éthiques.</p>
+<p>&gt; <a href="https://www.change.org/p/organizations-support-ethical-hackers">https://www.change.org/p/organizations-support-ethical-hackers</a></p>
+<p>Le problème, c&rsquo;est que même dans le cadre d&rsquo;un programme de bug bounty, les hunters ne sont pas toujours aussi bien protégés qu&rsquo;ils le devraient.</p>
+<p>Fin 2017, <a href="https://twitter.com/d0tslash">Kevin Finisterre</a> a vécu une situation compliquée : il a été injustement menacé par DJI après avoir envoyé un rapport de plus de 30 pages. Son histoire a été mentionnée dans une présentation d&rsquo;<a href="https://twitter.com/amitelazari">Amit Elazari</a> à USENIX Enigma 2018.</p>
+<p>&gt; <a href="https://regmedia.co.uk/2017/11/16/whyiwalkedfrom3k.pdf">Why I walked away from $30,000 of DJI bounty money</a><br>
+&gt; <a href="https://www.youtube.com/watch?v=riZIFOw0pJA">Hacking the Law: Are Bug Bounties a True Safe Harbor?</a></p>
+<p>Le Safe Harbor est d&rsquo;une aide précieuse dès son intégration aux politiques de sécurité.
+Il devrait être obligatoire dans tous les programmes de primes aux bogues, sur toutes les plateformes.
+Pour l&rsquo;instant, il reste assez rare.
+HackerOne, Bugcrowd et Intigriti en sont de bons exemples sur ce sujet.</p>
+<img src="https://glc.st/images/intigriti-safe-harbour.png" alt="intigriti safe harbour" />
+<p>&gt; <a href="https://www.digitalnewsasia.com/digital-economy/hackerone-offer-white-hats-safe-harbour">Hackerone: offrir un refuge sûr aux hackers éthiques</a><br>
+&gt; <a href="https://docs.github.com/en/site-policy/security-policies/github-bug-bounty-program-legal-safe-harbor">Clause légale du programme de GitHub</a><br>
+&gt; <a href="https://blog.mozilla.org/security/2018/08/01/safe-harbor-for-security-bug-bounty-participants/">Safe Harbor pour les participants au programme de Mozilla</a></p>
+<h2 id="paiement-au-triage">Paiement au triage</h2>
+<p>Le paiement au moment du triage devrait être la norme, sérieusement.</p>
+<p>Sauf si l&rsquo;équipe de sécurité a besoin de plus d&rsquo;informations pour reproduire le bug, le travail du hunter est terminé dès que le rapport est
+accepté <u>il devrait donc être récompensé immédiatement</u>.</p>
+<p>Imaginez un instant les personnes qui font du bug bounty leur activité principale, et notamment les débutants.
+Les hackers ne sont pas comme les grandes entreprises aux revenus colossaux.
+Ce sont des personnes comme les autres, avec des devoirs et des responsabilités qui leur permettent de gagner leur vie <strong>#payetesfactures</strong>.</p>
+<h2 id="politique-de-divulgation-responsable">Politique de divulgation responsable</h2>
+<p>La divulgation responsable est une stratégie marketing efficace car elle témoigne de l&rsquo;engagement des entreprises en matière de sécurité.
+Elle contribue également à promouvoir les programmes auprès de la communauté.
+Les rapports étant une ressource précieuse pour les hackers souhaitant progresser, leur utilisation peut être considérée comme un investissement judicieux.</p>
+<p>Informations partageables :</p>
+<ul>
+<li>nombre de rapports</li>
+<li>pourcentage de rapports acceptés</li>
+<li>montant total des récompenses</li>
+<li>prime moyenne</li>
+<li>types de vulnérabilités</li>
+<li>rapports complets</li>
+<li>&hellip;</li>
+</ul>
+<p>La divulgation reponsable peut être réservée à la communauté ou publique.</p>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

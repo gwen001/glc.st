@@ -50,7 +50,6 @@ Yes it's a real rule and one of the most important!
 It's obvious, should be natural but I see too many reports where people don't understand each other and quickly come to rude reactions.
 When you come in such situation where you don't understand the decision of the other part, sit on their chair for a minute, it could change your mind.
 
-
 As a hacker, you should understand that programs have to deal with a huge amount of reports.
 They have to prioritize so no need to ask for update every 2 hours, wait at least 1 week.
 If the reward is not what you expected, re-read your report, maybe it's not clear enough, maybe you didn't show the real impact of the issue.
@@ -67,10 +66,10 @@ From my experience, programs always agree to review the severity (and sometimes 
 As a program, you should understand that hackers spend alot of time trying to find bugs, it's very time consuming.
 So it's always a pain to see a report being refused because it's something you were aware of 6 months ago, but didn't fix...
 When your dev team is able to escalate a bug from P2 to P1, be honest and adjust the reward accordingly, hackers don't have access to all informations you have.
-Also you should strongly consider to <u>reward on triage</u>, kudos don't pay the bills as well as $$$ do.
+Also you should strongly consider to **reward on triage**, _kudos_ don't pay the bills as well as $$$ do.
 
 If none of you is able to handle the situation in a proper way, no need to come to an offensive language or punishment.
-Remember that <u>respect works both way</u>, you can't ask for it if you shit on peoples, so keep calm, open a ticket on the platform support.
+Remember that **respect works both way**, you can't ask for it if you shit on peoples, so keep calm, open a ticket on the platform support.
 It's their job to handle such situations, kind of referees, they are (well) paid for that (% of reward + companies subscription), so use them as much as you can, no matter on what side you are.
 
 
@@ -85,10 +84,10 @@ Then, if we take a look at Hackerone, we can notice that a valid critical report
 On YesWeHack, an accepted critical report is 50 points and a low one is 15.
 Basically on both of them **3 low reports are worth a single critical** -> 3*CRLF = 1*RCE.
 
-On some platforms like YWH, the variable gain is calculated depending the reward itself and not the severity, but a 500€ reward could be considered as critical on program X and considered as low by program Y, right?
+On some platforms like Yogosha, the variable gain is also calculated depending the reward itself and not the severity, but a 500€ reward could be considered as critical on program X and considered as low by program Y, right?
 
 Moreover, a report with a 50€ reward will get the same points than a 500€ report, and a 2000€ report will get the same points than a 10000€ report.
-In that way, Hackerone system is a bit better since the severity used in the formula is based on the rewards and relative to the program configuration.
+In that way, Hackerone system is better since the severity used in the formula is based on the rewards and relative to the program configuration.
 
 <div style="float:left">
     <a href="/images/hackerone_reputation.jpg"><img src="/images/hackerone_reputation.jpg" alt="hackerone reputation" height="450" /></a>
@@ -138,33 +137,32 @@ But imagine for a second that the first screenshot concerns a production web ser
 CVSS is the same but would it be the same impact ?
 Because of that, bounties may vary alot.
 
-In the red corner, we then have vary famous vulnerabilities like <a href="https://www.cvedetails.com/cve/CVE-2016-3714/">ImageTragick</a> and <a href="https://www.cvedetails.com/cve/CVE-2017-5638/">Struts</a>, both have a CVSS score of 10.0 because of the deadly impact.
+In the red corner, we then have vary famous vulnerabilities like [ImageTragick](https://www.cvedetails.com/cve/CVE-2016-3714/) and [Struts](https://www.cvedetails.com/cve/CVE-2017-5638/), both have a CVSS score of 10.0 because of the deadly impact.
 Those 2 issues have been widely reported and <i>successfully exploited</i> on many systems.  
-In the blue corner, we have another famous issue called <a href="https://www.cvedetails.com/cve/CVE-2019-0708/">Bluekeep</a> which also deserves a good 10.0 because of the severity of the <i>potential</i> impact.
+In the blue corner, we have another famous issue called [Bluekeep](https://www.cvedetails.com/cve/CVE-2019-0708/) which also deserves a good 10.0 because of the severity of the <i>potential</i> impact.
 It has been reported by many whistleblowers.
 But wait!
 Problem is, when it was publicly revealed, there was no wild exploitation reported, not even a public exploit.
 So does it deserve the same attention?
 
-We can also talk about the SSL/TLS issues all hunters try to monetize at least once: CRIME, PODDLE, BREACH, DROWN...
+We can also talk about the SSL/TLS issues all hunters try to monetize at least once: _CRIME, PODDLE, BREACH, DROWN_.
 Very famous, danger is real, but who is going to exploit such vulnerabilities?
 It's now considered out of scope by most of the security programs.
 
-Hunters: don't be mad if the bounties don't reflect the <i>potential</i> severity of the bugs you report.
-<u>Companies have to consider</u> the real risk, <u>the business impact</u> in case of exploitation against their systems/users.
+Hunters: don't be mad if the bounties don't reflect the potential severity of the bugs you report.
+**Companies have to consider the real risk, the business impact** in case of exploitation against their systems/users.
 
-Companies: it works both way. 3 "low" bugs, individually rated 3.0 could lead to a disaster when chained, scoring a nice 10.0.
+Companies: it works both way. 3 low bugs, individually rated 3.0 could lead to a disaster when chained, scoring a nice 10.0.
 For example: login/logout CSRF + open redirect + self XSS.
 So don't be narrow.
 
-&gt; [Don’t Be Misled by CVSS Scores](https://securityboulevard.com/2020/03/dont-be-misled-by-cvss-scores/)  
+&gt; [Don't Be Misled by CVSS Scores](https://securityboulevard.com/2020/03/dont-be-misled-by-cvss-scores/)  
 &gt; [Pitfalls of Vulnerability Rating](https://www.troopers.de/media/filer_public/cb/f0/cbf0181b-e9d8-408c-aef3-651bfd114d76/troopers13-pitfalls_of_vulnerability_ratinga_new_approach_called_errs-ernw_rapid_rating_system-michael_thumannmatthias_luft.pdf)
 
 
 ## Duplicates
 
-Companies often encounter a problem when it comes to manage duplicate reports, here
-are my recommendations to deal with that.
+Companies often encounter a problem when it comes to manage duplicate reports, here are my recommendations to deal with that.
 
 **Case 1: single hunter, global issue.**  
 If it’s a global issue in the target, then only <u>1 report should be payed</u>.
@@ -242,7 +240,7 @@ His story has been mentionned in a presentation by [Amit Elazari](https://twitte
 Safe Harbor is real help as soon as it's included in the security policies.
 In my opinion it should be mandatory in every bug bounty programs on every platforms.
 For now, it's still pretty rare.
-Hackerone, Bugcrowd and Intigriti are the good examples.
+Hackerone, Bugcrowd and Intigriti are the good examples in this topic.
 
 <img src="/images/intigriti-safe-harbour.png" alt="intigriti safe harbour" />
 
@@ -262,9 +260,9 @@ Hunters are not like big companies with a huge cash flow!
 They are normal peoples with duties and responsibilities **#paythebills**.
 
 
-## Disclosure
+## Responsible disclosure
 
-Disclosure is a good marketing move as it shows companies concern about security.
+Reponsible disclosure is a good marketing move as it shows companies concern about security.
 It also helps to promote programs with the community.
 As reports are one of the best resource for hackers to learn, as they get better from them, it can be seen as good investment.
 
@@ -277,9 +275,5 @@ Sharable informations:
 - full reports
 - …
 
-Disclosure can be community reserved or public.
+Reponsible disclosure can be community reserved or public.
 
-
-<style>
-    iframe { width: 400px !important; }
-</style>

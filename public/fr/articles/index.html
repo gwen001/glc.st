@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Articles techniques sur la cybersécurité : XSS, injection SQL, prise de contrôle de sous-domaines, reconnaissance et programmes de bug bounty." />
+    <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Articles - Gwendal Le Coguic | Pentest, audits de sécurité, formations" />
+<meta name="twitter:description" content="Articles techniques sur la cybersécurité : XSS, injection SQL, prise de contrôle de sous-domaines, reconnaissance et programmes de bug bounty." />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Articles - Gwendal Le Coguic | Pentest, audits de sécurité, formations" />
+<meta property="og:description" content="Articles techniques sur la cybersécurité : XSS, injection SQL, prise de contrôle de sous-domaines, reconnaissance et programmes de bug bounty." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://glc.st/fr/articles/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+
+<meta property="og:updated_time" content="2026-11-12T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Articles - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/articles/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/posts/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/articles/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/posts/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"CollectionPage","about":{"@id":"https://glc.st/#person"},"description":"Articles techniques sur la cybersécurité : XSS, injection SQL, prise de contrôle de sous-domaines, reconnaissance et programmes de bug bounty.","isPartOf":{"@type":"WebSite","url":"https://glc.st/"},"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","name":"Analyse d'une application médicale française critique","position":1,"url":"https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/"},{"@type":"ListItem","name":"Les CVEs démystifiées","position":2,"url":"https://glc.st/fr/articles/les-cves-demystifiees/"},{"@type":"ListItem","name":"Subdomain Takeover en pagaille chez EDF","position":3,"url":"https://glc.st/fr/articles/subdomain-takeover-en-pagaille-chez-edf/"},{"@type":"ListItem","name":"Les règles sous-jacentes du bug bounty","position":4,"url":"https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/"}],"numberOfItems":4},"name":"Articles","url":"https://glc.st/fr/articles/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/posts/" hreflang="en" lang="en" rel="alternate" title="English"><img width="20" height="23" src="https://glc.st/assets/img/flags/en.png" class="icon-flag" alt="English" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+  <section class="container list posts">
+    <h1 class="title">Articles</h1>
+
+    
+        <div class="list-intro">
+            <p>Une partie seulement de mes articles est traduite. Le reste est disponible <a href="https://glc.st/posts/">en anglais</a>.</p>
+
+        </div>
+    
+
+    <ul>
+        
+          
+        
+        <li>
+  <span class="date">April 21, 2025</span>
+  <a class="title" href="https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/">Analyse d&#39;une application médicale française critique</a>
+</li>
+
+        
+        
+          
+          <li>&nbsp;</li>
+        <li>
+  <span class="date">October 26, 2022</span>
+  <a class="title" href="https://glc.st/fr/articles/les-cves-demystifiees/">Les CVEs démystifiées</a>
+</li>
+
+        
+        <li>
+  <span class="date">September 21, 2022</span>
+  <a class="title" href="https://glc.st/fr/articles/subdomain-takeover-en-pagaille-chez-edf/">Subdomain Takeover en pagaille chez EDF</a>
+</li>
+
+        
+        <li>
+  <span class="date">August 1, 2022</span>
+  <a class="title" href="https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/">Les règles sous-jacentes du bug bounty</a>
+</li>
+</ul>
+
+    
+
+
+
+
+
+
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

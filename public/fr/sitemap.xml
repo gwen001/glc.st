@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://glc.st/fr/</loc>
-    <lastmod>2026-10-29T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-12T00:00:00+00:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -13,6 +13,19 @@
                 rel="alternate"
                 hreflang="fr-FR"
                 href="https://glc.st/fr/"
+                />
+  </url><url>
+    <loc>https://glc.st/fr/articles/</loc>
+    <lastmod>2026-11-12T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/"
                 />
   </url><url>
     <loc>https://glc.st/fr/prestations/</loc>
@@ -223,6 +236,19 @@
                 href="https://glc.st/fr/formations/sensibilisation-cybersecurite/"
                 />
   </url><url>
+    <loc>https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/</loc>
+    <lastmod>2025-04-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/analysis-of-a-critical-french-medical-application/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/"
+                />
+  </url><url>
     <loc>https://glc.st/fr/projets/</loc>
     <lastmod>2023-05-05T18:05:10+01:00</lastmod>
     <xhtml:link
@@ -234,6 +260,45 @@
                 rel="alternate"
                 hreflang="fr-FR"
                 href="https://glc.st/fr/projets/"
+                />
+  </url><url>
+    <loc>https://glc.st/fr/articles/les-cves-demystifiees/</loc>
+    <lastmod>2022-10-26T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/cve-demystified/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/les-cves-demystifiees/"
+                />
+  </url><url>
+    <loc>https://glc.st/fr/articles/subdomain-takeover-en-pagaille-chez-edf/</loc>
+    <lastmod>2022-09-21T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/one-takeover-to-rule-them-all/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/subdomain-takeover-en-pagaille-chez-edf/"
+                />
+  </url><url>
+    <loc>https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/</loc>
+    <lastmod>2022-08-01T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/the-underlying-rules-of-bug-bounty/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/"
                 />
   </url><url>
     <loc>https://glc.st/fr/presse/</loc>
