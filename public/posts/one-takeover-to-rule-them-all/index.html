@@ -219,7 +219,7 @@ As we all know there are several ways to takeover a subdomain but the easiest wa
 <div style="float:left;width:420px">
     <b>Finding:</b><br>
     Using my tool <a href="https://github.com/gwen001/dnspy">dnspy</a>, I found that <code>nucleaire.edf.fr</code> was an alias of <code>edf-linkbynet.com</code>.  
-    A quick search on Gandi and I realized that last one was available for purchase for about 12€/year.  
+    A quick search on Gandi and I realized that last one was available for purchase for about 12€.  
     Not knowing what would happen next, I bought the domain and configured it on my server to serve a nice PoC page.
 </div>
 <img hspace="10" src="https://glc.st/images/edf-subto-nucleaire.png" alt="edf nuclaire subdomain takeover" height="300" />
@@ -243,7 +243,8 @@ Exploited by a malicious user, it could have been devastating: social engineerin
 One admin bought <code>edf-linkbynet.FR</code> and the other one configured all CNAMEs to point to <code>edf-linkbynet.COM</code>, as simple as that!</p>
 <h2 id="the-tool">The tool</h2>
 <p>The tool, called <a href="https://github.com/gwen001/dnspy">dnspy</a>, is composed of 3 modules:</p>
-<p>1/ the <strong>grabber</strong> tries to find subdomains using external tools like <em>subfinder, oneforall, github, amass</em>&hellip; then alterations are created using altdns or dnsgen.</p>
+<p>1/ the <strong>grabber</strong> tries to find subdomains using external tools like <em>subfinder, oneforall, github, amass</em>&hellip;
+then alterations are created using <em>altdns</em> or <em>dnsgen</em>.</p>
 <p>2/ the <strong>resolver</strong> performs DNS queries on all subdomains grabbed and generated using <em>massdns</em>, trying to detect dead hosts, cnames&hellip;</p>
 <p>3/ the <strong>interpreter</strong> reads the output of the resolver and looks for possible takeover using the fingerprint file.
 It&rsquo;s inspired of <em>subjack</em> with some extra features like regexps support and an ignore list.</p>

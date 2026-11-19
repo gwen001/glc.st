@@ -8,11 +8,11 @@ tags:
 - subdomain takeover
 ---
 En raison du Covid, le premier confinement en France a eu lieu en mars 2020.
-Durant cette période, j'ai écrit un script Python pour détecter les détournements de sous-domaines ("Subdomain Takeover").
-Après avoir obtenu plusieurs succès avec cet outil, l'un d'entre eux s'est avéré particulièrement remarquable.
+Durant cette période, j'ai codé un script Python pour détecter les détournements de sous-domaines aka _Subdomain Takeover_.
+Après avoir obtenu plusieurs succès avec cet outil, l'un d'entre eux s'est avéré aussi impressionnant qu'inattendu.
 <!--more-->
 
-<span style="font-size:1.5em;">*L'histoire sur la manière dont j'ai pris le contrôle de +450 sous-domaines du distributeur national d'électricité en France [EDF](https://www.edf.fr/).*</span>
+<span style="font-size:1.5em;">*L'histoire sur la façon dont j'ai pris le contrôle de +450 sous-domaines du distributeur national d'électricité en France [EDF](https://www.edf.fr/).*</span>
 
 <a href="/images/edf-subto.png" target="_blank"><img src="/images/edf-subto.png" alt="edf subdomain takeover" height="450" /></a>
 
@@ -33,7 +33,7 @@ Comme nous le savons tous, il existe plusieurs manières de prendre le contrôle
     <b>Découverte :</b><br>
     À l'aide de mon outil <a href="https://github.com/gwen001/dnspy">dnspy</a>, j'ai découvert que <code>nucleaire.edf.fr</code> 
     était un alias de <code>edf-linkbynet.com</code>. 
-    Une rapide recherche sur Gandi m'a permis de constater que ce dernier était disponible à l'achat pour environ 12 €/an. 
+    Une rapide recherche sur Gandi m'a permis de constater que ce dernier était disponible à l'achat pour seulement 12€. 
     Sans savoir ce qui allait se passer ensuite, j'ai acheté le nom de domaine et l'ai configuré sur mon serveur pour afficher une page de démo.
 </div>
 <img hspace="10" src="/images/edf-subto-nucleaire.png" alt="Prise de contrôle de sous-domaine EDF (nucleaire.edf.fr)" height="300" />
@@ -49,15 +49,15 @@ Comme nous le savons tous, il existe plusieurs manières de prendre le contrôle
 <div style="clear:both;"></div>
 
 <br><br>
-À l'époque, EDF disposait d'un programme privé de Bug Bounty sur la plateforme française YesWeHack.
-N'y ayant pas été invité, j'ai utilisé le formulaire de contact dédié sur leur site web.
+À l'époque, EDF disposait d'un programme privé de bug bounty sur la plateforme française YesWeHack.
+N'y ayant pas été invité, j'ai utilisé le formulaire de contact dédié sur leur site.
 Six semaines plus tard, et après plusieurs tentatives pour les joindre, le problème a été corrigé, comme par magie et en toute discrétion.
 
 Au total, plus de 450 sous-domaines étaient redirigés vers mon serveur.
 Entre les mains d'une personne malveillante, les conséquences auraient pu être désastreuses : ingénierie sociale, hameçonnage, manipulation de cookies, faux systèmes de paiement, atteinte à la réputation de l'entreprise...
-(Un simple *"merci"* aurait été apprécié).
+(un simple *"merci"* aurait été apprécié).
 
-Quant à l'origine du problème, je suppose qu'il s'agit d'un défaut de communication entre les responsables techniques.
+Quant à l'origine du problème, je suppose qu'il s'agissait d'un défaut de communication entre les responsables techniques.
 L'un des administrateurs a acheté le domaine <code>edf-linkbynet.FR</code>, tandis qu'un autre a configuré tous les enregistrements CNAME pour pointer vers <code>edf-linkbynet.COM</code>, tout simplement !
 
 
@@ -65,14 +65,16 @@ L'un des administrateurs a acheté le domaine <code>edf-linkbynet.FR</code>, tan
 
 L'outil, baptisé [dnspy](https://github.com/gwen001/dnspy), se compose de 3 modules :
 
-1/ Le __collecteur__ tente de découvrir des sous-domaines en utilisant des outils externes tels que _subfinder, oneforall, github, amass,_ etc. ; des variantes sont ensuite générées à l'aide d'altdns ou de dnsgen.
+1/ Le __collecteur__ tente de découvrir des sous-domaines en utilisant des outils externes tels que _subfinder, oneforall, github, amass,_... 
+des variantes sont ensuite générées à l'aide d'_altdns_ ou de _dnsgen_.
 
-2/ Le __resolveur__ effectue des requêtes DNS sur l'ensemble des sous-domaines collectés et générés, en utilisant _massdns_, afin de détecter des hôtes inactifs, des enregistrements CNAME, etc.
+2/ Le __resolveur__ effectue des requêtes DNS sur l'ensemble des sous-domaines collectés et générés, 
+en utilisant _massdns_, afin de détecter des hôtes inactifs, des enregistrements CNAME, etc.
 
-3/ L'__interpreteur__ analyse les résultats fournis par le resolveur et recherche des possibilités de rachats en s'appuyant sur un fichier d'empreintes.
+3/ L'__interpreteur__ analyse les résultats fournis par le resolveur et recherche des possibilités de détournement en s'appuyant sur un fichier d'empreintes.
 L'outil s'inspire de _subjack_, tout en proposant des fonctionnalités supplémentaires, comme la prise en charge d'expressions régulières et une liste d'exclusions.
 
-L'ensemble fonctionne sous forme de démon et peut être lancé de manière indépendante. Vous trouverez ci-dessous quelques exemples de résultats intéressants.
+L'ensemble fonctionne sous forme de démon et peut être lancé de manière indépendante. Ci-dessous quelques exemples de résultats intéressants.
 
 <img src="/images/dnspy-acef.png" alt="edf nuclaire subdomain takeover" />
 <img src="/images/dnspy-bred.png" alt="edf nuclaire subdomain takeover" />

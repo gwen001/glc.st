@@ -31,7 +31,7 @@ As we all know there are several ways to takeover a subdomain but the easiest wa
 <div style="float:left;width:420px">
     <b>Finding:</b><br>
     Using my tool <a href="https://github.com/gwen001/dnspy">dnspy</a>, I found that <code>nucleaire.edf.fr</code> was an alias of <code>edf-linkbynet.com</code>.  
-    A quick search on Gandi and I realized that last one was available for purchase for about 12€/year.  
+    A quick search on Gandi and I realized that last one was available for purchase for about 12€.  
     Not knowing what would happen next, I bought the domain and configured it on my server to serve a nice PoC page.
 </div>
 <img hspace="10" src="/images/edf-subto-nucleaire.png" alt="edf nuclaire subdomain takeover" height="300" />
@@ -63,7 +63,8 @@ One admin bought <code>edf-linkbynet.FR</code> and the other one configured all 
 
 The tool, called [dnspy](https://github.com/gwen001/dnspy), is composed of 3 modules:
 
-1/ the __grabber__ tries to find subdomains using external tools like _subfinder, oneforall, github, amass_... then alterations are created using altdns or dnsgen.
+1/ the __grabber__ tries to find subdomains using external tools like _subfinder, oneforall, github, amass_... 
+then alterations are created using _altdns_ or _dnsgen_.
 
 2/ the __resolver__ performs DNS queries on all subdomains grabbed and generated using _massdns_, trying to detect dead hosts, cnames...
 
