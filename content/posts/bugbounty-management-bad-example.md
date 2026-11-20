@@ -4,12 +4,10 @@ title: "Bug bounty management, a bad example"
 related:
   - /courses/bugbounty
   - /posts/interview-bugbounty-program
-  - /posts/bugbounty-cons
-  - /posts/bugbounty-howto-write-report
+  - /posts/bugbounty-management-zomato
   - /posts/bugbounty-management-hackers-motivation
   - /posts/bugbounty-management-todo-before-launch
   - /posts/bugbounty-management-what-to-avoid
-  - /posts/bugbounty-management-zomato
   - /posts/bugbounty-unonfficial-rules
 tags:
   - bug bounty
@@ -69,7 +67,7 @@ Another possibility is that they don't get so much reports so they need to motiv
 ## Management
 
 Right after I sent my first report I got a message from _"HackerOne staff"_ saying my report has been validated.
-Ok so the **programs are now managed** by Hackerone.
+Ok so the **programs are now managed by Hackerone**.
 How bad is it?
 
 It's not necessarily bad but it's far from good to me.
@@ -92,7 +90,7 @@ Every acquisition has her own website and that domain is the main scope of the p
 In the good old times it was possible to report an issue regarding any websites belonging to the group using the main program.
 I already reported critical bugs on domains not listed in the program and been rewarded as it should.
 Unfortunately it looks like they decided to review this position and made a step back.
-I reported a subdomain takeover which was surprisingly declined while it was accepted 2 years ago.  
+I reported a Subdomain Takeover which was surprisingly declined while it was accepted 2 years ago.  
 
 Don't get me wrong, I am not blaming the company because they follow their own rules, that would be stupid.
 The domain is not in scope, I should not expect anything, ok, fair enough.
@@ -132,7 +130,7 @@ In 2019, major changes occured:
 
 While some companies accept all kind of bugs, it's pretty common that issues like clickjacking, text injection or login/logout CSRF are considered out of scope when not leading to critical findings.
 I don't see any problem there.
-However it's pretty unusual to exclude XSS, CSRF, especially <u>after 3 years</u>!
+However it's pretty unusual to fully exclude XSS, CSRF, especially <u>after 3 years</u>!
 
 Months after months, years after years, a bug bounty program evolves, so it's absolutely normal to also see the out of scope section evolving as well.
 Willoz group isn't an exception, they improved that part of the program, but a bit too much, it should go the other way.
@@ -159,7 +157,7 @@ Side note: when you send a message to the emergency email provided by the compan
 ![automatic reply](/images/willoz-autoreply.png)
 
 Two words: DEAD END.  
-What's the point to set some stupid requirements based on meaningless numbers to finally say to send a message to the exact same email???
+What's the point to set some <u>stupid requirements</u> based on meaningless numbers to finally say to send a message to the exact same email???
 It's a waste of time for everyone.
 
 
@@ -174,7 +172,7 @@ As specified in the rules:
 
 
 <div style="float:left;width:450px">
-    Because he couldn't see his reports solved, the hacker tried to contact the company by email.
+    Because he couldn't see his reports progressing, the hacker tried to contact the company by email.
     What should happened finally happened, he has been banned.
     <br/><br/>
     What a mistake from the company.

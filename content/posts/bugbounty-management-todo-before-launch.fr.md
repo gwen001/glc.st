@@ -1,7 +1,7 @@
 ---
 date: 2020-01-16
 slug: "bugbounty-5-choses-a-faire-avant-de-lancer-votre-programme"
-title: "Bug Bounty: 5 choses à faire avant de lancer votre programme"
+title: "Bug bounty : 5 choses à faire avant de lancer votre programme"
 related:
   - /courses/bugbounty
   - /posts/interview-bugbounty-program

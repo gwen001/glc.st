@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Ayant décidé de me consacrer à mon rôle de conseiller dans le secteur du bug bounty, je souhaitais en savoir plus sur les caractéristiques d’un bon programme, ses points clés et les pièges à éviter. …" />
+    <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Bug bounty : un très exemple bon de gestion : Zomato - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Ayant décidé de me consacrer à mon rôle de conseiller dans le secteur du bug bounty, je souhaitais en savoir plus sur les caractéristiques d’un bon programme, ses points clés et les pièges à éviter. …" />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Bug bounty : un très exemple bon de gestion : Zomato - Gwendal Le Coguic" />
+<meta property="og:description" content="Ayant décidé de me consacrer à mon rôle de conseiller dans le secteur du bug bounty, je souhaitais en savoir plus sur les caractéristiques d’un bon programme, ses points clés et les pièges à éviter. …" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/articles/bugbounty-un-tres-exemple-bon-de-gestion-zomato/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2019-11-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-11-19T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Bug bounty : un très exemple bon de gestion : Zomato - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/articles/bugbounty-un-tres-exemple-bon-de-gestion-zomato/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/posts/bug-bounty-management-a-great-example-zomato/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/articles/bugbounty-un-tres-exemple-bon-de-gestion-zomato/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/posts/bug-bounty-management-a-great-example-zomato/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2019-11-19","datePublished":"2019-11-19","description":"Ayant décidé de me consacrer à mon rôle de conseiller dans le secteur du bug bounty, je souhaitais en savoir plus sur les caractéristiques d\u0026amp;rsquo;un bon …","headline":"Bug bounty : un très exemple bon de gestion : Zomato","inLanguage":"fr","keywords":"bug bounty, management","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/fr/articles/bugbounty-un-tres-exemple-bon-de-gestion-zomato/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/posts/bug-bounty-management-a-great-example-zomato/" hreflang="en" lang="en" rel="alternate" title="English"><img width="20" height="23" src="https://glc.st/assets/img/flags/en.png" class="icon-flag" alt="English" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+        <a href="https://twitter.com/intent/tweet?text=Bug%20bounty%20%3a%20un%20tr%c3%a8s%20exemple%20bon%20de%20gestion%20%3a%20Zomato%20https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-tres-exemple-bon-de-gestion-zomato%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-tres-exemple-bon-de-gestion-zomato%2f&title=Bug%20bounty%20%3a%20un%20tr%c3%a8s%20exemple%20bon%20de%20gestion%20%3a%20Zomato" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-tres-exemple-bon-de-gestion-zomato%2f&amp;t=Bug%20bounty%20%3a%20un%20tr%c3%a8s%20exemple%20bon%20de%20gestion%20%3a%20Zomato" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Bug%20bounty%20%3a%20un%20tr%c3%a8s%20exemple%20bon%20de%20gestion%20%3a%20Zomato&body=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-tres-exemple-bon-de-gestion-zomato%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Bug%20bounty%20%3a%20un%20tr%c3%a8s%20exemple%20bon%20de%20gestion%20%3a%20Zomato%20https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-tres-exemple-bon-de-gestion-zomato%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-tres-exemple-bon-de-gestion-zomato%2f&text=Bug%20bounty%20%3a%20un%20tr%c3%a8s%20exemple%20bon%20de%20gestion%20%3a%20Zomato" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-tres-exemple-bon-de-gestion-zomato%2f&amp;title=Bug%20bounty%20%3a%20un%20tr%c3%a8s%20exemple%20bon%20de%20gestion%20%3a%20Zomato" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-tres-exemple-bon-de-gestion-zomato%2f&t=Bug%20bounty%20%3a%20un%20tr%c3%a8s%20exemple%20bon%20de%20gestion%20%3a%20Zomato" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Bug bounty : un très exemple bon de gestion : Zomato</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2019-11-19T00:00:00Z'>
+                            November 19, 2019
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        6 minutes de lecture
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <div>
+            <p>Ayant décidé de me consacrer à mon rôle de conseiller dans le secteur du bug bounty, je souhaitais en savoir plus sur les caractéristiques
+d&rsquo;un bon programme, ses points clés et les pièges à éviter.</p>
+<p>J&rsquo;ai contacté Prateek Tiwari, responsable cyber chez <a href="https://twitter.com/Zomato">Zomato</a>, qui a eu la gentillesse de répondre à toutes mes questions.
+Découvrons comment Zomato est devenu l&rsquo;un des meilleurs programmes, non seulement sur Hackerone, mais dans tout le secteur du bug bounty.</p>
+<p><a href="https://hackerone.com/zomato" title="Zomato sur Hackerone"><img src="https://glc.st/images/zomato.png" title="Zomato sur Hackerone" alt="Zomato sur Hackerone" /></a></p>
+<p><strong>Pouvez-vous vous présenter ?</strong><br>
+Je suis Prateek Tiwari, originaire d&rsquo;Inde, et vous pouvez me suivre sur sous le pseudo <a href="https://twitter.com/prateek_0490">@prateek_0490</a> sur toutes les plateformes.
+Je pratique le hacking depuis environ 2 ans et demi. J&rsquo;ai rejoint Zomato en mars 2018.
+J&rsquo;y suis responsable de l&rsquo;équipe cyber, chargé de développer une solution et une infrastructure commune.</p>
+<p><strong>Pouvez-vous décrire brièvement Zomato ?</strong><br>
+Lancé à Delhi il y a 11 ans, Zomato est passé d&rsquo;un projet personnel à l&rsquo;un des plus grands agrégateurs de repas au monde.
+Présents dans 24 pays et plus de 10000 villes à travers le monde, nous concrétisons notre vision : une meilleure alimentation pour tous.
+Nous mettons en relation les consommateurs et les restaurants, et nous collaborons étroitement avec eux pour créer un écosystème durable.</p>
+<p><strong>Combien de personnes composent votre équipe de sécurité ?</strong><br>
+Nous sommes encore une petite équipe de 6 personnes.</p>
+<p><strong>Quel type d&rsquo;audit réalisez-vous ?</strong><br>
+Nous faisons appel à des agences spécialisées pour réaliser des audits (VAPT) chaque trimestre.
+De plus, nous effectuons des audits internes comprenant des tests boîte blanche/boîte noire et des exercices de type red team.</p>
+<p><strong>Pouvez-vous partager des statistiques sur le programme de bug bounty ?</strong><br>
+Au début de chaque mois, nous publions tous ces détails sur Twitter.
+Nos SLA sont également disponibles sur <a href="https://hackerone.com/zomato">notre page de politique sur HackerOne</a>.</p>
+<div style="float:left;width:550px">
+    Remontées valides pour 2019: Q1:28 | Q2:16 | Q3:28 | Q4:15  
+    <br/>Prime moyenne/trimestre en 2019: environ 13~15K$  
+    <br/>Plus grosse prime en 2019: <a href="https://hackerone.com/reports/512968">4500$ pour une erreur de logique métier</a>  
+    <br/>Temps moyen avant triage: 2 heures  
+    <br/>Temps moyen avant prime: 1 jour  
+</div>
+<img src="https://glc.st/images/zomato-stats.png" alt="Zomato stats" width="270" style="float:right;" />
+<div style="clear:both;"></div>
+<p><strong>Quels changements majeurs sont survenus dans le programme ces 3 dernières années ?</strong><br>
+Au départ, nous nous sommes davantage concentrés sur les processus internes.
+Il était essentiel de collaborer avec tous les services de l&rsquo;organisation afin d&rsquo;harmoniser les pratiques et
+de sensibiliser chacun aux risques et menaces en matière de sécurité.
+Nous souhaitions garantir que nos employés et nos fournisseurs respectent le règlement que nous avons défini.
+Une fois le dispositif en place, nous avons modifié le système de primes et élargi son périmètre.</p>
+<p>Nous avons également procédé à des promotions et récompensé les chercheurs par des bonus,
+éléments importants pour attirer les meilleurs talents et les inciter à s&rsquo;investir dans le programme.
+Par ailleurs, la réduction des délais de traitement est un autre point crucial sur lequel nous avons mené une étude approfondie.
+De nombreux changements restent à apporter et nous y travaillons activement.</p>
+<p><strong>D&rsquo;après ce que je vois, le programme n&rsquo;est pas géré par Hackerone. Y a-t-il une raison particulière à cela ?</strong><br>
+Nous étions auparavant gérés par Hackerone, mais nous avons décidé de passer à un programme non géré pour plusieurs raisons :</p>
+<ul>
+<li>Le nombre de signalements que nous recevions était facilement gérable par notre équipe interne.</li>
+<li>Disposant de notre propre équipe, il nous est facile de comprendre les signalements et les risques, et de planifier les mesures d&rsquo;atténuation.</li>
+</ul>
+<p><strong>Comment évaluez-vous les vulnérabilités ?</strong><br>
+Nous analysons le nombre d&rsquo;utilisateurs susceptibles d&rsquo;être affectés, s&rsquo;il s&rsquo;agit d&rsquo;une exploitation directe,
+s&rsquo;il existe des prérequis pour exploiter la faille, etc.
+Par exemple, une injection SQL est classée P1, une fuite de données personnelles (IDOR) est également classée P1, et ainsi de suite.</p>
+<p>Notre politique d&rsquo;évaluation est définie sur <a href="https://hackerone.com/zomato">notre page HackerOne</a> ainsi que dans le tableau des primes.</p>
+<p><img src="https://glc.st/images/zomato-bounty-table.png" alt="Zomato"></p>
+<p><strong>Comment gérez-vous les bugs en interne ?</strong>
+De manière proactive et efficace :)
+Du signalement au triage, cela prend probablement moins d&rsquo;une heure.
+S&rsquo;il s&rsquo;agit d&rsquo;un bug de tyrpe P1, nous le corrigeons en quelques minutes à une heure, selon sa gravité et la solution de contournement disponible.
+Nous utilisons également Jira pour le suivi interne des bugs.</p>
+<p><strong>Quels types de bugs rencontrez-vous le plus souvent ?</strong>
+Honnêtement, la plupart des bugs que nous rencontrons sont non applicables NA.
+Actuellement, le nombre de rapports valides que nous recevons a considérablement diminué, il n&rsquo;y a donc pas vraiment de &ldquo;type de bug prédominant&rdquo;.
+Mais en moyenne, les bugs les plus fréquents sont les CSRF et les XSS.</p>
+<p><strong>Des changements sont-ils prévus prochainement ?</strong>
+Oui, nous prévoyons d&rsquo;élargir le périmètre d&rsquo;intervention, d&rsquo;augmenter les récompenses et d&rsquo;organiser un
+événement en direct (qui devrait avoir lieu prochainement).</p>
+<p><strong>Avez-vous des conseils pour les entreprises qui gèrent ou souhaitent gérer un programme de bug bounty ?</strong>
+Pour les entreprises qui gèrent déjà ou souhaitent gérer un programme de bug bounty, voici quelques points à prendre en compte :</p>
+<ul>
+<li>Réponse rapide.</li>
+<li>&ldquo;Corrigez vos bugs&rdquo;, les hunters se désintéresseront si vous ne corrigez pas.</li>
+<li>Prime au triage : cela attirera de nombreux chercheurs, car le chercheur vous aura transmis son rapport,
+ce qui signifie qu&rsquo;il a investi du temps et des efforts. Ne le faites pas attendre des mois pour sa récompense.</li>
+<li>Périmètre et règlement clairs, ainsi qu&rsquo;un tableau des primes.</li>
+<li>Recueillez régulièrement les commentaires des hackers et fidélisez-les en veillant à ce qu&rsquo;ils restent motivés par votre programme.</li>
+</ul>
+<p><strong>Un mot pour les hackers ?</strong>
+Merci à tous les hackers qui ont participé au programme jusqu&rsquo;à présent.
+Notre programme de bug bounty avec Hackerone continuera d&rsquo;évoluer, car nous nous efforçons de renforcer notre relation avec
+la communauté des hackers grâce à chaque rapport.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Après des années difficiles dans le secteur du bug bounty, la situation a radicalement changé :
+Zomato a considérablement amélioré son processus interne de gestion des signalements.
+Les SLA parlent d&rsquo;eux-mêmes : un délai de réponse de 2 heures et un délai de résolution d'1 jour représentent un véritable rêve pour
+tous les acteurs, entreprises et hunters confondus.
+L&rsquo;entreprise a également revu sa communication avec les hackers, ce qui est très apprécié.</p>
+<blockquote class="twitter-tweet" data-partner="tweetdeck"><p lang="en" dir="ltr">17 hours to triage, resolve, and reward! That’s how fast <a href="https://twitter.com/Zomato">@Zomato</a>’s program on <a href="https://twitter.com/Hacker0x01">@Hacker0x01</a> is.
+<p>I’d like to also give a shoutout to <a href="https://twitter.com/EdOverflow">@EdOverflow</a>.
+In that narrow timeframe, he managed to mentor me!</p>— Karim Rahal (@KarimPwnz) <a href="https://twitter.com/KarimPwnz/status/1190585460072038405">July 23, 2018</a></blockquote></p>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>N&rsquo;oubliez pas que plus votre programme plaît aux hackers, plus ils travailleront dessus,
+ce qui signifie plus de bugs découverts et donc une sécurité renforcée !</p>
+<br />
+<p>Un grand merci à <a href="https://twitter.com/prateek_0490">Prateek Tiwari</a>.</p>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+    
+<aside class="see-also">
+  <h3>À lire aussi</h3>
+  <ul>
+    <li><a href="https://glc.st/fr/formations/introduction-au-bugbounty/">Introduction au Bug Bounty</a></li>
+    <li><a href="https://glc.st/fr/articles/bugbounty-un-mauvais-exemple-de-gestion/">Bug bounty : un mauvais exemple de gestion</a></li>
+    <li><a href="https://glc.st/fr/articles/bugbounty-comment-garder-les-hackers-motives/">Bug bounty : comment garder les hackers motivés</a></li>
+    <li><a href="https://glc.st/fr/articles/bugbounty-5-choses-a-faire-avant-de-lancer-votre-programme/">Bug bounty : 5 choses à faire avant de lancer votre programme</a></li>
+    <li><a href="https://glc.st/fr/articles/bugbounty-5-choses-a-eviter-dans-un-programme/">Bug bounty : 5 choses à éviter dans un programme</a></li>
+    <li><a href="https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/">Les règles sous-jacentes du bug bounty</a></li>
+  </ul>
+</aside>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

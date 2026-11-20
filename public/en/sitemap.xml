@@ -211,7 +211,7 @@
                 />
   </url><url>
     <loc>https://glc.st/posts/analysis-of-a-critical-french-medical-application/</loc>
-    <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
@@ -253,7 +253,7 @@
                 />
   </url><url>
     <loc>https://glc.st/posts/one-takeover-to-rule-them-all/</loc>
-    <lastmod>2026-11-19T22:02:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
@@ -266,7 +266,7 @@
                 />
   </url><url>
     <loc>https://glc.st/posts/the-underlying-rules-of-bug-bounty/</loc>
-    <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
@@ -279,7 +279,7 @@
                 />
   </url><url>
     <loc>https://glc.st/posts/how-to-keep-hackers-motivated-in-bug-bounty/</loc>
-    <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
@@ -310,7 +310,7 @@
     <lastmod>2026-11-19T23:08:50+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/5-things-to-avoid-in-bug-bounty/</loc>
-    <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
@@ -323,13 +323,13 @@
                 />
   </url><url>
     <loc>https://glc.st/cves/cve-2020-8440-unrestricted-file-upload-in-simplejobscript/</loc>
-    <lastmod>2026-11-19T23:08:50+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/cves/cve-2020-7229-unauthenticated-sql-injection-in-simplejobscript/</loc>
     <lastmod>2026-11-19T23:08:50+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/5-things-to-do-before-running-your-first-bug-bounty-program/</loc>
-    <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
@@ -342,10 +342,30 @@
                 />
   </url><url>
     <loc>https://glc.st/posts/bug-bounty-management-a-bad-example/</loc>
-    <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/bugbounty-un-mauvais-exemple-de-gestion/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/bug-bounty-management-a-bad-example/"
+                />
   </url><url>
     <loc>https://glc.st/posts/bug-bounty-management-a-great-example-zomato/</loc>
-    <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/bugbounty-un-tres-exemple-bon-de-gestion-zomato/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/bug-bounty-management-a-great-example-zomato/"
+                />
   </url><url>
     <loc>https://glc.st/press/</loc>
     <lastmod>2026-10-29T17:39:28+01:00</lastmod>
@@ -367,25 +387,25 @@
     <lastmod>2026-11-19T21:38:01+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/swag-store/</loc>
-    <lastmod>2026-11-19T22:02:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/the-hunter-games/</loc>
     <lastmod>2026-11-19T23:13:56+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/how-to-write-a-bug-bounty-report/</loc>
-    <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/aws-takeover-through-ssrf-in-javascript/</loc>
     <lastmod>2026-11-19T23:08:50+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/interview-with-a-bug-bounty-program/</loc>
-    <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/colorize-your-hunt/</loc>
     <lastmod>2026-11-19T21:38:01+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/cons-of-bug-bounty/</loc>
-    <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/find-vulnerabilities-in-flash-swf/</loc>
     <lastmod>2026-11-19T23:08:50+01:00</lastmod>
@@ -394,10 +414,10 @@
     <lastmod>2026-11-19T22:02:01+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/why-bug-bounty/</loc>
-    <lastmod>2026-11-19T22:02:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/the-bug-bounty-program-that-changed-my-life/</loc>
-    <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/massive-pwnage/</loc>
     <lastmod>2026-11-19T22:02:01+01:00</lastmod>
@@ -439,7 +459,7 @@
     <lastmod>2026-11-19T21:38:01+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/bug-bounty-programs/</loc>
-    <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
   </url><url>
     <loc>https://glc.st/posts/port-forwarding-and-tunneling/</loc>
     <lastmod>2026-11-19T21:38:01+01:00</lastmod>

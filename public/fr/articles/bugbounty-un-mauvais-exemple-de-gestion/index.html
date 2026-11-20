@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="J’ai récemment publié un article sur un bon exemple de programme de bug bounty, j’ai donc également souhaité aborder les comportements que les entreprises doivent éviter afin de maintenir la …" />
+    <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Bug bounty : un mauvais exemple de gestion - Gwendal Le Coguic" />
+<meta name="twitter:description" content="J’ai récemment publié un article sur un bon exemple de programme de bug bounty, j’ai donc également souhaité aborder les comportements que les entreprises doivent éviter afin de maintenir la …" />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Bug bounty : un mauvais exemple de gestion - Gwendal Le Coguic" />
+<meta property="og:description" content="J’ai récemment publié un article sur un bon exemple de programme de bug bounty, j’ai donc également souhaité aborder les comportements que les entreprises doivent éviter afin de maintenir la …" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/articles/bugbounty-un-mauvais-exemple-de-gestion/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2019-12-16T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-12-16T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Bug bounty : un mauvais exemple de gestion - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/articles/bugbounty-un-mauvais-exemple-de-gestion/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/posts/bug-bounty-management-a-bad-example/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/articles/bugbounty-un-mauvais-exemple-de-gestion/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/posts/bug-bounty-management-a-bad-example/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2019-12-16","datePublished":"2019-12-16","description":"J\u0026amp;rsquo;ai récemment publié un article sur un bon exemple de programme de bug bounty, j\u0026amp;rsquo;ai donc également souhaité aborder les comportements que les …","headline":"Bug bounty : un mauvais exemple de gestion","inLanguage":"fr","keywords":"bug bounty, management","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/fr/articles/bugbounty-un-mauvais-exemple-de-gestion/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/posts/bug-bounty-management-a-bad-example/" hreflang="en" lang="en" rel="alternate" title="English"><img width="20" height="23" src="https://glc.st/assets/img/flags/en.png" class="icon-flag" alt="English" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+        <a href="https://twitter.com/intent/tweet?text=Bug%20bounty%20%3a%20un%20mauvais%20exemple%20de%20gestion%20https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-mauvais-exemple-de-gestion%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-mauvais-exemple-de-gestion%2f&title=Bug%20bounty%20%3a%20un%20mauvais%20exemple%20de%20gestion" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-mauvais-exemple-de-gestion%2f&amp;t=Bug%20bounty%20%3a%20un%20mauvais%20exemple%20de%20gestion" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Bug%20bounty%20%3a%20un%20mauvais%20exemple%20de%20gestion&body=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-mauvais-exemple-de-gestion%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Bug%20bounty%20%3a%20un%20mauvais%20exemple%20de%20gestion%20https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-mauvais-exemple-de-gestion%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-mauvais-exemple-de-gestion%2f&text=Bug%20bounty%20%3a%20un%20mauvais%20exemple%20de%20gestion" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-mauvais-exemple-de-gestion%2f&amp;title=Bug%20bounty%20%3a%20un%20mauvais%20exemple%20de%20gestion" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-un-mauvais-exemple-de-gestion%2f&t=Bug%20bounty%20%3a%20un%20mauvais%20exemple%20de%20gestion" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Bug bounty : un mauvais exemple de gestion</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2019-12-16T00:00:00Z'>
+                            December 16, 2019
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        10 minutes de lecture
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <div>
+            <p>J&rsquo;ai récemment publié un article sur un <a href="https://glc.st/posts/bug-bounty-management-a-great-example-zomato/">bon exemple de programme de bug bounty</a>,
+j&rsquo;ai donc également souhaité aborder les comportements que les entreprises doivent éviter afin de maintenir la motivation de leur communauté.</p>
+<p>En 2017, j&rsquo;ai participé à un excellent programme, tellement excellent que j&rsquo;y ai consacré un article intitulé &ldquo;<a href="https://glc.st/posts/the-bug-bounty-program-that-changed-my-life/">Le programme de bug bounty qui a changé ma vie</a>&rdquo;.
+Comme j&rsquo;avais obtenu de très bons résultats dans le cadre de ce programme, j&rsquo;ai décidé, il y a quelques semaines, de retenter l&rsquo;expérience.
+J&rsquo;ai consulté la page Hackerone de ce programme et j&rsquo;y ai constaté des modifications dans le règlement.
+J&rsquo;ai rapidement signalé quelques bugs mineurs et remarqué par la même occasion, des changements dans le processus de gestion des rapports.</p>
+<p>Malheureusement, tous ces changements rendent désormais le programme <strong>déplorable</strong>.
+Voici mon analyse.</p>
+<h2 id="historique">Historique</h2>
+<p>Tout d&rsquo;abord, je vais évoquer un programme privé, comme je ne souhaite pas enfreindre la politique de confidentialité de HackerOne
+(et même s&rsquo;il est possible de lister tous les programmes via le sitemap #bugbountytips), je ne mentionnerai pas le nom réel de l&rsquo;entreprise.
+Je l&rsquo;appellerai donc : <strong>Willoz</strong> (un peu de créativité).</p>
+<p>D&rsquo;après <a href="https://www.crunchbase.com/">Crunchbase</a>, Willoz est un groupe ayant réalisé 12 acquisitions.
+À ma connaissance, ce groupe gère actuellement 11 programmes sur HackerOne - un par acquisition.
+Tous sont privés, ont été créés entre juillet 2016 et février 2017, et suivent les mêmes règles.
+Cependant, 5 d&rsquo;entre eux sont &ldquo;en pause&rdquo; : cela signifie qu&rsquo;il est déconseillé de soumettre un rapport,
+sauf en cas de découverte d&rsquo;une vulnérabilité critique (le formulaire de soumission reste accessible),
+ou bien il convient de contacter directement l&rsquo;entreprise via l&rsquo;adresse e-mail d&rsquo;urgence fournie : <a href="mailto:bugbounty@willozgroup.com">bugbounty@willozgroup.com</a>.</p>
+<p>Comme je l&rsquo;ai mentionné précédemment, mon expérience personnelle avec cette entreprise a toujours été excellente.
+Mes rapports ont systématiquement été traités en une semaine et récompensés très rapidement, souvent en moins de 48 heures,
+grâce à leur politique de &ldquo;paiement au triage&rdquo;.
+Compte tenu de la qualité de mon travail, ils ont créé un canal Slack privé réunissant le responsable de la sécurité de la marque,
+le responsable de la sécurité et moi-même.
+Nous y avons échangé nos réflexions, et ils m&rsquo;ont donné accès à des périmètres privés, non répertoriés sur Hackerone à l&rsquo;époque,
+sur lesquels j&rsquo;ai également obtenu de très bons résultats.
+Ces personnes figurent désormais dans mes contacts sur LinkedIn.</p>
+<p>Analysons ensemble ce qui s&rsquo;est passé.</p>
+<h2 id="récompenses">Récompenses</h2>
+<p>La première chose que j&rsquo;ai remarquée, ce sont les changements apportés aux primes.<br>
+Depuis août 2019 : <strong><em>4500$, 2250$, 1125$, 450$</em></strong><br>
+Avant cette date : <em>1000$, 500$, 250$, 150$</em> || <em>1500$, 750$, 375$, 250$</em></p>
+<p>Waouh ! Une belle augmentation après 3 ans !<br>
+Cela signifie qu&rsquo;ils ont considérablement renforcé leur sécurité, ils ne craignent donc plus de payer davantage pour des vulnérabilités pertinentes,
+même les plus mineures.
+Le montant minimum sur Hackerone est de 500$, tout comme chez Facebook, 450$ est donc une somme très intéressante.
+Peut-être sont-ils très confiants, estimant qu&rsquo;il n&rsquo;y a plus de failles mineures ou tout simplement un gros budget.</p>
+<p>Quoi qu&rsquo;il en soit, il s&rsquo;agit d&rsquo;une évolution classique pour un programme de bug bounty.
+On commence généralement par une approche linéaire et, une fois que la plupart des vulnérabilités critiques ont été découvertes <u>et corrigées</u>,
+<strong>il est possible d&rsquo;augmenter les primes maximales pour mettre davantage l&rsquo;accent sur les failles à haute criticité</strong>.</p>
+<p><img src="https://glc.st/images/willoz-bounty-policy.png" alt="politique de primes"></p>
+<p>Alors, où est le problème ?<br>
+Le problème ne réside pas dans les montants.
+Il est tout simplement inutile d&rsquo;augmenter autant les primes si, au final, l&rsquo;objectif est d&rsquo;éviter autant que possible de payer,
+en invoquant une multitude d&rsquo;excuses ou en appliquant une politique absurde.
+Une autre explication possible est qu&rsquo;ils reçoivent peu de rapports et cherchent donc à motiver les hackers à travailler sur leurs programmes.</p>
+<h2 id="gestion">Gestion</h2>
+<p>Juste après avoir envoyé mon premier rapport, j&rsquo;ai reçu un message de la part de l&rsquo;&ldquo;équipe Hackerone&rdquo; m&rsquo;informant que mon rapport avait été validé.
+Bon, les <strong>programmes sont désormais gérés par Hackerone</strong>.
+Est-ce une mauvaise chose ?</p>
+<p>Ce n&rsquo;est pas forcément mauvais, mais, à mon avis, c&rsquo;est loin d&rsquo;être idéal.
+Cela signifie que les rapports seront traités très rapidement, mais pas nécessairement de manière appropriée.
+Les personnes chargées du triage ne connaissent pas tous les détails liés à la sécurité de l&rsquo;entreprise,
+elles doivent se renseigner concernant la marche à suivre pour chaque type de vulnérabilité :
+faut-il accorder une récompense, et si oui, quel en doit être le montant&hellip;
+Lorsqu&rsquo;elles prennent des décisions par elles-mêmes, cela conduit souvent à des erreurs importantes.
+Je peux affirmer sans me tromper que les hackers n&rsquo;apprécient généralement pas (pour ne pas dire qu&rsquo;ils détestent) les programmes gérés par des tiers.</p>
+<p><img src="https://glc.st/images/willoz-triager-complaint.png" alt="Plainte concernant le tri"></p>
+<p>Deuxième point : cela <strong>rompt le lien entre l&rsquo;équipe de sécurité et les hackers</strong>.
+C&rsquo;est précisément l&rsquo;une des raisons pour lesquelles j&rsquo;aime le bug bounty : pouvoir échanger avec des employés d&rsquo;entreprises aux quatre coins du monde,
+les aider à corriger leurs vulnérabilités, discuter avec eux et partager des connaissances.
+Dans ce cas précis, cette relation de confiance, bâtie au fil du temps, a été anéantie en un instant.</p>
+<h2 id="cibles">Cibles</h2>
+<p>Chaque entité acquise dispose de son propre site web, ce domaine constitue, avec l&rsquo;éventuelle application mobile associée,
+le périmètre principal du programme.</p>
+<p>Auparavant, il était possible de signaler une vulnérabilité sur n&rsquo;importe quel site web appartenant au groupe, dans le cadre du programme principal.
+Il m&rsquo;est déjà arrivé de signaler des failles critiques sur des domaines qui ne figuraient pas explicitement dans le périmètre,
+et j&rsquo;ai été récompensé comme il se doit.
+Malheureusement, il semble que l&rsquo;entreprise ait décidé de revoir sa position et de faire marche arrière.
+J&rsquo;ai signalé un Subdomain Takeover, ce signalement a été rejeté, ce qui est surprenant, étant donné qu&rsquo;un cas similaire avait été accepté il y a deux ans.</p>
+<p>Ne vous méprenez pas : je ne blâme pas l&rsquo;entreprise, car elle ne fait qu&rsquo;appliquer ses propres règles, ce serait absurde de ma part.
+Le domaine ne fait pas partie du périmètre, je ne devrais donc rien attendre en retour, soit, c&rsquo;est tout à fait compréhensible.
+Cependant, adopter une approche très permissive, en autorisant certains signalements, pour ensuite changer d&rsquo;avis soudainement,
+sans communication préalable, n&rsquo;est pas une bonne stratégie.
+Cela est particulièrement vrai vis-à-vis de personnes qui vous font confiance, surtout lorsque vous avez déjà récompensé ces mêmes personnes
+par le passé dans des situations identiques.</p>
+<p>Lorsque vous vous lancez dans le bug bounty, il est préférable de <strong>définir un programme initial avec un périmètre restreint, puis de l&rsquo;élargir progressivement</strong>, plutôt que de le restreindre par la suite.</p>
+<h2 id="périmètre-et-exclusions">Périmètre et exclusions</h2>
+<p>Je ne vais pas retracer toute l&rsquo;historique du règlement, mais voici les étapes les plus marquantes.</p>
+<p>Au départ, les programmes comportaient des exclusions classiques :</p>
+<ul>
+<li>Déni de service (DoS)</li>
+<li>Divulgation de version</li>
+<li>Rapports générés par des outils automatisés ou des scans</li>
+<li>Ingénierie sociale</li>
+<li>Tentatives d&rsquo;accès physique</li>
+<li>Usurpation de contenu / injection de texte</li>
+<li>CSRF lors de la connexion ou de la déconnexion</li>
+<li>Clickjacking</li>
+<li>&hellip;</li>
+</ul>
+<p>Fin 2018, les éléments suivants ont été ajoutés :</p>
+<ul>
+<li>Attaques Punycode</li>
+<li>Problèmes liés à la limitation du taux de requêtes (rate limiting)</li>
+<li>Injection d&rsquo;URL (lorsqu&rsquo;une injection HTML n&rsquo;est pas possible)</li>
+<li>Fuite de token de réinitialisation de mot de passe vers des services tiers</li>
+</ul>
+<p>En 2019, des changements majeurs sont intervenus :</p>
+<ul>
+<li>Les environnements de préproduction, de test et de démo sont désormais exclus du périmètre</li>
+<li>Cross-Site Scripting (XSS)</li>
+<li>Cross-Site Request Forgery (CSRF)</li>
+</ul>
+<p>Si certaines entreprises acceptent tous types de vulnérabilités, il est assez courant que des problèmes comme le clickjacking,
+l&rsquo;injection de texte ou la CSRF lors de la connexion/déconnexion soient exclus lorsqu&rsquo;ils ne débouchent pas sur des failles critiques.
+Cela ne pose aucun problème en soi.
+Cependant, il est assez inhabituel d&rsquo;exclure totalement les XSS et les CSRF, surtout <u>après trois ans</u> !</p>
+<p>Un programme de bug bounty évolue au fil des mois et des années, il est donc tout à fait normal que la section dédiée aux exclusions évolue également.
+Le groupe Willoz ne fait pas exception : ils ont fait évoluer cette partie du programme, mais peut-être un peu trop,
+la tendance devrait aller dans le sens inverse.
+Comme ils ont déjà corrigé les vulnérabilités majeures, ainsi qu&rsquo;une grande partie des failles de gravité moyenne
+(les XSS et CSRF ayant été incluses pendant 3 ans), le programme devrait, au contraire, devenir plus permissif
+et <strong>accepter une plus grande variété de vulnérabilités</strong>.</p>
+<p>Par ailleurs, ils ont décidé d&rsquo;exclure plusieurs environnements, ce qui réduit considérablement le périmètre des tests.
+Or, en principe, <strong>le périmètre devrait s&rsquo;élargir</strong> à mesure que le programme gagne en maturité et que l&rsquo;équipe de sécurité acquiert davantage d&rsquo;expérience.</p>
+<h2 id="absence-de-réponse">Absence de réponse</h2>
+<p>Comme les programmes sont gérés par la plateforme, les rapports sont d&rsquo;abord pris en charge par les équipes de tri de celle-ci.
+Selon HackerOne, même lorsqu&rsquo;un programme est géré par une plateforme, l&rsquo;équipe de sécurité de l&rsquo;entreprise conserve un accès à
+tous les rapports et peut donc intervenir à tout moment pour échanger avec les chercheurs.</p>
+<p>En tant que hunter, lorsque je n&rsquo;obtiens aucune réponse après quelques jours ou semaines, je lance <em>ping</em> sur le rapport pour attirer
+l&rsquo;attention des équipes de triage.
+Je peux dire qu&rsquo;<strong>être ignoré est, de loin, le sentiment le plus frustrant</strong>.
+Non seulement l&rsquo;équipe de sécurité, mais aussi les équipes de triage de la plateforme, restent silencieuses.</p>
+<p>Certes, les entreprises ont des priorités, une redirection ouverte n&rsquo;a rien à voir avec une exécution de code à distance, mais cela fait partie du jeu :
+chaque rapport devrait être traité avec la même rigueur.
+Par ailleurs, après 3 ans d&rsquo;existence, cette entreprise est censée disposer d&rsquo;un workflow interne bien établi,
+<em>les processus internes devraient être parfaitement rodés</em>*.
+Ignorer un rapport pendant 2 mois, malgré 3 relances, est inacceptable.
+Un tel comportement ne permet certainement pas de gagner la confiance de la communauté.</p>
+<p>Petite précision : lorsque vous envoyez un message à l&rsquo;adresse e-mail d&rsquo;urgence fournie par l&rsquo;entreprise dans ses règles,
+vous recevez la réponse suivante :<br>
+<img src="https://glc.st/images/willoz-autoreply.png" alt="réponse automatique"></p>
+<p>En deux mots : une impasse.
+Quel est l&rsquo;intérêt d&rsquo;imposer des <u>exigences absurdes</u>, fondées sur des chiffres dénués de sens, pour finalement vous renvoyer
+vers cette même adresse e-mail ?
+C&rsquo;est une perte de temps pour tout le monde.</p>
+<h2 id="sanction">Sanction</h2>
+<p>C’est totalement par pur hasard que j’ai été contacté par leur meilleur hacker, au moment précis où je rencontrais des difficultés avec la médiation de Hackerone.
+Il s’agit d’un bug hunter très connu au sein de la communauté, qui pratique à plein temps, pour autant que je sache.
+Comme il participe aux programmes de Willoz depuis leurs débuts (en 2016), on peut dire qu’il entretenait également de bonnes relations avec eux.</p>
+<p>Comme l’indique le règlement :</p>
+<blockquote>
+<p>Toute tentative non autorisée visant à contourner la plateforme HackerOne pour contacter directement des employés (actuels ou anciens) du groupe Willoz, dans le cadre de discussions liées au programme de bug bounty, peut entraîner une exclusion de notre programme. Veuillez maintenir tous vos échanges au sein de la plateforme HackerOne.</p></blockquote>
+<div style="float:left;width:450px">
+    Ne voyant pas ses rapports avancés, ce hacker a tenté de contacter l’entreprise par e-mail. 
+    Ce qui devait arriver arriva : il a été banni. 
+    <br/><br/>
+    Quelle erreur de la part de l’entreprise !
+</div>
+<img src="https://glc.st/images/willoz-unhappy-hacker.png" alt="hacker mécontent" width="350" style="float:right;" />
+<div style="clear:both;"></div>
+<p><strong>Le bannissement ne devrait être envisagé qu’en tout dernier recours.</strong> et le fait qu’un hacker avec 3 années d’expérience sur le programme,
+en vienne à tenter un &ldquo;contact direct&rdquo;, devrait constituer un signal d’alerte majeur pour l’équipe de sécurité, c’est un indicateur très révélateur.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Au vu de tous ces changements, une seule conclusion s&rsquo;impose : le groupe a embauché un nouvel ingénieur sécurité en charge du programme de bug bounty.
+Il fait sans doute de son mieux, mais c&rsquo;est un échec cuisant.
+Les bonnes pratiques en la matière ne sont plus respectées, contrairement à avant :</p>
+<ul>
+<li>un périmètre plus restreint, moins de cibles : après une si longue expérience, c&rsquo;est tout le contraire</li>
+<li>l&rsquo;augmentation des récompenses incite esquiver les paiements : inutile</li>
+<li>relations rompues avec les hackers</li>
+</ul>
+<p><strong>La communication est essentielle en matière de bug bountys.</strong>
+Que le rapport soit accepté ou non, rémunéré ou non, et quel que soit le montant,
+l&rsquo;entreprise doit <em>toujours</em> tenir le hacker informé de l&rsquo;état de sa demande.</p>
+<p>Et <u>c&rsquo;est le rôle des responsables de l&rsquo;entreprise, pas de l&rsquo;équipe de triage de la plateforme</u>.</p>
+<p>Lorsque je commence à chasser sur un nouveau programme, je signale toujours quelques bogues &ldquo;mineurs&rdquo; pour tester la réactivité
+de l&rsquo;équipe et évaluer l&rsquo;intérêt de creuser davantage.
+Dans ce cas précis, j&rsquo;ai signalé 1 prise de contrôle de sous-domaine, 4 attaques XSS et 4 redirections ouvertes, seules deux ont été acceptées.</p>
+<p>Ciao&hellip;</p>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+    
+<aside class="see-also">
+  <h3>À lire aussi</h3>
+  <ul>
+    <li><a href="https://glc.st/fr/formations/introduction-au-bugbounty/">Introduction au Bug Bounty</a></li>
+    <li><a href="https://glc.st/fr/articles/bugbounty-un-tres-exemple-bon-de-gestion-zomato/">Bug bounty : un très exemple bon de gestion : Zomato</a></li>
+    <li><a href="https://glc.st/fr/articles/bugbounty-comment-garder-les-hackers-motives/">Bug bounty : comment garder les hackers motivés</a></li>
+    <li><a href="https://glc.st/fr/articles/bugbounty-5-choses-a-faire-avant-de-lancer-votre-programme/">Bug bounty : 5 choses à faire avant de lancer votre programme</a></li>
+    <li><a href="https://glc.st/fr/articles/bugbounty-5-choses-a-eviter-dans-un-programme/">Bug bounty : 5 choses à éviter dans un programme</a></li>
+    <li><a href="https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/">Les règles sous-jacentes du bug bounty</a></li>
+  </ul>
+</aside>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

@@ -211,7 +211,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/</loc>
-    <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -250,7 +250,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/articles/subdomain-takeover-en-pagaille-chez-edf/</loc>
-    <lastmod>2026-11-19T22:02:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -263,7 +263,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/</loc>
-    <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -276,7 +276,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/articles/bugbounty-comment-garder-les-hackers-motives/</loc>
-    <lastmod>2020-04-04T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -289,7 +289,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/articles/bugbounty-5-choses-a-eviter-dans-un-programme/</loc>
-    <lastmod>2020-01-30T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -302,7 +302,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/articles/bugbounty-5-choses-a-faire-avant-de-lancer-votre-programme/</loc>
-    <lastmod>2020-01-16T00:00:00+00:00</lastmod>
+    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -312,6 +312,32 @@
                 rel="alternate"
                 hreflang="fr-FR"
                 href="https://glc.st/fr/articles/bugbounty-5-choses-a-faire-avant-de-lancer-votre-programme/"
+                />
+  </url><url>
+    <loc>https://glc.st/fr/articles/bugbounty-un-mauvais-exemple-de-gestion/</loc>
+    <lastmod>2019-12-16T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/bug-bounty-management-a-bad-example/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/bugbounty-un-mauvais-exemple-de-gestion/"
+                />
+  </url><url>
+    <loc>https://glc.st/fr/articles/bugbounty-un-tres-exemple-bon-de-gestion-zomato/</loc>
+    <lastmod>2019-11-19T00:00:00+00:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/bug-bounty-management-a-great-example-zomato/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/bugbounty-un-tres-exemple-bon-de-gestion-zomato/"
                 />
   </url><url>
     <loc>https://glc.st/fr/presse/</loc>

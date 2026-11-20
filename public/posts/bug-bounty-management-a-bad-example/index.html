@@ -24,7 +24,8 @@
 
 <meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
 <meta property="article:published_time" content="2019-12-16T00:00:00+00:00" />
-<meta property="article:modified_time" content="2026-11-19T21:38:01+01:00" /><meta property="og:locale" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+<meta property="article:modified_time" content="2026-11-20T18:16:31+01:00" /><meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="fr_FR" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
     
@@ -61,7 +62,10 @@
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16"><meta name="generator" content="Hugo 0.147.0">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/posts/bug-bounty-management-a-bad-example/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/articles/bugbounty-un-mauvais-exemple-de-gestion/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/posts/bug-bounty-management-a-bad-example/"><meta name="generator" content="Hugo 0.147.0">
 
     
 
@@ -70,7 +74,7 @@
 
 
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2026-11-19","datePublished":"2019-12-16","description":"As I lately released an article about a good bug bounty program example, I also wanted to write something about what kind of behaviours companies should …","headline":"Bug bounty management, a bad example","inLanguage":"en","keywords":"bug bounty, management","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/posts/bug-bounty-management-a-bad-example/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2026-11-20","datePublished":"2019-12-16","description":"As I lately released an article about a good bug bounty program example, I also wanted to write something about what kind of behaviours companies should …","headline":"Bug bounty management, a bad example","inLanguage":"en","keywords":"bug bounty, management","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/posts/bug-bounty-management-a-bad-example/"}</script>
 
   </head>
 
@@ -120,7 +124,7 @@
         <span>|</span>
     </li>
       <li class="navigation-item language">
-        <a href="https://glc.st/fr/" lang="fr" title="Français"><img width="20" height="23" src="https://glc.st/assets/img/flags/fr.png" class="icon-flag" alt="Français" /></a>
+        <a href="https://glc.st/fr/articles/bugbounty-un-mauvais-exemple-de-gestion/" hreflang="fr" lang="fr" rel="alternate" title="Français"><img width="20" height="23" src="https://glc.st/assets/img/flags/fr.png" class="icon-flag" alt="Français" /></a>
       </li>
     </ul>
   </section>
@@ -233,7 +237,7 @@ There is simply no point to raise the bounties so much if at the end your goal i
 Another possibility is that they don&rsquo;t get so much reports so they need to motivate hackers to work on their programs.</p>
 <h2 id="management">Management</h2>
 <p>Right after I sent my first report I got a message from <em>&ldquo;HackerOne staff&rdquo;</em> saying my report has been validated.
-Ok so the <strong>programs are now managed</strong> by Hackerone.
+Ok so the <strong>programs are now managed by Hackerone</strong>.
 How bad is it?</p>
 <p>It&rsquo;s not necessarily bad but it&rsquo;s far from good to me.
 It means that the reports will be handled very quickly, but not necessarily in a proper way.
@@ -249,7 +253,7 @@ In this case, I lost that trusted relationship built with time in a second.</p>
 <p>In the good old times it was possible to report an issue regarding any websites belonging to the group using the main program.
 I already reported critical bugs on domains not listed in the program and been rewarded as it should.
 Unfortunately it looks like they decided to review this position and made a step back.
-I reported a subdomain takeover which was surprisingly declined while it was accepted 2 years ago.</p>
+I reported a Subdomain Takeover which was surprisingly declined while it was accepted 2 years ago.</p>
 <p>Don&rsquo;t get me wrong, I am not blaming the company because they follow their own rules, that would be stupid.
 The domain is not in scope, I should not expect anything, ok, fair enough.
 But being very permissive, allowing something and suddently change your mind without a proper commuication first is not a good idea, specially with people who trust you, and more, when you already rewarded those peoples in the same situation.</p>
@@ -283,7 +287,7 @@ But being very permissive, allowing something and suddently change your mind wit
 </ul>
 <p>While some companies accept all kind of bugs, it&rsquo;s pretty common that issues like clickjacking, text injection or login/logout CSRF are considered out of scope when not leading to critical findings.
 I don&rsquo;t see any problem there.
-However it&rsquo;s pretty unusual to exclude XSS, CSRF, especially <u>after 3 years</u>!</p>
+However it&rsquo;s pretty unusual to fully exclude XSS, CSRF, especially <u>after 3 years</u>!</p>
 <p>Months after months, years after years, a bug bounty program evolves, so it&rsquo;s absolutely normal to also see the out of scope section evolving as well.
 Willoz group isn&rsquo;t an exception, they improved that part of the program, but a bit too much, it should go the other way.
 As they already fixed the major bugs and probably a big part of the mediums (XSS and CSRF in scope for 3 years), the program is supposed to be more and more permissive, they are supposed to <strong>accept a bigger variety of bugs</strong>.</p>
@@ -301,7 +305,7 @@ Ignoring a 2 month report with 3 dunning notices is a big mess, you&rsquo;re not
 <p>Side note: when you send a message to the emergency email provided by the company in their rules, you get the following response:
 <img src="https://glc.st/images/willoz-autoreply.png" alt="automatic reply"></p>
 <p>Two words: DEAD END.<br>
-What&rsquo;s the point to set some stupid requirements based on meaningless numbers to finally say to send a message to the exact same email???
+What&rsquo;s the point to set some <u>stupid requirements</u> based on meaningless numbers to finally say to send a message to the exact same email???
 It&rsquo;s a waste of time for everyone.</p>
 <h2 id="punishment">Punishment</h2>
 <p>It was a pure accident that I was contacted by their top hacker at that exact same moment I was struggling with Hackerone mediation.
@@ -310,7 +314,7 @@ He is a very well known hunter in the community performing bug bounty full time 
 <blockquote>
 <p>Any unauthorized attempts that bypass the HackerOne platform and trying to reach out directly to previous / current employees of Willoz Group in regards to any bug-bounty-related discussion could result in termination from our Bug Bounty Program. Please keep all communications in the HackerOne platform.</p></blockquote>
 <div style="float:left;width:450px">
-    Because he couldn't see his reports solved, the hacker tried to contact the company by email.
+    Because he couldn't see his reports progressing, the hacker tried to contact the company by email.
     What should happened finally happened, he has been banned.
     <br/><br/>
     What a mistake from the company.
@@ -347,12 +351,10 @@ Next&hellip;</p>
   <ul>
     <li><a href="https://glc.st/courses/bugbounty-overview/">Bug Bounty Overview</a></li>
     <li><a href="https://glc.st/posts/interview-with-a-bug-bounty-program/">Interview with a Bug Bounty program</a></li>
-    <li><a href="https://glc.st/posts/cons-of-bug-bounty/">Cons of Bug Bounty</a></li>
-    <li><a href="https://glc.st/posts/how-to-write-a-bug-bounty-report/">How to write a Bug Bounty report</a></li>
+    <li><a href="https://glc.st/posts/bug-bounty-management-a-great-example-zomato/">Bug bounty management, a great example: Zomato</a></li>
     <li><a href="https://glc.st/posts/how-to-keep-hackers-motivated-in-bug-bounty/">How to keep hackers motivated in bug bounty</a></li>
     <li><a href="https://glc.st/posts/5-things-to-do-before-running-your-first-bug-bounty-program/">5 things to do before running your first bug bounty program</a></li>
     <li><a href="https://glc.st/posts/5-things-to-avoid-in-bug-bounty/">5 things to avoid in bug bounty</a></li>
-    <li><a href="https://glc.st/posts/bug-bounty-management-a-great-example-zomato/">Bug bounty management, a great example: Zomato</a></li>
     <li><a href="https://glc.st/posts/the-underlying-rules-of-bug-bounty/">The underlying rules of bug bounty</a></li>
   </ul>
 </aside>

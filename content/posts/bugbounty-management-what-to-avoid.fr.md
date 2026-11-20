@@ -1,7 +1,7 @@
 ---
 date: 2020-01-30
 slug: "bugbounty-5-choses-a-eviter-dans-un-programme"
-title: "Bug Bounty : 5 choses à éviter dans un programme"
+title: "Bug bounty : 5 choses à éviter dans un programme"
 related:
   - /courses/bugbounty
   - /posts/bugbounty-management-bad-example
