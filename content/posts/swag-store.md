@@ -12,6 +12,7 @@ related:
   - /posts/interview-bugbounty-program
   - /posts/why-bugbounty
   - /posts/platform-tournament
+  - /courses/bugbounty
 tags:
   - bug bounty
   - swag

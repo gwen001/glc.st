@@ -2,9 +2,8 @@
 date: 2020-01-16
 title: "5 things to do before running your first bug bounty program"
 related:
-  - /services/
+  - /courses/bugbounty
   - /posts/interview-bugbounty-program
-  - /posts/bug-bounty-programs
   - /posts/bugbounty-management-bad-example
   - /posts/bugbounty-management-hackers-motivation
   - /posts/bugbounty-management-what-to-avoid
@@ -103,13 +102,8 @@ Time after time you will follow more hackers, YOUR hackers.
 You will be immediately warned if someone talk about your programs, good words or complaints are always important to improve yourself.
 
 
-## Good reads
+## External resources
 
-Information Security Assessment Types by Daniel Miessler:  
-https://danielmiessler.com/study/security-assessment-types/#vulnerability
-
-The hacker powered security report 2018 by Hackerone:  
-https://www.hackerone.com/sites/default/files/2018-07/The%20Hacker-Powered%20Security%20Report%202018.pdf
-
-Report workflow by YesWeHack:  
-https://blog.yeswehack.com/2019/07/24/a-quick-update-on-our-point-system/
+[Information Security Assessment Types by Daniel Miessler](https://danielmiessler.com/study/security-assessment-types/#vulnerability)  
+[The hacker powered security report 2018 by Hackerone](https://www.hackerone.com/sites/default/files/2018-07/The%20Hacker-Powered%20Security%20Report%202018.pdf)  
+[Report workflow by YesWeHack](https://blog.yeswehack.com/2019/07/24/a-quick-update-on-our-point-system/)  

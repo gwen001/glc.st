@@ -2,10 +2,8 @@
 date: 2019-11-19
 title: "Bug bounty management, a great example: Zomato"
 related:
-  - /services/
+  - /courses/bugbounty
   - /posts/interview-bugbounty-program
-  - /posts/bug-bounty-programs
-  - /posts/bugbounty-howto-write-report
   - /posts/bugbounty-management-bad-example
   - /posts/bugbounty-management-hackers-motivation
   - /posts/bugbounty-management-todo-before-launch

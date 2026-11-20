@@ -4,7 +4,6 @@ title: Analysis of a critical french medical application
 images: [/images/optimed-preview.png]
 related:
   - /posts/github-tools-collection
-  - /posts/sqlmap
   - /posts/vulnerability-in-wordpress-video-gallery
   - /services/pentest
   - /services/code-audit

@@ -5,7 +5,6 @@ title: "Analyse d'une application médicale française critique"
 images: [/images/optimed-preview.png]
 related:
   - /posts/github-tools-collection
-  - /posts/sqlmap
   - /posts/vulnerability-in-wordpress-video-gallery
   - /services/pentest
   - /services/code-audit

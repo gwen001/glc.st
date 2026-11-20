@@ -3,6 +3,7 @@ date: 2018-09-10
 title: Interview with a Bug Bounty program
 related:
   - /services/
+  - /courses/bugbounty
   - /posts/bug-bounty-programs
   - /posts/bugbounty-management-bad-example
   - /posts/bugbounty-management-hackers-motivation

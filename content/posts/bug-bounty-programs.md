@@ -5,7 +5,6 @@ related:
   - /services/
   - /posts/interview-bugbounty-program
   - /posts/bugbounty-cons
-  - /posts/bugbounty-howto-write-report
   - /posts/bugbounty-management-bad-example
   - /posts/bugbounty-management-hackers-motivation
   - /posts/bugbounty-management-todo-before-launch

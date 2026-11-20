@@ -4,10 +4,8 @@ title: Cons of Bug Bounty
 tags:
   - bug bounty
 related:
-  - /services/
+  - /courses/bugbounty
   - /posts/interview-bugbounty-program
-  - /posts/bug-bounty-programs
-  - /posts/bugbounty-howto-write-report
   - /posts/bugbounty-management-bad-example
   - /posts/bugbounty-management-hackers-motivation
   - /posts/bugbounty-management-todo-before-launch
@@ -15,8 +13,6 @@ related:
   - /posts/bugbounty-management-zomato
   - /posts/bugbounty-unonfficial-rules
   - /posts/platform-tournament
-  - /posts/the-bugbounty-program-that-changed-my-life
-  - /posts/why-bugbounty
 see_also:
   -
     link: Why bug bounty hunters love the thrill of the chase

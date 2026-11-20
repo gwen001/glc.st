@@ -3,9 +3,7 @@ date: 2022-08-01
 slug: "les-regles-sous-jacentes-du-bug-bounty"
 title: "Les règles sous-jacentes du bug bounty"
 related:
-  - /services/
-  - /posts/interview-bugbounty-program
-  - /posts/bug-bounty-programs
+  - /courses/bugbounty
   - /posts/bugbounty-management-bad-example
   - /posts/bugbounty-management-hackers-motivation
   - /posts/bugbounty-management-todo-before-launch

@@ -280,6 +280,16 @@
   </url><url>
     <loc>https://glc.st/posts/how-to-keep-hackers-motivated-in-bug-bounty/</loc>
     <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/bugbounty-comment-garder-les-hackers-motives/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/how-to-keep-hackers-motivated-in-bug-bounty/"
+                />
   </url><url>
     <loc>https://glc.st/cves/cve-2020-22155-code-injection-in-simplejobscript-by-niteosoft/</loc>
     <lastmod>2026-11-19T23:08:50+01:00</lastmod>
@@ -301,6 +311,16 @@
   </url><url>
     <loc>https://glc.st/posts/5-things-to-avoid-in-bug-bounty/</loc>
     <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/bugbounty-5-choses-a-eviter-dans-un-programme/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/5-things-to-avoid-in-bug-bounty/"
+                />
   </url><url>
     <loc>https://glc.st/cves/cve-2020-8440-unrestricted-file-upload-in-simplejobscript/</loc>
     <lastmod>2026-11-19T23:08:50+01:00</lastmod>
@@ -310,6 +330,16 @@
   </url><url>
     <loc>https://glc.st/posts/5-things-to-do-before-running-your-first-bug-bounty-program/</loc>
     <lastmod>2026-11-19T21:38:01+01:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="fr-FR"
+                href="https://glc.st/fr/articles/bugbounty-5-choses-a-faire-avant-de-lancer-votre-programme/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://glc.st/posts/5-things-to-do-before-running-your-first-bug-bounty-program/"
+                />
   </url><url>
     <loc>https://glc.st/posts/bug-bounty-management-a-bad-example/</loc>
     <lastmod>2026-11-19T21:38:01+01:00</lastmod>

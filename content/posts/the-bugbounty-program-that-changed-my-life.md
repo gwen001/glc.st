@@ -2,6 +2,14 @@
 date: 2018-02-11
 title: The Bug Bounty program that changed my life
 images: [/images/pp-rce-1.png]
+related:
+  - /services/pentest
+  - /posts/interview-bugbounty-program
+  - /posts/bugbounty-howto-write-report
+  - /posts/bugbounty-unonfficial-rules
+  - /posts/why-bugbounty
+  - /posts/platform-tournament
+  - /posts/swag-store
 tags:
   - sql injection
   - xss

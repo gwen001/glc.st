@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Aujourd’hui, il existe des milliers de programmes répartis sur diverses plateformes. comment attirer les hackers vers le vôtre ? Pourquoi choisirais-je votre programme plutôt qu’un autre ? Pourquoi …" />
+    <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Bug bounty : comment garder les hackers motivés - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Aujourd’hui, il existe des milliers de programmes répartis sur diverses plateformes. comment attirer les hackers vers le vôtre ? Pourquoi choisirais-je votre programme plutôt qu’un autre ? Pourquoi …" />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Bug bounty : comment garder les hackers motivés - Gwendal Le Coguic" />
+<meta property="og:description" content="Aujourd’hui, il existe des milliers de programmes répartis sur diverses plateformes. comment attirer les hackers vers le vôtre ? Pourquoi choisirais-je votre programme plutôt qu’un autre ? Pourquoi …" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/fr/articles/bugbounty-comment-garder-les-hackers-motives/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2020-04-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-04T00:00:00+00:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Bug bounty : comment garder les hackers motivés - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/fr/articles/bugbounty-comment-garder-les-hackers-motives/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/posts/how-to-keep-hackers-motivated-in-bug-bounty/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/articles/bugbounty-comment-garder-les-hackers-motives/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/posts/how-to-keep-hackers-motivated-in-bug-bounty/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2020-04-04","datePublished":"2020-04-04","description":"Aujourd\u0026amp;rsquo;hui, il existe des milliers de programmes répartis sur diverses plateformes. comment attirer les hackers vers le vôtre ? Pourquoi …","headline":"Bug bounty : comment garder les hackers motivés","inLanguage":"fr","keywords":"bug bounty, management, hackers","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/fr/articles/bugbounty-comment-garder-les-hackers-motives/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/fr/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/articles/">Articles</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/formations/">Formations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/references/">Références</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/prestations/">Prestations</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/projets/">Projets</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/fr/presse/">Presse</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/posts/how-to-keep-hackers-motivated-in-bug-bounty/" hreflang="en" lang="en" rel="alternate" title="English"><img width="20" height="23" src="https://glc.st/assets/img/flags/en.png" class="icon-flag" alt="English" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+        <a href="https://twitter.com/intent/tweet?text=Bug%20bounty%20%3a%20comment%20garder%20les%20hackers%20motiv%c3%a9s%20https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-comment-garder-les-hackers-motives%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-comment-garder-les-hackers-motives%2f&title=Bug%20bounty%20%3a%20comment%20garder%20les%20hackers%20motiv%c3%a9s" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-comment-garder-les-hackers-motives%2f&amp;t=Bug%20bounty%20%3a%20comment%20garder%20les%20hackers%20motiv%c3%a9s" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Bug%20bounty%20%3a%20comment%20garder%20les%20hackers%20motiv%c3%a9s&body=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-comment-garder-les-hackers-motives%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Bug%20bounty%20%3a%20comment%20garder%20les%20hackers%20motiv%c3%a9s%20https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-comment-garder-les-hackers-motives%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-comment-garder-les-hackers-motives%2f&text=Bug%20bounty%20%3a%20comment%20garder%20les%20hackers%20motiv%c3%a9s" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-comment-garder-les-hackers-motives%2f&amp;title=Bug%20bounty%20%3a%20comment%20garder%20les%20hackers%20motiv%c3%a9s" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fbugbounty-comment-garder-les-hackers-motives%2f&t=Bug%20bounty%20%3a%20comment%20garder%20les%20hackers%20motiv%c3%a9s" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Bug bounty : comment garder les hackers motivés</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2020-04-04T00:00:00Z'>
+                            April 4, 2020
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        6 minutes de lecture
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <div>
+            <p>Aujourd&rsquo;hui, il existe des milliers de programmes répartis sur diverses plateformes. comment attirer les hackers vers le vôtre ?
+Pourquoi choisirais-je votre programme plutôt qu&rsquo;un autre ?
+Pourquoi consacrerais-je du temps à tester votre système ?
+Considérez les hackers comme des clients ou des investisseurs : vous devez les convaincre de collaborer avec vous et promouvoir
+votre programme comme vous le feriez pour vos produits.</p>
+<p>Une différence majeure par rapport aux tests d&rsquo;intrusion réside dans le fait qu&rsquo;un programme de bug bounty s&rsquo;inscrit dans la durée.
+Dans cet article, je vais vous donner quelques conseils pour séduire les bug hunters et les fidéliser.</p>
+<h2 id="des-récompenses-attractives">Des récompenses attractives</h2>
+<p>Évidemment.</p>
+<p>Soyons honnêtes : la plupart des hackers dans le secteur du bug bounty travaillent pour l&rsquo;argent.
+Certes, ce n&rsquo;est pas leur unique source de motivation, comme vous le découvrirez plus tard, mais cela reste un facteur déterminant.
+<strong>La récompense principale est importante, mais elle ne fait pas tout.</strong></p>
+<p>N&rsquo;hésitez pas à accorder un petit bonus ponctuel : lorsqu&rsquo;un rapport est particulièrement bien détaillé, lorsqu&rsquo;un hacker fait preuve
+d&rsquo;une grande créativité en découvrant une faille totalement inattendue, ou encore lorsque la vulnérabilité signalée est non seulement critique,
+mais tout bonnement stupéfiante.
+En cas de doute, demandez-vous quelles seraient les pertes si un utilisateur malveillant exploitait cette faille ;
+cela vous aidera probablement à prendre la bonne décision.</p>
+<p>Certaines entreprises organisent également des opérations promotionnelles, augmentant temporairement le montant des primes.
+Si vous optez pour cette stratégie, veillez à en informer votre communauté, sinon la démarche perd tout son sens.</p>
+<p>Cependant, <u>l&rsquo;argent n&rsquo;est pas le seul moyen de récompenser les chasseurs de failles</u>.
+T-shirts, casquettes, invitations à des conférences, autocollants&hellip;
+nous apprécions tous ces petits objets dérivés qui apportent un peu de couleur à notre quotidien :)</p>
+<p>Enfin, la meilleure récompense, et la plus simple, consiste à témoigner aux hackers le respect que vous leur portez.
+N&rsquo;hésitez pas à employer des mots bienveillants, comme vous le feriez dans la vie réelle face à une réalisation impressionnante ;
+sachez exprimer votre reconnaissance.
+Valorisez leurs belles découvertes !</p>
+<h2 id="des-bonnes-sla">Des bonnes SLA</h2>
+<p>&gt; Si vous n&rsquo;êtes pas familier avec les SLA, consultez cet <a href="https://www.hackerone.com/blog/Healthy-programs-make-happy-hackers-Introducing-response-SLAs">article sur HackerOne</a>.</p>
+<p>Comme je l&rsquo;ai déjà mentionné dans l&rsquo;article précédent <a href="https://glc.st/posts/5-things-to-avoid-in-bug-bounty/">5 choses à éviter dans les programmes de bug bounty</a>,
+une bonne communication est indispensable, tout comme la mise en place d&rsquo;accords de niveau de service (SLA) adaptés.
+On peut essentiellement retenir <u>quatre indicateurs, tous d&rsquo;une importance capitale</u> pour les différentes parties prenantes :</p>
+<ul>
+<li>délai avant la première réponse : informer le hacker que le rapport a bien été reçu</li>
+<li>délai avant le premier triage : indiquer au hacker si le rapport est jugé valide ou non. Si c&rsquo;est le cas, il est alors intégré à votre flux de travail interne</li>
+<li>délai avant le versement de la première prime : faire savoir au hacker que son travail est apprécié</li>
+<li>délai avant la première correction : le moment où la vulnérabilité est corrigée</li>
+</ul>
+<p>Il va sans dire que <strong>plus ces délais sont courts, mieux c&rsquo;est pour tout le monde.</strong>
+Les hackers ne travailleront pas pour une entreprise qui met six mois à trier un rapport ; nous souhaitons être rémunérés le plus rapidement possible.
+<u>Le versement de la prime dès le triage devrait être la norme.</u>
+Par ailleurs, vous ne souhaitez pas recevoir sans cesse des signalements pour une même vulnérabilité, les correctifs doivent être déployés rapidement.
+Notez qu&rsquo;à chaque étape, de la première réponse jusqu&rsquo;à la correction finale, le hacker est en droit d&rsquo;être tenu informé de l&rsquo;avancement du processus.</p>
+<img src="https://glc.st/images/hackerone_sla.png" />
+<h2 id="évolution-du-programme">Évolution du programme</h2>
+<p>Optimisez vos processus, renforcez votre sécurité pour éviter les pièges classiques, développez votre communauté de
+chercheurs et affinez votre politique de récompenses&hellip;
+Faites évoluer votre programme, tout en le gardant stimulant !</p>
+<p><strong>Élargissez le périmètre.</strong>
+Ajoutez régulièrement de nouveaux assets pour étendre progressivement la portée de votre programme.
+Vous pouvez également en intégrer certains pour une durée limitée, cela permet de maintenir l&rsquo;intérêt et le côté ludique :)</p>
+<p><strong>Créez un programme privé.</strong>
+Certaines entreprises choisissent de mettre en place un programme secondaire, confidentiel, pour tester de nouvelles fonctionnalités avant leur mise en production.
+Vous pouvez y inviter certains des membres les plus appréciés de votre communauté.
+Pour un chercheur en sécurité, bénéficier d&rsquo;un tel privilège est particulièrement gratifiant.</p>
+<p><strong>Augmentez les récompenses.</strong>
+À mesure que la sécurité de votre système s&rsquo;améliore, la découverte de vulnérabilités devient plus complexe.
+Il est donc logique d&rsquo;augmenter les montants des récompenses pour maintenir l&rsquo;engagement des chercheurs.
+Pensez également aux opérations promotionnelles, elles sont très appréciées.</p>
+<p><strong>Publiez les rapports.</strong>
+Comme je l&rsquo;expliquerai dans le prochain chapitre, la divulgation responsable est essentielle pour la communauté.
+Partagez régulièrement des rapports, les chercheurs en sécurité apprécieront de pouvoir les consulter.
+Vous pourriez, par exemple, publier chaque mois les rapports concernant des vulnérabilités corrigées depuis au moins six mois.</p>
+<h2 id="divulgation-responsable">Divulgation responsable</h2>
+<p><strong>La publication de rapports constitue l&rsquo;une des meilleures sources d&rsquo;apprentissage.</strong>
+Les partager s&rsquo;apparente à un investissement pour l&rsquo;avenir, car cela permet aux hackers d&rsquo;enrichir leurs connaissances.
+Et si les hackers gagnent en compétence, ils seront en mesure de découvrir davantage de vulnérabilités.
+C&rsquo;est simple et logique.</p>
+<p>C&rsquo;est également une excellente initiative en matière de communication : vous montrez à la communauté que vous vous souciez de la sécurité.
+Il est important pour nous de constater que les entreprises s&rsquo;impliquent réellement dans le secteur de la sécurité.</p>
+<p>Enfin, et ce n&rsquo;est pas le moins important, c&rsquo;est toujours une grande satisfaction pour un hacker de voir l&rsquo;un de ses rapports rendu public.
+Nous en tirons de la fierté, et cela contribue à nous faire reconnaître par nos pairs.</p>
+<h2 id="impliquez-vous">Impliquez-vous</h2>
+<p>Comme indiqué dans le paragraphe précédent, être proche de la communauté constitue un réel avantage,
+mais la divulgation responsable n&rsquo;est pas le meilleur moyen d&rsquo;y parvenir.
+Jetez un oeil à l&rsquo;équipe de sécurité de Verizon Media :</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">We are back in our &quot;home office hours&quot; this morning to take questions from hackers and <a href="https://twitter.com/Hacker0x01?ref_src=twsrc%5Etfw">@hacker0x01</a>, and are also working on the next batch of event bounties! See the coins fly at <a href="https://t.co/gZGqtk8yPI">https://t.co/gZGqtk8yPI</a> <a href="https://twitter.com/hashtag/h12004?src=hash&amp;ref_src=twsrc%5Etfw">#h12004</a></p>&mdash; The Paranoids (@TheParanoids) <a href="https://twitter.com/TheParanoids/status/1245709577699479553?ref_src=twsrc%5Etfw">April 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<p>C&rsquo;est l&rsquo;exemple parfait de la manière d&rsquo;entretenir une bonne relation avec la communauté.
+Ils utilisent Twitter comme canal de communication avec les bug hunters, sont présents lors de nombreux événements dédiés à la sécurité,
+et parrainent des initiatives de hackers dans le domaine de la cybersécurité.
+Ils sont réellement <strong>impliqués dans notre univers</strong>, et mieux encore, <strong>ils en font partie</strong>.
+C&rsquo;est pourquoi la communauté leur en est reconnaissante et reste fidèle à leur programme de bug bounty.</p>
+<p>C&rsquo;est une excellente source d&rsquo;inspiration pour toute équipe de sécurité.</p>
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+    
+<aside class="see-also">
+  <h3>À lire aussi</h3>
+  <ul>
+    <li><a href="https://glc.st/fr/formations/introduction-au-bugbounty/">Introduction au Bug Bounty</a></li>
+    <li><a href="https://glc.st/fr/articles/bugbounty-5-choses-a-faire-avant-de-lancer-votre-programme/">Bug Bounty: 5 choses à faire avant de lancer votre programme</a></li>
+    <li><a href="https://glc.st/fr/articles/bugbounty-5-choses-a-eviter-dans-un-programme/">Bug Bounty : 5 choses à éviter dans un programme</a></li>
+    <li><a href="https://glc.st/fr/articles/les-regles-sous-jacentes-du-bug-bounty/">Les règles sous-jacentes du bug bounty</a></li>
+  </ul>
+</aside>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>

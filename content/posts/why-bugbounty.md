@@ -5,8 +5,6 @@ images: [/images/bb-mybblife.png]
 related:
   - /services/
   - /posts/interview-bugbounty-program
-  - /posts/bug-bounty-programs
-  - /posts/bugbounty-cons
   - /posts/bugbounty-howto-write-report
   - /posts/bugbounty-unonfficial-rules
   - /posts/the-bugbounty-program-that-changed-my-life

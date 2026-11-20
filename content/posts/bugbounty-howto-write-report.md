@@ -5,7 +5,6 @@ images: [/images/report-h1-empty.png]
 related:
   - /services/
   - /posts/interview-bugbounty-program
-  - /posts/bug-bounty-programs
   - /posts/bugbounty-cons
   - /posts/bugbounty-unonfficial-rules
   - /posts/platform-tournament

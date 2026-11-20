@@ -2,9 +2,8 @@
 date: 2020-04-04
 title: "How to keep hackers motivated in bug bounty"
 related:
-  - /services/
+  - /courses/bugbounty
   - /posts/interview-bugbounty-program
-  - /posts/bug-bounty-programs
   - /posts/bugbounty-management-bad-example
   - /posts/bugbounty-management-todo-before-launch
   - /posts/bugbounty-management-what-to-avoid
@@ -80,13 +79,13 @@ Or add some for a limited period, this helps to keep the game fun :)
 
 **Create a private program.**
 Some companies like to have a secondary secret program to test new features before pushing them in production.
-There, you can invite <u>some</u> of your "favorite" members of the community.
+There, you can invite some of your favorite members of the community.
 From a hunter point of view, it's very exciting to feel that privilege.
 
 **Increase the rewards.**
 With time, your system will be more and more secure so it will harder and harder to find bugs.
 It's normal to increase the payments to keep hackers involved.
-    Think about promo time as well, it's very well appreciated.
+Think about promo time as well, it's very well appreciated.
 
 **Release the reports.**
 As I will explain in the next chapter, public disclosure is important for the community.
@@ -116,7 +115,7 @@ Take a look at the Verizon Media security team:
 <blockquote class="twitter-tweet"><p lang="en" dir="ltr">We are back in our &quot;home office hours&quot; this morning to take questions from hackers and <a href="https://twitter.com/Hacker0x01?ref_src=twsrc%5Etfw">@hacker0x01</a>, and are also working on the next batch of event bounties! See the coins fly at <a href="https://t.co/gZGqtk8yPI">https://t.co/gZGqtk8yPI</a> <a href="https://twitter.com/hashtag/h12004?src=hash&amp;ref_src=twsrc%5Etfw">#h12004</a></p>&mdash; The Paranoids (@TheParanoids) <a href="https://twitter.com/TheParanoids/status/1245709577699479553?ref_src=twsrc%5Etfw">April 2, 2020</a></blockquote> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 This is the perfect exemple of how to maintain a good relationship with the community.
-They use Twitter as a canal of communication with hunters, they are represented at many security events, they sponsor infosec initiative from hackers...
+They use Twitter as a canal of communication with hunters, they are represented at many security events, they sponsor infosec initiative from hackers.
 They are really **involved in our world**, more, **they are part of it**, and because of that the community is grateful to them and faithful to their bug bounty program.
 
 It's great source of inspiration for every security team.

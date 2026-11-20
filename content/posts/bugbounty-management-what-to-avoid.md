@@ -2,9 +2,7 @@
 date: 2020-01-30
 title: "5 things to avoid in bug bounty"
 related:
-  - /services/
-  - /posts/bug-bounty-programs
-  - /posts/bugbounty-howto-write-report
+  - /courses/bugbounty
   - /posts/bugbounty-management-bad-example
   - /posts/bugbounty-management-hackers-motivation
   - /posts/bugbounty-management-todo-before-launch

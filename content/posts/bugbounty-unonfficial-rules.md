@@ -2,9 +2,7 @@
 date: 2022-08-01
 title: "The underlying rules of bug bounty"
 related:
-  - /services/
-  - /posts/interview-bugbounty-program
-  - /posts/bug-bounty-programs
+  - /courses/bugbounty
   - /posts/bugbounty-management-bad-example
   - /posts/bugbounty-management-hackers-motivation
   - /posts/bugbounty-management-todo-before-launch

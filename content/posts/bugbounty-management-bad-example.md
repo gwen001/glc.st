@@ -2,9 +2,8 @@
 date: 2019-12-16
 title: "Bug bounty management, a bad example"
 related:
-  - /services/
+  - /courses/bugbounty
   - /posts/interview-bugbounty-program
-  - /posts/bug-bounty-programs
   - /posts/bugbounty-cons
   - /posts/bugbounty-howto-write-report
   - /posts/bugbounty-management-hackers-motivation
