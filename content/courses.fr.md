@@ -19,6 +19,15 @@ Chaque cours met l’accent sur des <b>démonstrations pratiques</b>, des <b>exe
 
 N’hésitez pas à <a href="mailto:contact@glc.st" target="_blank">me contacter</a> si vous avez des questions, ou à <a href="/assets/formations/Gwendal Le Coguic Formations FR.pdf" target="_blank">télécharger l’ensemble des programmes</a> (PDF).
 
+<blockquote class="testimonial">
+    <p class="name">
+        Pierre B., Mazarine Digital
+    </p>
+    <p class="text">
+        C'était super, tout à fait adapté à nos besoins, bien rythmé entre théorie et pratique. C'était trois journées bien utiles.
+    </p>
+</blockquote>
+
 <div class="course">
     <a href="/fr/formations/hacking-et-securite-application-web/"><img src="/assets/img/courses/hacking-websec.png" alt="Hacking & web application security"/></a>
     <div class="descr">

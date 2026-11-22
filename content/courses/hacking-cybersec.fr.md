@@ -51,6 +51,17 @@ expérience pratique pour se défendre proactivement contre les menaces réelles
 </center>
 
 
+<blockquote class="testimonial">
+    <p class="name">
+        David H., Phenix Aviation
+    </p>
+    <p class="text">
+        Formation complète et passionnante. Les exercices pratiques de hacking sont un vrai plus pour comprendre les failles web et s'en protéger. 
+        Je recommande !
+    </p>
+</blockquote>
+
+
 ## Public cible:
 - Développeurs web
 - Administrateurs système

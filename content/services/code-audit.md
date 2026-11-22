@@ -40,6 +40,17 @@ The same report measured AI-assisted commits leaking secrets at **3.2% against a
 
 That last figure matters if your team has adopted AI coding assistants in the past two years. Volume went up; review did not.
 
+<blockquote class="testimonial">
+    <p class="name">
+        Harry K., entrepreneur & project builder
+    </p>
+    <p class="text">
+        Very well organized and attentive, Gwendal was able to respond to our request quickly and efficiently. 
+        It also remains available to answer any post-mission questions. 
+        It was a pleasure working with Gwendal, and we will not hesitate to do so call on him again.
+    </p>
+</blockquote>
+
 ## When to run a code audit
 
 - **Before a security-sensitive release**: a payment flow, an authentication rewrite, a multi-tenant feature, an API opened to partners.
@@ -81,12 +92,14 @@ credentials in client repositories more than once.
 **Configuration and infrastructure as code.** Dockerfiles, CI/CD pipeline definitions, Ansible playbooks, environment handling. 
 Pipelines with write access to production are a target, and they are rarely reviewed.
 
-<br>
-
-> PHP and Laravel in depth, JavaScript and TypeScript (Node), Python, Bash, SQL, and
-infrastructure as code (Docker, Ansible). For a codebase dominated by Java, .NET, Go or Rust, 
-I will tell you up front and point you to someone better placed - a shallow review in a language
-I do not live in is worth less than no review.
+<blockquote class="service-highlight">
+    <p>
+        PHP and Laravel in depth, JavaScript and TypeScript (Node), Python, Bash, SQL, and
+        infrastructure as code (Docker, Ansible). For a codebase dominated by Java, .NET, Go or Rust,
+        I will tell you up front and point you to someone better placed - a shallow review in a language
+        I do not live in is worth less than no review.
+    </p>
+</blockquote>
 
 ## How it runs
 
@@ -119,12 +132,14 @@ in fourteen controllers is a design problem, and the recommendation is different
 - **Secrets found**, with an urgent revocation list separated from the rest. That section goes to you by encrypted channel before
 the report is finished if anything live turns up.
 
-<br>
-
-> A publicly reachable admin login page is an informational finding, not a critical vulnerability.
-Inflating scores fills the report and empties its value: by the third audit where
-everything is "high", nobody reads it any more, and the one genuinely critical
-finding drowns in the noise. Accept short reports when the application is in good shape.
+<blockquote class="service-highlight">
+    <p>
+        A publicly reachable admin login page is an informational finding, not a critical vulnerability.
+        Inflating scores fills the report and empties its value: by the third audit where
+        everything is “high”, nobody reads it any more, and the one genuinely critical
+        finding drowns in the noise. Accept short reports when the application is in good shape.
+    </p>
+</blockquote>
 
 ## What a code audit is not
 
@@ -201,17 +216,4 @@ Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.
         padding: 0px;
         text-align: center;
     }
-
-    blockquote {
-        font-size: 0.9em;
-        text-align: justify;
-        background-color: #fef6e1;
-        border: 1px solid #f9b915;
-        font-style: normal;
-        padding: 2rem;
-    }
-    blockquote p {
-        margin: 1.0rem 0 1.0rem 0;
-    }
 </style>
-

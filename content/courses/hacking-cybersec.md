@@ -47,6 +47,17 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 </center>
 
 
+<blockquote class="testimonial">
+    <p class="name">
+        David H., Phenix Aviation
+    </p>
+    <p class="text">
+        A comprehensive and engaging training program. The practical hacking exercises are a real asset for understanding 
+        web vulnerabilities and protecting oneself against them.
+        I highly recommend it!
+    </p>
+</blockquote>
+
 
 ## Targeted audience:
 
@@ -69,6 +80,14 @@ Participants will learn to __identify__, __exploit__, and __remediate__ security
 - Familiarity with web protocols (HTTP, HTTPS)
 - Experience with using command-line tools
 
+<blockquote class="testimonial">
+    <p class="name">
+        Jonathan M., developper
+    </p>
+    <p class="text">
+        Gwendal has demonstrated great skill in the development of our projects, as well as a remarkable eye for the security of our applications. Working with Gwendal has been a truly valuable opportunity.
+    </p>
+</blockquote>
 
 ## Program:
 #### Day 1 - The basics of web security

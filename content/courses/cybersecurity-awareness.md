@@ -43,6 +43,15 @@ This one-day awareness course is designed for all __employees and collaborators_
     <br /><a href="/assets/courses/CYBERSECURITY AWARENESS - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
+<blockquote class="testimonial">
+    <p class="name">
+        Aurélie D., Université Aix Marseille
+    </p>
+    <p class="text">
+        Comprehensive and information-rich training. Excellent for the basics of security.
+    </p>
+</blockquote>
+
 
 ## Targeted audience:
 

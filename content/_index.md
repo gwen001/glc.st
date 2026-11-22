@@ -82,6 +82,14 @@ images: ["/assets/img/me.jpg"]
             </div>
         </div>
     </div>
+    <blockquote class="testimonial">
+        <p class="name">
+            Jonathan M., software architect / staff engineer
+        </p>
+        <p class="text">
+            Gwendal has demonstrated great skill in the development of our projects, as well as a remarkable eye for the security of our applications. Working with Gwendal has been a truly valuable opportunity.
+        </p>
+    </blockquote>
     <div id="main-experiences" class="container list-container">
         <h3>Main experiences</h3>
         <div class="row clearfix layout layout-left">
@@ -167,6 +175,14 @@ images: ["/assets/img/me.jpg"]
             </div>
         </div>
     </div>
+    <blockquote class="testimonial">
+        <p class="name">
+            Marie B., Markhor Design, Graphiste Senior | Brand Design | UI Design | Fondatrice de Markhor Design
+        </p>
+        <p class="text">
+            Gwendal a travaillé avec moi, passionné par son métier, il est rigoureux dans son travail, et possède de grandes compétences.
+        </p>
+    </blockquote>
     <div id="education" class="container list-container">
         <h3>Scholarship and certificates</h3>
         <div class="row clearfix layout layout-left">

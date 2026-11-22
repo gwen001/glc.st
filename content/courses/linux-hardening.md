@@ -44,6 +44,15 @@ Through hands‑on exercises, you’ll apply real‑world hardening techniques u
     <br /><a href="/assets/courses/LINUX HARDENING - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
+<blockquote class="testimonial">
+    <p class="name">
+        Peggy F., Université Aix Marseille
+    </p>
+    <p class="text">
+        A very informative training course, with a pedagogical and engaged instructor.
+    </p>
+</blockquote>
+
 
 ## Targeted audience:
 

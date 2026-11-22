@@ -43,6 +43,17 @@ __atténuer les problèmes de sécurité complexes__ des applications web.
     <br /><a href="/assets/formations/HACKING & SÉCURITÉ DES APPLICATIONS WEB AVANCÉE - FR.pdf" target="_blank">Télécharger le programme</a> (pdf)
 </center>
 
+<blockquote class="testimonial">
+    <p class="name">
+        Michel U., Université Aix Marseille
+    </p>
+    <p class="text">
+        Excellente formation : elle m'a ouvert les yeux sur tout les problèmes de sécurité et les solutions à apporter pour sécuriser au 
+        mieux nos applications WEB. 
+        Je recommande vivement !
+    </p>
+</blockquote>
+
 
 ## Public cible:
 - Développeurs web

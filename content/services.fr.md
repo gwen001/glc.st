@@ -27,6 +27,17 @@ testée sérieusement, ou un client vous demande une preuve.
 
 **[Voir le détail →](/fr/prestations/test-intrusion-application-web/)**
 
+<blockquote class="testimonial">
+    <p class="name">
+        Elise L.
+    </p>
+    <p class="text">
+        Gwendal est une personne très sérieuse, capable de gérer des projets complexes.
+        En tant que manager, il est juste et toujours prêt à aider.
+        Il est responsable : vous pouvez avoir l’assurance que votre projet est entre de bonnes mains et sera mené de la meilleure façon possible.
+    </p>
+</blockquote>
+
 ## Audit de code source
 
 Je lis votre code, vos dépendances et votre historique Git pour trouver ce qui

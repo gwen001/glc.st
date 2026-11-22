@@ -48,6 +48,16 @@ maîtriser votre environnement Linux. Idéal pour les __développeurs__ et les _
 </center>
 
 
+<blockquote class="testimonial">
+    <p class="name">
+        Werner K., CSTB
+    </p>
+    <p class="text">
+        Formation très intéressante et complète, avec un formateur compétent et sympathique.
+    </p>
+</blockquote>
+
+
 ## Targeted audience:
 - Administrateurs système
 - Ingénieurs Dev(Sec)Ops

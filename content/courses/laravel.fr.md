@@ -51,6 +51,17 @@ la __validation des entrées__, et bien plus encore.
 </center>
 
 
+<blockquote class="testimonial">
+    <p class="name">
+        Marie B., product manager / scrum master
+    </p>
+    <p class="text">
+        Excellente formation, Gwendal est évidemment un expert dans son domaine mais aussi et surtout un passionné et son enthousiasme est communicatif ! 
+        Un très bon moyen de faire un tour d'horizon des différentes menaces pour avoir en tête les protections à mettre en place dans son code.
+    </p>
+</blockquote>
+
+
 ## Public cible:
 - Développeurs Laravel
 - Professionnels de la sécurité

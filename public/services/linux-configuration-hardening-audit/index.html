@@ -199,6 +199,16 @@ Data exfiltration incidents went from 130 to <strong>196</strong> in a year.</p>
 The entry point is usually an exposed service that was not patched or not meant to be exposed.
 What determines whether that becomes an incident or a catastrophe is everything behind it: privilege separation, service isolation, logging, segmentation.
 That is what a configuration audit measures.</p>
+<blockquote class="testimonial">
+    <p class="name">
+        Sebastien B.
+    </p>
+    <p class="text">
+        Gwendal quickly identified the issues with our platform, allowing us to improve.
+        Competent and proactive, he adapts easily to the technical problems he encounters.
+        We enjoyed working with him.
+    </p>
+</blockquote>
 <h2 id="when-to-run-one">When to run one</h2>
 <ul>
 <li><strong>Before putting a server into production</strong>: the cheapest possible moment, and the rarest in practice.</li>
@@ -243,12 +253,14 @@ This overlaps with my <a href="https://glc.st/source-code-security-audit/">code 
 mounted sockets, capabilities, resource limits, registry access.</p>
 <p><strong>Automation and backups</strong>: CI/CD runners and their credentials and network reach, backup integrity and restoration,
 and whether your backups are reachable from the machine they protect, which is the detail that turns a ransomware incident into a total loss.</p>
-<br>
-<blockquote>
-<p>Linux systems - Debian and Ubuntu, RHEL and derivatives - plus Docker and
-container configuration, and infrastructure as code (Ansible). <strong>Not Windows, not
-Active Directory.</strong> If your estate is Microsoft-centred, I will say so in the
-first exchange and point you to someone better placed.</p></blockquote>
+<blockquote class="service-highlight">
+    <p>
+        Linux systems - Debian and Ubuntu, RHEL and derivatives - plus Docker and
+        container configuration, and infrastructure as code (Ansible). <strong>Not Windows, not
+        Active Directory.</strong> If your estate is Microsoft-centred, I will say so in the
+        first exchange and point you to someone better placed.
+    </p>
+</blockquote>
 <h2 id="how-it-runs">How it runs</h2>
 <p><strong>1. Scoping</strong>: inventory of systems in scope, their roles, the target ANSSI level, access method,
 a maintenance window if any intrusive check is needed, and the signed audit agreement.</p>
@@ -274,12 +286,14 @@ A recommendation that breaks the application gets reverted on Monday and the ser
 Each item says what might break.</li>
 <li><strong>A re-runnable baseline</strong>: the OpenSCAP profile and scoring method, so you can measure your own drift at any point without calling me.</li>
 </ul>
-<br>
-<blockquote>
-<p>A publicly reachable admin login page is an informational finding, not a critical vulnerability.
-Inflating scores fills the report and empties its value: by the third audit where everything is &ldquo;high&rdquo;,
-nobody reads it any more, and the one genuinely critical finding drowns in the noise.
-Accept short reports when the application is in good shape.</p></blockquote>
+<blockquote class="service-highlight">
+    <p>
+        A publicly reachable admin login page is an informational finding, not a critical vulnerability.
+        Inflating scores fills the report and empties its value: by the third audit where everything is “high”,
+        nobody reads it any more, and the one genuinely critical finding drowns in the noise.
+        Accept short reports when the application is in good shape.
+    </p>
+</blockquote>
 <h2 id="what-this-is-not">What this is not</h2>
 <ul>
 <li><strong>It is not a compliance certification.</strong> I produce an audit report against a published baseline.
@@ -342,18 +356,6 @@ I will reply with a proposed scope, a target level and a price range.</p>
         margin-top: 20px;
         padding: 0px;
         text-align: center;
-    }
-
-    blockquote {
-        font-size: 0.9em;
-        text-align: justify;
-        background-color: #fef6e1;
-        border: 1px solid #f9b915;
-        font-style: normal;
-        padding: 2rem;
-    }
-    blockquote p {
-        margin: 1.0rem 0 1.0rem 0;
     }
 </style>
 

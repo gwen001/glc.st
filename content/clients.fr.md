@@ -27,6 +27,27 @@ Au fil des années, j’ai eu le privilège de former des équipes issues aussi 
 ![Show You](/assets/img/clients/show-you.png)
 
 
+<blockquote class="testimonial">
+    <p class="name">
+        Hélène S., scrum master & agile master
+    </p>
+    <p class="text">
+        Gwendal est impliqué dans les projets qu’il entreprend. Son expertise technique fait de lui un atout dans une équipe. 
+        Je le recommande vivement car il est à l’écoute, partage et apporte des solutions efficaces !
+    </p>
+</blockquote>
+<blockquote class="testimonial">
+    <p class="name">
+        Harry K., entrepreneur & project builder
+    </p>
+    <p class="text">
+        Très bien organisé et à l'écoute, Gwendal a su répondre à notre demande rapidement et efficacement. Il reste également disponible 
+        pour répondre à d'éventuelles questions post-mission. C'était un plaisir de travailler avec Gwendal, et nous n'hésiterons pas à faire à
+        nouveau appel à lui. 
+    </p>
+</blockquote>
+
+
 ## Bug Bounty
 
 Depuis 2016, je traque les failles de sécurité sur certaines des plus grandes plateformes au monde : je découvre des vulnérabilités, développe des outils et aide les entreprises à renforcer leur sécurité. Des erreurs de configuration aux exploits critiques, j’ai signalé des centaines de vulnérabilités, appris auprès des meilleurs et partagé mes connaissances avec la communauté. Voici quelques-unes des entreprises avec lesquelles j’ai collaboré, ainsi que certains exemples de découvertes.

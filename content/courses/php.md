@@ -47,6 +47,15 @@ This training is __ideal for novice developers__ seeking to create applications 
     <br /><a href="/assets/courses/PHP FOR BEGINNERS - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
+<blockquote class="testimonial">
+    <p class="name">
+        Bastien N., Université Aix Marseille
+    </p>
+    <p class="text">
+        Excellent. The theory followed by exercises for each point covered in the training was very interesting and not boring!
+    </p>
+</blockquote>
+
 
 ## Targeted audience:
 

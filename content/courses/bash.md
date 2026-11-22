@@ -43,6 +43,15 @@ This 3-day hands-on course introduces participants to Bash scripting for task au
     <br /><a href="/assets/formations/INITIATION BASH - FR.pdf" target="_blank">Télécharger le programme</a> (pdf)
 </center>
 
+<blockquote class="testimonial">
+    <p class="name">
+        Werner K., CSTB
+    </p>
+    <p class="text">
+        A very interesting and comprehensive training course, with a competent and friendly trainer.
+    </p>
+</blockquote>
+
 
 ## Public cible:
 - System administrators

@@ -53,6 +53,16 @@ de programmation PHP.
 </center>
 
 
+<blockquote class="testimonial">
+    <p class="name">
+        Bastien N., Université Aix Marseille
+    </p>
+    <p class="text">
+        Top. Du théorique suivi d'exercices pour chaque point vu dans le formation, c'était très intéressant et pas ennuyeux !
+    </p>
+</blockquote>
+
+
 ## Public cible:
 - Débutants en développement web
 - Aspirants développeurs back-end

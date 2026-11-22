@@ -199,6 +199,16 @@ Plus parlant pour un audit : <strong>les dépôts internes sont environ six fois
 et <strong>64 % des secrets valides fuités en 2022 n&rsquo;étaient toujours pas révoqués en 2026</strong>.
 Le même rapport mesure un taux de fuite de secrets de <strong>3,2 % sur les commits assistés par IA, contre 1,5 % de référence</strong>, soit le double.</p>
 <p>Ce dernier chiffre compte si votre équipe a adopté des assistants de code IA ces deux dernières années. Le volume a augmenté ; la revue, non.</p>
+<blockquote class="testimonial">
+    <p class="name">
+        Harry K., entrepreneur & project builder
+    </p>
+    <p class="text">
+        Très bien organisé et à l'écoute, Gwendal a su répondre à notre demande rapidement et efficacement. Il reste également disponible 
+        pour répondre à d'éventuelles questions post-mission. C'était un plaisir de travailler avec Gwendal, et nous n'hésiterons pas à faire à
+        nouveau appel à lui. 
+    </p>
+</blockquote>
 <h2 id="quand-lancer-un-audit-de-code">Quand lancer un audit de code</h2>
 <ul>
 <li><strong>Avant une version sensible</strong> : un parcours de paiement, une refonte de l&rsquo;authentification, une fonctionnalité multi-tenant, une API ouverte à des partenaires.</li>
@@ -231,12 +241,14 @@ Je vérifie les deux. J&rsquo;ai écrit et publié <a href="https://glc.st/fr/pr
 dans des dépôts clients à plus d&rsquo;une reprise.</p>
 <p><strong>La configuration et l&rsquo;infrastructure as code.</strong> Dockerfiles, définitions de pipelines CI/CD, playbooks Ansible, gestion des environnements.
 Les pipelines qui ont un accès en écriture à la production sont une cible, et ils sont rarement revus.</p>
-<br>
-<blockquote>
-<p>PHP et Laravel en profondeur, JavaScript et TypeScript (Node), Python, Bash, SQL, et
-l&rsquo;infrastructure as code (Docker, Ansible). Pour une base de code dominée par Java, .NET, Go ou Rust,
-je vous le dis d&rsquo;emblée et je vous oriente vers quelqu&rsquo;un de mieux placé - une revue superficielle dans un langage
-que je ne pratique pas au quotidien vaut moins que pas de revue du tout.</p></blockquote>
+<blockquote class="service-highlight">
+    <p>
+        PHP et Laravel en profondeur, JavaScript et TypeScript (Node), Python, Bash, SQL, et
+        l’infrastructure as code (Docker, Ansible). Pour une base de code dominée par Java, .NET, Go ou Rust,
+        je vous le dis d’emblée et je vous oriente vers quelqu’un de mieux placé - une revue superficielle dans un langage
+        que je ne pratique pas au quotidien vaut moins que pas de revue du tout.
+    </p>
+</blockquote>
 <h2 id="comment-ça-se-déroule">Comment ça se déroule</h2>
 <p><strong>1. Cadrage</strong> - dépôts concernés, langages, taille approximative, branche ou tag à auditer, méthode d&rsquo;accès (une clé de déploiement en lecture seule est préférable,
 aucune copie ne quitte mon poste chiffré), accord de confidentialité, et un contact technique nommé pour les questions.</p>
@@ -261,12 +273,14 @@ dans quatorze contrôleurs est un problème de conception, et la recommandation 
 <li><strong>Les secrets trouvés</strong>, avec une liste de révocation urgente séparée du reste. Cette section vous parvient par canal chiffré avant
 la fin du rapport si quelque chose d&rsquo;actif remonte.</li>
 </ul>
-<br>
-<blockquote>
-<p>Une page d&rsquo;administration accessible publiquement est une information, pas une vulnérabilité critique.
-Gonfler les scores remplit le rapport et vide sa valeur : au troisième audit où
-tout est « élevé », plus personne ne le lit, et la seule trouvaille réellement critique
-se noie dans le bruit. Acceptez les rapports courts quand l&rsquo;application est saine.</p></blockquote>
+<blockquote class="service-highlight">
+    <p>
+        Une page d’administration accessible publiquement est une information, pas une vulnérabilité critique.
+        Gonfler les scores remplit le rapport et vide sa valeur : au troisième audit où
+        tout est « élevé », plus personne ne le lit, et la seule trouvaille réellement critique
+        se noie dans le bruit. Acceptez les rapports courts quand l’application est saine.
+    </p>
+</blockquote>
 <h2 id="ce-quun-audit-de-code-nest-pas">Ce qu&rsquo;un audit de code n&rsquo;est pas</h2>
 <ul>
 <li><strong>Ce n&rsquo;est pas un rapport de scanner avec une page de garde.</strong> Si vous voulez une sortie de SAST, vous pouvez l&rsquo;exécuter vous-même pour moins que mon taux journalier. Ce que je vends, c&rsquo;est le triage.</li>
@@ -328,18 +342,6 @@ Je vous réponds avec un périmètre proposé et une fourchette de prix.</p>
         margin-top: 20px;
         padding: 0px;
         text-align: center;
-    }
-
-    blockquote {
-        font-size: 0.9em;
-        text-align: justify;
-        background-color: #fef6e1;
-        border: 1px solid #f9b915;
-        font-style: normal;
-        padding: 2rem;
-    }
-    blockquote p {
-        margin: 1.0rem 0 1.0rem 0;
     }
 </style>
 

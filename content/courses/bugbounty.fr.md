@@ -45,6 +45,15 @@ bug bounty, __tant du point de vue du hacker que de celui de l'entreprise__.
     <br /><a href="/assets/formations/INTRODUCTION AU BUG BOUNTY - FR.pdf" target="_blank">Télécharger le programme</a> (pdf)
 </center>
 
+<blockquote class="testimonial">
+    <p class="name">
+        Olivier B., Mazarine Digital
+    </p>
+    <p class="text">
+        Formation très dynamique, avec une approche intéressante (sans doute au vu du sujet qui est atypique).
+    </p>
+</blockquote>
+
 
 ## Public cible:
 - Responsables de la cybersécurité et équipes de sécurité

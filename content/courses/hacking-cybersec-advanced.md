@@ -41,6 +41,16 @@ It delves into advanced vulnerabilities and equips participants with the skills 
     <br /><a href="/assets/courses/ADVANCED HACKING & WEB APPLICATION SECURITY - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
+<blockquote class="testimonial">
+    <p class="name">
+        Michel U., Université Aix Marseille
+    </p>
+    <p class="text">
+        Excellent training: it opened my eyes to all the security issues and the solutions needed to best secure our web applications. 
+        I highly recommend it!
+    </p>
+</blockquote>
+
 
 ## Targeted audience:
 

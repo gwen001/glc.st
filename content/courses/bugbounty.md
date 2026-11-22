@@ -39,6 +39,15 @@ This half-a-day course offers a complete introduction to the world of bug bounty
     <br /><a href="/assets/courses/BUG BOUNTY OVERVIEW - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
+<blockquote class="testimonial">
+    <p class="name">
+        Olivier B., Mazarine Digital
+    </p>
+    <p class="text">
+        Very dynamic training, with an interesting approach (no doubt due to the atypical subject matter).
+    </p>
+</blockquote>
+
 
 ## Targeted audience:
 

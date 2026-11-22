@@ -39,6 +39,17 @@ The entry point is usually an exposed service that was not patched or not meant 
 What determines whether that becomes an incident or a catastrophe is everything behind it: privilege separation, service isolation, logging, segmentation. 
 That is what a configuration audit measures.
 
+<blockquote class="testimonial">
+    <p class="name">
+        Sebastien B.
+    </p>
+    <p class="text">
+        Gwendal quickly identified the issues with our platform, allowing us to improve.
+        Competent and proactive, he adapts easily to the technical problems he encounters.
+        We enjoyed working with him.
+    </p>
+</blockquote>
+
 ## When to run one
 
 - **Before putting a server into production**: the cheapest possible moment, and the rarest in practice.
@@ -97,12 +108,14 @@ mounted sockets, capabilities, resource limits, registry access.
 **Automation and backups**: CI/CD runners and their credentials and network reach, backup integrity and restoration, 
 and whether your backups are reachable from the machine they protect, which is the detail that turns a ransomware incident into a total loss.
 
-<br>
-
-> Linux systems - Debian and Ubuntu, RHEL and derivatives - plus Docker and
-container configuration, and infrastructure as code (Ansible). **Not Windows, not
-Active Directory.** If your estate is Microsoft-centred, I will say so in the
-first exchange and point you to someone better placed.
+<blockquote class="service-highlight">
+    <p>
+        Linux systems - Debian and Ubuntu, RHEL and derivatives - plus Docker and
+        container configuration, and infrastructure as code (Ansible). <strong>Not Windows, not
+        Active Directory.</strong> If your estate is Microsoft-centred, I will say so in the
+        first exchange and point you to someone better placed.
+    </p>
+</blockquote>
 
 ## How it runs
 
@@ -133,12 +146,14 @@ A recommendation that breaks the application gets reverted on Monday and the ser
 Each item says what might break.
 - **A re-runnable baseline**: the OpenSCAP profile and scoring method, so you can measure your own drift at any point without calling me.
 
-<br>
-
-> A publicly reachable admin login page is an informational finding, not a critical vulnerability.
-Inflating scores fills the report and empties its value: by the third audit where everything is "high", 
-nobody reads it any more, and the one genuinely critical finding drowns in the noise. 
-Accept short reports when the application is in good shape.
+<blockquote class="service-highlight">
+    <p>
+        A publicly reachable admin login page is an informational finding, not a critical vulnerability.
+        Inflating scores fills the report and empties its value: by the third audit where everything is “high”,
+        nobody reads it any more, and the one genuinely critical finding drowns in the noise.
+        Accept short reports when the application is in good shape.
+    </p>
+</blockquote>
 
 ## What this is not
 
@@ -214,17 +229,5 @@ Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.
         margin-top: 20px;
         padding: 0px;
         text-align: center;
-    }
-
-    blockquote {
-        font-size: 0.9em;
-        text-align: justify;
-        background-color: #fef6e1;
-        border: 1px solid #f9b915;
-        font-style: normal;
-        padding: 2rem;
-    }
-    blockquote p {
-        margin: 1.0rem 0 1.0rem 0;
     }
 </style>

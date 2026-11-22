@@ -46,6 +46,15 @@ __techniques de durcissement concrètes__ utilisées par les professionnels de l
     <br /><a href="/assets/formations/DURCISSEMENT LINUX - FR.pdf" target="_blank">Télécharger le programme</a> (pdf)
 </center>
 
+<blockquote class="testimonial">
+    <p class="name">
+        Peggy F., Université Aix Marseille
+    </p>
+    <p class="text">
+        Formation très instructive, avec un intervenant pédagogue et impliqué.
+    </p>
+</blockquote>
+
 
 ## Public cible:
 - Administrateurs systèmes

@@ -40,6 +40,17 @@ Le même rapport mesure un taux de fuite de secrets de **3,2 % sur les commits a
 
 Ce dernier chiffre compte si votre équipe a adopté des assistants de code IA ces deux dernières années. Le volume a augmenté ; la revue, non.
 
+<blockquote class="testimonial">
+    <p class="name">
+        Harry K., entrepreneur & project builder
+    </p>
+    <p class="text">
+        Très bien organisé et à l'écoute, Gwendal a su répondre à notre demande rapidement et efficacement. Il reste également disponible 
+        pour répondre à d'éventuelles questions post-mission. C'était un plaisir de travailler avec Gwendal, et nous n'hésiterons pas à faire à
+        nouveau appel à lui. 
+    </p>
+</blockquote>
+
 ## Quand lancer un audit de code
 
 - **Avant une version sensible** : un parcours de paiement, une refonte de l'authentification, une fonctionnalité multi-tenant, une API ouverte à des partenaires.
@@ -81,12 +92,14 @@ dans des dépôts clients à plus d'une reprise.
 **La configuration et l'infrastructure as code.** Dockerfiles, définitions de pipelines CI/CD, playbooks Ansible, gestion des environnements.
 Les pipelines qui ont un accès en écriture à la production sont une cible, et ils sont rarement revus.
 
-<br>
-
-> PHP et Laravel en profondeur, JavaScript et TypeScript (Node), Python, Bash, SQL, et
-l'infrastructure as code (Docker, Ansible). Pour une base de code dominée par Java, .NET, Go ou Rust,
-je vous le dis d'emblée et je vous oriente vers quelqu'un de mieux placé - une revue superficielle dans un langage
-que je ne pratique pas au quotidien vaut moins que pas de revue du tout.
+<blockquote class="service-highlight">
+    <p>
+        PHP et Laravel en profondeur, JavaScript et TypeScript (Node), Python, Bash, SQL, et
+        l’infrastructure as code (Docker, Ansible). Pour une base de code dominée par Java, .NET, Go ou Rust,
+        je vous le dis d’emblée et je vous oriente vers quelqu’un de mieux placé - une revue superficielle dans un langage
+        que je ne pratique pas au quotidien vaut moins que pas de revue du tout.
+    </p>
+</blockquote>
 
 ## Comment ça se déroule
 
@@ -119,12 +132,14 @@ dans quatorze contrôleurs est un problème de conception, et la recommandation 
 - **Les secrets trouvés**, avec une liste de révocation urgente séparée du reste. Cette section vous parvient par canal chiffré avant
 la fin du rapport si quelque chose d'actif remonte.
 
-<br>
-
-> Une page d'administration accessible publiquement est une information, pas une vulnérabilité critique.
-Gonfler les scores remplit le rapport et vide sa valeur : au troisième audit où
-tout est « élevé », plus personne ne le lit, et la seule trouvaille réellement critique
-se noie dans le bruit. Acceptez les rapports courts quand l'application est saine.
+<blockquote class="service-highlight">
+    <p>
+        Une page d’administration accessible publiquement est une information, pas une vulnérabilité critique.
+        Gonfler les scores remplit le rapport et vide sa valeur : au troisième audit où
+        tout est « élevé », plus personne ne le lit, et la seule trouvaille réellement critique
+        se noie dans le bruit. Acceptez les rapports courts quand l’application est saine.
+    </p>
+</blockquote>
 
 ## Ce qu'un audit de code n'est pas
 
@@ -200,17 +215,5 @@ Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.
         margin-top: 20px;
         padding: 0px;
         text-align: center;
-    }
-
-    blockquote {
-        font-size: 0.9em;
-        text-align: justify;
-        background-color: #fef6e1;
-        border: 1px solid #f9b915;
-        font-style: normal;
-        padding: 2rem;
-    }
-    blockquote p {
-        margin: 1.0rem 0 1.0rem 0;
     }
 </style>

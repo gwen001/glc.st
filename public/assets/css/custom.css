@@ -34,6 +34,46 @@ img {
     border: 0px solid #FFF;
     padding: 0px;
 }
+
+blockquote.service-highlight {
+    font-size: 0.9em;
+    text-align: justify;
+    background-color: #fef6e1;
+    border: 1px solid #f9b915;
+    font-style: normal;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+    padding: 2rem;
+}
+blockquote.service-highlight p {
+    margin: 1.0rem 0 1.0rem 0;
+}
+
+blockquote.testimonial {
+    font-size: 0.9em;
+    text-align: justify;
+    background-color: #FAFAFA;
+    border-left: 3px solid #f9b915;
+    /* border-left: 3px solid #1EC8BB; */
+    font-style: normal;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+    padding: 0.5rem;
+    width: 80%;
+}
+blockquote.testimonial p {
+    font-family: Merriweather, Georgia, serif;
+    /* font-style: italic; */
+    margin: 0;
+}
+blockquote.testimonial p.name {
+    font-weight: 700;
+    font-style: none;
+}
+blockquote.testimonial p.text {
+    font-style: italic;
+}
+
 .navigation-list .language img {
     padding-bottom: 3px;
     vertical-align: middle;
@@ -160,3 +200,5 @@ svg. {
     margin-left: 0.8rem;
     margin-right: 0.8rem;
 }
+
+

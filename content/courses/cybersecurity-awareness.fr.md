@@ -50,6 +50,15 @@ matière de sécurité de l'information.
     <br /><a href="/assets/formations/SENSIBILISATION À LA CYBERSÉCURITÉ - FR.pdf" target="_blank">Télécharger le programme</a> (pdf)
 </center>
 
+<blockquote class="testimonial">
+    <p class="name">
+        Aurélie D., Université Aix Marseille
+    </p>
+    <p class="text">
+        Formation complète et dense en information. Très bien pour les bases en sécurité.
+    </p>
+</blockquote>
+
 
 ## Public cible:
 - Collaborateurs de tous niveaux : managers et chefs d'équipe, ressources humaines, personnel administratif...

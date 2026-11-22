@@ -46,6 +46,16 @@ This one-day course is designed for __Laravel developers__ who want to build sec
     <br /><a href="/assets/courses/LARAVEL SECURITY - EN.pdf" target="_blank">Download the program</a> (pdf)
 </center>
 
+<blockquote class="testimonial">
+    <p class="name">
+        Marie B., product manager / scrum master
+    </p>
+    <p class="text">
+        Excellent training! Gwendal is clearly an expert in his field, but also, and above all, passionate, and his enthusiasm is contagious!
+        A great way to get an overview of the various threats and understand the protections to implement in your code.
+    </p>
+</blockquote>
+
 
 ## Targeted audience:
 

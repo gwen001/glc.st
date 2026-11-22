@@ -28,6 +28,17 @@ seriously, or a client is asking you for evidence.
 
 **[See the details →](/services/web-application-penetration-testing/)**
 
+<blockquote class="testimonial">
+    <p class="name">
+        Elise L.
+    </p>
+    <p class="text">
+        Gwendal is a very serious person who can handle challenging projects. 
+        As a manager, he is fair and ready to help if needed.
+        He is responsible as you can be sure your project is in good hands with him and will be handled the best way possible.
+    </p>
+</blockquote>
+
 ## Source code audit
 
 I read your code, your dependencies and your Git history to find what is fragile

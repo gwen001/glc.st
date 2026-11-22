@@ -199,6 +199,16 @@ More to the point for an audit: <strong>internal repositories are roughly six ti
 and <strong>64% of valid secrets leaked in 2022 were still not revoked in 2026</strong>.
 The same report measured AI-assisted commits leaking secrets at <strong>3.2% against a 1.5% baseline</strong>, twice the rate.</p>
 <p>That last figure matters if your team has adopted AI coding assistants in the past two years. Volume went up; review did not.</p>
+<blockquote class="testimonial">
+    <p class="name">
+        Harry K., entrepreneur & project builder
+    </p>
+    <p class="text">
+        Very well organized and attentive, Gwendal was able to respond to our request quickly and efficiently. 
+        It also remains available to answer any post-mission questions. 
+        It was a pleasure working with Gwendal, and we will not hesitate to do so call on him again.
+    </p>
+</blockquote>
 <h2 id="when-to-run-a-code-audit">When to run a code audit</h2>
 <ul>
 <li><strong>Before a security-sensitive release</strong>: a payment flow, an authentication rewrite, a multi-tenant feature, an API opened to partners.</li>
@@ -231,12 +241,14 @@ I check both. I have written and published the <a href="https://glc.st/projects/
 credentials in client repositories more than once.</p>
 <p><strong>Configuration and infrastructure as code.</strong> Dockerfiles, CI/CD pipeline definitions, Ansible playbooks, environment handling.
 Pipelines with write access to production are a target, and they are rarely reviewed.</p>
-<br>
-<blockquote>
-<p>PHP and Laravel in depth, JavaScript and TypeScript (Node), Python, Bash, SQL, and
-infrastructure as code (Docker, Ansible). For a codebase dominated by Java, .NET, Go or Rust,
-I will tell you up front and point you to someone better placed - a shallow review in a language
-I do not live in is worth less than no review.</p></blockquote>
+<blockquote class="service-highlight">
+    <p>
+        PHP and Laravel in depth, JavaScript and TypeScript (Node), Python, Bash, SQL, and
+        infrastructure as code (Docker, Ansible). For a codebase dominated by Java, .NET, Go or Rust,
+        I will tell you up front and point you to someone better placed - a shallow review in a language
+        I do not live in is worth less than no review.
+    </p>
+</blockquote>
 <h2 id="how-it-runs">How it runs</h2>
 <p><strong>1. Scoping</strong> - repositories in scope, languages, approximate size, branch or tag to audit, access method (a read-only deploy key is preferred,
 no copy leaves my encrypted workstation), non-disclosure agreement, and a named technical contact for questions.</p>
@@ -261,12 +273,14 @@ in fourteen controllers is a design problem, and the recommendation is different
 <li><strong>Secrets found</strong>, with an urgent revocation list separated from the rest. That section goes to you by encrypted channel before
 the report is finished if anything live turns up.</li>
 </ul>
-<br>
-<blockquote>
-<p>A publicly reachable admin login page is an informational finding, not a critical vulnerability.
-Inflating scores fills the report and empties its value: by the third audit where
-everything is &ldquo;high&rdquo;, nobody reads it any more, and the one genuinely critical
-finding drowns in the noise. Accept short reports when the application is in good shape.</p></blockquote>
+<blockquote class="service-highlight">
+    <p>
+        A publicly reachable admin login page is an informational finding, not a critical vulnerability.
+        Inflating scores fills the report and empties its value: by the third audit where
+        everything is “high”, nobody reads it any more, and the one genuinely critical
+        finding drowns in the noise. Accept short reports when the application is in good shape.
+    </p>
+</blockquote>
 <h2 id="what-a-code-audit-is-not">What a code audit is not</h2>
 <ul>
 <li><strong>It is not a scanner report with a cover page.</strong> If you wanted SAST output you can run it yourself for less than my day rate. What I sell is the triage.</li>
@@ -328,18 +342,6 @@ I will reply with a proposed scope and a price range.</p>
         margin-top: 20px;
         padding: 0px;
         text-align: center;
-    }
-
-    blockquote {
-        font-size: 0.9em;
-        text-align: justify;
-        background-color: #fef6e1;
-        border: 1px solid #f9b915;
-        font-style: normal;
-        padding: 2rem;
-    }
-    blockquote p {
-        margin: 1.0rem 0 1.0rem 0;
     }
 </style>
 

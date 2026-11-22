@@ -39,6 +39,17 @@ Le point d'entrée est généralement un service exposé qui n'a pas été corri
 Ce qui détermine si ça devient un incident ou une catastrophe, c'est tout ce qui se trouve derrière : séparation des privilèges, isolation des services, journalisation, segmentation.
 C'est ce que mesure un audit de configuration.
 
+<blockquote class="testimonial">
+    <p class="name">
+        Sebastien B.
+    </p>
+    <p class="text">
+        Gwendal a très rapidement su pointer du doigt les disfonctionnements de notre plateforme nous permettant ainsi de nous améliorer. 
+        Compétent et fort de proposition il sait s'adapter en fonctions des problèmes techniques qu'il rencontre. 
+        Nous avons apprecié travailler avec lui.
+    </p>
+</blockquote>
+
 ## Quand en lancer un
 
 - **Avant la mise en production d'un serveur** : le moment le moins cher possible, et le plus rare en pratique.
@@ -97,12 +108,14 @@ sockets montées, capabilities, limites de ressources, accès au registre.
 **Automatisation et sauvegardes** : runners CI/CD avec leurs identifiants et leur portée réseau, intégrité et restauration des sauvegardes,
 et si vos sauvegardes sont joignables depuis la machine qu'elles protègent - le détail qui transforme un incident de rançongiciel en perte totale.
 
-<br>
-
-> Systèmes Linux - Debian et Ubuntu, RHEL et dérivés - plus Docker et la
-configuration de conteneurs, et l'infrastructure as code (Ansible). **Pas Windows, pas
-Active Directory.** Si votre parc est centré sur Microsoft, je vous le dis dès le
-premier échange et je vous oriente vers quelqu'un de mieux placé.
+<blockquote class="service-highlight">
+    <p>
+        Systèmes Linux - Debian et Ubuntu, RHEL et dérivés - plus Docker et la
+        configuration de conteneurs, et l’infrastructure as code (Ansible). <strong>Pas Windows, pas
+        Active Directory.</strong> Si votre parc est centré sur Microsoft, je vous le dis dès le
+        premier échange et je vous oriente vers quelqu’un de mieux placé.
+    </p>
+</blockquote>
 
 ## Comment ça se déroule
 
@@ -133,12 +146,14 @@ Une recommandation qui casse l'application est annulée le lundi et le serveur f
 Chaque point indique ce qui pourrait casser.
 - **Une base de référence rejouable** : le profil OpenSCAP et la méthode de notation, pour que vous puissiez mesurer votre propre dérive à tout moment sans m'appeler.
 
-<br>
-
-> Une page d'administration accessible publiquement est une information, pas une vulnérabilité critique.
-Gonfler les scores remplit le rapport et vide sa valeur : au troisième audit où tout est « élevé »,
-plus personne ne le lit, et la seule trouvaille réellement critique se noie dans le bruit.
-Acceptez les rapports courts quand le système est bien construit.
+<blockquote class="service-highlight">
+    <p>
+        Une page d’administration accessible publiquement est une information, pas une vulnérabilité critique.
+        Gonfler les scores remplit le rapport et vide sa valeur : au troisième audit où tout est « élevé »,
+        plus personne ne le lit, et la seule trouvaille réellement critique se noie dans le bruit.
+        Acceptez les rapports courts quand le système est bien construit.
+    </p>
+</blockquote>
 
 ## Ce que ce n'est pas
 
@@ -214,17 +229,5 @@ Gwendal Le Coguic - <a href="mailto:contact@glc.st" target="_blank">contact@glc.
         margin-top: 20px;
         padding: 0px;
         text-align: center;
-    }
-
-    blockquote {
-        font-size: 0.9em;
-        text-align: justify;
-        background-color: #fef6e1;
-        border: 1px solid #f9b915;
-        font-style: normal;
-        padding: 2rem;
-    }
-    blockquote p {
-        margin: 1.0rem 0 1.0rem 0;
     }
 </style>
