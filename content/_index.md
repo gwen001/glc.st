@@ -177,10 +177,10 @@ images: ["/assets/img/me.jpg"]
     </div>
     <blockquote class="testimonial">
         <p class="name">
-            Marie B., Markhor Design, Graphiste Senior | Brand Design | UI Design | Fondatrice de Markhor Design
+            Marie B., founder of Markhor Design
         </p>
         <p class="text">
-            Gwendal a travaillé avec moi, passionné par son métier, il est rigoureux dans son travail, et possède de grandes compétences.
+            Gwendal worked with me, he is passionate about his job, rigorous in his work, and possesses great skills.
         </p>
     </blockquote>
     <div id="education" class="container list-container">
