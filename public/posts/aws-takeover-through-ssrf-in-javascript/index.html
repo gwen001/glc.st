@@ -203,7 +203,8 @@
         <div>
             <p>Here is the story of a bug I found in a private bug bounty program on <a href="https://hackerone.com/">Hackerone</a>.
 It took me exactly 12h30 -no break- to find it, exploit and report.
-I was able to dump the AWS credentials, this lead me to fully compromise the account of the company: 20 buckets and 80 EC2 instances (Amazon Elastic Compute Cloud) in my hands.
+I was able to dump the AWS credentials, this lead me to fully compromise the account of the company:
+20 buckets and 80 EC2 instances (Amazon Elastic Compute Cloud) in my hands.
 Besides the fact that it&rsquo;s one of my best bug in my hunter career, I also learnt alot during this sprint, so let&rsquo;s share!</p>
 <h2 id="intro">Intro</h2>
 <p>As I said, the program is private so the company, let&rsquo;s call it: ArticMonkey.<br>
@@ -313,7 +314,7 @@ Sort of manual fuzzing.</p>
 </span></span><span style="display:flex;"><span>[{<span style="color:#f92672">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;REDACTED&#34;</span>,<span style="color:#960050;background-color:#1e0010">...REDACTED...</span>}]
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#960050;background-color:#1e0010">...REDACTED...,</span><span style="color:#f92672">&#34;operation&#34;</span>:<span style="color:#e6db74">&#34;Union(&#39;1&#39;;&#39;&gt;&#39;;&#39;3&#39;)&#34;</span>}
 </span></span><span style="display:flex;"><span>[]<span style="color:#960050;background-color:#1e0010">]</span>
-</span></span></code></pre></div><p>Perfect! If <code>1 &lt; 3</code> then the response contains valid datas (true), but if <code>1 &gt; 3</code> then the response is empty (false).
+</span></span></code></pre></div><p>Perfect! If <code>1 &lt; 3</code> then the response contains valid data (true), but if <code>1 &gt; 3</code> then the response is empty (false).
 Parameters must be separated by a semi colon.
 I could now try a real attack.</p>
 <h2 id="fetch-is-the-new-xmlhttprequest">fetch is the new XMLHttpRequest</h2>
@@ -396,16 +397,19 @@ I tried to use those credentials to impersonate the company.
 You have to know that they are temporary credentials, only valid for a short period, 5mn more or less.
 Anyway, 5mn is supposed to be more than enough to update my own credentials to those ones, 2 copy/paste, I can handle that&hellip;
 err&hellip;</p>
-<p>I asked for help on Twitter from SSRF and AWS master. Thank guys, I truely appreciate your commitment, but I finally found the solution in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">UserGuide of AWS Identity and Access Management</a>. My mistake, except to not read the documentation (&hellip;), was to only use <code>AccessKeyId</code> and <code>SecretAccessKey</code>, this doesn&rsquo;t work, the token must also be exported. Kiddies&hellip;</p>
+<p>I asked for help on Twitter from SSRF and AWS master.
+Thank guys, I truely appreciate your commitment, but I finally found the solution in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">UserGuide of AWS Identity and Access Management</a>.
+My mistake, except to not read the documentation (&hellip;), was to only use <code>AccessKeyId</code> and <code>SecretAccessKey</code>, this doesn&rsquo;t work, the token must also be exported. Kiddies&hellip;</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ export AWS_ACCESS_KEY_ID<span style="color:#f92672">=</span>AKIAX7EFFWBWFRW3ACIR...
 </span></span><span style="display:flex;"><span>$ export AWS_SECRET_ACCESS_KEY<span style="color:#f92672">=</span>wJalrXUtnFEMI...
 </span></span><span style="display:flex;"><span>$ export AWS_SESSION_TOKEN<span style="color:#f92672">=</span>AQoDYXdzEJr...
-</span></span></code></pre></div><p>Checking my idendity with the following command proved that I was not myself anymore.</p>
+</span></span></code></pre></div><p>Checking my identity with the following command proved that I was not myself anymore.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>aws sts get-caller-identity
 </span></span></code></pre></div><p>And then&hellip;<br>
 <a href="https://glc.st/images/ssrf-aws-takeover-poc.png" title="aws takeover through ssrf in javascript" target="_blank"><img src="https://glc.st/images/ssrf-aws-takeover-poc.png" alt="aws takeover through ssrf in javascript" /></a></p>
 <p>Left: listing of the EC2 instances configured by ArticMonkey. Probably a big part -or the whole- of their system.</p>
-<p>Right: the company owns 20 buckets containing, highly sensitive datas from customers, static files for the web application and, according to the name of the buckets, probably logs/backups of their servers.</p>
+<p>Right: the company owns 20 buckets containing, highly sensitive datas from customers, static files for the web application and,
+according to the name of the buckets, probably logs/backups of their servers.</p>
 <p>Impact: lethal.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>I learnt alot because of this bug:</p>
@@ -415,7 +419,8 @@ err&hellip;</p>
 <li>At each step new problems appeared. I had to search everywhere, try many different things, I had to push my limits to not give up.</li>
 <li>I now know that I can fully compromise a system by myself starting from 0, which is a great personal  achievement and statisfaction :)</li>
 </ul>
-<p>When someone tells you that you&rsquo;ll never be able to do something, don&rsquo;t waste your time to bargain with these peoples, simply prove them they&rsquo;re wrong by doing it.</p>
+<p>When someone tells you that you&rsquo;ll never be able to do something, don&rsquo;t waste your time to bargain with these peoples,
+simply prove them they&rsquo;re wrong by doing it.</p>
 <h2 id="timeline">Timeline</h2>
 <p>06/09/2018 12h00 - beginning of the hunt<br>
 07/09/2018 00h30 - report<br>

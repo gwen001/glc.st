@@ -15,7 +15,8 @@ tags:
 ---
 Here is the story of a bug I found in a private bug bounty program on [Hackerone](https://hackerone.com/).
 It took me exactly 12h30 -no break- to find it, exploit and report.
-I was able to dump the AWS credentials, this lead me to fully compromise the account of the company: 20 buckets and 80 EC2 instances (Amazon Elastic Compute Cloud) in my hands.
+I was able to dump the AWS credentials, this lead me to fully compromise the account of the company: 
+20 buckets and 80 EC2 instances (Amazon Elastic Compute Cloud) in my hands.
 Besides the fact that it's one of my best bug in my hunter career, I also learnt alot during this sprint, so let's share!
 <!--more-->
 
@@ -185,7 +186,7 @@ Let's continue with `Union()`:
 []]
 ```
 
-Perfect! If `1 < 3` then the response contains valid datas (true), but if `1 > 3` then the response is empty (false).
+Perfect! If `1 < 3` then the response contains valid data (true), but if `1 > 3` then the response is empty (false).
 Parameters must be separated by a semi colon.
 I could now try a real attack.
 
@@ -320,14 +321,16 @@ You have to know that they are temporary credentials, only valid for a short per
 Anyway, 5mn is supposed to be more than enough to update my own credentials to those ones, 2 copy/paste, I can handle that...
 err...
 
-I asked for help on Twitter from SSRF and AWS master. Thank guys, I truely appreciate your commitment, but I finally found the solution in the [UserGuide of AWS Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html). My mistake, except to not read the documentation (...), was to only use `AccessKeyId` and `SecretAccessKey`, this doesn't work, the token must also be exported. Kiddies...
+I asked for help on Twitter from SSRF and AWS master. 
+Thank guys, I truely appreciate your commitment, but I finally found the solution in the [UserGuide of AWS Identity and Access Management](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html). 
+My mistake, except to not read the documentation (...), was to only use `AccessKeyId` and `SecretAccessKey`, this doesn't work, the token must also be exported. Kiddies...
 ```sh
 $ export AWS_ACCESS_KEY_ID=AKIAX7EFFWBWFRW3ACIR...
 $ export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI...
 $ export AWS_SESSION_TOKEN=AQoDYXdzEJr...
 ```
 
-Checking my idendity with the following command proved that I was not myself anymore.
+Checking my identity with the following command proved that I was not myself anymore.
 ```sh
 aws sts get-caller-identity
 ```
@@ -337,7 +340,8 @@ And then...
 
 Left: listing of the EC2 instances configured by ArticMonkey. Probably a big part -or the whole- of their system.
 
-Right: the company owns 20 buckets containing, highly sensitive datas from customers, static files for the web application and, according to the name of the buckets, probably logs/backups of their servers.
+Right: the company owns 20 buckets containing, highly sensitive datas from customers, static files for the web application and, 
+according to the name of the buckets, probably logs/backups of their servers.
 
 Impact: lethal.
 
@@ -351,7 +355,8 @@ I learnt alot because of this bug:
 - At each step new problems appeared. I had to search everywhere, try many different things, I had to push my limits to not give up.
 - I now know that I can fully compromise a system by myself starting from 0, which is a great personal  achievement and statisfaction :)
 
-When someone tells you that you'll never be able to do something, don't waste your time to bargain with these peoples, simply prove them they're wrong by doing it.
+When someone tells you that you'll never be able to do something, don't waste your time to bargain with these peoples, 
+simply prove them they're wrong by doing it.
 
 
 ## Timeline

@@ -6,6 +6,7 @@ images: [/images/optimed-preview.png]
 related:
   - /posts/github-tools-collection
   - /posts/vulnerability-in-wordpress-video-gallery
+  - /courses/hacking-cybersec
   - /services/pentest
   - /services/code-audit
 tags:

