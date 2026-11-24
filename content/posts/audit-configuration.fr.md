@@ -1,7 +1,6 @@
 ---
-draft: yes
 slug: "audit-de-configuration-linux-demarche-outillage-livrables"
-title: "L'audit de configuration Linux : démarche, outillage et livrables"
+title: "Audit de configuration Linux : démarche, outillage et livrables"
 date: 2026-11-12
 description: "Cadre contractuel, interlocuteurs, référentiels ANSSI, scripts de collecte et d'analyse, rapport et livrables : la démarche complète d'un audit de configuration de serveurs GNU/Linux."
 related:
@@ -17,10 +16,10 @@ L'audit de configuration confronte la configuration réelle d'un système à un 
 le définit comme l'évaluation de la conformité ou de la sécurité de la configuration des dispositifs matériels et logiciels d'un système d'information.
 
 C'est l'une des 5 activités couvertes par ce référentiel :
-- [l'audit de configuration](/fr/audit-configuration-durcissement-linux/)
+- [l'audit de configuration](/fr/prestations/audit-configuration-durcissement-linux/)
 - l'audit d'architecture
-- [l'audit de code source](/fr/audit-de-code-source/)
-- [le test d'intrusion](/fr/test-intrusion-application-web/)
+- [l'audit de code source](/fr/prestations/audit-de-code-source/)
+- [le test d'intrusion](/fr/prestations/test-intrusion-application-web/)
 - l'audit organisationnel et physique
 
 Cet article décrit la démarche appliquée aux serveurs GNU/Linux audités notamment au regard des guides de références de l'ANSSI, et l'outillage qui la soutient.
@@ -48,7 +47,7 @@ Aucune commande ne s’exécute sur un serveur avant la signature de ces documen
 
 Pour un auditeur indépendant, ils tiennent en deux ou trois pages. 
 Ce qui compte, c’est qu’ils soient écrits et signés avant la collecte.
-En pratique, un seul PDF suffit : le devis, la fiche de cadrage en annexe et l’autorisation en dernière page, signés en une fois.
+En pratique, un seul document suffit : le devis, la fiche de cadrage en annexe et l’autorisation en dernière page, signés en une fois.
 
 
 #### La proposition signée
@@ -154,7 +153,9 @@ Quelques contrôles hors référentiel se révèlent régulièrement fructueux :
 - des scripts lancés par la crontab de _root_ mais modifiables par un autre utilisateur
 - des confirgurations web peu sécurisées
 
-Ces constats suivent la règle de citation ci-dessus : ils figurent dans une section dédiée, sans numéro de recommandation, et sont cotés selon leur risque réel, avec la même prudence que les autres. La proposition l’annonce d’emblée, pour que le client ne les découvre pas dans le rapport.
+Ces constats suivent la règle de citation ci-dessus : ils figurent dans une section dédiée, sans numéro de recommandation, 
+et sont cotés selon leur risque réel, avec la même prudence que les autres. La proposition l’annonce d’emblée, 
+pour que le client ne les découvre pas dans le rapport.
 
 
 ## La démarche, étape par étape
@@ -169,7 +170,7 @@ On y parcourt le script, puis on arrête les options d'exclusion, le canal de tr
 
 <br>
 
-<a href="/images/audit-configuration-demarche.jpg" target="_blank"><img src="/images/audit-configuration-demarche.jpg" alt="Démarche d'audit : douze étapes réparties entre le client et l'auditeur, du besoin initial à la destruction des données" width="400" style="float:left;" /></a>
+<a href="/images/audit-configuration-demarche.jpg" target="_blank"><img src="/images/audit-configuration-demarche.jpg" alt="Démarche d'audit : du besoin initial à la destruction des données" width="400" style="float:left;" /></a>
 
 <div style="float:right;width:450px;">
     <h4 id="collecte" style="margin:0">Collecte</h4>
@@ -239,7 +240,8 @@ En fin d'exécution, le script affiche le chemin de l'archive, sa taille et son 
 
 ## L'outillage, partie 2 : le script d'analyse
 
-`analyse.sh` tourne sur le poste de l'auditeur, sur l'archive extraite. Il confronte chaque élément collecté à la recommandation qui le vise et produit un rapport texte où chaque verdict cite sa source.
+`analyse.sh` tourne sur le poste de l'auditeur, sur l'archive extraite. 
+Il confronte chaque élément collecté à la recommandation qui le vise et produit un rapport texte où chaque verdict cite sa source.
 
 {{< figure alt="Audit de configuration, analyse" src="/images/audit-configuration-analyse.png" width="600">}}
 
@@ -316,7 +318,6 @@ La sortie brute n'est qu'une annexe.
 
 <div style="clear:both;"></div>
 
-
 #### Les échelles de cotation
 
 La gravité d'un constat est la combinaison de son impact et de sa difficulté d'exploitation.
@@ -333,11 +334,12 @@ Il agrège deux composantes distinctes :
 Ces deux composantes divergent souvent, et c'est le cas le plus exposé à la contestation en réunion de restitution. 
 Le niveau retenu est celui des prérequis, et la fiche mentionne les deux.
 
-{{< figure alt="Audit de configuration, analyse" src="/images/audit-configuration-risk-matrix-en.png" width="600">}}
+{{< figure alt="Audit de configuration, matrice" src="/images/audit-configuration-matrix.png" width="600">}}
 
 #### La matrice de conformité
 
-La matrice est un tableur : une ligne par recommandation et par serveur, avec le statut, le niveau BP-028, la gravité, la preuve, la mesure et la priorité. Elle sert au client pour piloter la remédiation, puis à l'auditeur comme base de l'audit de contrôle. Les lignes indéterminées y figurent, avec leur raison.
+La matrice est un tableur : une ligne par recommandation et par serveur, avec le statut, la gravité, la preuve, la mesure et la priorité. Elle sert au client pour piloter la remédiation, puis à l'auditeur comme base de l'audit de contrôle. Les lignes indéterminées y figurent, avec leur raison.
+
 
 ## Les livrables et la restitution
 

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Gwendal Le Coguic">
+    <meta name="description" content="Contractual framework, stakeholders, ANSSI reference data, collection and analysis scripts, report and deliverables: the complete approach to a GNU/Linux server configuration audit." />
+    <meta name="keywords" content="developer,webapp,cybersecurity,researcher,pentest,bugbounty,cybertools,courses,bash,php,python,golang,offsectools" />
+
+    <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://glc.st/assets/img/header-background.jpg"/>
+
+<meta name="twitter:title" content="Linux configuration audit: approach, tools and deliverables - Gwendal Le Coguic" />
+<meta name="twitter:description" content="Contractual framework, stakeholders, ANSSI reference data, collection and analysis scripts, report and deliverables: the complete approach to a GNU/Linux server configuration audit." />
+
+<meta name="twitter:site" content="@Gwendal Le Coguic"/>
+<meta name="twitter:creator" content="@gwendallecoguic"/>
+
+    <meta property="og:title" content="Linux configuration audit: approach, tools and deliverables - Gwendal Le Coguic" />
+<meta property="og:description" content="Contractual framework, stakeholders, ANSSI reference data, collection and analysis scripts, report and deliverables: the complete approach to a GNU/Linux server configuration audit." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glc.st/posts/linux-configuration-audit-approach-tools-and-deliverables/" />
+
+<meta property="og:image" content="https://glc.st/assets/img/header-background.jpg" />
+<meta property="article:published_time" content="2026-11-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2026-11-12T00:00:00+00:00" /><meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="fr_FR" /><meta property="og:site_name" content="Gwendal Le Coguic" />
+
+
+    
+      <base href="https://glc.st/">
+    
+
+    <title>Linux configuration audit: approach, tools and deliverables - Gwendal Le Coguic</title>
+
+    
+        
+            <link rel="canonical" href="https://glc.st/posts/linux-configuration-audit-approach-tools-and-deliverables/">
+        
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v7.1.0/css/all.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://glc.st/assets/css/coder.min.3d8325016df2bf0f0e874e28c83131f668a953cb3245cf9391fae4ff5b76b2ed.css" integrity="sha256-PYMlAW3yvw8Oh04oyDEx9mipU8syRc&#43;Tkfrk/1t2su0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+      <link rel="stylesheet" href="https://glc.st/assets/css/custom.css" />
+    
+
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-256x256.png" sizes="256x256">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-128x128.png" sizes="128x128">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-64x64.png" sizes="64x64">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
+            <link rel="alternate" hreflang="en" href="https://glc.st/posts/linux-configuration-audit-approach-tools-and-deliverables/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/articles/audit-de-configuration-linux-demarche-outillage-livrables/">
+            <link rel="alternate" hreflang="x-default" href="https://glc.st/posts/linux-configuration-audit-approach-tools-and-deliverables/"><meta name="generator" content="Hugo 0.147.0">
+
+    
+
+
+
+
+
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2026-11-12","datePublished":"2026-11-12","description":"Contractual framework, stakeholders, ANSSI reference data, collection and analysis scripts, report and deliverables: the complete approach to a GNU/Linux server configuration audit.","headline":"Linux configuration audit: approach, tools and deliverables","inLanguage":"en","keywords":"audit, ANSSI, BP-028, PASSI, Linux, OpenSSH, durcissement","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/posts/linux-configuration-audit-approach-tools-and-deliverables/"}</script>
+
+  </head>
+
+  <body class=" ">
+        <main class="wrapper">
+      <nav class="navigation d-print-none">
+  <section class="container">
+    <a class="navigation-title" href="https://glc.st/">
+      Gwendal Le Coguic
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/posts/">Posts</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/courses/">Courses</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/clients/">Clients</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/services/">Services</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/projects/">Projects</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/cves/">CVEs</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://glc.st/press/">Press</a>
+          </li>
+        
+      
+      
+    <li class="navigation-item menu-separator">
+        <span>|</span>
+    </li>
+      <li class="navigation-item language">
+        <a href="https://glc.st/fr/articles/audit-de-configuration-linux-demarche-outillage-livrables/" hreflang="fr" lang="fr" rel="alternate" title="Français"><img width="20" height="23" src="https://glc.st/assets/img/flags/fr.png" class="icon-flag" alt="Français" /></a>
+      </li>
+    </ul>
+  </section>
+</nav>
+
+<script>
+    
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+</script>
+
+
+      <div class="content">
+        
+<section class="container post">
+    <div id="sharer">
+    <div class="sharer-buttons">
+        <a href="https://twitter.com/intent/tweet?text=Linux%20configuration%20audit%3a%20approach%2c%20tools%20and%20deliverables%20https%3a%2f%2fglc.st%2fposts%2flinux-configuration-audit-approach-tools-and-deliverables%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2fposts%2flinux-configuration-audit-approach-tools-and-deliverables%2f&title=Linux%20configuration%20audit%3a%20approach%2c%20tools%20and%20deliverables" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2fposts%2flinux-configuration-audit-approach-tools-and-deliverables%2f&amp;t=Linux%20configuration%20audit%3a%20approach%2c%20tools%20and%20deliverables" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Linux%20configuration%20audit%3a%20approach%2c%20tools%20and%20deliverables&body=https%3a%2f%2fglc.st%2fposts%2flinux-configuration-audit-approach-tools-and-deliverables%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Linux%20configuration%20audit%3a%20approach%2c%20tools%20and%20deliverables%20https%3a%2f%2fglc.st%2fposts%2flinux-configuration-audit-approach-tools-and-deliverables%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2fposts%2flinux-configuration-audit-approach-tools-and-deliverables%2f&text=Linux%20configuration%20audit%3a%20approach%2c%20tools%20and%20deliverables" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2fposts%2flinux-configuration-audit-approach-tools-and-deliverables%2f&amp;title=Linux%20configuration%20audit%3a%20approach%2c%20tools%20and%20deliverables" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2fposts%2flinux-configuration-audit-approach-tools-and-deliverables%2f&t=Linux%20configuration%20audit%3a%20approach%2c%20tools%20and%20deliverables" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+
+        
+    </div>
+</div>
+
+
+    <article>
+        <header>
+            <div class="post-title">
+                <h1 class="title">Linux configuration audit: approach, tools and deliverables</h1>
+            </div>
+            <div class="post-meta">
+                <div class="date">
+                    <span class="posted-on">
+                        <i class="fas fa-calendar"></i>
+                        <time datetime='2026-11-12T00:00:00Z'>
+                            November 12, 2026
+                        </time>
+                    </span>
+                    <span class="reading-time">
+                        <i class="fas fa-clock"></i>
+                        13 minutes read
+                    </span>
+                </div>
+            </div>
+        </header>
+
+        <div>
+            <h2 id="what-is-a-configuration-audit">What is a configuration audit?</h2>
+<p>A configuration audit compares the actual configuration of a system to a recognized standard, recommendation by recommendation, with supporting evidence.
+<a href="https://cyber.gouv.fr/actualites/lanssi-met-%C3%A0-jour-les-referentiels-passi-version-22-et-pris-version-30/">The ANSSI PASSI standard</a>
+defines it as the evaluation of the conformity or security of the configuration of the hardware and software components of an information system.</p>
+<p>This is one of the 5 activities covered by this framework:</p>
+<ul>
+<li><a href="https://glc.st/services/linux-configuration-hardening-audit/">configuration audit</a></li>
+<li>architecture audit</li>
+<li><a href="https://glc.st/services/source-code-security-audit/">source code audit</a></li>
+<li><a href="https://glc.st/services/web-application-penetration-testing/">penetration testing</a></li>
+<li>organizational and physical audit</li>
+</ul>
+<p>This article describes the approach applied to audited GNU/Linux servers, particularly with regard to the ANSSI reference guides, and the tools that support it.
+While penetration testing looks for an attack path, configuration auditing provides a comprehensive overview.
+It reveals latent weaknesses: a forgotten kernel parameter, a <em>root</em> account accessible via SSH, a private key without a passphrase.
+Taken individually, these discrepancies are rarely exploitable, but cumulatively they weaken the defense-in-depth.</p>
+<p>The exercise has limitations that must be communicated to the client:</p>
+<ul>
+<li>it provides a snapshot at the time of data collection</li>
+<li>it does not demonstrate the usability of a discrepancy</li>
+<li>its value is limited by the chosen framework</li>
+</ul>
+<p>Finally, the tool does not replace the auditor.
+The PASSI framework specifies that an activity performed entirely automatically does not constitute an audit activity:
+<strong>scripts collect</strong> and sort, <strong>the auditor qualifies</strong>.</p>
+<h2 id="the-contractual-framework">The Contractual framework</h2>
+<p>No order is executed on a server before these documents are signed:</p>
+<ul>
+<li>the commercial proposal</li>
+<li>the scoping document</li>
+<li>the authorization to execute</li>
+</ul>
+<p>For an independent auditor, these documents are only two or three pages long.
+What matters is that they are written and signed before data collection.
+In practice, a single document is sufficient: the quote, the scoping document as an appendix, and the authorization on the last page, all signed at once.</p>
+<h4 id="the-signed-proposal">The signed proposal</h4>
+<p>A detailed quote accompanied by general terms and conditions, signed by the client, serves as the contract. It covers the essentials:</p>
+<ul>
+<li>Scope: number of servers, repository, and targeted level of security</li>
+<li>Deliverables, schedule, and price</li>
+<li>Ownership: the scripts remain with the auditor, the report belongs to the client</li>
+<li>Confidentiality and destruction of collected data at the end of the engagement</li>
+<li>Liability limits, backed by professional liability insurance</li>
+</ul>
+<h4 id="the-scoping-document">The scoping document</h4>
+<p>A single page, attached to the quote or in an email approved by the client, replaces the scoping document and audit plan.
+It lists the servers and their role, names the client contact person, and defines the data collection window and transfer channel.
+If the audit involves a sample, it specifies which sample and why.</p>
+<h4 id="the-authorization-to-execute">The authorization to execute</h4>
+<p>This is the document that should never be skipped, even for a small engagement. The Penal Code punishes unauthorized access to
+or remaining in an automated data processing system.
+Written authorization protects both the auditor and the client.</p>
+<p>It consists of a few lines: the servers in question, the execution window, the SHA-256 hash of the submitted script, and
+the signature of a person with authority over these systems. If the servers are hosted or managed by a third party, their agreement is also required.</p>
+<p>When the assignment is handled through an intermediary, such as an IT services company or platform, the authorization must come from the server owner, not the intermediary.</p>
+<h2 id="key-contacts">Key contacts</h2>
+<p>Each role is named in the project charter before launch, along with their contact information.
+The most important is the service representative; they are the single point of contact,
+responsible for ensuring compliance with the agreement and the project charter.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Role</th>
+          <th>Side</th>
+          <th>Expectations</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Service Representative</td>
+          <td>Client</td>
+          <td>Single point of contact; keeps the project charter up to date, makes decisions, and responds promptly</td>
+      </tr>
+      <tr>
+          <td>CISO</td>
+          <td>Client</td>
+          <td>Validates the scope, the targeted level of security, and the report marking</td>
+      </tr>
+      <tr>
+          <td>System Administrators</td>
+          <td>Client</td>
+          <td>Review and then execute the script, forward the archives, and answer technical questions</td>
+      </tr>
+      <tr>
+          <td>Data Protection Officer</td>
+          <td>Client</td>
+          <td>Consulted as soon as logs or personal directories are included in the data collection</td>
+      </tr>
+      <tr>
+          <td>Management</td>
+          <td>Client</td>
+          <td>Signs the agreement, receives the summary, and attends the closing meeting</td>
+      </tr>
+      <tr>
+          <td>Hosting Provider or Managed Services Provider</td>
+          <td>Third Party</td>
+          <td>Gives approval when the servers are not at the client&rsquo;s premises; sometimes performs the data collection</td>
+      </tr>
+      <tr>
+          <td>Audit Team Leader</td>
+          <td>Auditor</td>
+          <td>Drafts the scoping document and audit plan, approves the report</td>
+      </tr>
+      <tr>
+          <td>Auditors</td>
+          <td>Auditor</td>
+          <td>Analyze the archives, identify discrepancies, and write the findings</td>
+      </tr>
+  </tbody>
+</table>
+<p>The channels are also predetermined: a contact email address, a phone number reachable during the data collection window, and an encrypted channel for the files.
+The digital fingerprint of an archive is always confirmed by a channel different from the one that transmitted it.</p>
+<h2 id="attachments-and-prerequisites">Attachments and prerequisites</h2>
+<p>The audit begins with two files: without the first, discrepancies cannot be qualified; without the second, no data is collected.</p>
+<p><strong>What the client provides to frame the analysis:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Document</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Server inventory: name, IP address, distribution, role, environment, criticality</td>
+          <td>Defines the scope and establishes the sampling</td>
+      </tr>
+      <tr>
+          <td>Architecture diagram and flow matrix</td>
+          <td>Locates each server; a router does not expect the same network parameters as an application server</td>
+      </tr>
+      <tr>
+          <td>Information Security Policy (ISSP), internal hardening standard, granted exceptions</td>
+          <td>Adds criteria and indicates discrepancies already accepted</td>
+      </tr>
+      <tr>
+          <td>Previous audit reports</td>
+          <td>Allows tracking of recurring discrepancies</td>
+      </tr>
+      <tr>
+          <td>Contact list and on-call schedule</td>
+          <td>Provides input for the scoping document</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>And what the auditor submits for data collection:</strong></p>
+<table>
+  <thead>
+      <tr>
+          <th>Document</th>
+          <th>Purpose</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Service agreement, scoping document, audit plan</td>
+          <td>These define the framework and must be signed and validated before data collection</td>
+      </tr>
+      <tr>
+          <td>Data collection script, SHA-256 hash, execution instructions</td>
+          <td>These allow the client to review the script before running it</td>
+      </tr>
+      <tr>
+          <td>Public encryption key (AGE or GPG)</td>
+          <td>Used to encrypt the archives before sending them</td>
+      </tr>
+      <tr>
+          <td>PASSI qualification certificate, if applicable</td>
+          <td>Attached to the agreement for a qualified service</td>
+      </tr>
+  </tbody>
+</table>
+<p>The script is delivered in plain text, along with its hash. Asking the client to run code as <em>root</em> implies allowing them to read it.
+In return, the generated archives are added to the audit file and are never transmitted in plain text.</p>
+<h2 id="reference-frameworks">Reference frameworks</h2>
+<p>The main security criteria are drawn from ANSSI guides, including:</p>
+<ul>
+<li><a href="https://messervices.cyber.gouv.fr/guides/guide-relatif-la-maturite-ssi">Guide to Information Systems Security Maturity</a></li>
+<li><a href="https://messervices.cyber.gouv.fr/guides/recommandations-relatives-ladministration-securisee-des-si">ANSSI-PA-022: Recommendations for the Secure Administration of Information Systems</a></li>
+<li><a href="https://messervices.cyber.gouv.fr/guides/recommandations-relatives-linterconnexion-dun-si-internet">ANSSI-PA-066: Recommendations for Interconnecting an Information System to the Internet</a></li>
+<li><a href="https://messervices.cyber.gouv.fr/guides/recommandations-de-securite-relatives-un-systeme-gnulinux">ANSSI-BP-028: System Configuration Recommendations GNU/Linux</a></li>
+<li><a href="https://messervices.cyber.gouv.fr/guides/usage-securise-dopenssh">DAT-NT-007: Secure Use of (Open)SSH</a></li>
+<li><a href="https://messervices.cyber.gouv.fr/guides/securiser-un-site-web">ANSSI-PA-009: Securing a Website</a></li>
+<li><a href="https://messervices.cyber.gouv.fr/guides/recommandations-de-securite-relatives-tls">Security Recommendations Relating to TLS</a></li>
+</ul>
+<p>However, some recommendations depend on the server&rsquo;s role. For example, the network parameters in recommendation <em>ANSSI-BP-028-R12</em>
+are given for a server that does not perform routing.
+On a router, several values ​​are intentionally different.
+The relevant recommendations are therefore marked as <em>&ldquo;not applicable&rdquo;</em> in the final report.</p>
+<p>Note that an extrapolation, even a relevant one, is presented as such and never under the number of a rule that doesn&rsquo;t explicitly state it.</p>
+<p>Beyond the standards, just as in penetration testing, the auditor&rsquo;s experience is as important as the checklist.
+They know where critical discrepancies most often lie, including where the guidelines don&rsquo;t explicitly state them, or not as directly.</p>
+<p>Some non-standard checks regularly prove fruitful:</p>
+<ul>
+<li>weak system passwords or passwords present in shell logs</li>
+<li>secrets in plain text in logs</li>
+<li>configuration backups and SQL dumps located in the web server root directory</li>
+<li>scripts launched by <em>root</em>&rsquo;s crontab but modifiable by another user</li>
+<li>insecure web configurations</li>
+</ul>
+<p>These findings follow the citation rule above: they appear in a dedicated section, without a recommendation number,
+and are rated according to their actual risk, with the same caution as the others.
+The proposal states this upfront so that the client doesn&rsquo;t discover them in the report.</p>
+<h2 id="the-approach-step-by-step">The approach step by step</h2>
+<p>The client executes, the auditor analyzes: at no point does the auditor connect to the audited servers.
+This is what ANSSI recommends: when a service requires running a tool on the audited system, the client commissions it.</p>
+<h4 id="preparation">Preparation</h4>
+<p>The auditor first verifies that they can perform the entire service, then establishes the agreement, the scoping document, and the audit plan.
+The kick-off meeting brings together the liaison, the CISO, and the administrators.
+The script is reviewed, and then the exclusion options, the transfer channel, and the data collection window are finalized.</p>
+<br>
+<p><a href="https://glc.st/images/audit-configuration-demarche.jpg" target="_blank"><img src="https://glc.st/images/audit-configuration-demarche.jpg" alt="Audit process: from initial need to data destruction" width="400" style="float:left;" /></a></p>
+<div style="float:right;width:450px;">
+    <h4 id="collecte" style="margin:0">Collection</h4>
+    <br>A client administrator reviews the script, verifies its fingerprint, and executes it on each server.
+    ANSSI recommends conducting configuration audits in the production environment: it's the actual configuration that is being evaluated.
+    With a large volume of data, scanning the file system can take several minutes; operations must be notified.
+    <br><br>
+    <h4 id="analyse" style="margin:0">Analysis</h4>
+    <br>The auditor checks the fingerprint, extracts the archive, and analyzes it.
+    The real work then begins: reviewing each finding in light of the server's role, any exceptions, and the targeted level of security.
+    Undefined controls and ambiguous discrepancies become questions for the client.
+</div>
+<div style="clear:both;"></div>
+<h4 id="reporting">Reporting</h4>
+<p>The most serious findings are reported immediately, without waiting for the report.
+The draft report undergoes a factual review, the final report is presented at a closing meeting, and then the collected data is destroyed.</p>
+<h2 id="tools-part-1-the-data-collection-script">Tools, part 1: the data collection script</h2>
+<p><code>collect.sh</code> is executed by the client, as root, on each audited server.
+It does not modify anything, does not open any network connections, and does not attempt any authentication; it produces a <code>.tar.gz</code> archive to be sent back to the auditor.</p>
+<p>Written in <em>POSIX Shell</em> script, it runs under most Linux shells.
+It relies only on basic packages; any missing command is logged and then ignored.
+A minimal distribution results in partial data collection, never a complete failure.</p>
+<figure><img src="https://glc.st/images/audit-configuration-collecte.png"
+    alt="Configuration audit, collect" width="600">
+</figure>
+
+<h4 id="what-the-archive-contains">What the archive contains</h4>
+<p><strong>Collection context:</strong> distribution, kernel, virtualization, init system, privileges, options used.</p>
+<p><strong>Raw output of over 80 read-only commands:</strong> <code>sysctl</code>, <code>ss</code>, <code>iptables</code>, <code>netstat</code>, <code>nft</code>, <code>systemctl</code>, <code>auditctl</code>, installed packages, etc.</p>
+<p><strong>File system inventory:</strong> type, permissions, owner, group, size, date, and path of each entry.</p>
+<p><strong>Lists extracted from the inventory:</strong> <em>setuid</em> and <em>setgid</em>, files without an owner, writable by everyone, suspicious archives, index of copied files.</p>
+<p><strong>Configuration files, backups, sensitive files</strong> and logs identified, absolute paths preserved.</p>
+<p><strong><code>/etc</code> complete</strong>, then <code>/home</code> and <code>/root</code> without caches, preserving permissions.</p>
+<p><strong>Timestamped log</strong> of collection and copy of the script actually executed.</p>
+<h4 id="design-choices">Design choices</h4>
+<p><strong>Strict file hygiene.</strong> A temporary working directory is created and deleted once the collection process is complete.</p>
+<p><strong>A single scan of the file system.</strong> All derived lists are removed from the inventory.
+The pseudo-systems <code>/proc</code>, <code>/sys</code>, <code>/dev</code>, and <code>/run</code> are excluded.</p>
+<p><strong>Volume safeguards.</strong> A copied file is truncated to 256 KB to prevent overflow.
+Any excess is logged in the archive. Copies retain permissions and dates.</p>
+<p><strong>The collection does not mask, pseudonymize, or modify any data:</strong> Files are copied as is, with their permissions and dates,
+because altered data skews the analysis.
+A masked password hash no longer reveals which algorithm protects it, and a redacted private key no longer indicates whether it is encrypted.</p>
+<p><strong>Transparency.</strong> The log files list exactly which commands are executed and what leaves the machine; the client can verify this.</p>
+<p>At the end of execution, the script displays the archive&rsquo;s path, size, and SHA-256 hash. The client transmits this hash through a separate channel; the auditor recalculates it before any analysis.</p>
+<h2 id="the-tools-part-2-the-analysis-script">The tools, part 2: the analysis script</h2>
+<p><code>analyse.sh</code> runs on the auditor&rsquo;s machine, on the extracted archive. It compares each collected element against the relevant
+recommendation and produces a text report where each verdict cites its source.</p>
+<figure><img src="https://glc.st/images/audit-configuration-analyse.png"
+    alt="Configuration audit, analysis" width="600">
+</figure>
+
+<h4 id="five-statuses-not-two">Five statuses, not two</h4>
+<table>
+  <thead>
+      <tr>
+          <th>Status</th>
+          <th>Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>COMPLIANT</code></td>
+          <td>The recommendation is followed</td>
+      </tr>
+      <tr>
+          <td><code>NON_COMPLIANT</code></td>
+          <td>It is not followed; the severity (<em>CRITICAL, MAJOR, MINOR</em>) is declared by the rule</td>
+      </tr>
+      <tr>
+          <td><code>UNDETERMINED</code></td>
+          <td>The necessary evidence is missing or illegible</td>
+      </tr>
+      <tr>
+          <td><code>NOT_APPLICABLE</code></td>
+          <td>The rule does not apply to this server</td>
+      </tr>
+      <tr>
+          <td><code>INFO</code></td>
+          <td>Information without a verdict</td>
+      </tr>
+  </tbody>
+</table>
+<p>Each tested directive also receives a label:</p>
+<ul>
+<li><em>OK</em> if the value is correct and fixed in the configuration</li>
+<li><em>DEFAULT</em> if it is correct but inherited from a default value</li>
+<li><em>FAIL</em> if it deviates from the expected value</li>
+<li><em>UNKNOWN</em> if it is unreadable</li>
+</ul>
+<p>The distinction between <em>OK</em> and <em>DEFAULT</em> is important: a value that is not fixed can change at the next update.</p>
+<h4 id="rules-of-strictness">Rules of strictness</h4>
+<ul>
+<li><strong>Undetermined is not non-compliant.</strong> Missing evidence is neither a success nor a failure, and mistaking it for a discrepancy discredits a report.</li>
+<li><strong>Execution and persistence are distinguished.</strong> A parameter that is correct at runtime but not declared anywhere is flagged, because a reboot can revert it to its default value.</li>
+<li><strong>A file&rsquo;s owner is read from the inventory, never from the extracted copy.</strong> <code>tar</code> only restores owners if it runs as <em>root</em>.</li>
+<li><strong>Interpretation and extrapolation remain separate.</strong> <code>--tips</code> adds explanations without changing any verdicts. <code>--extra</code> runs checks that extend a rule beyond its text; their results are counted separately.</li>
+</ul>
+<h4 id="the-output">The output</h4>
+<p>The source code comes before the verdict: the reader knows what has been read before learning what it means.
+The terminal is color-coded, the report file never is: it remains plain text, usable with <code>grep</code> and comparable from one audit to another with <code>diff</code>.</p>
+<p>The exit code summarizes the result:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>============================================================================
+</span></span><span style="display:flex;"><span> Summary
+</span></span><span style="display:flex;"><span>============================================================================
+</span></span><span style="display:flex;"><span> checks run      : 29
+</span></span><span style="display:flex;"><span> not run         : 1 extrapolated check(s), available with --extra
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> COMPLIANT       : 7
+</span></span><span style="display:flex;"><span> NON_COMPLIANT   : 13
+</span></span><span style="display:flex;"><span> UNDETERMINED    : 6
+</span></span><span style="display:flex;"><span> NOT_APPLICABLE  : 3
+</span></span><span style="display:flex;"><span> INFO            : 0
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> severity of the non-compliant findings:
+</span></span><span style="display:flex;"><span>   CRITICAL      : 0
+</span></span><span style="display:flex;"><span>   MAJOR         : 2
+</span></span><span style="display:flex;"><span>   MINOR         : 11
+</span></span></code></pre></div><h2 id="the-deliverable-report-rating-and-matrix">The deliverable: report, rating, and matrix</h2>
+<p>The report transforms script output into decisions: each discrepancy becomes a verified observation, rated and accompanied by a measurement.
+The raw output is only an appendix.</p>
+<br>
+<p><a href="https://glc.st/images/audit-configuration-fiche.png" target="_blank"><img src="https://glc.st/images/audit-configuration-fiche.png" alt="Audit approach: results sheet" width="400" style="float:right;" /></a></p>
+<div style="float:left;width:450px;">
+    <h4 id="la-structure-du-rapport" style="margin:0">Report Structure</h4>
+    <br>1. <b>The framework:</b> objectives, audit criteria, scope, dates, audit team, and specific procedures.
+    <br>2. <b>The management summary:</b> readable without expertise: general assessment, main risks, and recommendations.
+    <br>3. <b>Results:</b> One record per nonconformity, then a summary per server.
+    <br>4. <b>Appendices:</b> Scoping note, audit plan, compliance matrix, and raw analysis outputs.
+    <br>
+    <h4 id="la-fiche-de-constat">The Findings Record</h4>
+    Each nonconformity has a unique identifier, the unmet requirement, the evidence, a severity level, a measure, and a priority.
+    Example taken from the excerpt above →
+</div>
+<div style="clear:both;"></div>
+<h4 id="rating-scales">Rating scales</h4>
+<p>The severity of a vulnerability is a combination of its impact and the difficulty of exploiting it.
+Its priority for remediation combines this severity with the effort required to achieve compliance.</p>
+<p><strong>Impact</strong> measures what the vulnerability provides to an attacker who successfully exploits it, and nothing else.
+Neither the probability of this happening, nor the difficulty of achieving it.</p>
+<p><strong>Difficulty of Exploitation</strong> measures the total effort required to exploit the vulnerability, from the initial setup to the result.
+It combines two distinct components:</p>
+<ul>
+<li>Prerequisites: network setup, authentication, privileges, third-party interaction, time window</li>
+<li>Technical steps: necessary tools, reliability of the exploit, required expertise</li>
+</ul>
+<p>These two components often diverge, and this is the case most likely to be contested during feedback meetings.
+The level used is that of the prerequisites, and the report mentions both.</p>
+<figure><img src="https://glc.st/images/audit-configuration-matrix.png"
+    alt="Configuration audit, matrix" width="600">
+</figure>
+
+<h4 id="the-compliance-matrix">The compliance matrix</h4>
+<p>The matrix is ​​a spreadsheet: one row per recommendation and per server, showing the status, severity, evidence, measure, and priority.
+It is used by the client to manage remediation and then by the auditor as the basis for the control audit.
+Undetermined rows are included, along with their explanation.</p>
+<h2 id="deliverables-and-feedback">Deliverables and Feedback</h2>
+<p>Upon completion, the client receives a final report, a usable compliance matrix, and a destruction report.
+Other deliverables are provided throughout the service.</p>
+<table>
+  <thead>
+      <tr>
+          <th>Deliverable</th>
+          <th>Content</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Scoping Note and Audit Plan</td>
+          <td>Terms, stakeholders, schedule, methodology, sampling<br>Submitted before data collection</td>
+      </tr>
+      <tr>
+          <td>Data Collection Kit</td>
+          <td>Script, SHA-256 hash, execution instructions, public encryption key<br>Submitted at the kick-off meeting</td>
+      </tr>
+      <tr>
+          <td>Immediate Feedback</td>
+          <td>Most Serious Findings and Initial Conclusions<br>Submitted upon completion of the analysis</td>
+      </tr>
+      <tr>
+          <td>Draft Report</td>
+          <td>Full Report, subject to factual review<br>Submitted after the discrepancies have been qualified</td>
+      </tr>
+      <tr>
+          <td>Final Report</td>
+          <td>Corrected and marked report according to the scoping document<br>Submitted after review</td>
+      </tr>
+      <tr>
+          <td>Compliance Matrix</td>
+          <td>Spreadsheet, one row per recommendation and per server<br>Submitted with the final report</td>
+      </tr>
+      <tr>
+          <td>Raw Analysis Outputs</td>
+          <td>One text file per server<br>Submitted as an appendix to the report</td>
+      </tr>
+      <tr>
+          <td>Destruction Record</td>
+          <td>Items destroyed, date and method of destruction<br>Submitted upon completion</td>
+      </tr>
+  </tbody>
+</table>
+<p>The review of the draft report focuses on the facts: an incorrectly identified server, a forgotten exception, a misinterpreted piece of evidence.
+The rating is non-negotiable; if the client disputes a serious issue, their argument is included in the report alongside the auditor&rsquo;s.</p>
+<p>The closing meeting brings together management, the CISO, the liaison, and the administrators.
+It is intended for two audiences: a summary for management and findings reports for the technical teams.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>A configuration audit is more valuable for its rigor than for its tools.
+The data collection script makes the process reproducible and transparent for the client.
+The analysis script makes each finding traceable to its supporting evidence.</p>
+<p>The rest remains the auditor&rsquo;s job: to define the scope, qualify each discrepancy within its context, assign the most accurate assessment possible,
+and propose measures that operations can actually implement.</p>
+<style>
+    .content figure {
+        text-align: center;
+    }
+</style>
+
+        </div>
+
+        <footer>
+            
+
+
+        </footer>
+    </article>
+
+    
+    
+<aside class="see-also">
+  <h3>See also</h3>
+  <ul>
+    <li><a href="https://glc.st/courses/linux-hardening/">Linux hardening</a></li>
+    <li><a href="https://glc.st/services/linux-configuration-hardening-audit/">Linux configuration and hardening audit</a></li>
+  </ul>
+</aside>
+</section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-NRF716WMB7"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-NRF716WMB7');
+        }
+      </script>
+
+    
+      <script src="https://glc.st/assets/js/scripts.js"></script>
+    
+
+  </body>
+
+</html>
