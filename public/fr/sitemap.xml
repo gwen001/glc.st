@@ -211,7 +211,7 @@
                 />
   </url><url>
     <loc>https://glc.st/fr/articles/analyse-d-une-application-medicale-francaise-critique/</loc>
-    <lastmod>2026-11-20T18:16:31+01:00</lastmod>
+    <lastmod>2026-11-22T15:53:13+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -353,8 +353,8 @@
                 href="https://glc.st/fr/presse/"
                 />
   </url><url>
-    <loc>https://glc.st/fr/articles/aws-takeover-through-ssrf-in-javascript/</loc>
-    <lastmod>2026-11-22T10:41:03+01:00</lastmod>
+    <loc>https://glc.st/fr/articles/prise-de-controle-aws-via-ssrf-en-javascript/</loc>
+    <lastmod>2026-11-22T15:53:13+01:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
@@ -363,7 +363,7 @@
     <xhtml:link
                 rel="alternate"
                 hreflang="fr-FR"
-                href="https://glc.st/fr/articles/aws-takeover-through-ssrf-in-javascript/"
+                href="https://glc.st/fr/articles/prise-de-controle-aws-via-ssrf-en-javascript/"
                 />
   </url><url>
     <loc>https://glc.st/fr/</loc>
