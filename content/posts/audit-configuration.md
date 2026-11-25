@@ -1,6 +1,7 @@
 ---
 slug: "linux-configuration-audit-approach-tools-and-deliverables"
 title: "Linux configuration audit: approach, tools and deliverables"
+images : [/images/audit-configuration-analyse.png]
 date: 2026-11-12
 description: "Contractual framework, stakeholders, ANSSI reference data, collection and analysis scripts, report and deliverables: the complete approach to a GNU/Linux server configuration audit."
 related:

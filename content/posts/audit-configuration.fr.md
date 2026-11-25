@@ -1,6 +1,7 @@
 ---
 slug: "audit-de-configuration-linux-demarche-outillage-livrables"
 title: "Audit de configuration Linux : démarche, outillage et livrables"
+images : [/images/audit-configuration-analyse.png]
 date: 2026-11-12
 description: "Cadre contractuel, interlocuteurs, référentiels ANSSI, scripts de collecte et d'analyse, rapport et livrables : la démarche complète d'un audit de configuration de serveurs GNU/Linux."
 related:
