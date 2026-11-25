@@ -41,42 +41,42 @@ __les scripts collectent__ et trient, __l'auditeur qualifie__.
 
 ## Le cadre contractuel
 
-Aucune commande ne s’exécute sur un serveur avant la signature de ces documents : 
+Aucune commande ne s'exécute sur un serveur avant la signature de ces documents : 
 - la proposition commerciale
 - la fiche de cadrage 
-- l’autorisation d’exécution
+- l'autorisation d'exécution
 
 Pour un auditeur indépendant, ils tiennent en deux ou trois pages. 
-Ce qui compte, c’est qu’ils soient écrits et signés avant la collecte.
-En pratique, un seul document suffit : le devis, la fiche de cadrage en annexe et l’autorisation en dernière page, signés en une fois.
+Ce qui compte, c'est qu'ils soient écrits et signés avant la collecte.
+En pratique, un seul document suffit : le devis, la fiche de cadrage en annexe et l'autorisation en dernière page, signés en une fois.
 
 
 #### La proposition signée
 
-Un devis détaillé accompagné de conditions générales, signé par le client, tient lieu de contrat. Il couvre l’essentiel :
+Un devis détaillé accompagné de conditions générales, signé par le client, tient lieu de contrat. Il couvre l'essentiel :
 
 - le périmètre : nombre de serveurs, référentiel et niveau de durcissement visé
 - les livrables, le calendrier et le prix
-- la propriété : les scripts restent à l’auditeur, le rapport appartient au client
+- la propriété : les scripts restent à l'auditeur, le rapport appartient au client
 - la confidentialité, et la destruction des données collectées à la fin de la mission
 - la limite de responsabilité, adossée à une assurance responsabilité civile professionnelle
 
 #### La fiche de cadrage
 
-Une page, en annexe du devis ou dans un courriel validé par le client, remplace la note de cadrage et le plan d’audit. 
-Elle liste les serveurs et leur rôle, nomme l’interlocuteur côté client, et fixe la fenêtre de collecte et le canal de transfert. 
-Si l’audit porte sur un échantillon, elle dit lequel et pourquoi.
+Une page, en annexe du devis ou dans un courriel validé par le client, remplace la note de cadrage et le plan d'audit. 
+Elle liste les serveurs et leur rôle, nomme l'interlocuteur côté client, et fixe la fenêtre de collecte et le canal de transfert. 
+Si l'audit porte sur un échantillon, elle dit lequel et pourquoi.
 
-#### L’autorisation d’exécution
+#### L'autorisation d'exécution
 
-C’est le document à ne jamais sauter, même pour une petite mission. 
-Le Code Pénal réprime l’accès ou le maintien frauduleux dans un système de traitement automatisé de données, 
-une autorisation écrite protège l’auditeur autant que le client.
+C'est le document à ne jamais sauter, même pour une petite mission. 
+Le Code Pénal réprime l'accès ou le maintien frauduleux dans un système de traitement automatisé de données, 
+une autorisation écrite protège l'auditeur autant que le client.
 
-Elle tient en quelques lignes : les serveurs visés, la fenêtre d’exécution, l’empreinte _SHA-256_ du script remis et 
-la signature d’une personne qui a autorité sur ces systèmes. Si les serveurs sont hébergés ou infogérés par un tiers, son accord s’y ajoute.
+Elle tient en quelques lignes : les serveurs visés, la fenêtre d'exécution, l'empreinte _SHA-256_ du script remis et 
+la signature d'une personne qui a autorité sur ces systèmes. Si les serveurs sont hébergés ou infogérés par un tiers, son accord s'y ajoute.
 
-Quand la mission passe par un intermédiaire, ESN ou plateforme, l’autorisation doit venir du propriétaire des serveurs, pas de l’intermédiaire.
+Quand la mission passe par un intermédiaire, ESN ou plateforme, l'autorisation doit venir du propriétaire des serveurs, pas de l'intermédiaire.
 
 ## Les interlocuteurs privilégiés
 
@@ -129,8 +129,8 @@ En retour, les archives produites rejoignent le dossier d'audit sans jamais circ
 
 Les critères de sécurité principaux sont issues des guides de l'ANSSI, entre autre :
 - [Guide relatif à la maturité SSI](https://messervices.cyber.gouv.fr/guides/guide-relatif-la-maturite-ssi)
-- [ANSSI-PA-022: Recommandations relatives à l’administration sécurisée des SI](https://messervices.cyber.gouv.fr/guides/recommandations-relatives-ladministration-securisee-des-si)
-- [ANSSI-PA-066: Recommandations relatives à l’interconnexion d’un SI à Internet](https://messervices.cyber.gouv.fr/guides/recommandations-relatives-linterconnexion-dun-si-internet)
+- [ANSSI-PA-022: Recommandations relatives à l'administration sécurisée des SI](https://messervices.cyber.gouv.fr/guides/recommandations-relatives-ladministration-securisee-des-si)
+- [ANSSI-PA-066: Recommandations relatives à l'interconnexion d'un SI à Internet](https://messervices.cyber.gouv.fr/guides/recommandations-relatives-linterconnexion-dun-si-internet)
 - [ANSSI-BP-028: Recommandations de configuration d'un système GNU/Linux](https://messervices.cyber.gouv.fr/guides/recommandations-de-securite-relatives-un-systeme-gnulinux)
 - [DAT-NT-007: Usage sécurisé d'(Open)SSH](https://messervices.cyber.gouv.fr/guides/usage-securise-dopenssh)
 - [ANSSI-PA-009: Sécuriser un site web](https://messervices.cyber.gouv.fr/guides/securiser-un-site-web)
@@ -144,18 +144,18 @@ Les recommandations concernées sont donc notées comme *"non applicable"* dans 
 A noter qu'une extrapolation, même pertinente, est présentée comme telle et jamais sous le numéro d'une règle qui ne la dit pas.
 
 
-Au-delà des référentiels, tout comme en test d’intrusion, l’expérience de l’auditeur compte autant que la liste de contrôles. 
+Au-delà des référentiels, tout comme en test d'intrusion, __l'expérience de l'auditeur compte autant que la liste de contrôles__. 
 Il sait où se cachent le plus souvent les écarts critiques, y compris là où les guides ne les formulent pas, ou pas aussi directement. 
 
 Quelques contrôles hors référentiel se révèlent régulièrement fructueux :
 - des mots de passe systèmes trop faibles ou présents dans les historiques de shell
 - des secrets en clair dans des logs
-- des sauvegardes de configuration et des dumps SQL sous la racine d’un serveur web
+- des sauvegardes de configuration et des dumps SQL sous la racine d'un serveur web
 - des scripts lancés par la crontab de _root_ mais modifiables par un autre utilisateur
 - des confirgurations web peu sécurisées
 
 Ces constats suivent la règle de citation ci-dessus : ils figurent dans une section dédiée, sans numéro de recommandation, 
-et sont cotés selon leur risque réel, avec la même prudence que les autres. La proposition l’annonce d’emblée, 
+et sont cotés selon leur risque réel, avec la même prudence que les autres. La proposition l'annonce d'emblée, 
 pour que le client ne les découvre pas dans le rapport.
 
 
@@ -232,7 +232,7 @@ Les pseudo-systèmes `/proc`, `/sys`, `/dev` et `/run` sont exclus.
 Tout dépassement est consigné dans l'archive. Les copies conservent droits et dates.  
 
 **La collecte ne masque, ne pseudonymise ni ne modifie aucune donnée :** Les fichiers sont copiés tels quels, avec leurs droits et leurs dates, 
-car une donnée altérée fausse l’analyse. 
+car une donnée altérée fausse l'analyse. 
 Une empreinte de mot de passe masquée ne dit plus quel algorithme la protège, une clé privée caviardée ne dit plus si elle est chiffrée.
 
 **La transparence.** Les fichiers de logs listent exactement les commandes exécutées et ce qui quitte la machine, le client peut le vérifier.  

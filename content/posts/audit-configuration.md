@@ -143,7 +143,7 @@ The relevant recommendations are therefore marked as *"not applicable"* in the f
 
 Note that an extrapolation, even a relevant one, is presented as such and never under the number of a rule that doesn't explicitly state it.
 
-Beyond the standards, just as in penetration testing, the auditor's experience is as important as the checklist.
+Beyond the standards, just as in penetration testing, __the auditor's experience is as important as the checklist__.
 They know where critical discrepancies most often lie, including where the guidelines don't explicitly state them, or not as directly.
 
 Some non-standard checks regularly prove fruitful:
